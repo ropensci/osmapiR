@@ -1,0 +1,22 @@
+Type: Package
+Package: osmapiR
+Title: OpenStreetMap API
+Version: 0.0.0.1
+Authors@R: 
+    person("Joan", "Maspons", , "joanmaspons@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0003-2286-8727"))
+Maintainer: Joan Maspons <joanmaspons@gmail.com>
+Description: Implements OpenStreetMap API v0.6
+    (<https://wiki.openstreetmap.org/wiki/API_v0.6>).
+License: GPL (>= 3)
+Imports: 
+    httr2,
+    xml2
+Suggests: 
+    httptest2,
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+X-schema.org-keywords: open street map, openstreetmap, OSM, API

@@ -1,0 +1,404 @@
+## Changesets
+# To make it easier to identify related changes the concept of changesets is introduced. Every modification of the standard OSM elements has to reference an open changeset. A changeset may contain tags just like the other elements. A recommended tag for changesets is the key {{key|comment}} with a short human readable description of the changes being made in that changeset, similar to a commit message in a revision control system. A new changeset can be opened at any time and a changeset may be referenced from multiple API calls. Because of this it can be closed manually as the server can't know when one changeset ends and another should begin. To avoid stale open changesets a mechanism is implemented to automatically close changesets upon one of the following three conditions:
+# * 10,000 edits on a single changeset (see the [[#Capabilities: GET /api/capabilities|capabilities endpoint]] for specific limits)
+# * The changeset has been open for more than 24 hours
+# * There have been no changes/API calls related to a changeset in 1 hour (i.e. idle timeout)
+#
+# Note that some older changesets may contain slightly more than 10k (or previously 50k) changes due to some glitches in the API.
+#
+# Changesets are specifically ''not'' atomic - elements added within a changeset will be visible to other users before the changeset is closed. Given how many changes might be uploaded in one step it's not feasible. Instead optimistic locking is used as described above. Anything submitted to the server in a single request will be considered atomically. To achieve transactionality for multiple changes there is the new ''diff upload'' API call.
+#
+# Changesets facilitate the implementation of rollbacks. By providing insight into the changes committed by a single person it becomes easier to identify the changes made, rather than just rolling back a whole region. Direct support for rollback will not be in the API, instead they will be a form of reverse merging, where client can download the changeset, examine the changes and then manipulate the API to obtain the desired results. Rolling back a changeset can be be an extremely complex process especially if the rollback conflicts with other changes made in the mean time; we expect (hope) that in time, expert applications will be created that make rollback on various levels available to the average user.
+#
+# To support easier usage, the server stores a bounding box for each changeset and allows users to query changesets in an area. This will be calculated by the server, since it needs to look up the relevant nodes anyway. Client should note that if people make many small changes in a large area they will be easily matched. In this case clients should examine the changeset directly to see if it truly overlaps.
+#
+# It is not possible to delete changesets at the moment, even if they don't contain any changes. The server may at a later time delete changesets which are closed and which do not contain any changes. This is not yet implemented.
+
+
+## Bounding box computation ----
+#
+# This is how the API computes the bounding box associated with a changeset:
+#
+# * Nodes: Any change to a node, including deletion, adds the node's old and new location to the bbox.
+# * Ways: Any change to a way, including deletion, adds all of the way's nodes to the bbox.
+# * Relations:
+# ** adding or removing nodes or ways from a relation causes them to be added to the changeset bounding box.
+# ** adding a relation as a member or changing tag values causes all node and way members to be added to the bounding box.
+# ** this is similar to how the map call does things and is reasonable on the assumption that adding or removing members doesn't materially change the rest of the relation.
+#
+# As an optimisation the server will create a buffer slightly larger than the objects to avoid having to update the bounding box too often. Thus a changeset may have a different bounding box than its reversion, and the distance between bounding box and the next node may not be constant for all four directions.
+
+
+## Create: `PUT /api/0.6/changeset/create` ----
+#
+# The payload of a changeset creation request is the metadata of this changeset. The body of the request has to include one or more `changeset` elements, which optionally include an arbitrary number of tags (such as 'comment', 'created_by", ...). All `changeset` elements need to be enclosed in an `osm` element.
+# <syntaxhighlight lang="xml">
+# <osm>
+# 	<changeset>
+# 		<tag k="created_by" v="JOSM 1.61"/>
+# 		<tag k="comment" v="Just adding some streetnames"/>
+# 		...
+# 	</changeset>
+# 	...
+# </osm>
+# </syntaxhighlight>
+# If there are multiple `changeset` elements in the XML the tags from all of them are used, later ones overriding the earlier ones in case of duplicate keys.
+#
+### Response ----
+# The ID of the newly created changeset with a content type of `text/plain`
+#
+### Error codes ----
+# ; HTTP status code 400 (Bad Request)
+# : When there are errors parsing the XML
+# ; HTTP status code 405 (Method Not Allowed)
+# : If the request is not a HTTP PUT request
+#
+### Notes ----
+# Any number of possibly editor-specific, tags are allowed. An editor might, for example, automatically include information about which background image was used, or even a bit of internal state information that will make it easier to revisit the changeset with the same editor later, etc.
+#
+# Clients ''should'' include a {{tag|created_by}} tag. Clients are advised to make sure that a {{tag|comment}} is present, which the user has entered. It is optional at the moment but this ''might'' change in later API versions. Clients ''should not'' automatically generate the comment tag, as this tag is for the end-user to describe their changes. Clients ''may'' add any other tags as they see fit.
+
+osm_create_changeset <- function() {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "PUT")
+  req <- httr2::req_url_path_append(req, "changeset", "create")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
+## Read: `GET /api/0.6/changeset/#id*?include_discussion='true'*` ----
+# Returns the changeset with the given `id` in OSM-XML format.
+#
+### Parameters ----
+# ; id
+# : The id of the changeset to retrieve
+# ; include_discussion
+# : Indicates whether the result should contain the changeset discussion or not. If this parameter is set to anything, the discussion is returned. If it is empty or omitted, the discussion will not be in the result.
+#
+### Response XML ----
+# Returns the single changeset element containing the changeset tags with a content type of `text/xml`
+#  GET /api/0.6/changeset/#id?include_discussion=true
+# <syntaxhighlight lang="xml">
+# <osm>
+# 	<changeset id="10" user="fred" uid="123" created_at="2008-11-08T19:07:39+01:00" open="true" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101">
+# 		<tag k="created_by" v="JOSM 1.61"/>
+# 		<tag k="comment" v="Just adding some streetnames"/>
+# 		...
+# 		<discussion>
+# 			<comment date="2015-01-01T18:56:48Z" uid="1841" user="metaodi">
+# 				<text>Did you verify those street names?</text>
+# 			</comment>
+# 			<comment date="2015-01-01T18:58:03Z" uid="123" user="fred">
+# 				<text>sure!</text>
+# 			</comment>
+# 			...
+# 		</discussion>
+# 	</changeset>
+# </osm>
+# </syntaxhighlight>
+#
+### Response JSON ----
+# Returns the single changeset element containing the changeset tags with a content type of `application/json`
+#  GET /api/0.6/changeset/#id.json?include_discussion=true
+# <syntaxhighlight lang="json">
+# {
+#  "version": "0.6",
+#  "elements": [
+#   {"type": "changeset",
+#    "id": 10,
+#    "created_at": "2005-05-01T16:09:37Z",
+#    "closed_at": "2005-05-01T17:16:44Z",
+#    "open": False,
+#    "user": "Petter Reinholdtsen",
+#    "uid": 24,
+#    "minlat": 59.9513092,
+#    "minlon": 10.7719727,
+#    "maxlat": 59.9561501,
+#    "maxlon": 10.7994537,
+#    "comments_count": 1,
+#    "changes_count": 10,
+#    "discussion': [{"date": "2022-03-22T20:58:30Z", "uid": 15079200, "user": "Ethan White of Cheriton", "text": "wow no one have said anything here 3/22/2022\n"}]
+#   }]
+# }
+# </syntaxhighlight>
+#
+### Error codes ----
+# ; HTTP status code 404 (Not Found)
+# : When no changeset with the given id could be found
+#
+### Notes ----
+# * The `uid` might not be available for changesets auto generated by the API v0.5 to API v0.6 transition?
+# * The bounding box attributes will be missing for an empty changeset.
+# * The changeset bounding box is a rectangle that contains the bounding boxes of all objects changed in this changeset. It is not necessarily the smallest possible rectangle that does so.
+# * This API call only returns information about the changeset itself but not the actual changes made to elements in this changeset. To access this information use the ''download'' API call.
+
+osm_read_changeset <- function(changeset_id, include_discussion = FALSE) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+
+  if (include_discussion) {
+    req <- httr2::req_url_path_append(req, "changeset", paste0(changeset_id, "?include_discussion='true'"))
+  } else {
+    req <- httr2::req_url_path_append(req, "changeset", changeset_id)
+  }
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
+## Update: `PUT /api/0.6/changeset/#id` ----
+# For updating tags on the changeset, e.g. changeset {{tag|comment|foo}}.
+#
+# Payload should be an OSM document containing the new version of a single changeset. Bounding box, update time and other attributes are ignored and cannot be updated by this method. Only those tags provided in this call remain in the changeset object. For updating the bounding box see the ''expand_bbox'' method.
+# <syntaxhighlight lang="xml">
+# <osm>
+# 	<changeset>
+# 		<tag k="comment" v="Just adding some streetnames and a restaurant"/>
+# 	</changeset>
+# </osm>
+# </syntaxhighlight>
+#
+### Parameters ----
+# ; id
+# : The id of the changeset to update. The user issuing this API call has to be the same that created the changeset
+#
+### Response ----
+# An OSM document containing the new version of the changeset with a content type of `text/xml`
+#
+### Error codes ----
+# ; HTTP status code 400 (Bad Request)
+# : When there are errors parsing the XML
+# ; HTTP status code 404 (Not Found)
+# : When no changeset with the given id could be found
+# ; HTTP status code 405 (Method Not Allowed)
+# : If the request is not a HTTP PUT request
+# ; HTTP status code 409 (Conflict) - `text/plain`
+# : If the changeset in question has already been closed (either by the user itself or as a result of the auto-closing feature). A message with the format "`The changeset #id was closed at #closed_at.`" is returned
+# : Or if the user trying to update the changeset is not the same as the one that created it
+#
+### Notes ----
+# Unchanged tags have to be repeated in order to not be deleted.
+
+osm_update_changeset <- function(changeset_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "PUT")
+  req <- httr2::req_url_path_append(req, "changeset", changeset_id)
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
+## Close: `PUT /api/0.6/changeset/#id/close` ----
+# Closes a changeset. A changeset may already have been closed without the owner issuing this API call. In this case an error code is returned.
+#
+### Parameters ----
+# ; id
+# : The id of the changeset to close. The user issuing this API call has to be the same that created the changeset.
+#
+### Response ----
+# Nothing is returned upon successful closing of a changeset (HTTP status code 200)
+#
+### Error codes ----
+# ; HTTP status code 404 (Not Found)
+# : When no changeset with the given id could be found
+# ; HTTP status code 405 (Method Not Allowed)
+# : If the request is not a HTTP PUT request
+# ; HTTP status code 409 (Conflict) - `text/plain`
+# : If the changeset in question has already been closed (either by the user itself or as a result of the auto-closing feature). A message with the format "`The changeset #id was closed at #closed_at.`" is returned
+# : Or if the user trying to update the changeset is not the same as the one that created it
+
+osm_close_changeset <- function(changeset_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "PUT")
+  req <- httr2::req_url_path_append(req, "changeset", changeset_id, "close")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
+## Download: `GET /api/0.6/changeset/#id/download` ----
+# Returns the [[OsmChange]] document describing all changes associated with the changeset.
+#
+### Parameters ----
+# ; id
+# : The id of the changeset for which the OsmChange is requested.
+#
+### Response ----
+# The OsmChange XML with a content type of `text/xml`.
+#
+### Error codes ----
+# ; HTTP status code 404 (Not Found)
+# : When no changeset with the given id could be found
+#
+### Notes ----
+# * The result of calling this may change as long as the changeset is open.
+# * The elements in the OsmChange are sorted by timestamp and version number.
+# * There is a [https://wiki.openstreetmap.org/wiki/API_v0.6#Read:_GET_/api/0.6/changeset/#id?include_discussion=true separate call] to get only information about the changeset itself
+
+osm_download_changeset <- function(changeset_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "changeset", changeset_id, "download")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
+## DEPRECATED: Expand Bounding Box: `POST /api/0.6/changeset/#id/expand_bbox`</s> (deprecated, gone) ----
+#
+# ''Note: This endpoint was removed in December 2019. See this'' [https://github.com/openstreetmap/openstreetmap-website/issues/2316 GitHub issue].
+
+
+## Query: `GET /api/0.6/changesets` ----
+# This is an API method for querying changesets. It supports querying by different criteria.
+#
+# Where multiple queries are given the result will be those which match all of the requirements. The contents of the returned document are the changesets and their tags. To get the full set of changes associated with a changeset, use the ''download'' method on each changeset ID individually.
+#
+# Modification and extension of the basic queries above may be required to support rollback and other uses we find for changesets.
+#
+# This call returns at most 100 changesets matching criteria, it returns latest changesets ordered by created_at<ref>https://github.com/openstreetmap/openstreetmap-website/blob/f1c6a87aa137c11d0aff5a4b0e563ac2c2a8f82d/app/controllers/api/changesets_controller.rb#L174 - see the current state at https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174</ref>.
+#
+### Parameters ----
+# ; bbox=min_lon,min_lat,max_lon,max_lat (W,S,E,N)
+# : Find changesets within the given bounding box
+# ; user=#uid '''or''' display_name=#name
+# : Find changesets by the user with the given user id or display name. Providing both is an error.
+# ; time=T1
+# : Find changesets ''closed'' after T1
+# ; time=T1,T2
+# : Find changesets that were ''closed'' after T1 and ''created'' before T2. In other words, any changesets that were open ''at some time'' during the given time range T1 to T2.
+# ; open=true
+# : Only finds changesets that are still ''open'' but excludes changesets that are closed or have reached the element limit for a changeset (10.000 at the moment<ref>https://api.openstreetmap.org/api/0.6/capabilities "<changesets maximum_elements="10000"/>"</ref>)
+# ; closed=true
+# : Only finds changesets that are ''closed'' or have reached the element limit
+# ; changesets=#cid{,#cid}
+# : Finds changesets with the specified ids (since [https://github.com/openstreetmap/openstreetmap-website/commit/1d1f194d598e54a5d6fb4f38fb569d4138af0dc8 2013-12-05])
+# Time format:
+# Anything that [http://www.ruby-doc.org/stdlib/libdoc/date/rdoc/DateTime.html#method-c-parse this Ruby function] will parse. The default str is ’-4712-01-01T00:00:00+00:00’; this is Julian Day Number day 0.
+#
+### Response ----
+# Returns a list of all changeset ordered by creation date. The `<osm>` element may be empty if there were no results for the query. The response is sent with a content type of `text/xml`.
+#
+### Error codes ----
+# ; HTTP status code 400 (Bad Request) - `text/plain`
+# : On misformed parameters. A text message explaining the error is returned. In particular, trying to provide both the UID and display name as user query parameters will result in this error.
+# ; HTTP status code 404 (Not Found)
+# : When no user with the given `uid` or `display_name` could be found.
+#
+### Notes ----
+# * Only changesets by public users are returned.
+# * Returns at most 100 changesets
+
+osm_query_changeset <- function() {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "changesets")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
+## Diff upload: `POST /api/0.6/changeset/#id/upload` ----
+# With this API call files in the [[OsmChange]] format can be uploaded to the server. This is guaranteed to be running in a transaction. So either all the changes are applied or none.
+#
+# To upload an OSC file it has to conform to the [[OsmChange]] specification with the following differences:
+#
+# * each element must carry a ''changeset'' and a ''version'' attribute, except when you are creating an element where the version is not required as the server sets that for you. The ''changeset'' must be the same as the changeset ID being uploaded to.
+#
+# * a <nowiki><delete></nowiki> block in the OsmChange document may have an ''if-unused'' attribute (the value of which is ignored). If this attribute is present, then the delete operation(s) in this block are conditional and will only be executed if the object to be deleted is not used by another object. Without the ''if-unused'', such a situation would lead to an error, and the whole diff upload would fail. Setting the attribute will also cause deletions of already deleted objects to not generate an error.
+#
+# * [[OsmChange]] documents generally have ''user'' and ''uid'' attributes on each element. These are not required in the document uploaded to the API.
+#
+### Parameters ----
+# ; id
+# : The ID of the changeset this diff belongs to.
+# ; POST data
+# : The OsmChange file data
+#
+### Response ----
+# If a diff is successfully applied a XML (content type `text/xml`) is returned in the following format
+# <syntaxhighlight lang="xml">
+# <diffResult generator="OpenStreetMap Server" version="0.6">
+# 	<node|way|relation old_id="#" new_id="#" new_version="#"/>
+# 	...
+# </diffResult>
+# </syntaxhighlight>
+# with one element for every element in the upload. Note that this can be counter-intuitive when the same element has appeared multiple times in the input then it will appear multiple times in the output.
+#
+# {| class="wikitable" style="text-align:center"
+# |-
+# ! Attribute !! create !! modify !! delete
+# |-
+# ! old_id
+# | colspan=3| same as uploaded element.
+# |-
+# ! new_id
+# | new ID || same as uploaded || not present
+# |-
+# ! new_version
+# | colspan=2| new version || not present
+# |}
+#
+### Error codes ----
+# ; HTTP status code 400 (Bad Request) - `text/plain`
+# : When there are errors parsing the XML. A text message explaining the error is returned.
+# : When an placeholder ID is missing or not unique (this will occur for circular relation references)
+# ; HTTP status code 404 (Not Found)
+# : When no changeset with the given id could be found
+# : Or when the diff contains elements that could not be found for the given id
+# ; HTTP status code 405 (Method Not Allowed)
+# : If the request is not a HTTP POST request
+# ; HTTP status code 409 (Conflict) - `text/plain`
+# : If the changeset in question has already been closed (either by the user itself or as a result of the auto-closing feature). A message with the format "`The changeset #id was closed at #closed_at.`" is returned
+# : If, while uploading, the max. size of the changeset is exceeded. A message with the format "`The changeset #id was closed at #closed_at.`" is returned
+# : Or if the user trying to update the changeset is not the same as the one that created it
+# : Or if the diff contains elements with changeset IDs which don't match the changeset ID that the diff was uploaded to
+# : Or any of the error messages that could occur as a result of a create, update or delete operation for one of the elements
+# ; Other status codes
+# : Any of the error codes and associated messages that could occur as a result of a create, update or delete operation for one of the elements
+# : See the according sections in this page
+#
+### Notes ----
+# * Processing stops at the first error, so if there are multiple conflicts in one diff upload, only the first problem is reported.
+# * Refer to <code>/api/capabilities</code> --> ''changesets'' -> ''maximum_elements'' for the maximum number of changes permitted in a changeset.
+# * There is currently no limit in the diff size on the Rails port. CGImap limits diff size to 50MB (uncompressed size).
+# * Forward referencing of placeholder ids is not permitted and will be rejected by the API.
+
+osm_diff_upload_changeset <- function(changeset_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "POST")
+  req <- httr2::req_url_path_append(req, "changeset", changeset_id, "upload")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
+## Changeset summary ----
+#
+# The procedure for successful creation of a changeset is summarized in the following picture.
+#
+# ''Note that the picture demonstrates single object operations to create/update/delete elements as per API 0.5. For performance reasons, API users are advised to use the API 0.6 diff upload endpoint instead.''
+#
+# [[Image:OSM API0.6 Changeset successful creation V0.1.png|600px]]

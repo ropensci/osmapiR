@@ -1,0 +1,143 @@
+## Miscellaneous
+#
+#
+## Available API versions: `GET /api/versions` ----
+#
+# Returns a list of API versions supported by this instance.
+#
+# <syntaxhighlight lang="xml">
+# <?xml version="1.0" encoding="UTF-8"?>
+# <osm generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="https://www.openstreetmap.org/copyright" license="https://opendatacommons.org/licenses/odbl/1-0/">
+# 	<api>
+# 		<version>0.6</version>
+# 	</api>
+# </osm>
+# </syntaxhighlight>
+#
+#
+## Capabilities: `GET /api/capabilities` ----
+# This API call is meant to provide information about the capabilities and limitations of the current API.
+#
+### Response ----
+# Returns a XML document (content type `text/xml`)
+# <syntaxhighlight lang="xml">
+# <?xml version="1.0" encoding="UTF-8"?>
+# <osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="https://www.openstreetmap.org/copyright" license="https://opendatacommons.org/licenses/odbl/1-0/">
+# 	<api>
+# 		<version minimum="0.6" maximum="0.6"/>
+# 		<area maximum="0.25"/>
+# 		<note_area maximum="25"/>
+# 		<tracepoints per_page="5000"/>
+# 		<waynodes maximum="2000"/>
+# 		<relationmembers maximum="32000"/>
+# 		<changesets maximum_elements="10000"/>
+# 		<timeout seconds="300"/>
+# 		<status database="online" api="online" gpx="online"/>
+# 	</api>
+# 	<policy>
+# 		<imagery>
+# 			<blacklist regex=".*\.google(apis)?\..*/(vt|kh)[\?/].*([xyz]=.*){3}.*"/>
+# 			<blacklist regex="http://xdworld\.vworld\.kr:8080/.*"/>
+# 			<blacklist regex=".*\.here\.com[/:].*"/>
+# 		</imagery>
+# 	</policy>
+# </osm>
+# </syntaxhighlight>
+# Please note that actual returned values may change at any time and this XML document only serves as an example.
+#
+# * Copyright, attribution, and license: referring to legal information
+#
+# API:
+# * Version minimum and maximum are the API call versions that the server will accept.
+# * Area maximum is the maximum area in square degrees that can be queried by API calls.
+# * Tracepoints per_page is the maximum number of points in a single GPS trace. (Possibly incorrect)
+# * Waypoints maximum is the maximum number of nodes that a way may contain.
+# * Relation member maximum is the maximum number of members that a relation may contain. (''new parameter added in February 2022'')
+# * Changesets maximum is the maximum number of combined nodes, ways and relations that can be contained in a changeset.
+# * The status element returns either ''online'', ''readonly'' or ''offline'' for each of the database, API and GPX API. The database field is informational, and the API/GPX-API fields indicate whether a client should expect read and write requests to work (''online''), only read requests to work (''readonly'') or no requests to work (''offline'').
+#
+# Policy:
+# * Imagery blacklist lists all aerial and map sources, which are not permitted for OSM usage due to copyright. Editors must not show these resources as background layer.
+#
+### Notes ----
+# * Note that the URL is versionless. For convenience, the server supports the request `/api/0.6/capabilities` too, such that clients can use the same URL prefix `http:/.../api/0.6` for all requests.
+# * Element and relation member ids are currently implementation dependent limited to 64bit signed integers, this should not be a problem :-).
+#
+#
+## Retrieving map data by bounding box: `GET /api/0.6/map` ----
+# The following command returns:
+# * All nodes that are inside a given bounding box and any relations that reference them.
+# * All ways that reference at least one node that is inside a given bounding box, any relations that reference them [the ways], and any nodes outside the bounding box that the ways may reference.
+# * All relations that reference one of the nodes, ways or relations included due to the above rules. (Does '''not''' apply recursively, see explanation below.)
+#
+#  GET /api/0.6/map?bbox=<span style="border:thin solid black">''left''</span>,<span style="border:thin solid black">''bottom''</span>,<span style="border:thin solid black">''right''</span>,<span style="border:thin solid black">''top''</span>
+#
+# where:
+#
+# * <code><span style="border:thin solid black">''left''</span></code> is the longitude of the left (westernmost) side of the bounding box.
+# * <code><span style="border:thin solid black">''bottom''</span></code> is the latitude of the bottom (southernmost) side of the bounding box.
+# * <code><span style="border:thin solid black">''right''</span></code> is the longitude of the right (easternmost) side of the bounding box.
+# * <code><span style="border:thin solid black">''top''</span></code> is the latitude of the top (northernmost) side of the bounding box.
+#
+# Note that, while this command returns those relations that reference the aforementioned nodes and ways, the reverse is not true: it does not (necessarily) return all of the nodes and ways that are referenced by these relations. This prevents unreasonably-large result sets. For example, imagine the case where:
+# * There is a relation named "England" that references every node in England.
+# * The nodes, ways, and relations are retrieved for a bounding box that covers a small portion of England.
+# While the result would include the nodes, ways, and relations as specified by the rules for the command, including the "England" relation, it would (fortuitously) ''not'' include ''every'' node and way in England. If desired, the nodes and ways referenced by the "England" relation could be retrieved by their respective IDs.
+#
+# Also note that ways which intersect the bounding box but have no nodes within the bounding box will not be returned.
+#
+### Error codes ----
+# ; HTTP status code 400 (Bad Request)
+# : When any of the node/way/relation limits are exceeded, in particular if the call would return more than 50'000 nodes. See above for other uses of this code.
+#
+# ; HTTP status code 509 (Bandwidth Limit Exceeded)
+# : "Error:  You have downloaded too much data. Please try again later." See [[Developer FAQ#I've been blocked from the API for downloading too much. Now what?|Developer FAQ]].
+#
+#
+## Retrieving permissions: `GET /api/0.6/permissions` ----
+# Returns the permissions granted to the current API connection.
+#
+# * If the API client is not authorized, an empty list of permissions will be returned.
+# * If the API client uses Basic Auth, the list of permissions will contain all permissions.
+# * If the API client uses OAuth 1.0a, the list will contain the permissions actually granted by the user.
+# * If the API client uses OAuth 2.0, the list will be based on the granted scopes.
+#
+# Note that for compatibility reasons, all OAuth 2.0 scopes will be prefixed by "allow_", e.g. scope "read_prefs" will be shown as permission "allow_read_prefs".
+#
+### Response XML ----
+#  GET /api/0.6/permissions
+#
+# Returns the single permissions element containing the permission tags (content type `text/xml`)
+# <syntaxhighlight lang="xml">
+# <?xml version="1.0" encoding="UTF-8"?>
+# <osm version="0.6" generator="OpenStreetMap server">
+# 	<permissions>
+# 		<permission name="allow_read_prefs"/>
+# 		...
+# 		<permission name="allow_read_gpx"/>
+# 		<permission name="allow_write_gpx"/>
+# 	</permissions>
+# </osm>
+# </syntaxhighlight>
+#
+### Response JSON ----
+#  GET /api/0.6/permissions.json
+# Returns the single permissions element containing the permission tags (content type `application/json`)
+# <syntaxhighlight lang="json">
+# {
+#  "version": "0.6",
+#  "generator": "OpenStreetMap server",
+#  "permissions": ["allow_read_prefs", ..., "allow_read_gpx", "allow_write_gpx"]
+# }
+# </syntaxhighlight>
+#
+### Notes ----
+# {{anchor|List_of_permissions}}<!-- linked from [[OAuth]] -->
+# Currently the following permissions can appear in the result, corresponding directly to the ones used in the OAuth 1.0a application definition:
+# * allow_read_prefs (read user preferences)
+# * allow_write_prefs (modify user preferences)
+# * allow_write_diary (create diary entries, comments and make friends)
+# * allow_write_api (modify the map)
+# * allow_read_gpx (read private GPS traces)
+# * allow_write_gpx (upload GPS traces)
+# * allow_write_notes (modify notes)
