@@ -263,7 +263,7 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id) 
 # ; HTTP status code 404 (Not Found)
 # : When no element with the given id could be found
 
-osm_read_object <- function(osm_type = c("node", "way", "relation"), osm_id, osm_version) {
+osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, osm_version) {
   osm_type <- match.arg(osm_type)
 
   req <- osmapi_request()
@@ -296,7 +296,7 @@ osm_read_object <- function(osm_type = c("node", "way", "relation"), osm_id, osm
 ### Notes ----
 # As the multi fetch call returns deleted objects it is the practical way to determine the version at which an object was deleted (useful for example for conflict resolution), the alternative to using this would be the history call that however may potentially require 1000's of version to be processed.
 
-osm_read_object <- function(osm_type = c("nodes", "ways", "relations"), osm_ids) {
+osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_ids) {
   osm_type <- match.arg(osm_type)
 
   req <- osmapi_request()
@@ -402,7 +402,7 @@ osm_full_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
 # ; HTTP status code 400 (Bad Request)
 # : "Cannot redact current version of element, only historical versions may be redacted."
 
-osm_read_object <- function(osm_type = c("node", "way", "relation"), osm_id, osm_version, redaction_id) {
+osm_redaction_object <- function(osm_type = c("node", "way", "relation"), osm_id, osm_version, redaction_id) {
   osm_type <- match.arg(osm_type)
 
   req <- osmapi_request()
