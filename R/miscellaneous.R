@@ -13,8 +13,19 @@
 # 	</api>
 # </osm>
 # </syntaxhighlight>
-#
-#
+
+osm_api_version <- function() {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "versions")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Capabilities: `GET /api/capabilities` ----
 # This API call is meant to provide information about the capabilities and limitations of the current API.
 #
@@ -62,8 +73,18 @@
 ### Notes ----
 # * Note that the URL is versionless. For convenience, the server supports the request `/api/0.6/capabilities` too, such that clients can use the same URL prefix `http:/.../api/0.6` for all requests.
 # * Element and relation member ids are currently implementation dependent limited to 64bit signed integers, this should not be a problem :-).
-#
-#
+
+osm_capabilities <- function() {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "capabilities")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
 ## Retrieving map data by bounding box: `GET /api/0.6/map` ----
 # The following command returns:
 # * All nodes that are inside a given bounding box and any relations that reference them.
@@ -92,8 +113,19 @@
 #
 # ; HTTP status code 509 (Bandwidth Limit Exceeded)
 # : "Error:  You have downloaded too much data. Please try again later." See [[Developer FAQ#I've been blocked from the API for downloading too much. Now what?|Developer FAQ]].
-#
-#
+
+osm_permissions <- function() {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "map")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Retrieving permissions: `GET /api/0.6/permissions` ----
 # Returns the permissions granted to the current API connection.
 #
@@ -141,3 +173,14 @@
 # * allow_read_gpx (read private GPS traces)
 # * allow_write_gpx (upload GPS traces)
 # * allow_write_notes (modify notes)
+
+osm_permissions <- function() {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "permissions")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}

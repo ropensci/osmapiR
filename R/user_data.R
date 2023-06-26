@@ -40,8 +40,19 @@
 # or an empty file if no user found for given identifier.
 #
 # Note that user accounts which made edits may be deleted. Such users are listed at https://planet.osm.org/users_deleted/users_deleted.txt
-#
-#
+
+osm_details_user <- function(user_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "user", user_id)
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Details of multiple users: `GET /api/0.6/users?users=#id1,#id2,...,#idn` ----
 # This API method was added in July 2018 ([https://github.com/openstreetmap/openstreetmap-website/commit/b4106383d99ccbf152d79b0f2c9deca95df9fb61 code]).
 #
@@ -92,8 +103,20 @@
 # </syntaxhighlight>
 #
 # or an empty file if no user found for given identifier.
-#
-#
+
+osm_details_user <- function(user_ids) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "users")
+  req <- httr2::req_url_query(req, users = paste(user_ids, collapse = ","))
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Details of the logged-in user: `GET /api/0.6/user/details` ----
 # You can get the home location and the displayname of the user, by using
 #
@@ -154,8 +177,19 @@
 # </syntaxhighlight>
 #
 # The messages section has been available since mid-2013. It provides a basic counts of received, sent, and unread osm [[Web front end#User messaging|messages]].
-#
-#
+
+osm_details_logged_user <- function(user_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "user", "details")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Preferences of the logged-in user: `GET /api/0.6/user/preferences` ----
 # The OSM server supports storing arbitrary user preferences. This can be used by editors, for example, to offer the same configuration wherever the user logs in, instead of a locally-stored configuration. For an overview of applications using the preferences-API and which key-schemes they use, see [[preferences|this wiki page]].
 #
@@ -205,3 +239,14 @@
 # A single preference entry can be deleted with
 #
 #  DELETE /api/0.6/user/preferences/[your_key]
+
+osm_preferences_user <- function() {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "user", "preferences")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}

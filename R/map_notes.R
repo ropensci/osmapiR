@@ -98,8 +98,21 @@
 ### Error codes ----
 # ; HTTP status code 400 (Bad Request)
 # : When any of the limits are crossed
-#
-#
+## TODO ----
+osm_read_bbox_notes <- function(bbox) {
+  osm_type <- match.arg(osm_type)
+
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "notes")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Read: `GET /api/0.6/notes/#id` ----
 #
 # Returns the existing note with the given ID. The output can be in several formats (e.g. XML, RSS, json or GPX) depending on the file extension.
@@ -110,8 +123,19 @@
 ### Error codes ----
 # ; HTTP status code 404 (Not Found)
 # : When no note with the given id could be found
-#
-#
+
+osm_read_note <- function(note_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "notes", note_id)
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Create a new note: `POST /api/0.6/notes` ----
 #
 ### XML ----
@@ -164,8 +188,19 @@
 # : This applies, if the request is not a HTTP POST request
 # ; <s>HTTP status code 405 (Method Not Allowed)</s>
 # : <s>If the request is not a HTTP POST request</s>
-#
-#
+
+osm_create_note <- function() {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "POST")
+  req <- httr2::req_url_path_append(req, "notes")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Create a new comment: `POST /api/0.6/notes/#id/comment` ----
 #
 # Add a new comment to note #id
@@ -201,8 +236,19 @@
 # : <s>If the request is not a HTTP POST request</s>
 # ; HTTP status code 409 (Conflict)
 # : When the note is closed
-#
-#
+
+osm_create_comment_note <- function(note_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "POST")
+  req <- httr2::req_url_path_append(req, "notes", note_id, "comment")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Close: `POST /api/0.6/notes/#id/close` ----
 #
 # Close a note as fixed.
@@ -220,8 +266,19 @@
 # : <s>If the request is not a HTTP POST request</s>
 # ; HTTP status code 409 (Conflict)
 # : When closing an already closed note
-#
-#
+
+osm_close_note <- function(note_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "POST")
+  req <- httr2::req_url_path_append(req, "notes", note_id, "close")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Reopen: `POST /api/0.6/notes/#id/reopen` ----
 #
 # Reopen a closed note.
@@ -241,8 +298,19 @@
 # : When reopening an already open note
 # ; HTTP status code 410 (Gone)
 # : When reopening a deleted note
-#
-#
+
+osm_reopen_note <- function(note_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "POST")
+  req <- httr2::req_url_path_append(req, "notes", note_id, "reopen")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Search for notes: `GET /api/0.6/notes/search` ----
 #
 # Returns the existing notes matching either the initial note text or any of the comments. The notes will be ordered by the date of their last change, the most recent one will be first. If no query was specified, the latest notes are returned. The list of notes can be returned in several different forms (e.g. XML, RSS, json or GPX) depending on file extension given.
@@ -307,8 +375,19 @@
 ### Error codes ----
 # ; HTTP status code 400 (Bad Request)
 # : When any of the limits are crossed
-#
-#
+
+osm_search_notes <- function(...) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "notes", "search")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## RSS Feed: `GET /api/0.6/notes/feed` ----
 #
 # Gets an RSS feed for notes within an area.
@@ -316,3 +395,14 @@
 # '''URL:''' <code><nowiki>https://api.openstreetmap.org/api/0.6/notes/feed?bbox=</nowiki><span style="border:thin solid black">''left''</span>,<span style="border:thin solid black">''bottom''</span>,<span style="border:thin solid black">''right''</span>,<span style="border:thin solid black">''top''</span></code>
 #
 # '''Return type:''' application/xml
+
+osm_feed_notes <- function(note_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "notes", "feed")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}

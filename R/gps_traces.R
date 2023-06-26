@@ -3,7 +3,7 @@
 # In violation of the [https://www.topografix.com/GPX/1/1/#type_trksegType GPX standard] when downloading public GPX traces through the API, all waypoints of non-trackable traces are randomized (or rather sorted by lat/lon) and delivered as one trackSegment for privacy reasons. Trackable traces are delivered, sorted by descending upload time, before the waypoints of non-trackable traces.
 #
 #
-## Get GPS Points: Get /api/0.6/trackpoints?bbox=<span style="border:thin solid black">''left''</span>,<span style="border:thin solid black">''bottom''</span>,<span style="border:thin solid black">''right''</span>,<span style="border:thin solid black">''top''</span>&page=<span style="border:thin solid black">''pageNumber''</span> ----
+## Get GPS Points: Get /api/0.6/trackpoints?bbox=*'left','bottom','right','top'*&page=*'pageNumber'* ----
 # Use this to retrieve the GPS track points that are inside a given bounding box (formatted in a GPX format).
 #
 # where:
@@ -42,8 +42,20 @@
 # 	...
 # </gpx>
 # </syntaxhighlight>
-#
-#
+
+osm_get_gps_points <- function(bbox, page_number = 1) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "trackpoints")
+  req <- httr2::req_url_query(req, bbox = paste(bbox, collapse = ","), page = page_number)
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Create: `POST /api/0.6/gpx/create` ----
 #
 # Use this to upload a GPX file or archive of GPX files. Requires authentication.
@@ -75,16 +87,48 @@
 ### Error codes ----
 # ; HTTP status code 400 (Bad Request)
 # : When the description is empty
-#
-#
+
+osm_create_gpx <- function() {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "POST")
+  req <- httr2::req_url_path_append(req, "gpx", "create")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
 ## Update: `PUT /api/0.6/gpx/#id` ----
 # Use this to update a GPX file. Only usable by the owner account. Requires authentication.<br />The response body will be empty.
-#
-#
+
+osm_update_gpx <- function(gpx_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "PUT")
+  req <- httr2::req_url_path_append(req, "gpx", gpx_id)
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Delete: `DELETE /api/0.6/gpx/#id` ----
 # Use this to delete a GPX file. Only usable by the owner account. Requires authentication.<br />The response body will be empty.
-#
-#
+
+osm_delete_gpx <- function(gpx_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "DELETE")
+  req <- httr2::req_url_path_append(req, "gpx", gpx_id)
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Download Metadata: `GET /api/0.6/gpx/#id/details` ----
 # Use this to access the metadata about a GPX file. Available without authentication if the file is marked public. Otherwise only usable by the owner account and requires authentication.
 #
@@ -99,8 +143,19 @@
 # 	</gpx_file>
 # </osm>
 # </syntaxhighlight>
-#
-#
+
+osm_get_metadata_gpx <- function(gpx_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "gpx", gpx_id, "details")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## Download Data: `GET /api/0.6/gpx/#id/data` ----
 #
 # Use this to download the full GPX file. Available without authentication if the file is marked public. Otherwise only usable by the owner account and requires authentication.
@@ -108,8 +163,19 @@
 # The response will always be a GPX format file if you use a '''.gpx''' URL suffix, a XML file in an undocumented format if you use a '''.xml''' URL suffix, otherwise the response will be the exact file that was uploaded.
 #
 # NOTE: if you request refers to a multi-file archive the response when you force gpx or xml format will consist of a non-standard simple concatenation of the files.
-#
-#
+
+osm_get_data_gpx <- function(gpx_id) {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "gpx", gpx_id, "data")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
+
+
 ## List: `GET /api/0.6/user/gpx_files` ----
 # Use this to get a list of GPX traces owned by the authenticated user: Requires authentication.
 #
@@ -126,3 +192,14 @@
 # 	</gpx_file>
 # </osm>
 # </syntaxhighlight>
+
+osm_list_gpxs <- function() {
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, "user", "gpx_files")
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # cat(as.character(obj_xml))
+}
