@@ -7,8 +7,8 @@
 #
 # Add a comment to a changeset. The changeset must be closed.
 #
-# '''URL:''' <code><nowiki>https://api.openstreetmap.org/api/0.6/changeset/#id/comment
-# </nowiki></code> ([https://api.openstreetmap.org/api/0.6/changeset/1000/comment example])<br />
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/changeset/#id/comment
+# </code> ([https://api.openstreetmap.org/api/0.6/changeset/1000/comment example])<br />
 # '''Return type:''' application/xml<br />
 #
 # This request needs to be done as an authenticated user.
@@ -32,6 +32,7 @@ osm_comment_changeset_discussion <- function(changeset_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -39,8 +40,8 @@ osm_comment_changeset_discussion <- function(changeset_id) {
 #
 # Subscribe to the discussion of a changeset to receive notifications for new comments.
 #
-# '''URL:''' <code><nowiki>https://api.openstreetmap.org/api/0.6/changeset/#id/subscribe
-# </nowiki></code> ([https://api.openstreetmap.org/api/0.6/changeset/1000/subscribe example])<br />
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/changeset/#id/subscribe
+# </code> ([https://api.openstreetmap.org/api/0.6/changeset/1000/subscribe example])<br />
 # '''Return type:''' application/xml<br />
 #
 # This request needs to be done as an authenticated user.
@@ -58,6 +59,7 @@ osm_subscribe_changeset_discussion <- function(changeset_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -65,8 +67,8 @@ osm_subscribe_changeset_discussion <- function(changeset_id) {
 #
 # Unsubscribe from the discussion of a changeset to stop receiving notifications.
 #
-# '''URL:''' <code><nowiki>https://api.openstreetmap.org/api/0.6/changeset/#id/unsubscribe
-# </nowiki></code> ([https://api.openstreetmap.org/api/0.6/changeset/1000/unsubscribe example])<br />
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/changeset/#id/unsubscribe
+# </code> ([https://api.openstreetmap.org/api/0.6/changeset/1000/unsubscribe example])<br />
 # '''Return type:''' application/xml<br />
 #
 # This request needs to be done as an authenticated user.
@@ -84,6 +86,7 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -113,6 +116,7 @@ osm_hide_comment_changeset_discussion <- function(comment_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -142,4 +146,5 @@ osm_unhide_comment_changeset_discussion <- function(comment_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }

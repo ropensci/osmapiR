@@ -39,6 +39,4 @@ library(osmapiR)
 
 # For testing without breaking the OSM data.
 set_osmapi_url("https://master.apis.dev.openstreetmap.org")
-
-
 ```

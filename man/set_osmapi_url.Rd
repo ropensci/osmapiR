@@ -2,7 +2,7 @@
 % Please edit documentation in R/zzz.R
 \name{set_osmapi_url}
 \alias{set_osmapi_url}
-\title{set_osmapi_url}
+\title{Set OSM API URL}
 \usage{
 set_osmapi_url(osmapi_url = "https://api.openstreetmap.org")
 }
@@ -13,19 +13,20 @@ set_osmapi_url(osmapi_url = "https://api.openstreetmap.org")
 The API URL
 }
 \description{
-Set the URL of the specified OSM API. By default \verb{https://api.openstreetmap.org/}.
-When testing your software against the API you should consider using \verb{https://master.apis.dev.openstreetmap.org/}
-instead of the live-api. Your account for the live service is not in the same database, so you probably need a new
-username and password for the test service; please visit that page in a browser to sign up.
+Set the URL of the specified OSM API. By default \verb{https://api.openstreetmap.org}.
 }
 \details{
+When testing your software against the API you should consider using \verb{https://master.apis.dev.openstreetmap.org}
+instead of the live-api. Your account for the live service is not in the same database, so you probably need a new
+username and password for the test service; please visit that page in a browser to sign up.
+
 For further details, see
 \url{https://wiki.openstreetmap.org/wiki/API_v0.6}
 }
 \seealso{
-\code{\link[=get_osmapi_url]{get_osmapi_url()}}
-
-Other osmapi: 
-\code{\link{get_osmapi_url}()}
+Other API functions: 
+\code{\link{get_osmapi_url}()},
+\code{\link{osm_api_versions}()},
+\code{\link{osm_capabilities}()}
 }
-\concept{osmapi}
+\concept{API functions}

@@ -62,7 +62,6 @@
 # * The ''role'' attribute for relations is optional. An empty string is the default.
 # * To avoid performance issues when uploading multiple objects, the use of the [[API v0.6#Diff upload: POST /api/0.6/changeset/#id/upload|Diff upload]] endpoint is highly recommended.
 
-## TODO ----
 osm_create_object <- function(osm_type = c("node", "way", "relation"), ...) {
   osm_type <- match.arg(osm_type)
 
@@ -74,6 +73,7 @@ osm_create_object <- function(osm_type = c("node", "way", "relation"), ...) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -110,6 +110,27 @@ osm_create_object <- function(osm_type = c("node", "way", "relation"), ...) {
 # ; HTTP status code 410 (Gone)
 # : If the element has been deleted
 
+#' Read an object
+#'
+#' Returns the representation of an object from OSM.
+#'
+#' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
+#' @param osm_id Object id represented by a numeric or a character value.
+#'
+#' @return
+#' @family OSM objects' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' node <- osm_read_object(osm_type = "node", osm_id = 35308286)
+#' node
+#'
+#' way <- osm_read_object(osm_type = "way", osm_id = 13073736L)
+#' way
+#'
+#' rel <- osm_read_object(osm_type = "relation", osm_id = "40581")
+#' rel
 osm_read_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
   osm_type <- match.arg(osm_type)
 
@@ -121,6 +142,7 @@ osm_read_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -170,6 +192,7 @@ osm_update_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -230,6 +253,7 @@ osm_delete_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -240,6 +264,27 @@ osm_delete_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
 # ; HTTP status code 404 (Not Found)
 # : When no element with the given id could be found
 
+#' Get the history of an object
+#'
+#' Retrieves all old versions of an object from OSM.
+#'
+#' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
+#' @param osm_id Object id represented by a numeric or a character value.
+#'
+#' @return
+#' @family OSM objects' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' node <- osm_history_object(osm_type = "node", osm_id = 35308286)
+#' node
+#'
+#' way <- osm_history_object(osm_type = "way", osm_id = 13073736L)
+#' way
+#'
+#' rel <- osm_history_object(osm_type = "relation", osm_id = "40581")
+#' rel
 osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
   osm_type <- match.arg(osm_type)
 
@@ -251,6 +296,7 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id) 
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -263,17 +309,40 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id) 
 # ; HTTP status code 404 (Not Found)
 # : When no element with the given id could be found
 
-osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, osm_version) {
+#' Get a version of an object
+#'
+#' Retrieves a specific version of an object from OSM.
+#'
+#' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
+#' @param osm_id Object id represented by a numeric or a character value.
+#' @param version Version of the object to retrieve.
+#'
+#' @return
+#' @family OSM objects' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' node <- osm_version_object(osm_type = "node", osm_id = 35308286, version = 1)
+#' node
+#'
+#' way <- osm_version_object(osm_type = "way", osm_id = 13073736L, version = 2)
+#' way
+#'
+#' rel <- osm_version_object(osm_type = "relation", osm_id = "40581", version = 3)
+#' rel
+osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, version) {
   osm_type <- match.arg(osm_type)
 
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, osm_type, osm_id, osm_version)
+  req <- httr2::req_url_path_append(req, osm_type, osm_id, version)
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -296,8 +365,40 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 ### Notes ----
 # As the multi fetch call returns deleted objects it is the practical way to determine the version at which an object was deleted (useful for example for conflict resolution), the alternative to using this would be the history call that however may potentially require 1000's of version to be processed.
 
-osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_ids) {
+#' Fetch objects
+#'
+#' Fetch multiple objects of the same type at once.
+#'
+#' @param osm_type Type of the objects(`"nodes"`, `"ways"` or `"relations"`).
+#' @param osm_ids Object ids represented by a numeric or a character vector.
+#' @param versions Version numbers for each object may be optionally provided.
+#'
+#' @note
+#' For downloading data for purposes other than editing or exploring the history of the objects, perhaps is better to
+#' use the Overpass API. A similar function to download OSM objects by `type` and `id` using Overpass, is implemented in
+#' [osmdata::opq_osm_id()].
+#'
+#' @return
+#' @family OSM objects' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' node <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367))
+#' node
+#'
+#' way <- osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L))
+#' way
+#'
+#' # Specific versions
+#' rel <- osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1))
+#' rel
+osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_ids, versions) {
   osm_type <- match.arg(osm_type)
+
+  if (!missing(versions)) {
+    osm_ids <- paste0(osm_ids, "v", versions)
+  }
 
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
@@ -311,12 +412,11 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
     req <- httr2::req_url_query(req, relations = paste(osm_ids, collapse = ","))
   }
 
-  # TODO: Error in `resp_abort()`: ! HTTP 404 Not Found. ----
-
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -327,6 +427,27 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
 # * There is no error if the element does not exist.
 # * If the element does not exist or it isn't used in any relations an empty XML document is returned (apart from the `<osm>` elements)
 
+#' Relations of an object
+#'
+#' Returns all (not deleted) relations in which the given object is used.
+#'
+#' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
+#' @param osm_id Object id represented by a numeric or a character value.
+#'
+#' @return
+#' @family OSM objects' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' node <- osm_relations_object(osm_type = "node", osm_id = 152364165)
+#' node
+#'
+#' way <- osm_relations_object(osm_type = "way", osm_id = 372011578)
+#' way
+#'
+#' rel <- osm_relations_object(osm_type = "relation", osm_id = 342792)
+#' rel
 osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
   osm_type <- match.arg(osm_type)
 
@@ -338,6 +459,7 @@ osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -348,15 +470,30 @@ osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id
 # * There is no error if the node does not exist.
 # * If the node does not exist or it isn't used in any ways an empty XML document is returned (apart from the `<osm>` elements)
 
-osm_ways_node <- function(osm_id) {
+#' Ways of a node
+#'
+#' Returns all the (not deleted) ways in which the given node is used.
+#'
+#' @param node_id Node id represented by a numeric or a character value.
+#'
+#' @return
+#' @family OSM objects' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' ways_node <- osm_ways_node(node_id = 35308286)
+#' ways_node
+osm_ways_node <- function(node_id) {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "node", osm_id, "ways")
+  req <- httr2::req_url_path_append(req, "node", node_id, "ways")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -375,7 +512,40 @@ osm_ways_node <- function(osm_id) {
 # ; HTTP status code 410 (Gone)
 # : If the element has been deleted
 
-osm_full_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
+#' Full object
+#'
+#' This API call retrieves a way or relation and all other objects referenced by it.
+#'
+#' @param osm_type Object type (`"way"` or `"relation"`).
+#' @param osm_id Object id represented by a numeric or a character value.
+#'
+#' @details
+#' For a way, it will return the way specified plus all nodes referenced by the way.
+#' For a relation, it will return the following:
+#' * The relation itself
+#' * All nodes, ways, and relations that are members of the relation
+#' * Plus all nodes used by ways from the previous step
+#' * The same recursive logic is not applied to relations. This means: If relation r1 contains way w1 and relation r2,
+#'   and w1 contains nodes n1 and n2, and r2 contains node n3, then a "full" request for r1 will give you r1, r2, w1,
+#'   n1, and n2. Not n3.
+#'
+#' @note
+#' For downloading data for purposes other than editing or exploring the history of the objects, perhaps is better to
+#' use the Overpass API. A similar function to download OSM objects by `type` and `id` using Overpass, is implemented in
+#' [osmdata::opq_osm_id()].
+#'
+#' @return
+#' @family OSM objects' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' way <- osm_full_object(osm_type = "way", osm_id = 13073736)
+#' way
+#'
+#' rel <- osm_full_object(osm_type = "relation", osm_id = "40581")
+#' rel
+osm_full_object <- function(osm_type = c("way", "relation"), osm_id) {
   osm_type <- match.arg(osm_type)
 
   req <- osmapi_request()
@@ -386,6 +556,7 @@ osm_full_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -402,16 +573,17 @@ osm_full_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
 # ; HTTP status code 400 (Bad Request)
 # : "Cannot redact current version of element, only historical versions may be redacted."
 
-osm_redaction_object <- function(osm_type = c("node", "way", "relation"), osm_id, osm_version, redaction_id) {
+osm_redaction_object <- function(osm_type = c("node", "way", "relation"), osm_id, version, redaction_id) {
   osm_type <- match.arg(osm_type)
 
   req <- osmapi_request()
   req <- httr2::req_method(req, "POST")
-  req <- httr2::req_url_path_append(req, osm_type, osm_id, osm_version)
+  req <- httr2::req_url_path_append(req, osm_type, osm_id, version)
   req <- httr2::req_url_query(redaction = redaction_id)
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }

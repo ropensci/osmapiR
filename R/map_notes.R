@@ -1,15 +1,16 @@
 ## Map Notes API
 #
 # This provides access to the [[notes]] feature, which allows users to add geo-referenced textual "post-it" notes. This feature was not originally in the API 0.6 and was only added later ( 04/23/2013 in commit 0c8ad2f86edefed72052b402742cadedb0d674d9 )
-#
-#
+
+
 ## Retrieving notes data by bounding box: `GET /api/0.6/notes` ----
 #
+# TODO: executable JavaScript (format `js`) not implemented in the server? https://github.com/openstreetmap/openstreetmap-website/blob/512f7de4a95b0522bcb26ac03cc31e1a91521662/app/controllers/api/notes_controller.rb#L47
 # Returns the existing notes in the specified bounding box. The notes will be ordered by the date of their last change, the most recent one will be first. The list of notes can be returned in several different forms (e.g. as executable JavaScript, XML, RSS, json and GPX) depending on the file extension.
 #
 # '''Note:''' the XML format returned by the API is different from the, equally undocumented, format used for "osm" format files, available from [https://planet.openstreetmap.org/notes/ planet.openstreetmap.org], and as output from JOSM and Vespucci.
 #
-# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes?bbox=<span style="border:thin solid black">''left''</span>,<span style="border:thin solid black">''bottom''</span>,<span style="border:thin solid black">''right''</span>,<span style="border:thin solid black">''top''</span>
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes?bbox=''left'',''bottom'',''right'',''top''
 # </code> ([https://api.openstreetmap.org/api/0.6/notes?bbox=-0.65094,51.312159,0.374908,51.669148 example])<br />
 # '''Return type:''' application/xml <br />
 #
@@ -98,18 +99,50 @@
 ### Error codes ----
 # ; HTTP status code 400 (Bad Request)
 # : When any of the limits are crossed
-## TODO ----
-osm_read_bbox_notes <- function(bbox) {
-  osm_type <- match.arg(osm_type)
+
+#' Retrieve notes by bounding box
+#'
+#' Returns the existing notes in the specified bounding box. The notes will be ordered by the date of their last change,
+#' the most recent one will be first.
+#'
+#' @param bbox Coordinates for the area to retrieve the notes from (`left,bottom,right,top`). Floating point numbers in
+#'   degrees, expressing a valid bounding box, not larger than the configured size limit, 25 square degrees, not
+#'   overlapping the dateline.
+#' @param limit Specifies the number of entries returned at max. A value between 1 and 10000 is valid. Default to 100.
+#' @param closed Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
+#'   only open notes are returned. A value of -1 means all notes are returned. Default to 7.
+#' @param format Format of the output. Can be `xml` (default), `rss`, `json` or `gpx`.
+#'
+#' @note The comment properties (`uid`, `user`, `user_url`) will be omitted if the comment was anonymous.
+#'
+#' @return
+#' @family notes' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' notes <- osm_read_bbox_notes(bbox = c(3.7854767, 39.7837403, 4.3347931, 40.1011851), limit = 10)
+#' # bbox as a character value also works. Equivalent call:
+#' # osm_read_bbox_notes(bbox = "3.7854767,39.7837403,4.3347931,40.1011851", limit = 10)
+#' notes
+osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("xml", "rss", "json", "gpx")) {
+  format <- match.arg(format)
+  ext <- paste0("notes.", format)
 
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "notes")
+  req <- httr2::req_url_path_append(req, ext)
+  req <- httr2::req_url_query(req, bbox = paste(bbox, collapse = ","), limit = limit, closed = closed)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
+  if (format %in% c("xml", "gpx", "rss")) {
+    out <- httr2::resp_body_xml(resp)
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
+
+  return(out)
 }
 
 
@@ -117,22 +150,45 @@ osm_read_bbox_notes <- function(bbox) {
 #
 # Returns the existing note with the given ID. The output can be in several formats (e.g. XML, RSS, json or GPX) depending on the file extension.
 #
-# '''URL:''' <code><nowiki>https://api.openstreetmap.org/api/0.6/notes/#id</nowiki></code> ([https://api.openstreetmap.org/api/0.6/notes/100])<br />
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/#id</code> ([https://api.openstreetmap.org/api/0.6/notes/100])<br />
 # '''Return type:''' application/xml <br />
 #
 ### Error codes ----
 # ; HTTP status code 404 (Not Found)
 # : When no note with the given id could be found
 
-osm_read_note <- function(note_id) {
+#' Read notes
+#'
+#' Returns the existing note with the given ID.
+#'
+#' @param note_id Note id represented by a numeric or a character value.
+#' @param format Format of the output. Can be `xml` (default), `rss`, `json` or `gpx`.
+#'
+#' @return
+#' @family notes' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' note <- osm_read_note(note_id = "2067786")
+#' note
+osm_read_note <- function(note_id, format = c("xml", "rss", "json", "gpx")) {
+  format <- match.arg(format)
+  note_id <- paste0(note_id, ".", format)
+
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "notes", note_id)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
+  if (format %in% c("xml", "gpx", "rss")) {
+    out <- httr2::resp_body_xml(resp)
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
+
+  return(out)
 }
 
 
@@ -140,7 +196,7 @@ osm_read_note <- function(note_id) {
 #
 ### XML ----
 #
-# '''URL:''' <code><nowiki>https://api.openstreetmap.org/api/0.6/notes?lat=51.00&lon=0.1&text=ThisIsANote</nowiki></code>
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes?lat=51.00&lon=0.1&text=ThisIsANote</code>
 # (''use Postman or similar tools to test the endpoint - note that it must be a POST request'')<br />
 # '''Return type:''' application/xml
 #
@@ -148,8 +204,8 @@ osm_read_note <- function(note_id) {
 #
 ### JSON ----
 #
-# '''URL:''' <code><nowiki>https://api.openstreetmap.org/api/0.6/notes.json</nowiki></code> <br />
-# '''Body content''': <code><nowiki>{"lat":51.00, "lon": 0.1&, "text":"This is a note\n\nThis is another line"}</nowiki></code> <br />
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes.json</code> <br />
+# '''Body content''': <code>{"lat":51.00, "lon": 0.1&, "text":"This is a note\n\nThis is another line"}</code> <br />
 # '''Return type:''' application/json
 #
 # A JSON-file with the details of the note will be returned
@@ -198,6 +254,7 @@ osm_create_note <- function() {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -205,8 +262,8 @@ osm_create_note <- function() {
 #
 # Add a new comment to note #id
 #
-# '''URL:''' <code><nowiki>https://api.openstreetmap.org/api/0.6/notes/#id/comment?text=ThisIsANoteComment
-# </nowiki></code> (''use Postman or similar tools to test the endpoint - note that it must be a POST request'')<br />
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/#id/comment?text=ThisIsANoteComment
+# </code> (''use Postman or similar tools to test the endpoint - note that it must be a POST request'')<br />
 # '''Return type:''' application/xml
 #
 # Since 28 August 2019, this request needs to be done as an authenticated user.
@@ -246,6 +303,7 @@ osm_create_comment_note <- function(note_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -253,7 +311,7 @@ osm_create_comment_note <- function(note_id) {
 #
 # Close a note as fixed.
 #
-# '''URL:''' <code><nowiki>https://api.openstreetmap.org/api/0.6/notes/#id/close?text=Comment</nowiki></code> (''use Postman or similar tools to test the endpoint - note that it must be a POST request'')<br />
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/#id/close?text=Comment</code> (''use Postman or similar tools to test the endpoint - note that it must be a POST request'')<br />
 # '''Return type:''' application/xml<br />
 #
 # This request needs to be done as an authenticated user.
@@ -276,6 +334,7 @@ osm_close_note <- function(note_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -283,7 +342,7 @@ osm_close_note <- function(note_id) {
 #
 # Reopen a closed note.
 #
-# '''URL:''' <code><nowiki>https://api.openstreetmap.org/api/0.6/notes/#id/reopen?text=Comment</nowiki></code> (''use Postman or similar tools to test the endpoint'')<br />
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/#id/reopen?text=Comment</code> (''use Postman or similar tools to test the endpoint'')<br />
 # '''Return type:''' application/xml<br />
 #
 # This request needs to be done as an authenticated user.
@@ -308,6 +367,7 @@ osm_reopen_note <- function(note_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -315,8 +375,8 @@ osm_reopen_note <- function(note_id) {
 #
 # Returns the existing notes matching either the initial note text or any of the comments. The notes will be ordered by the date of their last change, the most recent one will be first. If no query was specified, the latest notes are returned. The list of notes can be returned in several different forms (e.g. XML, RSS, json or GPX) depending on file extension given.
 #
-# '''URL:''' <code><nowiki>https://api.openstreetmap.org/api/0.6/notes/search?q=SearchTerm
-# </nowiki></code> ([https://api.openstreetmap.org/api/0.6/notes/search?q=Spam example])<br />
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/search?q=SearchTerm
+# </code> ([https://api.openstreetmap.org/api/0.6/notes/search?q=Spam example])<br />
 # '''Return type:''' application/xml<br />
 #
 # {| class="wikitable"
@@ -376,15 +436,93 @@ osm_reopen_note <- function(note_id) {
 # ; HTTP status code 400 (Bad Request)
 # : When any of the limits are crossed
 
-osm_search_notes <- function(...) {
+#' Search for notes
+#'
+#' Returns the existing notes matching either the initial note text or any of the comments.
+#'
+#' @param q Specifies the search query.
+#' @param user Find notes by the user with the given user id (numeric) or display name (character).
+#' @param from Specifies the beginning of a date range to search in for a note. A valid
+#'   [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date.
+#' @param to Specifies the end of a date range to search in for a note. A valid
+#'   [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date. The date of today is the default.
+#' @param closed Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
+#'   only open notes are returned. A value of -1 means all notes are returned. 7 is the default.
+#' @param sort Specifies the value which should be used to sort the notes. It is either possible to sort them by their
+#'   creation date (`created_at`) or the date of the last update (`updated_at`, the default).
+#' @param order Specifies the order of the returned notes. It is possible to order them in ascending (`oldest`) or
+#'   descending (`newest`, the default) order.
+#' @param limit Specifies the number of entries returned at max. A value of between 1 and 10000 is valid.	100 is the
+#'   default.
+#' @param format Format of the the returned list of notes. Can be `xml` (default), `rss`, `json` or `gpx`.
+#'
+#' @details
+#' The notes will be ordered by the date of their last change, the most recent one will be first. If no query was
+#' specified, the latest notes are returned.
+#'
+#' @return
+#' @family notes' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' notes <- osm_search_notes(q = "POI", from = "2017-10-01", to = "2017-10-27T15:27A", limit = 10)
+#' notes
+#'
+#' my_notes <- osm_search_notes(user = "jmaspons", closed = -1, format = "json")
+#' my_notes
+osm_search_notes <- function(
+    q, user, from, to, closed = 7,
+    sort = c("updated_at", "created_at"), order = c("newest", "oldest"),
+    limit = 100, format = c("xml", "rss", "json", "gpx")) {
+  sort <- match.arg(sort)
+  order <- match.arg(order)
+  format <- match.arg(format)
+
+  if (missing(q)) {
+    q <- NULL
+  }
+
+  if (missing(user)) {
+    user <- NULL
+    display_name <- NULL
+  } else {
+    if (is.numeric(user)) {
+      display_name <- NULL
+    } else {
+      display_name <- user
+      user <- NULL
+    }
+  }
+
+  if (missing(from)) {
+    from <- NULL
+  }
+  if (missing(to)) {
+    to <- NULL
+  }
+
+  ext <- paste0("search.", format)
+
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "notes", "search")
+  req <- httr2::req_url_path_append(req, "notes", ext)
+
+  req <- httr2::req_url_query(
+    req,
+    q = q, user = user, display_name = display_name,
+    from = from, to = to, sort = sort, order = order, limit = limit
+  )
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
+  if (format %in% c("xml", "gpx", "rss")) {
+    out <- httr2::resp_body_xml(resp)
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
+
+  return(out)
 }
 
 
@@ -392,17 +530,34 @@ osm_search_notes <- function(...) {
 #
 # Gets an RSS feed for notes within an area.
 #
-# '''URL:''' <code><nowiki>https://api.openstreetmap.org/api/0.6/notes/feed?bbox=</nowiki><span style="border:thin solid black">''left''</span>,<span style="border:thin solid black">''bottom''</span>,<span style="border:thin solid black">''right''</span>,<span style="border:thin solid black">''top''</span></code>
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/feed?bbox=''left'',''bottom'',''right'',''top''</code>
 #
 # '''Return type:''' application/xml
 
-osm_feed_notes <- function(note_id) {
+#' RSS Feed of notes in a bbox
+#'
+#' @param bbox Coordinates for the area to retrieve the notes from (`left,bottom,right,top`). Floating point numbers in
+#'   degrees, expressing a valid bounding box.
+#'
+#' @return
+#' @family notes' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' feed_notes <- osm_feed_notes(bbox = c(0.8205414, 40.6686604, 0.8857727, 40.7493377))
+#' # bbox as a character value also works. Equivalent call:
+#' # feed_notes <- osm_feed_notes(bbox = "0.8205414,40.6686604,0.8857727,40.7493377")
+#' feed_notes
+osm_feed_notes <- function(bbox) {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "notes", "feed")
+  req <- httr2::req_url_query(req, bbox = paste(bbox, collapse = ","))
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }

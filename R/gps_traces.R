@@ -1,17 +1,17 @@
 ## GPS traces
 #
 # In violation of the [https://www.topografix.com/GPX/1/1/#type_trksegType GPX standard] when downloading public GPX traces through the API, all waypoints of non-trackable traces are randomized (or rather sorted by lat/lon) and delivered as one trackSegment for privacy reasons. Trackable traces are delivered, sorted by descending upload time, before the waypoints of non-trackable traces.
-#
-#
-## Get GPS Points: Get /api/0.6/trackpoints?bbox=*'left','bottom','right','top'*&page=*'pageNumber'* ----
+
+
+## Get GPS Points: `GET /api/0.6/trackpoints?bbox=*'left','bottom','right','top'*&page=*'pageNumber'*` ----
 # Use this to retrieve the GPS track points that are inside a given bounding box (formatted in a GPX format).
 #
 # where:
-# * <code><span style="border:thin solid black">''left''</span></code> is the longitude of the left (westernmost) side of the bounding box.
-# * <code><span style="border:thin solid black">''bottom''</span></code> is the latitude of the bottom (southernmost) side of the bounding box.
-# * <code><span style="border:thin solid black">''right''</span></code> is the longitude of the right (easternmost) side of the bounding box.
-# * <code><span style="border:thin solid black">''top''</span></code> is the latitude of the top (northernmost) side of the bounding box.
-# * <code><span style="border:thin solid black">''pageNumber''</span></code> specifies which group of 5,000 points, or ''page'', to return. Since the command does not return more than 5,000 points at a time, this parameter must be incremented&mdash;and the command sent again (using the same bounding box)&mdash;in order to retrieve all of the points for a bounding box that contains more than 5,000 points. When this parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns points 5,001&ndash;10,000, etc.
+# * <code>''left''</code> is the longitude of the left (westernmost) side of the bounding box.
+# * <code>''bottom''</code> is the latitude of the bottom (southernmost) side of the bounding box.
+# * <code>''right''</code> is the longitude of the right (easternmost) side of the bounding box.
+# * <code>''top''</code> is the latitude of the top (northernmost) side of the bounding box.
+# * <code>''pageNumber''</code> specifies which group of 5,000 points, or ''page'', to return. Since the command does not return more than 5,000 points at a time, this parameter must be incremented&mdash;and the command sent again (using the same bounding box)&mdash;in order to retrieve all of the points for a bounding box that contains more than 5,000 points. When this parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns points 5,001&ndash;10,000, etc.
 # The maximal width (right - left) and height (top - bottom) of the bounding box is 0.25 degree.
 #
 ### Examples ----
@@ -43,7 +43,33 @@
 # </gpx>
 # </syntaxhighlight>
 
-osm_get_gps_points <- function(bbox, page_number = 1) {
+#' Get GPS Points
+#'
+#' Use this to retrieve the GPS track points that are inside a given bounding box (formatted in a GPX format).
+#'
+#' @param bbox Coordinates for the area to retrieve the notes from (`left,bottom,right,top`). Floating point numbers in
+#'   degrees, expressing a valid bounding box. The maximal width (`right - left`) and height (`top - bottom`) of the
+#'   bounding box is 0.25 degree.
+#' @param page_number Specifies which group of 5,000 points, or page, to return. Since the command does not return more
+#'   than 5,000 points at a time, this parameter must be incremented —and the command sent again (using the same bounding
+#'   box)— in order to retrieve all of the points for a bounding box that contains more than 5,000 points. When this
+#'   parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns points
+#'   5,001–10,000, etc.
+#'
+#' @note In violation of the [GPX standard](https://www.topografix.com/GPX/1/1/#type_trksegType) when downloading public
+#'   GPX traces through the API, all waypoints of non-trackable traces are randomized (or rather sorted by lat/lon) and
+#'   delivered as one trackSegment for privacy reasons. Trackable traces are delivered, sorted by descending upload
+#'   time, before the waypoints of non-trackable traces.
+#'
+#' @return
+#' @family GPS' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' pts_gps <- osm_get_points_gps(bbox = c(-0.3667545, 40.2153246, -0.3354263, 40.2364915))
+#' pts_gps
+osm_get_points_gps <- function(bbox, page_number = 0) {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "trackpoints")
@@ -53,6 +79,7 @@ osm_get_gps_points <- function(bbox, page_number = 1) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -97,6 +124,7 @@ osm_create_gpx <- function() {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 ## Update: `PUT /api/0.6/gpx/#id` ----
@@ -111,6 +139,7 @@ osm_update_gpx <- function(gpx_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -126,6 +155,7 @@ osm_delete_gpx <- function(gpx_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -144,6 +174,22 @@ osm_delete_gpx <- function(gpx_id) {
 # </osm>
 # </syntaxhighlight>
 
+## TODO: HTTP 401 Unauthorized. (even for public or identificable tracks) ----
+#' Download GPS Track Metadata
+#'
+#' Use this to access the metadata about a GPX file. Available without authentication if the file is marked public.
+#' Otherwise only usable by the owner account and requires authentication.
+#'
+#' @param gpx_id The track id represented by a numeric or a character value.
+#'
+#' @return
+#' @family GPS' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' # trk_meta <- osm_get_metadata_gpx(gpx_id = 3498170)
+#' # trk_meta
 osm_get_metadata_gpx <- function(gpx_id) {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
@@ -153,6 +199,7 @@ osm_get_metadata_gpx <- function(gpx_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -164,15 +211,44 @@ osm_get_metadata_gpx <- function(gpx_id) {
 #
 # NOTE: if you request refers to a multi-file archive the response when you force gpx or xml format will consist of a non-standard simple concatenation of the files.
 
-osm_get_data_gpx <- function(gpx_id) {
+## TODO: HTTP 401 Unauthorized. (even for public or identificable tracks) ----
+#' Download GPS Track Data
+#'
+#' Use this to download the full GPX file. Available without authentication if the file is marked public. Otherwise only
+#' usable by the owner account and requires authentication.
+#'
+#' @param gpx_id The track id represented by a numeric or a character value.
+#' @param format If missing (default), the response will be the exact file that was uploaded.
+#'   If `gpx`, the response will always be a GPX format file.
+#'   If `xml`, a `XML` file in an undocumented format.
+#'
+#' @note If you request refers to a multi-file archive the response when you force gpx or xml format will consist of a
+#'   non-standard simple concatenation of the files.
+#'
+#' @return
+#' @family GPS' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' # trk_data <- osm_get_data_gpx(gpx_id = 3498170)
+#' # trk_data
+osm_get_data_gpx <- function(gpx_id, format) {
+  if (missing(format)) {
+    ext <- "data"
+  } else {
+    stopifnot(format %in% c("xml", "gpx"))
+    ext <- paste0("data.", format)
+  }
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "gpx", gpx_id, "data")
+  req <- httr2::req_url_path_append(req, "gpx", gpx_id, ext)
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -202,4 +278,5 @@ osm_list_gpxs <- function() {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }

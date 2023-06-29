@@ -41,6 +41,18 @@
 #
 # Note that user accounts which made edits may be deleted. Such users are listed at https://planet.osm.org/users_deleted/users_deleted.txt
 
+#' Details of a user
+#'
+#' @param user_id The id of the user to retrieve represented by a numeric or a character value (not the display name).
+#'
+#' @return
+#' @family users' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' usr <- osm_details_user(user_id = "11725140")
+#' usr
 osm_details_user <- function(user_id) {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
@@ -50,6 +62,7 @@ osm_details_user <- function(user_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -104,7 +117,20 @@ osm_details_user <- function(user_id) {
 #
 # or an empty file if no user found for given identifier.
 
-osm_details_user <- function(user_ids) {
+#' Details of multiple users
+#'
+#' @param user_ids The ids of the users to retrieve represented by a numeric or a character value (not the display
+#'   names).
+#'
+#' @return
+#' @family users' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' usrs <- osm_details_users(user_id = c(1, 24, 44, 45, 46, 48, 49, 50))
+#' usrs
+osm_details_users <- function(user_ids) {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "users")
@@ -114,6 +140,7 @@ osm_details_user <- function(user_ids) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -187,6 +214,7 @@ osm_details_logged_user <- function(user_id) {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -249,4 +277,5 @@ osm_preferences_user <- function() {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }

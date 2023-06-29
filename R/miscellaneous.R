@@ -14,15 +14,27 @@
 # </osm>
 # </syntaxhighlight>
 
-osm_api_version <- function() {
+#' Available API versions
+#'
+#' @return A character vector with the supported versions
+#' @family API functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' osm_api_versions()
+osm_api_versions <- function() {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "versions")
+  req <- httr2::req_url_path(req, "api", "versions")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
+  versions <- xml2::xml_find_all(obj_xml, xpath = ".//version")
+  out <- xml2::xml_text(versions)
+
+  return(out)
 }
 
 
@@ -74,16 +86,61 @@ osm_api_version <- function() {
 # * Note that the URL is versionless. For convenience, the server supports the request `/api/0.6/capabilities` too, such that clients can use the same URL prefix `http:/.../api/0.6` for all requests.
 # * Element and relation member ids are currently implementation dependent limited to 64bit signed integers, this should not be a problem :-).
 
+#' Capabilities of the API
+#'
+#' Provide information about the capabilities and limitations of the current API.
+#'
+#' @details
+#' API:
+#' * Version minimum and maximum are the API call versions that the server will accept.
+#' * Area maximum is the maximum area in square degrees that can be queried by API calls.
+#' * Tracepoints per_page is the maximum number of points in a single GPS trace. (Possibly incorrect)
+#' * Waypoints maximum is the maximum number of nodes that a way may contain.
+#' * Relation member maximum is the maximum number of members that a relation may contain.
+#' * Changesets maximum is the maximum number of combined nodes, ways and relations that can be contained in a
+#'   changeset.
+#' * The status element returns either ''online'', ''readonly'' or ''offline'' for each of the database, API and GPX
+#'   API. The database field is informational, and the API/GPX-API fields indicate whether a client should expect read
+#'   and write requests to work (''online''), only read requests to work (''readonly'') or no requests to work
+#'   (''offline'').
+#'
+#' Policy:
+#' * Imagery blacklist lists all aerial and map sources, which are not permitted for OSM usage due to copyright. Editors
+#'   must not show these resources as background layer.
+#'
+#'
+#' @return A list with the API capabilities and policies.
+#' @family API functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' osm_capabilities()
 osm_capabilities <- function() {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "capabilities")
+  req <- httr2::req_url_path(req, "api", "capabilities")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
+
+  api <- xml2::xml_contents(xml2::xml_child(obj_xml, search = "api"))
+  apiL <- structure(xml2::xml_attrs(api), names = xml2::xml_name(api))
+
+  policy <- xml2::xml_contents(xml2::xml_child(obj_xml, search = "policy"))
+  policyL <- lapply(policy, function(x) {
+    out <- lapply(xml2::xml_children(x), function(y) {
+      structure(xml2::xml_attrs(y), names = xml2::xml_name(y))
+    })
+
+    out
+  })
+  names(policyL) <- xml2::xml_name(policy)
+
+  return(list(api = apiL, policy = policyL))
 }
+
 
 ## Retrieving map data by bounding box: `GET /api/0.6/map` ----
 # The following command returns:
@@ -91,14 +148,14 @@ osm_capabilities <- function() {
 # * All ways that reference at least one node that is inside a given bounding box, any relations that reference them [the ways], and any nodes outside the bounding box that the ways may reference.
 # * All relations that reference one of the nodes, ways or relations included due to the above rules. (Does '''not''' apply recursively, see explanation below.)
 #
-#  GET /api/0.6/map?bbox=<span style="border:thin solid black">''left''</span>,<span style="border:thin solid black">''bottom''</span>,<span style="border:thin solid black">''right''</span>,<span style="border:thin solid black">''top''</span>
+#  GET /api/0.6/map?bbox='left','bottom','right','top'
 #
 # where:
 #
-# * <code><span style="border:thin solid black">''left''</span></code> is the longitude of the left (westernmost) side of the bounding box.
-# * <code><span style="border:thin solid black">''bottom''</span></code> is the latitude of the bottom (southernmost) side of the bounding box.
-# * <code><span style="border:thin solid black">''right''</span></code> is the longitude of the right (easternmost) side of the bounding box.
-# * <code><span style="border:thin solid black">''top''</span></code> is the latitude of the top (northernmost) side of the bounding box.
+# * <code>''left''</code> is the longitude of the left (westernmost) side of the bounding box.
+# * <code>''bottom''</code> is the latitude of the bottom (southernmost) side of the bounding box.
+# * <code>''right''</code> is the longitude of the right (easternmost) side of the bounding box.
+# * <code>''top''</code> is the latitude of the top (northernmost) side of the bounding box.
 #
 # Note that, while this command returns those relations that reference the aforementioned nodes and ways, the reverse is not true: it does not (necessarily) return all of the nodes and ways that are referenced by these relations. This prevents unreasonably-large result sets. For example, imagine the case where:
 # * There is a relation named "England" that references every node in England.
@@ -114,15 +171,52 @@ osm_capabilities <- function() {
 # ; HTTP status code 509 (Bandwidth Limit Exceeded)
 # : "Error:  You have downloaded too much data. Please try again later." See [[Developer FAQ#I've been blocked from the API for downloading too much. Now what?|Developer FAQ]].
 
-osm_permissions <- function() {
+#' Retrieve map data by bounding box
+#'
+#' The following command returns:
+#' * All nodes that are inside a given bounding box and any relations that reference them.
+#' * All ways that reference at least one node that is inside a given bounding box, any relations that reference them
+#'   \[the ways\], and any nodes outside the bounding box that the ways may reference.
+#' * All relations that reference one of the nodes, ways or relations included due to the above rules. (Does '''not'''
+#'   apply recursively, see explanation below.)
+#'
+#' @param bbox Coordinates for the area to retrieve the map data from (`left,bottom,right,top`).
+#'
+#' @details
+#' Note that, while this command returns those relations that reference the aforementioned nodes and ways, the reverse
+#' is not true: it does not (necessarily) return all of the nodes and ways that are referenced by these relations. This
+#' prevents unreasonably-large result sets. For example, imagine the case where:
+#' * There is a relation named "England" that references every node in England.
+#' * The nodes, ways, and relations are retrieved for a bounding box that covers a small portion of England.
+#' While the result would include the nodes, ways, and relations as specified by the rules for the command, including
+#' the "England" relation, it would (fortuitously) **not** include **every** node and way in England. If desired, the
+#' nodes and ways referenced by the "England" relation could be retrieved by their respective IDs.
+#'
+#' Also note that ways which intersect the bounding box but have no nodes within the bounding box will not be returned.
+#'
+#' @note
+#' For downloading data for purposes other than editing or exploring the history of the objects, perhaps is better to
+#' use the Overpass API. A similar function to download OSM objects using Overpass, is implemented in [osmdata::opq()].
+#'
+#' @return
+#' @family OSM objects' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' map_data <- osm_bbox_objects(bbox = c(3.2164192, 42.0389667, 3.2317829, 42.0547099))
+#' map_data
+osm_bbox_objects <- function(bbox) {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "map")
+  req <- httr2::req_url_query(req, bbox = paste(bbox, collapse = ","))
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }
 
 
@@ -183,4 +277,5 @@ osm_permissions <- function() {
   obj_xml <- httr2::resp_body_xml(resp)
 
   # cat(as.character(obj_xml))
+  return(obj_xml)
 }

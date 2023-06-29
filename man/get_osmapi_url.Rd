@@ -2,20 +2,20 @@
 % Please edit documentation in R/zzz.R
 \name{get_osmapi_url}
 \alias{get_osmapi_url}
-\title{get_osmapi_url}
+\title{Get current OSM API URL}
 \usage{
 get_osmapi_url()
 }
 \value{
-The OSM API URL
+the OSM API URL currently in use.
 }
 \description{
-Return the URL of the specified OSM API. Default is \url{https://api.openstreetmap.org/}.
+Return the URL of the currently specified OSM API. Default is \url{https://api.openstreetmap.org}.
 }
 \seealso{
-\code{\link[=set_osmapi_url]{set_osmapi_url()}}
-
-Other osmapi: 
+Other API functions: 
+\code{\link{osm_api_versions}()},
+\code{\link{osm_capabilities}()},
 \code{\link{set_osmapi_url}()}
 }
-\concept{osmapi}
+\concept{API functions}
