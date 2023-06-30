@@ -17,9 +17,8 @@ osm_api_versions()
 }
 \seealso{
 Other API functions: 
-\code{\link{get_osmapi_url}()},
 \code{\link{osm_capabilities}()},
-\code{\link{set_osmapi_url}()}
+\code{\link{set_osmapi_connection}()}
 
 Other GET calls: 
 \code{\link{osm_bbox_objects}()},

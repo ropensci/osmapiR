@@ -30,6 +30,6 @@ This is a basic example which shows you how to solve a common problem:
 library(osmapiR)
 #> Data (c) OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright
 
-# For testing without breaking the OSM data.
-set_osmapi_url("https://master.apis.dev.openstreetmap.org")
+# For testing without breaking the OSM data, make calls to `https://master.apis.dev.openstreetmap.org`
+set_osmapi_connection(server = "testing")
 ```
