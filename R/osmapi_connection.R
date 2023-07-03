@@ -87,3 +87,50 @@ set_osmapi_url <- function(osmapi_url) {
 
   invisible(osmapi_url)
 }
+
+
+#' Authenticate osmapiR
+#'
+#' Log in/out osmapiR.
+#'
+#' @details
+#' All functions that require authentication will trigger the log in if the session is not yet authenticated, so calling
+#' this function is not really needed. Use `authenticate_osmapi` to sign in before executing scripts that require
+#' authentication to avoid interruptions.
+#'
+#' @return For `authenticate_osmapi`, print the user and permissions of the connection and return invisibly the display
+#'   name of the logged user. `logout_osmapi` clear the OAuth2 token and can be useful to change user.
+#' @family API functions
+#' @rdname authenticate_osmapiR
+#' @export
+#'
+#' @examples
+#' authenticate_osmapi()
+authenticate_osmapi <- function() {
+  details <- osm_details_logged_user()
+  display_name <- details$user["display_name"]
+
+  perms <- osm_permissions()
+
+  message("Logged in as: ", display_name)
+  message("With the following permissions:")
+  message("\t", paste(perms, collapse = ", "))
+
+  invisible(display_name)
+}
+
+
+#' Log out osmapiR
+#'
+#' @rdname authenticate_osmapiR
+#' @export
+#'
+#' @examples
+#' logout_osmapi()
+logout_osmapi <- function() {
+  req <- httr2::request(base_url = get_osmapi_url())
+  req <- oauth_request(req)
+  req$policies$auth_oauth$cache$clear()
+
+  invisible()
+}

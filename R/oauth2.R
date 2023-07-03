@@ -18,6 +18,7 @@ oauth_client_osmapi <- function() {
   return(client)
 }
 
+
 oauth_request <- function(req) {
   auth_url <- httr2::req_url_path(
     req = httr2::request(base_url = getOption("osmapir.base_auth_url")),

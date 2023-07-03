@@ -50,7 +50,9 @@ set_osmapi_connection(server = "testing")
 }
 \seealso{
 Other API functions: 
+\code{\link{authenticate_osmapi}()},
 \code{\link{osm_api_versions}()},
-\code{\link{osm_capabilities}()}
+\code{\link{osm_capabilities}()},
+\code{\link{osm_permissions}()}
 }
 \concept{API functions}
