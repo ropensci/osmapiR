@@ -3,65 +3,34 @@
 .onLoad <- function(libname, pkgname) {
   op <- options()
 
-  if (!"osmapir.base_url" %in% names(op)) {
-    options(osmapir.base_url = "https://api.openstreetmap.org/")
+  if (!"osmapir.base_api_url" %in% names(op)) {
+    options(osmapir.base_api_url = "https://api.openstreetmap.org")
   }
+
+  if (!"osmapir.base_auth_url" %in% names(op)) {
+    options(osmapir.base_auth_url = "https://www.openstreetmap.org")
+  }
+
+  if (!"osmapir.oauth_id" %in% names(op)) {
+    options(osmapir.oauth_id = "cxMGJjSNnEGiKHAdp0pGq54XtQPTSyuTOu-nVJ4P6FE")
+  }
+
+  if (!"osmapir.oauth_secret" %in% names(op)) {
+    options(osmapir.oauth_secret = "L9o3QNmMC-rn8Hl6qcJrCpkty2QUCJPAWoiB2lIwawoZup_gfImaV9iUfGSZIeZSLP_s89qiFrbAH_Y")
+  }
+
+  if (!"osmapir.cache_authentication" %in% names(op)) {
+    options(osmapir.cache_authentication = FALSE)
+  }
+
   if (!"osmapir.api_version" %in% names(op)) {
     options(osmapir.api_version = "0.6")
   }
+
   invisible()
 }
 
 
 .onAttach <- function(libname, pkgname) {
   packageStartupMessage("Data (c) OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright")
-}
-
-
-#' Get current OSM API URL
-#'
-#' Return the URL of the currently specified OSM API. Default is <https://api.openstreetmap.org>.
-#'
-#' @return the OSM API URL currently in use.
-#'
-#' @family API functions
-#' @export
-get_osmapi_url <- function() {
-  op <- options()
-  if (!"osmapir.base_url" %in% names(op)) {
-    stop("OSM API url can not be retrieved")
-  }
-  options()$osmapir.base_url
-}
-
-
-#' Set OSM API URL
-#'
-#' Set the URL of the specified OSM API. By default `https://api.openstreetmap.org`.
-#'
-#' @param osmapi_url The desired API URL. By default, `https://api.openstreetmap.org`.
-#'
-#' @details
-#' When testing your software against the API you should consider using `https://master.apis.dev.openstreetmap.org`
-#' instead of the live-api. Your account for the live service is not in the same database, so you probably need a new
-#' username and password for the test service; please visit that page in a browser to sign up.
-#'
-#' For further details, see
-#' <https://wiki.openstreetmap.org/wiki/API_v0.6>
-#'
-#' @return The API URL
-#'
-#' @family API functions
-#' @export
-set_osmapi_url <- function(osmapi_url = "https://api.openstreetmap.org") {
-  # old_url <- get_osmapi_url()
-  options(osmapir.base_url = osmapi_url)
-
-  # st <- osmapi_status(quiet = TRUE)
-  # if (!"available" %in% names(st)) {
-  #   set_osmapi_url(old_url)
-  #   stop("osmapi_url not valid")
-  # }
-
-  invisible(osmapi_url)
 }

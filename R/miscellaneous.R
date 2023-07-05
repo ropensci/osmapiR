@@ -268,14 +268,44 @@ osm_bbox_objects <- function(bbox) {
 # * allow_write_gpx (upload GPS traces)
 # * allow_write_notes (modify notes)
 
+#' Retrieving permissions
+#'
+#' Returns the permissions granted to the current API connection.
+#'
+#' @details
+#' Currently the following permissions can appear in the result, corresponding directly to the ones used in the OAuth
+#' 1.0a application definition:
+#' * allow_read_prefs (read user preferences)
+#' * allow_write_prefs (modify user preferences)
+#' * allow_write_diary (create diary entries, comments and make friends)
+#' * allow_write_api (modify the map)
+#' * allow_read_gpx (read private GPS traces)
+#' * allow_write_gpx (upload GPS traces)
+#' * allow_write_notes (modify notes)
+#'
+#'
+#' @note For compatibility reasons, all OAuth 2.0 scopes will be prefixed by "allow_", e.g. scope "read_prefs" will be
+#'   shown as permission "allow_read_prefs".
+#'
+#' @return If the API client is not authorized, an empty list of permissions will be returned. Otherwise, the list will
+#'   be based on the granted scopes of the logged user.
+#' @family API functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' perms <- osm_permissions()
+#' perms
 osm_permissions <- function() {
-  req <- osmapi_request()
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "permissions")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  perms <- xml2::xml_find_all(obj_xml, xpath = ".//permission")
+  perms <- xml2::xml_attr(perms, "name")
+
+  return(perms)
 }

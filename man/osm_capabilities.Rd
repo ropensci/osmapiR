@@ -39,13 +39,15 @@ osm_capabilities()
 }
 \seealso{
 Other API functions: 
-\code{\link{get_osmapi_url}()},
+\code{\link{authenticate_osmapi}()},
 \code{\link{osm_api_versions}()},
-\code{\link{set_osmapi_url}()}
+\code{\link{osm_permissions}()},
+\code{\link{set_osmapi_connection}()}
 
 Other GET calls: 
 \code{\link{osm_api_versions}()},
 \code{\link{osm_bbox_objects}()},
+\code{\link{osm_details_logged_user}()},
 \code{\link{osm_details_users}()},
 \code{\link{osm_details_user}()},
 \code{\link{osm_download_changeset}()},
@@ -56,6 +58,7 @@ Other GET calls:
 \code{\link{osm_get_metadata_gpx}()},
 \code{\link{osm_get_points_gps}()},
 \code{\link{osm_history_object}()},
+\code{\link{osm_permissions}()},
 \code{\link{osm_query_changesets}()},
 \code{\link{osm_read_bbox_notes}()},
 \code{\link{osm_read_changeset}()},
