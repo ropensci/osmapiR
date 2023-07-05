@@ -14,8 +14,10 @@ names).}
 Details of multiple users
 }
 \examples{
+\dontrun{
 usrs <- osm_details_users(user_id = c(1, 24, 44, 45, 46, 48, 49, 50))
 usrs
+}
 }
 \seealso{
 Other users' functions: 

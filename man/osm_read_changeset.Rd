@@ -25,8 +25,10 @@ this changeset. To access this information use \code{\link[=osm_download_changes
 }
 }
 \examples{
+\dontrun{
 chaset <- osm_read_changeset(changeset_id = 137595351, include_discussion = TRUE)
 chaset
+}
 }
 \seealso{
 Other changesets' functions: 

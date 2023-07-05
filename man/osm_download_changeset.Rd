@@ -21,8 +21,10 @@ Returns the \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange} docu
 }
 }
 \examples{
+\dontrun{
 chaset <- osm_download_changeset(changeset_id = 137003062)
 chaset
+}
 }
 \seealso{
 Other changesets' functions: 

@@ -22,8 +22,10 @@ this function is not really needed. Use \code{authenticate_osmapi} to sign in be
 authentication to avoid interruptions.
 }
 \examples{
+\dontrun{
 authenticate_osmapi()
 logout_osmapi()
+}
 }
 \seealso{
 Other API functions: 

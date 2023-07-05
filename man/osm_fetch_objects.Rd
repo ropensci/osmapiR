@@ -26,6 +26,7 @@ use the Overpass API. A similar function to download OSM objects by \code{type} 
 \code{\link[osmdata:opq_osm_id]{osmdata::opq_osm_id()}}.
 }
 \examples{
+\dontrun{
 node <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367))
 node
 
@@ -35,6 +36,7 @@ way
 # Specific versions
 rel <- osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1))
 rel
+}
 }
 \seealso{
 Other OSM objects' functions: 

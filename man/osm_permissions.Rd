@@ -31,8 +31,10 @@ For compatibility reasons, all OAuth 2.0 scopes will be prefixed by "allow_", e.
 shown as permission "allow_read_prefs".
 }
 \examples{
+\dontrun{
 perms <- osm_permissions()
 perms
+}
 }
 \seealso{
 Other API functions: 

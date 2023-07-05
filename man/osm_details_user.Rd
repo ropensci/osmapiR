@@ -13,8 +13,10 @@ osm_details_user(user_id)
 Details of a user
 }
 \examples{
+\dontrun{
 usr <- osm_details_user(user_id = "11725140")
 usr
+}
 }
 \seealso{
 Other users' functions: 

@@ -14,8 +14,10 @@ Use this to access the metadata about a GPX file. Available without authenticati
 Otherwise only usable by the owner account and requires authentication.
 }
 \examples{
-# trk_meta <- osm_get_metadata_gpx(gpx_id = 3498170)
-# trk_meta
+\dontrun{
+trk_meta <- osm_get_metadata_gpx(gpx_id = 3498170)
+trk_meta
+}
 }
 \seealso{
 Other GPS' functions: 

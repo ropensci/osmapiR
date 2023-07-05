@@ -15,6 +15,7 @@ osm_read_object(osm_type = c("node", "way", "relation"), osm_id)
 Returns the representation of an object from OSM.
 }
 \examples{
+\dontrun{
 node <- osm_read_object(osm_type = "node", osm_id = 35308286)
 node
 
@@ -23,6 +24,7 @@ way
 
 rel <- osm_read_object(osm_type = "relation", osm_id = "40581")
 rel
+}
 }
 \seealso{
 Other OSM objects' functions: 

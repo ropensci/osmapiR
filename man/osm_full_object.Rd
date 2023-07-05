@@ -32,11 +32,13 @@ use the Overpass API. A similar function to download OSM objects by \code{type} 
 \code{\link[osmdata:opq_osm_id]{osmdata::opq_osm_id()}}.
 }
 \examples{
+\dontrun{
 way <- osm_full_object(osm_type = "way", osm_id = 13073736)
 way
 
 rel <- osm_full_object(osm_type = "relation", osm_id = "40581")
 rel
+}
 }
 \seealso{
 Other OSM objects' functions: 

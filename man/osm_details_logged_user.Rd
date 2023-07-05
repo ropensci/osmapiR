@@ -13,8 +13,10 @@ A list with the user details.
 You can get the home location, the display name of the user and other details.
 }
 \examples{
+\dontrun{
 usr_details <- osm_details_logged_user()
 usr_details
+}
 }
 \seealso{
 Other users' functions: 

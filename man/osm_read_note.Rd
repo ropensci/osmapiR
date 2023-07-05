@@ -15,8 +15,10 @@ osm_read_note(note_id, format = c("xml", "rss", "json", "gpx"))
 Returns the existing note with the given ID.
 }
 \examples{
+\dontrun{
 note <- osm_read_note(note_id = "2067786")
 note
+}
 }
 \seealso{
 Other notes' functions: 

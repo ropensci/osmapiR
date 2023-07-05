@@ -43,6 +43,7 @@ Te valid formats for \code{time} and \code{time_2} parameters are anything that
 is \verb{-4712-01-01T00:00:00+00:00}; this is Julian Day Number day 0.
 }
 \examples{
+\dontrun{
 chst_ids <- osm_query_changesets(changeset_ids = c(137627129, 137625624))
 chst_ids
 
@@ -60,6 +61,7 @@ chsts2 <- osm_query_changesets(
   closed = TRUE
 )
 chsts2
+}
 }
 \seealso{
 Other changesets' functions: 

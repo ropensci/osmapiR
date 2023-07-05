@@ -123,6 +123,7 @@ osm_create_object <- function(osm_type = c("node", "way", "relation"), ...) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' node <- osm_read_object(osm_type = "node", osm_id = 35308286)
 #' node
 #'
@@ -131,6 +132,7 @@ osm_create_object <- function(osm_type = c("node", "way", "relation"), ...) {
 #'
 #' rel <- osm_read_object(osm_type = "relation", osm_id = "40581")
 #' rel
+#' }
 osm_read_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
   osm_type <- match.arg(osm_type)
 
@@ -277,6 +279,7 @@ osm_delete_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' node <- osm_history_object(osm_type = "node", osm_id = 35308286)
 #' node
 #'
@@ -285,6 +288,7 @@ osm_delete_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
 #'
 #' rel <- osm_history_object(osm_type = "relation", osm_id = "40581")
 #' rel
+#' }
 osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
   osm_type <- match.arg(osm_type)
 
@@ -323,6 +327,7 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id) 
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' node <- osm_version_object(osm_type = "node", osm_id = 35308286, version = 1)
 #' node
 #'
@@ -331,6 +336,7 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id) 
 #'
 #' rel <- osm_version_object(osm_type = "relation", osm_id = "40581", version = 3)
 #' rel
+#' }
 osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, version) {
   osm_type <- match.arg(osm_type)
 
@@ -384,6 +390,7 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' node <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367))
 #' node
 #'
@@ -393,6 +400,7 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' # Specific versions
 #' rel <- osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1))
 #' rel
+#' }
 osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_ids, versions) {
   osm_type <- match.arg(osm_type)
 
@@ -540,11 +548,13 @@ osm_ways_node <- function(node_id) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' way <- osm_full_object(osm_type = "way", osm_id = 13073736)
 #' way
 #'
 #' rel <- osm_full_object(osm_type = "relation", osm_id = "40581")
 #' rel
+#' }
 osm_full_object <- function(osm_type = c("way", "relation"), osm_id) {
   osm_type <- match.arg(osm_type)
 

@@ -188,8 +188,10 @@ osm_delete_gpx <- function(gpx_id) {
 #' @export
 #'
 #' @examples
-#' # trk_meta <- osm_get_metadata_gpx(gpx_id = 3498170)
-#' # trk_meta
+#' \dontrun{
+#' trk_meta <- osm_get_metadata_gpx(gpx_id = 3498170)
+#' trk_meta
+#' }
 osm_get_metadata_gpx <- function(gpx_id) {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")

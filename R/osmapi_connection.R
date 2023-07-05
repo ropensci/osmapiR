@@ -105,7 +105,10 @@ set_osmapi_url <- function(osmapi_url) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' authenticate_osmapi()
+#' logout_osmapi()
+#' }
 authenticate_osmapi <- function() {
   details <- osm_details_logged_user()
   display_name <- details$user["display_name"]
@@ -124,9 +127,6 @@ authenticate_osmapi <- function() {
 #'
 #' @rdname authenticate_osmapiR
 #' @export
-#'
-#' @examples
-#' logout_osmapi()
 logout_osmapi <- function() {
   req <- httr2::request(base_url = get_osmapi_url())
   req <- oauth_request(req)

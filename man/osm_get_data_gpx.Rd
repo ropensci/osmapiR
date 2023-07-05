@@ -22,8 +22,10 @@ If you request refers to a multi-file archive the response when you force gpx or
 non-standard simple concatenation of the files.
 }
 \examples{
-# trk_data <- osm_get_data_gpx(gpx_id = 3498170)
-# trk_data
+\dontrun{
+trk_data <- osm_get_data_gpx(gpx_id = 3498170)
+trk_data
+}
 }
 \seealso{
 Other GPS' functions: 

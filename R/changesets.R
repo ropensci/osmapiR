@@ -158,8 +158,10 @@ osm_create_changeset <- function() {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' chaset <- osm_read_changeset(changeset_id = 137595351, include_discussion = TRUE)
 #' chaset
+#' }
 osm_read_changeset <- function(changeset_id, include_discussion = FALSE) {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
@@ -293,8 +295,10 @@ osm_close_changeset <- function(changeset_id) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' chaset <- osm_download_changeset(changeset_id = 137003062)
 #' chaset
+#' }
 osm_download_changeset <- function(changeset_id) {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
@@ -389,6 +393,7 @@ osm_download_changeset <- function(changeset_id) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' chst_ids <- osm_query_changesets(changeset_ids = c(137627129, 137625624))
 #' chst_ids
 #'
@@ -406,6 +411,7 @@ osm_download_changeset <- function(changeset_id) {
 #'   closed = TRUE
 #' )
 #' chsts2
+#' }
 osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changeset_ids) {
   if (missing(bbox)) {
     bbox <- NULL

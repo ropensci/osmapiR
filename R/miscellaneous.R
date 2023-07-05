@@ -294,8 +294,10 @@ osm_bbox_objects <- function(bbox) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' perms <- osm_permissions()
 #' perms
+#' }
 osm_permissions <- function() {
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")

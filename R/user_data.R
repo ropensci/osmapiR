@@ -51,8 +51,10 @@
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' usr <- osm_details_user(user_id = "11725140")
 #' usr
+#' }
 osm_details_user <- function(user_id) {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
@@ -128,8 +130,10 @@ osm_details_user <- function(user_id) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' usrs <- osm_details_users(user_id = c(1, 24, 44, 45, 46, 48, 49, 50))
 #' usrs
+#' }
 osm_details_users <- function(user_ids) {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
@@ -215,8 +219,10 @@ osm_details_users <- function(user_ids) {
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' usr_details <- osm_details_logged_user()
 #' usr_details
+#' }
 osm_details_logged_user <- function() {
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")

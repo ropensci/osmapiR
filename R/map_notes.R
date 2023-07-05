@@ -170,8 +170,10 @@ osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("xml",
 #' @export
 #'
 #' @examples
+#' \dontrun{
 #' note <- osm_read_note(note_id = "2067786")
 #' note
+#' }
 osm_read_note <- function(note_id, format = c("xml", "rss", "json", "gpx")) {
   format <- match.arg(format)
   note_id <- paste0(note_id, ".", format)
