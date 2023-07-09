@@ -15,7 +15,7 @@ Details of multiple users
 }
 \examples{
 \dontrun{
-usrs <- osm_details_users(user_id = c(1, 24, 44, 45, 46, 48, 49, 50))
+usrs <- osm_details_users(user_ids = c(1, 24, 44, 45, 46, 48, 49, 50))
 usrs
 }
 }
@@ -38,6 +38,7 @@ Other GET calls:
 \code{\link{osm_get_metadata_gpx}()},
 \code{\link{osm_get_points_gps}()},
 \code{\link{osm_history_object}()},
+\code{\link{osm_list_gpxs}()},
 \code{\link{osm_permissions}()},
 \code{\link{osm_query_changesets}()},
 \code{\link{osm_read_bbox_notes}()},

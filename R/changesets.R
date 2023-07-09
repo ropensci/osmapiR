@@ -568,7 +568,7 @@ osm_diff_upload_changeset <- function(changeset_id) {
 ## Changeset summary ----
 #
 # The procedure for successful creation of a changeset is summarized in the following picture.
-#
+# https://wiki.openstreetmap.org/wiki/API_v0.6#Changeset_summary
 # ''Note that the picture demonstrates single object operations to create/update/delete elements as per API 0.5. For performance reasons, API users are advised to use the API 0.6 diff upload endpoint instead.''
 #
 # [[Image:OSM API0.6 Changeset successful creation V0.1.png|600px]]

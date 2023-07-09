@@ -9,6 +9,8 @@ Maintainer: Joan Maspons <joanmaspons@gmail.com>
 Description: Implements OpenStreetMap API v0.6
     (<https://wiki.openstreetmap.org/wiki/API_v0.6>).
 License: GPL (>= 3)
+URL: https://jmaspons.github.io/osmapiR https://github.com/jmaspons/osmapiR
+BugReports: https://github.com/jmaspons/osmapiR/issues
 Imports: 
     httr2,
     xml2

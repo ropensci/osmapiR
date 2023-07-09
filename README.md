@@ -12,6 +12,12 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 Implements [OpenStreetMap
 API](https://wiki.openstreetmap.org/wiki/API_v0.6) for R.
 
+## Status
+
+All `GET` calls implemented, also the ones requiring authentication. The
+server responses are parsed and transformed to `data.frame`s. The format
+of the returned values still can change a bit.
+
 ## Installation
 
 You can install the development version of osmapiR from

@@ -204,7 +204,9 @@ osm_capabilities <- function() {
 #' @export
 #'
 #' @examples
-#' map_data <- osm_bbox_objects(bbox = c(3.2164192, 42.0389667, 3.2317829, 42.0547099))
+#' map_data <- osm_bbox_objects(bbox = c(1.8366775, 41.8336843, 1.8379971, 41.8344537))
+#' ## bbox as a character value also works. Equivalent call:
+#' # map_data <- osm_bbox_objects(bbox = "1.8366775,41.8336843,1.8379971,41.8344537")
 #' map_data
 osm_bbox_objects <- function(bbox) {
   req <- osmapi_request()

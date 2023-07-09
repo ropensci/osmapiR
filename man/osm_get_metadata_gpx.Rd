@@ -22,7 +22,8 @@ trk_meta
 \seealso{
 Other GPS' functions: 
 \code{\link{osm_get_data_gpx}()},
-\code{\link{osm_get_points_gps}()}
+\code{\link{osm_get_points_gps}()},
+\code{\link{osm_list_gpxs}()}
 
 Other GET calls: 
 \code{\link{osm_api_versions}()},
@@ -38,6 +39,7 @@ Other GET calls:
 \code{\link{osm_get_data_gpx}()},
 \code{\link{osm_get_points_gps}()},
 \code{\link{osm_history_object}()},
+\code{\link{osm_list_gpxs}()},
 \code{\link{osm_permissions}()},
 \code{\link{osm_query_changesets}()},
 \code{\link{osm_read_bbox_notes}()},

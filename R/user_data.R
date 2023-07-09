@@ -1,5 +1,6 @@
 ## Methods for user data
-#
+
+
 ## Details of a user: `GET /api/0.6/user/#id` ----
 # This API method was added in September 2012 ([https://github.com/openstreetmap/openstreetmap-website/commit/3ce4de1295ecec082313740a3cdf25c2831164f7 code]).
 #
@@ -132,7 +133,7 @@ osm_details_user <- function(user_id) {
 #'
 #' @examples
 #' \dontrun{
-#' usrs <- osm_details_users(user_id = c(1, 24, 44, 45, 46, 48, 49, 50))
+#' usrs <- osm_details_users(user_ids = c(1, 24, 44, 45, 46, 48, 49, 50))
 #' usrs
 #' }
 osm_details_users <- function(user_ids) {
@@ -310,7 +311,7 @@ osm_details_logged_user <- function() {
 #  DELETE /api/0.6/user/preferences/[your_key]
 
 osm_preferences_user <- function() {
-  req <- osmapi_request()
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "user", "preferences")
 

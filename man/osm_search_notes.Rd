@@ -13,7 +13,7 @@ osm_search_notes(
   sort = c("updated_at", "created_at"),
   order = c("newest", "oldest"),
   limit = 100,
-  format = c("xml", "rss", "json", "gpx")
+  format = c("data.frame", "xml", "rss", "json", "gpx")
 )
 }
 \arguments{
@@ -39,7 +39,7 @@ descending (\code{newest}, the default) order.}
 \item{limit}{Specifies the number of entries returned at max. A value of between 1 and 10000 is valid.    100 is the
 default.}
 
-\item{format}{Format of the the returned list of notes. Can be \code{xml} (default), \code{rss}, \code{json} or \code{gpx}.}
+\item{format}{Format of the the returned list of notes. Can be \code{data.frame} (default), \code{xml}, \code{rss}, \code{json} or \code{gpx}.}
 }
 \description{
 Returns the existing notes matching either the initial note text or any of the comments.
@@ -76,6 +76,7 @@ Other GET calls:
 \code{\link{osm_get_metadata_gpx}()},
 \code{\link{osm_get_points_gps}()},
 \code{\link{osm_history_object}()},
+\code{\link{osm_list_gpxs}()},
 \code{\link{osm_permissions}()},
 \code{\link{osm_query_changesets}()},
 \code{\link{osm_read_bbox_notes}()},

@@ -38,7 +38,9 @@ For downloading data for purposes other than editing or exploring the history of
 use the Overpass API. A similar function to download OSM objects using Overpass, is implemented in \code{\link[osmdata:opq]{osmdata::opq()}}.
 }
 \examples{
-map_data <- osm_bbox_objects(bbox = c(3.2164192, 42.0389667, 3.2317829, 42.0547099))
+map_data <- osm_bbox_objects(bbox = c(1.8366775, 41.8336843, 1.8379971, 41.8344537))
+## bbox as a character value also works. Equivalent call:
+# map_data <- osm_bbox_objects(bbox = "1.8366775,41.8336843,1.8379971,41.8344537")
 map_data
 }
 \seealso{
@@ -65,6 +67,7 @@ Other GET calls:
 \code{\link{osm_get_metadata_gpx}()},
 \code{\link{osm_get_points_gps}()},
 \code{\link{osm_history_object}()},
+\code{\link{osm_list_gpxs}()},
 \code{\link{osm_permissions}()},
 \code{\link{osm_query_changesets}()},
 \code{\link{osm_read_bbox_notes}()},

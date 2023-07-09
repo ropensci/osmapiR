@@ -28,12 +28,15 @@ time, before the waypoints of non-trackable traces.
 }
 \examples{
 pts_gps <- osm_get_points_gps(bbox = c(-0.3667545, 40.2153246, -0.3354263, 40.2364915))
+## bbox as a character value also works. Equivalent call:
+# pts_gps <- osm_get_points_gps(bbox = "-0.3667545,40.2153246,-0.3354263,40.2364915")
 pts_gps
 }
 \seealso{
 Other GPS' functions: 
 \code{\link{osm_get_data_gpx}()},
-\code{\link{osm_get_metadata_gpx}()}
+\code{\link{osm_get_metadata_gpx}()},
+\code{\link{osm_list_gpxs}()}
 
 Other GET calls: 
 \code{\link{osm_api_versions}()},
@@ -49,6 +52,7 @@ Other GET calls:
 \code{\link{osm_get_data_gpx}()},
 \code{\link{osm_get_metadata_gpx}()},
 \code{\link{osm_history_object}()},
+\code{\link{osm_list_gpxs}()},
 \code{\link{osm_permissions}()},
 \code{\link{osm_query_changesets}()},
 \code{\link{osm_read_bbox_notes}()},

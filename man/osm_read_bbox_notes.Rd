@@ -8,7 +8,7 @@ osm_read_bbox_notes(
   bbox,
   limit = 100,
   closed = 7,
-  format = c("xml", "rss", "json", "gpx")
+  format = c("data.frame", "xml", "rss", "json", "gpx")
 )
 }
 \arguments{
@@ -21,7 +21,7 @@ overlapping the dateline.}
 \item{closed}{Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
 only open notes are returned. A value of -1 means all notes are returned. Default to 7.}
 
-\item{format}{Format of the output. Can be \code{xml} (default), \code{rss}, \code{json} or \code{gpx}.}
+\item{format}{Format of the output. Can be \code{data.frame} (default), \code{xml}, \code{rss}, \code{json} or \code{gpx}.}
 }
 \description{
 Returns the existing notes in the specified bounding box. The notes will be ordered by the date of their last change,
@@ -32,7 +32,7 @@ The comment properties (\code{uid}, \code{user}, \code{user_url}) will be omitte
 }
 \examples{
 notes <- osm_read_bbox_notes(bbox = c(3.7854767, 39.7837403, 4.3347931, 40.1011851), limit = 10)
-# bbox as a character value also works. Equivalent call:
+## bbox as a character value also works. Equivalent call:
 # osm_read_bbox_notes(bbox = "3.7854767,39.7837403,4.3347931,40.1011851", limit = 10)
 notes
 }
@@ -57,6 +57,7 @@ Other GET calls:
 \code{\link{osm_get_metadata_gpx}()},
 \code{\link{osm_get_points_gps}()},
 \code{\link{osm_history_object}()},
+\code{\link{osm_list_gpxs}()},
 \code{\link{osm_permissions}()},
 \code{\link{osm_query_changesets}()},
 \code{\link{osm_read_changeset}()},

@@ -15,7 +15,7 @@ RSS Feed of notes in a bbox
 }
 \examples{
 feed_notes <- osm_feed_notes(bbox = c(0.8205414, 40.6686604, 0.8857727, 40.7493377))
-# bbox as a character value also works. Equivalent call:
+## bbox as a character value also works. Equivalent call:
 # feed_notes <- osm_feed_notes(bbox = "0.8205414,40.6686604,0.8857727,40.7493377")
 feed_notes
 }
@@ -39,6 +39,7 @@ Other GET calls:
 \code{\link{osm_get_metadata_gpx}()},
 \code{\link{osm_get_points_gps}()},
 \code{\link{osm_history_object}()},
+\code{\link{osm_list_gpxs}()},
 \code{\link{osm_permissions}()},
 \code{\link{osm_query_changesets}()},
 \code{\link{osm_read_bbox_notes}()},

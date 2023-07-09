@@ -4,12 +4,12 @@
 \alias{osm_read_note}
 \title{Read notes}
 \usage{
-osm_read_note(note_id, format = c("xml", "rss", "json", "gpx"))
+osm_read_note(note_id, format = c("data.frame", "xml", "rss", "json", "gpx"))
 }
 \arguments{
 \item{note_id}{Note id represented by a numeric or a character value.}
 
-\item{format}{Format of the output. Can be \code{xml} (default), \code{rss}, \code{json} or \code{gpx}.}
+\item{format}{Format of the output. Can be \code{data.frame} (default), \code{xml}, \code{rss}, \code{json} or \code{gpx}.}
 }
 \description{
 Returns the existing note with the given ID.
@@ -41,6 +41,7 @@ Other GET calls:
 \code{\link{osm_get_metadata_gpx}()},
 \code{\link{osm_get_points_gps}()},
 \code{\link{osm_history_object}()},
+\code{\link{osm_list_gpxs}()},
 \code{\link{osm_permissions}()},
 \code{\link{osm_query_changesets}()},
 \code{\link{osm_read_bbox_notes}()},
