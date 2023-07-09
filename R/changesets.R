@@ -175,8 +175,9 @@ osm_read_changeset <- function(changeset_id, include_discussion = FALSE) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- changeset_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -479,8 +480,9 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- changeset_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
