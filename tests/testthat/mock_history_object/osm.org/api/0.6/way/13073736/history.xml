@@ -1,0 +1,909 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <way id="13073736" visible="true" version="1" changeset="545236" timestamp="2007-11-17T22:30:37Z" user="ivansanchez" uid="5265">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="120303605"/>
+  <nd ref="120303622"/>
+  <nd ref="120303691"/>
+  <nd ref="120303696"/>
+  <nd ref="120303660"/>
+  <nd ref="120303711"/>
+  <nd ref="120303707"/>
+  <nd ref="120303652"/>
+  <nd ref="120303612"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="120303686"/>
+  <nd ref="120303601"/>
+  <nd ref="120303676"/>
+  <tag k="created_by" v="Potlatch alpha"/>
+  <tag k="historic" v="castle"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="tourism" v="attraction"/>
+ </way>
+ <way id="13073736" visible="true" version="2" changeset="270381" timestamp="2007-12-12T11:13:02Z" user="jgui" uid="8016">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="120303605"/>
+  <nd ref="120303622"/>
+  <nd ref="120303691"/>
+  <nd ref="120303696"/>
+  <nd ref="120303660"/>
+  <nd ref="120303711"/>
+  <nd ref="120303707"/>
+  <nd ref="120303652"/>
+  <nd ref="120303612"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="120303686"/>
+  <nd ref="120303601"/>
+  <nd ref="120303676"/>
+  <tag k="building" v="tower"/>
+  <tag k="created_by" v="Potlatch alpha"/>
+ </way>
+ <way id="13073736" visible="true" version="3" changeset="9724157" timestamp="2011-11-02T17:55:59Z" user="morsi" uid="139580">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="120303605"/>
+  <nd ref="120303622"/>
+  <nd ref="120303691"/>
+  <nd ref="120303696"/>
+  <nd ref="120303660"/>
+  <nd ref="120303711"/>
+  <nd ref="120303707"/>
+  <nd ref="120303652"/>
+  <nd ref="120303612"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="120303686"/>
+  <nd ref="120303601"/>
+  <nd ref="120303676"/>
+  <tag k="building" v="tower"/>
+  <tag k="historic" v="tower"/>
+  <tag k="name" v="Torres de Quart"/>
+ </way>
+ <way id="13073736" visible="true" version="4" changeset="12745372" timestamp="2012-08-15T23:09:48Z" user="rubensd" uid="472193">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="120303605"/>
+  <nd ref="120303622"/>
+  <nd ref="120303691"/>
+  <nd ref="120303696"/>
+  <nd ref="120303660"/>
+  <nd ref="120303711"/>
+  <nd ref="120303707"/>
+  <nd ref="120303652"/>
+  <nd ref="120303612"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="120303686"/>
+  <nd ref="120303601"/>
+  <nd ref="120303676"/>
+  <tag k="building" v="tower"/>
+  <tag k="historic" v="tower"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="tourism" v="attraction"/>
+ </way>
+ <way id="13073736" visible="true" version="5" changeset="16749437" timestamp="2013-06-29T10:06:43Z" user="pere prlpz" uid="1513644">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="120303605"/>
+  <nd ref="120303622"/>
+  <nd ref="120303691"/>
+  <nd ref="120303696"/>
+  <nd ref="120303660"/>
+  <nd ref="120303711"/>
+  <nd ref="120303707"/>
+  <nd ref="120303652"/>
+  <nd ref="120303612"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="120303686"/>
+  <nd ref="120303601"/>
+  <nd ref="120303676"/>
+  <tag k="building" v="tower"/>
+  <tag k="historic" v="tower"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="tourism" v="attraction"/>
+  <tag k="wikipedia" v="ca:Porta de Quart"/>
+ </way>
+ <way id="13073736" visible="true" version="6" changeset="24765034" timestamp="2014-08-15T11:27:50Z" user="qientx" uid="2258523">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="3017814863"/>
+  <nd ref="3017814862"/>
+  <nd ref="120303605"/>
+  <nd ref="120303622"/>
+  <nd ref="120303691"/>
+  <nd ref="120303696"/>
+  <nd ref="120303660"/>
+  <nd ref="120303711"/>
+  <nd ref="120303707"/>
+  <nd ref="120303652"/>
+  <nd ref="120303612"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="120303686"/>
+  <nd ref="120303601"/>
+  <nd ref="120303676"/>
+  <tag k="building" v="tower"/>
+  <tag k="historic" v="tower"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="tourism" v="attraction"/>
+  <tag k="wikipedia" v="ca:Porta de Quart"/>
+ </way>
+ <way id="13073736" visible="true" version="7" changeset="35855685" timestamp="2015-12-09T22:11:41Z" user="gorogoro" uid="2937174">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="3017814863"/>
+  <nd ref="3017814862"/>
+  <nd ref="120303605"/>
+  <nd ref="120303622"/>
+  <nd ref="120303691"/>
+  <nd ref="120303696"/>
+  <nd ref="120303660"/>
+  <nd ref="120303711"/>
+  <nd ref="120303707"/>
+  <nd ref="120303652"/>
+  <nd ref="120303612"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="120303686"/>
+  <nd ref="120303601"/>
+  <nd ref="120303676"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="tower"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="tourism" v="attraction"/>
+  <tag k="wikipedia" v="ca:Porta de Quart"/>
+ </way>
+ <way id="13073736" visible="true" version="8" changeset="44486884" timestamp="2016-12-18T10:12:22Z" user="Леонид Библис" uid="4979200">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="3017814863"/>
+  <nd ref="3017814862"/>
+  <nd ref="120303605"/>
+  <nd ref="120303622"/>
+  <nd ref="120303691"/>
+  <nd ref="120303696"/>
+  <nd ref="120303660"/>
+  <nd ref="120303711"/>
+  <nd ref="120303707"/>
+  <nd ref="120303652"/>
+  <nd ref="120303612"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="120303686"/>
+  <nd ref="120303601"/>
+  <nd ref="120303676"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="tower"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:ru" v="Башни Кварт"/>
+  <tag k="tourism" v="attraction"/>
+  <tag k="wikipedia" v="ca:Porta de Quart"/>
+ </way>
+ <way id="13073736" visible="true" version="9" changeset="49340277" timestamp="2017-06-07T15:51:46Z" user="Marion_Moseby" uid="5379200">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="3017814863"/>
+  <nd ref="3017814862"/>
+  <nd ref="4902243082"/>
+  <nd ref="120303605"/>
+  <nd ref="120303622"/>
+  <nd ref="120303691"/>
+  <nd ref="120303696"/>
+  <nd ref="120303660"/>
+  <nd ref="120303711"/>
+  <nd ref="120303707"/>
+  <nd ref="120303652"/>
+  <nd ref="120303612"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="120303686"/>
+  <nd ref="120303601"/>
+  <nd ref="120303676"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="tower"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:ru" v="Башни Кварт"/>
+  <tag k="tourism" v="attraction"/>
+  <tag k="wikipedia" v="ca:Porta de Quart"/>
+ </way>
+ <way id="13073736" visible="true" version="10" changeset="55126121" timestamp="2018-01-03T11:23:29Z" user="av223119" uid="190711">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="3017814863"/>
+  <nd ref="3017814862"/>
+  <nd ref="4902243082"/>
+  <nd ref="120303605"/>
+  <nd ref="120303622"/>
+  <nd ref="120303691"/>
+  <nd ref="120303696"/>
+  <nd ref="120303660"/>
+  <nd ref="120303711"/>
+  <nd ref="120303707"/>
+  <nd ref="120303652"/>
+  <nd ref="120303612"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="120303686"/>
+  <nd ref="120303601"/>
+  <nd ref="120303676"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="tower"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:ru" v="Башни Кварт"/>
+  <tag k="tourism" v="attraction"/>
+  <tag k="wikidata" v="Q2343754"/>
+  <tag k="wikipedia" v="ca:Porta de Quart"/>
+ </way>
+ <way id="13073736" visible="true" version="11" changeset="63379426" timestamp="2018-10-10T12:39:54Z" user="Baxe Nafarroa" uid="6672338">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="3017814863"/>
+  <nd ref="3017814862"/>
+  <nd ref="4902243082"/>
+  <nd ref="120303605"/>
+  <nd ref="120303622"/>
+  <nd ref="120303691"/>
+  <nd ref="120303696"/>
+  <nd ref="120303660"/>
+  <nd ref="120303711"/>
+  <nd ref="120303707"/>
+  <nd ref="120303652"/>
+  <nd ref="120303612"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="120303686"/>
+  <nd ref="120303601"/>
+  <nd ref="120303676"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="city_gate"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:ru" v="Башни Кварт"/>
+  <tag k="wikidata" v="Q2343754"/>
+  <tag k="wikipedia" v="ca:Porta de Quart"/>
+ </way>
+ <way id="13073736" visible="true" version="12" changeset="74075591" timestamp="2019-09-04T09:57:46Z" user="homocomputeris" uid="3777620">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="4902243082"/>
+  <nd ref="120303605"/>
+  <nd ref="6771540806"/>
+  <nd ref="6771540805"/>
+  <nd ref="6771540804"/>
+  <nd ref="6771540812"/>
+  <nd ref="120303622"/>
+  <nd ref="6771540807"/>
+  <nd ref="6771540811"/>
+  <nd ref="120303691"/>
+  <nd ref="6771540808"/>
+  <nd ref="6771540810"/>
+  <nd ref="6771540809"/>
+  <nd ref="120303660"/>
+  <nd ref="6771540793"/>
+  <nd ref="120303711"/>
+  <nd ref="6771540796"/>
+  <nd ref="6771540801"/>
+  <nd ref="6771540797"/>
+  <nd ref="6771540795"/>
+  <nd ref="120303652"/>
+  <nd ref="6771540794"/>
+  <nd ref="6771540799"/>
+  <nd ref="6771540800"/>
+  <nd ref="6771540798"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="6771540802"/>
+  <nd ref="6771540803"/>
+  <nd ref="6771540792"/>
+  <nd ref="120303676"/>
+  <tag k="alt_name:ca" v="Torres de Quart"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="city_gate"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:ca" v="Porta de Quart"/>
+  <tag k="name:es" v="Torres de Cuarte"/>
+  <tag k="name:ru" v="Башни Куарта"/>
+  <tag k="wikidata" v="Q2343754"/>
+  <tag k="wikipedia" v="ca:Porta de Quart"/>
+ </way>
+ <way id="13073736" visible="true" version="13" changeset="74385011" timestamp="2019-09-12T09:40:46Z" user="rubensd" uid="472193">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="6790061967"/>
+  <nd ref="120303605"/>
+  <nd ref="6771540806"/>
+  <nd ref="6771540805"/>
+  <nd ref="6771540804"/>
+  <nd ref="6771540812"/>
+  <nd ref="120303622"/>
+  <nd ref="6771540807"/>
+  <nd ref="6771540811"/>
+  <nd ref="120303691"/>
+  <nd ref="6771540808"/>
+  <nd ref="6771540810"/>
+  <nd ref="6771540809"/>
+  <nd ref="120303660"/>
+  <nd ref="6771540793"/>
+  <nd ref="120303711"/>
+  <nd ref="6771540796"/>
+  <nd ref="6771540801"/>
+  <nd ref="6771540797"/>
+  <nd ref="6771540795"/>
+  <nd ref="120303652"/>
+  <nd ref="6771540794"/>
+  <nd ref="6771540799"/>
+  <nd ref="6771540800"/>
+  <nd ref="6771540798"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="6771540802"/>
+  <nd ref="6771540803"/>
+  <nd ref="6771540792"/>
+  <nd ref="120303676"/>
+  <tag k="alt_name:ca" v="Torres de Quart"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="city_gate"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:ca" v="Porta de Quart"/>
+  <tag k="name:es" v="Torres de Cuarte"/>
+  <tag k="name:ru" v="Башни Куарта"/>
+  <tag k="wikidata" v="Q2343754"/>
+  <tag k="wikipedia" v="ca:Porta de Quart"/>
+ </way>
+ <way id="13073736" visible="true" version="14" changeset="75680406" timestamp="2019-10-14T17:15:24Z" user="CapitanColoto" uid="8940402">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="6790061967"/>
+  <nd ref="120303605"/>
+  <nd ref="6771540806"/>
+  <nd ref="6771540805"/>
+  <nd ref="6771540804"/>
+  <nd ref="6771540812"/>
+  <nd ref="120303622"/>
+  <nd ref="6771540807"/>
+  <nd ref="6771540811"/>
+  <nd ref="120303691"/>
+  <nd ref="6771540808"/>
+  <nd ref="6771540810"/>
+  <nd ref="6771540809"/>
+  <nd ref="120303660"/>
+  <nd ref="6771540793"/>
+  <nd ref="120303711"/>
+  <nd ref="6771540796"/>
+  <nd ref="6771540801"/>
+  <nd ref="6771540797"/>
+  <nd ref="6771540795"/>
+  <nd ref="120303652"/>
+  <nd ref="6771540794"/>
+  <nd ref="6771540799"/>
+  <nd ref="6771540800"/>
+  <nd ref="6771540798"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="6771540802"/>
+  <nd ref="6771540803"/>
+  <nd ref="6771540792"/>
+  <nd ref="120303676"/>
+  <tag k="alt_name:ca" v="Torres de Quart"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="city_gate"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:es" v="Porta de Quart"/>
+  <tag k="name:ru" v="Башни Куарта"/>
+  <tag k="wikidata" v="Q2343754"/>
+  <tag k="wikipedia" v="ca:Porta de Quart"/>
+ </way>
+ <way id="13073736" visible="true" version="15" changeset="76002470" timestamp="2019-10-21T14:21:08Z" user="CapitanColoto" uid="8940402">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="6790061967"/>
+  <nd ref="120303605"/>
+  <nd ref="6771540806"/>
+  <nd ref="6771540805"/>
+  <nd ref="6771540804"/>
+  <nd ref="6771540812"/>
+  <nd ref="120303622"/>
+  <nd ref="6771540807"/>
+  <nd ref="6771540811"/>
+  <nd ref="120303691"/>
+  <nd ref="6771540808"/>
+  <nd ref="6771540810"/>
+  <nd ref="6771540809"/>
+  <nd ref="120303660"/>
+  <nd ref="6771540793"/>
+  <nd ref="120303711"/>
+  <nd ref="6771540796"/>
+  <nd ref="6771540801"/>
+  <nd ref="6771540797"/>
+  <nd ref="6771540795"/>
+  <nd ref="120303652"/>
+  <nd ref="6771540794"/>
+  <nd ref="6771540799"/>
+  <nd ref="6771540800"/>
+  <nd ref="6771540798"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="6771540802"/>
+  <nd ref="6771540803"/>
+  <nd ref="6771540792"/>
+  <nd ref="120303676"/>
+  <tag k="alt_name:ca" v="Torres de Quart"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="city_gate"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:es" v="Porta de Quart"/>
+  <tag k="name:ru" v="Башни Куарта"/>
+ </way>
+ <way id="13073736" visible="true" version="16" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912">
+  <nd ref="6771540804"/>
+  <nd ref="6771540805"/>
+  <nd ref="6771540806"/>
+  <nd ref="120303605"/>
+  <nd ref="6957604952"/>
+  <nd ref="6790061967"/>
+  <nd ref="6957604968"/>
+  <nd ref="4902243088"/>
+  <nd ref="4902243087"/>
+  <nd ref="6957604984"/>
+  <nd ref="6957604972"/>
+  <nd ref="6957611392"/>
+  <nd ref="6957604941"/>
+  <nd ref="6957604954"/>
+  <nd ref="6957611421"/>
+  <nd ref="6957611404"/>
+  <nd ref="6957604967"/>
+  <nd ref="6957604940"/>
+  <nd ref="6957604955"/>
+  <nd ref="6957604951"/>
+  <nd ref="6957611407"/>
+  <nd ref="6957604975"/>
+  <nd ref="6957604959"/>
+  <nd ref="6957611391"/>
+  <nd ref="6957604974"/>
+  <nd ref="6957611388"/>
+  <nd ref="6957604966"/>
+  <nd ref="6957604979"/>
+  <nd ref="6957611385"/>
+  <nd ref="6957604961"/>
+  <nd ref="6957604981"/>
+  <nd ref="6957604965"/>
+  <nd ref="6957604983"/>
+  <nd ref="6957604977"/>
+  <nd ref="6957604960"/>
+  <nd ref="6957604963"/>
+  <nd ref="6957604980"/>
+  <nd ref="6957604982"/>
+  <nd ref="6957611397"/>
+  <nd ref="6957611399"/>
+  <nd ref="6957611417"/>
+  <nd ref="6957611412"/>
+  <nd ref="6957611387"/>
+  <nd ref="6957611402"/>
+  <nd ref="6957611414"/>
+  <nd ref="6957611406"/>
+  <nd ref="6957604964"/>
+  <nd ref="6957604973"/>
+  <nd ref="6957611401"/>
+  <nd ref="6957611408"/>
+  <nd ref="6957611410"/>
+  <nd ref="6957611418"/>
+  <nd ref="6957611389"/>
+  <nd ref="6957604962"/>
+  <nd ref="6957611405"/>
+  <nd ref="6957604969"/>
+  <nd ref="6771540812"/>
+  <nd ref="6957611416"/>
+  <nd ref="6771540804"/>
+  <tag k="alt_name:ca" v="Torres de Quart"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:levels" v="4"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="city_gate"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:es" v="Porta de Quart"/>
+  <tag k="name:ru" v="Башни Куарта"/>
+ </way>
+ <way id="13073736" visible="true" version="17" changeset="77447443" timestamp="2019-11-22T22:35:38Z" user="Georg_M_Weber" uid="10241965">
+  <nd ref="6771540804"/>
+  <nd ref="6771540805"/>
+  <nd ref="6771540806"/>
+  <nd ref="6957604952"/>
+  <nd ref="6790061967"/>
+  <nd ref="6957604968"/>
+  <nd ref="4902243088"/>
+  <nd ref="4902243087"/>
+  <nd ref="6957604984"/>
+  <nd ref="6957604972"/>
+  <nd ref="6957611392"/>
+  <nd ref="6957604941"/>
+  <nd ref="6957604954"/>
+  <nd ref="6957611421"/>
+  <nd ref="6771540792"/>
+  <nd ref="6957611404"/>
+  <nd ref="6957604967"/>
+  <nd ref="6957604940"/>
+  <nd ref="6957604955"/>
+  <nd ref="6957604951"/>
+  <nd ref="6957611407"/>
+  <nd ref="6957604975"/>
+  <nd ref="6957604959"/>
+  <nd ref="6957611391"/>
+  <nd ref="6957604974"/>
+  <nd ref="6957611388"/>
+  <nd ref="6957604966"/>
+  <nd ref="6957604979"/>
+  <nd ref="6957611385"/>
+  <nd ref="6957604961"/>
+  <nd ref="6957604981"/>
+  <nd ref="6957604965"/>
+  <nd ref="6957604983"/>
+  <nd ref="6957604977"/>
+  <nd ref="6957604960"/>
+  <nd ref="6957604963"/>
+  <nd ref="6957604980"/>
+  <nd ref="6957604982"/>
+  <nd ref="6957611397"/>
+  <nd ref="6957611399"/>
+  <nd ref="6771540793"/>
+  <nd ref="6957611417"/>
+  <nd ref="6957611412"/>
+  <nd ref="6957611387"/>
+  <nd ref="6957611402"/>
+  <nd ref="6957611414"/>
+  <nd ref="6957611406"/>
+  <nd ref="6957604964"/>
+  <nd ref="6957604973"/>
+  <nd ref="6957611401"/>
+  <nd ref="6957611408"/>
+  <nd ref="6957611410"/>
+  <nd ref="6957611418"/>
+  <nd ref="6957611389"/>
+  <nd ref="6957604962"/>
+  <nd ref="6957611405"/>
+  <nd ref="6957604969"/>
+  <nd ref="6771540812"/>
+  <nd ref="6957611416"/>
+  <nd ref="6771540804"/>
+  <tag k="alt_name:ca" v="Torres de Quart"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:levels" v="4"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="city_gate"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:es" v="Porta de Quart"/>
+  <tag k="name:ru" v="Башни Куарта"/>
+ </way>
+ <way id="13073736" visible="true" version="18" changeset="86534163" timestamp="2020-06-11T21:02:34Z" user="MikelCalo" uid="11126976">
+  <nd ref="6771540804"/>
+  <nd ref="6771540805"/>
+  <nd ref="6771540806"/>
+  <nd ref="6957604952"/>
+  <nd ref="6790061967"/>
+  <nd ref="6957604968"/>
+  <nd ref="4902243088"/>
+  <nd ref="4902243087"/>
+  <nd ref="4856486143"/>
+  <nd ref="6957604984"/>
+  <nd ref="6957604972"/>
+  <nd ref="6957611392"/>
+  <nd ref="6957604941"/>
+  <nd ref="6957604954"/>
+  <nd ref="6957611421"/>
+  <nd ref="6771540792"/>
+  <nd ref="6957611404"/>
+  <nd ref="6957604967"/>
+  <nd ref="6957604940"/>
+  <nd ref="6957604955"/>
+  <nd ref="6957604951"/>
+  <nd ref="6957611407"/>
+  <nd ref="6957604975"/>
+  <nd ref="6957604959"/>
+  <nd ref="6957611391"/>
+  <nd ref="6957604974"/>
+  <nd ref="6957611388"/>
+  <nd ref="6957604966"/>
+  <nd ref="6957604979"/>
+  <nd ref="6957611385"/>
+  <nd ref="6957604961"/>
+  <nd ref="6957604981"/>
+  <nd ref="6957604965"/>
+  <nd ref="6957604983"/>
+  <nd ref="6957604977"/>
+  <nd ref="6957604960"/>
+  <nd ref="6957604963"/>
+  <nd ref="6957604980"/>
+  <nd ref="6957604982"/>
+  <nd ref="6957611397"/>
+  <nd ref="6957611399"/>
+  <nd ref="6771540793"/>
+  <nd ref="6957611417"/>
+  <nd ref="6957611412"/>
+  <nd ref="6957611387"/>
+  <nd ref="6957611402"/>
+  <nd ref="6957611414"/>
+  <nd ref="6957611406"/>
+  <nd ref="6957604964"/>
+  <nd ref="6957604973"/>
+  <nd ref="6957611401"/>
+  <nd ref="6957611408"/>
+  <nd ref="6957611410"/>
+  <nd ref="6957611418"/>
+  <nd ref="6957611389"/>
+  <nd ref="6957604962"/>
+  <nd ref="6957611405"/>
+  <nd ref="6957604969"/>
+  <nd ref="6771540812"/>
+  <nd ref="6957611416"/>
+  <nd ref="6771540804"/>
+  <tag k="alt_name:ca" v="Torres de Quart"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:levels" v="4"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="city_gate"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:es" v="Porta de Quart"/>
+  <tag k="name:ru" v="Башни Куарта"/>
+ </way>
+ <way id="13073736" visible="true" version="19" changeset="92154431" timestamp="2020-10-08T07:42:45Z" user="Emilio Gomez" uid="2904">
+  <nd ref="6771540804"/>
+  <nd ref="6771540805"/>
+  <nd ref="6771540806"/>
+  <nd ref="6957604952"/>
+  <nd ref="6790061967"/>
+  <nd ref="6957604968"/>
+  <nd ref="4902243088"/>
+  <nd ref="4902243087"/>
+  <nd ref="4856486143"/>
+  <nd ref="6957604984"/>
+  <nd ref="6957604972"/>
+  <nd ref="6957611392"/>
+  <nd ref="6957604941"/>
+  <nd ref="6957604954"/>
+  <nd ref="6957611421"/>
+  <nd ref="6771540792"/>
+  <nd ref="6957611404"/>
+  <nd ref="6957604967"/>
+  <nd ref="6957604940"/>
+  <nd ref="6957604955"/>
+  <nd ref="6957604951"/>
+  <nd ref="6957611407"/>
+  <nd ref="6957604975"/>
+  <nd ref="6957604959"/>
+  <nd ref="6957611391"/>
+  <nd ref="6957604974"/>
+  <nd ref="6957611388"/>
+  <nd ref="6957604966"/>
+  <nd ref="6957604979"/>
+  <nd ref="6957611385"/>
+  <nd ref="6957604961"/>
+  <nd ref="6957604981"/>
+  <nd ref="6957604965"/>
+  <nd ref="6957604983"/>
+  <nd ref="6957604977"/>
+  <nd ref="6957604960"/>
+  <nd ref="6957604963"/>
+  <nd ref="6957604980"/>
+  <nd ref="6957604982"/>
+  <nd ref="6957611397"/>
+  <nd ref="6957611399"/>
+  <nd ref="6771540793"/>
+  <nd ref="6957611417"/>
+  <nd ref="6957611412"/>
+  <nd ref="6957611387"/>
+  <nd ref="6957611402"/>
+  <nd ref="6957611414"/>
+  <nd ref="6957611406"/>
+  <nd ref="6957604964"/>
+  <nd ref="6957604973"/>
+  <nd ref="6957611401"/>
+  <nd ref="6957611408"/>
+  <nd ref="6957611410"/>
+  <nd ref="6957611418"/>
+  <nd ref="6957611389"/>
+  <nd ref="6957604962"/>
+  <nd ref="6957611405"/>
+  <nd ref="6957604969"/>
+  <nd ref="6771540812"/>
+  <nd ref="6957611416"/>
+  <nd ref="6771540804"/>
+  <tag k="alt_name:ca" v="Torres de Quart"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:levels" v="4"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="city_gate"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:es" v="Porta de Quart"/>
+  <tag k="name:ru" v="Башни Куарта"/>
+  <tag k="wikidata" v="Q2343754"/>
+ </way>
+ <way id="13073736" visible="true" version="20" changeset="92482152" timestamp="2020-10-14T15:49:32Z" user="jmaspons" uid="11725140">
+  <nd ref="6771540804"/>
+  <nd ref="6771540805"/>
+  <nd ref="6771540806"/>
+  <nd ref="6957604952"/>
+  <nd ref="6790061967"/>
+  <nd ref="6957604968"/>
+  <nd ref="4902243088"/>
+  <nd ref="4902243087"/>
+  <nd ref="4856486143"/>
+  <nd ref="6957604984"/>
+  <nd ref="6957604972"/>
+  <nd ref="6957611392"/>
+  <nd ref="6957604941"/>
+  <nd ref="6957604954"/>
+  <nd ref="6957611421"/>
+  <nd ref="6771540792"/>
+  <nd ref="6957611404"/>
+  <nd ref="6957604967"/>
+  <nd ref="6957604940"/>
+  <nd ref="6957604955"/>
+  <nd ref="6957604951"/>
+  <nd ref="6957611407"/>
+  <nd ref="6957604975"/>
+  <nd ref="6957604959"/>
+  <nd ref="6957611391"/>
+  <nd ref="6957604974"/>
+  <nd ref="6957611388"/>
+  <nd ref="6957604966"/>
+  <nd ref="6957604979"/>
+  <nd ref="6957611385"/>
+  <nd ref="6957604961"/>
+  <nd ref="6957604981"/>
+  <nd ref="6957604965"/>
+  <nd ref="6957604983"/>
+  <nd ref="6957604977"/>
+  <nd ref="6957604960"/>
+  <nd ref="6957604963"/>
+  <nd ref="6957604980"/>
+  <nd ref="6957604982"/>
+  <nd ref="6957611397"/>
+  <nd ref="6957611399"/>
+  <nd ref="6771540793"/>
+  <nd ref="6957611417"/>
+  <nd ref="6957611412"/>
+  <nd ref="6957611387"/>
+  <nd ref="6957611402"/>
+  <nd ref="6957611414"/>
+  <nd ref="6957611406"/>
+  <nd ref="6957604964"/>
+  <nd ref="6957604973"/>
+  <nd ref="6957611401"/>
+  <nd ref="6957611408"/>
+  <nd ref="6957611410"/>
+  <nd ref="6957611418"/>
+  <nd ref="6957611389"/>
+  <nd ref="6957604962"/>
+  <nd ref="6957611405"/>
+  <nd ref="6957604969"/>
+  <nd ref="6771540812"/>
+  <nd ref="6957611416"/>
+  <nd ref="6771540804"/>
+  <tag k="alt_name:ca" v="Torres de Quart"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:levels" v="4"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="city_gate"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:es" v="Porta de Quart"/>
+  <tag k="name:ru" v="Башни Куарта"/>
+  <tag k="wikidata" v="Q2343754"/>
+  <tag k="wikipedia" v="ca:Porta de Quart"/>
+ </way>
+ <way id="13073736" visible="true" version="21" changeset="114656477" timestamp="2021-12-07T11:27:19Z" user="jmaspons" uid="11725140">
+  <nd ref="6771540804"/>
+  <nd ref="6771540805"/>
+  <nd ref="6771540806"/>
+  <nd ref="6957604952"/>
+  <nd ref="6790061967"/>
+  <nd ref="6957604968"/>
+  <nd ref="4902243088"/>
+  <nd ref="4902243087"/>
+  <nd ref="4856486143"/>
+  <nd ref="6957604984"/>
+  <nd ref="6957604972"/>
+  <nd ref="6957611392"/>
+  <nd ref="6957604941"/>
+  <nd ref="6957604954"/>
+  <nd ref="6957611421"/>
+  <nd ref="6771540792"/>
+  <nd ref="6957611404"/>
+  <nd ref="6957604967"/>
+  <nd ref="6957604940"/>
+  <nd ref="6957604955"/>
+  <nd ref="6957604951"/>
+  <nd ref="6957611407"/>
+  <nd ref="6957604975"/>
+  <nd ref="6957604959"/>
+  <nd ref="6957611391"/>
+  <nd ref="6957604974"/>
+  <nd ref="6957611388"/>
+  <nd ref="6957604966"/>
+  <nd ref="6957604979"/>
+  <nd ref="6957611385"/>
+  <nd ref="6957604961"/>
+  <nd ref="6957604981"/>
+  <nd ref="6957604965"/>
+  <nd ref="6957604983"/>
+  <nd ref="6957604977"/>
+  <nd ref="6957604960"/>
+  <nd ref="6957604963"/>
+  <nd ref="6957604980"/>
+  <nd ref="6957604982"/>
+  <nd ref="6957611397"/>
+  <nd ref="6957611399"/>
+  <nd ref="6771540793"/>
+  <nd ref="6957611417"/>
+  <nd ref="6957611412"/>
+  <nd ref="6957611387"/>
+  <nd ref="6957611402"/>
+  <nd ref="6957611414"/>
+  <nd ref="6957611406"/>
+  <nd ref="6957604964"/>
+  <nd ref="6957604973"/>
+  <nd ref="6957611401"/>
+  <nd ref="6957611408"/>
+  <nd ref="6957611410"/>
+  <nd ref="6957611418"/>
+  <nd ref="6957611389"/>
+  <nd ref="6957604962"/>
+  <nd ref="6957611405"/>
+  <nd ref="6957604969"/>
+  <nd ref="6771540812"/>
+  <nd ref="6957611416"/>
+  <nd ref="6771540804"/>
+  <tag k="alt_name:ca" v="Torres de Quart"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:levels" v="4"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="city_gate"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:ca" v="Torres de Quart"/>
+  <tag k="name:es" v="Porta de Quart"/>
+  <tag k="name:ru" v="Башни Куарта"/>
+  <tag k="wikidata" v="Q2343754"/>
+  <tag k="wikipedia" v="ca:Porta de Quart"/>
+ </way>
+</osm>

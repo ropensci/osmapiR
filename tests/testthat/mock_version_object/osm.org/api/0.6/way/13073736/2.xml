@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<way id="13073736" visible="true" version="2" changeset="270381" timestamp="2007-12-12T11:13:02Z" user="jgui" uid="8016">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="120303605"/>
+  <nd ref="120303622"/>
+  <nd ref="120303691"/>
+  <nd ref="120303696"/>
+  <nd ref="120303660"/>
+  <nd ref="120303711"/>
+  <nd ref="120303707"/>
+  <nd ref="120303652"/>
+  <nd ref="120303612"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="120303686"/>
+  <nd ref="120303601"/>
+  <nd ref="120303676"/>
+  <tag k="building" v="tower"/>
+  <tag k="created_by" v="Potlatch alpha"/>
+</way>
+</osm>

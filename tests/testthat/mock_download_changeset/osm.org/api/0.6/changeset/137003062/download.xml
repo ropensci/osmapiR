@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osmChange version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <create>
+  <node id="10959104783" visible="true" version="1" changeset="137003062" timestamp="2023-06-06T08:18:47Z" user="MariaDCC" uid="7951616" lat="39.9312656" lon="-0.0611038"/>
+ </create>
+ <create>
+  <node id="10959104784" visible="true" version="1" changeset="137003062" timestamp="2023-06-06T08:18:47Z" user="MariaDCC" uid="7951616" lat="39.9275936" lon="-0.0633938"/>
+ </create>
+ <create>
+  <node id="10959104785" visible="true" version="1" changeset="137003062" timestamp="2023-06-06T08:18:47Z" user="MariaDCC" uid="7951616" lat="39.9186918" lon="-0.0668522"/>
+ </create>
+ <create>
+  <node id="10959104786" visible="true" version="1" changeset="137003062" timestamp="2023-06-06T08:18:47Z" user="MariaDCC" uid="7951616" lat="39.9186426" lon="-0.0669390"/>
+ </create>
+ <create>
+  <node id="10959104787" visible="true" version="1" changeset="137003062" timestamp="2023-06-06T08:18:47Z" user="MariaDCC" uid="7951616" lat="39.9143313" lon="-0.0585758"/>
+ </create>
+ <create>
+  <node id="10959104788" visible="true" version="1" changeset="137003062" timestamp="2023-06-06T08:18:47Z" user="MariaDCC" uid="7951616" lat="39.9275524" lon="-0.0556357"/>
+ </create>
+ <create>
+  <way id="1179939727" visible="true" version="1" changeset="137003062" timestamp="2023-06-06T08:18:47Z" user="MariaDCC" uid="7951616">
+   <nd ref="10959104783"/>
+   <nd ref="1579678230"/>
+   <nd ref="8701431676"/>
+   <nd ref="8701431680"/>
+   <nd ref="10959104783"/>
+   <tag k="landuse" v="orchard"/>
+  </way>
+ </create>
+ <create>
+  <way id="1179939728" visible="true" version="1" changeset="137003062" timestamp="2023-06-06T08:18:47Z" user="MariaDCC" uid="7951616">
+   <nd ref="1579678230"/>
+   <nd ref="1579678224"/>
+   <nd ref="8701431674"/>
+   <nd ref="1579678222"/>
+   <nd ref="1579678212"/>
+   <nd ref="1579678210"/>
+   <nd ref="1579678208"/>
+   <nd ref="8701431694"/>
+   <nd ref="8701431699"/>
+   <nd ref="10959104784"/>
+   <nd ref="8701431689"/>
+   <nd ref="1579678164"/>
+   <nd ref="1579678152"/>
+   <nd ref="1579678146"/>
+   <nd ref="8701431707"/>
+   <nd ref="1579678135"/>
+   <nd ref="1579678133"/>
+   <nd ref="8701435517"/>
+   <nd ref="8701435528"/>
+   <nd ref="1579678100"/>
+   <nd ref="1579678098"/>
+   <nd ref="1579678095"/>
+   <nd ref="1579678092"/>
+   <nd ref="1579678087"/>
+   <nd ref="1579678085"/>
+   <nd ref="1579678071"/>
+   <nd ref="1579678069"/>
+   <nd ref="1579678064"/>
+   <nd ref="1579678061"/>
+   <nd ref="1579678049"/>
+   <nd ref="1579678038"/>
+   <nd ref="1579678037"/>
+   <nd ref="1579678036"/>
+   <nd ref="1579678033"/>
+   <nd ref="10959104785"/>
+   <nd ref="10959104786"/>
+   <nd ref="1579678013"/>
+   <nd ref="1579678011"/>
+   <nd ref="1579677989"/>
+   <nd ref="1579677985"/>
+   <nd ref="1579677982"/>
+   <nd ref="1579677980"/>
+   <nd ref="1579677977"/>
+   <nd ref="1579677973"/>
+   <nd ref="1575984589"/>
+   <nd ref="8791798236"/>
+   <nd ref="472315645"/>
+   <nd ref="472315644"/>
+   <nd ref="472315643"/>
+   <nd ref="472315642"/>
+   <nd ref="472315641"/>
+   <nd ref="472315640"/>
+   <nd ref="472315639"/>
+   <nd ref="8704375455"/>
+   <nd ref="8791798266"/>
+   <nd ref="472315607"/>
+   <nd ref="472315608"/>
+   <nd ref="472315616"/>
+   <nd ref="472315617"/>
+   <nd ref="472315618"/>
+   <nd ref="10959104787"/>
+   <nd ref="472315620"/>
+   <nd ref="8704375442"/>
+   <nd ref="472315621"/>
+   <nd ref="472315622"/>
+   <nd ref="472315623"/>
+   <nd ref="472315624"/>
+   <nd ref="8705302730"/>
+   <nd ref="472315625"/>
+   <nd ref="472315626"/>
+   <nd ref="8704375414"/>
+   <nd ref="472315627"/>
+   <nd ref="8705264411"/>
+   <nd ref="8704375391"/>
+   <nd ref="472315628"/>
+   <nd ref="472315629"/>
+   <nd ref="472315630"/>
+   <nd ref="472315631"/>
+   <nd ref="8704375371"/>
+   <nd ref="472315632"/>
+   <nd ref="472315633"/>
+   <nd ref="472315634"/>
+   <nd ref="472315635"/>
+   <nd ref="8704375368"/>
+   <nd ref="472315636"/>
+   <nd ref="8704375351"/>
+   <nd ref="472315637"/>
+   <nd ref="8704375350"/>
+   <nd ref="472315638"/>
+   <nd ref="472315702"/>
+   <nd ref="472315704"/>
+   <nd ref="8704375322"/>
+   <nd ref="10959104788"/>
+   <nd ref="8704357699"/>
+   <nd ref="472315710"/>
+   <nd ref="6197726997"/>
+   <nd ref="8704375336"/>
+   <nd ref="472315712"/>
+   <nd ref="8701431680"/>
+   <nd ref="8701431676"/>
+   <nd ref="1579678230"/>
+   <tag k="landuse" v="orchard"/>
+  </way>
+ </create>
+ <modify>
+  <node id="472315639" visible="true" version="3" changeset="137003062" timestamp="2023-06-06T08:18:47Z" user="MariaDCC" uid="7951616" lat="39.9144031" lon="-0.0632470"/>
+ </modify>
+ <modify>
+  <way id="144018965" visible="true" version="6" changeset="137003062" timestamp="2023-06-06T08:18:47Z" user="MariaDCC" uid="7951616">
+   <nd ref="1575984666"/>
+   <nd ref="10959104783"/>
+   <nd ref="1575984667"/>
+   <tag k="bridge" v="yes"/>
+   <tag k="highway" v="cycleway"/>
+   <tag k="layer" v="1"/>
+   <tag k="lit" v="no"/>
+   <tag k="ref" v="CR-18"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="772922459" visible="true" version="8" changeset="137003062" timestamp="2023-06-06T08:18:47Z" user="MariaDCC" uid="7951616">
+   <nd ref="472315862"/>
+   <nd ref="472315695"/>
+   <nd ref="8705264405"/>
+   <nd ref="472315697"/>
+   <nd ref="472315699"/>
+   <nd ref="472315702"/>
+   <nd ref="472315704"/>
+   <nd ref="8704375322"/>
+   <nd ref="472315706"/>
+   <nd ref="10959104788"/>
+   <nd ref="8704357699"/>
+   <nd ref="472315708"/>
+   <nd ref="472315710"/>
+   <nd ref="6197726997"/>
+   <nd ref="6197726998"/>
+   <nd ref="8704375336"/>
+   <nd ref="472315712"/>
+   <nd ref="8701431680"/>
+   <nd ref="8701431676"/>
+   <nd ref="1579678230"/>
+   <tag k="highway" v="unclassified"/>
+   <tag k="lane_markings" v="no"/>
+   <tag k="name" v="Camí de La Cantera de Vora Riu"/>
+   <tag k="name:ca" v="Camí de La Cantera de Vora Riu"/>
+   <tag k="surface" v="asphalt"/>
+   <tag k="tracktype" v="grade1"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="39428288" visible="true" version="11" changeset="137003062" timestamp="2023-06-06T08:18:47Z" user="MariaDCC" uid="7951616">
+   <nd ref="6207335786"/>
+   <nd ref="6207335788"/>
+   <nd ref="6207335787"/>
+   <nd ref="472315576"/>
+   <nd ref="472315580"/>
+   <nd ref="472315581"/>
+   <nd ref="472315582"/>
+   <nd ref="8791798328"/>
+   <nd ref="8791798326"/>
+   <nd ref="472315583"/>
+   <nd ref="472315584"/>
+   <nd ref="472315585"/>
+   <nd ref="472315586"/>
+   <nd ref="472315587"/>
+   <nd ref="472315588"/>
+   <nd ref="472315589"/>
+   <nd ref="472315590"/>
+   <nd ref="472315591"/>
+   <nd ref="472315592"/>
+   <nd ref="472315593"/>
+   <nd ref="8791798351"/>
+   <nd ref="472315594"/>
+   <nd ref="472315595"/>
+   <nd ref="8791798356"/>
+   <nd ref="472315596"/>
+   <nd ref="1780952116"/>
+   <nd ref="472315597"/>
+   <nd ref="472315600"/>
+   <nd ref="8791798361"/>
+   <nd ref="472315601"/>
+   <nd ref="472315602"/>
+   <nd ref="472315603"/>
+   <nd ref="472315604"/>
+   <nd ref="472315605"/>
+   <nd ref="472315606"/>
+   <nd ref="472315608"/>
+   <nd ref="472315616"/>
+   <nd ref="472315617"/>
+   <nd ref="472315618"/>
+   <nd ref="472315619"/>
+   <nd ref="10959104787"/>
+   <nd ref="472315620"/>
+   <nd ref="8704375442"/>
+   <nd ref="472315621"/>
+   <nd ref="472315622"/>
+   <nd ref="472315623"/>
+   <nd ref="472315624"/>
+   <nd ref="8705302730"/>
+   <nd ref="472315625"/>
+   <nd ref="472315626"/>
+   <nd ref="8704375414"/>
+   <nd ref="472315627"/>
+   <nd ref="8705264411"/>
+   <nd ref="8704375391"/>
+   <nd ref="472315628"/>
+   <nd ref="472315629"/>
+   <nd ref="8704375380"/>
+   <nd ref="472315630"/>
+   <nd ref="472315631"/>
+   <nd ref="8704375371"/>
+   <nd ref="472315632"/>
+   <nd ref="472315633"/>
+   <nd ref="472315634"/>
+   <nd ref="472315635"/>
+   <nd ref="8704375368"/>
+   <nd ref="472315636"/>
+   <nd ref="8704375351"/>
+   <nd ref="472315637"/>
+   <nd ref="8704375350"/>
+   <nd ref="472315638"/>
+   <nd ref="472315702"/>
+   <tag k="highway" v="unclassified"/>
+   <tag k="name" v="Camí dels Carnissers"/>
+   <tag k="name:ca" v="Camí dels Carnissers"/>
+   <tag k="tracktype" v="grade1"/>
+  </way>
+ </modify>
+ <modify>
+  <way id="144017967" visible="true" version="11" changeset="137003062" timestamp="2023-06-06T08:18:47Z" user="MariaDCC" uid="7951616">
+   <nd ref="1579678210"/>
+   <nd ref="1579678208"/>
+   <nd ref="1579678203"/>
+   <nd ref="8701431694"/>
+   <nd ref="1579678195"/>
+   <nd ref="8701431699"/>
+   <nd ref="1579678192"/>
+   <nd ref="10959104784"/>
+   <nd ref="1579678186"/>
+   <nd ref="8701431689"/>
+   <nd ref="1579678164"/>
+   <nd ref="1579678152"/>
+   <nd ref="1579678146"/>
+   <nd ref="8701431707"/>
+   <nd ref="1579678135"/>
+   <nd ref="1579678133"/>
+   <nd ref="1579678125"/>
+   <nd ref="8701435517"/>
+   <nd ref="1579678120"/>
+   <nd ref="1579678118"/>
+   <nd ref="8701435528"/>
+   <nd ref="1579678108"/>
+   <nd ref="1579678100"/>
+   <nd ref="1579678098"/>
+   <nd ref="1579678095"/>
+   <nd ref="1579678092"/>
+   <nd ref="1579678087"/>
+   <nd ref="1579678085"/>
+   <nd ref="1579678071"/>
+   <nd ref="1579678069"/>
+   <nd ref="1579678064"/>
+   <nd ref="1579678061"/>
+   <nd ref="1579678049"/>
+   <nd ref="1579678038"/>
+   <nd ref="1579678037"/>
+   <nd ref="1579678036"/>
+   <nd ref="1579678033"/>
+   <nd ref="1579678021"/>
+   <nd ref="10959104785"/>
+   <nd ref="10959104786"/>
+   <nd ref="1579678016"/>
+   <nd ref="1579678013"/>
+   <nd ref="1579678011"/>
+   <nd ref="1579677989"/>
+   <nd ref="1579677985"/>
+   <nd ref="1579677982"/>
+   <nd ref="1579677980"/>
+   <nd ref="1579677977"/>
+   <nd ref="1579677973"/>
+   <nd ref="1579677967"/>
+   <nd ref="1575984589"/>
+   <nd ref="1579677962"/>
+   <nd ref="1579677961"/>
+   <nd ref="1579677951"/>
+   <nd ref="1579677958"/>
+   <nd ref="1579677948"/>
+   <nd ref="1579677946"/>
+   <nd ref="1579677944"/>
+   <nd ref="8791798224"/>
+   <nd ref="1579677935"/>
+   <nd ref="1579677915"/>
+   <nd ref="1579677907"/>
+   <nd ref="1579677889"/>
+   <nd ref="1579677882"/>
+   <nd ref="1579677880"/>
+   <nd ref="10693630789"/>
+   <nd ref="1579677871"/>
+   <nd ref="1579677852"/>
+   <nd ref="1579677847"/>
+   <nd ref="1579677842"/>
+   <nd ref="1579677838"/>
+   <nd ref="1579677828"/>
+   <nd ref="1579677815"/>
+   <nd ref="1579677813"/>
+   <nd ref="8791798283"/>
+   <nd ref="1579677811"/>
+   <nd ref="1579677808"/>
+   <nd ref="1579677805"/>
+   <nd ref="1579677797"/>
+   <nd ref="8791798273"/>
+   <nd ref="1579677792"/>
+   <nd ref="1579677766"/>
+   <nd ref="1579677765"/>
+   <nd ref="1579677759"/>
+   <nd ref="1579677753"/>
+   <nd ref="8791798318"/>
+   <nd ref="1579677732"/>
+   <nd ref="1579677705"/>
+   <nd ref="8791798307"/>
+   <nd ref="1579677681"/>
+   <nd ref="1579677678"/>
+   <nd ref="1579677668"/>
+   <nd ref="1579677655"/>
+   <nd ref="1579677650"/>
+   <nd ref="1579677648"/>
+   <nd ref="1579677626"/>
+   <nd ref="472315575"/>
+   <tag k="highway" v="unclassified"/>
+   <tag k="noname" v="yes"/>
+   <tag k="surface" v="asphalt"/>
+  </way>
+ </modify>
+</osmChange>

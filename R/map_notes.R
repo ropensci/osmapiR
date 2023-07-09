@@ -111,7 +111,7 @@
 #' @param limit Specifies the number of entries returned at max. A value between 1 and 10000 is valid. Default to 100.
 #' @param closed Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
 #'   only open notes are returned. A value of -1 means all notes are returned. Default to 7.
-#' @param format Format of the output. Can be `xml` (default), `rss`, `json` or `gpx`.
+#' @param format Format of the output. Can be `data.frame` (default), `xml`, `rss`, `json` or `gpx`.
 #'
 #' @note The comment properties (`uid`, `user`, `user_url`) will be omitted if the comment was anonymous.
 #'
@@ -125,9 +125,12 @@
 #' # bbox as a character value also works. Equivalent call:
 #' # osm_read_bbox_notes(bbox = "3.7854767,39.7837403,4.3347931,40.1011851", limit = 10)
 #' notes
-osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("xml", "rss", "json", "gpx")) {
+osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("data.frame", "xml", "rss", "json", "gpx")) {
   format <- match.arg(format)
   ext <- paste0("notes.", format)
+  if (format == "data.frame") {
+    ext <- "notes.xml"
+  }
 
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
@@ -136,8 +139,11 @@ osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("xml",
 
   resp <- httr2::req_perform(req)
 
-  if (format %in% c("xml", "gpx", "rss")) {
+  if (format %in% c("data.frame", "xml", "gpx", "rss")) {
     out <- httr2::resp_body_xml(resp)
+    if (format == "data.frame") {
+      out <- note_xml2DF(out)
+    }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)
   }
@@ -162,7 +168,7 @@ osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("xml",
 #' Returns the existing note with the given ID.
 #'
 #' @param note_id Note id represented by a numeric or a character value.
-#' @param format Format of the output. Can be `xml` (default), `rss`, `json` or `gpx`.
+#' @param format Format of the output. Can be `data.frame` (default), `xml`, `rss`, `json` or `gpx`.
 #'
 #' @return
 #' @family notes' functions
@@ -174,9 +180,14 @@ osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("xml",
 #' note <- osm_read_note(note_id = "2067786")
 #' note
 #' }
-osm_read_note <- function(note_id, format = c("xml", "rss", "json", "gpx")) {
+osm_read_note <- function(note_id, format = c("data.frame", "xml", "rss", "json", "gpx")) {
   format <- match.arg(format)
-  note_id <- paste0(note_id, ".", format)
+
+  if (format == "data.frame") {
+    note_id <- paste0(note_id, ".xml")
+  } else {
+    note_id <- paste0(note_id, ".", format)
+  }
 
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
@@ -184,8 +195,11 @@ osm_read_note <- function(note_id, format = c("xml", "rss", "json", "gpx")) {
 
   resp <- httr2::req_perform(req)
 
-  if (format %in% c("xml", "gpx", "rss")) {
+  if (format %in% c("data.frame", "xml", "gpx", "rss")) {
     out <- httr2::resp_body_xml(resp)
+    if (format == "data.frame") {
+      out <- note_xml2DF(out)
+    }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)
   }
@@ -456,7 +470,7 @@ osm_reopen_note <- function(note_id) {
 #'   descending (`newest`, the default) order.
 #' @param limit Specifies the number of entries returned at max. A value of between 1 and 10000 is valid.	100 is the
 #'   default.
-#' @param format Format of the the returned list of notes. Can be `xml` (default), `rss`, `json` or `gpx`.
+#' @param format Format of the the returned list of notes. Can be `data.frame` (default), `xml`, `rss`, `json` or `gpx`.
 #'
 #' @details
 #' The notes will be ordered by the date of their last change, the most recent one will be first. If no query was
@@ -476,7 +490,7 @@ osm_reopen_note <- function(note_id) {
 osm_search_notes <- function(
     q, user, from, to, closed = 7,
     sort = c("updated_at", "created_at"), order = c("newest", "oldest"),
-    limit = 100, format = c("xml", "rss", "json", "gpx")) {
+    limit = 100, format = c("data.frame", "xml", "rss", "json", "gpx")) {
   sort <- match.arg(sort)
   order <- match.arg(order)
   format <- match.arg(format)
@@ -505,6 +519,9 @@ osm_search_notes <- function(
   }
 
   ext <- paste0("search.", format)
+  if (format == "data.frame") {
+    ext <- "search.xml"
+  }
 
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
@@ -518,8 +535,11 @@ osm_search_notes <- function(
 
   resp <- httr2::req_perform(req)
 
-  if (format %in% c("xml", "gpx", "rss")) {
+  if (format %in% c("data.frame", "xml", "gpx", "rss")) {
     out <- httr2::resp_body_xml(resp)
+    if (format == "data.frame") {
+      out <- note_xml2DF(out)
+    }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)
   }

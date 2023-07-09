@@ -63,8 +63,9 @@ osm_details_user <- function(user_id) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- user_details_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -143,8 +144,9 @@ osm_details_users <- function(user_ids) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- user_details_xml2DF(obj_xml)
+
+  return(out)
 }
 
 

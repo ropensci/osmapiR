@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<note lon="1.7214600" lat="42.0332200">
+  <id>2067786</id>
+  <url>osm.org/api/0.6/notes/2067786.xml</url>
+  <comment_url>osm.org/api/0.6/notes/2067786/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/2067786/close.xml</close_url>
+  <date_created>2020-01-24 18:21:48 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2020-01-24 18:21:48 UTC</date>
+      <uid>10576187</uid>
+      <user>Juliosebastian</user>
+      <user_url>osm.org/user/Juliosebastian</user_url>
+      <action>opened</action>
+      <text>A Can Traver hi va haver el refugi pel personal militar destacat al Camp de l'aviació republicana durant la Guerra Civil.</text>
+      <html>&lt;p&gt;A Can Traver hi va haver el refugi pel personal militar destacat al Camp de l'aviació republicana durant la Guerra Civil.&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2020-02-07 13:44:56 UTC</date>
+      <uid>5126253</uid>
+      <user>jqngarcia</user>
+      <user_url>osm.org/user/jqngarcia</user_url>
+      <action>commented</action>
+      <text>Bon dia, Julio, queden restes d'aquest refugui, si no queda cap element que es pugui reconeixer al terreny per qualsevol que pasi no es pot mapejar, OSM per desgracie no es un mapa historic, sino de la realitat existent.
+
+Salut i Mapes, JQN</text>
+      <html>&lt;p&gt;Bon dia, Julio, queden restes d'aquest refugui, si no queda cap element que es pugui reconeixer al terreny per qualsevol que pasi no es pot mapejar, OSM per desgracie no es un mapa historic, sino de la realitat existent.&lt;/p&gt;
+
+&lt;p&gt;Salut i Mapes, JQN&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+</osm>

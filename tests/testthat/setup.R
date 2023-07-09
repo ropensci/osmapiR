@@ -1,3 +1,3 @@
 library(httptest2)
 
-set_osmapi_url("https://master.apis.dev.openstreetmap.org")
+set_osmapi_connection("testing")
