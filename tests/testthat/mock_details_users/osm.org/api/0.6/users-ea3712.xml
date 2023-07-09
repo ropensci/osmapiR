@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<user id="1" display_name="Steve" account_created="2005-09-13T15:32:57Z">
+  <description></description>
+  <contributor-terms agreed="true"/>
+  <roles>
+  </roles>
+  <changesets count="1114"/>
+  <traces count="23"/>
+  <blocks>
+    <received count="0" active="0"/>
+  </blocks>
+</user>
+<user id="24" display_name="Petter Reinholdtsen" account_created="2005-09-12T16:54:12Z">
+  <description></description>
+  <contributor-terms agreed="true"/>
+  <roles>
+  </roles>
+  <changesets count="536"/>
+  <traces count="64"/>
+  <blocks>
+    <received count="0" active="0"/>
+  </blocks>
+</user>
+<user id="44" display_name="user_44" account_created="2005-03-20T19:55:17Z">
+  <description></description>
+  <contributor-terms agreed="false"/>
+  <roles>
+  </roles>
+  <changesets count="0"/>
+  <traces count="0"/>
+  <blocks>
+    <received count="0" active="0"/>
+  </blocks>
+</user>
+<user id="45" display_name="user_45" account_created="2005-03-20T20:09:58Z">
+  <description></description>
+  <contributor-terms agreed="false"/>
+  <roles>
+  </roles>
+  <changesets count="0"/>
+  <traces count="0"/>
+  <blocks>
+    <received count="0" active="0"/>
+  </blocks>
+</user>
+<user id="46" display_name="FrankM" account_created="2005-09-08T15:11:47Z">
+  <description>My Tracks:
+
+tr.&amp;lt;date&amp;gt;.edit.gpx  - Garmin Geko 301
+tr-vista.&amp;lt;date&amp;gt;.edit.gpx  - Garmin Vista HCx
+gps-&amp;lt;date&amp;gt;.gpsd.gpx - Navilock NL-303P (SIRF III)
+mm-&amp;lt;date&amp;gt;-mtk.gpx   - maemo mapper + BT-Q1000 (MTK Chip)</description>
+  <contributor-terms agreed="true"/>
+  <roles>
+  </roles>
+  <changesets count="795"/>
+  <traces count="426"/>
+  <blocks>
+    <received count="0" active="0"/>
+  </blocks>
+</user>
+<user id="48" display_name="user_48" account_created="2005-03-21T13:43:58Z">
+  <description></description>
+  <contributor-terms agreed="false"/>
+  <roles>
+  </roles>
+  <changesets count="0"/>
+  <traces count="0"/>
+  <blocks>
+    <received count="0" active="0"/>
+  </blocks>
+</user>
+<user id="49" display_name="user_49" account_created="2005-03-21T14:58:06Z">
+  <description></description>
+  <contributor-terms agreed="false"/>
+  <roles>
+  </roles>
+  <changesets count="0"/>
+  <traces count="0"/>
+  <blocks>
+    <received count="0" active="0"/>
+  </blocks>
+</user>
+<user id="50" display_name="HeinerS" account_created="2005-03-21T15:53:06Z">
+  <description></description>
+  <contributor-terms agreed="true"/>
+  <roles>
+  </roles>
+  <changesets count="137"/>
+  <traces count="0"/>
+  <blocks>
+    <received count="0" active="0"/>
+  </blocks>
+</user>
+</osm>

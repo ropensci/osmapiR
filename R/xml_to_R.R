@@ -127,3 +127,62 @@ object_xml2DF <- function(xml) {
 
   return(out)
 }
+
+
+## user_details ----
+
+# osm_details_logged_user() also includes home, language and messages:
+
+user_details_xml2DF <- function(xml) {
+  users <- xml2::xml_children(xml)
+
+  user_attrs <- do.call(rbind, xml2::xml_attrs(users))
+  description <- xml2::xml_text(xml2::xml_child(users, "description"))
+  img <- xml2::xml_attr(xml2::xml_child(users, "img"), "href")
+  contributor_terms <- ifelse(xml2::xml_attrs(xml2::xml_child(users, "contributor-terms")) == "true", TRUE, FALSE)
+
+  roles <- xml2::xml_name(xml2::xml_contents(xml2::xml_child(users, "roles")))
+  roles <- ifelse(roles == "text", NA_character_, roles)
+
+  changesets_count <- as.character(xml2::xml_attrs(xml2::xml_child(users, "changesets")))
+  traces_count <- as.character(xml2::xml_attrs(xml2::xml_child(users, "traces")))
+
+
+  blocks <- xml2::xml_child(users, "blocks")
+
+  blocks_received <- do.call(rbind, xml2::xml_attrs(xml2::xml_child(blocks, "received")))
+  colnames(blocks_received) <- c("blocks_received.count", "blocks_received.active")
+
+  blocks_issued <- do.call(rbind, xml2::xml_attrs(xml2::xml_child(blocks, "issued")))
+  if (ncol(blocks_issued) == 1) { # No users have issued blocks
+    blocks_issued <- matrix(
+      data = NA_character_, nrow = length(users), ncol = 2,
+      dimnames = list(NULL, c("blocks_issued.count", "blocks_issued.active"))
+    )
+  } else {
+    colnames(blocks_issued) <- c("blocks_issued.count", "blocks_issued.active")
+  }
+
+  ## For osm_details_logged_user() TODO: return a list (current implementation) or a data.frame?
+  # home <- xml2::xml_attrs(xml2::xml_child(users, "home")),
+  # languages <- xml2::xml_text(xml2::xml_children(xml2::xml_child(users, "languages"))),
+  # messages <- list(
+  #   received = xml2::xml_attrs(xml2::xml_child(xml2::xml_child(users, "messages"), "received")),
+  #   sent = xml2::xml_attrs(xml2::xml_child(xml2::xml_child(users, "messages"), "sent"))
+
+  out <- data.frame(
+    user_attrs, description, img, contributor_terms, roles,
+    changesets_count, traces_count, blocks_received, blocks_issued
+  )
+
+  int_cols <- c(
+    "changesets_count", "traces_count", "blocks_received.count", "blocks_received.active",
+    "blocks_issued.count", "blocks_issued.active"
+  )
+  out[, int_cols] <- lapply(out[, int_cols], as.integer)
+
+  out$account_created <- as.POSIXct(out$account_created)
+
+  return(out)
+}
+

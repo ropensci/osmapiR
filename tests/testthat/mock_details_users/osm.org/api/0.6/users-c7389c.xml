@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<user id="61942" display_name="SomeoneElse" account_created="2008-08-24T23:21:40Z">
+  <description>I live near York (UK), though I do occasionally [venture further afield](http://yosmhm.neis-one.org/?zoom=6&amp;lat=53.08324&amp;lon=-2.42578&amp;layers=B000TTF&amp;u=SomeoneElse).
+I mainly map footpaths and other out-of-town things.  Also see related profile on 
+&lt;a rel="me" href="https://en.osm.town/@SomeoneElse"&gt;Mastodon&lt;/a&gt;.
+
+There are some bits and pieces (including [two](https://github.com/SomeoneElseOSM/SomeoneElse-style) [parts](https://github.com/SomeoneElseOSM/openstreetmap-carto-AJT) of an OSM-Carto-derived rendering style designed for out-of-town England and Wales) over at [Github](https://github.com/SomeoneElseOSM) that look like [this](https://map.atownsend.org.uk/maps/map/map.html).  There are some wiki pages behind [here](https://wiki.openstreetmap.org/wiki/User:SomeoneElse) (mostly to do with tileserver setup).  
+
+I'm a member of the [Data Working Group](http://wiki.openstreetmap.org/wiki/Data_working_group) (that's what the blue star above means), but if you've you've got any issues to raise with the DWG the [group email address](http://wiki.osmfoundation.org/wiki/Data_Working_Group#Contact) is the best one to use.  
+
+Other related accounts are [SomeoneElse2](http://www.openstreetmap.org/user/SomeoneElse2). [SomeoneElseSC](https://www.openstreetmap.org/user/SomeoneElseSC) and [SomeoneElse_Revert](http://www.openstreetmap.org/user/SomeoneElse_Revert), which is mainly used where people have requested that I help with reversions.
+
+</description>
+  <contributor-terms agreed="true"/>
+  <roles>
+    <moderator/>
+  </roles>
+  <changesets count="29842"/>
+  <traces count="5930"/>
+  <blocks>
+    <received count="0" active="0"/>
+    <issued count="2691" active="847"/>
+  </blocks>
+</user>
+</osm>
