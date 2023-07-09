@@ -200,8 +200,9 @@ osm_get_metadata_gpx <- function(gpx_id) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- gpx_meta_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -271,14 +272,29 @@ osm_get_data_gpx <- function(gpx_id, format) {
 # </osm>
 # </syntaxhighlight>
 
+#' List user's GPX traces
+#'
+#' Use this to get a list of GPX traces owned by the authenticated user. Requires authentication.
+#'
+#' @return
+#' @family GPS' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' traces <- osm_list_gpxs()
+#' traces
+#' }
 osm_list_gpxs <- function() {
-  req <- osmapi_request()
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "user", "gpx_files")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- gpx_meta_xml2DF(obj_xml)
+
+  return(out)
 }

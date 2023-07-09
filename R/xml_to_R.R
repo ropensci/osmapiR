@@ -129,6 +129,35 @@ object_xml2DF <- function(xml) {
 }
 
 
+## TODO: GPS traces ----
+# pts_gps <- osm_get_points_gps(bbox = c(-0.3667545, 40.2153246, -0.3354263, 40.2364915))
+# trk_meta <- osm_get_metadata_gpx(gpx_id = 3498170)
+# trk_data <- osm_get_data_gpx(gpx_id = 3498170)
+# traces <- osm_list_gpxs()
+
+gpx_meta_xml2DF <- function(xml) {
+  gpx_files <- xml2::xml_children(xml)
+
+  gpx_attrs <- do.call(rbind, xml2::xml_attrs(gpx_files))
+  description <- xml2::xml_text(xml2::xml_child(gpx_files, "description"))
+  tags <- lapply(xml2::xml_find_all(gpx_files, ".//tag", flatten = FALSE), xml2::xml_text)
+
+  out <- data.frame(gpx_attrs, description)
+  out$timestamp <- as.POSIXct(out$timestamp)
+  out$pending <- ifelse(out$pending == "true", TRUE, FALSE)
+
+  out$tags <- tags
+
+  return(out)
+}
+
+
+# TODO ----
+gpx_xml2DF <- function(xml) {
+
+}
+
+
 ## user_details ----
 
 # osm_details_logged_user() also includes home, language and messages:
