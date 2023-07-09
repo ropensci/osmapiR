@@ -215,8 +215,9 @@ osm_bbox_objects <- function(bbox) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- object_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
