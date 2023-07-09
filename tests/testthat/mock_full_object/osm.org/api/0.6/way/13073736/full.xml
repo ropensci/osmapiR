@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <node id="4856486143" visible="true" version="2" changeset="86534163" timestamp="2020-06-11T21:02:34Z" user="MikelCalo" uid="11126976" lat="39.4760324" lon="-0.3838247"/>
+ <node id="4902243087" visible="true" version="3" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4762336" lon="-0.3837994"/>
+ <node id="4902243088" visible="true" version="3" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4762362" lon="-0.3838279"/>
+ <node id="6771540792" visible="true" version="2" changeset="77447443" timestamp="2019-11-22T22:35:38Z" user="Georg_M_Weber" uid="10241965" lat="39.4757710" lon="-0.3837962"/>
+ <node id="6771540793" visible="true" version="2" changeset="77447443" timestamp="2019-11-22T22:35:38Z" user="Georg_M_Weber" uid="10241965" lat="39.4757529" lon="-0.3839320"/>
+ <node id="6771540804" visible="true" version="2" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4759211" lon="-0.3839627"/>
+ <node id="6771540805" visible="true" version="2" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4759415" lon="-0.3839663"/>
+ <node id="6771540806" visible="true" version="2" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4759429" lon="-0.3839482"/>
+ <node id="6771540812" visible="true" version="2" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4759107" lon="-0.3839952"/>
+ <node id="6790061967" visible="true" version="2" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4759295" lon="-0.3838642"/>
+ <node id="6957604940" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4756556" lon="-0.3838435">
+  <tag k="entrance" v="yes"/>
+ </node>
+ <node id="6957604941" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4758753" lon="-0.3838351">
+  <tag k="entrance" v="yes"/>
+ </node>
+ <node id="6957604951" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4755912" lon="-0.3838750"/>
+ <node id="6957604952" visible="true" version="2" changeset="77447443" timestamp="2019-11-22T22:35:38Z" user="Georg_M_Weber" uid="10241965" lat="39.4759225" lon="-0.3839451"/>
+ <node id="6957604954" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4758125" lon="-0.3838357"/>
+ <node id="6957604955" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4755967" lon="-0.3838455"/>
+ <node id="6957604959" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4755836" lon="-0.3839789"/>
+ <node id="6957604960" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4757046" lon="-0.3839958"/>
+ <node id="6957604961" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4756574" lon="-0.3840390"/>
+ <node id="6957604962" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4758791" lon="-0.3840280"/>
+ <node id="6957604963" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4757087" lon="-0.3839836"/>
+ <node id="6957604964" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4758031" lon="-0.3839996"/>
+ <node id="6957604965" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4756803" lon="-0.3840288"/>
+ <node id="6957604966" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4756202" lon="-0.3840332"/>
+ <node id="6957604967" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4757196" lon="-0.3838412"/>
+ <node id="6957604968" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4759713" lon="-0.3838621"/>
+ <node id="6957604969" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4759036" lon="-0.3840060"/>
+ <node id="6957604972" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4759330" lon="-0.3838343"/>
+ <node id="6957604973" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4758114" lon="-0.3840119"/>
+ <node id="6957604974" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4756003" lon="-0.3840164"/>
+ <node id="6957604975" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4755807" lon="-0.3839573"/>
+ <node id="6957604977" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4756984" lon="-0.3840076"/>
+ <node id="6957604979" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4756322" lon="-0.3840382"/>
+ <node id="6957604980" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4757118" lon="-0.3839693"/>
+ <node id="6957604981" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4756695" lon="-0.3840350"/>
+ <node id="6957604982" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4757140" lon="-0.3839557"/>
+ <node id="6957604983" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4756899" lon="-0.3840195"/>
+ <node id="6957604984" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4759704" lon="-0.3838325"/>
+ <node id="6957611385" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4756442" lon="-0.3840402"/>
+ <node id="6957611387" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4757906" lon="-0.3839351"/>
+ <node id="6957611388" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4756105" lon="-0.3840266"/>
+ <node id="6957611389" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4758740" lon="-0.3840303"/>
+ <node id="6957611391" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4755913" lon="-0.3840016"/>
+ <node id="6957611392" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4759266" lon="-0.3838346"/>
+ <node id="6957611397" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4757154" lon="-0.3839416"/>
+ <node id="6957611399" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4757157" lon="-0.3839290"/>
+ <node id="6957611401" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4758241" lon="-0.3840238"/>
+ <node id="6957611402" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4757905" lon="-0.3839518"/>
+ <node id="6957611404" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4757286" lon="-0.3837929"/>
+ <node id="6957611405" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4758927" lon="-0.3840178"/>
+ <node id="6957611406" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4757954" lon="-0.3839814"/>
+ <node id="6957611407" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4755879" lon="-0.3838926"/>
+ <node id="6957611408" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4758357" lon="-0.3840299"/>
+ <node id="6957611410" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4758510" lon="-0.3840329"/>
+ <node id="6957611412" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4757897" lon="-0.3839350"/>
+ <node id="6957611414" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4757920" lon="-0.3839677"/>
+ <node id="6957611416" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4759168" lon="-0.3839802"/>
+ <node id="6957611417" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4757672" lon="-0.3839332">
+  <tag k="addr:housenumber" v="90"/>
+  <tag k="addr:postcode" v="46001"/>
+  <tag k="addr:street" v="Carrer de Guillem de Castro"/>
+  <tag k="entrance" v="yes"/>
+ </node>
+ <node id="6957611418" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4758625" lon="-0.3840327"/>
+ <node id="6957611421" visible="true" version="1" changeset="76811325" timestamp="2019-11-08T13:10:11Z" user="editemapes_imports" uid="10063912" lat="39.4758168" lon="-0.3837998"/>
+ <way id="13073736" visible="true" version="21" changeset="114656477" timestamp="2021-12-07T11:27:19Z" user="jmaspons" uid="11725140">
+  <nd ref="6771540804"/>
+  <nd ref="6771540805"/>
+  <nd ref="6771540806"/>
+  <nd ref="6957604952"/>
+  <nd ref="6790061967"/>
+  <nd ref="6957604968"/>
+  <nd ref="4902243088"/>
+  <nd ref="4902243087"/>
+  <nd ref="4856486143"/>
+  <nd ref="6957604984"/>
+  <nd ref="6957604972"/>
+  <nd ref="6957611392"/>
+  <nd ref="6957604941"/>
+  <nd ref="6957604954"/>
+  <nd ref="6957611421"/>
+  <nd ref="6771540792"/>
+  <nd ref="6957611404"/>
+  <nd ref="6957604967"/>
+  <nd ref="6957604940"/>
+  <nd ref="6957604955"/>
+  <nd ref="6957604951"/>
+  <nd ref="6957611407"/>
+  <nd ref="6957604975"/>
+  <nd ref="6957604959"/>
+  <nd ref="6957611391"/>
+  <nd ref="6957604974"/>
+  <nd ref="6957611388"/>
+  <nd ref="6957604966"/>
+  <nd ref="6957604979"/>
+  <nd ref="6957611385"/>
+  <nd ref="6957604961"/>
+  <nd ref="6957604981"/>
+  <nd ref="6957604965"/>
+  <nd ref="6957604983"/>
+  <nd ref="6957604977"/>
+  <nd ref="6957604960"/>
+  <nd ref="6957604963"/>
+  <nd ref="6957604980"/>
+  <nd ref="6957604982"/>
+  <nd ref="6957611397"/>
+  <nd ref="6957611399"/>
+  <nd ref="6771540793"/>
+  <nd ref="6957611417"/>
+  <nd ref="6957611412"/>
+  <nd ref="6957611387"/>
+  <nd ref="6957611402"/>
+  <nd ref="6957611414"/>
+  <nd ref="6957611406"/>
+  <nd ref="6957604964"/>
+  <nd ref="6957604973"/>
+  <nd ref="6957611401"/>
+  <nd ref="6957611408"/>
+  <nd ref="6957611410"/>
+  <nd ref="6957611418"/>
+  <nd ref="6957611389"/>
+  <nd ref="6957604962"/>
+  <nd ref="6957611405"/>
+  <nd ref="6957604969"/>
+  <nd ref="6771540812"/>
+  <nd ref="6957611416"/>
+  <nd ref="6771540804"/>
+  <tag k="alt_name:ca" v="Torres de Quart"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:levels" v="4"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="city_gate"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:ca" v="Torres de Quart"/>
+  <tag k="name:es" v="Porta de Quart"/>
+  <tag k="name:ru" v="Башни Куарта"/>
+  <tag k="wikidata" v="Q2343754"/>
+  <tag k="wikipedia" v="ca:Porta de Quart"/>
+ </way>
+</osm>

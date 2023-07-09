@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<relation id="40581" visible="true" version="3" changeset="11746232" timestamp="2012-05-30T08:57:05Z" user="lerks" uid="188477">
+  <member type="way" ref="27966652" role="outer"/>
+  <member type="way" ref="27966705" role="outer"/>
+  <member type="way" ref="27966846" role="outer"/>
+  <member type="way" ref="27966863" role="outer"/>
+  <member type="way" ref="27966976" role="outer"/>
+  <member type="way" ref="27966991" role="outer"/>
+  <member type="way" ref="27966993" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Alghero"/>
+  <tag k="ref:catasto" v="A192"/>
+  <tag k="ref:ISTAT" v="090003"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="it:Alghero"/>
+</relation>
+</osm>

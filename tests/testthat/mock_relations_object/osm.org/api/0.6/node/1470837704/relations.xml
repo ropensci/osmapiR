@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <relation id="347424" visible="true" version="15" changeset="135030675" timestamp="2023-04-17T19:56:44Z" user="Hugoren Martinako" uid="3392826">
+  <member type="way" ref="45365865" role="outer"/>
+  <member type="way" ref="45330518" role="outer"/>
+  <member type="way" ref="45374969" role="outer"/>
+  <member type="way" ref="45378098" role="outer"/>
+  <member type="way" ref="45346173" role="outer"/>
+  <member type="way" ref="45378743" role="outer"/>
+  <member type="way" ref="45356699" role="outer"/>
+  <member type="way" ref="45333490" role="outer"/>
+  <member type="way" ref="45370538" role="outer"/>
+  <member type="node" ref="1470837704" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Alcoi"/>
+  <tag k="ine:municipio" v="03009"/>
+  <tag k="name" v="Alcoi / Alcoy"/>
+  <tag k="name:ca" v="Alcoi"/>
+  <tag k="name:es" v="Alcoy"/>
+  <tag k="name:gl" v="Alcoi"/>
+  <tag k="population" v="58960"/>
+  <tag k="population:date" v="2022"/>
+  <tag k="ref:ine" v="03009000000"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikidata" v="Q494777"/>
+  <tag k="wikipedia" v="ca:Alcoi"/>
+ </relation>
+ <relation id="1692442" visible="true" version="8" changeset="102509369" timestamp="2021-04-07T23:06:52Z" user="arte2002" uid="662113">
+  <member type="way" ref="45372121" role="outer"/>
+  <member type="way" ref="45365895" role="outer"/>
+  <member type="way" ref="45365893" role="outer"/>
+  <member type="way" ref="45365897" role="outer"/>
+  <member type="way" ref="927376428" role="outer"/>
+  <member type="way" ref="45365898" role="outer"/>
+  <member type="way" ref="927376429" role="outer"/>
+  <member type="way" ref="45333497" role="outer"/>
+  <member type="way" ref="45370484" role="outer"/>
+  <member type="way" ref="45378738" role="outer"/>
+  <member type="way" ref="45365473" role="outer"/>
+  <member type="way" ref="45350357" role="outer"/>
+  <member type="way" ref="45378100" role="outer"/>
+  <member type="way" ref="45378098" role="outer"/>
+  <member type="way" ref="45365865" role="outer"/>
+  <member type="way" ref="45365864" role="outer"/>
+  <member type="way" ref="45345864" role="outer"/>
+  <member type="way" ref="45345868" role="outer"/>
+  <member type="way" ref="45345845" role="outer"/>
+  <member type="way" ref="45356667" role="outer"/>
+  <member type="way" ref="45370536" role="outer"/>
+  <member type="way" ref="45370539" role="outer"/>
+  <member type="way" ref="45370534" role="outer"/>
+  <member type="way" ref="45328282" role="outer"/>
+  <member type="way" ref="45330524" role="outer"/>
+  <member type="way" ref="45330519" role="outer"/>
+  <member type="way" ref="45330518" role="outer"/>
+  <member type="way" ref="45374969" role="outer"/>
+  <member type="way" ref="45356696" role="outer"/>
+  <member type="way" ref="45365896" role="outer"/>
+  <member type="way" ref="45372119" role="outer"/>
+  <member type="way" ref="45372120" role="outer"/>
+  <member type="way" ref="45352492" role="outer"/>
+  <member type="node" ref="1470837704" role="admin_centre"/>
+  <tag k="admin_level" v="7"/>
+  <tag k="alt_name" v="Alcoià"/>
+  <tag k="alt_name:es" v="Hoya de Alcoy"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="l'Alcoià"/>
+  <tag k="name:ca" v="l'Alcoià"/>
+  <tag k="name:es" v="La Hoya de Alcoy"/>
+  <tag k="name:ru" v="Ойя-де-Алькой"/>
+  <tag k="place" v="region"/>
+  <tag k="rank" v="region"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikidata" v="Q746061"/>
+  <tag k="wikipedia" v="es:Hoya de Alcoy"/>
+ </relation>
+</osm>

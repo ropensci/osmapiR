@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <node id="35308286" visible="true" version="1" changeset="292412" timestamp="2007-09-02T14:55:33Z" user="Skywave" uid="10927" lat="42.5178841" lon="2.4567366">
+  <tag k="altitude" v="2784,66"/>
+  <tag k="created_by" v="Potlatch alpha"/>
+  <tag k="ele" v="2784,66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="natural" v="peak"/>
+ </node>
+ <node id="35308286" visible="true" version="2" changeset="39997" timestamp="2007-12-02T19:28:54Z" user="Skywave" uid="10927" lat="42.5116144" lon="2.4580973">
+  <tag k="altitude" v="2784,66"/>
+  <tag k="created_by" v="Potlatch 0.5d"/>
+  <tag k="ele" v="2784,66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="natural" v="peak"/>
+ </node>
+ <node id="35308286" visible="true" version="3" changeset="39997" timestamp="2007-12-02T19:29:01Z" user="Skywave" uid="10927" lat="42.5184471" lon="2.4580973">
+  <tag k="altitude" v="2784,66"/>
+  <tag k="created_by" v="Potlatch 0.5d"/>
+  <tag k="ele" v="2784,66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="natural" v="peak"/>
+ </node>
+ <node id="35308286" visible="true" version="4" changeset="131335" timestamp="2007-12-06T21:08:56Z" user="Skywave" uid="10927" lat="42.5184471" lon="2.4580973">
+  <tag k="created_by" v="Potlatch 0.5d"/>
+  <tag k="ele" v="2784,66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="natural" v="peak"/>
+ </node>
+ <node id="35308286" visible="true" version="5" changeset="544716" timestamp="2008-01-05T17:55:28Z" user="Skywave" uid="10927" lat="42.5184471" lon="2.4580973">
+  <tag k="created_by" v="Potlatch 0.5d"/>
+  <tag k="ele" v="2784,66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="name:ca" v="Puig del Canigó"/>
+  <tag k="natural" v="peak"/>
+ </node>
+ <node id="35308286" visible="true" version="6" changeset="433656" timestamp="2008-08-28T00:14:47Z" user="Skywave" uid="10927" lat="42.5184481" lon="2.4580929">
+  <tag k="created_by" v="Potlatch 0.10b"/>
+  <tag k="ele" v="2784,66"/>
+  <tag k="elevation" v="2784,66 meters"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="name:ca" v="Puig del Canigó"/>
+  <tag k="natural" v="peak"/>
+ </node>
+ <node id="35308286" visible="true" version="7" changeset="61302" timestamp="2008-10-04T20:55:22Z" user="Skywave" uid="10927" lat="42.5187840" lon="2.4567709">
+  <tag k="created_by" v="Potlatch 0.10c"/>
+  <tag k="ele" v="2784,66"/>
+  <tag k="elevation" v="2784,66 meters"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="name:ca" v="Puig del Canigó"/>
+  <tag k="natural" v="peak"/>
+ </node>
+ <node id="35308286" visible="true" version="8" changeset="731089" timestamp="2009-03-03T20:23:52Z" user="Eric S" uid="45284" lat="42.5187840" lon="2.4567709">
+  <tag k="ele" v="2784,66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="name:ca" v="Puig del Canigó"/>
+  <tag k="natural" v="peak"/>
+ </node>
+ <node id="35308286" visible="true" version="9" changeset="4188890" timestamp="2010-03-21T10:17:52Z" user="petrovsk" uid="90394" lat="42.5189368" lon="2.4566062">
+  <tag k="ele" v="2784,66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="name:ca" v="Puig del Canigó"/>
+  <tag k="natural" v="peak"/>
+ </node>
+ <node id="35308286" visible="true" version="10" changeset="5978159" timestamp="2010-10-07T13:28:57Z" user="Skywave" uid="10927" lat="42.5189176" lon="2.4565525">
+  <tag k="ele" v="2784,66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="name:ca" v="Puig del Canigó"/>
+  <tag k="natural" v="peak"/>
+ </node>
+ <node id="35308286" visible="true" version="11" changeset="5980618" timestamp="2010-10-07T19:16:33Z" user="Skywave" uid="10927" lat="42.5189047" lon="2.4565596">
+  <tag k="ele" v="2784,66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="name:ca" v="Puig del Canigó"/>
+  <tag k="natural" v="peak"/>
+ </node>
+ <node id="35308286" visible="true" version="12" changeset="9467521" timestamp="2011-10-04T08:48:09Z" user="WernerP" uid="315015" lat="42.5189047" lon="2.4565596">
+  <tag k="ele" v="2784.66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="name:ca" v="Puig del Canigó"/>
+  <tag k="natural" v="peak"/>
+ </node>
+ <node id="35308286" visible="true" version="13" changeset="13343795" timestamp="2012-10-03T07:49:42Z" user="FMB" uid="316958" lat="42.5189047" lon="2.4565596">
+  <tag k="ele" v="2784.66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="name:ca" v="Pica del Canigó"/>
+  <tag k="natural" v="peak"/>
+ </node>
+ <node id="35308286" visible="true" version="14" changeset="18407951" timestamp="2013-10-17T18:21:18Z" user="janes" uid="428521" lat="42.5189047" lon="2.4565596">
+  <tag k="ele" v="2784.66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="name:ca" v="Pic del Canigó"/>
+  <tag k="natural" v="peak"/>
+ </node>
+ <node id="35308286" visible="true" version="15" changeset="63949815" timestamp="2018-10-28T13:07:37Z" user="ManelG" uid="2491053" lat="42.5189047" lon="2.4565596">
+  <tag k="ele" v="2784.66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="name:ca" v="Pic del Canigó"/>
+  <tag k="natural" v="peak"/>
+  <tag k="prominence" v="550"/>
+ </node>
+</osm>

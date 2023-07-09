@@ -1,137 +1,139 @@
-node_id <- 35308286 # Canigó
-way_id <- 13073736 # Torres de Quart
-rel_id <- 40581 # l'Alguer
+column_attrs <- c("type", "id", "visible", "version", "changeset", "timestamp", "user", "uid", "members")
+column_attrs_node <- c("type", "id", "visible", "version", "changeset", "timestamp", "user", "uid", "lat", "lon", "members")
+
 
 ## Create: `PUT /api/0.6/[node|way|relation]/create` ----
+
 test_that("osm_create_object works", {
   # osm_create_object(osm_type = c("node", "way", "relation"), ...)
 })
 
+
 ## Read: `GET /api/0.6/[node|way|relation]/#id` ----
+
 test_that("osm_read_object works", {
-  node <- osm_read_object(osm_type = "node", osm_id = node_id)
-  way <- osm_read_object(osm_type = "way", osm_id = way_id)
-  rel <- osm_read_object(osm_type = "relation", osm_id = rel_id)
+  read <- list()
+  with_mock_dir("mock_read_object", {
+    read$node <- osm_read_object(osm_type = "node", osm_id = 35308286)
+    read$way <- osm_read_object(osm_type = "way", osm_id = 13073736L)
+    read$rel <- osm_read_object(osm_type = "relation", osm_id = "40581")
+  })
 
-  osmdata:::xml_to_df(node)
-  osmdata::osmdata_sf(doc = node)$osm_points
-  cat(as.character(node))
-
-  osmdata:::xml_to_df(way)
-  osmdata::osmdata_sf(doc = way)$osm_polygons
-  cat(as.character(way))
-
-  osmdata:::xml_to_df(rel)
-  osmdata::osmdata_sf(doc = rel)$osm_polygons
-  cat(as.character(rel))
+  lapply(read, expect_s3_class, "data.frame")
+  expect_identical(names(read$node)[seq_len(length(column_attrs_node))], column_attrs_node)
+  lapply(read[c("way", "rel")], function(x) expect_identical(names(x)[seq_len(length(column_attrs))], column_attrs))
 })
 
+
 ## Update: `PUT /api/0.6/[node|way|relation]/#id` ----
+
 test_that("osm_update_object works", {
-  osm_update_object(osm_type = c("node", "way", "relation"), osm_id)
+  # osm_update_object(osm_type = c("node", "way", "relation"), osm_id)
 })
 
 
 ## Delete: `DELETE /api/0.6/[node|way|relation]/#id` ----
+
 test_that("osm_delete_object works", {
-  osm_delete_object(osm_type = c("node", "way", "relation"), osm_id)
+  # osm_delete_object(osm_type = c("node", "way", "relation"), osm_id)
 })
 
 
 ## History: `GET /api/0.6/[node|way|relation]/#id/history` ----
+
 test_that("osm_history_object works", {
-  node <- osm_history_object(osm_type = "node", osm_id = node_id)
-  way <- osm_history_object(osm_type = "way", osm_id = way_id)
-  rel <- osm_history_object(osm_type = "relation", osm_id = rel_id)
+  history <- list()
+  with_mock_dir("mock_history_object", {
+    history$node <- osm_history_object(osm_type = "node", osm_id = 35308286)
+    history$way <- osm_history_object(osm_type = "way", osm_id = 13073736L)
+    history$rel <- osm_history_object(osm_type = "relation", osm_id = "40581")
+  })
 
-  osmdata:::xml_to_df(node)
-  cat(as.character(node))
-
-  osmdata:::xml_to_df(way)
-  cat(as.character(way))
-
-  osmdata:::xml_to_df(rel)
-  cat(as.character(rel))
+  lapply(history, expect_s3_class, "data.frame")
+  expect_identical(names(history$node)[seq_len(length(column_attrs_node))], column_attrs_node)
+  lapply(history[c("way", "rel")], function(x) expect_identical(names(x)[seq_len(length(column_attrs))], column_attrs))
 })
 
 
 ## Version: `GET /api/0.6/[node|way|relation]/#id/#version` ----
+
 test_that("osm_version_object works", {
-  node <- osm_version_object(osm_type = "node", osm_id = node_id, version = 1)
-  way <- osm_version_object(osm_type = "way", osm_id = way_id, version = 3)
-  rel <- osm_version_object(osm_type = "relation", osm_id = rel_id, version = 2)
+  version <- list()
+  with_mock_dir("mock_version_object", {
+    version$node <- osm_version_object(osm_type = "node", osm_id = 35308286, version = 1)
+    version$way <- osm_version_object(osm_type = "way", osm_id = 13073736L, version = 2)
+    version$rel <- osm_version_object(osm_type = "relation", osm_id = "40581", version = 3)
+  })
 
-  osmdata:::xml_to_df(node)
-  cat(as.character(node))
-
-  osmdata:::xml_to_df(way)
-  cat(as.character(way))
-
-  osmdata:::xml_to_df(rel)
-  cat(as.character(rel))
+  lapply(version, expect_s3_class, "data.frame")
+  expect_identical(names(version$node)[seq_len(length(column_attrs_node))], column_attrs_node)
+  lapply(version[c("way", "rel")], function(x) expect_identical(names(x)[seq_len(length(column_attrs))], column_attrs))
 })
 
 
 ## Multi fetch: `GET /api/0.6/[nodes|ways|relations]?#parameters` ----
+
 test_that("osm_fetch_objects works", {
-  node <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(node_id, 1935675367))
-  way <- osm_fetch_objects(osm_type = "ways", osm_ids = c(way_id, 235744929))
-  rel <- osm_fetch_objects(osm_type = "relations", osm_ids = c(rel_id, "341530"))
+  fetch <- list()
+  with_mock_dir("mock_fetch_objects", {
+    fetch$node <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367))
+    fetch$way <- osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L))
+    # Specific versions
+    fetch$rel <- osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1))
+  })
 
-  osmdata:::xml_to_df(node)
-  cat(as.character(node))
-
-  osmdata:::xml_to_df(way)
-  cat(as.character(way))
-
-  osmdata:::xml_to_df(rel)
-  cat(as.character(rel))
+  lapply(fetch, expect_s3_class, "data.frame")
+  expect_identical(names(fetch$node)[seq_len(length(column_attrs_node))], column_attrs_node)
+  lapply(fetch[c("way", "rel")], function(x) expect_identical(names(x)[seq_len(length(column_attrs))], column_attrs))
 })
 
 
 ## Relations for element: `GET /api/0.6/[node|way|relation]/#id/relations` ----
+
 test_that("osm_relations_object works", {
-  node <- osm_relations_object(osm_type = "node", osm_id = node_id)
-  way <- osm_relations_object(osm_type = "way", osm_id = way_id)
-  rel <- osm_relations_object(osm_type = "relation", osm_id = rel_id)
+  rels <- list()
+  with_mock_dir("mock_relations_object", {
+    rels$node <- osm_relations_object(osm_type = "node", osm_id = 1470837704)
+    rels$way <- osm_relations_object(osm_type = "way", osm_id = 372011578)
+    rels$rel <- osm_relations_object(osm_type = "relation", osm_id = 342792)
+  })
 
-  osmdata:::xml_to_df(node)
-  cat(as.character(node))
-
-  osmdata:::xml_to_df(way)
-  cat(as.character(way))
-
-  osmdata:::xml_to_df(rel)
-  cat(as.character(rel))
+  lapply(rels, expect_s3_class, "data.frame")
+  lapply(rels, function(x) expect_identical(names(x)[seq_len(length(column_attrs))], column_attrs))
 })
 
 
 ## Ways for node: `GET /api/0.6/node/#id/ways` ----
-test_that("osm_ways_node works", {
-  node <- osm_ways_node(node_id = node_id)
 
-  osmdata:::xml_to_df(node)
-  cat(as.character(node))
+test_that("osm_ways_node works", {
+  with_mock_dir("mock_ways_node", {
+    ways_node <- osm_ways_node(node_id = 35308286)
+  })
+
+  expect_s3_class(ways_node, "data.frame")
+  expect_identical(names(ways_node)[seq_len(length(column_attrs))], column_attrs)
 })
 
 
 ## Full: `GET /api/0.6/[way|relation]/#id/full` ----
+
 test_that("osm_full_object works", {
-  way <- osm_full_object(osm_type = "way", osm_id = way_id)
-  rel <- osm_full_object(osm_type = "relation", osm_id = rel_id)
+  full <- list()
+  with_mock_dir("mock_full_object", {
+    full$way <- osm_full_object(osm_type = "way", osm_id = 13073736)
+    full$rel <- osm_full_object(osm_type = "relation", osm_id = "6002785")
+  })
+  # Warning messages:
+  # 1: In (function (..., deparse.level = 1)  :
+  #   number of columns of result is not a multiple of vector length (arg 61)
 
-  osmdata:::xml_to_df(way)
-  osmdata::osmdata_sf(doc = way)$osm_points
-  cat(as.character(way))
-
-  osmdata:::xml_to_df(rel)
-  osm_sf <- osmdata::osmdata_sf(doc = rel)
-  do.call(dbTools::rbind_addColumns, osm_sf[grep("^osm_", names(osm_sf))])
-  cat(as.character(rel))
+  lapply(full, expect_s3_class, "data.frame")
+  lapply(full, function(x) expect_identical(names(x)[seq_len(length(column_attrs_node))], column_attrs_node))
 })
 
 
 ## Redaction: `POST /api/0.6/[node|way|relation]/#id/#version/redact?redaction=#redaction_id` ----
+
 test_that("osm_redaction_object works", {
   # osm_redaction_object(osm_type = c("node", "way", "relation"), osm_id, version, redaction_id)
 })

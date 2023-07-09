@@ -143,8 +143,9 @@ osm_read_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- object_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -299,8 +300,9 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id) 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- object_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -347,8 +349,9 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- object_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -423,8 +426,9 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- object_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -466,8 +470,9 @@ osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- object_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -500,8 +505,9 @@ osm_ways_node <- function(node_id) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- object_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -565,8 +571,9 @@ osm_full_object <- function(osm_type = c("way", "relation"), osm_id) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- object_xml2DF(obj_xml)
+
+  return(out)
 }
 
 

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <relation id="40581" visible="true" version="53" changeset="135982205" timestamp="2023-05-11T15:10:18Z" user="l2212" uid="1775455">
+  <member type="node" ref="72994199" role="admin_centre"/>
+  <member type="way" ref="165579897" role="outer"/>
+  <member type="way" ref="963065356" role="outer"/>
+  <member type="way" ref="983618143" role="outer"/>
+  <member type="way" ref="1082346185" role="outer"/>
+  <member type="way" ref="1082346184" role="outer"/>
+  <member type="way" ref="166623039" role="outer"/>
+  <member type="way" ref="983618141" role="outer"/>
+  <member type="way" ref="168606149" role="outer"/>
+  <member type="way" ref="168606181" role="outer"/>
+  <member type="way" ref="168606180" role="outer"/>
+  <member type="way" ref="168606185" role="outer"/>
+  <member type="way" ref="168606132" role="outer"/>
+  <member type="way" ref="117090337" role="outer"/>
+  <member type="way" ref="117090596" role="outer"/>
+  <member type="way" ref="10277182" role="outer"/>
+  <member type="way" ref="166623045" role="outer"/>
+  <member type="way" ref="10276762" role="outer"/>
+  <member type="way" ref="166623043" role="outer"/>
+  <member type="way" ref="109864312" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="L'Alguer/Alghero"/>
+  <tag k="name:ar" v="ألغيرو"/>
+  <tag k="name:az-Arab" v="آلگرو"/>
+  <tag k="name:azb" v="آلگرو"/>
+  <tag k="name:ca" v="L'Alguer"/>
+  <tag k="name:co" v="L'Aliera"/>
+  <tag k="name:el" v="Αλγκέρο"/>
+  <tag k="name:es" v="Alguer"/>
+  <tag k="name:fa" v="آلگرو"/>
+  <tag k="name:it" v="Alghero"/>
+  <tag k="name:kk-Arab" v="الگەرو"/>
+  <tag k="name:la" v="Algarium"/>
+  <tag k="name:ru" v="Альгеро"/>
+  <tag k="name:sc" v="S'Alighèra"/>
+  <tag k="ref:catasto" v="A192"/>
+  <tag k="ref:ISTAT" v="090003"/>
+  <tag k="type" v="boundary"/>
+  <tag k="website" v="http://www.comune.alghero.ss.it/"/>
+  <tag k="wikidata" v="Q166282"/>
+  <tag k="wikipedia" v="ca:L'Alguer"/>
+ </relation>
+</osm>

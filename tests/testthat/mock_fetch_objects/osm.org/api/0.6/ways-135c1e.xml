@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <way id="13073736" visible="true" version="21" changeset="114656477" timestamp="2021-12-07T11:27:19Z" user="jmaspons" uid="11725140">
+  <nd ref="6771540804"/>
+  <nd ref="6771540805"/>
+  <nd ref="6771540806"/>
+  <nd ref="6957604952"/>
+  <nd ref="6790061967"/>
+  <nd ref="6957604968"/>
+  <nd ref="4902243088"/>
+  <nd ref="4902243087"/>
+  <nd ref="4856486143"/>
+  <nd ref="6957604984"/>
+  <nd ref="6957604972"/>
+  <nd ref="6957611392"/>
+  <nd ref="6957604941"/>
+  <nd ref="6957604954"/>
+  <nd ref="6957611421"/>
+  <nd ref="6771540792"/>
+  <nd ref="6957611404"/>
+  <nd ref="6957604967"/>
+  <nd ref="6957604940"/>
+  <nd ref="6957604955"/>
+  <nd ref="6957604951"/>
+  <nd ref="6957611407"/>
+  <nd ref="6957604975"/>
+  <nd ref="6957604959"/>
+  <nd ref="6957611391"/>
+  <nd ref="6957604974"/>
+  <nd ref="6957611388"/>
+  <nd ref="6957604966"/>
+  <nd ref="6957604979"/>
+  <nd ref="6957611385"/>
+  <nd ref="6957604961"/>
+  <nd ref="6957604981"/>
+  <nd ref="6957604965"/>
+  <nd ref="6957604983"/>
+  <nd ref="6957604977"/>
+  <nd ref="6957604960"/>
+  <nd ref="6957604963"/>
+  <nd ref="6957604980"/>
+  <nd ref="6957604982"/>
+  <nd ref="6957611397"/>
+  <nd ref="6957611399"/>
+  <nd ref="6771540793"/>
+  <nd ref="6957611417"/>
+  <nd ref="6957611412"/>
+  <nd ref="6957611387"/>
+  <nd ref="6957611402"/>
+  <nd ref="6957611414"/>
+  <nd ref="6957611406"/>
+  <nd ref="6957604964"/>
+  <nd ref="6957604973"/>
+  <nd ref="6957611401"/>
+  <nd ref="6957611408"/>
+  <nd ref="6957611410"/>
+  <nd ref="6957611418"/>
+  <nd ref="6957611389"/>
+  <nd ref="6957604962"/>
+  <nd ref="6957611405"/>
+  <nd ref="6957604969"/>
+  <nd ref="6771540812"/>
+  <nd ref="6957611416"/>
+  <nd ref="6771540804"/>
+  <tag k="alt_name:ca" v="Torres de Quart"/>
+  <tag k="building" v="tower"/>
+  <tag k="building:levels" v="4"/>
+  <tag k="building:material" v="stone"/>
+  <tag k="height" v="34"/>
+  <tag k="historic" v="city_gate"/>
+  <tag k="name" v="Torres de Quart"/>
+  <tag k="name:ca" v="Torres de Quart"/>
+  <tag k="name:es" v="Porta de Quart"/>
+  <tag k="name:ru" v="Башни Куарта"/>
+  <tag k="wikidata" v="Q2343754"/>
+  <tag k="wikipedia" v="ca:Porta de Quart"/>
+ </way>
+ <way id="235744929" visible="true" version="7" changeset="115317958" timestamp="2021-12-24T03:46:41Z" user="jmaspons" uid="11725140">
+  <nd ref="2438033107"/>
+  <nd ref="2438033109"/>
+  <nd ref="2992282983"/>
+  <nd ref="2992282984"/>
+  <nd ref="2438033107"/>
+  <tag k="architect" v="Carme Fiol"/>
+  <tag k="barrier" v="wall"/>
+  <tag k="historic" v="memorial"/>
+  <tag k="inscription" v="Al fossar de les moreres no s'hi enterra cap traïdor;fins perdent nostres banderes serà l'urna de l'honor."/>
+  <tag k="name" v="Fossar de les Moreres"/>
+  <tag k="name:ca" v="Fossar de les Moreres"/>
+  <tag k="start_date" v="1989"/>
+  <tag k="wikidata" v="Q2749521"/>
+  <tag k="wikipedia" v="ca:Fossar de les Moreres"/>
+ </way>
+</osm>
