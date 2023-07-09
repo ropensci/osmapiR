@@ -1,0 +1,22 @@
+url: https://jmaspons.github.io/osmapiR
+template:
+  bootstrap: 5
+reference:
+- title: "OSM objects"
+  contents:
+  - has_concept("OSM objects' functions")
+- title: "Changesets"
+  contents:
+  - has_concept("changesets' functions")
+- title: "Map notes"
+  contents:
+  - has_concept("notes' functions")
+- title: "GPS' traces"
+  contents:
+  - has_concept("GPS' functions")
+- title: "Users"
+  contents:
+  - has_concept("users' functions")
+- title: "API"
+  contents:
+  - has_concept("API functions")
