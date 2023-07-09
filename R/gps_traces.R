@@ -2,6 +2,8 @@
 #
 # In violation of the [https://www.topografix.com/GPX/1/1/#type_trksegType GPX standard] when downloading public GPX traces through the API, all waypoints of non-trackable traces are randomized (or rather sorted by lat/lon) and delivered as one trackSegment for privacy reasons. Trackable traces are delivered, sorted by descending upload time, before the waypoints of non-trackable traces.
 
+# TODO: I found that `GET /api/0.6/gpx/#id/details` & `GET /api/0.6/gpx/#id/data` doesn't work without authentication (HTTP 401 Unauthorized) even for public or identificable tracks. Seems a bug in the API implementation or the documentation should be amended.
+
 
 ## Get GPS Points: `GET /api/0.6/trackpoints?bbox=*'left','bottom','right','top'*&page=*'pageNumber'*` ----
 # Use this to retrieve the GPS track points that are inside a given bounding box (formatted in a GPX format).
@@ -161,7 +163,7 @@ osm_delete_gpx <- function(gpx_id) {
 
 ## Download Metadata: `GET /api/0.6/gpx/#id/details` ----
 # Use this to access the metadata about a GPX file. Available without authentication if the file is marked public. Otherwise only usable by the owner account and requires authentication.
-#
+## TODO: HTTP 401 Unauthorized. (even for public or identificable tracks). FIX wiki or BUG to API ----
 # Example "details" response:
 # <syntaxhighlight lang="xml">
 # <?xml version="1.0" encoding="UTF-8"?>
@@ -174,7 +176,6 @@ osm_delete_gpx <- function(gpx_id) {
 # </osm>
 # </syntaxhighlight>
 
-## TODO: HTTP 401 Unauthorized. (even for public or identificable tracks) ----
 #' Download GPS Track Metadata
 #'
 #' Use this to access the metadata about a GPX file. Available without authentication if the file is marked public.
@@ -193,7 +194,7 @@ osm_delete_gpx <- function(gpx_id) {
 #' trk_meta
 #' }
 osm_get_metadata_gpx <- function(gpx_id) {
-  req <- osmapi_request()
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "gpx", gpx_id, "details")
 
@@ -209,12 +210,12 @@ osm_get_metadata_gpx <- function(gpx_id) {
 ## Download Data: `GET /api/0.6/gpx/#id/data` ----
 #
 # Use this to download the full GPX file. Available without authentication if the file is marked public. Otherwise only usable by the owner account and requires authentication.
-# '
+## TODO: HTTP 401 Unauthorized. (even for public or identificable tracks). FIX wiki or BUG to API ----
+#
 # The response will always be a GPX format file if you use a '''.gpx''' URL suffix, a XML file in an undocumented format if you use a '''.xml''' URL suffix, otherwise the response will be the exact file that was uploaded.
 #
 # NOTE: if you request refers to a multi-file archive the response when you force gpx or xml format will consist of a non-standard simple concatenation of the files.
 
-## TODO: HTTP 401 Unauthorized. (even for public or identificable tracks) ----
 #' Download GPS Track Data
 #'
 #' Use this to download the full GPX file. Available without authentication if the file is marked public. Otherwise only
@@ -234,8 +235,10 @@ osm_get_metadata_gpx <- function(gpx_id) {
 #' @export
 #'
 #' @examples
-#' # trk_data <- osm_get_data_gpx(gpx_id = 3498170)
-#' # trk_data
+#' \dontrun{
+#' trk_data <- osm_get_data_gpx(gpx_id = 3498170) # TODO: HTTP 400 Bad Request. without format
+#' trk_data
+#' }
 osm_get_data_gpx <- function(gpx_id, format) {
   if (missing(format)) {
     ext <- "data"
@@ -243,7 +246,8 @@ osm_get_data_gpx <- function(gpx_id, format) {
     stopifnot(format %in% c("xml", "gpx"))
     ext <- paste0("data.", format)
   }
-  req <- osmapi_request()
+
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "gpx", gpx_id, ext)
 
