@@ -1,0 +1,274 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    4.2665644,
+                    39.8847163
+                ]
+            },
+            "properties": {
+                "id": 3748302,
+                "url": "osm.org/api/0.6/notes/3748302.json",
+                "comment_url": "osm.org/api/0.6/notes/3748302/comment.json",
+                "close_url": "osm.org/api/0.6/notes/3748302/close.json",
+                "date_created": "2023-06-23 22:34:31 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2023-06-23 22:34:31 UTC",
+                        "action": "opened",
+                        "text": "Wrong direction ",
+                        "html": "<p>Wrong direction <\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.9995921,
+                    39.9338121
+                ]
+            },
+            "properties": {
+                "id": 3734481,
+                "url": "osm.org/api/0.6/notes/3734481.json",
+                "comment_url": "osm.org/api/0.6/notes/3734481/comment.json",
+                "close_url": "osm.org/api/0.6/notes/3734481/close.json",
+                "date_created": "2023-06-14 07:58:30 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2023-06-14 07:58:30 UTC",
+                        "uid": 9641379,
+                        "user": "Pan Perníček",
+                        "user_url": "osm.org/user/Pan%20Pern%C3%AD%C4%8Dek",
+                        "action": "opened",
+                        "text": "Forwarding anonymous report from #Mapy.cz user, please verify: There's a cave.",
+                        "html": "<p>Forwarding anonymous report from #Mapy.cz user, please verify: There's a cave.<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    4.2578,
+                    39.8824
+                ]
+            },
+            "properties": {
+                "id": 3733381,
+                "url": "osm.org/api/0.6/notes/3733381.json",
+                "comment_url": "osm.org/api/0.6/notes/3733381/comment.json",
+                "close_url": "osm.org/api/0.6/notes/3733381/close.json",
+                "date_created": "2023-06-13 11:10:01 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2023-06-13 11:10:01 UTC",
+                        "action": "opened",
+                        "text": "MAHON",
+                        "html": "<p>MAHON<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.9880291,
+                    39.9312338
+                ]
+            },
+            "properties": {
+                "id": 3721129,
+                "url": "osm.org/api/0.6/notes/3721129.json",
+                "comment_url": "osm.org/api/0.6/notes/3721129/comment.json",
+                "close_url": "osm.org/api/0.6/notes/3721129/close.json",
+                "date_created": "2023-06-05 06:44:18 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2023-06-05 06:44:18 UTC",
+                        "uid": 9641379,
+                        "user": "Pan Perníček",
+                        "user_url": "osm.org/user/Pan%20Pern%C3%AD%C4%8Dek",
+                        "action": "opened",
+                        "text": "Forwarding anonymous report from #Mapy.cz user, please verify: There's a cave.",
+                        "html": "<p>Forwarding anonymous report from #Mapy.cz user, please verify: There's a cave.<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.96114,
+                    39.94491
+                ]
+            },
+            "properties": {
+                "id": 3692115,
+                "url": "osm.org/api/0.6/notes/3692115.json",
+                "comment_url": "osm.org/api/0.6/notes/3692115/comment.json",
+                "close_url": "osm.org/api/0.6/notes/3692115/close.json",
+                "date_created": "2023-05-16 16:02:25 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2023-05-16 16:02:25 UTC",
+                        "action": "opened",
+                        "text": "private road, no access ",
+                        "html": "<p>private road, no access <\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.95376,
+                    39.94425
+                ]
+            },
+            "properties": {
+                "id": 3692113,
+                "url": "osm.org/api/0.6/notes/3692113.json",
+                "comment_url": "osm.org/api/0.6/notes/3692113/comment.json",
+                "close_url": "osm.org/api/0.6/notes/3692113/close.json",
+                "date_created": "2023-05-16 16:01:02 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2023-05-16 16:01:02 UTC",
+                        "action": "opened",
+                        "text": "Private road, no access",
+                        "html": "<p>Private road, no access<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.9520763,
+                    39.9431848
+                ]
+            },
+            "properties": {
+                "id": 3692105,
+                "url": "osm.org/api/0.6/notes/3692105.json",
+                "comment_url": "osm.org/api/0.6/notes/3692105/comment.json",
+                "close_url": "osm.org/api/0.6/notes/3692105/close.json",
+                "date_created": "2023-05-16 15:57:55 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2023-05-16 15:57:55 UTC",
+                        "action": "opened",
+                        "text": "private road, no access",
+                        "html": "<p>private road, no access<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.95204,
+                    39.9418
+                ]
+            },
+            "properties": {
+                "id": 3692101,
+                "url": "osm.org/api/0.6/notes/3692101.json",
+                "comment_url": "osm.org/api/0.6/notes/3692101/comment.json",
+                "close_url": "osm.org/api/0.6/notes/3692101/close.json",
+                "date_created": "2023-05-16 15:56:45 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2023-05-16 15:56:45 UTC",
+                        "action": "opened",
+                        "text": "private road",
+                        "html": "<p>private road<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    3.8000843,
+                    40.0204555
+                ]
+            },
+            "properties": {
+                "id": 3632934,
+                "url": "osm.org/api/0.6/notes/3632934.json",
+                "comment_url": "osm.org/api/0.6/notes/3632934/comment.json",
+                "close_url": "osm.org/api/0.6/notes/3632934/close.json",
+                "date_created": "2023-04-08 19:55:01 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2023-04-08 19:55:01 UTC",
+                        "action": "opened",
+                        "text": "Sa falconera és aquí, sale mal en el mapa de Instagram ",
+                        "html": "<p>Sa falconera és aquí, sale mal en el mapa de Instagram <\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    4.2870374,
+                    39.8807565
+                ]
+            },
+            "properties": {
+                "id": 3589177,
+                "url": "osm.org/api/0.6/notes/3589177.json",
+                "comment_url": "osm.org/api/0.6/notes/3589177/comment.json",
+                "close_url": "osm.org/api/0.6/notes/3589177/close.json",
+                "date_created": "2023-03-07 21:05:51 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2023-03-07 21:05:51 UTC",
+                        "uid": 17947661,
+                        "user": "cranca",
+                        "user_url": "osm.org/user/cranca",
+                        "action": "opened",
+                        "text": "Unable to answer \"What are the opening hours here?\" for https://osm.org/node/1674686703 via StreetComplete 50.2:\n\nEspai Salut - Centro de fisioterapia\n\nAttached photo(s):\nhttps://westnordost.de/p/135837.jpg",
+                        "html": "<p>Unable to answer \"What are the opening hours here?\" for <a href=\"https://osm.org/node/1674686703\" rel=\"nofollow noopener noreferrer\">https://osm.org/node/1674686703<\/a> via StreetComplete 50.2:<\/p>\n\n<p>Espai Salut - Centro de fisioterapia<\/p>\n\n<p>Attached photo(s):\n<br /><a href=\"https://westnordost.de/p/135837.jpg\" rel=\"nofollow noopener noreferrer\">https://westnordost.de/p/135837.jpg<\/a><\/p>"
+                    }
+                ]
+            }
+        }
+    ]
+}

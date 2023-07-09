@@ -1,0 +1,38 @@
+{
+    "type": "Feature",
+    "geometry": {
+        "type": "Point",
+        "coordinates": [
+            1.72146,
+            42.03322
+        ]
+    },
+    "properties": {
+        "id": 2067786,
+        "url": "osm.org/api/0.6/notes/2067786.json",
+        "comment_url": "osm.org/api/0.6/notes/2067786/comment.json",
+        "close_url": "osm.org/api/0.6/notes/2067786/close.json",
+        "date_created": "2020-01-24 18:21:48 UTC",
+        "status": "open",
+        "comments": [
+            {
+                "date": "2020-01-24 18:21:48 UTC",
+                "uid": 10576187,
+                "user": "Juliosebastian",
+                "user_url": "osm.org/user/Juliosebastian",
+                "action": "opened",
+                "text": "A Can Traver hi va haver el refugi pel personal militar destacat al Camp de l'aviació republicana durant la Guerra Civil.",
+                "html": "<p>A Can Traver hi va haver el refugi pel personal militar destacat al Camp de l'aviació republicana durant la Guerra Civil.<\/p>"
+            },
+            {
+                "date": "2020-02-07 13:44:56 UTC",
+                "uid": 5126253,
+                "user": "jqngarcia",
+                "user_url": "osm.org/user/jqngarcia",
+                "action": "commented",
+                "text": "Bon dia, Julio, queden restes d'aquest refugui, si no queda cap element que es pugui reconeixer al terreny per qualsevol que pasi no es pot mapejar, OSM per desgracie no es un mapa historic, sino de la realitat existent.\n\nSalut i Mapes, JQN",
+                "html": "<p>Bon dia, Julio, queden restes d'aquest refugui, si no queda cap element que es pugui reconeixer al terreny per qualsevol que pasi no es pot mapejar, OSM per desgracie no es un mapa historic, sino de la realitat existent.<\/p>\n\n<p>Salut i Mapes, JQN<\/p>"
+            }
+        ]
+    }
+}

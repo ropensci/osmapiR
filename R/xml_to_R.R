@@ -186,3 +186,45 @@ user_details_xml2DF <- function(xml) {
   return(out)
 }
 
+
+## Map notes ----
+
+note_xml2DF <- function(xml) {
+  notes <- xml2::xml_children(xml)
+
+  note_attrs <- do.call(rbind, xml2::xml_attrs(notes))
+  id <- xml2::xml_text(xml2::xml_child(notes, "id"))
+  url <- xml2::xml_text(xml2::xml_child(notes, "url"))
+  comment_url <- xml2::xml_text(xml2::xml_child(notes, "comment_url"))
+  close_url <- xml2::xml_text(xml2::xml_child(notes, "close_url"))
+  date_created <- xml2::xml_text(xml2::xml_child(notes, "date_created"))
+  status <- xml2::xml_text(xml2::xml_child(notes, "status"))
+
+  comments <- xml2::xml_child(notes, "comments")
+  commentsL <- lapply(xml2::xml_find_all(comments, xpath = ".//comment", flatten = FALSE), function(x) {
+    if (length(x) == 0) {
+      return(NA)
+    }
+    date <- xml2::xml_text(xml2::xml_child(x, "date"))
+    uid <- xml2::xml_text(xml2::xml_child(x, "uid"))
+    user <- xml2::xml_text(xml2::xml_child(x, "user"))
+    user_url <- xml2::xml_text(xml2::xml_child(x, "user_url"))
+    action <- xml2::xml_text(xml2::xml_child(x, "action"))
+    text <- xml2::xml_text(xml2::xml_child(x, "text"))
+    html <- xml2::xml_text(xml2::xml_child(x, "html"))
+
+    comm <- data.frame(date, uid, user, user_url, action, text, html)
+    comm$date <- as.POSIXct(comm$date)
+
+    return(comm)
+  })
+
+  out <- data.frame(note_attrs, id, url, comment_url, close_url, date_created, status)
+  out$date_created <- as.POSIXct(out$date_created)
+
+  out$comments <- commentsL
+
+  # out$comments ## TODO: improve print. class? Hide or omit non informative columns ".*url$" (derived from id)
+
+  return(out)
+}

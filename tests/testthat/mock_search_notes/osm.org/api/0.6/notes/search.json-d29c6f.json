@@ -1,0 +1,301 @@
+{
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    80.0779341,
+                    6.6889553
+                ]
+            },
+            "properties": {
+                "id": 1186152,
+                "url": "osm.org/api/0.6/notes/1186152.json",
+                "comment_url": "osm.org/api/0.6/notes/1186152/comment.json",
+                "close_url": "osm.org/api/0.6/notes/1186152/close.json",
+                "date_created": "2017-10-26 23:55:08 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2017-10-26 23:55:08 UTC",
+                        "uid": 3251270,
+                        "user": "Sunil Gunaratne",
+                        "user_url": "osm.org/user/Sunil%20Gunaratne",
+                        "action": "opened",
+                        "text": "\"Sathsara Uyana Mavatha\"\nPOI has no name\nPOI types: highway-rest_area internet_access-wlan\nOSM data version: 2017-08-17T15:51:02Z\n #mapsme",
+                        "html": "<p>\"Sathsara Uyana Mavatha\"\n<br />POI has no name\n<br />POI types: highway-rest_area internet_access-wlan\n<br />OSM data version: 2017-08-17T15:51:02Z\n<br /> #mapsme<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    120.9649971,
+                    14.8240448
+                ]
+            },
+            "properties": {
+                "id": 1186144,
+                "url": "osm.org/api/0.6/notes/1186144.json",
+                "comment_url": "osm.org/api/0.6/notes/1186144/comment.json",
+                "close_url": "osm.org/api/0.6/notes/1186144/close.json",
+                "date_created": "2017-10-26 23:35:17 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2017-10-26 23:35:17 UTC",
+                        "uid": 3964378,
+                        "user": "kapitan888",
+                        "user_url": "osm.org/user/kapitan888",
+                        "action": "opened",
+                        "text": "\"sapang palay ring 2\"\nPOI has no name\nPOI types: highway-residential\nOSM data version: 2017-10-06T18:13:02Z\n #mapsme",
+                        "html": "<p>\"sapang palay ring 2\"\n<br />POI has no name\n<br />POI types: highway-residential\n<br />OSM data version: 2017-10-06T18:13:02Z\n<br /> #mapsme<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    24.0201649,
+                    35.5130258
+                ]
+            },
+            "properties": {
+                "id": 1186140,
+                "url": "osm.org/api/0.6/notes/1186140.json",
+                "comment_url": "osm.org/api/0.6/notes/1186140/comment.json",
+                "close_url": "osm.org/api/0.6/notes/1186140/close.json",
+                "date_created": "2017-10-26 23:27:25 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2017-10-26 23:27:25 UTC",
+                        "uid": 4579956,
+                        "user": "Giwrgos Pervolaridis",
+                        "user_url": "osm.org/user/Giwrgos%20Pervolaridis",
+                        "action": "opened",
+                        "text": "The place has gone or never existed. This is an auto-generated note from MAPS.ME application: a user reports a POI that is visible on a map (which can be outdated), but cannot be found on the ground.\nPOI has no name\nPOI types: shop-bakery\nOSM data version: 2017-10-06T18:13:02Z\n #mapsme",
+                        "html": "<p>The place has gone or never existed. This is an auto-generated note from MAPS.ME application: a user reports a POI that is visible on a map (which can be outdated), but cannot be found on the ground.\n<br />POI has no name\n<br />POI types: shop-bakery\n<br />OSM data version: 2017-10-06T18:13:02Z\n<br /> #mapsme<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    14.2714161,
+                    29.9975214
+                ]
+            },
+            "properties": {
+                "id": 1186104,
+                "url": "osm.org/api/0.6/notes/1186104.json",
+                "comment_url": "osm.org/api/0.6/notes/1186104/comment.json",
+                "close_url": "osm.org/api/0.6/notes/1186104/close.json",
+                "date_created": "2017-10-26 21:59:13 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2017-10-26 21:59:13 UTC",
+                        "uid": 6863505,
+                        "user": "ابراهيم عثمان النكاع",
+                        "user_url": "osm.org/user/%D8%A7%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85%20%D8%B9%D8%AB%D9%85%D8%A7%D9%86%20%D8%A7%D9%84%D9%86%D9%83%D8%A7%D8%B9",
+                        "action": "opened",
+                        "text": "شارع المحلات (OSM data version: 2016-08-22T09:03:02Z) #mapsme",
+                        "html": "<p>شارع المحلات (OSM data version: 2016-08-22T09:03:02Z) #mapsme<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    13.7476394,
+                    30.1941835
+                ]
+            },
+            "properties": {
+                "id": 1186103,
+                "url": "osm.org/api/0.6/notes/1186103.json",
+                "comment_url": "osm.org/api/0.6/notes/1186103/comment.json",
+                "close_url": "osm.org/api/0.6/notes/1186103/close.json",
+                "date_created": "2017-10-26 21:59:13 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2017-10-26 21:59:13 UTC",
+                        "uid": 6863505,
+                        "user": "ابراهيم عثمان النكاع",
+                        "user_url": "osm.org/user/%D8%A7%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85%20%D8%B9%D8%AB%D9%85%D8%A7%D9%86%20%D8%A7%D9%84%D9%86%D9%83%D8%A7%D8%B9",
+                        "action": "opened",
+                        "text": "هذا شارع القريات - الشويرف\nهذه طريق الرابط بين القريات - الشويرف (OSM data version: 2016-08-22T09:03:02Z) #mapsme",
+                        "html": "<p>هذا شارع القريات - الشويرف\n<br />هذه طريق الرابط بين القريات - الشويرف (OSM data version: 2016-08-22T09:03:02Z) #mapsme<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.015714,
+                    -1.6219747
+                ]
+            },
+            "properties": {
+                "id": 1186097,
+                "url": "osm.org/api/0.6/notes/1186097.json",
+                "comment_url": "osm.org/api/0.6/notes/1186097/comment.json",
+                "close_url": "osm.org/api/0.6/notes/1186097/close.json",
+                "date_created": "2017-10-26 21:36:04 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2017-10-26 21:36:04 UTC",
+                        "action": "opened",
+                        "text": "Shasha",
+                        "html": "<p>Shasha<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.021871,
+                    -1.7071875
+                ]
+            },
+            "properties": {
+                "id": 1186095,
+                "url": "osm.org/api/0.6/notes/1186095.json",
+                "comment_url": "osm.org/api/0.6/notes/1186095/comment.json",
+                "close_url": "osm.org/api/0.6/notes/1186095/close.json",
+                "date_created": "2017-10-26 21:35:20 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2017-10-26 21:35:20 UTC",
+                        "action": "opened",
+                        "text": "Minova",
+                        "html": "<p>Minova<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    29.1379116,
+                    -1.6072643
+                ]
+            },
+            "properties": {
+                "id": 1186094,
+                "url": "osm.org/api/0.6/notes/1186094.json",
+                "comment_url": "osm.org/api/0.6/notes/1186094/comment.json",
+                "close_url": "osm.org/api/0.6/notes/1186094/close.json",
+                "date_created": "2017-10-26 21:34:05 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2017-10-26 21:34:05 UTC",
+                        "action": "opened",
+                        "text": "IDP Camp",
+                        "html": "<p>IDP Camp<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    16.5965022,
+                    38.9038372
+                ]
+            },
+            "properties": {
+                "id": 1185841,
+                "url": "osm.org/api/0.6/notes/1185841.json",
+                "comment_url": "osm.org/api/0.6/notes/1185841/comment.json",
+                "close_url": "osm.org/api/0.6/notes/1185841/close.json",
+                "date_created": "2017-10-26 14:30:42 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2017-10-26 14:30:42 UTC",
+                        "uid": 6861563,
+                        "user": "MARITO1977",
+                        "user_url": "osm.org/user/MARITO1977",
+                        "action": "opened",
+                        "text": "\nNapoles \n",
+                        "html": "<p>\nNapoles \n<\/p>"
+                    },
+                    {
+                        "date": "2017-10-26 21:10:54 UTC",
+                        "uid": 554973,
+                        "user": "dgitto",
+                        "user_url": "osm.org/user/dgitto",
+                        "action": "commented",
+                        "text": "benvenuto. di cosa si tratta?",
+                        "html": "<p>benvenuto. di cosa si tratta?<\/p>"
+                    }
+                ]
+            }
+        },
+        {
+            "type": "Feature",
+            "geometry": {
+                "type": "Point",
+                "coordinates": [
+                    12.0162792,
+                    46.0100898
+                ]
+            },
+            "properties": {
+                "id": 1185844,
+                "url": "osm.org/api/0.6/notes/1185844.json",
+                "comment_url": "osm.org/api/0.6/notes/1185844/comment.json",
+                "close_url": "osm.org/api/0.6/notes/1185844/close.json",
+                "date_created": "2017-10-26 14:32:25 UTC",
+                "status": "open",
+                "comments": [
+                    {
+                        "date": "2017-10-26 14:32:25 UTC",
+                        "action": "opened",
+                        "text": "MOZIE",
+                        "html": "<p>MOZIE<\/p>"
+                    },
+                    {
+                        "date": "2017-10-26 21:09:59 UTC",
+                        "uid": 554973,
+                        "user": "dgitto",
+                        "user_url": "osm.org/user/dgitto",
+                        "action": "commented",
+                        "text": "di cosa si tratta?",
+                        "html": "<p>di cosa si tratta?<\/p>"
+                    }
+                ]
+            }
+        }
+    ]
+}

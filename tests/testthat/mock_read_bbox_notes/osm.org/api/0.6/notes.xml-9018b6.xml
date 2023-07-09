@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<note lon="4.2665644" lat="39.8847163">
+  <id>3748302</id>
+  <url>osm.org/api/0.6/notes/3748302.xml</url>
+  <comment_url>osm.org/api/0.6/notes/3748302/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/3748302/close.xml</close_url>
+  <date_created>2023-06-23 22:34:31 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2023-06-23 22:34:31 UTC</date>
+      <action>opened</action>
+      <text>Wrong direction </text>
+      <html>&lt;p&gt;Wrong direction &lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="3.9995921" lat="39.9338121">
+  <id>3734481</id>
+  <url>osm.org/api/0.6/notes/3734481.xml</url>
+  <comment_url>osm.org/api/0.6/notes/3734481/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/3734481/close.xml</close_url>
+  <date_created>2023-06-14 07:58:30 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2023-06-14 07:58:30 UTC</date>
+      <uid>9641379</uid>
+      <user>Pan Perníček</user>
+      <user_url>osm.org/user/Pan%20Pern%C3%AD%C4%8Dek</user_url>
+      <action>opened</action>
+      <text>Forwarding anonymous report from #Mapy.cz user, please verify: There's a cave.</text>
+      <html>&lt;p&gt;Forwarding anonymous report from #Mapy.cz user, please verify: There's a cave.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="4.2578000" lat="39.8824000">
+  <id>3733381</id>
+  <url>osm.org/api/0.6/notes/3733381.xml</url>
+  <comment_url>osm.org/api/0.6/notes/3733381/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/3733381/close.xml</close_url>
+  <date_created>2023-06-13 11:10:01 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2023-06-13 11:10:01 UTC</date>
+      <action>opened</action>
+      <text>MAHON</text>
+      <html>&lt;p&gt;MAHON&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="3.9880291" lat="39.9312338">
+  <id>3721129</id>
+  <url>osm.org/api/0.6/notes/3721129.xml</url>
+  <comment_url>osm.org/api/0.6/notes/3721129/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/3721129/close.xml</close_url>
+  <date_created>2023-06-05 06:44:18 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2023-06-05 06:44:18 UTC</date>
+      <uid>9641379</uid>
+      <user>Pan Perníček</user>
+      <user_url>osm.org/user/Pan%20Pern%C3%AD%C4%8Dek</user_url>
+      <action>opened</action>
+      <text>Forwarding anonymous report from #Mapy.cz user, please verify: There's a cave.</text>
+      <html>&lt;p&gt;Forwarding anonymous report from #Mapy.cz user, please verify: There's a cave.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="3.9611400" lat="39.9449100">
+  <id>3692115</id>
+  <url>osm.org/api/0.6/notes/3692115.xml</url>
+  <comment_url>osm.org/api/0.6/notes/3692115/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/3692115/close.xml</close_url>
+  <date_created>2023-05-16 16:02:25 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2023-05-16 16:02:25 UTC</date>
+      <action>opened</action>
+      <text>private road, no access </text>
+      <html>&lt;p&gt;private road, no access &lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="3.9537600" lat="39.9442500">
+  <id>3692113</id>
+  <url>osm.org/api/0.6/notes/3692113.xml</url>
+  <comment_url>osm.org/api/0.6/notes/3692113/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/3692113/close.xml</close_url>
+  <date_created>2023-05-16 16:01:02 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2023-05-16 16:01:02 UTC</date>
+      <action>opened</action>
+      <text>Private road, no access</text>
+      <html>&lt;p&gt;Private road, no access&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="3.9520763" lat="39.9431848">
+  <id>3692105</id>
+  <url>osm.org/api/0.6/notes/3692105.xml</url>
+  <comment_url>osm.org/api/0.6/notes/3692105/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/3692105/close.xml</close_url>
+  <date_created>2023-05-16 15:57:55 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2023-05-16 15:57:55 UTC</date>
+      <action>opened</action>
+      <text>private road, no access</text>
+      <html>&lt;p&gt;private road, no access&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="3.9520400" lat="39.9418000">
+  <id>3692101</id>
+  <url>osm.org/api/0.6/notes/3692101.xml</url>
+  <comment_url>osm.org/api/0.6/notes/3692101/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/3692101/close.xml</close_url>
+  <date_created>2023-05-16 15:56:45 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2023-05-16 15:56:45 UTC</date>
+      <action>opened</action>
+      <text>private road</text>
+      <html>&lt;p&gt;private road&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="3.8000843" lat="40.0204555">
+  <id>3632934</id>
+  <url>osm.org/api/0.6/notes/3632934.xml</url>
+  <comment_url>osm.org/api/0.6/notes/3632934/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/3632934/close.xml</close_url>
+  <date_created>2023-04-08 19:55:01 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2023-04-08 19:55:01 UTC</date>
+      <action>opened</action>
+      <text>Sa falconera és aquí, sale mal en el mapa de Instagram </text>
+      <html>&lt;p&gt;Sa falconera és aquí, sale mal en el mapa de Instagram &lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="4.2870374" lat="39.8807565">
+  <id>3589177</id>
+  <url>osm.org/api/0.6/notes/3589177.xml</url>
+  <comment_url>osm.org/api/0.6/notes/3589177/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/3589177/close.xml</close_url>
+  <date_created>2023-03-07 21:05:51 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2023-03-07 21:05:51 UTC</date>
+      <uid>17947661</uid>
+      <user>cranca</user>
+      <user_url>osm.org/user/cranca</user_url>
+      <action>opened</action>
+      <text>Unable to answer "What are the opening hours here?" for https://osm.org/node/1674686703 via StreetComplete 50.2:
+
+Espai Salut - Centro de fisioterapia
+
+Attached photo(s):
+https://westnordost.de/p/135837.jpg</text>
+      <html>&lt;p&gt;Unable to answer "What are the opening hours here?" for &lt;a href="https://osm.org/node/1674686703" rel="nofollow noopener noreferrer"&gt;https://osm.org/node/1674686703&lt;/a&gt; via StreetComplete 50.2:&lt;/p&gt;
+
+&lt;p&gt;Espai Salut - Centro de fisioterapia&lt;/p&gt;
+
+&lt;p&gt;Attached photo(s):
+&lt;br /&gt;&lt;a href="https://westnordost.de/p/135837.jpg" rel="nofollow noopener noreferrer"&gt;https://westnordost.de/p/135837.jpg&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+</osm>

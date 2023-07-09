@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<note lon="130.4640945" lat="33.5161369">
+  <id>1186670</id>
+  <url>osm.org/api/0.6/notes/1186670.xml</url>
+  <comment_url>osm.org/api/0.6/notes/1186670/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/1186670/close.xml</close_url>
+  <date_created>2017-10-27 13:47:16 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2017-10-27 13:47:16 UTC</date>
+      <uid>3804047</uid>
+      <user>石橋武士</user>
+      <user_url>osm.org/user/%E7%9F%B3%E6%A9%8B%E6%AD%A6%E5%A3%AB</user_url>
+      <action>opened</action>
+      <text>"存在しない"
+The place has gone or never existed. This is an auto-generated note from MAPS.ME application: a user reports a POI that is visible on a map (which can be outdated), but cannot be found on the ground.
+POI has no name
+POI types: aerialway-station
+OSM data version: 2017-10-20T12:20:02Z
+ #mapsme</text>
+      <html>&lt;p&gt;"存在しない"
+&lt;br /&gt;The place has gone or never existed. This is an auto-generated note from MAPS.ME application: a user reports a POI that is visible on a map (which can be outdated), but cannot be found on the ground.
+&lt;br /&gt;POI has no name
+&lt;br /&gt;POI types: aerialway-station
+&lt;br /&gt;OSM data version: 2017-10-20T12:20:02Z
+&lt;br /&gt; #mapsme&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="130.4770496" lat="33.5044160">
+  <id>1186668</id>
+  <url>osm.org/api/0.6/notes/1186668.xml</url>
+  <comment_url>osm.org/api/0.6/notes/1186668/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/1186668/close.xml</close_url>
+  <date_created>2017-10-27 13:47:15 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2017-10-27 13:47:15 UTC</date>
+      <uid>3804047</uid>
+      <user>石橋武士</user>
+      <user_url>osm.org/user/%E7%9F%B3%E6%A9%8B%E6%AD%A6%E5%A3%AB</user_url>
+      <action>opened</action>
+      <text>The place has gone or never existed. This is an auto-generated note from MAPS.ME application: a user reports a POI that is visible on a map (which can be outdated), but cannot be found on the ground. User comments: "閉店" (OSM data version: 2017-03-06T16:48:02Z) #mapsme</text>
+      <html>&lt;p&gt;The place has gone or never existed. This is an auto-generated note from MAPS.ME application: a user reports a POI that is visible on a map (which can be outdated), but cannot be found on the ground. User comments: "閉店" (OSM data version: 2017-03-06T16:48:02Z) #mapsme&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-65.1923037" lat="-26.8516865">
+  <id>1186662</id>
+  <url>osm.org/api/0.6/notes/1186662.xml</url>
+  <comment_url>osm.org/api/0.6/notes/1186662/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/1186662/close.xml</close_url>
+  <date_created>2017-10-27 13:32:46 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2017-10-27 13:32:46 UTC</date>
+      <uid>5572061</uid>
+      <user>Juan Francisco La Greca</user>
+      <user_url>osm.org/user/Juan%20Francisco%20La%20Greca</user_url>
+      <action>opened</action>
+      <text>"Entrada guía Lucia"
+POI has no name
+POI types: hwtag-oneway highway-secondary
+OSM data version: 2017-09-17T07:13:02Z
+ #mapsme</text>
+      <html>&lt;p&gt;"Entrada guía Lucia"
+&lt;br /&gt;POI has no name
+&lt;br /&gt;POI types: hwtag-oneway highway-secondary
+&lt;br /&gt;OSM data version: 2017-09-17T07:13:02Z
+&lt;br /&gt; #mapsme&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="100.5142599" lat="13.7416015">
+  <id>1186602</id>
+  <url>osm.org/api/0.6/notes/1186602.xml</url>
+  <comment_url>osm.org/api/0.6/notes/1186602/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/1186602/close.xml</close_url>
+  <date_created>2017-10-27 12:24:44 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2017-10-27 12:24:44 UTC</date>
+      <uid>5480634</uid>
+      <user>Ökokirsche</user>
+      <user_url>osm.org/user/%C3%96kokirsche</user_url>
+      <action>opened</action>
+      <text>"1 Standard bottle 1 THB"
+POI has no name
+POI types: amenity-drinking_water
+OSM data version: 2017-10-06T18:13:02Z
+ #mapsme</text>
+      <html>&lt;p&gt;"1 Standard bottle 1 THB"
+&lt;br /&gt;POI has no name
+&lt;br /&gt;POI types: amenity-drinking_water
+&lt;br /&gt;OSM data version: 2017-10-06T18:13:02Z
+&lt;br /&gt; #mapsme&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="-58.2735245" lat="-34.8110475">
+  <id>1186568</id>
+  <url>osm.org/api/0.6/notes/1186568.xml</url>
+  <comment_url>osm.org/api/0.6/notes/1186568/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/1186568/close.xml</close_url>
+  <date_created>2017-10-27 11:52:51 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2017-10-27 11:52:51 UTC</date>
+      <uid>6866860</uid>
+      <user>Ruben Dario Celis Viotti</user>
+      <user_url>osm.org/user/Ruben%20Dario%20Celis%20Viotti</user_url>
+      <action>opened</action>
+      <text>"Guardería de bicicletas,motos y bultos."
+POI has no name
+POI types: amenity-bicycle_parking
+OSM data version: 2017-10-06T18:13:02Z
+ #mapsme</text>
+      <html>&lt;p&gt;"Guardería de bicicletas,motos y bultos."
+&lt;br /&gt;POI has no name
+&lt;br /&gt;POI types: amenity-bicycle_parking
+&lt;br /&gt;OSM data version: 2017-10-06T18:13:02Z
+&lt;br /&gt; #mapsme&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="56.0006851" lat="25.7839897">
+  <id>1186550</id>
+  <url>osm.org/api/0.6/notes/1186550.xml</url>
+  <comment_url>osm.org/api/0.6/notes/1186550/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/1186550/close.xml</close_url>
+  <date_created>2017-10-27 11:15:06 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2017-10-27 11:15:06 UTC</date>
+      <uid>4295125</uid>
+      <user>Mohammed Alshehhi</user>
+      <user_url>osm.org/user/Mohammed%20Alshehhi</user_url>
+      <action>opened</action>
+      <text>The place has gone or never existed. This is an auto-generated note from MAPS.ME application: a user reports a POI that is visible on a map (which can be outdated), but cannot be found on the ground.
+POI name: Saeed bin Jubair Secondary school
+POI types: amenity-school
+OSM data version: 2017-09-17T07:13:02Z
+ #mapsme</text>
+      <html>&lt;p&gt;The place has gone or never existed. This is an auto-generated note from MAPS.ME application: a user reports a POI that is visible on a map (which can be outdated), but cannot be found on the ground.
+&lt;br /&gt;POI name: Saeed bin Jubair Secondary school
+&lt;br /&gt;POI types: amenity-school
+&lt;br /&gt;OSM data version: 2017-09-17T07:13:02Z
+&lt;br /&gt; #mapsme&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="49.9251840" lat="40.3757950">
+  <id>1186540</id>
+  <url>osm.org/api/0.6/notes/1186540.xml</url>
+  <comment_url>osm.org/api/0.6/notes/1186540/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/1186540/close.xml</close_url>
+  <date_created>2017-10-27 11:05:08 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2017-10-27 11:05:08 UTC</date>
+      <uid>6848749</uid>
+      <user>Oil expert</user>
+      <user_url>osm.org/user/Oil%20expert</user_url>
+      <action>opened</action>
+      <text>"Профессиональные услуги по замене смазочных материалов автомобилей."
+POI has no name
+POI types: shop-car_parts
+OSM data version: 2017-10-06T18:13:02Z
+ #mapsme</text>
+      <html>&lt;p&gt;"Профессиональные услуги по замене смазочных материалов автомобилей."
+&lt;br /&gt;POI has no name
+&lt;br /&gt;POI types: shop-car_parts
+&lt;br /&gt;OSM data version: 2017-10-06T18:13:02Z
+&lt;br /&gt; #mapsme&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="105.2217471" lat="18.4369054">
+  <id>1186533</id>
+  <url>osm.org/api/0.6/notes/1186533.xml</url>
+  <comment_url>osm.org/api/0.6/notes/1186533/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/1186533/close.xml</close_url>
+  <date_created>2017-10-27 10:49:15 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2017-10-27 10:49:15 UTC</date>
+      <uid>6796506</uid>
+      <user>Alessandro Schiti</user>
+      <user_url>osm.org/user/Alessandro%20Schiti</user_url>
+      <action>opened</action>
+      <text>"Last guest house before the border"
+POI name: Binh Dan
+POI types: tourism-guest_house internet_access-wlan
+OSM data version: 2017-10-06T18:13:02Z
+ #mapsme</text>
+      <html>&lt;p&gt;"Last guest house before the border"
+&lt;br /&gt;POI name: Binh Dan
+&lt;br /&gt;POI types: tourism-guest_house internet_access-wlan
+&lt;br /&gt;OSM data version: 2017-10-06T18:13:02Z
+&lt;br /&gt; #mapsme&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="109.4963331" lat="18.2641137">
+  <id>1186532</id>
+  <url>osm.org/api/0.6/notes/1186532.xml</url>
+  <comment_url>osm.org/api/0.6/notes/1186532/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/1186532/close.xml</close_url>
+  <date_created>2017-10-27 10:48:54 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2017-10-27 10:48:54 UTC</date>
+      <uid>6866969</uid>
+      <user>Tyzeg</user>
+      <user_url>osm.org/user/Tyzeg</user_url>
+      <action>opened</action>
+      <text>The place has gone or never existed. This is an auto-generated note from MAPS.ME application: a user reports a POI that is visible on a map (which can be outdated), but cannot be found on the ground.
+POI has no name
+POI types: highway-bus_stop
+OSM data version: 2017-09-17T07:13:02Z
+ #mapsme</text>
+      <html>&lt;p&gt;The place has gone or never existed. This is an auto-generated note from MAPS.ME application: a user reports a POI that is visible on a map (which can be outdated), but cannot be found on the ground.
+&lt;br /&gt;POI has no name
+&lt;br /&gt;POI types: highway-bus_stop
+&lt;br /&gt;OSM data version: 2017-09-17T07:13:02Z
+&lt;br /&gt; #mapsme&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="135.7485667" lat="35.0033409">
+  <id>1186522</id>
+  <url>osm.org/api/0.6/notes/1186522.xml</url>
+  <comment_url>osm.org/api/0.6/notes/1186522/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/1186522/close.xml</close_url>
+  <date_created>2017-10-27 10:36:18 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2017-10-27 10:36:18 UTC</date>
+      <uid>4502020</uid>
+      <user>Stephan99</user>
+      <user_url>osm.org/user/Stephan99</user_url>
+      <action>opened</action>
+      <text>"English name for this train station is "Shijo-Omiya""
+POI name: 四条大宮
+POI types: railway-station-light_rail
+OSM data version: 2017-10-06T18:13:02Z
+ #mapsme</text>
+      <html>&lt;p&gt;"English name for this train station is "Shijo-Omiya""
+&lt;br /&gt;POI name: 四条大宮
+&lt;br /&gt;POI types: railway-station-light_rail
+&lt;br /&gt;OSM data version: 2017-10-06T18:13:02Z
+&lt;br /&gt; #mapsme&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+</osm>

@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<note lon="0.0647539" lat="40.9742757">
+  <id>3246879</id>
+  <url>osm.org/api/0.6/notes/3246879.xml</url>
+  <comment_url>osm.org/api/0.6/notes/3246879/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/3246879/close.xml</close_url>
+  <date_created>2022-06-30 22:16:11 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2022-06-30 22:16:11 UTC</date>
+      <uid>11725140</uid>
+      <user>jmaspons</user>
+      <user_url>osm.org/user/jmaspons</user_url>
+      <action>opened</action>
+      <text>wikidata incorrecte?</text>
+      <html>&lt;p&gt;wikidata incorrecte?&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="1.3914979" lat="38.8680981">
+  <id>3036416</id>
+  <url>osm.org/api/0.6/notes/3036416.xml</url>
+  <comment_url>osm.org/api/0.6/notes/3036416/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/3036416/close.xml</close_url>
+  <date_created>2022-02-03 19:15:14 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2022-02-03 19:15:14 UTC</date>
+      <uid>11725140</uid>
+      <user>jmaspons</user>
+      <user_url>osm.org/user/jmaspons</user_url>
+      <action>opened</action>
+      <text>Els noms dels carrers del voltant no quadren amb el cadastre i segurament són incorrectes. </text>
+      <html>&lt;p&gt;Els noms dels carrers del voltant no quadren amb el cadastre i segurament són incorrectes. &lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="1.8878648" lat="41.5713133">
+  <id>2981309</id>
+  <url>osm.org/api/0.6/notes/2981309.xml</url>
+  <comment_url>osm.org/api/0.6/notes/2981309/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/2981309/close.xml</close_url>
+  <date_created>2021-12-23 22:15:24 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2021-12-23 22:15:24 UTC</date>
+      <uid>11725140</uid>
+      <user>jmaspons</user>
+      <user_url>osm.org/user/jmaspons</user_url>
+      <action>opened</action>
+      <text>wikidata o wikipedia erronis? segons l'article de la wikipedia, és a https://geohack.toolforge.org/geohack.php?pagename=Les_Agulles_del_Petint%C3%B3&amp;language=ca&amp;params=41.6_N_1.9_E_</text>
+      <html>&lt;p&gt;wikidata o wikipedia erronis? segons l'article de la wikipedia, és a &lt;a href="https://geohack.toolforge.org/geohack.php?pagename=Les_Agulles_del_Petint%C3%B3&amp;amp;language=ca&amp;amp;params=41.6_N_1.9_E_" rel="nofollow noopener noreferrer"&gt;https://geohack.toolforge.org/geohack.php?pagename=Les_Agulles_del_Petint%C3%B3&amp;amp;language=ca&amp;amp;params=41.6_N_1.9_E_&lt;/a&gt;&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="2.2304231" lat="41.6531304">
+  <id>2953547</id>
+  <url>osm.org/api/0.6/notes/2953547.xml</url>
+  <comment_url>osm.org/api/0.6/notes/2953547/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/2953547/close.xml</close_url>
+  <date_created>2021-11-29 12:28:13 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2021-11-29 12:28:13 UTC</date>
+      <action>opened</action>
+      <text>No es la Carretera de Bigues a Lliçà de Munt, el nom correcte és Carretera de Partes a Bigues</text>
+      <html>&lt;p&gt;No es la Carretera de Bigues a Lliçà de Munt, el nom correcte és Carretera de Partes a Bigues&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2021-12-21 21:43:14 UTC</date>
+      <uid>11725140</uid>
+      <user>jmaspons</user>
+      <user_url>osm.org/user/jmaspons</user_url>
+      <action>commented</action>
+      <text>Tens alguna font? No hi ha cartells per comprovar-ho sobre el terreny</text>
+      <html>&lt;p&gt;Tens alguna font? No hi ha cartells per comprovar-ho sobre el terreny&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="1.4845289" lat="42.0066106">
+  <id>2390030</id>
+  <url>osm.org/api/0.6/notes/2390030.xml</url>
+  <comment_url>osm.org/api/0.6/notes/2390030/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/2390030/close.xml</close_url>
+  <date_created>2020-10-18 09:16:08 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2020-10-18 09:16:08 UTC</date>
+      <uid>11725140</uid>
+      <user>jmaspons</user>
+      <user_url>osm.org/user/jmaspons</user_url>
+      <action>opened</action>
+      <text>Wikidata i name no quadren</text>
+      <html>&lt;p&gt;Wikidata i name no quadren&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="1.4830430" lat="42.0047122">
+  <id>2390029</id>
+  <url>osm.org/api/0.6/notes/2390029.xml</url>
+  <comment_url>osm.org/api/0.6/notes/2390029/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/2390029/close.xml</close_url>
+  <date_created>2020-10-18 09:16:08 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2020-10-18 09:16:08 UTC</date>
+      <uid>11725140</uid>
+      <user>jmaspons</user>
+      <user_url>osm.org/user/jmaspons</user_url>
+      <action>opened</action>
+      <text>Wikidata i name no quadren</text>
+      <html>&lt;p&gt;Wikidata i name no quadren&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+<note lon="2.1830821" lat="41.6511704">
+  <id>2339231</id>
+  <url>osm.org/api/0.6/notes/2339231.xml</url>
+  <comment_url>osm.org/api/0.6/notes/2339231/comment.xml</comment_url>
+  <close_url>osm.org/api/0.6/notes/2339231/close.xml</close_url>
+  <date_created>2020-09-07 17:53:09 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2020-09-07 17:53:09 UTC</date>
+      <uid>11725140</uid>
+      <user>jmaspons</user>
+      <user_url>osm.org/user/jmaspons</user_url>
+      <action>opened</action>
+      <text>Aquí hi ha un torrent més que no pas zona agrícola. Segons ICC es diu torrent de ca la Rosa (http://www.icc.cat/vissir/index.html?9OxSpr7fI). Cal arreglar-ho</text>
+      <html>&lt;p&gt;Aquí hi ha un torrent més que no pas zona agrícola. Segons ICC es diu torrent de ca la Rosa (&lt;a href="http://www.icc.cat/vissir/index.html?9OxSpr7fI" rel="nofollow noopener noreferrer"&gt;http://www.icc.cat/vissir/index.html?9OxSpr7fI&lt;/a&gt;). Cal arreglar-ho&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2020-09-21 07:31:25 UTC</date>
+      <uid>5126253</uid>
+      <user>jqngarcia</user>
+      <user_url>osm.org/user/jqngarcia</user_url>
+      <action>commented</action>
+      <text>Cambio a matorral, el tema de la Riera, no tinc clar com s'ha de fer si no porta aigua constant</text>
+      <html>&lt;p&gt;Cambio a matorral, el tema de la Riera, no tinc clar com s'ha de fer si no porta aigua constant&lt;/p&gt;</html>
+    </comment>
+    <comment>
+      <date>2020-09-25 09:51:56 UTC</date>
+      <uid>11725140</uid>
+      <user>jmaspons</user>
+      <user_url>osm.org/user/jmaspons</user_url>
+      <action>commented</action>
+      <text>El canvi a matollar millora el mapa. Pel torrent, posaria waterway=stream + intermitent=yes però amb les imatges és difícil traçar el recorregut. És millor posar-lo imprecís o no posar-lo? També hi ha un corriol. Miraré de pujar el track</text>
+      <html>&lt;p&gt;El canvi a matollar millora el mapa. Pel torrent, posaria waterway=stream + intermitent=yes però amb les imatges és difícil traçar el recorregut. És millor posar-lo imprecís o no posar-lo? També hi ha un corriol. Miraré de pujar el track&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+</osm>
