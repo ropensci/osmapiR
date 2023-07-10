@@ -41,28 +41,8 @@ test_that("osm_bbox_objects works", {
 
 test_that("osm_permissions works", {
   with_mock_dir("mock_permissions", {
-    # perms <- osm_permissions()
+    perms <- osm_permissions()
   })
-  ## TODO: Error in authentication when testing??
-  # Error in `loadNamespace(x)`: there is no package called 'httpuv'
-  # Backtrace:
-  #   ▆
-  # 1. ├─httptest2::with_mock_dir(...) at test-miscellaneous.R:43:2
-  # 2. │ ├─httptest2:::with_mock_path(...)
-  # 3. │ │ └─base::eval.parent(expr)
-  # 4. │ │   └─base::eval(expr, p)
-  # 5. │ └─httptest2::with_mock_api(expr)
-  # 6. │   └─base::eval.parent(expr)
-  # 7. │     └─base::eval(expr, p)
-  # 8. ├─osmapiR::osm_permissions() at test-miscellaneous.R:44:4
-  # 9. │ └─osmapiR:::osmapi_request(authenticate = TRUE)
-  # 10. │   └─osmapiR:::oauth_request(req)
-  # 11. │     └─httr2::req_oauth_auth_code(...)
-  # 12. └─base::loadNamespace(x)
-  # 13.   └─base::withRestarts(stop(cond), retry_loadNamespace = function() NULL)
-  # 14.     └─base (local) withOneRestart(expr, restarts[[1L]])
-  # 15.       └─base (local) doWithOneRestart(return(expr), restart)
 
-
-  # expect_type(perms, "character")
+  expect_type(perms, "character")
 })
