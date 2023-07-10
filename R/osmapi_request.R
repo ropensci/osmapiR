@@ -4,8 +4,8 @@ osmapi_request <- function(authenticate = FALSE) {
   req <- httr2::req_retry(req, max_tries = 10L)
   req <- httr2::req_user_agent(req, string = "osmapiR (https://github.com/jmaspons/osmapiR)")
 
-  if (authenticate) {
-    req <- oauth_request(req)
+  if (authenticate & !getOption("osmapir.R_CMD_check", FALSE)) {
+    req <- oauth_request(req) # nocov
   }
 
   return(req)

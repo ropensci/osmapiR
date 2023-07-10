@@ -3,6 +3,7 @@ column_attrs <- c(
   "traces_count", "blocks_received.count", "blocks_received.active", "blocks_issued.count", "blocks_issued.active"
 )
 
+
 ## Details of a user: `GET /api/0.6/user/#id` ----
 
 test_that("osm_details_user works", {
@@ -30,38 +31,19 @@ test_that("osm_details_users works", {
 
 
 ## Details of the logged-in user: `GET /api/0.6/user/details` ----
-# WARNING: authenticated
+
 test_that("osm_details_logged_user works", {
   with_mock_dir("mock_details_logged_user", {
-    # usr_details <- osm_details_logged_user()
+    usr_details <- osm_details_logged_user()
   })
-  ## TODO: Error in authentication when testing??
-  # Error in `loadNamespace(x)`: there is no package called 'httpuv'
-  # Backtrace:
-  #   ▆
-  # 1. ├─httptest2::with_mock_dir(...) at test-user_data.R:35:2
-  # 2. │ ├─httptest2:::with_mock_path(...)
-  # 3. │ │ └─base::eval.parent(expr)
-  # 4. │ │   └─base::eval(expr, p)
-  # 5. │ └─httptest2::with_mock_api(expr)
-  # 6. │   └─base::eval.parent(expr)
-  # 7. │     └─base::eval(expr, p)
-  # 8. ├─osmapiR::osm_details_logged_user() at test-user_data.R:36:4
-  # 9. │ └─osmapiR:::osmapi_request(authenticate = TRUE)
-  # 10. │   └─osmapiR:::oauth_request(req)
-  # 11. │     └─httr2::req_oauth_auth_code(...)
-  # 12. └─base::loadNamespace(x)
-  # 13.   └─base::withRestarts(stop(cond), retry_loadNamespace = function() NULL)
-  # 14.     └─base (local) withOneRestart(expr, restarts[[1L]])
-  # 15.       └─base (local) doWithOneRestart(return(expr), restart)
 
-  # expect_type(usr_details, "list")
-  # expect_named(usr_details,
-  #   c(
-  #     "user", "description", "img", "contributor_terms", "roles",
-  #     "changesets", "traces", "blocks", "home", "languages", "messages"
-  #   )
-  # )
+  expect_type(usr_details, "list")
+  expect_named(usr_details,
+    c(
+      "user", "description", "img", "contributor_terms", "roles",
+      "changesets", "traces", "blocks", "home", "languages", "messages"
+    )
+  )
 })
 
 

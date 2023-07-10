@@ -66,6 +66,7 @@ test_that("osm_close_note works", {
   })
 })
 
+
 ## Reopen: `POST /api/0.6/notes/#id/reopen` ----
 
 test_that("osm_reopen_note works", {
