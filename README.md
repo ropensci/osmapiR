@@ -8,7 +8,8 @@
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/jmaspons/osmapiR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jmaspons/osmapiR/actions/workflows/R-CMD-check.yaml)
-[![test-coverage](https://github.com/jmaspons/osmapiR/actions/workflows/test-coverage.yaml/badge.svg)](https://github.com/jmaspons/osmapiR/actions/workflows/test-coverage.yaml)
+[![Codecov test
+coverage](https://codecov.io/gh/jmaspons/osmapiR/branch/main/graph/badge.svg)](https://codecov.io/gh/jmaspons/osmapiR)
 [![pkgdown](https://github.com/jmaspons/osmapiR/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/jmaspons/osmapiR/actions/workflows/pkgdown.yaml)
 <!-- badges: end -->
 

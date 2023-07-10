@@ -1,6 +1,6 @@
 # inspired by osmdata package
 
-.onLoad <- function(libname, pkgname) {
+.onLoad <- function(libname, pkgname) { # nocov start
   op <- options()
 
   if (!"osmapir.base_api_url" %in% names(op)) {
@@ -28,7 +28,7 @@
   }
 
   invisible()
-}
+} # nocov end
 
 
 .onAttach <- function(libname, pkgname) {
