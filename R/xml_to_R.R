@@ -129,11 +129,7 @@ object_xml2DF <- function(xml) {
 }
 
 
-## TODO: GPS traces ----
-# pts_gps <- osm_get_points_gps(bbox = c(-0.3667545, 40.2153246, -0.3354263, 40.2364915))
-# trk_meta <- osm_get_metadata_gpx(gpx_id = 3498170)
-# trk_data <- osm_get_data_gpx(gpx_id = 3498170)
-# traces <- osm_list_gpxs()
+## GPS traces ----
 
 gpx_meta_xml2DF <- function(xml) {
   gpx_files <- xml2::xml_children(xml)
@@ -152,15 +148,64 @@ gpx_meta_xml2DF <- function(xml) {
 }
 
 
-# TODO ----
-gpx_xml2DF <- function(xml) {
+# GPX files----
 
+gpx_xml2DF <- function(xml) {
+  # xml_attrs <- xml2::xml_attrs(xml)
+
+  gpx <- xml2::xml_children(xml)
+
+  trk <- gpx[xml2::xml_name(gpx) == "trk"]
+  # xml_find_all(trk, xpath = ".//name") ## TODO: doesn't work :(
+
+  trkL <- lapply(trk, function(x) {
+    x_ch <- xml2::xml_children(x)
+    x_names <- xml2::xml_name(x_ch)
+
+    trk_details <- structure(xml2::xml_text(x_ch[x_names != "trkseg"]), names = x_names[x_names != "trkseg"])
+
+    trkseg <- x_ch[x_names == "trkseg"]
+    trkpt <- xml2::xml_children(trkseg)
+    lat_lon <- do.call(rbind, xml2::xml_attrs(trkpt))
+    # xml2::xml_find_all(trkpt, ".//time") ## TODO: doesn't work :(
+
+    elem_points <- lapply(trkpt, function(y) {
+      pt <- xml2::xml_children(y)
+      elem_name <- sapply(pt, xml2::xml_name)
+      vals <- structure(
+        sapply(pt[elem_name %in% c("ele", "time")], xml2::xml_text),
+        names = elem_name[elem_name %in% c("ele", "time")]
+      )
+    })
+    point_data <- do.call(rbind, elem_points)
+
+    trkpt <- data.frame(lat_lon, point_data)
+    if ("time" %in% names(trkpt)) {
+      trkpt$time <- as.POSIXct(trkpt$time, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+    }
+
+    out <- trkpt
+    attributes(out) <- c(attributes(out), trk_details)
+
+    return(out)
+  })
+
+  if ("metadata" %in% xml2::xml_name(gpx)) {
+    metaL <- xml2::as_list(gpx[xml2::xml_name(gpx) == "metadata"])
+
+    meta <- xml2::xml_children(gpx[xml2::xml_name(gpx) == "metadata"])
+    meta_attrs <- xml2::xml_attrs(meta)
+    names(meta_attrs) <- xml2::xml_name(meta)
+    meta_attrs <- meta_attrs[sapply(meta_attrs, length) > 0]
+
+    attributes(trkL) <- c(attributes(trkL), meta_attrs, unlist(metaL, recursive = FALSE))
+  }
+
+  return(trkL)
 }
 
 
 ## user_details ----
-
-# osm_details_logged_user() also includes home, language and messages:
 
 user_details_xml2DF <- function(xml) {
   users <- xml2::xml_children(xml)

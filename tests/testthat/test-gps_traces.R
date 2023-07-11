@@ -1,16 +1,20 @@
 column_meta_gpx <- c("id", "name", "user", "visibility", "pending", "timestamp", "lat", "lon", "description", "tags")
-# column_gpx <- TODO: gpx_xml2DF
+column_gpx <- c("lat", "lon", "ele", "time")
+column_pts_gps <- c("lat", "lon", "time")
 
 
 ## Get GPS Points: `GET /api/0.6/trackpoints?bbox=*'left','bottom','right','top'*&page=*'pageNumber'*` ----
 
 test_that("osm_get_points_gps works", {
+  pts_gps<- list()
   with_mock_dir("mock_get_points_gps", {
-    # pts_gps <- osm_get_points_gps(bbox = c(-0.4789191, 38.1662652, -0.4778007, 38.1677898))
+    pts_gps$private <- osm_get_points_gps(bbox = c(-0.4789191, 38.1662652, -0.4778007, 38.1677898))
+    pts_gps$public <- osm_get_points_gps(bbox = c(-0.6430006, 38.1073445, -0.6347179, 38.1112953))
   })
 
-  # expect_s3_class(pts_gps, "data.frame")
-  # expect_named(pts_gps, column_gpx)
+  lapply(pts_gps, expect_type, "list")
+  lapply(pts_gps$private, expect_named, setdiff(column_pts_gps, "time"))
+  lapply(pts_gps$public, expect_named, column_pts_gps)
 })
 
 
@@ -61,13 +65,14 @@ test_that("osm_get_metadata_gpx works", {
 test_that("osm_get_data_gpx works", {
   trk_data <- list()
   with_mock_dir("mock_get_data_gpx", {
-    # # trk_data$raw <- osm_get_data_gpx(gpx_id = 3458743) # TODO: HTTP 400 Bad Request. without format
-    # trk_data$gpx <- osm_get_data_gpx(gpx_id = 3458743, format = "gpx")
-    # trk_data$xml <- osm_get_data_gpx(gpx_id = 3458743, format = "xml")
+    # trk_data$raw <- osm_get_data_gpx(gpx_id = 3458743) # TODO: HTTP 400 Bad Request. without format
+    # trk_data$gpx <- osm_get_data_gpx(gpx_id = 3458743, format = "gpx") # identical to xml resp but heavier mock file
+    ## gpx responses has `content-type` = "application/gpx+xml and httptest2 save them as raw instead of xml files
+    trk_data$xml <- osm_get_data_gpx(gpx_id = 3458743, format = "xml")
   })
 
-  # lapply(trk_data, expect_s3_class, "data.frame")
-  # lapply(trk_data, expect_named, column_gpx)
+  lapply(trk_data, expect_s3_class, "data.frame")
+  lapply(trk_data, expect_named, column_gpx)
 })
 
 

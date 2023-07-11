@@ -82,8 +82,16 @@ osm_get_points_gps <- function(bbox, page_number = 0) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- gpx_xml2DF(obj_xml)
+  names(out) <- vapply(out, function(x) {
+    url <- attr(x, "url")
+    if (is.null(url)) { # for private traces?
+      url <- ""
+    }
+    url
+  }, FUN.VALUE = character(1))
+
+  return(out)
 }
 
 
@@ -256,8 +264,20 @@ osm_get_data_gpx <- function(gpx_id, format) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- gpx_xml2DF(obj_xml)
+
+  if (length(out) > 1) {
+    warning(
+      "Unexpected output format at osm_get_data_gpx().",
+      "Please, open and issue with with the `gpx_id` at https://github.com/jmaspons/osmapiR/issues"
+    )
+  } else {
+    attrs <- attributes(out)
+    out <- out[[1]]
+    attributes(out) <- c(attributes(out), attrs)
+  }
+
+  return(out)
 }
 
 
