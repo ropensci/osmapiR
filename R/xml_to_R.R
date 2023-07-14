@@ -261,6 +261,33 @@ user_details_xml2DF <- function(xml) {
 }
 
 
+logged_user_details_xml2list <- function(xml) {
+  user <- xml2::xml_child(xml)
+
+  out <- list(
+    user = xml2::xml_attrs(user),
+    description = xml2::xml_text(xml2::xml_child(user, "description")),
+    img = xml2::xml_attr(xml2::xml_child(user, "img"), "href"),
+    contributor_terms = ifelse(xml2::xml_attrs(xml2::xml_child(user, "contributor-terms")) == "true", TRUE, FALSE),
+    roles = xml2::xml_name(xml2::xml_children(xml2::xml_child(user, "roles"))), # WARNING: not tested
+    changesets = xml2::xml_attrs(xml2::xml_child(user, "changesets")),
+    traces = xml2::xml_attrs(xml2::xml_child(user, "traces")),
+    blocks = list(
+      received = xml2::xml_attrs(xml2::xml_child(xml2::xml_child(user, "blocks"), "received")),
+      issued = xml2::xml_attrs(xml2::xml_child(xml2::xml_child(user, "blocks"), "issued"))
+    ),
+    home = xml2::xml_attrs(xml2::xml_child(user, "home")),
+    languages = xml2::xml_text(xml2::xml_children(xml2::xml_child(user, "languages"))),
+    messages = list(
+      received = xml2::xml_attrs(xml2::xml_child(xml2::xml_child(user, "messages"), "received")),
+      sent = xml2::xml_attrs(xml2::xml_child(xml2::xml_child(user, "messages"), "sent"))
+    )
+  )
+
+  return(out)
+}
+
+
 ## Map notes ----
 
 note_xml2DF <- function(xml) {

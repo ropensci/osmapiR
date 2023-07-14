@@ -244,6 +244,8 @@ osm_details_users <- function(user_ids, format = c("R", "xml", "json")) {
 #'
 #' You can get the home location, the display name of the user and other details.
 #'
+#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#'
 #' @return A list with the user details.
 #' @family users' functions
 #' @family GET calls
@@ -254,35 +256,29 @@ osm_details_users <- function(user_ids, format = c("R", "xml", "json")) {
 #' usr_details <- osm_details_logged_user()
 #' usr_details
 #' }
-osm_details_logged_user <- function() {
+osm_details_logged_user <- function(format = c("R", "xml", "json")) {
+  format <- match.arg(format)
+
+  if (format == "json") {
+    ext <- "details.json"
+  } else {
+    ext <- "details"
+  }
+
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "user", "details")
+  req <- httr2::req_url_path_append(req, "user", ext)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  user <- xml2::xml_child(obj_xml)
-
-  out <- list(
-    user = xml2::xml_attrs(user),
-    description = xml2::xml_text(xml2::xml_child(user, "description")),
-    img = xml2::xml_attr(xml2::xml_child(user, "img"), "href"),
-    contributor_terms = ifelse(xml2::xml_attrs(xml2::xml_child(user, "contributor-terms")) == "true", TRUE, FALSE),
-    roles = xml2::xml_name(xml2::xml_children(xml2::xml_child(user, "roles"))), # WARNING: not tested
-    changesets = xml2::xml_attrs(xml2::xml_child(user, "changesets")),
-    traces = xml2::xml_attrs(xml2::xml_child(user, "traces")),
-    blocks = list(
-      received = xml2::xml_attrs(xml2::xml_child(xml2::xml_child(user, "blocks"), "received")),
-      issued = xml2::xml_attrs(xml2::xml_child(xml2::xml_child(user, "blocks"), "issued"))
-    ),
-    home = xml2::xml_attrs(xml2::xml_child(user, "home")),
-    languages = xml2::xml_text(xml2::xml_children(xml2::xml_child(user, "languages"))),
-    messages = list(
-      received = xml2::xml_attrs(xml2::xml_child(xml2::xml_child(user, "messages"), "received")),
-      sent = xml2::xml_attrs(xml2::xml_child(xml2::xml_child(user, "messages"), "sent"))
-    )
-  )
+  if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- logged_user_details_xml2DF(out)
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
 
   return(out)
 }
