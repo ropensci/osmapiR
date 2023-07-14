@@ -73,7 +73,9 @@
 #' ## bbox as a character value also works. Equivalent call:
 #' # pts_gps <- osm_get_points_gps(bbox = "-0.3667545,40.2153246,-0.3354263,40.2364915")
 #' pts_gps
-osm_get_points_gps <- function(bbox, page_number = 0) {
+osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "gpx")) {
+  format <- match.arg(format)
+
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "trackpoints")
@@ -82,14 +84,18 @@ osm_get_points_gps <- function(bbox, page_number = 0) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- gpx_xml2DF(obj_xml)
-  names(out) <- vapply(out, function(x) {
-    url <- attr(x, "url")
-    if (is.null(url)) { # for private traces?
-      url <- ""
-    }
-    url
-  }, FUN.VALUE = character(1))
+  if (format == "R") {
+    out <- gpx_xml2list(obj_xml)
+    names(out) <- vapply(out, function(x) {
+      url <- attr(x, "url")
+      if (is.null(url)) { # for private traces?
+        url <- ""
+      }
+      url
+    }, FUN.VALUE = character(1))
+  } else {
+    out <- obj_xml
+  }
 
   return(out)
 }
@@ -232,7 +238,8 @@ osm_get_metadata_gpx <- function(gpx_id) {
 #' usable by the owner account and requires authentication.
 #'
 #' @param gpx_id The track id represented by a numeric or a character value.
-#' @param format If missing (default), the response will be the exact file that was uploaded.
+#' @param format Format of the output. If missing (default), the response will be the exact file that was uploaded.
+#'   If `R`, a `data.frame`.
 #'   If `gpx`, the response will always be a GPX format file.
 #'   If `xml`, a `XML` file in an undocumented format.
 #'
@@ -253,8 +260,12 @@ osm_get_data_gpx <- function(gpx_id, format) {
   if (missing(format)) {
     ext <- "data"
   } else {
-    stopifnot(format %in% c("xml", "gpx"))
-    ext <- paste0("data.", format)
+    stopifnot(format %in% c("R", "xml", "gpx"))
+    if (format == "gpx") {
+      ext <- "data.gpx"
+    } else {
+      ext <- "data.xml"
+    }
   }
 
   req <- osmapi_request(authenticate = TRUE)
@@ -264,17 +275,23 @@ osm_get_data_gpx <- function(gpx_id, format) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- gpx_xml2DF(obj_xml)
-
-  if (length(out) > 1) {
-    warning(
-      "Unexpected output format at osm_get_data_gpx().",
-      "Please, open and issue with with the `gpx_id` at https://github.com/jmaspons/osmapiR/issues"
-    )
+  if (missing(format) || format %in% c("xml", "gpx")) {
+    out <- obj_xml
   } else {
-    attrs <- attributes(out)
-    out <- out[[1]]
-    attributes(out) <- c(attributes(out), attrs)
+
+    out <- gpx_xml2DF(obj_xml)
+
+    if (length(out) > 1) {
+      warning(
+        "Unexpected output format at osm_get_data_gpx().",
+        "Please, open and issue with with the `gpx_id` at https://github.com/jmaspons/osmapiR/issues"
+      )
+    } else {
+      attrs <- attributes(out)
+      out <- out[[1]]
+      attributes(out) <- c(attributes(out), attrs)
+    }
+
   }
 
   return(out)

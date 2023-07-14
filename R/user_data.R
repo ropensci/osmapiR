@@ -45,6 +45,7 @@
 #' Details of a user
 #'
 #' @param user_id The id of the user to retrieve represented by a numeric or a character value (not the display name).
+#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
 #'
 #' @return
 #' @family users' functions
@@ -56,15 +57,27 @@
 #' usr <- osm_details_user(user_id = "11725140")
 #' usr
 #' }
-osm_details_user <- function(user_id) {
+osm_details_user <- function(user_id, format = c("R", "xml", "json")) {
+  format <- match.arg(format)
+
+  if (format == "json") {
+    user_id <- paste0(user_id, ".json")
+  }
+
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "user", user_id)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- user_details_xml2DF(obj_xml)
+  if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- user_details_xml2DF(out)
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
 
   return(out)
 }
@@ -125,6 +138,7 @@ osm_details_user <- function(user_id) {
 #'
 #' @param user_ids The ids of the users to retrieve represented by a numeric or a character value (not the display
 #'   names).
+#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
 #'
 #' @return
 #' @family users' functions
@@ -136,16 +150,30 @@ osm_details_user <- function(user_id) {
 #' usrs <- osm_details_users(user_ids = c(1, 24, 44, 45, 46, 48, 49, 50))
 #' usrs
 #' }
-osm_details_users <- function(user_ids) {
+osm_details_users <- function(user_ids, format = c("R", "xml", "json")) {
+  format <- match.arg(format)
+
+  if (format == "json") {
+    ext <- "users.json"
+  } else {
+    ext <- "users"
+  }
+
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "users")
+  req <- httr2::req_url_path_append(req, ext)
   req <- httr2::req_url_query(req, users = paste(user_ids, collapse = ","))
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- user_details_xml2DF(obj_xml)
+  if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- user_details_xml2DF(out)
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
 
   return(out)
 }
@@ -310,10 +338,18 @@ osm_details_logged_user <- function() {
 #
 #  DELETE /api/0.6/user/preferences/[your_key]
 
-osm_preferences_user <- function() {
+osm_preferences_user <- function(format = c("R", "xml", "json")) {
+  format <- match.arg(format)
+
+  if (format == "json") {
+    ext <- "preferences.json"
+  } else {
+    ext <- "preferences"
+  }
+
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "user", "preferences")
+  req <- httr2::req_url_path_append(req, "user", ext)
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)

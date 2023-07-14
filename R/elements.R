@@ -116,6 +116,7 @@ osm_create_object <- function(osm_type = c("node", "way", "relation"), ...) {
 #'
 #' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
+#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
 #'
 #' @return
 #' @family OSM objects' functions
@@ -133,17 +134,28 @@ osm_create_object <- function(osm_type = c("node", "way", "relation"), ...) {
 #' rel <- osm_read_object(osm_type = "relation", osm_id = "40581")
 #' rel
 #' }
-osm_read_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
+osm_read_object <- function(osm_type = c("node", "way", "relation"), osm_id, format = c("R", "xml", "json")) {
   osm_type <- match.arg(osm_type)
+  format <- match.arg(format)
+
+  if (format == "json") {
+    osm_id <- paste0(osm_id, ".json")
+  }
 
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, osm_type, osm_id)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- object_xml2DF(obj_xml)
+  if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- object_xml2DF(out)
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
 
   return(out)
 }
@@ -273,6 +285,7 @@ osm_delete_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
 #'
 #' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
+#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
 #'
 #' @return
 #' @family OSM objects' functions
@@ -290,17 +303,30 @@ osm_delete_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
 #' rel <- osm_history_object(osm_type = "relation", osm_id = "40581")
 #' rel
 #' }
-osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
+osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id, format = c("R", "xml", "json")) {
   osm_type <- match.arg(osm_type)
+  format <- match.arg(format)
+
+  if (format == "json") {
+    ext <- "history.json"
+  } else {
+    ext <- "history"
+  }
 
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, osm_type, osm_id, "history")
+  req <- httr2::req_url_path_append(req, osm_type, osm_id, ext)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- object_xml2DF(obj_xml)
+  if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- object_xml2DF(out)
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
 
   return(out)
 }
@@ -322,6 +348,7 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id) 
 #' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
 #' @param version Version of the object to retrieve.
+#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
 #'
 #' @return
 #' @family OSM objects' functions
@@ -339,17 +366,28 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id) 
 #' rel <- osm_version_object(osm_type = "relation", osm_id = "40581", version = 3)
 #' rel
 #' }
-osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, version) {
+osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, version, format = c("R", "xml", "json")) {
   osm_type <- match.arg(osm_type)
+  format <- match.arg(format)
+
+  if (format == "json") {
+    version <- paste0(version, ".json")
+  }
 
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, osm_type, osm_id, version)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- object_xml2DF(obj_xml)
+  if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- object_xml2DF(out)
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
 
   return(out)
 }
@@ -381,6 +419,7 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' @param osm_type Type of the objects(`"nodes"`, `"ways"` or `"relations"`).
 #' @param osm_ids Object ids represented by a numeric or a character vector.
 #' @param versions Version numbers for each object may be optionally provided.
+#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
 #'
 #' @note
 #' For downloading data for purposes other than editing or exploring the history of the objects, perhaps is better to
@@ -404,11 +443,16 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' rel <- osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1))
 #' rel
 #' }
-osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_ids, versions) {
+osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_ids, versions, format = c("R", "xml", "json")) {
   osm_type <- match.arg(osm_type)
+  format <- match.arg(format)
 
   if (!missing(versions)) {
     osm_ids <- paste0(osm_ids, "v", versions)
+  }
+
+  if (format == "json") {
+    osm_type <- paste0(osm_type, ".json")
   }
 
   req <- osmapi_request()
@@ -424,9 +468,15 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
   }
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- object_xml2DF(obj_xml)
+  if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- object_xml2DF(out)
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
 
   return(out)
 }
@@ -445,6 +495,7 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
 #'
 #' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
+#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
 #'
 #' @return
 #' @family OSM objects' functions
@@ -460,17 +511,30 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
 #'
 #' rel <- osm_relations_object(osm_type = "relation", osm_id = 342792)
 #' rel
-osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
+osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id, format = c("R", "xml", "json")) {
   osm_type <- match.arg(osm_type)
+  format <- match.arg(format)
+
+  if (format == "json") {
+    ext <- "relations.json"
+  } else {
+    ext <- "relations"
+  }
 
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, osm_type, osm_id, "relations")
+  req <- httr2::req_url_path_append(req, osm_type, osm_id, ext)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- object_xml2DF(obj_xml)
+  if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- object_xml2DF(out)
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
 
   return(out)
 }
@@ -488,6 +552,7 @@ osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id
 #' Returns all the (not deleted) ways in which the given node is used.
 #'
 #' @param node_id Node id represented by a numeric or a character value.
+#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
 #'
 #' @return
 #' @family OSM objects' functions
@@ -497,15 +562,29 @@ osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id
 #' @examples
 #' ways_node <- osm_ways_node(node_id = 35308286)
 #' ways_node
-osm_ways_node <- function(node_id) {
+osm_ways_node <- function(node_id, format = c("R", "xml", "json")) {
+  format <- match.arg(format)
+
+  if (format == "json") {
+    ext <- "ways.json"
+  } else {
+    ext <- "ways"
+  }
+
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "node", node_id, "ways")
+  req <- httr2::req_url_path_append(req, "node", node_id, ext)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- object_xml2DF(obj_xml)
+  if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- object_xml2DF(out)
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
 
   return(out)
 }
@@ -532,6 +611,7 @@ osm_ways_node <- function(node_id) {
 #'
 #' @param osm_type Object type (`"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
+#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
 #'
 #' @details
 #' For a way, it will return the way specified plus all nodes referenced by the way.
@@ -561,17 +641,30 @@ osm_ways_node <- function(node_id) {
 #' rel <- osm_full_object(osm_type = "relation", osm_id = "40581")
 #' rel
 #' }
-osm_full_object <- function(osm_type = c("way", "relation"), osm_id) {
+osm_full_object <- function(osm_type = c("way", "relation"), osm_id, format = c("R", "xml", "json")) {
   osm_type <- match.arg(osm_type)
+  format <- match.arg(format)
+
+  if (format == "json") {
+    ext <- "full.json"
+  } else {
+    ext <- "full"
+  }
 
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, osm_type, osm_id, "full")
+  req <- httr2::req_url_path_append(req, osm_type, osm_id, ext)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- object_xml2DF(obj_xml)
+  if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- object_xml2DF(out)
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
 
   return(out)
 }

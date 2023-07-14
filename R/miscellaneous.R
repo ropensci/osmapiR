@@ -181,6 +181,7 @@ osm_capabilities <- function() {
 #'   apply recursively, see explanation below.)
 #'
 #' @param bbox Coordinates for the area to retrieve the map data from (`left,bottom,right,top`).
+#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
 #'
 #' @details
 #' Note that, while this command returns those relations that reference the aforementioned nodes and ways, the reverse
@@ -208,16 +209,30 @@ osm_capabilities <- function() {
 #' ## bbox as a character value also works. Equivalent call:
 #' # map_data <- osm_bbox_objects(bbox = "1.8366775,41.8336843,1.8379971,41.8344537")
 #' map_data
-osm_bbox_objects <- function(bbox) {
+osm_bbox_objects <- function(bbox, format = c("R", "xml", "json")) {
+  format <- match.arg(format)
+
+  if (format == "json") {
+    ext <- "map.json"
+  } else {
+    ext <- "map"
+  }
+
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "map")
+  req <- httr2::req_url_path_append(req, ext)
   req <- httr2::req_url_query(req, bbox = paste(bbox, collapse = ","))
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- object_xml2DF(obj_xml)
+  if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- object_xml2DF(out)
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
 
   return(out)
 }
@@ -275,6 +290,8 @@ osm_bbox_objects <- function(bbox) {
 #'
 #' Returns the permissions granted to the current API connection.
 #'
+#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#'
 #' @details
 #' Currently the following permissions can appear in the result, corresponding directly to the ones used in the OAuth
 #' 1.0a application definition:
@@ -301,16 +318,31 @@ osm_bbox_objects <- function(bbox) {
 #' perms <- osm_permissions()
 #' perms
 #' }
-osm_permissions <- function() {
+osm_permissions <- function(format = c("R", "xml", "json")) {
+  format <- match.arg(format)
+
+  if (format == "json") {
+    ext <- "permissions.json"
+  } else {
+    ext <- "permissions"
+  }
+
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "permissions")
+  req <- httr2::req_url_path_append(req, ext)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  perms <- xml2::xml_find_all(obj_xml, xpath = ".//permission")
-  perms <- xml2::xml_attr(perms, "name")
 
-  return(perms)
+  if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- xml2::xml_find_all(out, xpath = ".//permission")
+      out <- xml2::xml_attr(out, "name")
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
+
+  return(out)
 }
