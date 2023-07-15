@@ -21,6 +21,10 @@ tags_xml2mat <- function(xml_nodeset) {
 changeset_xml2DF <- function(xml) {
   changesets <- xml2::xml_children(xml)
 
+  if (length(objects) == 0) {
+    return(empty_changeset())
+  }
+
   changeset_attrs <- do.call(rbind, xml2::xml_attrs(changesets))
 
   # read & query changeset calls have different order in attributes.
@@ -66,6 +70,20 @@ changeset_xml2DF <- function(xml) {
 }
 
 
+empty_changeset <- function() {
+  out <- data.frame(
+    id = character(), created_at = as.POSIXct(Sys.time())[-1], closed_at = as.POSIXct(Sys.time())[-1],
+    open = logical(), user = character(), uid = character(), min_lat = character(), min_lon = character(),
+    max_lat = character(), max_lon = character(), comments_count = integer(), changes_count = integer()
+  )
+  out$discussion <- list()
+
+  class(out) <- c("osmapi_changesets", class(out))
+
+  return(out)
+}
+
+
 ## Elements ----
 ## TODO: warning in  osm_bbox_objects(bbox = c(3.2164192, 42.0389667, 3.2317829, 42.0547099))
 
@@ -73,11 +91,7 @@ object_xml2DF <- function(xml) {
   objects <- xml2::xml_children(xml)
 
   if (length(objects) == 0) {
-    out <- data.frame(
-      type = character(), id = character(), visible = character(), version = character(), changeset = character(),
-      timestamp = character(), user = character(), uid = character(), lat = character(), lon = character()
-    )
-    return(out)
+    return(empty_object())
   }
 
   object_type <- xml2::xml_name(objects)
@@ -89,10 +103,7 @@ object_xml2DF <- function(xml) {
     object_type <- object_type[-1]
 
     if (length(objects) == 0) {
-      out <- data.frame(
-        type = character(), id = character(), visible = character(), version = character(), changeset = character(),
-        timestamp = character(), user = character(), uid = character(), lat = character(), lon = character()
-      )
+      out <- empty_object()
       attr(out, "bbox") <- bbox
 
       return(out)
@@ -102,7 +113,10 @@ object_xml2DF <- function(xml) {
   }
 
   object_attrs <- do.call(rbind, xml2::xml_attrs(objects))
-  tags <- tags_xml2mat(objects)
+  out <- data.frame(type = object_type, object_attrs)
+  out$visible <- ifelse(out$visible == "true", TRUE, FALSE)
+  out$version <- as.integer(out$version)
+  out$timestamp <- as.POSIXct(out$timestamp)
 
   members <- vector("list", length = length(objects))
   members[object_type == "way"] <- lapply(objects[object_type == "way"], function(x) {
@@ -117,13 +131,9 @@ object_xml2DF <- function(xml) {
     member
   })
 
-  out <- data.frame(type = object_type, object_attrs)
-  out$visible <- ifelse(out$visible == "true", TRUE, FALSE)
-  out$version <- as.integer(out$version)
-  out$timestamp <- as.POSIXct(out$timestamp)
-
   out$members <- members
 
+  tags <- tags_xml2mat(objects)
   out <- cbind(out, tags)
 
   if (!is.null(bbox)) {
@@ -131,6 +141,20 @@ object_xml2DF <- function(xml) {
   }
 
   # out$members ## TODO: improve print. class?
+  class(out) <- c("osmapi_objects", class(out))
+
+  return(out)
+}
+
+
+empty_object <- function() {
+  out <- data.frame(
+    type = character(), id = character(), visible = character(), version = character(), changeset = character(),
+    timestamp = as.POSIXct(Sys.time())[-1], user = character(), uid = character(),
+    lat = character(), lon = character()
+  )
+  out$members <- list()
+
   class(out) <- c("osmapi_objects", class(out))
 
   return(out)
@@ -165,6 +189,10 @@ gpx_xml2list <- function(xml) {
 
   trk <- gpx[xml2::xml_name(gpx) == "trk"]
   # xml_find_all(trk, xpath = ".//name") ## TODO: doesn't work :(
+
+  if (length(objects) == 0) {
+    return(empty_gpx())
+  }
 
   trkL <- lapply(trk, function(x) {
     x_ch <- xml2::xml_children(x)
@@ -212,6 +240,14 @@ gpx_xml2list <- function(xml) {
   class(trkL) <- c("osmapi_gpx", class(trkL))
 
   return(trkL)
+}
+
+
+empty_gpx <- function() {
+  out <- list()
+  class(out) <- c("osmapi_gpx", class(out))
+
+  return(out)
 }
 
 
@@ -303,6 +339,10 @@ logged_user_details_xml2list <- function(xml) {
 note_xml2DF <- function(xml) {
   notes <- xml2::xml_children(xml)
 
+  if (length(objects) == 0) {
+    return(empty_notes())
+  }
+
   note_attrs <- do.call(rbind, xml2::xml_attrs(notes))
   id <- xml2::xml_text(xml2::xml_child(notes, "id"))
   url <- xml2::xml_text(xml2::xml_child(notes, "url"))
@@ -339,6 +379,19 @@ note_xml2DF <- function(xml) {
 
   class(out) <- c("osmapi_map_notes", class(out))
   # out$comments ## TODO: improve print. class? Hide or omit non informative columns ".*url$" (derived from id)
+
+  return(out)
+}
+
+
+empty_notes <- function() {
+  out <- data.frame(
+    lon = character(), lat = character(), id = character(), url = character(),
+    comment_url = character(), close_url = character(), date_created = as.POSIXct(Sys.time())[-1], status = character()
+  )
+  out$comments <- list()
+
+  class(out) <- c("osmapi_map_notes", class(out))
 
   return(out)
 }
