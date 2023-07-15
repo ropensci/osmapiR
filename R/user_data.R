@@ -274,7 +274,7 @@ osm_details_logged_user <- function(format = c("R", "xml", "json")) {
   if (format %in% c("R", "xml")) {
     out <- httr2::resp_body_xml(resp)
     if (format == "R") {
-      out <- logged_user_details_xml2DF(out)
+      out <- logged_user_details_xml2list(out)
     }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)

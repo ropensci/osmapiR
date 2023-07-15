@@ -278,7 +278,7 @@ osm_get_data_gpx <- function(gpx_id, format) {
   if (missing(format) || format %in% c("xml", "gpx")) {
     out <- obj_xml
   } else {
-    out <- gpx_xml2DF(obj_xml)
+    out <- gpx_xml2list(obj_xml)
 
     if (length(out) > 1) {
       warning(

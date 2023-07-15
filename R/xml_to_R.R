@@ -1,4 +1,4 @@
-tags_xml2DF <- function(xml_nodeset) {
+tags_xml2mat <- function(xml_nodeset) {
   tags <- xml2::xml_find_all(xml_nodeset, xpath = ".//tag", flatten = FALSE)
   tags_u <- xml2::xml_find_all(xml_nodeset, xpath = ".//tag")
   col_names <- sort(unique(xml2::xml_attr(tags_u, attr = "k")))
@@ -54,7 +54,7 @@ changeset_xml2DF <- function(xml) {
     out$discussion <- discussionL
   }
 
-  tags <- tags_xml2DF(changesets)
+  tags <- tags_xml2mat(changesets)
   out <- cbind(out, tags)
 
   # out$discussion ## TODO: improve print. class?
@@ -99,7 +99,7 @@ object_xml2DF <- function(xml) {
   }
 
   object_attrs <- do.call(rbind, xml2::xml_attrs(objects))
-  tags <- tags_xml2DF(objects)
+  tags <- tags_xml2mat(objects)
 
   members <- vector("list", length = length(objects))
   members[object_type == "way"] <- lapply(objects[object_type == "way"], function(x) {
@@ -150,7 +150,7 @@ gpx_meta_xml2DF <- function(xml) {
 
 # GPX files----
 
-gpx_xml2DF <- function(xml) {
+gpx_xml2list <- function(xml) {
   # xml_attrs <- xml2::xml_attrs(xml)
 
   gpx <- xml2::xml_children(xml)
