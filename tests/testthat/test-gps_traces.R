@@ -6,7 +6,7 @@ column_pts_gps <- c("lat", "lon", "time")
 ## Get GPS Points: `GET /api/0.6/trackpoints?bbox=*'left','bottom','right','top'*&page=*'pageNumber'*` ----
 
 test_that("osm_get_points_gps works", {
-  pts_gps<- list()
+  pts_gps <- list()
   with_mock_dir("mock_get_points_gps", {
     pts_gps$private <- osm_get_points_gps(bbox = c(-0.4789191, 38.1662652, -0.4778007, 38.1677898))
     pts_gps$public <- osm_get_points_gps(bbox = c(-0.6430006, 38.1073445, -0.6347179, 38.1112953))
@@ -59,16 +59,18 @@ test_that("osm_get_metadata_gpx works", {
 
 ## Download Data: `GET /api/0.6/gpx/#id/data` ----
 
-#' @param format If missing (default), the response will be the exact file that was uploaded.
+#' @param format Format of the output. If missing (default), the response will be the exact file that was uploaded.
+#'   If `R`, a `data.frame`.
 #'   If `gpx`, the response will always be a GPX format file.
 #'   If `xml`, a `XML` file in an undocumented format.
 test_that("osm_get_data_gpx works", {
   trk_data <- list()
   with_mock_dir("mock_get_data_gpx", {
     # trk_data$raw <- osm_get_data_gpx(gpx_id = 3458743) # TODO: HTTP 400 Bad Request. without format
-    # trk_data$gpx <- osm_get_data_gpx(gpx_id = 3458743, format = "gpx") # identical to xml resp but heavier mock file
+    # trk_data$gpx <- osm_get_data_gpx(gpx_id = 3458743, format = "R") # identical to xml resp but heavier mock file
     ## gpx responses has `content-type` = "application/gpx+xml and httptest2 save them as raw instead of xml files
-    trk_data$xml <- osm_get_data_gpx(gpx_id = 3458743, format = "xml")
+    # trk_data$xml <- osm_get_data_gpx(gpx_id = 3458743, format = "xml")
+    trk_data$R <- osm_get_data_gpx(gpx_id = 3458743, format = "R")
   })
 
   lapply(trk_data, expect_s3_class, "data.frame")

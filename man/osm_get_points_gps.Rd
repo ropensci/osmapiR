@@ -4,7 +4,7 @@
 \alias{osm_get_points_gps}
 \title{Get GPS Points}
 \usage{
-osm_get_points_gps(bbox, page_number = 0)
+osm_get_points_gps(bbox, page_number = 0, format = c("R", "gpx"))
 }
 \arguments{
 \item{bbox}{Coordinates for the area to retrieve the notes from (\verb{left,bottom,right,top}). Floating point numbers in
@@ -16,6 +16,8 @@ than 5,000 points at a time, this parameter must be incremented —and the comma
 box)— in order to retrieve all of the points for a bounding box that contains more than 5,000 points. When this
 parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns points
 5,001–10,000, etc.}
+
+\item{format}{Format of the output. Can be \code{R} (default) or \code{gpx}.}
 }
 \description{
 Use this to retrieve the GPS track points that are inside a given bounding box (formatted in a GPX format).

@@ -24,7 +24,7 @@ non-standard simple concatenation of the files.
 }
 \examples{
 \dontrun{
-trk_data <- osm_get_data_gpx(gpx_id = 3498170, format = "R") # TODO: HTTP 400 Bad Request. without format
+trk_data <- osm_get_data_gpx(gpx_id = 3498170, format = "R")
 trk_data
 }
 }

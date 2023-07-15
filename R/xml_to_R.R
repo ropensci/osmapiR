@@ -63,7 +63,6 @@ changeset_xml2DF <- function(xml) {
   tags <- tags_xml2mat(changesets)
   out <- cbind(out, tags)
 
-  # out$discussion ## TODO: improve print. class?
   class(out) <- c("osmapi_changesets", class(out))
 
   return(out)
@@ -140,7 +139,6 @@ object_xml2DF <- function(xml) {
     attr(out, "bbox") <- bbox
   }
 
-  # out$members ## TODO: improve print. class?
   class(out) <- c("osmapi_objects", class(out))
 
   return(out)
@@ -283,13 +281,6 @@ user_details_xml2DF <- function(xml) {
     colnames(blocks_issued) <- c("blocks_issued.count", "blocks_issued.active")
   }
 
-  ## For osm_details_logged_user() TODO: return a list (current implementation) or a data.frame?
-  # home <- xml2::xml_attrs(xml2::xml_child(users, "home")),
-  # languages <- xml2::xml_text(xml2::xml_children(xml2::xml_child(users, "languages"))),
-  # messages <- list(
-  #   received = xml2::xml_attrs(xml2::xml_child(xml2::xml_child(users, "messages"), "received")),
-  #   sent = xml2::xml_attrs(xml2::xml_child(xml2::xml_child(users, "messages"), "sent"))
-
   out <- data.frame(
     user_attrs, description, img, contributor_terms, roles,
     changesets_count, traces_count, blocks_received, blocks_issued
@@ -378,7 +369,6 @@ note_xml2DF <- function(xml) {
   out$comments <- commentsL
 
   class(out) <- c("osmapi_map_notes", class(out))
-  # out$comments ## TODO: improve print. class? Hide or omit non informative columns ".*url$" (derived from id)
 
   return(out)
 }

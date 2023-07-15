@@ -38,7 +38,8 @@ test_that("osm_details_logged_user works", {
   })
 
   expect_type(usr_details, "list")
-  expect_named(usr_details,
+  expect_named(
+    usr_details,
     c(
       "user", "description", "img", "contributor_terms", "roles",
       "changesets", "traces", "blocks", "home", "languages", "messages"

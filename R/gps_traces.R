@@ -57,6 +57,7 @@
 #'   box)— in order to retrieve all of the points for a bounding box that contains more than 5,000 points. When this
 #'   parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns points
 #'   5,001–10,000, etc.
+#' @param format Format of the output. Can be `R` (default) or `gpx`.
 #'
 #' @note In violation of the [GPX standard](https://www.topografix.com/GPX/1/1/#type_trksegType) when downloading public
 #'   GPX traces through the API, all waypoints of non-trackable traces are randomized (or rather sorted by lat/lon) and
@@ -229,8 +230,11 @@ osm_get_metadata_gpx <- function(gpx_id) {
 ## TODO: HTTP 401 Unauthorized. (even for public or identificable tracks). FIX wiki or BUG to API ----
 #
 # The response will always be a GPX format file if you use a '''.gpx''' URL suffix, a XML file in an undocumented format if you use a '''.xml''' URL suffix, otherwise the response will be the exact file that was uploaded.
+# TODO: HTTP 400 Bad Request. without format
 #
 # NOTE: if you request refers to a multi-file archive the response when you force gpx or xml format will consist of a non-standard simple concatenation of the files.
+
+
 
 #' Download GPS Track Data
 #'
@@ -253,7 +257,7 @@ osm_get_metadata_gpx <- function(gpx_id) {
 #'
 #' @examples
 #' \dontrun{
-#' trk_data <- osm_get_data_gpx(gpx_id = 3498170, format = "R") # TODO: HTTP 400 Bad Request. without format
+#' trk_data <- osm_get_data_gpx(gpx_id = 3498170, format = "R")
 #' trk_data
 #' }
 osm_get_data_gpx <- function(gpx_id, format) {
