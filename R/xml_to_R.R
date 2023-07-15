@@ -48,6 +48,8 @@ changeset_xml2DF <- function(xml) {
       dis <- data.frame(comment_attrs, comment_text)
       dis$date <- as.POSIXct(dis$date)
 
+      class(dis) <- c("changeset_comments", class(dis))
+
       return(dis)
     })
 
@@ -58,6 +60,7 @@ changeset_xml2DF <- function(xml) {
   out <- cbind(out, tags)
 
   # out$discussion ## TODO: improve print. class?
+  class(out) <- c("osmapi_changesets", class(out))
 
   return(out)
 }
@@ -103,11 +106,15 @@ object_xml2DF <- function(xml) {
 
   members <- vector("list", length = length(objects))
   members[object_type == "way"] <- lapply(objects[object_type == "way"], function(x) {
-    xml2::xml_attr(xml2::xml_find_all(x, ".//nd"), "ref")
+    nd <- xml2::xml_attr(xml2::xml_find_all(x, ".//nd"), "ref")
+    class(nd) <- "way_members"
+    nd
   })
 
   members[object_type == "relation"] <- lapply(objects[object_type == "relation"], function(x) {
-    do.call(rbind, xml2::xml_attrs(xml2::xml_find_all(x, ".//member")))
+    member <- do.call(rbind, xml2::xml_attrs(xml2::xml_find_all(x, ".//member")))
+    class(member) <- "relation_members"
+    member
   })
 
   out <- data.frame(type = object_type, object_attrs)
@@ -124,6 +131,7 @@ object_xml2DF <- function(xml) {
   }
 
   # out$members ## TODO: improve print. class?
+  class(out) <- c("osmapi_objects", class(out))
 
   return(out)
 }
@@ -198,8 +206,10 @@ gpx_xml2list <- function(xml) {
     names(meta_attrs) <- xml2::xml_name(meta)
     meta_attrs <- meta_attrs[sapply(meta_attrs, length) > 0]
 
-    attributes(trkL) <- c(attributes(trkL), meta_attrs, unlist(metaL, recursive = FALSE))
+    attributes(trkL) <- c(attributes(trkL), unlist(metaL, recursive = FALSE), meta_attrs)
   }
+
+  class(trkL) <- c("osmapi_gpx", class(trkL))
 
   return(trkL)
 }
@@ -317,6 +327,8 @@ note_xml2DF <- function(xml) {
     comm <- data.frame(date, uid, user, user_url, action, text, html)
     comm$date <- as.POSIXct(comm$date)
 
+    class(comm) <- c("note_comments", class(comm))
+
     return(comm)
   })
 
@@ -325,6 +337,7 @@ note_xml2DF <- function(xml) {
 
   out$comments <- commentsL
 
+  class(out) <- c("osmapi_map_notes", class(out))
   # out$comments ## TODO: improve print. class? Hide or omit non informative columns ".*url$" (derived from id)
 
   return(out)

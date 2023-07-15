@@ -287,8 +287,11 @@ osm_get_data_gpx <- function(gpx_id, format) {
       )
     } else {
       attrs <- attributes(out)
+      attrs <- attrs[setdiff(names(attrs), "class")]
+      names(attrs) <- paste0("gpx_", names(attrs))
       out <- out[[1]]
       attributes(out) <- c(attributes(out), attrs)
+      class(out) <- c("osmapi_gps_track", "data.frame")
     }
   }
 
