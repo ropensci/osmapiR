@@ -37,8 +37,8 @@ changeset_xml2DF <- function(xml) {
   out$open <- ifelse(out$open == "true", TRUE, FALSE)
   out$comments_count <- as.integer(out$comments_count)
   out$changes_count <- as.integer(out$changes_count)
-  out$created_at <- as.POSIXct(out$created_at)
-  out$closed_at <- as.POSIXct(out$closed_at)
+  out$created_at <- as.POSIXct(out$created_at, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+  out$closed_at <- as.POSIXct(out$closed_at, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
 
   discussion <- xml2::xml_child(changesets, "discussion")
 
@@ -50,7 +50,7 @@ changeset_xml2DF <- function(xml) {
       comment_attrs <- do.call(rbind, xml2::xml_attrs(x))
       comment_text <- xml2::xml_text(xml2::xml_child(x, "text"))
       dis <- data.frame(comment_attrs, comment_text)
-      dis$date <- as.POSIXct(dis$date)
+      dis$date <- as.POSIXct(dis$date, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
 
       class(dis) <- c("changeset_comments", class(dis))
 
@@ -115,7 +115,7 @@ object_xml2DF <- function(xml) {
   out <- data.frame(type = object_type, object_attrs)
   out$visible <- ifelse(out$visible == "true", TRUE, FALSE)
   out$version <- as.integer(out$version)
-  out$timestamp <- as.POSIXct(out$timestamp)
+  out$timestamp <- as.POSIXct(out$timestamp, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
 
   members <- vector("list", length = length(objects))
   members[object_type == "way"] <- lapply(objects[object_type == "way"], function(x) {
@@ -169,7 +169,7 @@ gpx_meta_xml2DF <- function(xml) {
   tags <- lapply(xml2::xml_find_all(gpx_files, ".//tag", flatten = FALSE), xml2::xml_text)
 
   out <- data.frame(gpx_attrs, description)
-  out$timestamp <- as.POSIXct(out$timestamp)
+  out$timestamp <- as.POSIXct(out$timestamp, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
   out$pending <- ifelse(out$pending == "true", TRUE, FALSE)
 
   out$tags <- tags
@@ -292,7 +292,7 @@ user_details_xml2DF <- function(xml) {
   )
   out[, int_cols] <- lapply(out[, int_cols], as.integer)
 
-  out$account_created <- as.POSIXct(out$account_created)
+  out$account_created <- as.POSIXct(out$account_created, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
 
   return(out)
 }
@@ -356,7 +356,7 @@ note_xml2DF <- function(xml) {
     html <- xml2::xml_text(xml2::xml_child(x, "html"))
 
     comm <- data.frame(date, uid, user, user_url, action, text, html)
-    comm$date <- as.POSIXct(comm$date)
+    comm$date <- as.POSIXct(comm$date, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
 
     class(comm) <- c("note_comments", class(comm))
 
@@ -364,7 +364,7 @@ note_xml2DF <- function(xml) {
   })
 
   out <- data.frame(note_attrs, id, url, comment_url, close_url, date_created, status)
-  out$date_created <- as.POSIXct(out$date_created)
+  out$date_created <- as.POSIXct(out$date_created, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
 
   out$comments <- commentsL
 
