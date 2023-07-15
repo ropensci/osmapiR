@@ -75,14 +75,18 @@ comments_as_text.default <- function(x) {
 
 #' @export
 print.osmapi_changesets <- function(x, nchar_comments = 60, ...) {
-  discussion <- vapply(x$discussion, comments_as_text, FUN.VALUE = "")
-  discussion <- ifelse(nchar(discussion) > nchar_comments, paste0(substr(discussion, 1, nchar_comments - 3), "..."), discussion)
+  if ("discussion" %in% names(x)){
+    discussion <- vapply(x$discussion, comments_as_text, FUN.VALUE = "")
+    discussion <- ifelse(nchar(discussion) > nchar_comments, paste0(substr(discussion, 1, nchar_comments - 3), "..."), discussion)
 
-  y <- x
-  x$discussion <- discussion
-  NextMethod()
+    y <- x
+    x$discussion <- discussion
+    NextMethod()
 
-  invisible(y)
+    invisible(y)
+  } else {
+    NextMethod()
+  }
 }
 
 
