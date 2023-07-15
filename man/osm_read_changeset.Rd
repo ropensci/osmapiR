@@ -4,12 +4,18 @@
 \alias{osm_read_changeset}
 \title{Read a changeset}
 \usage{
-osm_read_changeset(changeset_id, include_discussion = FALSE)
+osm_read_changeset(
+  changeset_id,
+  include_discussion = FALSE,
+  format = c("R", "xml", "json")
+)
 }
 \arguments{
 \item{changeset_id}{The id of the changeset to retrieve represented by a numeric or a character value.}
 
 \item{include_discussion}{Indicates whether the result should contain the changeset discussion or not.}
+
+\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
 }
 \description{
 Returns the changeset with the given \code{changeset_id}.

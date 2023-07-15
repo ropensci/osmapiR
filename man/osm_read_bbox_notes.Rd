@@ -8,7 +8,7 @@ osm_read_bbox_notes(
   bbox,
   limit = 100,
   closed = 7,
-  format = c("data.frame", "xml", "rss", "json", "gpx")
+  format = c("R", "xml", "rss", "json", "gpx")
 )
 }
 \arguments{
@@ -21,7 +21,7 @@ overlapping the dateline.}
 \item{closed}{Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
 only open notes are returned. A value of -1 means all notes are returned. Default to 7.}
 
-\item{format}{Format of the output. Can be \code{data.frame} (default), \code{xml}, \code{rss}, \code{json} or \code{gpx}.}
+\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, \code{rss}, \code{json} or \code{gpx}.}
 }
 \description{
 Returns the existing notes in the specified bounding box. The notes will be ordered by the date of their last change,

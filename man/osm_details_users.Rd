@@ -4,11 +4,13 @@
 \alias{osm_details_users}
 \title{Details of multiple users}
 \usage{
-osm_details_users(user_ids)
+osm_details_users(user_ids, format = c("R", "xml", "json"))
 }
 \arguments{
 \item{user_ids}{The ids of the users to retrieve represented by a numeric or a character value (not the display
 names).}
+
+\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
 }
 \description{
 Details of multiple users

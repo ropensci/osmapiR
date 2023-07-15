@@ -4,12 +4,18 @@
 \alias{osm_read_object}
 \title{Read an object}
 \usage{
-osm_read_object(osm_type = c("node", "way", "relation"), osm_id)
+osm_read_object(
+  osm_type = c("node", "way", "relation"),
+  osm_id,
+  format = c("R", "xml", "json")
+)
 }
 \arguments{
 \item{osm_type}{Object type (\code{"node"}, \code{"way"} or \code{"relation"}).}
 
 \item{osm_id}{Object id represented by a numeric or a character value.}
+
+\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
 }
 \description{
 Returns the representation of an object from OSM.

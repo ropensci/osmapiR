@@ -7,7 +7,8 @@
 osm_fetch_objects(
   osm_type = c("nodes", "ways", "relations"),
   osm_ids,
-  versions
+  versions,
+  format = c("R", "xml", "json")
 )
 }
 \arguments{
@@ -16,6 +17,8 @@ osm_fetch_objects(
 \item{osm_ids}{Object ids represented by a numeric or a character vector.}
 
 \item{versions}{Version numbers for each object may be optionally provided.}
+
+\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
 }
 \description{
 Fetch multiple objects of the same type at once.

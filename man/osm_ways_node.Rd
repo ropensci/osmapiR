@@ -4,10 +4,12 @@
 \alias{osm_ways_node}
 \title{Ways of a node}
 \usage{
-osm_ways_node(node_id)
+osm_ways_node(node_id, format = c("R", "xml", "json"))
 }
 \arguments{
 \item{node_id}{Node id represented by a numeric or a character value.}
+
+\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
 }
 \description{
 Returns all the (not deleted) ways in which the given node is used.

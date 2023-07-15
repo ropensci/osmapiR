@@ -4,12 +4,12 @@
 \alias{osm_read_note}
 \title{Read notes}
 \usage{
-osm_read_note(note_id, format = c("data.frame", "xml", "rss", "json", "gpx"))
+osm_read_note(note_id, format = c("R", "xml", "rss", "json", "gpx"))
 }
 \arguments{
 \item{note_id}{Note id represented by a numeric or a character value.}
 
-\item{format}{Format of the output. Can be \code{data.frame} (default), \code{xml}, \code{rss}, \code{json} or \code{gpx}.}
+\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, \code{rss}, \code{json} or \code{gpx}.}
 }
 \description{
 Returns the existing note with the given ID.

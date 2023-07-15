@@ -4,10 +4,12 @@
 \alias{osm_details_user}
 \title{Details of a user}
 \usage{
-osm_details_user(user_id)
+osm_details_user(user_id, format = c("R", "xml", "json"))
 }
 \arguments{
 \item{user_id}{The id of the user to retrieve represented by a numeric or a character value (not the display name).}
+
+\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
 }
 \description{
 Details of a user

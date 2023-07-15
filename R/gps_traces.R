@@ -253,7 +253,7 @@ osm_get_metadata_gpx <- function(gpx_id) {
 #'
 #' @examples
 #' \dontrun{
-#' trk_data <- osm_get_data_gpx(gpx_id = 3498170) # TODO: HTTP 400 Bad Request. without format
+#' trk_data <- osm_get_data_gpx(gpx_id = 3498170, format = "R") # TODO: HTTP 400 Bad Request. without format
 #' trk_data
 #' }
 osm_get_data_gpx <- function(gpx_id, format) {
@@ -278,7 +278,6 @@ osm_get_data_gpx <- function(gpx_id, format) {
   if (missing(format) || format %in% c("xml", "gpx")) {
     out <- obj_xml
   } else {
-
     out <- gpx_xml2DF(obj_xml)
 
     if (length(out) > 1) {
@@ -291,7 +290,6 @@ osm_get_data_gpx <- function(gpx_id, format) {
       out <- out[[1]]
       attributes(out) <- c(attributes(out), attrs)
     }
-
   }
 
   return(out)

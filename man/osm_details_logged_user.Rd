@@ -4,7 +4,10 @@
 \alias{osm_details_logged_user}
 \title{Details of the logged-in user}
 \usage{
-osm_details_logged_user()
+osm_details_logged_user(format = c("R", "xml", "json"))
+}
+\arguments{
+\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
 }
 \value{
 A list with the user details.

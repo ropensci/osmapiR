@@ -4,12 +4,18 @@
 \alias{osm_full_object}
 \title{Full object}
 \usage{
-osm_full_object(osm_type = c("way", "relation"), osm_id)
+osm_full_object(
+  osm_type = c("way", "relation"),
+  osm_id,
+  format = c("R", "xml", "json")
+)
 }
 \arguments{
 \item{osm_type}{Object type (\code{"way"} or \code{"relation"}).}
 
 \item{osm_id}{Object id represented by a numeric or a character value.}
+
+\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
 }
 \description{
 This API call retrieves a way or relation and all other objects referenced by it.

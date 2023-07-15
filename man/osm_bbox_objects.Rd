@@ -4,10 +4,12 @@
 \alias{osm_bbox_objects}
 \title{Retrieve map data by bounding box}
 \usage{
-osm_bbox_objects(bbox)
+osm_bbox_objects(bbox, format = c("R", "xml", "json"))
 }
 \arguments{
 \item{bbox}{Coordinates for the area to retrieve the map data from (\verb{left,bottom,right,top}).}
+
+\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
 }
 \description{
 The following command returns:

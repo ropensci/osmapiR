@@ -4,7 +4,16 @@
 \alias{osm_query_changesets}
 \title{Query changesets}
 \usage{
-osm_query_changesets(bbox, user, time, time_2, open, closed, changeset_ids)
+osm_query_changesets(
+  bbox,
+  user,
+  time,
+  time_2,
+  open,
+  closed,
+  changeset_ids,
+  format = c("R", "xml", "json")
+)
 }
 \arguments{
 \item{bbox}{Find changesets within the given bounding box coordinates (\verb{left,bottom,right,top}).}
@@ -22,6 +31,8 @@ reached the element limit for a changeset (10,000 at the moment \code{osm_capabi
 \item{closed}{If \code{TRUE}, only finds changesets that are \strong{closed} or have reached the element limit.}
 
 \item{changeset_ids}{Finds changesets with the specified ids.}
+
+\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
 }
 \description{
 This is an API method for querying changesets. It supports querying by different criteria.

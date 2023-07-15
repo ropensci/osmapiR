@@ -9,7 +9,8 @@ osm_get_data_gpx(gpx_id, format)
 \arguments{
 \item{gpx_id}{The track id represented by a numeric or a character value.}
 
-\item{format}{If missing (default), the response will be the exact file that was uploaded.
+\item{format}{Format of the output. If missing (default), the response will be the exact file that was uploaded.
+If \code{R}, a \code{data.frame}.
 If \code{gpx}, the response will always be a GPX format file.
 If \code{xml}, a \code{XML} file in an undocumented format.}
 }
@@ -23,7 +24,7 @@ non-standard simple concatenation of the files.
 }
 \examples{
 \dontrun{
-trk_data <- osm_get_data_gpx(gpx_id = 3498170) # TODO: HTTP 400 Bad Request. without format
+trk_data <- osm_get_data_gpx(gpx_id = 3498170, format = "R") # TODO: HTTP 400 Bad Request. without format
 trk_data
 }
 }

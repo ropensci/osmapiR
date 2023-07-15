@@ -4,7 +4,12 @@
 \alias{osm_version_object}
 \title{Get a version of an object}
 \usage{
-osm_version_object(osm_type = c("node", "way", "relation"), osm_id, version)
+osm_version_object(
+  osm_type = c("node", "way", "relation"),
+  osm_id,
+  version,
+  format = c("R", "xml", "json")
+)
 }
 \arguments{
 \item{osm_type}{Object type (\code{"node"}, \code{"way"} or \code{"relation"}).}
@@ -12,6 +17,8 @@ osm_version_object(osm_type = c("node", "way", "relation"), osm_id, version)
 \item{osm_id}{Object id represented by a numeric or a character value.}
 
 \item{version}{Version of the object to retrieve.}
+
+\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
 }
 \description{
 Retrieves a specific version of an object from OSM.
