@@ -89,6 +89,19 @@ test_that("osm_query_changesets works", {
 
   # methods
   lapply(print(chaset), expect_s3_class, c("osmapi_changesets", "data.frame"))
+
+
+  ## Empty results
+
+  with_mock_dir("mock_query_changesets_empty", {
+    empty_chaset <- osm_query_changesets(bbox = c(-180, 0, -179.9, 0.1), user = "jmaspons")
+  })
+
+  expect_s3_class(empty_chaset, c("osmapi_changesets", "data.frame"))
+  expect_identical(names(empty_chaset)[seq_len(length(column_attrs))], column_attrs)
+
+  # methods
+  expect_s3_class(print(empty_chaset), c("osmapi_changesets", "data.frame"))
 })
 
 

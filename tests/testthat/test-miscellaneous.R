@@ -38,9 +38,24 @@ test_that("osm_bbox_objects works", {
 
   obj_cols <- c("type", "id", "visible", "version", "changeset", "timestamp", "user", "uid", "lat", "lon", "members")
   expect_identical(names(bbox_objects)[seq_len(length(obj_cols))], obj_cols)
+  expect_named(attr(bbox_objects, "bbox"), c("minlat", "minlon", "maxlat", "maxlon"))
 
   # methods
   expect_s3_class(print(bbox_objects), c("osmapi_objects", "data.frame"))
+
+
+  ## Empty results
+
+  with_mock_dir("mock_bbox_objects_empty", {
+    empty_bbox_objects <- osm_bbox_objects(bbox = c(-180, 0, -179.9, 0.1))
+  })
+
+  expect_s3_class(empty_bbox_objects, c("osmapi_objects", "data.frame"))
+  expect_identical(names(empty_bbox_objects), obj_cols)
+  expect_named(attr(empty_bbox_objects, "bbox"), c("minlat", "minlon", "maxlat", "maxlon"))
+
+  # methods
+  expect_s3_class(print(empty_bbox_objects), c("osmapi_objects", "data.frame"))
 })
 
 

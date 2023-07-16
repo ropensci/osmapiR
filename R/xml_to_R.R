@@ -21,7 +21,7 @@ tags_xml2mat <- function(xml_nodeset) {
 changeset_xml2DF <- function(xml) {
   changesets <- xml2::xml_children(xml)
 
-  if (length(objects) == 0) {
+  if (length(changesets) == 0) {
     return(empty_changeset())
   }
 
@@ -188,7 +188,7 @@ gpx_xml2list <- function(xml) {
   trk <- gpx[xml2::xml_name(gpx) == "trk"]
   # xml_find_all(trk, xpath = ".//name") ## TODO: doesn't work :(
 
-  if (length(objects) == 0) {
+  if (length(trk) == 0) {
     return(empty_gpx())
   }
 
@@ -330,7 +330,7 @@ logged_user_details_xml2list <- function(xml) {
 note_xml2DF <- function(xml) {
   notes <- xml2::xml_children(xml)
 
-  if (length(objects) == 0) {
+  if (length(notes) == 0) {
     return(empty_notes())
   }
 

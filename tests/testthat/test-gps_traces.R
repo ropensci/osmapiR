@@ -20,6 +20,20 @@ test_that("osm_get_points_gps works", {
   # methods
   summary_gpx <- lapply(pts_gps, summary)
   lapply(summary_gpx, expect_s3_class, "data.frame")
+
+
+  ## Empty results
+
+  with_mock_dir("mock_get_points_gps_empty", {
+    empty_pts_gps <- osm_get_points_gps(bbox = c(-105, -7, -104.9, -6.9))
+  })
+
+  expect_type(empty_pts_gps, "list")
+  expect_s3_class(empty_pts_gps, "osmapi_gpx")
+
+  # methods
+  summary_gpx <- summary(empty_pts_gps)
+  expect_s3_class(summary_gpx, "data.frame")
 })
 
 

@@ -109,6 +109,19 @@ test_that("osm_search_notes works", {
 
   # methods
   expect_s3_class(print(search_notes$df), classes$df)
+
+
+  ## Empty results
+
+  with_mock_dir("mock_search_notes_empty", {
+    empty_search_notes <- osm_search_notes(q = "Visca la terra!", user = "jmaspons")
+  })
+
+  expect_s3_class(empty_search_notes, c("osmapi_map_notes", "data.frame"))
+  expect_identical(names(empty_search_notes), column_notes)
+
+  # methods
+  expect_s3_class(print(empty_search_notes), c("osmapi_map_notes", "data.frame"))
 })
 
 

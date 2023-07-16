@@ -109,6 +109,13 @@ print.osmapi_map_notes <- function(x, nchar_comments = 60, ...) {
 
 #' @export
 summary.osmapi_gpx <- function(object, ...) {
+  if (length(object) == 0) {
+    out <- data.frame(n_points = 0L)
+    out$variables <- list("")
+    out$attributes <- list("")
+    return(out)
+  }
+
   out <- lapply(object, function(x) {
     df <- data.frame(n_points = nrow(x))
     df$variables <- list(colnames(x))
