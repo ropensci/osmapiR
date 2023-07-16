@@ -31,9 +31,16 @@ test_that("osm_bbox_objects works", {
   # In (function (..., deparse.level = 1)  :
   #   number of columns of result is not a multiple of vector length (arg 1551)
 
-  expect_s3_class(bbox_objects, "data.frame")
+  expect_s3_class(bbox_objects, c("osmapi_objects", "data.frame"))
+  lapply(bbox_objects$members, function(x) {
+    expect_true(is.null(x) | inherits(x, "way_members") | inherits(x, "relation_members"))
+  })
+
   obj_cols <- c("type", "id", "visible", "version", "changeset", "timestamp", "user", "uid", "lat", "lon", "members")
   expect_identical(names(bbox_objects)[seq_len(length(obj_cols))], obj_cols)
+
+  # methods
+  expect_s3_class(print(bbox_objects), c("osmapi_objects", "data.frame"))
 })
 
 

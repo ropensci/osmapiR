@@ -1,4 +1,4 @@
-classes <- c(df = "data.frame", xml = "xml_document", rss = "xml_document", json = "list", gpx = "xml_document")
+classes <- list(df = c("osmapi_map_notes", "data.frame"), xml = "xml_document", rss = "xml_document", json = "list", gpx = "xml_document")
 column_notes <- c("lon", "lat", "id", "url", "comment_url", "close_url", "date_created", "status", "comments")
 column_comments <- c("date", "uid", "user", "user_url", "action", "text", "html")
 
@@ -18,7 +18,13 @@ test_that("osm_read_bbox_notes works", {
 
   mapply(function(x, class) expect_true(inherits(x, class)), x = bbox_notes, class = classes)
   expect_named(bbox_notes$df, column_notes)
-  lapply(bbox_notes$df$comments, expect_named, column_comments)
+  lapply(bbox_notes$df$comments, function(x) {
+    expect_s3_class(x, c("note_comments", "data.frame"))
+    expect_named(x, column_comments)
+  })
+
+  # methods
+  expect_s3_class(print(bbox_notes$df), classes$df)
 })
 
 
@@ -36,7 +42,13 @@ test_that("osm_read_note works", {
 
   mapply(function(x, class) expect_true(inherits(x, class)), x = read_note, class = classes)
   expect_named(read_note$df, column_notes)
-  lapply(read_note$df$comments, expect_named, column_comments)
+  lapply(read_note$df$comments, function(x) {
+    expect_s3_class(x, c("note_comments", "data.frame"))
+    expect_named(x, column_comments)
+  })
+
+  # methods
+  expect_s3_class(print(read_note$df), classes$df)
 })
 
 
@@ -90,7 +102,13 @@ test_that("osm_search_notes works", {
 
   mapply(function(x, class) expect_true(inherits(x, class)), x = search_notes, class = classes)
   expect_named(search_notes$df, column_notes)
-  lapply(search_notes$df$comments, expect_named, column_comments)
+  lapply(search_notes$df$comments, function(x) {
+    expect_s3_class(x, c("note_comments", "data.frame"))
+    expect_named(x, column_comments)
+  })
+
+  # methods
+  expect_s3_class(print(search_notes$df), classes$df)
 })
 
 

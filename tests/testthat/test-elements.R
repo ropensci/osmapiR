@@ -19,9 +19,17 @@ test_that("osm_read_object works", {
     read$rel <- osm_read_object(osm_type = "relation", osm_id = "40581")
   })
 
-  lapply(read, expect_s3_class, "data.frame")
+  lapply(read, expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(read, function(x) {
+    lapply(x$members, function(y) {
+      expect_true(is.null(y) | inherits(y, "way_members") | inherits(y, "relation_members"))
+    })
+  })
   expect_identical(names(read$node)[seq_len(length(column_attrs_node))], column_attrs_node)
   lapply(read[c("way", "rel")], function(x) expect_identical(names(x)[seq_len(length(column_attrs))], column_attrs))
+
+  # methods
+  lapply(print(read), expect_s3_class, c("osmapi_objects", "data.frame"))
 })
 
 
@@ -49,9 +57,17 @@ test_that("osm_history_object works", {
     history$rel <- osm_history_object(osm_type = "relation", osm_id = "40581")
   })
 
-  lapply(history, expect_s3_class, "data.frame")
+  lapply(history, expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(history, function(x) {
+    lapply(x$members, function(y) {
+      expect_true(is.null(y) | inherits(y, "way_members") | inherits(y, "relation_members"))
+    })
+  })
   expect_identical(names(history$node)[seq_len(length(column_attrs_node))], column_attrs_node)
   lapply(history[c("way", "rel")], function(x) expect_identical(names(x)[seq_len(length(column_attrs))], column_attrs))
+
+  # methods
+  lapply(print(history), expect_s3_class, c("osmapi_objects", "data.frame"))
 })
 
 
@@ -65,9 +81,17 @@ test_that("osm_version_object works", {
     version$rel <- osm_version_object(osm_type = "relation", osm_id = "40581", version = 3)
   })
 
-  lapply(version, expect_s3_class, "data.frame")
+  lapply(version, expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(version, function(x) {
+    lapply(x$members, function(y) {
+      expect_true(is.null(y) | inherits(y, "way_members") | inherits(y, "relation_members"))
+    })
+  })
   expect_identical(names(version$node)[seq_len(length(column_attrs_node))], column_attrs_node)
   lapply(version[c("way", "rel")], function(x) expect_identical(names(x)[seq_len(length(column_attrs))], column_attrs))
+
+  # methods
+  lapply(print(version), expect_s3_class, c("osmapi_objects", "data.frame"))
 })
 
 
@@ -82,9 +106,17 @@ test_that("osm_fetch_objects works", {
     fetch$rel <- osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1))
   })
 
-  lapply(fetch, expect_s3_class, "data.frame")
+  lapply(fetch, expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(fetch, function(x) {
+    lapply(x$members, function(y) {
+      expect_true(is.null(y) | inherits(y, "way_members") | inherits(y, "relation_members"))
+    })
+  })
   expect_identical(names(fetch$node)[seq_len(length(column_attrs_node))], column_attrs_node)
   lapply(fetch[c("way", "rel")], function(x) expect_identical(names(x)[seq_len(length(column_attrs))], column_attrs))
+
+  # methods
+  lapply(print(fetch), expect_s3_class, c("osmapi_objects", "data.frame"))
 })
 
 
@@ -98,8 +130,16 @@ test_that("osm_relations_object works", {
     rels$rel <- osm_relations_object(osm_type = "relation", osm_id = 342792)
   })
 
-  lapply(rels, expect_s3_class, "data.frame")
+  lapply(rels, expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(rels, function(x) {
+    lapply(x$members, function(y) {
+      expect_true(is.null(y) | inherits(y, "way_members") | inherits(y, "relation_members"))
+    })
+  })
   lapply(rels, function(x) expect_identical(names(x)[seq_len(length(column_attrs))], column_attrs))
+
+  # methods
+  lapply(print(rels), expect_s3_class, c("osmapi_objects", "data.frame"))
 })
 
 
@@ -110,8 +150,14 @@ test_that("osm_ways_node works", {
     ways_node <- osm_ways_node(node_id = 35308286)
   })
 
-  expect_s3_class(ways_node, "data.frame")
+  expect_s3_class(ways_node, c("osmapi_objects", "data.frame"))
+  lapply(ways_node$members, function(x) {
+    expect_true(is.null(x) | inherits(x, "way_members") | inherits(x, "relation_members"))
+  })
   expect_identical(names(ways_node)[seq_len(length(column_attrs))], column_attrs)
+
+  # methods
+  expect_s3_class(print(ways_node), c("osmapi_objects", "data.frame"))
 })
 
 
@@ -127,8 +173,16 @@ test_that("osm_full_object works", {
   # 1: In (function (..., deparse.level = 1)  :
   #   number of columns of result is not a multiple of vector length (arg 61)
 
-  lapply(full, expect_s3_class, "data.frame")
+  lapply(full, expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(full, function(x) {
+    lapply(x$members, function(y) {
+      expect_true(is.null(y) | inherits(y, "way_members") | inherits(y, "relation_members"))
+    })
+  })
   lapply(full, function(x) expect_identical(names(x)[seq_len(length(column_attrs_node))], column_attrs_node))
+
+  # methods
+  lapply(print(full), expect_s3_class, c("osmapi_objects", "data.frame"))
 })
 
 

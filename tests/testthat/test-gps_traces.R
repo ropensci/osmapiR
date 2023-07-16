@@ -13,9 +13,11 @@ test_that("osm_get_points_gps works", {
   })
 
   lapply(pts_gps, expect_type, "list")
+  lapply(pts_gps, expect_s3_class, "osmapi_gpx")
   lapply(pts_gps$private, expect_named, setdiff(column_pts_gps, "time"))
   lapply(pts_gps$public, expect_named, column_pts_gps)
 
+  # methods
   summary_gpx <- lapply(pts_gps, summary)
   lapply(summary_gpx, expect_s3_class, "data.frame")
 })
