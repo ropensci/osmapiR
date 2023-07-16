@@ -147,8 +147,8 @@ specified, the latest notes are returned.</p>
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">notes</span> <span class="op">&lt;-</span> <span class="fu">osm_search_notes</span><span class="op">(</span>q <span class="op">=</span> <span class="st">"POI"</span>, from <span class="op">=</span> <span class="st">"2017-10-01"</span>, to <span class="op">=</span> <span class="st">"2017-10-27T15:27A"</span>, limit <span class="op">=</span> <span class="fl">10</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">notes</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [1] id           url          comment_url  close_url    date_created</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> [6] status       comments    </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] lon          lat          id           url          comment_url </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [6] close_url    date_created status       comments    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;0 rows&gt; (or 0-length row.names)</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">my_notes</span> <span class="op">&lt;-</span> <span class="fu">osm_search_notes</span><span class="op">(</span>user <span class="op">=</span> <span class="st">"jmaspons"</span>, closed <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, format <span class="op">=</span> <span class="st">"json"</span><span class="op">)</span></span></span>
