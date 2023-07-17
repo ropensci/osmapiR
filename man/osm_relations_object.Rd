@@ -7,7 +7,8 @@
 osm_relations_object(
   osm_type = c("node", "way", "relation"),
   osm_id,
-  format = c("R", "xml", "json")
+  format = c("R", "xml", "json"),
+  tags_in_columns = FALSE
 )
 }
 \arguments{
@@ -16,6 +17,10 @@ osm_relations_object(
 \item{osm_id}{Object id represented by a numeric or a character value.}
 
 \item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
+
+\item{tags_in_columns}{if \code{FALSE} (default), the tags of the objects are saved in a single list column \code{tags}
+containing a \code{data.frame} for each OSM object with the keys and values. If \code{TRUE}, add a column for each key.
+Ignored if \code{format != "R"}.}
 }
 \description{
 Returns all (not deleted) relations in which the given object is used.

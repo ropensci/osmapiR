@@ -1,41 +1,19 @@
 ## OSM objects ----
-# see sf_print_notes.R
-#
-# node.xml <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367), format = "xml")
-# node <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367))
-#
-# way.xml <- osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L), format = "xml")
-# way <- osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L))
-#
-# # Specific versions
-# rel.xml <- osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1), format = "xml")
-# rel <- osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1))
-
-
-members_as_text <- function(x) UseMethod("members_as_text")
 
 #' @export
-members_as_text.way_members <- function(x) {
-  paste(length(x), "nodes:", paste(x, collapse = ", "))
-}
+print.osmapi_objects <- function(x, nchar_members = 60, nchar_tags = 80, ...) {
+  y <- x
 
-#' @export
-members_as_text.relation_members <- function(x) {
-  paste(nrow(x), "members:", paste(apply(x, 1, function(m) paste(m, collapse = "/")), collapse = ", "))
-}
-
-#' @export
-members_as_text.default <- function(x) {
-  ""
-}
-
-#' @export
-print.osmapi_objects <- function(x, nchar_members = 60, ...) {
   members <- vapply(x$members, members_as_text, FUN.VALUE = "")
   members <- ifelse(nchar(members) > nchar_members, paste0(substr(members, 1, nchar_members), "..."), members)
-
-  y <- x
   x$members <- members
+
+  if ("tags" %in% names(x)) {
+    tags <- vapply(x$tags, tags_as_text, FUN.VALUE = "")
+    tags <- ifelse(nchar(tags) > nchar_tags, paste0(substr(tags, 1, nchar_tags), "..."), tags)
+    x$tags <- tags
+  }
+
   NextMethod()
 
   invisible(y)
@@ -45,48 +23,27 @@ print.osmapi_objects <- function(x, nchar_members = 60, ...) {
 # TODO: rbind.osmapi_objects <- function(...) dbTools::rbind_addColumns(...)
 
 
-## Comments in changesets and notes ----
-
-comments_as_text <- function(x) UseMethod("comments_as_text")
-
-#' @export
-comments_as_text.changeset_comments <- function(x) {
-  comments_as_text.comments(x)
-}
-
-#' @export
-comments_as_text.note_comments <- function(x) {
-  comments_as_text.comments(x)
-}
-
-comments_as_text.comments <- function(x) {
-  users <- paste(unique(x$user), collapse = ", ")
-  date_range <- paste(unique(as.Date(range(x$date))), collapse = " to ")
-  paste(nrow(x), "comments from", date_range, "by", users)
-}
-
-#' @export
-comments_as_text.default <- function(x) {
-  ""
-}
-
-
 ## Changesets ----
 
 #' @export
-print.osmapi_changesets <- function(x, nchar_comments = 60, ...) {
+print.osmapi_changesets <- function(x, nchar_comments = 60, nchar_tags = 80, ...) {
+  y <- x
+
   if ("discussion" %in% names(x)) {
     discussion <- vapply(x$discussion, comments_as_text, FUN.VALUE = "")
     discussion <- ifelse(nchar(discussion) > nchar_comments, paste0(substr(discussion, 1, nchar_comments - 3), "..."), discussion)
-
-    y <- x
     x$discussion <- discussion
-    NextMethod()
-
-    invisible(y)
-  } else {
-    NextMethod()
   }
+
+  if ("tags" %in% names(x)) {
+    tags <- vapply(x$tags, tags_as_text, FUN.VALUE = "")
+    tags <- ifelse(nchar(tags) > nchar_tags, paste0(substr(tags, 1, nchar_tags), "..."), tags)
+    x$tags <- tags
+  }
+
+  NextMethod()
+
+  invisible(y)
 }
 
 
@@ -132,4 +89,75 @@ summary.osmapi_gpx <- function(object, ...) {
   rownames(df) <- NULL
 
   return(df)
+}
+
+
+## Object members ----
+
+members_as_text <- function(x) UseMethod("members_as_text")
+
+#' @export
+members_as_text.way_members <- function(x) {
+  intro <- paste(length(x), if (length(x) == 1) "node:" else "nodes:")
+  paste(intro, paste(x, collapse = ", "))
+}
+
+#' @export
+members_as_text.relation_members <- function(x) {
+  paste(nrow(x), "members:", paste(apply(x, 1, function(m) paste(m, collapse = "/")), collapse = ", "))
+}
+
+#' @export
+members_as_text.default <- function(x) {
+  NA_character_
+}
+
+
+## Comments in changesets and notes ----
+
+comments_as_text <- function(x) UseMethod("comments_as_text")
+
+#' @export
+comments_as_text.changeset_comments <- function(x) {
+  comments_as_text.comments(x)
+}
+
+#' @export
+comments_as_text.note_comments <- function(x) {
+  comments_as_text.comments(x)
+}
+
+comments_as_text.comments <- function(x) {
+  intro <- paste(nrow(x), if (nrow(x) == 1) "comment" else "comments", "from")
+  users <- paste(unique(x$user), collapse = ", ")
+  date_range <- paste(unique(as.Date(range(x$date))), collapse = " to ")
+  paste(intro, date_range, "by", users)
+}
+
+#' @export
+comments_as_text.default <- function(x) {
+  NA_character_
+}
+
+
+## Tags ----
+
+tags_as_text <- function(x) UseMethod("tags_as_text")
+
+#' @export
+tags_as_text.tags_df <- function(x) {
+  if (nrow(x) > 0) {
+    tags <- paste0(x$key, "=", x$value)
+    intro <- paste(nrow(x), if (nrow(x) == 1) "tag:" else "tags:")
+    out <- paste(intro, paste(tags, collapse = " | "))
+  } else {
+    out <- "No tags"
+  }
+
+  return(out)
+}
+
+#' @export
+tags_as_text.default <- function(x) {
+  NA_character_
 }

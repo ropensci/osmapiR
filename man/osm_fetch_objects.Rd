@@ -8,7 +8,8 @@ osm_fetch_objects(
   osm_type = c("nodes", "ways", "relations"),
   osm_ids,
   versions,
-  format = c("R", "xml", "json")
+  format = c("R", "xml", "json"),
+  tags_in_columns = FALSE
 )
 }
 \arguments{
@@ -19,6 +20,10 @@ osm_fetch_objects(
 \item{versions}{Version numbers for each object may be optionally provided.}
 
 \item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
+
+\item{tags_in_columns}{if \code{FALSE} (default), the tags of the objects are saved in a single list column \code{tags}
+containing a \code{data.frame} for each OSM object with the keys and values. If \code{TRUE}, add a column for each key.
+Ignored if \code{format != "R"}.}
 }
 \description{
 Fetch multiple objects of the same type at once.

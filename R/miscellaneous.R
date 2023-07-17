@@ -182,6 +182,9 @@ osm_capabilities <- function() {
 #'
 #' @param bbox Coordinates for the area to retrieve the map data from (`left,bottom,right,top`).
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param tags_in_columns if `FALSE` (default), the tags of the objects are saved in a single list column `tags`
+#'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
+#'   Ignored if `format != "R"`.
 #'
 #' @details
 #' Note that, while this command returns those relations that reference the aforementioned nodes and ways, the reverse
@@ -209,7 +212,7 @@ osm_capabilities <- function() {
 #' ## bbox as a character value also works. Equivalent call:
 #' # map_data <- osm_bbox_objects(bbox = "1.8366775,41.8336843,1.8379971,41.8344537")
 #' map_data
-osm_bbox_objects <- function(bbox, format = c("R", "xml", "json")) {
+osm_bbox_objects <- function(bbox, format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   format <- match.arg(format)
 
   if (format == "json") {
@@ -228,7 +231,7 @@ osm_bbox_objects <- function(bbox, format = c("R", "xml", "json")) {
   if (format %in% c("R", "xml")) {
     out <- httr2::resp_body_xml(resp)
     if (format == "R") {
-      out <- object_xml2DF(out)
+      out <- object_xml2DF(out, tags_in_columns = tags_in_columns)
     }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)

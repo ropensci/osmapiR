@@ -117,6 +117,9 @@ osm_create_object <- function(osm_type = c("node", "way", "relation"), ...) {
 #' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param tags_in_columns if `FALSE` (default), the tags of the objects are saved in a single list column `tags`
+#'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
+#'   Ignored if `format != "R"`.
 #'
 #' @return
 #' @family OSM objects' functions
@@ -134,7 +137,8 @@ osm_create_object <- function(osm_type = c("node", "way", "relation"), ...) {
 #' rel <- osm_read_object(osm_type = "relation", osm_id = "40581")
 #' rel
 #' }
-osm_read_object <- function(osm_type = c("node", "way", "relation"), osm_id, format = c("R", "xml", "json")) {
+osm_read_object <- function(osm_type = c("node", "way", "relation"),
+                            osm_id, format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   osm_type <- match.arg(osm_type)
   format <- match.arg(format)
 
@@ -151,7 +155,7 @@ osm_read_object <- function(osm_type = c("node", "way", "relation"), osm_id, for
   if (format %in% c("R", "xml")) {
     out <- httr2::resp_body_xml(resp)
     if (format == "R") {
-      out <- object_xml2DF(out)
+      out <- object_xml2DF(out, tags_in_columns = tags_in_columns)
     }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)
@@ -286,6 +290,9 @@ osm_delete_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
 #' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param tags_in_columns if `FALSE` (default), the tags of the objects are saved in a single list column `tags`
+#'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
+#'   Ignored if `format != "R"`.
 #'
 #' @return
 #' @family OSM objects' functions
@@ -303,7 +310,8 @@ osm_delete_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
 #' rel <- osm_history_object(osm_type = "relation", osm_id = "40581")
 #' rel
 #' }
-osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id, format = c("R", "xml", "json")) {
+osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id,
+                               format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   osm_type <- match.arg(osm_type)
   format <- match.arg(format)
 
@@ -322,7 +330,7 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
   if (format %in% c("R", "xml")) {
     out <- httr2::resp_body_xml(resp)
     if (format == "R") {
-      out <- object_xml2DF(out)
+      out <- object_xml2DF(out, tags_in_columns = tags_in_columns)
     }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)
@@ -349,6 +357,9 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' @param osm_id Object id represented by a numeric or a character value.
 #' @param version Version of the object to retrieve.
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param tags_in_columns if `FALSE` (default), the tags of the objects are saved in a single list column `tags`
+#'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
+#'   Ignored if `format != "R"`.
 #'
 #' @return
 #' @family OSM objects' functions
@@ -366,7 +377,8 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' rel <- osm_version_object(osm_type = "relation", osm_id = "40581", version = 3)
 #' rel
 #' }
-osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, version, format = c("R", "xml", "json")) {
+osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, version,
+                               format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   osm_type <- match.arg(osm_type)
   format <- match.arg(format)
 
@@ -383,7 +395,7 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
   if (format %in% c("R", "xml")) {
     out <- httr2::resp_body_xml(resp)
     if (format == "R") {
-      out <- object_xml2DF(out)
+      out <- object_xml2DF(out, tags_in_columns = tags_in_columns)
     }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)
@@ -420,6 +432,9 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' @param osm_ids Object ids represented by a numeric or a character vector.
 #' @param versions Version numbers for each object may be optionally provided.
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param tags_in_columns if `FALSE` (default), the tags of the objects are saved in a single list column `tags`
+#'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
+#'   Ignored if `format != "R"`.
 #'
 #' @note
 #' For downloading data for purposes other than editing or exploring the history of the objects, perhaps is better to
@@ -443,7 +458,8 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' rel <- osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1))
 #' rel
 #' }
-osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_ids, versions, format = c("R", "xml", "json")) {
+osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_ids, versions,
+                              format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   osm_type <- match.arg(osm_type)
   format <- match.arg(format)
 
@@ -472,7 +488,7 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
   if (format %in% c("R", "xml")) {
     out <- httr2::resp_body_xml(resp)
     if (format == "R") {
-      out <- object_xml2DF(out)
+      out <- object_xml2DF(out, tags_in_columns = tags_in_columns)
     }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)
@@ -496,6 +512,9 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
 #' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param tags_in_columns if `FALSE` (default), the tags of the objects are saved in a single list column `tags`
+#'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
+#'   Ignored if `format != "R"`.
 #'
 #' @return
 #' @family OSM objects' functions
@@ -511,7 +530,8 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
 #'
 #' rel <- osm_relations_object(osm_type = "relation", osm_id = 342792)
 #' rel
-osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id, format = c("R", "xml", "json")) {
+osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id,
+                                 format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   osm_type <- match.arg(osm_type)
   format <- match.arg(format)
 
@@ -530,7 +550,7 @@ osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id
   if (format %in% c("R", "xml")) {
     out <- httr2::resp_body_xml(resp)
     if (format == "R") {
-      out <- object_xml2DF(out)
+      out <- object_xml2DF(out, tags_in_columns = tags_in_columns)
     }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)
@@ -553,6 +573,9 @@ osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id
 #'
 #' @param node_id Node id represented by a numeric or a character value.
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param tags_in_columns if `FALSE` (default), the tags of the objects are saved in a single list column `tags`
+#'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
+#'   Ignored if `format != "R"`.
 #'
 #' @return
 #' @family OSM objects' functions
@@ -562,7 +585,7 @@ osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id
 #' @examples
 #' ways_node <- osm_ways_node(node_id = 35308286)
 #' ways_node
-osm_ways_node <- function(node_id, format = c("R", "xml", "json")) {
+osm_ways_node <- function(node_id, format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   format <- match.arg(format)
 
   if (format == "json") {
@@ -580,7 +603,7 @@ osm_ways_node <- function(node_id, format = c("R", "xml", "json")) {
   if (format %in% c("R", "xml")) {
     out <- httr2::resp_body_xml(resp)
     if (format == "R") {
-      out <- object_xml2DF(out)
+      out <- object_xml2DF(out, tags_in_columns = tags_in_columns)
     }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)
@@ -612,6 +635,9 @@ osm_ways_node <- function(node_id, format = c("R", "xml", "json")) {
 #' @param osm_type Object type (`"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param tags_in_columns if `FALSE` (default), the tags of the objects are saved in a single list column `tags`
+#'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
+#'   Ignored if `format != "R"`.
 #'
 #' @details
 #' For a way, it will return the way specified plus all nodes referenced by the way.
@@ -641,7 +667,8 @@ osm_ways_node <- function(node_id, format = c("R", "xml", "json")) {
 #' rel <- osm_full_object(osm_type = "relation", osm_id = "40581")
 #' rel
 #' }
-osm_full_object <- function(osm_type = c("way", "relation"), osm_id, format = c("R", "xml", "json")) {
+osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
+                            format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   osm_type <- match.arg(osm_type)
   format <- match.arg(format)
 
@@ -660,7 +687,7 @@ osm_full_object <- function(osm_type = c("way", "relation"), osm_id, format = c(
   if (format %in% c("R", "xml")) {
     out <- httr2::resp_body_xml(resp)
     if (format == "R") {
-      out <- object_xml2DF(out)
+      out <- object_xml2DF(out, tags_in_columns = tags_in_columns)
     }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)

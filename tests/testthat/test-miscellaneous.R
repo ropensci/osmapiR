@@ -36,7 +36,9 @@ test_that("osm_bbox_objects works", {
     expect_true(is.null(x) | inherits(x, "way_members") | inherits(x, "relation_members"))
   })
 
-  obj_cols <- c("type", "id", "visible", "version", "changeset", "timestamp", "user", "uid", "lat", "lon", "members")
+  obj_cols <- c(
+    "type", "id", "visible", "version", "changeset", "timestamp", "user", "uid", "lat", "lon", "members", "tags"
+  )
   expect_identical(names(bbox_objects)[seq_len(length(obj_cols))], obj_cols)
   expect_named(attr(bbox_objects, "bbox"), c("minlat", "minlon", "maxlat", "maxlon"))
 

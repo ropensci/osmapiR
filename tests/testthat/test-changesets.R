@@ -1,6 +1,6 @@
 column_attrs <- c(
   "id", "created_at", "closed_at", "open", "user", "uid",
-  "min_lat", "min_lon", "max_lat", "max_lon", "comments_count", "changes_count"
+  "min_lat", "min_lon", "max_lat", "max_lon", "comments_count", "changes_count", "discussion", "tags"
 )
 column_discuss <- c("date", "uid", "user", "comment_text")
 
@@ -22,8 +22,8 @@ test_that("osm_read_changeset works", {
 
   expect_s3_class(chaset, c("osmapi_changesets", "data.frame"))
   expect_s3_class(chaset_discuss, c("osmapi_changesets", "data.frame"))
-  expect_identical(names(chaset)[seq_len(length(column_attrs))], column_attrs)
-  expect_identical(names(chaset_discuss)[seq_len(length(column_attrs) + 1)], c(column_attrs, "discussion"))
+  expect_identical(names(chaset), setdiff(column_attrs, "discussion"))
+  expect_identical(names(chaset_discuss), c(column_attrs))
   lapply(chaset_discuss$discussion, function(x) {
     expect_s3_class(x, c("changeset_comments", "data.frame"))
     expect_named(x, column_discuss)
@@ -79,7 +79,7 @@ test_that("osm_query_changesets works", {
   })
 
   lapply(chaset, expect_s3_class, c("osmapi_changesets", "data.frame"))
-  lapply(chaset, function(x) expect_identical(names(x)[seq_len(length(column_attrs))], column_attrs))
+  lapply(chaset, function(x) expect_identical(names(x), setdiff(column_attrs, "discussion")))
   lapply(chaset, function(x) {
     lapply(x$discussion, function(y) {
       expect_s3_class(y, c("changeset_comments", "data.frame"))
@@ -98,7 +98,7 @@ test_that("osm_query_changesets works", {
   })
 
   expect_s3_class(empty_chaset, c("osmapi_changesets", "data.frame"))
-  expect_identical(names(empty_chaset)[seq_len(length(column_attrs))], column_attrs)
+  expect_identical(names(empty_chaset), setdiff(column_attrs, "discussion"))
 
   # methods
   expect_s3_class(print(empty_chaset), c("osmapi_changesets", "data.frame"))

@@ -1,5 +1,7 @@
 column_attrs <- c("type", "id", "visible", "version", "changeset", "timestamp", "user", "uid", "members")
-column_attrs_node <- c("type", "id", "visible", "version", "changeset", "timestamp", "user", "uid", "lat", "lon", "members")
+column_attrs_node <- c(
+  "type", "id", "visible", "version", "changeset", "timestamp", "user", "uid", "lat", "lon", "members", "tags"
+)
 
 
 ## Create: `PUT /api/0.6/[node|way|relation]/create` ----

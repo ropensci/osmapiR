@@ -4,12 +4,16 @@
 \alias{osm_bbox_objects}
 \title{Retrieve map data by bounding box}
 \usage{
-osm_bbox_objects(bbox, format = c("R", "xml", "json"))
+osm_bbox_objects(bbox, format = c("R", "xml", "json"), tags_in_columns = FALSE)
 }
 \arguments{
 \item{bbox}{Coordinates for the area to retrieve the map data from (\verb{left,bottom,right,top}).}
 
 \item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
+
+\item{tags_in_columns}{if \code{FALSE} (default), the tags of the objects are saved in a single list column \code{tags}
+containing a \code{data.frame} for each OSM object with the keys and values. If \code{TRUE}, add a column for each key.
+Ignored if \code{format != "R"}.}
 }
 \description{
 The following command returns:

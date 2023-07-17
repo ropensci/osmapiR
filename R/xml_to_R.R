@@ -1,4 +1,4 @@
-tags_xml2mat <- function(xml_nodeset) {
+tags_xml2mat_wide <- function(xml_nodeset) {
   tags <- xml2::xml_find_all(xml_nodeset, xpath = ".//tag", flatten = FALSE)
   tags_u <- xml2::xml_find_all(xml_nodeset, xpath = ".//tag")
   col_names <- sort(unique(xml2::xml_attr(tags_u, attr = "k")))
@@ -14,11 +14,30 @@ tags_xml2mat <- function(xml_nodeset) {
 }
 
 
+tags_xml2list_df <- function(xml_nodeset) {
+  out <- lapply(xml2::xml_find_all(xml_nodeset, xpath = ".//tag", flatten = FALSE), function(x) {
+    tag <- xml2::xml_attrs(x)
+    tags_df <- structure(
+      as.data.frame(t(
+        vapply(tag, function(y) y, FUN.VALUE = character(2))
+      )),
+      names = c("key", "value")
+    )
+
+    class(tags_df) <- c("tags_df", class(tags_df))
+
+    return(tags_df)
+  })
+
+  return(out)
+}
+
+
 ## Changesets ----
 
 # osm_download_changeset() in osmChange xml format. Not related
 
-changeset_xml2DF <- function(xml) {
+changeset_xml2DF <- function(xml, tags_in_columns = FALSE) {
   changesets <- xml2::xml_children(xml)
 
   if (length(changesets) == 0) {
@@ -60,8 +79,12 @@ changeset_xml2DF <- function(xml) {
     out$discussion <- discussionL
   }
 
-  tags <- tags_xml2mat(changesets)
-  out <- cbind(out, tags)
+  if (tags_in_columns) {
+    tags <- tags_xml2mat_wide(changesets)
+    out <- cbind(out, tags)
+  } else {
+    out$tags <- tags_xml2list_df(changesets)
+  }
 
   class(out) <- c("osmapi_changesets", class(out))
 
@@ -75,7 +98,8 @@ empty_changeset <- function() {
     open = logical(), user = character(), uid = character(), min_lat = character(), min_lon = character(),
     max_lat = character(), max_lon = character(), comments_count = integer(), changes_count = integer()
   )
-  out$discussion <- list()
+
+  out$tags <- list()
 
   class(out) <- c("osmapi_changesets", class(out))
 
@@ -86,7 +110,7 @@ empty_changeset <- function() {
 ## Elements ----
 ## TODO: warning in  osm_bbox_objects(bbox = c(3.2164192, 42.0389667, 3.2317829, 42.0547099))
 
-object_xml2DF <- function(xml) {
+object_xml2DF <- function(xml, tags_in_columns = FALSE) {
   objects <- xml2::xml_children(xml)
 
   if (length(objects) == 0) {
@@ -132,8 +156,12 @@ object_xml2DF <- function(xml) {
 
   out$members <- members
 
-  tags <- tags_xml2mat(objects)
-  out <- cbind(out, tags)
+  if (tags_in_columns) {
+    tags <- tags_xml2mat_wide(objects)
+    out <- cbind(out, tags)
+  } else {
+    out$tags <- tags_xml2list_df(objects)
+  }
 
   if (!is.null(bbox)) {
     attr(out, "bbox") <- bbox
@@ -152,6 +180,7 @@ empty_object <- function() {
     lat = character(), lon = character()
   )
   out$members <- list()
+  out$tags <- list()
 
   class(out) <- c("osmapi_objects", class(out))
 
@@ -210,6 +239,8 @@ gpx_xml2list <- function(xml) {
         sapply(pt[elem_name %in% c("ele", "time")], xml2::xml_text),
         names = elem_name[elem_name %in% c("ele", "time")]
       )
+
+      return(vals)
     })
     point_data <- do.call(rbind, elem_points)
 

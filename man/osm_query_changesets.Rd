@@ -12,7 +12,8 @@ osm_query_changesets(
   open,
   closed,
   changeset_ids,
-  format = c("R", "xml", "json")
+  format = c("R", "xml", "json"),
+  tags_in_columns = FALSE
 )
 }
 \arguments{
@@ -33,6 +34,10 @@ reached the element limit for a changeset (10,000 at the moment \code{osm_capabi
 \item{changeset_ids}{Finds changesets with the specified ids.}
 
 \item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
+
+\item{tags_in_columns}{if \code{FALSE} (default), the tags of the changesets are saved in a single list column \code{tags}
+containing a \code{data.frame} for each changeset with the keys and values. If \code{TRUE}, add a column for each key.
+Ignored if \code{format != "R"}.}
 }
 \description{
 This is an API method for querying changesets. It supports querying by different criteria.
