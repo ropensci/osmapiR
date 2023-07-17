@@ -74,6 +74,12 @@
 <dt>format</dt>
 <dd><p>Format of the output. Can be <code>R</code> (default), <code>xml</code>, or <code>json</code>.</p></dd>
 
+
+<dt>tags_in_columns</dt>
+<dd><p>if <code>FALSE</code> (default), the tags of the objects are saved in a single list column <code>tags</code>
+containing a <code>data.frame</code> for each OSM object with the keys and values. If <code>TRUE</code>, add a column for each key.
+Ignored if <code>format != "R"</code>.</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
