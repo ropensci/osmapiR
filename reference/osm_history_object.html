@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">osmapiR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.6</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -51,7 +51,8 @@
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">osm_history_object</span><span class="op">(</span></span>
 <span>  osm_type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"node"</span>, <span class="st">"way"</span>, <span class="st">"relation"</span><span class="op">)</span>,</span>
 <span>  <span class="va">osm_id</span>,</span>
-<span>  format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"R"</span>, <span class="st">"xml"</span>, <span class="st">"json"</span><span class="op">)</span></span>
+<span>  format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"R"</span>, <span class="st">"xml"</span>, <span class="st">"json"</span><span class="op">)</span>,</span>
+<span>  tags_in_columns <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -67,6 +68,12 @@
 
 <dt>format</dt>
 <dd><p>Format of the output. Can be <code>R</code> (default), <code>xml</code>, or <code>json</code>.</p></dd>
+
+
+<dt>tags_in_columns</dt>
+<dd><p>if <code>FALSE</code> (default), the tags of the objects are saved in a single list column <code>tags</code>
+containing a <code>data.frame</code> for each OSM object with the keys and values. If <code>TRUE</code>, add a column for each key.
+Ignored if <code>format != "R"</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">

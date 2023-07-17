@@ -24,7 +24,7 @@ apply recursively, see explanation below.)
     
     <a class="navbar-brand me-2" href="../index.html">osmapiR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.5</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.6</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,7 +66,7 @@ apply recursively, see explanation below.)</p></li>
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">osm_bbox_objects</span><span class="op">(</span><span class="va">bbox</span>, format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"R"</span>, <span class="st">"xml"</span>, <span class="st">"json"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">osm_bbox_objects</span><span class="op">(</span><span class="va">bbox</span>, format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"R"</span>, <span class="st">"xml"</span>, <span class="st">"json"</span><span class="op">)</span>, tags_in_columns <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -77,6 +77,12 @@ apply recursively, see explanation below.)</p></li>
 
 <dt>format</dt>
 <dd><p>Format of the output. Can be <code>R</code> (default), <code>xml</code>, or <code>json</code>.</p></dd>
+
+
+<dt>tags_in_columns</dt>
+<dd><p>if <code>FALSE</code> (default), the tags of the objects are saved in a single list column <code>tags</code>
+containing a <code>data.frame</code> for each OSM object with the keys and values. If <code>TRUE</code>, add a column for each key.
+Ignored if <code>format != "R"</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -139,7 +145,7 @@ use the Overpass API. A similar function to download OSM objects using Overpass,
 <span class="r-in"><span><span class="co"># map_data &lt;- osm_bbox_objects(bbox = "1.8366775,41.8336843,1.8379971,41.8344537")</span></span></span>
 <span class="r-in"><span><span class="va">map_data</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>  [1] type      id        visible   version   changeset timestamp user     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] uid       lat       lon       members  </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] uid       lat       lon       members   tags     </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;0 rows&gt; (or 0-length row.names)</span>
 </code></pre></div>
     </div>
