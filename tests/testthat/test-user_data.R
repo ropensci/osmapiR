@@ -91,8 +91,11 @@ test_that("osm_details_logged_user works", {
 #
 #  DELETE /api/0.6/user/preferences/[your_key]
 
-test_that("osm_preferences_user works", {
+test_that("osm_get_preferences_user works", {
   with_mock_dir("mock_preferences_user", {
-    # osm_preferences_user()
+    preferences <- osm_get_preferences_user()
   })
+
+  expect_s3_class(preferences, "data.frame")
+  expect_named(preferences, c("key", "value"))
 })

@@ -370,6 +370,21 @@ logged_user_details_xml2list <- function(xml) {
 }
 
 
+## user preferences ----
+
+user_preferences_xml2DF <- function(xml) {
+  preferences <- xml2::xml_child(xml)
+  preference <- xml2::xml_children(preferences)
+
+  out <- structure(
+    as.data.frame(do.call(rbind, xml2::xml_attrs(preference))),
+    names = c("key", "value")
+  )
+
+  return(out)
+}
+
+
 ## Map notes ----
 
 note_xml2DF <- function(xml) {

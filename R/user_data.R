@@ -334,7 +334,22 @@ osm_details_logged_user <- function(format = c("R", "xml", "json")) {
 #
 #  DELETE /api/0.6/user/preferences/[your_key]
 
-osm_preferences_user <- function(format = c("R", "xml", "json")) {
+#' Preferences of the logged-in user
+#'
+#' @param key Returns a string with that preference's value. If missing, return all preferences.
+#' @param format Format of the output. Can be `R` (default), `xml`, or `json`. Only relevant when `key` is missing.
+#'
+#' @return
+#' @family users' functions
+#' @family GET calls
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' prefs <- osm_get_preferences_user()
+#' prefs
+#' }
+osm_get_preferences_user <- function(key, format = c("R", "xml", "json")) {
   format <- match.arg(format)
 
   if (format == "json") {
@@ -345,11 +360,28 @@ osm_preferences_user <- function(format = c("R", "xml", "json")) {
 
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "user", ext)
+
+  if (missing(key)) {
+    req <- httr2::req_url_path_append(req, "user", ext)
+  } else {
+    req <- httr2::req_url_path_append(req, "user", "preferences", key)
+  }
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  if (!missing(key)) {
+    out <- httr2::resp_body_string(resp)
+  } else if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- user_preferences_xml2DF(out)
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
+
+  return(out)
 }
+
+
+# TODO: osm_set_preferences_user <- function() {}

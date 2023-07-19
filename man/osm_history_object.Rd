@@ -61,6 +61,7 @@ Other GET calls:
 \code{\link{osm_get_data_gpx}()},
 \code{\link{osm_get_metadata_gpx}()},
 \code{\link{osm_get_points_gps}()},
+\code{\link{osm_get_preferences_user}()},
 \code{\link{osm_list_gpxs}()},
 \code{\link{osm_permissions}()},
 \code{\link{osm_query_changesets}()},
