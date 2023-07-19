@@ -1,6 +1,13 @@
-column_attrs <- c(
+column_users <- c(
   "id", "display_name", "account_created", "description", "img", "contributor_terms", "roles", "changesets_count",
   "traces_count", "blocks_received.count", "blocks_received.active", "blocks_issued.count", "blocks_issued.active"
+)
+
+class_columns <- list(
+  id = "character", display_name = "character", account_created = "POSIXct", description = "character",
+  img = "character", contributor_terms = "logical", roles = "character", changesets_count = "integer",
+  traces_count = "integer", blocks_received.count = "integer", blocks_received.active = "integer",
+  blocks_issued.count = "integer", blocks_issued.active = "integer"
 )
 
 
@@ -12,7 +19,12 @@ test_that("osm_details_user works", {
   })
 
   expect_s3_class(usr, "data.frame")
-  expect_named(usr, column_attrs)
+  expect_named(usr, column_users)
+
+  mapply(function(x, cl) expect_true(inherits(x, cl)), x = usr, cl = class_columns[names(usr)])
+
+  # Check that time is extracted, otherwise it's 00:00:00 in local time
+  expect_false(strftime(as.POSIXct(usr$account_created), format = "%M:%S") == "00:00")
 })
 
 
@@ -26,7 +38,14 @@ test_that("osm_details_users works", {
   })
 
   lapply(usrs, expect_s3_class, "data.frame")
-  lapply(usrs, function(x) expect_named(x, column_attrs))
+  lapply(usrs, function(x) expect_named(x, column_users))
+
+  lapply(usrs, lapply, function(x) {
+    mapply(function(y, cl) expect_true(inherits(y, cl)), y = x, cl = class_columns[names(x)])
+  })
+
+  # Check that time is extracted, otherwise it's 00:00:00 in local time
+  lapply(usrs, function(x) expect_false(all(strftime(as.POSIXct(x$account_created), format = "%M:%S") == "00:00")))
 })
 
 

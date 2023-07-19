@@ -2,6 +2,12 @@ column_meta_gpx <- c("id", "name", "user", "visibility", "pending", "timestamp",
 column_gpx <- c("lat", "lon", "ele", "time")
 column_pts_gps <- c("lat", "lon", "time")
 
+class_columns <- list(
+  id = "character", name = "character", user = "character", visibility = "character", pending = "logical",
+  timestamp = "POSIXct", lat = "character", lon = "character", description = "character", tags = "list",
+  ele = "character", time = "POSIXct"
+)
+
 
 ## Get GPS Points: `GET /api/0.6/trackpoints?bbox=*'left','bottom','right','top'*&page=*'pageNumber'*` ----
 
@@ -17,6 +23,13 @@ test_that("osm_get_points_gps works", {
   lapply(pts_gps$private, expect_named, setdiff(column_pts_gps, "time"))
   lapply(pts_gps$public, expect_named, column_pts_gps)
 
+  lapply(pts_gps, lapply, function(x) {
+    mapply(function(y, cl) expect_true(inherits(y, cl)), y = x, cl = class_columns[names(x)])
+  })
+
+  # Check that time is extracted, otherwise it's 00:00:00 in local time
+  lapply(pts_gps$public, function(x) expect_false(all(strftime(as.POSIXct(x$time), format = "%M:%S") == "00:00")))
+
   # methods
   summary_gpx <- lapply(pts_gps, summary)
   lapply(summary_gpx, expect_s3_class, "data.frame")
@@ -30,6 +43,7 @@ test_that("osm_get_points_gps works", {
 
   expect_type(empty_pts_gps, "list")
   expect_s3_class(empty_pts_gps, "osmapi_gpx")
+  expect_length(empty_pts_gps, 0)
 
   # methods
   summary_gpx <- summary(empty_pts_gps)
@@ -73,6 +87,11 @@ test_that("osm_get_metadata_gpx works", {
 
   expect_s3_class(trk_meta, "data.frame")
   expect_named(trk_meta, column_meta_gpx)
+
+  mapply(function(x, cl) expect_true(inherits(x, cl)), x = trk_meta, cl = class_columns[names(trk_meta)])
+
+  # Check that time is extracted, otherwise it's 00:00:00 in local time
+  expect_false(strftime(as.POSIXct(trk_meta$timestamp), format = "%M:%S") == "00:00")
 })
 
 
@@ -92,8 +111,13 @@ test_that("osm_get_data_gpx works", {
     trk_data$R <- osm_get_data_gpx(gpx_id = 3458743, format = "R")
   })
 
-  lapply(trk_data, expect_s3_class, "data.frame")
-  lapply(trk_data, expect_named, column_gpx)
+  expect_s3_class(trk_data$R, c("osmapi_gps_track", "data.frame"))
+  expect_named(trk_data$R, column_gpx)
+
+  mapply(function(x, cl) expect_true(inherits(x, cl)), x = trk_data$R, cl = class_columns[names(trk_data$R)])
+
+  # Check that time is extracted, otherwise it's 00:00:00 in local time
+  expect_false(all(strftime(as.POSIXct(trk_data$R$time), format = "%M:%S") == "00:00"))
 })
 
 

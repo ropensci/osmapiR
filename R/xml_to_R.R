@@ -108,7 +108,6 @@ empty_changeset <- function() {
 
 
 ## Elements ----
-## TODO: warning in  osm_bbox_objects(bbox = c(3.2164192, 42.0389667, 3.2317829, 42.0547099))
 
 object_xml2DF <- function(xml, tags_in_columns = FALSE) {
   objects <- xml2::xml_children(xml)
@@ -135,8 +134,23 @@ object_xml2DF <- function(xml, tags_in_columns = FALSE) {
     bbox <- NULL
   }
 
-  object_attrs <- do.call(rbind, xml2::xml_attrs(objects))
-  out <- data.frame(type = object_type, object_attrs)
+  object_attrsL <- xml2::xml_attrs(objects)
+
+  col_names <- c("id", "visible", "version", "changeset", "timestamp", "user", "uid", "lat", "lon")
+
+  object_attrs <- structure(
+    t(vapply(object_attrsL, function(x) x[col_names], FUN.VALUE = character(length(col_names)))),
+    dimnames = list(NULL, col_names)
+  )
+
+  # columns only for nodes (+ lat lon)
+  out <- cbind(type = object_type, object_attrs)
+  if (any(no_coords <- out[, "type"] != "node")) {
+    out[no_coords, c("lat", "lon")] <- NA_character_
+  }
+
+  out <- as.data.frame(out)
+
   out$visible <- ifelse(out$visible == "true", TRUE, FALSE)
   out$version <- as.integer(out$version)
   out$timestamp <- as.POSIXct(out$timestamp, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
@@ -175,7 +189,7 @@ object_xml2DF <- function(xml, tags_in_columns = FALSE) {
 
 empty_object <- function() {
   out <- data.frame(
-    type = character(), id = character(), visible = character(), version = character(), changeset = character(),
+    type = character(), id = character(), visible = logical(), version = integer(), changeset = character(),
     timestamp = as.POSIXct(Sys.time())[-1], user = character(), uid = character(),
     lat = character(), lon = character()
   )
@@ -387,7 +401,7 @@ note_xml2DF <- function(xml) {
     html <- xml2::xml_text(xml2::xml_child(x, "html"))
 
     comm <- data.frame(date, uid, user, user_url, action, text, html)
-    comm$date <- as.POSIXct(comm$date, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+    comm$date <- as.POSIXct(comm$date, format = "%Y-%m-%d %H:%M:%OS", tz = "GMT")
 
     class(comm) <- c("note_comments", class(comm))
 
@@ -395,7 +409,7 @@ note_xml2DF <- function(xml) {
   })
 
   out <- data.frame(note_attrs, id, url, comment_url, close_url, date_created, status)
-  out$date_created <- as.POSIXct(out$date_created, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+  out$date_created <- as.POSIXct(out$date_created, format = "%Y-%m-%d %H:%M:%OS", tz = "GMT")
 
   out$comments <- commentsL
 

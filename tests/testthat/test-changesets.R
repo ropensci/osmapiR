@@ -4,6 +4,15 @@ column_attrs <- c(
 )
 column_discuss <- c("date", "uid", "user", "comment_text")
 
+class_columns <- list(
+  id = "character", created_at = "POSIXct", closed_at = "POSIXct", open = "logical", user = "character",
+  uid = "character", min_lat = "character", min_lon = "character", max_lat = "character", max_lon = "character",
+  comments_count = "integer", changes_count = "integer", discussion = "list", tags = "list"
+)
+
+class_columns_discussion <- list(
+  date = "POSIXct", uid = "character", user = "character", comment_text = "character"
+)
 
 ## Create: `PUT /api/0.6/changeset/create` ----
 
@@ -27,7 +36,19 @@ test_that("osm_read_changeset works", {
   lapply(chaset_discuss$discussion, function(x) {
     expect_s3_class(x, c("changeset_comments", "data.frame"))
     expect_named(x, column_discuss)
+
+    mapply(function(y, cl) expect_true(inherits(y, cl)), y = x, cl = class_columns_discussion[names(x)])
+
+    # Check that time is extracted, otherwise it's 00:00:00 in local time
+    expect_false(all(strftime(as.POSIXct(x$date), format = "%M:%S") == "00:00"))
   })
+
+  mapply(function(x, cl) expect_true(inherits(x, cl)), x = chaset, cl = class_columns[names(chaset)])
+  mapply(function(x, cl) expect_true(inherits(x, cl)), x = chaset_discuss, cl = class_columns[names(chaset_discuss)])
+
+  # Check that time is extracted, otherwise it's 00:00:00 in local time
+  lapply(chaset[, c("created_at", "closed_at")], function(x) expect_false(strftime(as.POSIXct(x), format = "%M:%S") == "00:00"))
+  lapply(chaset_discuss[, c("created_at", "closed_at")], function(x) expect_false(strftime(as.POSIXct(x), format = "%M:%S") == "00:00"))
 
   # methods
   expect_s3_class(print(chaset), c("osmapi_changesets", "data.frame"))
@@ -99,6 +120,13 @@ test_that("osm_query_changesets works", {
 
   expect_s3_class(empty_chaset, c("osmapi_changesets", "data.frame"))
   expect_identical(names(empty_chaset), setdiff(column_attrs, "discussion"))
+  expect_identical(nrow(empty_chaset), 0L)
+
+  mapply(
+    function(x, cl) expect_true(inherits(x, cl)),
+    x = empty_chaset,
+    cl = class_columns[names(empty_chaset)]
+  )
 
   # methods
   expect_s3_class(print(empty_chaset), c("osmapi_changesets", "data.frame"))

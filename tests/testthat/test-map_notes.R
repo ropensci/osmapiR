@@ -2,6 +2,14 @@ classes <- list(df = c("osmapi_map_notes", "data.frame"), xml = "xml_document", 
 column_notes <- c("lon", "lat", "id", "url", "comment_url", "close_url", "date_created", "status", "comments")
 column_comments <- c("date", "uid", "user", "user_url", "action", "text", "html")
 
+class_column_notes <- list(
+  lon = "character", lat = "character", id = "character", url = "character", comment_url = "character",
+  close_url = "character", date_created = "POSIXct", status = "character", comments = c("note_comments", "list")
+)
+class_column_comments <- list(
+  date = "POSIXct", uid = "character", user = "character", user_url = "character",
+  action = "character", text = "character", html = "character"
+)
 
 ## Retrieving notes data by bounding box: `GET /api/0.6/notes` ----
 
@@ -21,7 +29,18 @@ test_that("osm_read_bbox_notes works", {
   lapply(bbox_notes$df$comments, function(x) {
     expect_s3_class(x, c("note_comments", "data.frame"))
     expect_named(x, column_comments)
+
+    mapply(function(y, cl) expect_true(inherits(y, cl)), y = x, cl = class_column_comments[names(x)])
+
+    # Check that time is extracted, otherwise it's 00:00:00 in local time
+    expect_false(all(strftime(as.POSIXct(x$date), format = "%M:%S") == "00:00"))
   })
+
+  mapply(function(x, cl) expect_true(inherits(x, cl)), x = bbox_notes$df, cl = class_column_notes[names(bbox_notes$df)])
+
+  # Check that time is extracted, otherwise it's 00:00:00 in local time
+  expect_false(all(strftime(as.POSIXct(bbox_notes$df$date_created), format = "%M:%S") == "00:00"))
+
 
   # methods
   expect_s3_class(print(bbox_notes$df), classes$df)
@@ -119,6 +138,13 @@ test_that("osm_search_notes works", {
 
   expect_s3_class(empty_search_notes, c("osmapi_map_notes", "data.frame"))
   expect_identical(names(empty_search_notes), column_notes)
+  expect_identical(nrow(empty_search_notes), 0L)
+
+  mapply(
+    function(x, cl) expect_true(inherits(x, cl)),
+    x = empty_search_notes,
+    cl = class_column_notes[names(empty_search_notes)]
+  )
 
   # methods
   expect_s3_class(print(empty_search_notes), c("osmapi_map_notes", "data.frame"))

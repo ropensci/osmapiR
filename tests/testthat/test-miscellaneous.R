@@ -27,9 +27,6 @@ test_that("osm_bbox_objects works", {
   with_mock_dir("mock_bbox_objects", {
     bbox_objects <- osm_bbox_objects(bbox = c(1.8366775, 41.8336843, 1.8379971, 41.8344537))
   })
-  # Warning message:
-  # In (function (..., deparse.level = 1)  :
-  #   number of columns of result is not a multiple of vector length (arg 1551)
 
   expect_s3_class(bbox_objects, c("osmapi_objects", "data.frame"))
   lapply(bbox_objects$members, function(x) {
@@ -39,8 +36,19 @@ test_that("osm_bbox_objects works", {
   obj_cols <- c(
     "type", "id", "visible", "version", "changeset", "timestamp", "user", "uid", "lat", "lon", "members", "tags"
   )
-  expect_identical(names(bbox_objects)[seq_len(length(obj_cols))], obj_cols)
+  expect_identical(names(bbox_objects), obj_cols)
   expect_named(attr(bbox_objects, "bbox"), c("minlat", "minlon", "maxlat", "maxlon"))
+
+  class_columns <- list(
+    type = "character", id = "character", visible = "logical", version = "integer", changeset = "character",
+    timestamp = "POSIXct", user = "character", uid = "character", lat = "character", lon = "character",
+    members = "list", tags = "list"
+  )
+  mapply(function(x, cl) expect_true(inherits(x, cl)), x = bbox_objects, cl = class_columns[names(bbox_objects)])
+
+  # Check that time is extracted, otherwise it's 00:00:00 in local time
+  expect_false(all(strftime(as.POSIXct(bbox_objects$time), format = "%M:%S") == "00:00"))
+
 
   # methods
   expect_s3_class(print(bbox_objects), c("osmapi_objects", "data.frame"))
@@ -55,6 +63,14 @@ test_that("osm_bbox_objects works", {
   expect_s3_class(empty_bbox_objects, c("osmapi_objects", "data.frame"))
   expect_identical(names(empty_bbox_objects), obj_cols)
   expect_named(attr(empty_bbox_objects, "bbox"), c("minlat", "minlon", "maxlat", "maxlon"))
+  expect_identical(nrow(empty_bbox_objects), 0L)
+
+  mapply(
+    function(x, cl) expect_true(inherits(x, cl)),
+    x = empty_bbox_objects,
+    cl = class_columns[names(empty_bbox_objects)]
+  )
+
 
   # methods
   expect_s3_class(print(empty_bbox_objects), c("osmapi_objects", "data.frame"))
