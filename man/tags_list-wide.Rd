@@ -46,3 +46,4 @@ cities_list <- osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "3
 cities_wide <- tags_list2wide(cities_list)
 }
 }
+\concept{methods}

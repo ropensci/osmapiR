@@ -18,6 +18,7 @@
 #' but can return the results in a wide format using the parameter `tags_in_columns = TRUE`.
 #'
 #' @return
+#' @family methods
 #' @export
 #'
 #' @examples
