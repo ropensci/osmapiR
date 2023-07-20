@@ -61,6 +61,9 @@
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_points_gps.html</loc>
   </url>
   <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_preferences_user.html</loc>
+  </url>
+  <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_history_object.html</loc>
   </url>
   <url>
@@ -95,5 +98,8 @@
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_ways_node.html</loc>
+  </url>
+  <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/tags_list-wide.html</loc>
   </url>
 </urlset>
