@@ -39,7 +39,7 @@
 #' cities_wide <- tags_list2wide(cities_list)
 #' }
 tags_list2wide <- function(x) {
-  if (!inherits(x, "osmapi_objects") & !inherits(x, "osmapi_changesets")) {
+  if (!inherits(x, "osmapi_objects") && !inherits(x, "osmapi_changesets")) {
     stop("x must be an `osmapi_objects` or `osmapi_changesets` object.")
   }
 
@@ -71,7 +71,7 @@ tags_list2wide <- function(x) {
 #' @rdname tags_list-wide
 #' @export
 tags_wide2list <- function(x) {
-  if (!inherits(x, "osmapi_objects") & !inherits(x, "osmapi_changesets")) {
+  if (!inherits(x, "osmapi_objects") && !inherits(x, "osmapi_changesets")) {
     stop("x must be an `osmapi_objects` or `osmapi_changesets` object.")
   }
 
