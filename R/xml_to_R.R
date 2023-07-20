@@ -82,11 +82,15 @@ changeset_xml2DF <- function(xml, tags_in_columns = FALSE) {
   if (tags_in_columns) {
     tags <- tags_xml2mat_wide(changesets)
     out <- cbind(out, tags)
+
+    attr(out, "tag_columns") <- structure((ncol(out) - ncol(tags) + 1):ncol(out), names = colnames(tags))
+    class(out) <- c("osmapi_changesets", "tags_wide", class(out))
   } else {
     out$tags <- tags_xml2list_df(changesets)
+    class(out) <- c("osmapi_changesets", class(out))
   }
 
-  class(out) <- c("osmapi_changesets", class(out))
+
 
   return(out)
 }
@@ -173,15 +177,17 @@ object_xml2DF <- function(xml, tags_in_columns = FALSE) {
   if (tags_in_columns) {
     tags <- tags_xml2mat_wide(objects)
     out <- cbind(out, tags)
+
+    attr(out, "tag_columns") <- structure((ncol(out) - ncol(tags) + 1):ncol(out), names = colnames(tags))
+    class(out) <- c("osmapi_objects", "tags_wide", class(out))
   } else {
     out$tags <- tags_xml2list_df(objects)
+    class(out) <- c("osmapi_objects", class(out))
   }
 
   if (!is.null(bbox)) {
     attr(out, "bbox") <- bbox
   }
-
-  class(out) <- c("osmapi_objects", class(out))
 
   return(out)
 }
