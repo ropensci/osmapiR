@@ -8,7 +8,7 @@ test_that("osmapi_connection works", {
 
   expect_identical(display_name, c(display_name = "jmaspons"))
 
-  # with_mock_dir("mock_osmapi_logout", {
-  #   expect_invisible(logout_osmapi()) # Error in `loadNamespace(x)`: there is no package called 'httpuv' (R-CMD-check)
-  # })
+  without_internet({
+    expect_invisible(logout_osmapi())
+  })
 })
