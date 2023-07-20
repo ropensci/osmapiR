@@ -18,7 +18,7 @@ osm_full_object(
 
 \item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
 
-\item{tags_in_columns}{if \code{FALSE} (default), the tags of the objects are saved in a single list column \code{tags}
+\item{tags_in_columns}{If \code{FALSE} (default), the tags of the objects are saved in a single list column \code{tags}
 containing a \code{data.frame} for each OSM object with the keys and values. If \code{TRUE}, add a column for each key.
 Ignored if \code{format != "R"}.}
 }

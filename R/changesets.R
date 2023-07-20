@@ -144,7 +144,7 @@ osm_create_changeset <- function() {
 #' @param changeset_id The id of the changeset to retrieve represented by a numeric or a character value.
 #' @param include_discussion Indicates whether the result should contain the changeset discussion or not.
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
-#' @param tags_in_columns if `FALSE` (default), the tags of the changesets are saved in a single list column `tags`
+#' @param tags_in_columns If `FALSE` (default), the tags of the changesets are saved in a single list column `tags`
 #'   containing a `data.frame` for each changeset with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.
 #'
@@ -389,7 +389,7 @@ osm_download_changeset <- function(changeset_id) {
 #' @param closed If `TRUE`, only finds changesets that are **closed** or have reached the element limit.
 #' @param changeset_ids Finds changesets with the specified ids.
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
-#' @param tags_in_columns if `FALSE` (default), the tags of the changesets are saved in a single list column `tags`
+#' @param tags_in_columns If `FALSE` (default), the tags of the changesets are saved in a single list column `tags`
 #'   containing a `data.frame` for each changeset with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.
 #'

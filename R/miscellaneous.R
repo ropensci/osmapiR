@@ -182,7 +182,7 @@ osm_capabilities <- function() {
 #'
 #' @param bbox Coordinates for the area to retrieve the map data from (`left,bottom,right,top`).
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
-#' @param tags_in_columns if `FALSE` (default), the tags of the objects are saved in a single list column `tags`
+#' @param tags_in_columns If `FALSE` (default), the tags of the objects are saved in a single list column `tags`
 #'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.
 #'
