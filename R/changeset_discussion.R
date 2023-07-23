@@ -23,16 +23,28 @@
 # ; HTTP status code 409 (Conflict)
 # : The changeset is not closed
 
-osm_comment_changeset_discussion <- function(changeset_id) {
-  req <- osmapi_request()
+#' Comment a changeset
+#'
+#' Add a comment to a changeset and subscribe to the discussion. The changeset must be closed. Requires authentication.
+#'
+#' @param changeset_id The id of the changeset to comment represented by a numeric or a character value.
+#' @param comment The text of the comment to post.
+#'
+#' @return Returns the changeset information invisibly as a `xml_document`.
+#' @family Changeset discussion's functions
+#' @export
+#'
+#' @examples
+osm_comment_changeset_discussion <- function(changeset_id, comment) {
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "changeset", changeset_id, "comment")
+  req <- httr2::req_body_form(req, text = comment)
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  invisible(obj_xml)
 }
 
 
@@ -50,16 +62,26 @@ osm_comment_changeset_discussion <- function(changeset_id) {
 # ; HTTP status code 409 (Conflict)
 # : if the user is already subscribed to this changeset
 
+#' Subscribe to a changeset discussion
+#'
+#' Subscribe to the discussion of a changeset to receive notifications for new comments.
+#'
+#' @param changeset_id The id of the changeset to subscribe to represented by a numeric or a character value.
+#'
+#' @return Returns the changeset information invisibly as a `xml_document`.
+#' @family Changeset discussion's functions
+#' @export
+#'
+#' @examples
 osm_subscribe_changeset_discussion <- function(changeset_id) {
-  req <- osmapi_request()
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "changeset", changeset_id, "subscribe")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  invisible(obj_xml)
 }
 
 
@@ -77,16 +99,26 @@ osm_subscribe_changeset_discussion <- function(changeset_id) {
 # ; HTTP status code 404 (Not Found)
 # : if the user is not subscribed to this changeset
 
+#' Unsubscribe from a changeset discussion
+#'
+#' Unsubscribe from the discussion of a changeset to stop receiving notifications.
+#'
+#' @param changeset_id The id of the changeset to unsubscribe to represented by a numeric or a character value.
+#'
+#' @return Returns the changeset information invisibly as a `xml_document`.
+#' @family Changeset discussion's functions
+#' @export
+#'
+#' @examples
 osm_unsubscribe_changeset_discussion <- function(changeset_id) {
-  req <- osmapi_request()
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "changeset", changeset_id, "unsubscribe")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  invisible(obj_xml)
 }
 
 
@@ -107,16 +139,27 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) {
 # ; HTTP status code 404 (Not Found)
 # : if the changeset comment id is unknown
 
+#' Hide changeset comment
+#'
+#' Sets visible flag on changeset comment to false. This request needs to be done as an authenticated user with
+#' moderator role.
+#'
+#' @param comment_id Note that the changeset comment id differs from the changeset id.
+#'
+#' @return
+#' @family functions for moderators
+#' @export
+#'
+#' @examples
 osm_hide_comment_changeset_discussion <- function(comment_id) {
-  req <- osmapi_request()
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "changeset", "comment", comment_id, "hide")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  invisible(obj_xml)
 }
 
 
@@ -137,14 +180,25 @@ osm_hide_comment_changeset_discussion <- function(comment_id) {
 # ; HTTP status code 404 (Not Found)
 # : if the changeset comment id is unknown
 
+#' Unhide changeset comment
+#'
+#' Sets visible flag on changeset comment to true This request needs to be done as an authenticated user with
+#' moderator role.
+#'
+#' @param comment_id Note that the changeset comment id differs from the changeset id.
+#'
+#' @return
+#' @family functions for moderators
+#' @export
+#'
+#' @examples
 osm_unhide_comment_changeset_discussion <- function(comment_id) {
-  req <- osmapi_request()
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "changeset", "comment", comment_id, "unhide")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  invisible(obj_xml)
 }
