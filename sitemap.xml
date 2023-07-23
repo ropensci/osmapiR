@@ -31,6 +31,9 @@
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_capabilities.html</loc>
   </url>
   <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_comment_changeset_discussion.html</loc>
+  </url>
+  <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_details_logged_user.html</loc>
   </url>
   <url>
@@ -64,6 +67,9 @@
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_preferences_user.html</loc>
   </url>
   <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_hide_comment_changeset_discussion.html</loc>
+  </url>
+  <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_history_object.html</loc>
   </url>
   <url>
@@ -92,6 +98,15 @@
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_search_notes.html</loc>
+  </url>
+  <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_subscribe_changeset_discussion.html</loc>
+  </url>
+  <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_unhide_comment_changeset_discussion.html</loc>
+  </url>
+  <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_unsubscribe_changeset_discussion.html</loc>
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_version_object.html</loc>
