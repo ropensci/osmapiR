@@ -16,8 +16,8 @@ Returns the changeset information invisibly as a \code{xml_document}.
 Unsubscribe from the discussion of a changeset to stop receiving notifications.
 }
 \seealso{
-Other Changeset discussion's functions: 
+Other changeset discussion's functions: 
 \code{\link{osm_comment_changeset_discussion}()},
 \code{\link{osm_subscribe_changeset_discussion}()}
 }
-\concept{Changeset discussion's functions}
+\concept{changeset discussion's functions}

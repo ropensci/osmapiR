@@ -10,7 +10,7 @@ reference:
   - has_concept("changesets' functions")
 - title: "Changeset's discussion"
   contents:
-  - has_concept("changeset discussion functions")
+  - has_concept("changeset discussion's functions")
 - title: "Map notes"
   contents:
   - has_concept("notes' functions")

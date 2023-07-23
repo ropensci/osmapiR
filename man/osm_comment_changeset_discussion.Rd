@@ -18,8 +18,8 @@ Returns the changeset information invisibly as a \code{xml_document}.
 Add a comment to a changeset and subscribe to the discussion. The changeset must be closed. Requires authentication.
 }
 \seealso{
-Other Changeset discussion's functions: 
+Other changeset discussion's functions: 
 \code{\link{osm_subscribe_changeset_discussion}()},
 \code{\link{osm_unsubscribe_changeset_discussion}()}
 }
-\concept{Changeset discussion's functions}
+\concept{changeset discussion's functions}

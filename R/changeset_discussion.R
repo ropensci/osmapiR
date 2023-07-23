@@ -31,7 +31,7 @@
 #' @param comment The text of the comment to post.
 #'
 #' @return Returns the changeset information invisibly as a `xml_document`.
-#' @family Changeset discussion's functions
+#' @family changeset discussion's functions
 #' @export
 #'
 #' @examples
@@ -69,7 +69,7 @@ osm_comment_changeset_discussion <- function(changeset_id, comment) {
 #' @param changeset_id The id of the changeset to subscribe to represented by a numeric or a character value.
 #'
 #' @return Returns the changeset information invisibly as a `xml_document`.
-#' @family Changeset discussion's functions
+#' @family changeset discussion's functions
 #' @export
 #'
 #' @examples
@@ -106,7 +106,7 @@ osm_subscribe_changeset_discussion <- function(changeset_id) {
 #' @param changeset_id The id of the changeset to unsubscribe to represented by a numeric or a character value.
 #'
 #' @return Returns the changeset information invisibly as a `xml_document`.
-#' @family Changeset discussion's functions
+#' @family changeset discussion's functions
 #' @export
 #'
 #' @examples
