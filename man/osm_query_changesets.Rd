@@ -80,36 +80,8 @@ chsts2
 }
 }
 \seealso{
-Other changesets' functions: 
+Other get changesets' functions: 
 \code{\link{osm_download_changeset}()},
 \code{\link{osm_read_changeset}()}
-
-Other GET calls: 
-\code{\link{osm_api_versions}()},
-\code{\link{osm_bbox_objects}()},
-\code{\link{osm_capabilities}()},
-\code{\link{osm_details_logged_user}()},
-\code{\link{osm_details_users}()},
-\code{\link{osm_details_user}()},
-\code{\link{osm_download_changeset}()},
-\code{\link{osm_feed_notes}()},
-\code{\link{osm_fetch_objects}()},
-\code{\link{osm_full_object}()},
-\code{\link{osm_get_data_gpx}()},
-\code{\link{osm_get_metadata_gpx}()},
-\code{\link{osm_get_points_gps}()},
-\code{\link{osm_get_preferences_user}()},
-\code{\link{osm_history_object}()},
-\code{\link{osm_list_gpxs}()},
-\code{\link{osm_permissions}()},
-\code{\link{osm_read_bbox_notes}()},
-\code{\link{osm_read_changeset}()},
-\code{\link{osm_read_note}()},
-\code{\link{osm_read_object}()},
-\code{\link{osm_relations_object}()},
-\code{\link{osm_search_notes}()},
-\code{\link{osm_version_object}()},
-\code{\link{osm_ways_node}()}
 }
-\concept{GET calls}
-\concept{changesets' functions}
+\concept{get changesets' functions}

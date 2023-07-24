@@ -157,8 +157,7 @@ osm_create_changeset <- function() {
 #'   this changeset. To access this information use [osm_download_changeset()].
 #'
 #' @return
-#' @family changesets' functions
-#' @family GET calls
+#' @family get changesets' functions
 #' @export
 #'
 #' @examples
@@ -308,8 +307,7 @@ osm_close_changeset <- function(changeset_id) {
 #' * There is [osm_read_changeset()] to get only information about the changeset itself.
 #'
 #' @return
-#' @family changesets' functions
-#' @family GET calls
+#' @family get changesets' functions
 #' @export
 #'
 #' @examples
@@ -410,8 +408,7 @@ osm_download_changeset <- function(changeset_id) {
 #' is `-4712-01-01T00:00:00+00:00`; this is Julian Day Number day 0.
 #'
 #' @return
-#' @family changesets' functions
-#' @family GET calls
+#' @family get changesets' functions
 #' @export
 #'
 #' @examples
