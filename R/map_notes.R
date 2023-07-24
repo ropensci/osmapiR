@@ -116,8 +116,7 @@
 #' @note The comment properties (`uid`, `user`, `user_url`) will be omitted if the comment was anonymous.
 #'
 #' @return
-#' @family notes' functions
-#' @family GET calls
+#' @family get notes' functions
 #' @export
 #'
 #' @examples
@@ -173,8 +172,7 @@ osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("R", "
 #' @param format Format of the output. Can be `R` (default), `xml`, `rss`, `json` or `gpx`.
 #'
 #' @return
-#' @family notes' functions
-#' @family GET calls
+#' @family get notes' functions
 #' @export
 #'
 #' @examples
@@ -263,16 +261,33 @@ osm_read_note <- function(note_id, format = c("R", "xml", "rss", "json", "gpx"))
 # ; <s>HTTP status code 405 (Method Not Allowed)</s>
 # : <s>If the request is not a HTTP POST request</s>
 
-osm_create_note <- function() {
-  req <- osmapi_request()
+#' Create a new note
+#'
+#' @param lat Specifies the latitude in decimal degrees of the note.
+#' @param lon Specifies the longitude in decimal degrees of the note.
+#' @param text A text field with arbitrary text containing the note.
+#' @param authenticate If `TRUE` (default), the note is authored by the logged user. Otherwise, anonymous note.
+#'
+#' @details
+#' If the request is made as an authenticated user, the note is associated to that user account.
+#'
+#' @return
+#' @family edit notes' functions
+#' @export
+#'
+#' @examples
+osm_create_note <- function(lat, lon, text, authenticate = TRUE) { # TODO: , format = c("R", "xml", "json")
+  req <- osmapi_request(authenticate = authenticate)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "notes")
+  req <- httr2::req_url_query(req, lat = lat, lon = lon, text = text)
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- note_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -312,16 +327,30 @@ osm_create_note <- function() {
 # ; HTTP status code 409 (Conflict)
 # : When the note is closed
 
-osm_create_comment_note <- function(note_id) {
-  req <- osmapi_request()
+#' Create a new comment in a note
+#'
+#' Add a new comment to an existeing note. Requires authentication.
+#'
+#' @param note_id Note id represented by a numeric or a character value.
+#' @param text The comment as arbitrary text.
+#'
+#' @return
+#' @family edit notes' functions
+#' @export
+#'
+#' @examples
+osm_create_comment_note <- function(note_id, text) {
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "notes", note_id, "comment")
+  req <- httr2::req_url_query(req, text = text)
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- note_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -343,16 +372,28 @@ osm_create_comment_note <- function(note_id) {
 # ; HTTP status code 409 (Conflict)
 # : When closing an already closed note
 
+#' Close a note
+#'
+#' Close a note as fixed. Requires authentication.
+#'
+#' @param note_id Note id represented by a numeric or a character value.
+#'
+#' @return
+#' @family edit notes' functions
+#' @export
+#'
+#' @examples
 osm_close_note <- function(note_id) {
-  req <- osmapi_request()
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "notes", note_id, "close")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- note_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -376,16 +417,28 @@ osm_close_note <- function(note_id) {
 # ; HTTP status code 410 (Gone)
 # : When reopening a deleted note
 
+#' Reopen a note
+#'
+#' Reopen a closed note. Requires authentication.
+#'
+#' @param note_id Note id represented by a numeric or a character value.
+#'
+#' @return
+#' @family edit notes' functions
+#' @export
+#'
+#' @examples
 osm_reopen_note <- function(note_id) {
-  req <- osmapi_request()
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "notes", note_id, "reopen")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- note_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -479,8 +532,7 @@ osm_reopen_note <- function(note_id) {
 #' specified, the latest notes are returned.
 #'
 #' @return
-#' @family notes' functions
-#' @family GET calls
+#' @family get notes' functions
 #' @export
 #'
 #' @examples
@@ -565,8 +617,7 @@ osm_search_notes <- function(
 #'   degrees, expressing a valid bounding box.
 #'
 #' @return
-#' @family notes' functions
-#' @family GET calls
+#' @family get notes' functions
 #' @export
 #'
 #' @examples

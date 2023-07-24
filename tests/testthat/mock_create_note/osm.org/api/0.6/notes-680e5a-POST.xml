@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<note lon="0.1702526" lat="40.7327375">
+  <id>42091</id>
+  <url>osm.org/api/0.6/notes/42091</url>
+  <comment_url>osm.org/api/0.6/notes/42091/comment</comment_url>
+  <close_url>osm.org/api/0.6/notes/42091/close</close_url>
+  <date_created>2023-07-24 08:15:21 UTC</date_created>
+  <status>open</status>
+  <comments>
+    <comment>
+      <date>2023-07-24 08:15:21 UTC</date>
+      <uid>12141</uid>
+      <user>jmaspons</user>
+      <user_url>osm.org/user/jmaspons</user_url>
+      <action>opened</action>
+      <text>There is survey point here.</text>
+      <html>&lt;p&gt;There is survey point here.&lt;/p&gt;</html>
+    </comment>
+  </comments>
+</note>
+</osm>

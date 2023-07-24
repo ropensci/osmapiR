@@ -12,8 +12,15 @@ reference:
   contents:
   - has_concept("changeset discussion's functions")
 - title: "Map notes"
+  desc: >
+    This functions provides access to the [notes](https://wiki.openstreetmap.org/wiki/Notes) feature, which allows users
+    to add geo-referenced textual \"post-it\" notes.
+- subtitle: "Get map notes"
   contents:
-  - has_concept("notes' functions")
+  - has_concept("get notes' functions")
+- subtitle: "Edit map notes"
+  contents:
+  - has_concept("edit notes' functions")
 - title: "GPS' traces"
   contents:
   - has_concept("GPS' functions")

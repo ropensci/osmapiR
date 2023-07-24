@@ -75,8 +75,10 @@ test_that("osm_read_note works", {
 
 test_that("osm_create_note works", {
   with_mock_dir("mock_create_note", {
-    # osm_create_note()
+    note <- osm_create_note(lat = "40.7327375", lon = "0.1702526", text = "There is survey point here.")
   })
+
+  expect_s3_class(note, c("osmapi_map_notes", "data.frame"))
 })
 
 
@@ -84,8 +86,10 @@ test_that("osm_create_note works", {
 
 test_that("osm_create_comment_note works", {
   with_mock_dir("mock_create_comment_note", {
-    # osm_create_comment_note(note_id)
+    com_note <- osm_create_comment_note(note_id = 42091, text = "Right, add it.")
   })
+
+  expect_s3_class(com_note, c("osmapi_map_notes", "data.frame"))
 })
 
 
@@ -93,8 +97,10 @@ test_that("osm_create_comment_note works", {
 
 test_that("osm_close_note works", {
   with_mock_dir("mock_close_note", {
-    # osm_close_note(note_id)
+    close_note <- osm_close_note(note_id = 42091)
   })
+
+  expect_s3_class(close_note, c("osmapi_map_notes", "data.frame"))
 })
 
 
@@ -102,8 +108,10 @@ test_that("osm_close_note works", {
 
 test_that("osm_reopen_note works", {
   with_mock_dir("mock_reopen_note", {
-    # osm_reopen_note(note_id)
+    reopen_note <- osm_reopen_note(note_id = 42091)
   })
+
+  expect_s3_class(reopen_note, c("osmapi_map_notes", "data.frame"))
 })
 
 
