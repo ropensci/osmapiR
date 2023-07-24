@@ -12,6 +12,7 @@ License: GPL (>= 3)
 URL: https://jmaspons.github.io/osmapiR https://github.com/jmaspons/osmapiR
 BugReports: https://github.com/jmaspons/osmapiR/issues
 Imports: 
+    curl,
     httr2,
     xml2
 Suggests: 
