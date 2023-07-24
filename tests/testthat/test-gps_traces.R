@@ -51,30 +51,36 @@ test_that("osm_get_points_gps works", {
 })
 
 
+
+
+test_that("edit gpx works", {
+  gpx_path <- test_path("sample_files", "sample.gpx")
+
 ## Create: `POST /api/0.6/gpx/create` ----
+  # with_mock_dir("mock_create_gpx", { # TODO: fails with mock dir
+    create_trace <- osm_create_gpx(
+      file = gpx_path,
+      description = "Test create gpx with osmapiR.",
+      tags = c("testing", "osmapiR")
+    )
+  # })
 
-test_that("osm_create_gpx works", {
-  with_mock_dir("mock_create_gpx", {
-    # osm_create_gpx()
-  })
-})
+  expect_type(create_trace, "character")
 
+  ## Update: `PUT /api/0.6/gpx/#id` ----
 
-## Update: `PUT /api/0.6/gpx/#id` ----
-
-test_that("osm_update_gpx works", {
-  with_mock_dir("mock_update_gpx", {
-    # osm_update_gpx(gpx_id)
-  })
-})
-
+  # with_mock_dir("mock_update_gpx", {
+  #   upd_trace <- osm_update_gpx(gpx_id = create_trace, file = gpx_path)
+  # TODO: HTTP 502 Bad Gateway.
+  # })
 
 ## Delete: `DELETE /api/0.6/gpx/#id` ----
 
-test_that("osm_delete_gpx works", {
-  with_mock_dir("mock_delete_gpx", {
-    # osm_delete_gpx(gpx_id)
-  })
+  # expect_DELETE(
+    del_trace <- osm_delete_gpx(gpx_id = create_trace)
+  # )
+
+  expect_null(del_trace)
 })
 
 

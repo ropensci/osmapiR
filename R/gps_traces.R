@@ -65,8 +65,7 @@
 #'   time, before the waypoints of non-trackable traces.
 #'
 #' @return
-#' @family GPS' functions
-#' @family GET calls
+#' @family get GPS' functions
 #' @export
 #'
 #' @examples
@@ -134,47 +133,106 @@ osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "gpx")) {
 # ; HTTP status code 400 (Bad Request)
 # : When the description is empty
 
-osm_create_gpx <- function() {
-  req <- osmapi_request()
+#' Create GPS trace
+#'
+#' Use this to upload a GPX file or archive of GPX files. Requires authentication.
+#'
+#' @param file The GPX file path containing the track points.
+#' @param description The trace description. Cannot be empty.
+#' @param tags A string containing tags for the trace. Can be empty.
+#' @param visibility One of the following: `private`, `public`, `trackable`, `identifiable`. For explanations see
+#'   [OSM trace upload page](https://www.openstreetmap.org/traces/mine) or
+#'   [Visibility of GPS traces](https://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces)).
+#'
+#' @details
+#' Note that for successful processing, the file must contain trackpoints (`<trkpt>`), not only waypoints, and the
+#' trackpoints must have a valid timestamp. Since the file is processed asynchronously, the call will complete
+#' successfully even if the file cannot be processed. The file may also be a .tar, .tar.gz or .zip containing multiple
+#' gpx files, although it will appear as a single entry in the upload log.
+#'
+#' @return A number representing the ID of the new gpx
+#' @family edit GPS traces' functions
+#' @export
+#'
+#' @examples
+osm_create_gpx <- function(file, description, tags, visibility = c("private", "public", "trackable", "identifiable")) {
+  visibility <- match.arg(visibility)
+  if (missing(tags)) {
+    tags = NULL
+  } else {
+    tags <- paste(tags, collapse = ", ")
+  }
+
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "gpx", "create")
+  req <- httr2::req_body_multipart(
+    req,
+    file = curl::form_file(file),
+    description = description,
+    tags = tags,
+    visibility = visibility
+  )
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
+  out <- httr2::resp_body_string(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  return(out)
 }
 
 ## Update: `PUT /api/0.6/gpx/#id` ----
 # Use this to update a GPX file. Only usable by the owner account. Requires authentication.<br />The response body will be empty.
+## TODO: improve wiki. Poor documentation
+# https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/traces_controller.rb#L51
 
-osm_update_gpx <- function(gpx_id) {
-  req <- osmapi_request()
+#' Update GPS trace
+#'
+#' Use this to update a GPX file. Only usable by the owner account. Requires authentication.
+#'
+#' @param gpx_id The track id represented by a numeric or a character value.
+#' @param file The GPX file path containing the track points.
+#'
+#' @return
+#' @family edit GPS traces' functions
+#' @export
+#'
+#' @examples
+osm_update_gpx <- function(gpx_id, file) {
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "PUT")
   req <- httr2::req_url_path_append(req, "gpx", gpx_id)
+  req <- httr2::req_body_multipart(req, file = curl::form_file(file))
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  invisible()
 }
 
 
 ## Delete: `DELETE /api/0.6/gpx/#id` ----
 # Use this to delete a GPX file. Only usable by the owner account. Requires authentication.<br />The response body will be empty.
+## TODO: improve wiki. Poor documentation
+# https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/traces_controller.rb#L64
 
+#' Delete GPS trace
+#'
+#' Use this to delete a GPX file. Only usable by the owner account. Requires authentication.
+#'
+#' @param gpx_id The track id represented by a numeric or a character value.
+#'
+#' @return
+#' @family edit GPS traces' functions
+#' @export
+#'
+#' @examples
 osm_delete_gpx <- function(gpx_id) {
-  req <- osmapi_request()
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "DELETE")
   req <- httr2::req_url_path_append(req, "gpx", gpx_id)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  invisible()
 }
 
 
@@ -201,8 +259,7 @@ osm_delete_gpx <- function(gpx_id) {
 #' @param gpx_id The track id represented by a numeric or a character value.
 #'
 #' @return
-#' @family GPS' functions
-#' @family GET calls
+#' @family get GPS' functions
 #' @export
 #'
 #' @examples
@@ -251,8 +308,7 @@ osm_get_metadata_gpx <- function(gpx_id) {
 #'   non-standard simple concatenation of the files.
 #'
 #' @return
-#' @family GPS' functions
-#' @family GET calls
+#' @family get GPS' functions
 #' @export
 #'
 #' @examples
@@ -325,8 +381,7 @@ osm_get_data_gpx <- function(gpx_id, format) {
 #' Use this to get a list of GPX traces owned by the authenticated user. Requires authentication.
 #'
 #' @return
-#' @family GPS' functions
-#' @family GET calls
+#' @family get GPS' functions
 #' @export
 #'
 #' @examples

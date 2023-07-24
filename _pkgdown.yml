@@ -32,8 +32,17 @@ reference:
   contents:
   - has_concept("edit notes' functions")
 - title: "GPS' traces"
+  desc: >
+    In violation of the [GPX standard](https://www.topografix.com/GPX/1/1/#type_trksegType) when downloading public GPX
+    traces through the API, all waypoints of non-trackable traces are randomized (or rather sorted by lat/lon) and
+    delivered as one trackSegment for privacy reasons. Trackable traces are delivered, sorted by descending upload time,
+    before the waypoints of non-trackable traces.
+- subtitle: "Get GPS traces"
   contents:
-  - has_concept("GPS' functions")
+  - has_concept("get GPS' functions")
+- subtitle: "Edit GPS traces"
+  contents:
+  - has_concept("edit GPS traces' functions")
 - title: "Users"
   contents:
   - has_concept("users' functions")
