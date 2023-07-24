@@ -35,7 +35,7 @@
 #' @export
 #'
 #' @examples
-osm_comment_changeset_discussion <- function(changeset_id, comment) {
+osm_comment_changeset_discussion <- function(changeset_id, comment) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "changeset", changeset_id, "comment")
@@ -44,7 +44,9 @@ osm_comment_changeset_discussion <- function(changeset_id, comment) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  invisible(obj_xml)
+  out <- changeset_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -73,7 +75,7 @@ osm_comment_changeset_discussion <- function(changeset_id, comment) {
 #' @export
 #'
 #' @examples
-osm_subscribe_changeset_discussion <- function(changeset_id) {
+osm_subscribe_changeset_discussion <- function(changeset_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "changeset", changeset_id, "subscribe")
@@ -81,7 +83,9 @@ osm_subscribe_changeset_discussion <- function(changeset_id) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  invisible(obj_xml)
+  out <- changeset_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -110,7 +114,7 @@ osm_subscribe_changeset_discussion <- function(changeset_id) {
 #' @export
 #'
 #' @examples
-osm_unsubscribe_changeset_discussion <- function(changeset_id) {
+osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "changeset", changeset_id, "unsubscribe")
@@ -118,7 +122,9 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  invisible(obj_xml)
+  out <- changeset_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -151,7 +157,7 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) {
 #' @export
 #'
 #' @examples
-osm_hide_comment_changeset_discussion <- function(comment_id) {
+osm_hide_comment_changeset_discussion <- function(comment_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "changeset", "comment", comment_id, "hide")
@@ -159,7 +165,9 @@ osm_hide_comment_changeset_discussion <- function(comment_id) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  invisible(obj_xml)
+  out <- changeset_xml2DF(obj_xml)
+
+  return(out)
 }
 
 
@@ -192,7 +200,7 @@ osm_hide_comment_changeset_discussion <- function(comment_id) {
 #' @export
 #'
 #' @examples
-osm_unhide_comment_changeset_discussion <- function(comment_id) {
+osm_unhide_comment_changeset_discussion <- function(comment_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "changeset", "comment", comment_id, "unhide")
@@ -200,5 +208,7 @@ osm_unhide_comment_changeset_discussion <- function(comment_id) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  invisible(obj_xml)
+  out <- changeset_xml2DF(obj_xml)
+
+  return(out)
 }

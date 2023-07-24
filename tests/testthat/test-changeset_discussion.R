@@ -5,7 +5,7 @@ test_that("osm_comment_changeset_discussion works", {
     com <- osm_comment_changeset_discussion(changeset_id = 265646, comment = "Testing comments from osmapiR.")
   })
 
-  expect_s3_class(com, "xml_document")
+  expect_s3_class(com, c("osmapi_changesets", "data.frame"))
 })
 
 
@@ -20,7 +20,7 @@ test_that("osm_sub_changeset_discussion works", {
     subs <- osm_subscribe_changeset_discussion(changeset_id = 265636)
   })
 
-  expect_s3_class(subs, "xml_document")
+  expect_s3_class(subs, c("osmapi_changesets", "data.frame"))
 })
 
 
@@ -31,7 +31,7 @@ test_that("osm_uns_changeset_discussion works", {
     unsubs <- osm_unsubscribe_changeset_discussion(changeset_id = 265646)
   })
 
-  expect_s3_class(unsubs, "xml_document")
+  expect_s3_class(unsubs, c("osmapi_changesets", "data.frame"))
 })
 
 
