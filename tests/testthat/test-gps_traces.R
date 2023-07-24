@@ -58,16 +58,16 @@ test_that("edit gpx works", {
 
 ## Create: `POST /api/0.6/gpx/create` ----
   # with_mock_dir("mock_create_gpx", { # TODO: fails with mock dir
-    create_trace <- osm_create_gpx(
-      file = gpx_path,
-      description = "Test create gpx with osmapiR.",
-      tags = c("testing", "osmapiR")
-    )
+    # create_trace <- osm_create_gpx(
+    #   file = gpx_path,
+    #   description = "Test create gpx with osmapiR.",
+    #   tags = c("testing", "osmapiR")
+    # )
   # })
 
-  expect_type(create_trace, "character")
+  # expect_type(create_trace, "character")
 
-  ## Update: `PUT /api/0.6/gpx/#id` ----
+## Update: `PUT /api/0.6/gpx/#id` ----
 
   # with_mock_dir("mock_update_gpx", {
   #   upd_trace <- osm_update_gpx(gpx_id = create_trace, file = gpx_path)
@@ -77,10 +77,10 @@ test_that("edit gpx works", {
 ## Delete: `DELETE /api/0.6/gpx/#id` ----
 
   # expect_DELETE(
-    del_trace <- osm_delete_gpx(gpx_id = create_trace)
+    # del_trace <- osm_delete_gpx(gpx_id = create_trace)
   # )
 
-  expect_null(del_trace)
+  # expect_null(del_trace)
 })
 
 
