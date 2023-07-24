@@ -18,7 +18,6 @@
 #'
 #' @return A character vector with the supported versions
 #' @family API functions
-#' @family GET calls
 #' @export
 #'
 #' @examples
@@ -111,7 +110,6 @@ osm_api_versions <- function() {
 #'
 #' @return A list with the API capabilities and policies.
 #' @family API functions
-#' @family GET calls
 #' @export
 #'
 #' @examples
@@ -312,7 +310,6 @@ osm_bbox_objects <- function(bbox, format = c("R", "xml", "json"), tags_in_colum
 #' @return If the API client is not authorized, an empty list of permissions will be returned. Otherwise, the list will
 #'   be based on the granted scopes of the logged user.
 #' @family API functions
-#' @family GET calls
 #' @export
 #'
 #' @examples

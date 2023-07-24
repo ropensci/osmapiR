@@ -12,3 +12,9 @@ osm_delete_gpx(gpx_id)
 \description{
 Use this to delete a GPX file. Only usable by the owner account. Requires authentication.
 }
+\seealso{
+Other edit GPS traces' functions: 
+\code{\link{osm_create_gpx}()},
+\code{\link{osm_update_gpx}()}
+}
+\concept{edit GPS traces' functions}

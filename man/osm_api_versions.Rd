@@ -21,22 +21,5 @@ Other API functions:
 \code{\link{osm_capabilities}()},
 \code{\link{osm_permissions}()},
 \code{\link{set_osmapi_connection}()}
-
-Other GET calls: 
-\code{\link{osm_bbox_objects}()},
-\code{\link{osm_capabilities}()},
-\code{\link{osm_details_logged_user}()},
-\code{\link{osm_details_users}()},
-\code{\link{osm_details_user}()},
-\code{\link{osm_fetch_objects}()},
-\code{\link{osm_full_object}()},
-\code{\link{osm_get_preferences_user}()},
-\code{\link{osm_history_object}()},
-\code{\link{osm_permissions}()},
-\code{\link{osm_read_object}()},
-\code{\link{osm_relations_object}()},
-\code{\link{osm_version_object}()},
-\code{\link{osm_ways_node}()}
 }
 \concept{API functions}
-\concept{GET calls}

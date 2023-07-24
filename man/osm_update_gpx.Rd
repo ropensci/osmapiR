@@ -14,3 +14,9 @@ osm_update_gpx(gpx_id, file)
 \description{
 Use this to update a GPX file. Only usable by the owner account. Requires authentication.
 }
+\seealso{
+Other edit GPS traces' functions: 
+\code{\link{osm_create_gpx}()},
+\code{\link{osm_delete_gpx}()}
+}
+\concept{edit GPS traces' functions}

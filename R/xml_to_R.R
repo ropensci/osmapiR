@@ -147,8 +147,9 @@ object_xml2DF <- function(xml, tags_in_columns = FALSE) {
     dimnames = list(NULL, col_names)
   )
 
-  # columns only for nodes (+ lat lon)
   out <- cbind(type = object_type, object_attrs)
+
+  # columns only for nodes (+ lat lon)
   if (any(no_coords <- out[, "type"] != "node")) {
     out[no_coords, c("lat", "lon")] <- NA_character_
   }

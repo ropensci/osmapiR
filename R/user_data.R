@@ -49,7 +49,6 @@
 #'
 #' @return
 #' @family users' functions
-#' @family GET calls
 #' @export
 #'
 #' @examples
@@ -142,7 +141,6 @@ osm_details_user <- function(user_id, format = c("R", "xml", "json")) {
 #'
 #' @return
 #' @family users' functions
-#' @family GET calls
 #' @export
 #'
 #' @examples
@@ -248,7 +246,6 @@ osm_details_users <- function(user_ids, format = c("R", "xml", "json")) {
 #'
 #' @return A list with the user details.
 #' @family users' functions
-#' @family GET calls
 #' @export
 #'
 #' @examples
@@ -341,7 +338,6 @@ osm_details_logged_user <- function(format = c("R", "xml", "json")) {
 #'
 #' @return
 #' @family users' functions
-#' @family GET calls
 #' @export
 #'
 #' @examples
