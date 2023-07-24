@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">osmapiR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.8</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -94,6 +94,12 @@
       </dl></div><div class="section level2">
       <h2 id="changesets">Changesets<a class="anchor" aria-label="anchor" href="#changesets"></a></h2>
       
+      <p class="section-desc"></p><p>To make it easier to identify related changes the concept of changesets was introduced. Every modification of the standard OSM elements has to reference an open changeset. A changeset may contain tags just like the other elements. A recommended tag for changesets is the key ’’comment=*’’ with a short human readable description of the changes being made in that changeset, similar to a commit message in a revision control system. A new changeset can be opened at any time and a changeset may be referenced from multiple API calls. Because of this it can be closed manually as the server can’t know when one changeset ends and another should begin. To avoid stale open changesets a mechanism is implemented to automatically close changesets. See <a href="https://wiki.openstreetmap.org/wiki/Changeset" class="external-link">OSM wiki</a> for details.</p>
+
+      
+    </div><div class="section level2">
+      
+      <h3 id="get-changesets">Get changesets<a class="anchor" aria-label="anchor" href="#get-changesets"></a></h3>
       
 
       
@@ -118,8 +124,8 @@
         </dt>
         <dd>Read a changeset</dd>
       </dl></div><div class="section level2">
-      <h2 id="changeset-s-discussion">Changeset’s discussion<a class="anchor" aria-label="anchor" href="#changeset-s-discussion"></a></h2>
       
+      <h3 id="changeset-s-discussion">Changeset’s discussion<a class="anchor" aria-label="anchor" href="#changeset-s-discussion"></a></h3>
       
 
       
@@ -146,6 +152,12 @@
       </dl></div><div class="section level2">
       <h2 id="map-notes">Map notes<a class="anchor" aria-label="anchor" href="#map-notes"></a></h2>
       
+      <p class="section-desc"></p><p>This functions provides access to the <a href="https://wiki.openstreetmap.org/wiki/Notes" class="external-link">notes</a> feature, which allows users to add geo-referenced textual "post-it" notes.</p>
+
+      
+    </div><div class="section level2">
+      
+      <h3 id="get-map-notes">Get map notes<a class="anchor" aria-label="anchor" href="#get-map-notes"></a></h3>
       
 
       
@@ -175,8 +187,45 @@
         </dt>
         <dd>Search for notes</dd>
       </dl></div><div class="section level2">
+      
+      <h3 id="edit-map-notes">Edit map notes<a class="anchor" aria-label="anchor" href="#edit-map-notes"></a></h3>
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="osm_close_note.html">osm_close_note()</a></code> 
+        </dt>
+        <dd>Close a note</dd>
+      </dl><dl><dt>
+          
+          <code><a href="osm_create_comment_note.html">osm_create_comment_note()</a></code> 
+        </dt>
+        <dd>Create a new comment in a note</dd>
+      </dl><dl><dt>
+          
+          <code><a href="osm_create_note.html">osm_create_note()</a></code> 
+        </dt>
+        <dd>Create a new note</dd>
+      </dl><dl><dt>
+          
+          <code><a href="osm_reopen_note.html">osm_reopen_note()</a></code> 
+        </dt>
+        <dd>Reopen a note</dd>
+      </dl></div><div class="section level2">
       <h2 id="gps-traces">GPS’ traces<a class="anchor" aria-label="anchor" href="#gps-traces"></a></h2>
       
+      <p class="section-desc"></p><p>In violation of the <a href="https://www.topografix.com/GPX/1/1/#type_trksegType" class="external-link">GPX standard</a> when downloading public GPX traces through the API, all waypoints of non-trackable traces are randomized (or rather sorted by lat/lon) and delivered as one trackSegment for privacy reasons. Trackable traces are delivered, sorted by descending upload time, before the waypoints of non-trackable traces.</p>
+
+      
+    </div><div class="section level2">
+      
+      <h3 id="get-gps-traces">Get GPS traces<a class="anchor" aria-label="anchor" href="#get-gps-traces"></a></h3>
       
 
       
@@ -205,6 +254,32 @@
           <code><a href="osm_list_gpxs.html">osm_list_gpxs()</a></code> 
         </dt>
         <dd>List user's GPX traces</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="edit-gps-traces">Edit GPS traces<a class="anchor" aria-label="anchor" href="#edit-gps-traces"></a></h3>
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="osm_create_gpx.html">osm_create_gpx()</a></code> 
+        </dt>
+        <dd>Create GPS trace</dd>
+      </dl><dl><dt>
+          
+          <code><a href="osm_delete_gpx.html">osm_delete_gpx()</a></code> 
+        </dt>
+        <dd>Delete GPS trace</dd>
+      </dl><dl><dt>
+          
+          <code><a href="osm_update_gpx.html">osm_update_gpx()</a></code> 
+        </dt>
+        <dd>Update GPS trace</dd>
       </dl></div><div class="section level2">
       <h2 id="users">Users<a class="anchor" aria-label="anchor" href="#users"></a></h2>
       
@@ -304,6 +379,11 @@
           <code><a href="osm_hide_comment_changeset_discussion.html">osm_hide_comment_changeset_discussion()</a></code> 
         </dt>
         <dd>Hide changeset comment</dd>
+      </dl><dl><dt>
+          
+          <code><a href="osm_redaction_object.html">osm_redaction_object()</a></code> 
+        </dt>
+        <dd>Redact an object version</dd>
       </dl><dl><dt>
           
           <code><a href="osm_unhide_comment_changeset_discussion.html">osm_unhide_comment_changeset_discussion()</a></code> 

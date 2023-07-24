@@ -31,7 +31,22 @@
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_capabilities.html</loc>
   </url>
   <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_close_note.html</loc>
+  </url>
+  <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_comment_changeset_discussion.html</loc>
+  </url>
+  <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_create_comment_note.html</loc>
+  </url>
+  <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_create_gpx.html</loc>
+  </url>
+  <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_create_note.html</loc>
+  </url>
+  <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_delete_gpx.html</loc>
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_details_logged_user.html</loc>
@@ -94,7 +109,13 @@
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_read_object.html</loc>
   </url>
   <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_redaction_object.html</loc>
+  </url>
+  <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_relations_object.html</loc>
+  </url>
+  <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_reopen_note.html</loc>
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_search_notes.html</loc>
@@ -107,6 +128,9 @@
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_unsubscribe_changeset_discussion.html</loc>
+  </url>
+  <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_update_gpx.html</loc>
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_version_object.html</loc>

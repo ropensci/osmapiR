@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">osmapiR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.8</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.9</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -112,36 +112,10 @@ specified, the latest notes are returned.</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
-    <div class="dont-index"><p>Other notes' functions: 
+    <div class="dont-index"><p>Other get notes' functions: 
 <code><a href="osm_feed_notes.html">osm_feed_notes</a>()</code>,
 <code><a href="osm_read_bbox_notes.html">osm_read_bbox_notes</a>()</code>,
-<code><a href="osm_read_note.html">osm_read_note</a>()</code></p>
-<p>Other GET calls: 
-<code><a href="osm_api_versions.html">osm_api_versions</a>()</code>,
-<code><a href="osm_bbox_objects.html">osm_bbox_objects</a>()</code>,
-<code><a href="osm_capabilities.html">osm_capabilities</a>()</code>,
-<code><a href="osm_details_logged_user.html">osm_details_logged_user</a>()</code>,
-<code><a href="osm_details_users.html">osm_details_users</a>()</code>,
-<code><a href="osm_details_user.html">osm_details_user</a>()</code>,
-<code><a href="osm_download_changeset.html">osm_download_changeset</a>()</code>,
-<code><a href="osm_feed_notes.html">osm_feed_notes</a>()</code>,
-<code><a href="osm_fetch_objects.html">osm_fetch_objects</a>()</code>,
-<code><a href="osm_full_object.html">osm_full_object</a>()</code>,
-<code><a href="osm_get_data_gpx.html">osm_get_data_gpx</a>()</code>,
-<code><a href="osm_get_metadata_gpx.html">osm_get_metadata_gpx</a>()</code>,
-<code><a href="osm_get_points_gps.html">osm_get_points_gps</a>()</code>,
-<code><a href="osm_get_preferences_user.html">osm_get_preferences_user</a>()</code>,
-<code><a href="osm_history_object.html">osm_history_object</a>()</code>,
-<code><a href="osm_list_gpxs.html">osm_list_gpxs</a>()</code>,
-<code><a href="osm_permissions.html">osm_permissions</a>()</code>,
-<code><a href="osm_query_changesets.html">osm_query_changesets</a>()</code>,
-<code><a href="osm_read_bbox_notes.html">osm_read_bbox_notes</a>()</code>,
-<code><a href="osm_read_changeset.html">osm_read_changeset</a>()</code>,
-<code><a href="osm_read_note.html">osm_read_note</a>()</code>,
-<code><a href="osm_read_object.html">osm_read_object</a>()</code>,
-<code><a href="osm_relations_object.html">osm_relations_object</a>()</code>,
-<code><a href="osm_version_object.html">osm_version_object</a>()</code>,
-<code><a href="osm_ways_node.html">osm_ways_node</a>()</code></p></div>
+<code><a href="osm_read_note.html">osm_read_note</a>()</code></p></div>
     </div>
 
     <div class="section level2">
@@ -158,7 +132,201 @@ specified, the latest notes are returned.</p>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "FeatureCollection"</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $features</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> list()</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$type</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Feature"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$geometry</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$geometry$type</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Point"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$geometry$coordinates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$geometry$coordinates[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.1702526</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$geometry$coordinates[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 40.73274</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 42091</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://master.apis.dev.openstreetmap.org/api/0.6/notes/42091.json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comment_url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://master.apis.dev.openstreetmap.org/api/0.6/notes/42091/comment.json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$close_url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://master.apis.dev.openstreetmap.org/api/0.6/notes/42091/close.json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$date_created</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-07-24 08:15:21 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$status</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "open"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[1]]$date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-07-24 08:15:21 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[1]]$uid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 12141</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[1]]$user</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "jmaspons"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[1]]$user_url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://master.apis.dev.openstreetmap.org/user/jmaspons"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[1]]$action</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "opened"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[1]]$text</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "There is survey point here."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[1]]$html</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;p&gt;There is survey point here.&lt;/p&gt;"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[2]]$date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-07-24 08:31:34 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[2]]$uid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 12141</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[2]]$user</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "jmaspons"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[2]]$user_url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://master.apis.dev.openstreetmap.org/user/jmaspons"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[2]]$action</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "commented"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[2]]$text</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Right, add it."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[2]]$html</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;p&gt;Right, add it.&lt;/p&gt;"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[3]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[3]]$date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-07-24 08:36:15 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[3]]$uid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 12141</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[3]]$user</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "jmaspons"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[3]]$user_url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://master.apis.dev.openstreetmap.org/user/jmaspons"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[3]]$action</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "closed"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[3]]$text</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ""</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[3]]$html</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;p&gt;&lt;/p&gt;"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[4]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[4]]$date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-07-24 08:37:16 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[4]]$uid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 12141</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[4]]$user</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "jmaspons"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[4]]$user_url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://master.apis.dev.openstreetmap.org/user/jmaspons"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[4]]$action</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "reopened"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[4]]$text</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] ""</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[1]]$properties$comments[[4]]$html</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;p&gt;&lt;/p&gt;"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$type</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Feature"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$geometry</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$geometry$type</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "Point"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$geometry$coordinates</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$geometry$coordinates[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 0.1702526</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$geometry$coordinates[[2]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 40.73274</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$id</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 42090</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://master.apis.dev.openstreetmap.org/api/0.6/notes/42090.json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$comment_url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://master.apis.dev.openstreetmap.org/api/0.6/notes/42090/comment.json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$close_url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://master.apis.dev.openstreetmap.org/api/0.6/notes/42090/close.json"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$date_created</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-07-24 08:15:15 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$status</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "open"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$comments</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$comments[[1]]</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$comments[[1]]$date</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "2023-07-24 08:15:15 UTC"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$comments[[1]]$uid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] 12141</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$comments[[1]]$user</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "jmaspons"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$comments[[1]]$user_url</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://master.apis.dev.openstreetmap.org/user/jmaspons"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$comments[[1]]$action</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "opened"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$comments[[1]]$text</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "There is survey point here."</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> $features[[2]]$properties$comments[[1]]$html</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "&lt;p&gt;There is survey point here.&lt;/p&gt;"</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 </code></pre></div>
     </div>
