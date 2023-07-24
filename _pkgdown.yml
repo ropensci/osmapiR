@@ -4,7 +4,7 @@ template:
 reference:
 - title: "OSM objects"
   contents:
-  - has_concept("OSM objects' functions")
+  - has_concept("get OSM objects' functions")
 - title: "Changesets"
   desc: >
     To make it easier to identify related changes the concept of changesets was introduced. Every modification of the

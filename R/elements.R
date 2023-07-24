@@ -70,10 +70,9 @@ osm_create_object <- function(osm_type = c("node", "way", "relation"), ...) {
   req <- httr2::req_url_path_append(req, osm_type, "create")
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
+  out <- httr2::resp_body_string(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  return(out)
 }
 
 
@@ -122,8 +121,7 @@ osm_create_object <- function(osm_type = c("node", "way", "relation"), ...) {
 #'   Ignored if `format != "R"`.
 #'
 #' @return
-#' @family OSM objects' functions
-#' @family GET calls
+#' @family get OSM objects' functions
 #' @export
 #'
 #' @examples
@@ -208,10 +206,9 @@ osm_update_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
   req <- httr2::req_url_path_append(req, osm_type, osm_id)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
+  out <- httr2::resp_body_string(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  return(out)
 }
 
 
@@ -269,10 +266,9 @@ osm_delete_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
   req <- httr2::req_url_path_append(req, osm_type, osm_id)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
+  out <- httr2::resp_body_string(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  return(out)
 }
 
 
@@ -295,8 +291,7 @@ osm_delete_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
 #'   Ignored if `format != "R"`.
 #'
 #' @return
-#' @family OSM objects' functions
-#' @family GET calls
+#' @family get OSM objects' functions
 #' @export
 #'
 #' @examples
@@ -362,8 +357,7 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id,
 #'   Ignored if `format != "R"`.
 #'
 #' @return
-#' @family OSM objects' functions
-#' @family GET calls
+#' @family get OSM objects' functions
 #' @export
 #'
 #' @examples
@@ -442,8 +436,7 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' [osmdata::opq_osm_id()].
 #'
 #' @return
-#' @family OSM objects' functions
-#' @family GET calls
+#' @family get OSM objects' functions
 #' @export
 #'
 #' @examples
@@ -517,8 +510,7 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
 #'   Ignored if `format != "R"`.
 #'
 #' @return
-#' @family OSM objects' functions
-#' @family GET calls
+#' @family get OSM objects' functions
 #' @export
 #'
 #' @examples
@@ -578,8 +570,7 @@ osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id
 #'   Ignored if `format != "R"`.
 #'
 #' @return
-#' @family OSM objects' functions
-#' @family GET calls
+#' @family get OSM objects' functions
 #' @export
 #'
 #' @examples
@@ -655,8 +646,7 @@ osm_ways_node <- function(node_id, format = c("R", "xml", "json"), tags_in_colum
 #' [osmdata::opq_osm_id()].
 #'
 #' @return
-#' @family OSM objects' functions
-#' @family GET calls
+#' @family get OSM objects' functions
 #' @export
 #'
 #' @examples
@@ -710,17 +700,39 @@ osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
 # ; HTTP status code 400 (Bad Request)
 # : "Cannot redact current version of element, only historical versions may be redacted."
 
+#' Redact an object version
+#'
+#' Used by the [Data Working Group](https://wiki.openstreetmap.org/wiki/Data_working_group) to hide old versions of
+#' elements containing data privacy or copyright infringements. Only permitted for OSM accounts with the moderator role
+#' (DWG and server admins).
+#'
+#' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
+#' @param osm_id Object id represented by a numeric or a character value.
+#' @param version Version of the object to redact.
+#' @param redaction_id If missing, then this is an unredact operation. If a redaction ID was specified, then set this
+#'   element to be redacted in that redaction.
+#'
+#' @details
+#' The `redaction_id` is listed on https://www.openstreetmap.org/redactions. More information can be found in
+#' [the source](https://github.com/openstreetmap/openstreetmap-website/blob/4a24ba5f735f884f3ef3c0a514b7b6395809257c/app/controllers/api/old_controller.rb#L56)
+#'
+#' @return
+#' @family functions for moderators
+#' @export
+#'
+#' @examples
 osm_redaction_object <- function(osm_type = c("node", "way", "relation"), osm_id, version, redaction_id) {
   osm_type <- match.arg(osm_type)
 
-  req <- osmapi_request()
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, osm_type, osm_id, version)
-  req <- httr2::req_url_query(redaction = redaction_id)
+
+  if (!missing(redaction_id)) {
+    req <- httr2::req_url_query(redaction = redaction_id)
+  }
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  invisible()
 }

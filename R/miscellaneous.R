@@ -203,8 +203,7 @@ osm_capabilities <- function() {
 #' use the Overpass API. A similar function to download OSM objects using Overpass, is implemented in [osmdata::opq()].
 #'
 #' @return
-#' @family OSM objects' functions
-#' @family GET calls
+#' @family get OSM objects' functions
 #' @export
 #'
 #' @examples
