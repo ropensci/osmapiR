@@ -12,6 +12,7 @@ osm_query_changesets(
   open,
   closed,
   changeset_ids,
+  limit = 100,
   format = c("R", "xml", "json"),
   tags_in_columns = FALSE
 )
@@ -32,6 +33,9 @@ reached the element limit for a changeset (10,000 at the moment \code{osm_capabi
 \item{closed}{If \code{TRUE}, only finds changesets that are \strong{closed} or have reached the element limit.}
 
 \item{changeset_ids}{Finds changesets with the specified ids.}
+
+\item{limit}{Specifies the maximum number of changesets returned. A number between 1 and 100, with 100 as the default
+value.}
 
 \item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
 

@@ -456,6 +456,8 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 # : Only finds changesets that are ''closed'' or have reached the element limit
 # ; changesets=#cid{,#cid}
 # : Finds changesets with the specified ids (since [https://github.com/openstreetmap/openstreetmap-website/commit/1d1f194d598e54a5d6fb4f38fb569d4138af0dc8 2013-12-05])
+# ; limit=N
+# : Specifies the maximum number of changesets returned. A number between 1 and 100, with 100 as the default value.
 # Time format:
 # Anything that [https://ruby-doc.org/3.2.2/exts/date/DateTime.html#method-c-parse this Ruby function] will parse. The default str is ’-4712-01-01T00:00:00+00:00’; this is Julian Day Number day 0.
 #
@@ -485,6 +487,8 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #'   reached the element limit for a changeset (10,000 at the moment `osm_capabilities()$api$changesets`).
 #' @param closed If `TRUE`, only finds changesets that are **closed** or have reached the element limit.
 #' @param changeset_ids Finds changesets with the specified ids.
+#' @param limit Specifies the maximum number of changesets returned. A number between 1 and 100, with 100 as the default
+#'   value.
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the changesets are saved in a single list column `tags`
 #'   containing a `data.frame` for each changeset with the keys and values. If `TRUE`, add a column for each key.
@@ -530,7 +534,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #' )
 #' chsts2
 #' }
-osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changeset_ids,
+osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changeset_ids, limit = 100,
                                  format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   format <- match.arg(format)
 
@@ -600,7 +604,8 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
     user = user, display_name = display_name,
     time = time, time_2 = time_2,
     open = open, closed = closed,
-    changesets = changeset_ids
+    changesets = changeset_ids,
+    limit = limit
   )
 
   resp <- httr2::req_perform(req)
