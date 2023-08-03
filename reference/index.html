@@ -94,7 +94,7 @@
       </dl></div><div class="section level2">
       <h2 id="changesets">Changesets<a class="anchor" aria-label="anchor" href="#changesets"></a></h2>
       
-      <p class="section-desc"></p><p>To make it easier to identify related changes the concept of changesets was introduced. Every modification of the standard OSM elements has to reference an open changeset. A changeset may contain tags just like the other elements. A recommended tag for changesets is the key ’’comment=*’’ with a short human readable description of the changes being made in that changeset, similar to a commit message in a revision control system. A new changeset can be opened at any time and a changeset may be referenced from multiple API calls. Because of this it can be closed manually as the server can’t know when one changeset ends and another should begin. To avoid stale open changesets a mechanism is implemented to automatically close changesets. See <a href="https://wiki.openstreetmap.org/wiki/Changeset" class="external-link">OSM wiki</a> for details.</p>
+      <p class="section-desc"></p><p>Every modification of the standard OSM elements has to reference an open changeset. A changeset may contain tags just like the other elements. A recommended tag for changesets is the key ’’comment=*’’ with a short human readable description of the changes being made in that changeset. A new changeset can be opened at any time and a changeset may be referenced from multiple API calls. Because of this it can be closed manually as the server can’t know when one changeset ends and another should begin. To avoid stale open changesets a mechanism is implemented to automatically close changesets. See <a href="https://wiki.openstreetmap.org/wiki/Changeset" class="external-link">OSM wiki</a> for details.</p>
 
       
     </div><div class="section level2">
@@ -112,7 +112,7 @@
           
           <code><a href="osm_download_changeset.html">osm_download_changeset()</a></code> 
         </dt>
-        <dd>Download a changeset</dd>
+        <dd>Download a changeset in OsmChange format</dd>
       </dl><dl><dt>
           
           <code><a href="osm_query_changesets.html">osm_query_changesets()</a></code> 
@@ -123,6 +123,27 @@
           <code><a href="osm_read_changeset.html">osm_read_changeset()</a></code> 
         </dt>
         <dd>Read a changeset</dd>
+      </dl></div><div class="section level2">
+      
+      <h3 id="edit-changeset">Edit changeset<a class="anchor" aria-label="anchor" href="#edit-changeset"></a></h3>
+      
+
+      
+    </div><div id="" class="section level2">
+      
+      
+      
+
+      <dl><dt>
+          
+          <code><a href="osm_create_changeset.html">osm_create_changeset()</a></code> <code><a href="osm_create_changeset.html">osm_update_changeset()</a></code> <code><a href="osm_create_changeset.html">osm_close_changeset()</a></code> 
+        </dt>
+        <dd>Create a changeset</dd>
+      </dl><dl><dt>
+          
+          <code><a href="osm_diff_upload_changeset.html">osm_diff_upload_changeset()</a></code> 
+        </dt>
+        <dd>Diff (OsmChange format) upload to a changeset</dd>
       </dl></div><div class="section level2">
       
       <h3 id="changeset-s-discussion">Changeset’s discussion<a class="anchor" aria-label="anchor" href="#changeset-s-discussion"></a></h3>
