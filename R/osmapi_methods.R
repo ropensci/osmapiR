@@ -23,6 +23,28 @@ print.osmapi_objects <- function(x, nchar_members = 60, nchar_tags = 80, ...) {
 # TODO: rbind.osmapi_objects <- function(...) dbTools::rbind_addColumns(...)
 
 
+## OsmChange ----
+
+#' @export
+print.osmapi_OsmChange <- function(x, nchar_members = 60, nchar_tags = 80, ...) {
+  y <- x
+
+  members <- vapply(x$members, members_as_text, FUN.VALUE = "")
+  members <- ifelse(nchar(members) > nchar_members, paste0(substr(members, 1, nchar_members), "..."), members)
+  x$members <- members
+
+  if ("tags" %in% names(x)) {
+    tags <- vapply(x$tags, tags_as_text, FUN.VALUE = "")
+    tags <- ifelse(nchar(tags) > nchar_tags, paste0(substr(tags, 1, nchar_tags), "..."), tags)
+    x$tags <- tags
+  }
+
+  NextMethod()
+
+  invisible(y)
+}
+
+
 ## Changesets ----
 
 #' @export

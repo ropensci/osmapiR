@@ -2,13 +2,15 @@
 % Please edit documentation in R/changesets.R
 \name{osm_download_changeset}
 \alias{osm_download_changeset}
-\title{Download a changeset}
+\title{Download a changeset in OsmChange format}
 \usage{
-osm_download_changeset(changeset_id)
+osm_download_changeset(changeset_id, format = c("R", "xml"))
 }
 \arguments{
 \item{changeset_id}{The id of the changeset represented by a numeric or a character value for which the OsmChange is
 requested.}
+
+\item{format}{Format of the output. Can be \code{R} (default) or \code{xml}.}
 }
 \description{
 Returns the \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange} document describing all changes associated with the changeset.

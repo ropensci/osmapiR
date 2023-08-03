@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <node id="4316612912" visible="true" version="1" changeset="140506" timestamp="2018-12-09T20:36:33Z" user="JohnParisTest" uid="7358" lat="40.4815293" lon="0.4869069">
+  <tag k="source" v="PGS"/>
+ </node>
+ <node id="4316612944" visible="true" version="1" changeset="140506" timestamp="2018-12-09T20:36:34Z" user="JohnParisTest" uid="7358" lat="40.5182600" lon="0.5138900">
+  <tag k="source" v="PGS"/>
+ </node>
+ <way id="4305292295" visible="true" version="2" changeset="140438" timestamp="2018-12-08T19:40:54Z" user="JohnParisTest" uid="7358">
+  <nd ref="4316078355"/>
+  <nd ref="4316078753"/>
+  <nd ref="4316078752"/>
+  <nd ref="4316078755"/>
+  <nd ref="4316078754"/>
+  <nd ref="4316078757"/>
+  <nd ref="4316078756"/>
+  <nd ref="4316078751"/>
+  <nd ref="4316078750"/>
+  <nd ref="4316078640"/>
+  <nd ref="4316078641"/>
+  <nd ref="4316078638"/>
+  <nd ref="4316078639"/>
+  <nd ref="4316078636"/>
+  <nd ref="4316078637"/>
+  <nd ref="4316078635"/>
+  <nd ref="4316078633"/>
+  <nd ref="4316078634"/>
+  <nd ref="4316078630"/>
+  <nd ref="4316078631"/>
+  <nd ref="4316078632"/>
+  <nd ref="4316078629"/>
+  <nd ref="4316078628"/>
+  <nd ref="4316078627"/>
+  <nd ref="4316078626"/>
+  <nd ref="4316078624"/>
+  <nd ref="4316078625"/>
+  <nd ref="4316078622"/>
+  <nd ref="4316078623"/>
+  <nd ref="4316078608"/>
+  <nd ref="4316078610"/>
+  <nd ref="4316078609"/>
+  <nd ref="4316078612"/>
+  <nd ref="4316078611"/>
+  <nd ref="4316078614"/>
+  <nd ref="4316078615"/>
+  <nd ref="4316078613"/>
+  <nd ref="4316078619"/>
+  <nd ref="4316078618"/>
+  <nd ref="4316078617"/>
+  <nd ref="4316078616"/>
+  <nd ref="4316078621"/>
+  <nd ref="4316078620"/>
+  <nd ref="4316078021"/>
+  <tag k="admin_level" v="2"/>
+  <tag k="border_type" v="territorial"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="maritime" v="yes"/>
+ </way>
+ <way id="4305292296" visible="true" version="2" changeset="140438" timestamp="2018-12-08T19:40:55Z" user="JohnParisTest" uid="7358">
+  <nd ref="4316078354"/>
+  <nd ref="4316078330"/>
+  <nd ref="4316078134"/>
+  <nd ref="4316078135"/>
+  <nd ref="4316078136"/>
+  <nd ref="4316078137"/>
+  <nd ref="4316078138"/>
+  <nd ref="4316078139"/>
+  <nd ref="4316078140"/>
+  <nd ref="4316078141"/>
+  <nd ref="4316078142"/>
+  <nd ref="4316078143"/>
+  <nd ref="4316078144"/>
+  <nd ref="4316078145"/>
+  <nd ref="4316078146"/>
+  <nd ref="4316078147"/>
+  <nd ref="4316078148"/>
+  <nd ref="4316078149"/>
+  <nd ref="4316078150"/>
+  <nd ref="4316078151"/>
+  <nd ref="4316078152"/>
+  <nd ref="4316078153"/>
+  <nd ref="4316078154"/>
+  <nd ref="4316078155"/>
+  <nd ref="4316078156"/>
+  <nd ref="4316078157"/>
+  <nd ref="4316078158"/>
+  <nd ref="4316078159"/>
+  <nd ref="4316078160"/>
+  <nd ref="4316078161"/>
+  <nd ref="4316078162"/>
+  <nd ref="4316078163"/>
+  <nd ref="4316078164"/>
+  <nd ref="4316078165"/>
+  <nd ref="4316078166"/>
+  <nd ref="4316078167"/>
+  <nd ref="4316078168"/>
+  <nd ref="4316078169"/>
+  <nd ref="4316078170"/>
+  <nd ref="4316078171"/>
+  <nd ref="4316078172"/>
+  <nd ref="4316078173"/>
+  <nd ref="4316078174"/>
+  <nd ref="4316078175"/>
+  <nd ref="4316078176"/>
+  <nd ref="4316078329"/>
+  <nd ref="4316078758"/>
+  <nd ref="4316078355"/>
+  <tag k="admin_level" v="2"/>
+  <tag k="border_type" v="territorial"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="maritime" v="yes"/>
+ </way>
+ <relation id="4304873911" visible="true" version="9" changeset="141408" timestamp="2018-12-15T18:14:40Z" user="JohnParisTest" uid="7358">
+  <member type="way" ref="4305292293" role="outer"/>
+  <member type="way" ref="4305292294" role="outer"/>
+  <member type="way" ref="4305292291" role="outer"/>
+  <member type="way" ref="4305292285" role="outer"/>
+  <member type="way" ref="4305292286" role="outer"/>
+  <member type="way" ref="4305292307" role=""/>
+  <member type="way" ref="4305292299" role="outer"/>
+  <member type="way" ref="4305292306" role="outer"/>
+  <member type="way" ref="4305272391" role="outer"/>
+  <member type="way" ref="4305291945" role="outer"/>
+  <member type="way" ref="4305291664" role="outer"/>
+  <member type="way" ref="4305291665" role="outer"/>
+  <member type="way" ref="4305286524" role="outer"/>
+  <member type="way" ref="4305291867" role="outer"/>
+  <member type="way" ref="4305291670" role="outer"/>
+  <member type="way" ref="4305291944" role="outer"/>
+  <member type="way" ref="4305291943" role="outer"/>
+  <member type="way" ref="4305291940" role="outer"/>
+  <member type="way" ref="4305291669" role="outer"/>
+  <member type="way" ref="4305291829" role="outer"/>
+  <member type="way" ref="4305291830" role="outer"/>
+  <member type="way" ref="4305291831" role="outer"/>
+  <member type="way" ref="4305292280" role="outer"/>
+  <member type="way" ref="4305292288" role="outer"/>
+  <member type="way" ref="4305292292" role="outer"/>
+  <member type="way" ref="4305292281" role="outer"/>
+  <member type="way" ref="4305289861" role="outer"/>
+  <member type="way" ref="4305289860" role="outer"/>
+  <member type="way" ref="4305291775" role="outer"/>
+  <member type="way" ref="4305291774" role="outer"/>
+  <member type="way" ref="4305291661" role="outer"/>
+  <member type="way" ref="4305288206" role="outer"/>
+  <member type="way" ref="4305289456" role="outer"/>
+  <member type="way" ref="4305286735" role="outer"/>
+  <member type="way" ref="4305288451" role="outer"/>
+  <member type="way" ref="4305292283" role="outer"/>
+  <member type="way" ref="4305292284" role="outer"/>
+  <member type="way" ref="4305292282" role="outer"/>
+  <member type="way" ref="4305292193" role="outer"/>
+  <member type="way" ref="4305292295" role="outer"/>
+  <member type="way" ref="4305292296" role="outer"/>
+  <member type="way" ref="4305292297" role="outer"/>
+  <member type="way" ref="4305292298" role="outer"/>
+  <member type="way" ref="4305292289" role="outer"/>
+  <member type="way" ref="4305292301" role="outer"/>
+  <member type="way" ref="4305280174" role="inner"/>
+  <member type="way" ref="4305292279" role="inner"/>
+  <member type="way" ref="4305290030" role="outer"/>
+  <member type="way" ref="4305288608" role="outer"/>
+  <member type="way" ref="4305289976" role="outer"/>
+  <member type="way" ref="4305289975" role="outer"/>
+  <member type="way" ref="4305289968" role="outer"/>
+  <member type="way" ref="4305289972" role="outer"/>
+  <member type="way" ref="4305289977" role="outer"/>
+  <member type="way" ref="4305292302" role="outer"/>
+  <member type="way" ref="4305292305" role="outer"/>
+  <member type="way" ref="4305292303" role="outer"/>
+  <member type="way" ref="4305292304" role="outer"/>
+  <tag k="boundary" v="claim"/>
+  <tag k="claimed_by" v="ES"/>
+  <tag k="claim_level" v="2"/>
+  <tag k="controlled_by" v="ES"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+</osm>

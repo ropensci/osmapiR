@@ -7,17 +7,18 @@ reference:
   - has_concept("get OSM objects' functions")
 - title: "Changesets"
   desc: >
-    To make it easier to identify related changes the concept of changesets was introduced. Every modification of the
-    standard OSM elements has to reference an open changeset. A changeset may contain tags just like the other elements.
-    A recommended tag for changesets is the key ''comment=*'' with a short human readable description of the changes
-    being made in that changeset, similar to a commit message in a revision control system. A new changeset can be
-    opened at any time and a changeset may be referenced from multiple API calls. Because of this it can be closed
-    manually as the server can't know when one changeset ends and another should begin. To avoid stale open changesets a
-    mechanism is implemented to automatically close changesets. See
-    [OSM wiki](https://wiki.openstreetmap.org/wiki/Changeset) for details.
+    Every modification of the standard OSM elements has to reference an open changeset. A changeset may contain tags
+    just like the other elements. A recommended tag for changesets is the key ''comment=*'' with a short human readable
+    description of the changes being made in that changeset. A new changeset can be opened at any time and a changeset
+    may be referenced from multiple API calls. Because of this it can be closed manually as the server can't know when
+    one changeset ends and another should begin. To avoid stale open changesets a mechanism is implemented to
+    automatically close changesets. See [OSM wiki](https://wiki.openstreetmap.org/wiki/Changeset) for details.
 - subtitle: "Get changesets"
   contents:
   - has_concept("get changesets' functions")
+- subtitle: "Edit changeset"
+  contents:
+  - has_concept("edit changeset's functions")
 - subtitle: "Changeset's discussion"
   contents:
   - has_concept("changeset discussion's functions")

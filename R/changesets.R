@@ -58,16 +58,76 @@
 #
 # Clients ''should'' include a {{tag|created_by}} tag. Clients are advised to make sure that a {{tag|comment}} is present, which the user has entered. It is optional at the moment but this ''might'' change in later API versions. Clients ''should not'' automatically generate the comment tag, as this tag is for the end-user to describe their changes. Clients ''may'' add any other tags as they see fit.
 
-osm_create_changeset <- function() {
-  req <- osmapi_request()
+#' Create a changeset
+#'
+#' Create or update an open changeset for editing.
+#'
+#' @describeIn osm_create_changeset Open a new changeset for editing.
+#'
+#' @param comment Tag comment is mandatory.
+#' @param ... Arbitrary tags to add to the changeset as named parameters (key = "value").
+#' @param created_by Tag with the client data. By default, `osmapiR x.y.z`.
+#' @param verbose If `TRUE`, print the tags of the new changeset.
+#'
+#' @details
+#' See <https://wiki.openstreetmap.org/wiki/Changeset> for details and the most common changeset's tags.
+#'
+#'
+#' @return The ID of the newly created changeset or a `data.frame` inheriting `osmapi_changesets` with the details of
+#'   the updated changeset.
+#' @family edit changeset's functions
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' set_osmapi_connection("testing") # use the testing server
+#'
+#' chset_id <- osm_create_changeset(
+#'   comment = "Describe the changeset",
+#'   source = "GPS;survey",
+#'   hashtags = "#testing;#osmapiR"
+#' )
+#'
+#' chaset <- osm_read_changeset(changeset_id = chset_id)
+#' chaset
+#'
+#' upd_chaset <- osm_update_changeset(
+#'   changeset_id = chset_id,
+#'   comment = "Improved description of the changeset",
+#'   hashtags = "#testing;#osmapiR"
+#' )
+#' upd_chaset
+#' }
+osm_create_changeset <- function(comment, ...,
+                                 created_by = paste("osmapiR", utils::packageVersion("osmapiR")), verbose = FALSE) {
+  tags <- list(...)
+
+  if (missing(comment)) {
+    stop("A descriptive comment of the changeset is mandatory.")
+  }
+
+  tags <- c(list(comment = comment, created_by = created_by), tags)
+
+  xml <- changeset_create_xml(tags)
+  path <- tempfile(fileext = ".xml")
+  xml2::write_xml(xml, path)
+
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "PUT")
   req <- httr2::req_url_path_append(req, "changeset", "create")
+  req <- httr2::req_body_file(req, path = path)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
+  out <- httr2::resp_body_string(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  if (verbose) {
+    message("New changeset with id = ", out, ", and the following tags:")
+    print(data.frame(key = names(tags), value = vapply(tags, I, FUN.VALUE = "", USE.NAMES = FALSE)))
+  }
+
+  file.remove(path)
+
+  return(out)
 }
 
 
@@ -164,6 +224,7 @@ osm_create_changeset <- function() {
 #' \dontrun{
 #' chaset <- osm_read_changeset(changeset_id = 137595351, include_discussion = TRUE)
 #' chaset
+#' chaset$discussion
 #' }
 osm_read_changeset <- function(changeset_id, include_discussion = FALSE,
                                format = c("R", "xml", "json"), tags_in_columns = FALSE) {
@@ -230,16 +291,43 @@ osm_read_changeset <- function(changeset_id, include_discussion = FALSE,
 ### Notes ----
 # Unchanged tags have to be repeated in order to not be deleted.
 
-osm_update_changeset <- function(changeset_id) {
-  req <- osmapi_request()
+#' @describeIn osm_create_changeset Update the tags of an open changeset.
+#'
+#' @param changeset_id The id of the changeset to update. The user issuing this API call has to be the same that created
+#'   the changeset.
+#'
+#' @details
+#' When updating a changeset, unchanged tags have to be repeated in order to not be deleted.
+#'
+#' @return
+#' @export
+osm_update_changeset <- function(changeset_id, comment, ...,
+                                 created_by = paste("osmapiR", utils::packageVersion("osmapiR")), verbose = FALSE) {
+  tags <- list(...)
+
+  if (missing(comment)) {
+    stop("A descriptive comment of the changeset is mandatory.")
+  }
+
+  tags <- c(list(comment = comment, created_by = created_by), tags)
+
+  xml <- changeset_create_xml(tags)
+  path <- tempfile(fileext = ".xml")
+  xml2::write_xml(xml, path)
+
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "PUT")
   req <- httr2::req_url_path_append(req, "changeset", changeset_id)
+  req <- httr2::req_body_file(req, path = path)
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- changeset_xml2DF(obj_xml)
+
+  file.remove(path)
+
+  return(out)
 }
 
 
@@ -262,16 +350,21 @@ osm_update_changeset <- function(changeset_id) {
 # : If the changeset in question has already been closed (either by the user itself or as a result of the auto-closing feature). A message with the format "`The changeset #id was closed at #closed_at.`" is returned
 # : Or if the user trying to update the changeset is not the same as the one that created it
 
+#' Close a changeset
+#'
+#' @describeIn osm_create_changeset Closes a changeset. A changeset may already have been closed without the owner
+#'   issuing this API call. In this case an error code is returned.
+#'
+#' @return Nothing is returned upon successful closing of a changeset
+#' @export
 osm_close_changeset <- function(changeset_id) {
-  req <- osmapi_request()
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "PUT")
   req <- httr2::req_url_path_append(req, "changeset", changeset_id, "close")
 
-  resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
+  httr2::req_perform(req)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  invisible()
 }
 
 
@@ -294,12 +387,13 @@ osm_close_changeset <- function(changeset_id) {
 # * The elements in the OsmChange are sorted by timestamp and version number.
 # * There is a [https://wiki.openstreetmap.org/wiki/API_v0.6#Read:_GET_/api/0.6/changeset/#id?include_discussion=true separate call] to get only information about the changeset itself
 
-#' Download a changeset
+#' Download a changeset in OsmChange format
 #'
 #' Returns the [OsmChange](https://wiki.openstreetmap.org/wiki/OsmChange) document describing all changes associated with the changeset.
 #'
 #' @param changeset_id The id of the changeset represented by a numeric or a character value for which the OsmChange is
 #'   requested.
+#' @param format Format of the output. Can be `R` (default) or `xml`.
 #'
 #' @details
 #' * The result of calling this may change as long as the changeset is open.
@@ -315,16 +409,21 @@ osm_close_changeset <- function(changeset_id) {
 #' chaset <- osm_download_changeset(changeset_id = 137003062)
 #' chaset
 #' }
-osm_download_changeset <- function(changeset_id) {
+osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
+  format <- match.arg(format)
+
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "changeset", changeset_id, "download")
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
+  out <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  if (format == "R") {
+    out <- osmchange_xml2DF(out)
+  }
+
+  return(out)
 }
 
 
@@ -585,16 +684,71 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
 # * There is currently no limit in the diff size on the Rails port. CGImap limits diff size to 50MB (uncompressed size).
 # * Forward referencing of placeholder ids is not permitted and will be rejected by the API.
 
-osm_diff_upload_changeset <- function(changeset_id) {
-  req <- osmapi_request()
+#' Diff (OsmChange format) upload to a changeset
+#'
+#' With this API call files in the [OsmChange](https://wiki.openstreetmap.org/wiki/OsmChange) format can be uploaded to
+#' the server. This is guaranteed to be running in a transaction. So either all the changes are applied or none.
+#'
+#' @param changeset_id The ID of the changeset this diff belongs to. The user issuing this API call has to be the same
+#'   that created the changeset.
+#' @param osmcha The OsmChange data. Can be the path of an OsmChange file, a `xml_document` or a data.frame inheriting
+#'   or following the structure of an `osmapi_OsmChange` object.
+#'
+#' @note
+#'   * Processing stops at the first error, so if there are multiple conflicts in one diff upload, only the first
+#'     problem is reported.
+#'   * Refer to [osm_capabilities()] --> `changesets$maximum_elements` for the maximum number of changes permitted in a
+#'     changeset.
+#'   * There is currently no limit in the diff size on the Rails port. CGImap limits diff size to 50MB (uncompressed
+#'     size).
+#'   * Forward referencing of placeholder ids is not permitted and will be rejected by the API.
+#' @return
+#' @family edit changeset's functions
+#' @export
+#'
+#' @examples
+osm_diff_upload_changeset <- function(changeset_id, osmcha) {
+  if (is.character(osmcha)) {
+    if (file.exists(osmcha)) {
+      path <- osmcha
+      rm_path <- FALSE
+    } else {
+      stop("`osmcha` is interpreted as a path to an OsmChange file, but it can't be found (", osmcha, ").")
+    }
+  } else {
+    if (inherits(osmcha, "xml_document")) {
+      xml <- osmcha
+    } else if (inherits(osmcha, "osmapi_OsmChange")) {
+      xml <- osmcha_DF2xml(osmcha)
+    } else if (inherits(osmcha, "data.frame")) {
+      xml <- osmcha_DF2xml(osmcha)
+    } else {
+      stop(
+        "`osmcha` must be a path to a OsmChage file, a `xml_document` with a OsmChange content ",
+        "or a data.frame"
+      )
+    }
+
+    path <- tempfile(fileext = ".osc")
+    xml2::write_xml(xml, path)
+    rm_path <- TRUE
+  }
+
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "changeset", changeset_id, "upload")
+  req <- httr2::req_body_file(req, path = path)
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # cat(as.character(obj_xml))
-  return(obj_xml)
+  out <- osmchange_xml2DF(obj_xml)
+
+  if (rm_path) {
+    file.remove(path)
+  }
+
+  return(out)
 }
 
 
