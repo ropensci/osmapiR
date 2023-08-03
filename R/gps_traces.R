@@ -158,7 +158,7 @@ osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "gpx")) {
 osm_create_gpx <- function(file, description, tags, visibility = c("private", "public", "trackable", "identifiable")) {
   visibility <- match.arg(visibility)
   if (missing(tags)) {
-    tags = NULL
+    tags <- NULL
   } else {
     tags <- paste(tags, collapse = ", ")
   }

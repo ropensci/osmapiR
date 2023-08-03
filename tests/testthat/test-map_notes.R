@@ -1,4 +1,8 @@
-classes <- list(df = c("osmapi_map_notes", "data.frame"), xml = "xml_document", rss = "xml_document", json = "list", gpx = "xml_document")
+classes <- list(
+  df = c("osmapi_map_notes", "data.frame"), xml = "xml_document",
+  rss = "xml_document", json = "list", gpx = "xml_document"
+)
+
 column_notes <- c("lon", "lat", "id", "url", "comment_url", "close_url", "date_created", "status", "comments")
 column_comments <- c("date", "uid", "user", "user_url", "action", "text", "html")
 

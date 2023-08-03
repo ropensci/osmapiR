@@ -113,8 +113,13 @@ test_that("osm_read_changeset works", {
   mapply(function(x, cl) expect_true(inherits(x, cl)), x = chaset_discuss, cl = class_columns[names(chaset_discuss)])
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
-  lapply(chaset[, c("created_at", "closed_at")], function(x) expect_false(strftime(as.POSIXct(x), format = "%M:%S") == "00:00"))
-  lapply(chaset_discuss[, c("created_at", "closed_at")], function(x) expect_false(strftime(as.POSIXct(x), format = "%M:%S") == "00:00"))
+  lapply(chaset[, c("created_at", "closed_at")], function(x) {
+    expect_false(strftime(as.POSIXct(x), format = "%M:%S") == "00:00")
+  })
+
+  lapply(chaset_discuss[, c("created_at", "closed_at")], function(x) {
+    expect_false(strftime(as.POSIXct(x), format = "%M:%S") == "00:00")
+  })
 
   # methods
   expect_s3_class(print(chaset), c("osmapi_changesets", "data.frame"))
