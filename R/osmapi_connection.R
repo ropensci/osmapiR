@@ -34,6 +34,18 @@
 set_osmapi_connection <- function(server = c("openstreetmap.org", "testing"), cache_authentication) {
   server <- match.arg(server)
 
+  if (missing(cache_authentication)) {
+    cache_authentication <- getOption("osmapir.cache_authentication")
+  }
+
+  if (!cache_authentication && # cached authentication can keep multiple tokens ?httr2::req_oauth_auth_code / cache_key
+    (
+      (server == "openstreetmap.org" && getOption("osmapir.base_api_url") != "https://api.openstreetmap.org") ||
+        (server == "testing" && getOption("osmapir.base_api_url") != "https://master.apis.dev.openstreetmap.org")
+    )) {
+    logout_osmapi() # no cached authentication and server change
+  }
+
   if (server == "openstreetmap.org") {
     options(osmapir.base_api_url = "https://api.openstreetmap.org")
     options(osmapir.base_auth_url = "https://www.openstreetmap.org")
