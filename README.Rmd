@@ -26,8 +26,7 @@ Implements [OpenStreetMap API](https://wiki.openstreetmap.org/wiki/API_v0.6) for
 
 ## Status
 
-All `GET` calls implemented, also the ones requiring authentication. The server responses are parsed and transformed to
-`data.frame`s. The format of the returned values still can change a bit.
+All API end points implemented. Requires testing and vignettes explaining the flow for editing.
 
 ## Installation
 
@@ -38,13 +37,67 @@ You can install the development version of osmapiR from [GitHub](https://github.
 devtools::install_github("jmaspons/osmapiR")
 ```
 
-## Example
+## Examples
 
-This is a basic example which shows you how to solve a common problem:
+This is a basic example which shows how to get map data:
 
-```{r example}
+```{r osm objects}
 library(osmapiR)
 
-# For testing without breaking the OSM data, make calls to `https://master.apis.dev.openstreetmap.org`
-set_osmapi_connection(server = "testing")
+# For testing edition without breaking the OSM data,
+# make calls to `https://master.apis.dev.openstreetmap.org`
+
+# set_osmapi_connection(server = "testing") # lacks data
+
+bbox <- c(2.4166059, 42.5945594, 2.4176574, 42.5962101)
+
+## Download objects by bounding box
+osm_objs <- osm_bbox_objects(bbox = bbox, tags_in_columns = TRUE)
+
+## View history of an object
+sel <- osm_objs$`name:ca` %in% "Abadia de Sant Miquel de Cuixà"
+obj <- osm_objs[sel, ]
+
+obj_history <- osm_history_object(osm_type = obj$type, osm_id = obj$id) # tags in a list column
+obj_history
+# obj_history$tags
 ```
+
+
+Get notes:
+```{r notes}
+notes <- osm_read_bbox_notes(bbox = bbox, closed = -1)
+notes
+# notes$comments
+```
+
+
+Get GPX data:
+``` r
+## Requires authentication
+usr_traces <-  osm_list_gpxs()
+osm_get_metadata_gpx(gpx_id = 3790367)
+osm_get_data_gpx(gpx_id = 3790367, format = "R")
+```
+```{r gpx}
+gpx <- osm_get_points_gps(bbox = bbox)
+gpx
+```
+
+
+## Related packages
+
+* [osmdata](https://cran.r-project.org/package=osmdata) implements the Overpass API to query data from OSM.
+* [osmar](https://cran.r-project.org/package=osmar) also implements OSM API but seems abandoned and is currently
+  archived in CRAN.
+* [osmexctract](https://cran.r-project.org/package=osmextract) matches, downloads, converts and imports bulk OSM data
+  (`.pbf` files)
+* [OpenStreetMap](https://cran.r-project.org/package=OpenStreetMap) Accesses high resolution raster maps using the
+  OpenStreetMap protocol.
+  
+`osmapiR` is the only package to access other OSM data than the maps data (map notes, GPS traces, changelogs and
+users). It can be also useful to get the history of the OSM objects and is the only package that allows editing and
+upload any kind of data.
+
+To access the OSM map data for purposes other than editing or exploring the history of the objects, perhaps is better to
+use the other packages that implements the Overpass API (`osmdata`) or that works with `.pbf` files (`osmexcract`).
