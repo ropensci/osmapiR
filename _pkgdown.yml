@@ -3,8 +3,12 @@ template:
   bootstrap: 5
 reference:
 - title: "OSM objects"
+- subtitle: "Get OSM objects"
   contents:
   - has_concept("get OSM objects' functions")
+- subtitle: "Edit OSM objects"
+  contents:
+  - has_concept("edit OSM objects' functions")
 - title: "Changesets"
   desc: >
     Every modification of the standard OSM elements has to reference an open changeset. A changeset may contain tags

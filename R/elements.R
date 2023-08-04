@@ -62,15 +62,92 @@
 # * The ''role'' attribute for relations is optional. An empty string is the default.
 # * To avoid performance issues when uploading multiple objects, the use of the [[API v0.6#Diff upload: POST /api/0.6/changeset/#id/upload|Diff upload]] endpoint is highly recommended.
 
-osm_create_object <- function(osm_type = c("node", "way", "relation"), ...) {
-  osm_type <- match.arg(osm_type)
+#' Create an OSM object
+#'
+#' Creates a new element in an open changeset as specified.
+#'
+#' @param x The new object data. Can be the path of an xml file, a `xml_document` or a data.frame inheriting
+#'   or following the structure of an `osmapi_objects` object.
+#' @param changeset_id The ID of an open changeset where to create the object. If missing, `x` should define the
+#'   changeset ID, otherwise it will be overwritten with `changeset_id`. Ignored if `x` is a path.
+#'
+#' @details
+#' If `x` is a data.frame, the columns `type`, `changeset`, `tags` must be present + column `members` for ways and
+#' relations + `lat` and `lon` for nodes. For the xml format, see the
+#' [OSM wiki](https://wiki.openstreetmap.org/wiki/API_v0.6#Create:_PUT_/api/0.6/[node|way|relation]/create).
+#'
+#' If multiple elements are provided only the first is created. The rest is discarded.
+#'
+#' @note
+#' * This updates the bounding box of the changeset.
+#' * The `role` attribute for relations is optional. An empty string is the default.
+#' * To avoid performance issues when uploading multiple objects, the use of the [osm_diff_upload_changeset()] is highly
+#'   recommended.
+#' * The version of the created object will be 1.
+#'
+#' @return The ID of the newly created OSM object.
+#' @family edit OSM objects' functions
+#' @export
+#'
+#' @examples
+osm_create_object <- function(x, changeset_id) {
+  if (is.character(x)) {
+    if (file.exists(x)) {
+      path <- x
+      rm_path <- FALSE
+    } else {
+      stop("`x` is interpreted as a path to an xml file, but it can't be found (", x, ").")
+    }
+  } else {
+    if (inherits(x, "xml_document")) {
+      xml <- x
+    } else if (inherits(x, "osmapi_objects")) {
+      xml <- object_new_DF2xml(x)
+    } else if (inherits(x, "data.frame")) {
+      cols <- c("type", "changeset", "lat", "lon", "members", "tags")
+      if (all(setdiff(cols, c("lat", "lon")) %in% names(x))) { # lat & lon can be missing for ways and relations
+        xml <- object_new_DF2xml(x)
+      } else {
+        stop("`x` lacks ", paste0("`", paste(setdiff(cols, names(x)), collapse = "`, `"), "`"), " columns.")
+      }
+    } else {
+      stop(
+        "`x` must be a path to a xml file, a `xml_document` ",
+        "or a `osmapi_objects` data.frame describing OSM objects."
+      )
+    }
 
-  req <- osmapi_request()
+    if (!missing(changeset_id)) {
+      obj <- xml2::xml_child(xml)
+      xml2::xml_attr(obj, "changeset") <- changeset_id
+    }
+
+    path <- tempfile(fileext = ".osm")
+    xml2::write_xml(xml, path)
+    rm_path <- TRUE
+  }
+
+  osm_type <- xml2::xml_name(xml2::xml_child(xml))
+
+  if (length(osm_type) > 1) {
+    warning("More than one OSM object found. Only the first is created.")
+  }
+  if (!osm_type[1] %in% c("node", "way", "relation")) {
+    warning("Malformed xml. Node name is ", osm_type[1], ", and should be one of `node`, `way` or `relation`.")
+  }
+
+
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "PUT")
   req <- httr2::req_url_path_append(req, osm_type, "create")
+  req <- httr2::req_body_file(req, path = path)
 
   resp <- httr2::req_perform(req)
   out <- httr2::resp_body_string(resp)
+
+  if (rm_path) {
+    file.remove(path)
+  }
 
   return(out)
 }
@@ -198,15 +275,88 @@ osm_read_object <- function(osm_type = c("node", "way", "relation"),
 # * This updates the bounding box of the changeset.
 # * To avoid performance issues when updating multiple objects, the use of the [[API v0.6#Diff upload: POST /api/0.6/changeset/#id/upload|Diff upload]] endpoint is highly recommended. This is also the only way to ensure that multiple objects are updated in a single database transaction.
 
-osm_update_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
-  osm_type <- match.arg(osm_type)
+#' Update an OSM object
+#'
+#' Updates data from a preexisting element.
+#'
+#' @param x The new object data. Can be the path of an xml file, a `xml_document` or a data.frame inheriting
+#'   or following the structure of an `osmapi_objects` object.
+#' @param changeset_id The ID of an open changeset where to create the object. If missing, `x` should define the
+#'   changeset ID, otherwise it will be overwritten with `changeset_id`. Ignored if `x` is a path.
+#'
+#' @details
+#' A full representation of the element as it should be after the update has to be provided. Any tags, way-node refs,
+#' and relation members that remain unchanged must be in the update as well. A version number must be provided as well,
+#' it must match the current version of the element in the database.
+#'
+#' If `x` is a data.frame, the columns `type`, `id`, `visible`, `version`, `changeset`, and `tags` must be present +
+#' column `members` for ways and relations + `lat` and `lon` for nodes. For the xml format, see the
+#' [OSM wiki](https://wiki.openstreetmap.org/wiki/API_v0.6#Update:_PUT_/api/0.6/[node|way|relation]/#id).
+#'
+#' If multiple elements are provided only the first is updated. The rest is discarded.
+#'
+#' @note
+#' * This updates the bounding box of the changeset.
+#' * To avoid performance issues when updating multiple objects, the use of the [osm_diff_upload_changeset()] is highly
+#'   recommended. This is also the only way to ensure that multiple objects are updated in a single database
+#'   transaction.
+#'
+#' @return Returns the new version number of the object.
+#' @family edit OSM objects' functions
+#' @export
+#'
+#' @examples
+osm_update_object <- function(x, changeset_id) {
+  if (is.character(x)) {
+    if (file.exists(x)) {
+      path <- x
+      rm_path <- FALSE
+    } else {
+      stop("`x` is interpreted as a path to an xml file, but it can't be found (", x, ").")
+    }
+  } else {
+    if (inherits(x, "xml_document")) {
+      xml <- x
+    } else if (inherits(x, "osmapi_objects")) {
+      xml <- object_update_DF2xml(x)
+    } else if (inherits(x, "data.frame")) {
+      cols <- c("type", "id", "visible", "version", "changeset", "lat", "lon", "members", "tags")
+      if (all(setdiff(cols, c("lat", "lon")) %in% names(x))) { # lat & lon can be missing for ways and relations
+        xml <- object_update_DF2xml(x)
+      } else {
+        stop("`x` lacks ", paste0("`", paste(setdiff(cols, names(x)), collapse = "`, `"), "`"), " columns.")
+      }
+    } else {
+      stop(
+        "`x` must be a path to a xml file, a `xml_document` ",
+        "or a `osmapi_objects` data.frame describing OSM objects."
+      )
+    }
 
-  req <- osmapi_request()
+    if (!missing(changeset_id)) {
+      obj <- xml2::xml_child(xml)
+      xml2::xml_attr(obj, "changeset") <- changeset_id
+    }
+
+    path <- tempfile(fileext = ".osm")
+    xml2::write_xml(xml, path)
+    rm_path <- TRUE
+  }
+
+  osm_type <- xml2::xml_name(xml2::xml_child(xml))
+  osm_id <- xml2::xml_attr(xml2::xml_child(xml), "id")
+
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "PUT")
   req <- httr2::req_url_path_append(req, osm_type, osm_id)
+  req <- httr2::req_body_file(req, path = path)
 
   resp <- httr2::req_perform(req)
   out <- httr2::resp_body_string(resp)
+
+  if (rm_path) {
+    file.remove(path)
+  }
 
   return(out)
 }
@@ -258,15 +408,88 @@ osm_update_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
 # * In earlier API versions no payload was required. It is needed now because of the need for changeset IDs and version numbers.
 # * To avoid performance issues when updating multiple objects, the use of the Diff upload endpoint is highly recommended. This is also the only way to ensure that multiple objects are updated in a single database transaction.
 
-osm_delete_object <- function(osm_type = c("node", "way", "relation"), osm_id) {
-  osm_type <- match.arg(osm_type)
+#' Delete an OSM object
+#'
+#' Expects a valid XML representation of the element to be deleted.
+#'
+#' @param x The new object data. Can be the path of an xml file, a `xml_document` or a data.frame inheriting
+#'   or following the structure of an `osmapi_objects` object.
+#' @param changeset_id The ID of an open changeset where to create the object. If missing, `x` should define the
+#'   changeset ID, otherwise it will be overwritten with `changeset_id`. Ignored if `x` is a path.
+#'
+#' @details
+#' The version must match the version of the element you downloaded and the changeset must match the `id` of an open
+#' changeset owned by the current authenticated user. It is allowed, but not necessary, to have tags on the element
+#' except for lat/long which are required for nodes, without lat+lon the server gives 400 Bad request.
+#'
+#' If `x` is a data.frame, the columns `type`, `id`, `version` and `changeset` must be present + `lat` and `lon` for
+#' nodes. For the xml format, see the
+#' [OSM wiki](https://wiki.openstreetmap.org/wiki/API_v0.6#Delete:_DELETE_/api/0.6/[node|way|relation]/#id).
+#'
+#' If multiple elements are provided only the first is deleted. The rest is discarded.
+#'
+#' @note
+#' * This updates the bounding box of the changeset.
+#' * To avoid performance issues when deleting multiple objects, the use of the [osm_diff_upload_changeset()] is highly
+#'   recommended. This is also the only way to ensure that multiple objects are updated in a single database
+#'   transaction.
+#'
+#' @return Returns the new version number of the object.
+#' @family edit OSM objects' functions
+#' @export
+#'
+#' @examples
+osm_delete_object <- function(x, changeset_id) {
+  if (is.character(x)) {
+    if (file.exists(x)) {
+      path <- x
+      rm_path <- FALSE
+    } else {
+      stop("`x` is interpreted as a path to an xml file, but it can't be found (", x, ").")
+    }
+  } else {
+    if (inherits(x, "xml_document")) {
+      xml <- x
+    } else if (inherits(x, "osmapi_objects")) {
+      xml <- object_update_DF2xml(x)
+    } else if (inherits(x, "data.frame")) {
+      cols <- c("type", "id", "version", "changeset", "lat", "lon")
+      if (all(setdiff(cols, c("lat", "lon")) %in% names(x))) { # lat & lon can be missing for ways and relations
+        xml <- object_update_DF2xml(x)
+      } else {
+        stop("`x` lacks ", paste0("`", paste(setdiff(cols, names(x)), collapse = "`, `"), "`"), " columns.")
+      }
+    } else {
+      stop(
+        "`x` must be a path to a xml file, a `xml_document` ",
+        "or a `osmapi_objects` data.frame describing OSM objects."
+      )
+    }
 
-  req <- osmapi_request()
+    if (!missing(changeset_id)) {
+      obj <- xml2::xml_child(xml)
+      xml2::xml_attr(obj, "changeset") <- changeset_id
+    }
+
+    path <- tempfile(fileext = ".osm")
+    xml2::write_xml(xml, path)
+    rm_path <- TRUE
+  }
+
+  osm_type <- xml2::xml_name(xml2::xml_child(xml))
+  osm_id <- xml2::xml_attr(xml2::xml_child(xml), "id")
+
+  req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "DELETE")
   req <- httr2::req_url_path_append(req, osm_type, osm_id)
+  req <- httr2::req_body_file(req, path = path)
 
   resp <- httr2::req_perform(req)
   out <- httr2::resp_body_string(resp)
+
+  if (rm_path) {
+    file.remove(path)
+  }
 
   return(out)
 }
@@ -732,7 +955,7 @@ osm_redaction_object <- function(osm_type = c("node", "way", "relation"), osm_id
     req <- httr2::req_url_query(redaction = redaction_id)
   }
 
-  resp <- httr2::req_perform(req)
+  httr2::req_perform(req)
 
   invisible()
 }
