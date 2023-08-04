@@ -275,7 +275,10 @@ gpx_xml2list <- function(xml) {
     trk_details <- structure(xml2::xml_text(x_ch[x_names != "trkseg"]), names = x_names[x_names != "trkseg"])
 
     trkseg <- x_ch[x_names == "trkseg"]
-    trkpt <- xml2::xml_children(trkseg)
+
+    trkseg_ch <- xml2::xml_children(trkseg)
+    trkseg_names <- xml2::xml_name(trkseg_ch)
+    trkpt <- trkseg_ch[trkseg_names == "trkpt"]
     lat_lon <- do.call(rbind, xml2::xml_attrs(trkpt))
     # xml2::xml_find_all(trkpt, ".//time") ## TODO: doesn't work :(
 
