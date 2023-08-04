@@ -51,4 +51,3 @@ test_that("osm_unhide_comment_changeset_discussion works", {
     # osm_unhide_comment_changeset_discussion(comment_id)
   })
 })
-

@@ -355,7 +355,7 @@ osm_update_changeset <- function(changeset_id, comment, ...,
 #' @describeIn osm_create_changeset Closes a changeset. A changeset may already have been closed without the owner
 #'   issuing this API call. In this case an error code is returned.
 #'
-#' @return Nothing is returned upon successful closing of a changeset
+#' @return Nothing is returned upon successful closing of a changeset.
 #' @export
 osm_close_changeset <- function(changeset_id) {
   req <- osmapi_request(authenticate = TRUE)

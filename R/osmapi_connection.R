@@ -115,7 +115,7 @@ authenticate_osmapi <- function() {
 
   perms <- osm_permissions()
 
-  message("Logged in as: ", display_name)
+  message("Logged in at ", get_osmapi_url(), " as: ", display_name)
   message("With the following permissions:")
   message("\t", paste(perms, collapse = ", "))
 
@@ -131,6 +131,8 @@ logout_osmapi <- function() {
   req <- httr2::request(base_url = get_osmapi_url())
   req <- oauth_request(req)
   req$policies$auth_oauth$cache$clear()
+
+  message("Logged out from ", get_osmapi_url())
 
   invisible()
 }

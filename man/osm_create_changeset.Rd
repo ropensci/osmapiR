@@ -39,7 +39,7 @@ the changeset.}
 The ID of the newly created changeset or a \code{data.frame} inheriting \code{osmapi_changesets} with the details of
 the updated changeset.
 
-Nothing is returned upon successful closing of a changeset
+Nothing is returned upon successful closing of a changeset.
 }
 \description{
 Create or update an open changeset for editing.
