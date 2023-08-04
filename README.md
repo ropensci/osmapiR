@@ -70,6 +70,7 @@ obj_history
 #> 2 8 tags: amenity=place_of_worship | building=yes | denomination=catholic | histor...
 #> 3 15 tags: amenity=place_of_worship | building=yes | denomination=catholic | herit...
 #> 4 15 tags: amenity=place_of_worship | building=yes | denomination=catholic | herit...
+
 # obj_history$tags
 ```
 
@@ -90,6 +91,7 @@ notes
 #>                                                          comments
 #> 1                     2 comments from 2019-03-31 by Sherpa66, Syl
 #> 2 5 comments from 2016-07-15 to 2018-05-25 by Dolfo54, rainerU...
+
 # notes$comments
 ```
 

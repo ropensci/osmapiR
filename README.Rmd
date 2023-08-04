@@ -60,6 +60,7 @@ obj <- osm_objs[sel, ]
 
 obj_history <- osm_history_object(osm_type = obj$type, osm_id = obj$id) # tags in a list column
 obj_history
+
 # obj_history$tags
 ```
 
@@ -68,6 +69,7 @@ Get notes:
 ```{r notes}
 notes <- osm_read_bbox_notes(bbox = bbox, closed = -1)
 notes
+
 # notes$comments
 ```
 
