@@ -68,7 +68,7 @@
 <div class="section level2">
 <h2 id="status">Status<a class="anchor" aria-label="anchor" href="#status"></a>
 </h2>
-<p>All <code>GET</code> calls implemented, also the ones requiring authentication. The server responses are parsed and transformed to <code>data.frame</code>s. The format of the returned values still can change a bit.</p>
+<p>All API end points implemented. Requires testing and vignettes explaining the flow for editing.</p>
 </div>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -79,15 +79,100 @@
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"jmaspons/osmapiR"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h2 id="examples">Examples<a class="anchor" aria-label="anchor" href="#examples"></a>
 </h2>
-<p>This is a basic example which shows you how to solve a common problem:</p>
+<p>This is a basic example which shows how to get map data:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jmaspons.github.io/osmapiR">osmapiR</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; Data (c) OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright</span></span>
 <span></span>
-<span><span class="co"># For testing without breaking the OSM data, make calls to `https://master.apis.dev.openstreetmap.org`</span></span>
-<span><span class="fu"><a href="reference/API_configuration.html">set_osmapi_connection</a></span><span class="op">(</span>server <span class="op">=</span> <span class="st">"testing"</span><span class="op">)</span></span></code></pre></div>
+<span><span class="co"># For testing edition without breaking the OSM data,</span></span>
+<span><span class="co"># make calls to `https://master.apis.dev.openstreetmap.org`</span></span>
+<span></span>
+<span><span class="co"># set_osmapi_connection(server = "testing") # lacks data</span></span>
+<span></span>
+<span><span class="va">bbox</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">2.4166059</span>, <span class="fl">42.5945594</span>, <span class="fl">2.4176574</span>, <span class="fl">42.5962101</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## Download objects by bounding box</span></span>
+<span><span class="va">osm_objs</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/osm_bbox_objects.html">osm_bbox_objects</a></span><span class="op">(</span>bbox <span class="op">=</span> <span class="va">bbox</span>, tags_in_columns <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">## View history of an object</span></span>
+<span><span class="va">sel</span> <span class="op">&lt;-</span> <span class="va">osm_objs</span><span class="op">$</span><span class="va">`name:ca`</span> <span class="op"><a href="https://rdrr.io/r/base/match.html" class="external-link">%in%</a></span> <span class="st">"Abadia de Sant Miquel de Cuixà"</span></span>
+<span><span class="va">obj</span> <span class="op">&lt;-</span> <span class="va">osm_objs</span><span class="op">[</span><span class="va">sel</span>, <span class="op">]</span></span>
+<span></span>
+<span><span class="va">obj_history</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/osm_history_object.html">osm_history_object</a></span><span class="op">(</span>osm_type <span class="op">=</span> <span class="va">obj</span><span class="op">$</span><span class="va">type</span>, osm_id <span class="op">=</span> <span class="va">obj</span><span class="op">$</span><span class="va">id</span><span class="op">)</span> <span class="co"># tags in a list column</span></span>
+<span><span class="va">obj_history</span></span>
+<span><span class="co">#&gt;   type       id visible version changeset           timestamp     user    uid</span></span>
+<span><span class="co">#&gt; 1  way 50343004    TRUE       1   3882565 2010-02-15 12:14:11  Skywave  10927</span></span>
+<span><span class="co">#&gt; 2  way 50343004    TRUE       2  13314595 2012-09-30 19:52:28 petrovsk  90394</span></span>
+<span><span class="co">#&gt; 3  way 50343004    TRUE       3  53623614 2017-11-08 22:08:33    JFK73 662440</span></span>
+<span><span class="co">#&gt; 4  way 50343004    TRUE       4 103004865 2021-04-15 15:41:02 petrovsk  90394</span></span>
+<span><span class="co">#&gt;    lat  lon                                                         members</span></span>
+<span><span class="co">#&gt; 1 &lt;NA&gt; &lt;NA&gt; 44 nodes: 639618609, 639618608, 639618720, 639618717, 639618...</span></span>
+<span><span class="co">#&gt; 2 &lt;NA&gt; &lt;NA&gt; 44 nodes: 639618609, 639618608, 639618720, 639618717, 639618...</span></span>
+<span><span class="co">#&gt; 3 &lt;NA&gt; &lt;NA&gt; 44 nodes: 639618609, 639618608, 639618720, 639618717, 639618...</span></span>
+<span><span class="co">#&gt; 4 &lt;NA&gt; &lt;NA&gt; 48 nodes: 639618609, 639618608, 8632687795, 8632687796, 8632...</span></span>
+<span><span class="co">#&gt;                                                                                  tags</span></span>
+<span><span class="co">#&gt; 1 8 tags: amenity=place_of_worship | building=yes | denomination=catholic | histor...</span></span>
+<span><span class="co">#&gt; 2 8 tags: amenity=place_of_worship | building=yes | denomination=catholic | histor...</span></span>
+<span><span class="co">#&gt; 3 15 tags: amenity=place_of_worship | building=yes | denomination=catholic | herit...</span></span>
+<span><span class="co">#&gt; 4 15 tags: amenity=place_of_worship | building=yes | denomination=catholic | herit...</span></span>
+<span><span class="co"># obj_history$tags</span></span></code></pre></div>
+<p>Get notes:</p>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">notes</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/osm_read_bbox_notes.html">osm_read_bbox_notes</a></span><span class="op">(</span>bbox <span class="op">=</span> <span class="va">bbox</span>, closed <span class="op">=</span> <span class="op">-</span><span class="fl">1</span><span class="op">)</span></span>
+<span><span class="va">notes</span></span>
+<span><span class="co">#&gt;         lon        lat      id</span></span>
+<span><span class="co">#&gt; 1 2.4170566 42.5948042 1730475</span></span>
+<span><span class="co">#&gt; 2 2.4170552 42.5949259  628602</span></span>
+<span><span class="co">#&gt;                                                       url comment_url close_url</span></span>
+<span><span class="co">#&gt; 1 https://api.openstreetmap.org/api/0.6/notes/1730475.xml        &lt;NA&gt;      &lt;NA&gt;</span></span>
+<span><span class="co">#&gt; 2  https://api.openstreetmap.org/api/0.6/notes/628602.xml        &lt;NA&gt;      &lt;NA&gt;</span></span>
+<span><span class="co">#&gt;          date_created status</span></span>
+<span><span class="co">#&gt; 1 2019-03-31 14:10:04 closed</span></span>
+<span><span class="co">#&gt; 2 2016-07-15 07:09:19 closed</span></span>
+<span><span class="co">#&gt;                                                          comments</span></span>
+<span><span class="co">#&gt; 1                     2 comments from 2019-03-31 by Sherpa66, Syl</span></span>
+<span><span class="co">#&gt; 2 5 comments from 2016-07-15 to 2018-05-25 by Dolfo54, rainerU...</span></span>
+<span><span class="co"># notes$comments</span></span></code></pre></div>
+<p>Get GPX data:</p>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co">## Requires authentication</span></span>
+<span><span class="va">usr_traces</span> <span class="op">&lt;-</span>  <span class="fu"><a href="reference/osm_list_gpxs.html">osm_list_gpxs</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/osm_get_metadata_gpx.html">osm_get_metadata_gpx</a></span><span class="op">(</span>gpx_id <span class="op">=</span> <span class="fl">3790367</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/osm_get_data_gpx.html">osm_get_data_gpx</a></span><span class="op">(</span>gpx_id <span class="op">=</span> <span class="fl">3790367</span>, format <span class="op">=</span> <span class="st">"R"</span><span class="op">)</span></span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">gpx</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/osm_get_points_gps.html">osm_get_points_gps</a></span><span class="op">(</span>bbox <span class="op">=</span> <span class="va">bbox</span><span class="op">)</span></span>
+<span><span class="va">gpx</span></span>
+<span><span class="co">#&gt; [[1]]</span></span>
+<span><span class="co">#&gt;          lat       lon</span></span>
+<span><span class="co">#&gt; 1 42.5945734 2.4166662</span></span>
+<span><span class="co">#&gt; 2 42.5945770 2.4166060</span></span>
+<span><span class="co">#&gt; 3 42.5945770 2.4166640</span></span>
+<span><span class="co">#&gt; 4 42.5945770 2.4166880</span></span>
+<span><span class="co">#&gt; 5 42.5945890 2.4167120</span></span>
+<span><span class="co">#&gt; 6 42.5945999 2.4166340</span></span>
+<span><span class="co">#&gt; 7 42.5946030 2.4166390</span></span>
+<span><span class="co">#&gt; 8 42.5946100 2.4166260</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; attr(,"class")</span></span>
+<span><span class="co">#&gt; [1] "osmapi_gpx" "list"</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="related-packages">Related packages<a class="anchor" aria-label="anchor" href="#related-packages"></a>
+</h2>
+<ul>
+<li>
+<a href="https://cran.r-project.org/package=osmdata" class="external-link">osmdata</a> implements the Overpass API to query data from OSM.</li>
+<li>
+<a href="https://cran.r-project.org/package=osmar" class="external-link">osmar</a> also implements OSM API but seems abandoned and is currently archived in CRAN.</li>
+<li>
+<a href="https://cran.r-project.org/package=osmextract" class="external-link">osmexctract</a> matches, downloads, converts and imports bulk OSM data (<code>.pbf</code> files)</li>
+<li>
+<a href="https://cran.r-project.org/package=OpenStreetMap" class="external-link">OpenStreetMap</a> Accesses high resolution raster maps using the OpenStreetMap protocol.</li>
+</ul>
+<p><code>osmapiR</code> is the only package to access other OSM data than the maps data (map notes, GPS traces, changelogs and users). It can be also useful to get the history of the OSM objects and is the only package that allows editing and upload any kind of data.</p>
+<p>To access the OSM map data for purposes other than editing or exploring the history of the objects, perhaps is better to use the other packages that implements the Overpass API (<code>osmdata</code>) or that works with <code>.pbf</code> files (<code>osmexcract</code>).</p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
