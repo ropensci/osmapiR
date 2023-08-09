@@ -51,6 +51,13 @@ reference:
 - title: "Users"
   contents:
   - has_concept("users' functions")
+- title: "OsmChange"
+  desc: >
+    The [OsmChange](https://wiki.openstreetmap.org/wiki/OsmChange) format can be uploaded to the server. This is
+    guaranteed to be running in a transaction. So either all the changes are applied or none. To avoid performance
+    issues when uploading multiple objects, the use of the [osm_diff_upload_changeset()] is highly recommended.
+  contents:
+  - has_concept("OsmChange's functions")
 - title: "Methods"
   contents:
   - has_concept("methods")

@@ -402,6 +402,7 @@ osm_close_changeset <- function(changeset_id) {
 #'
 #' @return
 #' @family get changesets' functions
+#' @family OsmChange's functions
 #' @export
 #'
 #' @examples
@@ -725,6 +726,7 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
 #'
 #' @return
 #' @family edit changeset's functions
+#' @family OsmChange's functions
 #' @export
 #'
 #' @examples

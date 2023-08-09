@@ -32,5 +32,10 @@ chaset
 Other get changesets' functions: 
 \code{\link{osm_query_changesets}()},
 \code{\link{osm_read_changeset}()}
+
+Other OsmChange's functions: 
+\code{\link{osm_diff_upload_changeset}()},
+\code{\link{osmchange_modify}()}
 }
+\concept{OsmChange's functions}
 \concept{get changesets' functions}

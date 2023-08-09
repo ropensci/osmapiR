@@ -49,5 +49,10 @@ size).
 \seealso{
 Other edit changeset's functions: 
 \code{\link{osm_create_changeset}()}
+
+Other OsmChange's functions: 
+\code{\link{osm_download_changeset}()},
+\code{\link{osmchange_modify}()}
 }
+\concept{OsmChange's functions}
 \concept{edit changeset's functions}
