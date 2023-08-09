@@ -51,7 +51,7 @@ the server. This is guaranteed to be running in a transaction. So either all the
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">osm_diff_upload_changeset</span><span class="op">(</span><span class="va">changeset_id</span>, <span class="va">osmcha</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">osm_diff_upload_changeset</span><span class="op">(</span><span class="va">changeset_id</span>, <span class="va">osmcha</span>, format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"R"</span>, <span class="st">"xml"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -65,12 +65,30 @@ that created the changeset.</p></dd>
 <dd><p>The OsmChange data. Can be the path of an OsmChange file, a <code>xml_document</code> or a data.frame inheriting
 or following the structure of an <code>osmapi_OsmChange</code> object.</p></dd>
 
+
+<dt>format</dt>
+<dd><p>Format of the output. Can be <code>R</code> (default) or <code>xml</code>.</p></dd>
+
 </dl></div>
+    <div class="section level2">
+    <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
+    <p>To upload an OSC file it has to conform to the <a href="https://wiki.openstreetmap.org/wiki/OsmChange" class="external-link">OsmChange</a>
+specification with the following differences:</p><ul><li><p>each element must carry a <code>changeset</code> and a <code>version</code> attribute (xml) / column (data.frame), except when you are
+creating an element where the version is not required as the server sets that for you. The <code>changeset</code> must be the
+same as the changeset ID being uploaded to.</p></li>
+<li><p>a <code>&lt;delete&gt;</code> block in the OsmChange document may have an <code>if-unused</code> attribute (the value of which is ignored)
+(<code>action_type</code> column with <code>delete if-unused</code> for data.frames). If this attribute is present, then the delete
+operation(s) in this block are conditional and will only be executed if the object to be deleted is not used by
+another object. Without the <code>if-unused</code>, such a situation would lead to an error, and the whole diff upload would
+fail. Setting the attribute will also cause deletions of already deleted objects to not generate an error.</p></li>
+<li><p><a href="https://wiki.openstreetmap.org/wiki/OsmChange" class="external-link">OsmChange</a> documents generally have <code>user</code> and <code>uid</code> attributes
+on each element. These are not required in the document uploaded to the API.</p></li>
+</ul></div>
     <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
     
-<ul><li><p>Processing stops at the first error, so if there are multiple conflicts in one diff upload, only the first
-problem is reported.</p></li>
+<ul><li><p>Processing stops at the first error, so if there are multiple conflicts in one diff upload, only the first problem
+is reported.</p></li>
 <li><p>Refer to <code><a href="osm_capabilities.html">osm_capabilities()</a></code> --&gt; <code>changesets$maximum_elements</code> for the maximum number of changes permitted in a
 changeset.</p></li>
 <li><p>There is currently no limit in the diff size on the Rails port. CGImap limits diff size to 50MB (uncompressed
@@ -80,7 +98,10 @@ size).</p></li>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other edit changeset's functions: 
-<code><a href="osm_create_changeset.html">osm_create_changeset</a>()</code></p></div>
+<code><a href="osm_create_changeset.html">osm_create_changeset</a>()</code></p>
+<p>Other OsmChange's functions: 
+<code><a href="osm_download_changeset.html">osm_download_changeset</a>()</code>,
+<code><a href="osmchange_modify.html">osmchange_modify</a>()</code></p></div>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
