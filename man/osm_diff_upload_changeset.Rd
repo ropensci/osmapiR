@@ -4,7 +4,7 @@
 \alias{osm_diff_upload_changeset}
 \title{Diff (OsmChange format) upload to a changeset}
 \usage{
-osm_diff_upload_changeset(changeset_id, osmcha)
+osm_diff_upload_changeset(changeset_id, osmcha, format = c("R", "xml"))
 }
 \arguments{
 \item{changeset_id}{The ID of the changeset this diff belongs to. The user issuing this API call has to be the same
@@ -12,15 +12,33 @@ that created the changeset.}
 
 \item{osmcha}{The OsmChange data. Can be the path of an OsmChange file, a \code{xml_document} or a data.frame inheriting
 or following the structure of an \code{osmapi_OsmChange} object.}
+
+\item{format}{Format of the output. Can be \code{R} (default) or \code{xml}.}
 }
 \description{
 With this API call files in the \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange} format can be uploaded to
 the server. This is guaranteed to be running in a transaction. So either all the changes are applied or none.
 }
+\details{
+To upload an OSC file it has to conform to the \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange}
+specification with the following differences:
+\itemize{
+\item each element must carry a \code{changeset} and a \code{version} attribute (xml) / column (data.frame), except when you are
+creating an element where the version is not required as the server sets that for you. The \code{changeset} must be the
+same as the changeset ID being uploaded to.
+\item a \verb{<delete>} block in the OsmChange document may have an \verb{if-unused} attribute (the value of which is ignored)
+(\code{action_type} column with \verb{delete if-unused} for data.frames). If this attribute is present, then the delete
+operation(s) in this block are conditional and will only be executed if the object to be deleted is not used by
+another object. Without the \verb{if-unused}, such a situation would lead to an error, and the whole diff upload would
+fail. Setting the attribute will also cause deletions of already deleted objects to not generate an error.
+\item \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange} documents generally have \code{user} and \code{uid} attributes
+on each element. These are not required in the document uploaded to the API.
+}
+}
 \note{
 \itemize{
-\item Processing stops at the first error, so if there are multiple conflicts in one diff upload, only the first
-problem is reported.
+\item Processing stops at the first error, so if there are multiple conflicts in one diff upload, only the first problem
+is reported.
 \item Refer to \code{\link[=osm_capabilities]{osm_capabilities()}} --> \code{changesets$maximum_elements} for the maximum number of changes permitted in a
 changeset.
 \item There is currently no limit in the diff size on the Rails port. CGImap limits diff size to 50MB (uncompressed

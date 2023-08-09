@@ -135,6 +135,24 @@ osmchange_xml2DF <- function(xml) {
 }
 
 
+osmchange_upload_response_xml2DF <- function(xml) {
+  actions <- xml2::xml_children(xml)
+
+  if (length(actions) == 0) {
+    return(data.frame(type = character(), old_id = character(), new_id = character(), new_version = integer()))
+  }
+
+  object_type <- xml2::xml_name(actions)
+  action_attrs <- do.call(rbind, xml2::xml_attrs(actions))
+
+  out <- cbind(type = object_type, action_attrs)
+  out <- data.frame(out)
+  out$new_version <- as.integer(out$new_version)
+
+  return(out)
+}
+
+
 ## Elements ----
 
 object_xml2DF <- function(xml, tags_in_columns = FALSE) {

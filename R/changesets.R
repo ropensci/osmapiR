@@ -698,21 +698,39 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
 #'   that created the changeset.
 #' @param osmcha The OsmChange data. Can be the path of an OsmChange file, a `xml_document` or a data.frame inheriting
 #'   or following the structure of an `osmapi_OsmChange` object.
+#' @param format Format of the output. Can be `R` (default) or `xml`.
+#'
+#' @details
+#' To upload an OSC file it has to conform to the [OsmChange](https://wiki.openstreetmap.org/wiki/OsmChange)
+#' specification with the following differences:
+#' * each element must carry a `changeset` and a `version` attribute (xml) / column (data.frame), except when you are
+#'   creating an element where the version is not required as the server sets that for you. The `changeset` must be the
+#'   same as the changeset ID being uploaded to.
+#' * a `<delete>` block in the OsmChange document may have an `if-unused` attribute (the value of which is ignored)
+#'   (`action_type` column with `delete if-unused` for data.frames). If this attribute is present, then the delete
+#'   operation(s) in this block are conditional and will only be executed if the object to be deleted is not used by
+#'   another object. Without the `if-unused`, such a situation would lead to an error, and the whole diff upload would
+#'   fail. Setting the attribute will also cause deletions of already deleted objects to not generate an error.
+#' * [OsmChange](https://wiki.openstreetmap.org/wiki/OsmChange) documents generally have `user` and `uid` attributes
+#'   on each element. These are not required in the document uploaded to the API.
 #'
 #' @note
-#'   * Processing stops at the first error, so if there are multiple conflicts in one diff upload, only the first
-#'     problem is reported.
-#'   * Refer to [osm_capabilities()] --> `changesets$maximum_elements` for the maximum number of changes permitted in a
-#'     changeset.
-#'   * There is currently no limit in the diff size on the Rails port. CGImap limits diff size to 50MB (uncompressed
-#'     size).
-#'   * Forward referencing of placeholder ids is not permitted and will be rejected by the API.
+#' * Processing stops at the first error, so if there are multiple conflicts in one diff upload, only the first problem
+#'   is reported.
+#' * Refer to [osm_capabilities()] --> `changesets$maximum_elements` for the maximum number of changes permitted in a
+#'   changeset.
+#' * There is currently no limit in the diff size on the Rails port. CGImap limits diff size to 50MB (uncompressed
+#'   size).
+#' * Forward referencing of placeholder ids is not permitted and will be rejected by the API.
+#'
 #' @return
 #' @family edit changeset's functions
 #' @export
 #'
 #' @examples
-osm_diff_upload_changeset <- function(changeset_id, osmcha) {
+osm_diff_upload_changeset <- function(changeset_id, osmcha, format = c("R", "xml")) {
+  format <- match.arg(format)
+
   if (is.character(osmcha)) {
     if (file.exists(osmcha)) {
       path <- osmcha
@@ -734,6 +752,13 @@ osm_diff_upload_changeset <- function(changeset_id, osmcha) {
       )
     }
 
+    if (!missing(changeset_id)) {
+      lapply(xml2::xml_children(xml), function(x) {
+        osm_obj <- xml2::xml_children(x)
+        xml2::xml_attr(osm_obj, attr = "changeset") <- changeset_id
+      })
+    }
+
     path <- tempfile(fileext = ".osc")
     xml2::write_xml(xml, path)
     rm_path <- TRUE
@@ -747,7 +772,11 @@ osm_diff_upload_changeset <- function(changeset_id, osmcha) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- osmchange_xml2DF(obj_xml)
+  if (format == "R") {
+    out <- osmchange_upload_response_xml2DF(obj_xml)
+  } else {
+    out <- obj_xml
+  }
 
   if (rm_path) {
     file.remove(path)
