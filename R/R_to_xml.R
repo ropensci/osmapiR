@@ -49,7 +49,11 @@ osmcha_DF2xml <- function(x) {
   create_ids <- c(node = 0, way = 0, relation = 0)
 
   for (i in seq_len(nrow(x))) {
-    xml2::xml_add_child(xml, x$action_type[i])
+    if (x$action_type[i] == "delete if-unused") {
+      xml2::xml_add_child(xml, "delete", `if-unused` = "safe delete")
+    } else {
+      xml2::xml_add_child(xml, x$action_type[i])
+    }
 
     if (x$action_type[i] == "create" && is.na(x$id[i])) {
       create_ids[x$type] <- create_ids[x$type] - 1

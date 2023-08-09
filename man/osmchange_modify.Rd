@@ -28,6 +28,7 @@ data.frames with \code{key} and \code{value} columns. Missing tags or tags with 
 \seealso{
 Other OsmChange's functions: 
 \code{\link{osm_diff_upload_changeset}()},
-\code{\link{osm_download_changeset}()}
+\code{\link{osm_download_changeset}()},
+\code{\link{osmchange_delete}()}
 }
 \concept{OsmChange's functions}

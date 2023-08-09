@@ -47,7 +47,7 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
   }
 
   x_type <- split(x, x$type)
-  x_osm <- lapply(x_type, function(y) osm_fetch_objects(osm_type = unique(y$type), osm_ids =  y$id))
+  x_osm <- lapply(x_type, function(y) osm_fetch_objects(osm_type = unique(y$type), osm_ids = y$id))
   x_osm <- do.call(rbind, x_osm)
 
   x_uid <- do.call(paste, x[, c("type", "id")])
@@ -97,4 +97,43 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
   }
 
   return(osmchange)
+}
+
+
+#' Delete existing OSM objects
+#'
+#' @param x A `data.frame` with the columns `type` and `id`.
+#' @param delete_if_unused If `TRUE` (default), the `if-unused` attribute will be added. Can be a vector of length
+#'   `nrow(x)`.
+#'
+#' @details
+#' If `if-unused` attribute is present, then the delete operation(s) in this block are conditional and will only be
+#' executed if the object to be deleted is not used by another object. Without the ⁠if-unused⁠, such a situation would
+#' lead to an error, and the whole diff upload would fail. Setting the attribute will also cause deletions of already
+#' deleted objects to not generate an error.
+#'
+#' @return
+#' @family OsmChange's functions
+#' @export
+#'
+#' @examples
+osmchange_delete <- function(x, delete_if_unused = TRUE) {
+  x_type <- split(x, x$type)
+  osmchange <- lapply(x_type, function(y) osm_fetch_objects(osm_type = unique(y$type), osm_ids = y$id))
+  osmchange <- do.call(rbind, osmchange[c("relation", "way", "node")]) # sort to avoid deleting members of existing objs
+
+  rownames(osmchange) <- NULL
+
+  osmchange$action_type <- ifelse(delete_if_unused, "delete if-unused", "delete")
+
+  class(osmchange) <- unique(c("osmapi_OsmChange", class(osmchange)))
+
+  return(osmchange)
+}
+
+
+## TODO: osmchange_create
+
+osmchange_create <- function(x) {
+
 }
