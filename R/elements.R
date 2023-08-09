@@ -412,7 +412,7 @@ osm_update_object <- function(x, changeset_id) {
 #'
 #' Expects a valid XML representation of the element to be deleted.
 #'
-#' @param x The new object data. Can be the path of an xml file, a `xml_document` or a data.frame inheriting
+#' @param x The object data. Can be the path of an xml file, a `xml_document` or a data.frame inheriting
 #'   or following the structure of an `osmapi_objects` object.
 #' @param changeset_id The ID of an open changeset where to create the object. If missing, `x` should define the
 #'   changeset ID, otherwise it will be overwritten with `changeset_id`. Ignored if `x` is a path.
