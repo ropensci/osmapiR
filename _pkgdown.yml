@@ -1,7 +1,12 @@
 url: https://jmaspons.github.io/osmapiR
 template:
   bootstrap: 5
+deploy:
+  install_metadata: true
 reference:
+- title: ""
+  desc: >
+    All function starting with `osm_*` include calls to the server.
 - title: "OSM objects"
 - subtitle: "Get OSM objects"
   contents:
@@ -55,7 +60,7 @@ reference:
   desc: >
     The [OsmChange](https://wiki.openstreetmap.org/wiki/OsmChange) format can be uploaded to the server. This is
     guaranteed to be running in a transaction. So either all the changes are applied or none. To avoid performance
-    issues when uploading multiple objects, the use of the [osm_diff_upload_changeset()] is highly recommended.
+    issues when uploading multiple objects, the use of the `osm_diff_upload_changeset()` is highly recommended.
   contents:
   - has_concept("OsmChange's functions")
 - title: "Methods"

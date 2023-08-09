@@ -3,7 +3,7 @@
 \name{tags_list2wide}
 \alias{tags_list2wide}
 \alias{tags_wide2list}
-\title{Change \code{tags} from list column <-> columns in wide format}
+\title{Change \code{tags} from a list column <-> columns for each key in wide format}
 \usage{
 tags_list2wide(x)
 

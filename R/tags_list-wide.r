@@ -1,4 +1,4 @@
-#' Change `tags` from list column <-> columns in wide format
+#' Change `tags` from a list column <-> columns for each key in wide format
 #'
 #' Objects of classes `osmapi_objects` and `osmapi_changesets` can represent the tags in a column with a list with
 #' a data.frame for each row with 2 columns for keys and values, or by columns for each key. These functions allow
