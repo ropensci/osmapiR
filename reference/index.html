@@ -40,7 +40,13 @@
       <img src="" class="logo" alt=""><h1>Function reference</h1>
     </div>
 
-    <div class="section level2">
+    <div id="" class="section level2">
+      
+      
+      <p class="section-desc"></p><p>All function starting with <code>osm_*</code> include calls to the server.</p>
+
+      
+    </div><div class="section level2">
       <h2 id="osm-objects">OSM objects<a class="anchor" aria-label="anchor" href="#osm-objects"></a></h2>
       
       
@@ -367,7 +373,7 @@
       </dl></div><div class="section level2">
       <h2 id="osmchange">OsmChange<a class="anchor" aria-label="anchor" href="#osmchange"></a></h2>
       
-      <p class="section-desc"></p><p>The <a href="https://wiki.openstreetmap.org/wiki/OsmChange" class="external-link">OsmChange</a> format can be uploaded to the server. This is guaranteed to be running in a transaction. So either all the changes are applied or none. To avoid performance issues when uploading multiple objects, the use of the [osm_diff_upload_changeset()] is highly recommended.</p>
+      <p class="section-desc"></p><p>The <a href="https://wiki.openstreetmap.org/wiki/OsmChange" class="external-link">OsmChange</a> format can be uploaded to the server. This is guaranteed to be running in a transaction. So either all the changes are applied or none. To avoid performance issues when uploading multiple objects, the use of the <code><a href="../reference/osm_diff_upload_changeset.html">osm_diff_upload_changeset()</a></code> is highly recommended.</p>
 
       
     </div><div id="" class="section level2">
@@ -405,7 +411,7 @@
           
           <code><a href="tags_list-wide.html">tags_list2wide()</a></code> <code><a href="tags_list-wide.html">tags_wide2list()</a></code> 
         </dt>
-        <dd>Change <code>tags</code> from list column &lt;-&gt; columns in wide format</dd>
+        <dd>Change <code>tags</code> from a list column &lt;-&gt; columns for each key in wide format</dd>
       </dl></div><div class="section level2">
       <h2 id="api">API<a class="anchor" aria-label="anchor" href="#api"></a></h2>
       
