@@ -205,13 +205,21 @@ object_xml2DF <- function(xml, tags_in_columns = FALSE) {
   members <- vector("list", length = length(objects))
   members[object_type == "way"] <- lapply(objects[object_type == "way"], function(x) {
     nd <- xml2::xml_attr(xml2::xml_find_all(x, ".//nd"), "ref")
-    class(nd) <- "way_members"
+
+    if (!is.null(nd)) {
+      class(nd) <- "way_members"
+    }
+
     nd
   })
 
   members[object_type == "relation"] <- lapply(objects[object_type == "relation"], function(x) {
     member <- do.call(rbind, xml2::xml_attrs(xml2::xml_find_all(x, ".//member")))
-    class(member) <- "relation_members"
+
+    if (!is.null(member)) {
+      class(member) <- "relation_members"
+    }
+
     member
   })
 
