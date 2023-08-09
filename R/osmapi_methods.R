@@ -4,9 +4,11 @@
 print.osmapi_objects <- function(x, nchar_members = 60, nchar_tags = 80, ...) {
   y <- x
 
-  members <- vapply(x$members, members_as_text, FUN.VALUE = "")
-  members <- ifelse(nchar(members) > nchar_members, paste0(substr(members, 1, nchar_members), "..."), members)
-  x$members <- members
+  if ("members" %in% names(x)) {
+    members <- vapply(x$members, members_as_text, FUN.VALUE = "")
+    members <- ifelse(nchar(members) > nchar_members, paste0(substr(members, 1, nchar_members), "..."), members)
+    x$members <- members
+  }
 
   if ("tags" %in% names(x)) {
     tags <- vapply(x$tags, tags_as_text, FUN.VALUE = "")
@@ -20,7 +22,7 @@ print.osmapi_objects <- function(x, nchar_members = 60, nchar_tags = 80, ...) {
 }
 
 
-# TODO: rbind.osmapi_objects <- function(...) dbTools::rbind_addColumns(...)
+# TODO: rbind.osmapi_objects <- function(...) dbTools::rbind_addColumns(...) fot tags in wide format
 
 
 ## OsmChange ----
@@ -29,9 +31,11 @@ print.osmapi_objects <- function(x, nchar_members = 60, nchar_tags = 80, ...) {
 print.osmapi_OsmChange <- function(x, nchar_members = 60, nchar_tags = 80, ...) {
   y <- x
 
-  members <- vapply(x$members, members_as_text, FUN.VALUE = "")
-  members <- ifelse(nchar(members) > nchar_members, paste0(substr(members, 1, nchar_members), "..."), members)
-  x$members <- members
+  if ("members" %in% names(x)) {
+    members <- vapply(x$members, members_as_text, FUN.VALUE = "")
+    members <- ifelse(nchar(members) > nchar_members, paste0(substr(members, 1, nchar_members), "..."), members)
+    x$members <- members
+  }
 
   if ("tags" %in% names(x)) {
     tags <- vapply(x$tags, tags_as_text, FUN.VALUE = "")
@@ -73,8 +77,10 @@ print.osmapi_changesets <- function(x, nchar_comments = 60, nchar_tags = 80, ...
 
 #' @export
 print.osmapi_map_notes <- function(x, nchar_comments = 60, ...) {
-  comments <- vapply(x$comments, comments_as_text, FUN.VALUE = "")
-  comments <- ifelse(nchar(comments) > nchar_comments, paste0(substr(comments, 1, nchar_comments), "..."), comments)
+  if ("comments" %in% names(x)) {
+    comments <- vapply(x$comments, comments_as_text, FUN.VALUE = "")
+    comments <- ifelse(nchar(comments) > nchar_comments, paste0(substr(comments, 1, nchar_comments), "..."), comments)
+  }
 
   y <- x
   x$comments <- comments
