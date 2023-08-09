@@ -25,6 +25,7 @@ deleted objects to not generate an error.
 Other OsmChange's functions: 
 \code{\link{osm_diff_upload_changeset}()},
 \code{\link{osm_download_changeset}()},
+\code{\link{osmchange_create}()},
 \code{\link{osmchange_modify}()}
 }
 \concept{OsmChange's functions}

@@ -35,6 +35,7 @@ Other get changesets' functions:
 
 Other OsmChange's functions: 
 \code{\link{osm_diff_upload_changeset}()},
+\code{\link{osmchange_create}()},
 \code{\link{osmchange_delete}()},
 \code{\link{osmchange_modify}()}
 }

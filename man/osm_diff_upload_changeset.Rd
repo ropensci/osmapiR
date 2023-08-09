@@ -52,6 +52,7 @@ Other edit changeset's functions:
 
 Other OsmChange's functions: 
 \code{\link{osm_download_changeset}()},
+\code{\link{osmchange_create}()},
 \code{\link{osmchange_delete}()},
 \code{\link{osmchange_modify}()}
 }

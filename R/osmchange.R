@@ -87,7 +87,7 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
     }
   }
 
-  class(osmchange) <- unique(c("osmapi_OsmChange", class(osmchange)))
+  class(osmchange) <- unique(c("osmapi_OsmChange", setdiff(class(x)), "tags_wide"))
 
   rm <- is.na(osmchange$action_type)
 
@@ -126,14 +126,36 @@ osmchange_delete <- function(x, delete_if_unused = TRUE) {
 
   osmchange$action_type <- ifelse(delete_if_unused, "delete if-unused", "delete")
 
-  class(osmchange) <- unique(c("osmapi_OsmChange", class(osmchange)))
+  class(osmchange) <- unique(c("osmapi_OsmChange", class(x)))
 
   return(osmchange)
 }
 
 
-## TODO: osmchange_create
-
+#' Create OSM objects
+#'
+#' @param x A `data.frame` with columns `type`, `changeset` and `tags` + column `members` for ways and relations + `lat`
+#'   and `lon` for nodes. For `osmapi_obects`, the tags column is not needed but the object must inherit `tags_wide`.
+#'
+#' @details
+#' Objects IDs are unknown and will be allocated by the server. Check
+#' [OsmChange page](https://wiki.openstreetmap.org/wiki/OsmChange) for details about how to refer to objects still not
+#' created to define the members of relations and nodes of ways.
+#'
+#' @return
+#' @family OsmChange's functions
+#' @export
+#'
+#' @examples
 osmchange_create <- function(x) {
+  x_type <- split(x, x$type)
+  osmchange <- do.call(rbind, x_type[c("node", "way", "relation")]) # sort to avoid creating obj with missing members
 
+  rownames(osmchange) <- NULL
+
+  osmchange$action_type <- "create"
+
+  class(osmchange) <- unique(c("osmapi_OsmChange", class(x)))
+
+  return(osmchange)
 }
