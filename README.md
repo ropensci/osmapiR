@@ -126,8 +126,6 @@ gpx
 
 - [osmdata](https://cran.r-project.org/package=osmdata) implements the
   Overpass API to query data from OSM.
-- [osmar](https://cran.r-project.org/package=osmar) also implements OSM
-  API but seems abandoned and is currently archived in CRAN.
 - [osmexctract](https://cran.r-project.org/package=osmextract) matches,
   downloads, converts and imports bulk OSM data (`.pbf` files)
 - [OpenStreetMap](https://cran.r-project.org/package=OpenStreetMap)
