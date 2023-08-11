@@ -87,7 +87,7 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
     }
   }
 
-  class(osmchange) <- unique(c("osmapi_OsmChange", setdiff(class(x)), "tags_wide"))
+  class(osmchange) <- unique(c("osmapi_OsmChange", setdiff(class(x), "tags_wide")))
 
   rm <- is.na(osmchange$action_type)
 
