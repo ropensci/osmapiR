@@ -15,17 +15,18 @@ Provide information about the capabilities and limitations of the current API.
 \details{
 API:
 \itemize{
-\item Version minimum and maximum are the API call versions that the server will accept.
-\item Area maximum is the maximum area in square degrees that can be queried by API calls.
-\item Tracepoints per_page is the maximum number of points in a single GPS trace. (Possibly incorrect)
-\item Waypoints maximum is the maximum number of nodes that a way may contain.
-\item Relation member maximum is the maximum number of members that a relation may contain.
-\item Changesets maximum is the maximum number of combined nodes, ways and relations that can be contained in a
-changeset.
-\item The status element returns either ''online'', ''readonly'' or ''offline'' for each of the database, API and GPX
-API. The database field is informational, and the API/GPX-API fields indicate whether a client should expect read
-and write requests to work (''online''), only read requests to work (''readonly'') or no requests to work
-(''offline'').
+\item \code{version} \code{minimum} and \code{maximum} are the API call versions that the server will accept.
+\item \code{area} \code{maximum} is the maximum area in square degrees that can be queried by API calls.
+\item \code{tracepoints} \code{per_page} is the maximum number of points in a single GPS trace. (Possibly incorrect)
+\item \code{waynodes} \code{maximum} is the maximum number of nodes that a way may contain.
+\item \code{relationmember} \code{maximum} is the maximum number of members that a relation may contain.
+\item \code{changesets} \code{maximum_elements} is the maximum number of combined nodes, ways and relations that can be contained
+in a changeset.
+\item \code{changesets} \code{default_query_limit} and \code{maximum_query_limit} are the default and maximum values of the limit
+parameter of \code{\link[=osm_query_changesets]{osm_query_changesets()}}.
+\item The \code{status} element returns either \emph{online}, \emph{readonly} or \emph{offline} for each of the database, API and GPX
+API. The \code{database} field is informational, and the \code{API}/\code{GPX-API} fields indicate whether a client should expect read
+and write requests to work (\emph{online}), only read requests to work (\emph{readonly}) or no requests to work (\emph{offline}).
 }
 
 Policy:

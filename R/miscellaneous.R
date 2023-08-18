@@ -38,6 +38,7 @@ osm_api_versions <- function() {
 
 
 ## Capabilities: `GET /api/capabilities` ----
+# Also available as: GET /api/0.6/capabilities.
 # This API call is meant to provide information about the capabilities and limitations of the current API.
 #
 ### Response ----
@@ -52,7 +53,7 @@ osm_api_versions <- function() {
 # 		<tracepoints per_page="5000"/>
 # 		<waynodes maximum="2000"/>
 # 		<relationmembers maximum="32000"/>
-# 		<changesets maximum_elements="10000"/>
+# 		<changesets maximum_elements="10000" default_query_limit="100" maximum_query_limit="100"/>
 # 		<timeout seconds="300"/>
 # 		<status database="online" api="online" gpx="online"/>
 # 	</api>
@@ -70,19 +71,20 @@ osm_api_versions <- function() {
 # * Copyright, attribution, and license: referring to legal information
 #
 # API:
-# * Version minimum and maximum are the API call versions that the server will accept.
-# * Area maximum is the maximum area in square degrees that can be queried by API calls.
-# * Tracepoints per_page is the maximum number of points in a single GPS trace. (Possibly incorrect)
-# * Waypoints maximum is the maximum number of nodes that a way may contain.
-# * Relation member maximum is the maximum number of members that a relation may contain. (''new parameter added in February 2022'')
-# * Changesets maximum is the maximum number of combined nodes, ways and relations that can be contained in a changeset.
-# * The status element returns either ''online'', ''readonly'' or ''offline'' for each of the database, API and GPX API. The database field is informational, and the API/GPX-API fields indicate whether a client should expect read and write requests to work (''online''), only read requests to work (''readonly'') or no requests to work (''offline'').
+# * '''version''' '''minimum''' and '''maximum''' are the API call versions that the server will accept.
+# * '''area''' '''maximum''' is the maximum area in square degrees that can be queried by API calls.
+# * '''tracepoints''' '''per_page''' is the maximum number of points in a single GPS trace. (Possibly incorrect)
+# * '''waynodes''' '''maximum''' is the maximum number of nodes that a way may contain.
+# * '''relationmembers''' '''maximum''' is the maximum number of members that a relation may contain. (''added in February 2022'')
+# * '''changesets''' '''maximum_elements''' is the maximum number of combined nodes, ways and relations that can be contained in a changeset.
+# * '''changesets''' '''default_query_limit''' and '''maximum_query_limit''' are the default and maximum values of the limit parameter of [[API v0.6#Query:_GET_/api/0.6/changesets|changeset queries]]. (''added in {{GitHub link|openstreetmap/openstreetmap-website/pull/4142| August 2023}}'')
+# * The '''status''' element returns either ''online'', ''readonly'' or ''offline'' for each of the database, API and GPX API. The '''database''' field is informational, and the '''api'''/'''gpx''' fields indicate whether a client should expect read and write requests to work (''online''), only read requests to work (''readonly'') or no requests to work (''offline'').#
 #
 # Policy:
 # * Imagery blacklist lists all aerial and map sources, which are not permitted for OSM usage due to copyright. Editors must not show these resources as background layer.
 #
 ### Notes ----
-# * Note that the URL is versionless. For convenience, the server supports the request `/api/0.6/capabilities` too, such that clients can use the same URL prefix `http:/.../api/0.6` for all requests.
+# * Currently both versioned (<tt>/api/0.6/capabilities</tt>) and unversioned (<tt>/api/capabilities</tt>) version of this call exist. The unversioned one is {{GitHub link|openstreetmap/openstreetmap-website/commit/2398614349e3ff5605868fea82e013d2a9a16ef9| deprecated}} in favor of [[API_v0.6#Available_API_versions:_GET_/api/versions| checking the available versions]] first, then accessing the capabilities of a particular version.
 # * Element and relation member ids are currently implementation dependent limited to 64bit signed integers, this should not be a problem :-).
 
 #' Capabilities of the API
@@ -91,17 +93,18 @@ osm_api_versions <- function() {
 #'
 #' @details
 #' API:
-#' * Version minimum and maximum are the API call versions that the server will accept.
-#' * Area maximum is the maximum area in square degrees that can be queried by API calls.
-#' * Tracepoints per_page is the maximum number of points in a single GPS trace. (Possibly incorrect)
-#' * Waypoints maximum is the maximum number of nodes that a way may contain.
-#' * Relation member maximum is the maximum number of members that a relation may contain.
-#' * Changesets maximum is the maximum number of combined nodes, ways and relations that can be contained in a
-#'   changeset.
-#' * The status element returns either ''online'', ''readonly'' or ''offline'' for each of the database, API and GPX
-#'   API. The database field is informational, and the API/GPX-API fields indicate whether a client should expect read
-#'   and write requests to work (''online''), only read requests to work (''readonly'') or no requests to work
-#'   (''offline'').
+#' * `version` `minimum` and `maximum` are the API call versions that the server will accept.
+#' * `area` `maximum` is the maximum area in square degrees that can be queried by API calls.
+#' * `tracepoints` `per_page` is the maximum number of points in a single GPS trace. (Possibly incorrect)
+#' * `waynodes` `maximum` is the maximum number of nodes that a way may contain.
+#' * `relationmember` `maximum` is the maximum number of members that a relation may contain.
+#' * `changesets` `maximum_elements` is the maximum number of combined nodes, ways and relations that can be contained
+#'   in a changeset.
+#' * `changesets` `default_query_limit` and `maximum_query_limit` are the default and maximum values of the limit
+#'   parameter of [osm_query_changesets()].
+#' * The `status` element returns either _online_, _readonly_ or _offline_ for each of the database, API and GPX
+#'   API. The `database` field is informational, and the `API`/`GPX-API` fields indicate whether a client should expect read
+#'   and write requests to work (_online_), only read requests to work (_readonly_) or no requests to work (_offline_).
 #'
 #' Policy:
 #' * Imagery blacklist lists all aerial and map sources, which are not permitted for OSM usage due to copyright. Editors
@@ -117,7 +120,7 @@ osm_api_versions <- function() {
 osm_capabilities <- function() {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path(req, "api", "capabilities")
+  req <- httr2::req_url_path_append(req, "capabilities")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
