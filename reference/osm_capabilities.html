@@ -59,17 +59,18 @@
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
-    <p>API:</p><ul><li><p>Version minimum and maximum are the API call versions that the server will accept.</p></li>
-<li><p>Area maximum is the maximum area in square degrees that can be queried by API calls.</p></li>
-<li><p>Tracepoints per_page is the maximum number of points in a single GPS trace. (Possibly incorrect)</p></li>
-<li><p>Waypoints maximum is the maximum number of nodes that a way may contain.</p></li>
-<li><p>Relation member maximum is the maximum number of members that a relation may contain.</p></li>
-<li><p>Changesets maximum is the maximum number of combined nodes, ways and relations that can be contained in a
-changeset.</p></li>
-<li><p>The status element returns either ''online'', ''readonly'' or ''offline'' for each of the database, API and GPX
-API. The database field is informational, and the API/GPX-API fields indicate whether a client should expect read
-and write requests to work (''online''), only read requests to work (''readonly'') or no requests to work
-(''offline'').</p></li>
+    <p>API:</p><ul><li><p><code>version</code> <code>minimum</code> and <code>maximum</code> are the API call versions that the server will accept.</p></li>
+<li><p><code>area</code> <code>maximum</code> is the maximum area in square degrees that can be queried by API calls.</p></li>
+<li><p><code>tracepoints</code> <code>per_page</code> is the maximum number of points in a single GPS trace. (Possibly incorrect)</p></li>
+<li><p><code>waynodes</code> <code>maximum</code> is the maximum number of nodes that a way may contain.</p></li>
+<li><p><code>relationmember</code> <code>maximum</code> is the maximum number of members that a relation may contain.</p></li>
+<li><p><code>changesets</code> <code>maximum_elements</code> is the maximum number of combined nodes, ways and relations that can be contained
+in a changeset.</p></li>
+<li><p><code>changesets</code> <code>default_query_limit</code> and <code>maximum_query_limit</code> are the default and maximum values of the limit
+parameter of <code><a href="osm_query_changesets.html">osm_query_changesets()</a></code>.</p></li>
+<li><p>The <code>status</code> element returns either <em>online</em>, <em>readonly</em> or <em>offline</em> for each of the database, API and GPX
+API. The <code>database</code> field is informational, and the <code>API</code>/<code>GPX-API</code> fields indicate whether a client should expect read
+and write requests to work (<em>online</em>), only read requests to work (<em>readonly</em>) or no requests to work (<em>offline</em>).</p></li>
 </ul><p>Policy:</p><ul><li><p>Imagery blacklist lists all aerial and map sources, which are not permitted for OSM usage due to copyright. Editors
 must not show these resources as background layer.</p></li>
 </ul></div>
