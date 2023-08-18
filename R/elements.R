@@ -936,7 +936,7 @@ osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
 #'   element to be redacted in that redaction.
 #'
 #' @details
-#' The `redaction_id` is listed on https://www.openstreetmap.org/redactions. More information can be found in
+#' The `redaction_id` is listed on <https://www.openstreetmap.org/redactions>. More information can be found in
 #' [the source](https://github.com/openstreetmap/openstreetmap-website/blob/4a24ba5f735f884f3ef3c0a514b7b6395809257c/app/controllers/api/old_controller.rb#L56)
 #'
 #' @return
