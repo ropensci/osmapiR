@@ -15,6 +15,7 @@ moderator role.
 }
 \seealso{
 Other functions for moderators: 
+\code{\link{osm_delete_note}()},
 \code{\link{osm_redaction_object}()},
 \code{\link{osm_unhide_comment_changeset_discussion}()}
 }

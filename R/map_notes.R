@@ -442,6 +442,52 @@ osm_reopen_note <- function(note_id) {
 }
 
 
+## Hide: `DELETE /api/0.6/notes/#id` ----
+#
+# Hide (delete) a note.
+#
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/#id?text=Comment</code> (''use Postman or similar tools to test the endpoint'')<br />
+# '''Return type:''' application/xml<br />
+#
+# This request needs to be done as an authenticated user with moderator role.
+#
+# Use ''Reopen'' request to make the note visible again.
+#
+### Error codes ----
+# ; HTTP status code 403 (Forbidden)
+# : if the user is not a moderator
+# ; HTTP status code 404 (Not Found)
+# : When no note with the given id could be found
+# ; HTTP status code 410 (Gone)
+# : When hiding a note that is already hidden
+
+#' Delete a note
+#'
+#' Hide (delete) a note. This request needs to be done as an authenticated user with moderator role.
+#'
+#' @param note_id Note id represented by a numeric or a character value.
+#'
+#' @details Use [osm_reopen_note()]to make the note visible again.
+#'
+#' @return
+#' @family functions for moderators
+#' @export
+#'
+#' @examples
+osm_delete_note <- function(note_id) {
+  req <- osmapi_request(authenticate = TRUE)
+  req <- httr2::req_method(req, "DELETE")
+  req <- httr2::req_url_path_append(req, "notes", note_id)
+
+  resp <- httr2::req_perform(req)
+  obj_xml <- httr2::resp_body_xml(resp)
+
+  # TODO: parse unknown xml response (only available for moderator)
+
+  return(obj_xml)
+}
+
+
 ## Search for notes: `GET /api/0.6/notes/search` ----
 #
 # Returns the existing notes matching either the initial note text or any of the comments. The notes will be ordered by the date of their last change, the most recent one will be first. If no query was specified, the latest notes are returned. The list of notes can be returned in several different forms (e.g. XML, RSS, json or GPX) depending on file extension given.

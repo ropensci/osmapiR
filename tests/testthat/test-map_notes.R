@@ -119,6 +119,13 @@ test_that("osm_reopen_note works", {
 })
 
 
+## Hide: `DELETE /api/0.6/notes/#id` ----
+
+test_that("osm_delete_note works", {
+  # TODO: requires moderator rights
+})
+
+
 ## Search for notes: `GET /api/0.6/notes/search` ----
 
 test_that("osm_search_notes works", {
