@@ -32,6 +32,7 @@ test_that("edit changeset (create/update/diff upload) works", {
     expect_message(
       chset_id <- osm_create_changeset(
         comment = "Describe the changeset",
+        created_by = "osmapiR", # avoid changes in calls when updating version
         source = "GPS;survey",
         hashtags = "#testing;#osmapiR",
         verbose = TRUE
@@ -45,6 +46,7 @@ test_that("edit changeset (create/update/diff upload) works", {
     upd_chaset <- osm_update_changeset(
       changeset_id = chset_id,
       comment = "Improved description of the changeset",
+      created_by = "osmapiR", # avoid changes in calls when updating version
       hashtags = "#testing;#osmapiR"
     )
   })
@@ -71,6 +73,7 @@ test_that("edit changeset (create/update/diff upload) works", {
   osm_change_xml <- osmcha_DF2xml(osm_change)
 
   with_mock_dir("mock_diff_up_changeset", {
+    # TODO: better testing for osm_idff_upload_changeset
     # fetch <- list()
     # fetch$node <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367))
     # fetch$way <- osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L))

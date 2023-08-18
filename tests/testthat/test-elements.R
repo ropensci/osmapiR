@@ -60,6 +60,7 @@ test_that("edit OSM object works", {
   with_mock_dir("mock_edit_objects", {
     changeset_id <- osm_create_changeset(
       comment = "Test object creation",
+      created_by = "osmapiR", # avoid changes in calls when updating version
       source = "Imagination",
       hashtags = "#testing;#osmapiR",
       verbose = TRUE
@@ -105,8 +106,8 @@ test_that("edit OSM object works", {
     }
 
     # osm_close_changeset(changeset_id)
-    # TODO: Error in `resp_body_raw()`: ! Can not retrieve empty body
-    # error related with httptest2?
+    # TODO: Error in `resp_body_raw()`: ! Can not retrieve empty body. Fixed in httptest2 > 0.1.0
+    # https://github.com/nealrichardson/httptest2/pull/28
   })
 
   expect_match(create_id, "[0-9]+")
