@@ -5,6 +5,9 @@
 #
 # Returns a list of API versions supported by this instance.
 #
+### Response XML ----
+#  `GET /api/versions`
+#
 # <syntaxhighlight lang="xml">
 # <?xml version="1.0" encoding="UTF-8"?>
 # <osm generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="https://www.openstreetmap.org/copyright" license="https://opendatacommons.org/licenses/odbl/1-0/">
@@ -12,6 +15,19 @@
 # 		<version>0.6</version>
 # 	</api>
 # </osm>
+# </syntaxhighlight>
+#
+### Response JSON ----
+#  `GET /api/versions.json```
+#
+# <syntaxhighlight lang="json">
+# {
+#  "version": "0.6",
+#  "generator": "OpenStreetMap server",
+#  "api": {
+#   "versions": ["0.6"]
+#  }
+# }
 # </syntaxhighlight>
 
 #' Available API versions
@@ -54,6 +70,7 @@ osm_api_versions <- function() {
 # 		<waynodes maximum="2000"/>
 # 		<relationmembers maximum="32000"/>
 # 		<changesets maximum_elements="10000" default_query_limit="100" maximum_query_limit="100"/>
+#		<notes default_query_limit="100" maximum_query_limit="10000"/>
 # 		<timeout seconds="300"/>
 # 		<status database="online" api="online" gpx="online"/>
 # 	</api>
@@ -78,6 +95,7 @@ osm_api_versions <- function() {
 # * '''relationmembers''' '''maximum''' is the maximum number of members that a relation may contain. (''added in February 2022'')
 # * '''changesets''' '''maximum_elements''' is the maximum number of combined nodes, ways and relations that can be contained in a changeset.
 # * '''changesets''' '''default_query_limit''' and '''maximum_query_limit''' are the default and maximum values of the limit parameter of [[API v0.6#Query:_GET_/api/0.6/changesets|changeset queries]]. (''added in {{GitHub link|openstreetmap/openstreetmap-website/pull/4142| August 2023}}'')
+# * '''notes''' '''default_query_limit''' and '''maximum_query_limit''' are the default and maximum values of the limit parameter of notes [[API_v0.6#Retrieving_notes_data_by_bounding_box:_GET_/api/0.6/notes| bounding box queries]] and [[API_v0.6#Search_for_notes:_GET_/api/0.6/notes/search| search]]. (''added in {{GitHub link|openstreetmap/openstreetmap-website/pull/4187| August 2023}}'')
 # * The '''status''' element returns either ''online'', ''readonly'' or ''offline'' for each of the database, API and GPX API. The '''database''' field is informational, and the '''api'''/'''gpx''' fields indicate whether a client should expect read and write requests to work (''online''), only read requests to work (''readonly'') or no requests to work (''offline'').#
 #
 # Policy:

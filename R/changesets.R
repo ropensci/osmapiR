@@ -145,7 +145,7 @@ osm_create_changeset <- function(comment, ...,
 #  GET /api/0.6/changeset/#id?include_discussion=true
 # <syntaxhighlight lang="xml">
 # <osm>
-# 	<changeset id="10" user="fred" uid="123" created_at="2008-11-08T19:07:39+01:00" open="true" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101">
+# 	<changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
 # 		<tag k="created_by" v="JOSM 1.61"/>
 # 		<tag k="comment" v="Just adding some streetnames"/>
 # 		...
@@ -182,7 +182,7 @@ osm_create_changeset <- function(comment, ...,
 #    "maxlon": 10.7994537,
 #    "comments_count": 1,
 #    "changes_count": 10,
-#    "discussion': [{"date": "2022-03-22T20:58:30Z", "uid": 15079200, "user": "Ethan White of Cheriton", "text": "wow no one have said anything here 3/22/2022\n"}]
+#    "discussion": [{"date": "2022-03-22T20:58:30Z", "uid": 15079200, "user": "Ethan White of Cheriton", "text": "wow no one have said anything here 3/22/2022\n"}]
 #   }]
 # }
 # </syntaxhighlight>
@@ -440,7 +440,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #
 # Modification and extension of the basic queries above may be required to support rollback and other uses we find for changesets.
 #
-# This call returns at most 100 changesets matching criteria, it returns latest changesets ordered by created_at<ref>https://github.com/openstreetmap/openstreetmap-website/blob/f1c6a87aa137c11d0aff5a4b0e563ac2c2a8f82d/app/controllers/api/changesets_controller.rb#L174 - see the current state at https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174</ref>.
+# This call returns latest changesets matching criteria, ordered by created_at<ref>https://github.com/openstreetmap/openstreetmap-website/blob/f1c6a87aa137c11d0aff5a4b0e563ac2c2a8f82d/app/controllers/api/changesets_controller.rb#L174 - see the current state at https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174</ref>.
 #
 ### Parameters ----
 # ; bbox=min_lon,min_lat,max_lon,max_lat (W,S,E,N)
@@ -458,9 +458,9 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 # ; changesets=#cid{,#cid}
 # : Finds changesets with the specified ids (since [https://github.com/openstreetmap/openstreetmap-website/commit/1d1f194d598e54a5d6fb4f38fb569d4138af0dc8 2013-12-05])
 # ; limit=N
-# : Specifies the maximum number of changesets returned. A number between 1 and 100, with 100 as the default value.
+# : Specifies the maximum number of changesets returned. A number between 1 and the maximum limit value (currently 100). If omitted, the default limit value is used (currently 100). The actual maximum and default limit values can be found with [[API_v0.6#Capabilities:_GET_/api/capabilities| a capabilities request]].
 # Time format:
-# Anything that [https://ruby-doc.org/3.2.2/exts/date/DateTime.html#method-c-parse this Ruby function] will parse. The default str is ’-4712-01-01T00:00:00+00:00’; this is Julian Day Number day 0.
+# Anything that [https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse <code>Time.parse</code> Ruby function] will parse.
 #
 ### Response ----
 # Returns a list of all changeset ordered by creation date. The `<osm>` element may be empty if there were no results for the query. The response is sent with a content type of `text/xml`.
@@ -659,7 +659,7 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
 # | colspan=3| same as uploaded element.
 # |-
 # ! new_id
-# | new ID || same as uploaded || not present
+# | new ID ||new ID ''or'' same as uploaded||not present
 # |-
 # ! new_version
 # | colspan=2| new version || not present
@@ -680,6 +680,8 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
 # : Or if the user trying to update the changeset is not the same as the one that created it
 # : Or if the diff contains elements with changeset IDs which don't match the changeset ID that the diff was uploaded to
 # : Or any of the error messages that could occur as a result of a create, update or delete operation for one of the elements
+# ; HTTP status code 429 (Too many requests)
+# : When the request has been blocked due to rate limiting
 # ; Other status codes
 # : Any of the error codes and associated messages that could occur as a result of a create, update or delete operation for one of the elements
 # : See the according sections in this page

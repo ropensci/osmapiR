@@ -23,12 +23,12 @@
 # |-
 # | <code>bbox</code>
 # | Coordinates for the area to retrieve the notes from
-# | Floating point numbers in degrees, expressing a valid bounding box, not larger than the configured size limit, 25 square degrees [https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27], not overlapping the dateline.
+# | Floating point numbers in degrees, expressing a valid bounding box, not larger than the configured size limit, 25 square degrees{{efn| see [[API_v0.6#Capabilities:_GET_/api/capabilities| capabilities]] and [https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27 this line in settings] for the current value}}, not overlapping the dateline.
 # | none, parameter required
 # |-
 # | <code>limit</code>
 # | Specifies the number of entries returned at max
-# | A value of between 1 and 10000 is valid
+# | A value of between 1 and 10000 {{efn|name=limit| may change, see [[API_v0.6#Capabilities:_GET_/api/capabilities| capabilities]] for current value}} is valid
 # | 100 is the default
 # |-
 # | <code>closed</code>
@@ -157,12 +157,12 @@ osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("R", "
 #
 # Returns the existing note with the given ID. The output can be in several formats (e.g. XML, RSS, json or GPX) depending on the file extension.
 #
-# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/#id</code> ([https://api.openstreetmap.org/api/0.6/notes/100])<br />
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/#id</code> ([https://api.openstreetmap.org/api/0.6/notes/100 xml], [https://api.openstreetmap.org/api/0.6/notes/100.json json])<br />
 # '''Return type:''' application/xml <br />
 #
 ### Error codes ----
 # ; HTTP status code 404 (Not Found)
-# : When no note with the given id could be found
+# : When no note with the given id could be found. Currently both deleted and not yet existing notes give 404 error.
 
 #' Read notes
 #'
@@ -251,7 +251,7 @@ osm_read_note <- function(note_id, format = c("R", "xml", "rss", "json", "gpx"))
 # | No default, needs to be present
 # |}
 #
-# If the request is made as an authenticated user, the note is associated to that user account.
+# If the request is made as an authenticated user, the note is associated to that user account. If the OAuth access token used does not have the `allow_write_notes` permission, it is created as an anonymous note instead.
 #
 ### Error codes ----
 # ; HTTP status code 400 (Bad Request)
@@ -490,11 +490,11 @@ osm_delete_note <- function(note_id) {
 
 ## Search for notes: `GET /api/0.6/notes/search` ----
 #
-# Returns the existing notes matching either the initial note text or any of the comments. The notes will be ordered by the date of their last change, the most recent one will be first. If no query was specified, the latest notes are returned. The list of notes can be returned in several different forms (e.g. XML, RSS, json or GPX) depending on file extension given.
+# Returns notes that match the specified query. If no query is provided, the most recently updated notes are returned.
 #
-# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/search?q=SearchTerm
-# </code> ([https://api.openstreetmap.org/api/0.6/notes/search?q=Spam example])<br />
-# '''Return type:''' application/xml<br />
+# The result can be encoded in several different formats (XML, RSS, JSON, or GPX), depending on the file extension provided.
+#
+# '''URL:''' <code><nowiki>https://api.openstreetmap.org/api/0.6/notes/search
 #
 # {| class="wikitable"
 # |-
@@ -504,50 +504,65 @@ osm_delete_note <- function(note_id) {
 # ! Default value
 # |-
 # | <code>q</code>
-# | Specifies the search query
+# | Text search query, matching either note text or comments.
 # | String
-# | none, parameter required
+# | none, optional parameter
 # |-
 # | <code>limit</code>
-# | Specifies the number of entries returned at max
-# | A value of between 1 and 10000 is valid
-# | 100 is the default
+# | Maximum number of results.
+# | Integer between 1 and 10000{{efn|name=limit| may change, see [[API_v0.6#Capabilities:_GET_/api/capabilities| capabilities]] for the current value}}
+# | 100{{efn|name=limit}}
 # |-
 # | <code>closed</code>
-# | Specifies the number of days a note needs to be closed to no longer be returned
-# | A value of 0 means only open notes are returned. A value of -1 means all notes are returned.
-# | 7 is the default
+# | Maximum number of days a note has been closed for.
+# | Number; Value of 0 returns only open notes, Negative numbers return all notes
+# | 7
 # |-
 # |<code>display_name</code>
-# |Specifies the person involved in actions of the returned notes, query by the display name. Does not work together with the <code>user</code> parameter (Returned are all where this user has taken some action - opened note, commented on, reactivated, or closed)
-# |A valid user name
-# |none, optional parameter
+# | Search for notes which the given user interacted with.
+# | String; User display name
+# | none, optional parameter
 # |-
 # |<code>user</code>
-# |Specifies the creator of the returned notes by the id of the user. Does not work together with the <code>display_name</code> parameter
-# |A valid user id
-# |none, optional parameter
+# | Same as <code>display_name</code>, but search based on user id instead of display name. When both options are provided, <code>display_name</code> takes priority. 
+# | Integer; User id
+# | none, optional parameter
+# |-
+# |<code>bbox</code>
+# | Search area.
+# | [[API_v0.6#Retrieving_notes_data_by_bounding_box:_GET_/api/0.6/notes|Bounding box]]; Area of at most 25 square degrees{{efn| see [[API_v0.6#Capabilities:_GET_/api/capabilities| capabilities]] and [https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27 this line in settings] for the current value}}
+# | none, optional parameter
 # |-
 # |<code>from</code>
-# |Specifies the beginning of a date range to search in for a note
-# |A valid [https://en.wikipedia.org/wiki/ISO_8601 ISO 8601] date
-# |none, optional parameter
+# | Beginning date range for <code>created_at</code> or <code>updated_at</code> (specified by <code>sort</code>).
+# | Date; Preferably in [https://wikipedia.org/wiki/ISO_8601 ISO 8601] format
+# | none, optional parameter
 # |-
 # |<code>to</code>
-# |Specifies the end of a date range to search in for a note
-# |A valid [https://en.wikipedia.org/wiki/ISO_8601 ISO 8601] date
-# |the date of today is the default, optional parameter
+# | End date range for <code>created_at</code> or <code>updated_at</code> (specified by <code>sort</code>). Only works when <code>from</code> is supplied.
+# | Date; Preferably in [https://wikipedia.org/wiki/ISO_8601 ISO 8601] format
+# | none, optional parameter
 # |-
 # |<code>sort</code>
-# |Specifies the value which should be used to sort the notes. It is either possible to sort them by their creation date or the date of the last update.
-# |<code>created_at</code> or <code>updated_at</code>
-# |<code>updated_at</code>
+# | Sort results by creation or update date.
+# | <code>created_at</code> or <code>updated_at</code>
+# | <code>updated_at</code>
 # |-
 # |<code>order</code>
-# |Specifies the order of the returned notes. It is possible to order them in ascending or descending order.
-# |<code>oldest</code> or <code>newest</code>
-# |<code>newest</code>
+# | Sorting order. <code>oldest</code> is ascending order, <code>newest</code> is descending order.
+# | <code>oldest</code> or <code>newest</code>
+# | <code>newest</code>
 # |}
+#
+### Examples ----
+# See latest note updates globally:
+#   https://api.openstreetmap.org/api/0.6/notes/search
+# Search for a text in comments:
+#   https://api.openstreetmap.org/api/0.6/notes/search?q=business%20spam
+# See notes of a single user:
+#   https://api.openstreetmap.org/api/0.6/notes/search?user=123
+# Search for oldest notes near Null Island:
+#   https://api.openstreetmap.org/api/0.6/notes/search?bbox=-1%2C-1%2C1%2C1&sort=created_at&order=oldest&closed=-1&limit=20
 #
 ### Error codes ----
 # ; HTTP status code 400 (Bad Request)
@@ -653,9 +668,22 @@ osm_search_notes <- function(
 #
 # Gets an RSS feed for notes within an area.
 #
-# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/feed?bbox=''left'',''bottom'',''right'',''top''</code>
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/feed
 #
 # '''Return type:''' application/xml
+#
+# {| class="wikitable"
+# |-
+# ! Parameter
+# ! Description
+# ! Allowed values
+# ! Default value
+# |-
+# |<code>bbox</code>
+# | Coordinates for the area to retrieve the notes from
+# | Floating point numbers in degrees, expressing a valid bounding box, not larger than the configured size limit, 25 square degrees [https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27], not overlapping the dateline.
+# | none, optional parameter
+# |}
 
 #' RSS Feed of notes in a bbox
 #'

@@ -237,19 +237,22 @@ osm_delete_gpx <- function(gpx_id) {
 
 
 ## Download Metadata: `GET /api/0.6/gpx/#id/details` ----
+# Also available at `GET /api/0.6/gpx/#id`
+#
 # Use this to access the metadata about a GPX file. Available without authentication if the file is marked public. Otherwise only usable by the owner account and requires authentication.
 ## TODO: HTTP 401 Unauthorized. (even for public or identificable tracks). FIX wiki or BUG to API ----
 # Example "details" response:
 # <syntaxhighlight lang="xml">
 # <?xml version="1.0" encoding="UTF-8"?>
 # <osm version="0.6" generator="OpenStreetMap server">
-# 	<gpx_file id="836619" name="track.gpx" lat="52.0194" lon="8.51807" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:24:19Z">
+# 	<gpx_file id="836619" name="track.gpx" lat="52.0194" lon="8.51807" uid="1234" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:24:19Z">
 # 		<description>PHP upload test</description>
 # 		<tag>test</tag>
 # 		<tag>php</tag>
 # 	</gpx_file>
 # </osm>
 # </syntaxhighlight>
+# Note: the <code>uid</code> attribute was added in {{gitHub link|openstreetmap/openstreetmap-website/pull/4241| September 2023}}.
 
 #' Download GPS Track Metadata
 #'
@@ -364,12 +367,17 @@ osm_get_data_gpx <- function(gpx_id, format) {
 #
 # Note that '''/user/''' is a literal part of the URL, not a user's display name or user id. (This call always returns GPX traces for the current authenticated user ''only''.)
 #
-# Example "details" response:
+# The response is similar to the one of [[API_v0.6#Download_Metadata:_GET_/api/0.6/gpx/#id/details| Download Metadata]], except with multiple possible `<gpx_file>` elements. Example:
 # <syntaxhighlight lang="xml">
 # <?xml version="1.0" encoding="UTF-8"?>
 # <osm version="0.6" generator="OpenStreetMap server">
-# 	<gpx_file id="836619" name="track.gpx" lat="52.0194" lon="8.51807" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:24:19Z">
+# 	<gpx_file id="836619" name="track.gpx" lat="52.0194" lon="8.51807" uid="1234" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:24:19Z">
 # 		<description>PHP upload test</description>
+# 		<tag>test</tag>
+# 		<tag>php</tag>
+# 	</gpx_file>
+# 	<gpx_file id="836620" name="track.gpx" lat="52.1194" lon="8.61807" uid="1234" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:27:31Z">
+# 		<description>PHP upload test 2</description>
 # 		<tag>test</tag>
 # 		<tag>php</tag>
 # 	</gpx_file>

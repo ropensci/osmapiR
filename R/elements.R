@@ -56,6 +56,8 @@
 # ; HTTP status code 412 (Precondition Failed)
 # : When a way has nodes that do not exist or are not visible (i.e. deleted): "`Way #{id} requires the nodes with id in (#{missing_ids}), which either do not exist, or are not visible.`"
 # : When a relation has elements that do not exist or are not visible: "`Relation with id #{id} cannot be saved due to #{element} with id #{element.id}`"
+# ; HTTP status code 429 (Too many requests)
+# : When the request has been blocked due to rate limiting
 #
 ### Notes ----
 # * This updates the bounding box of the changeset.
@@ -270,6 +272,8 @@ osm_read_object <- function(osm_type = c("node", "way", "relation"),
 # ; HTTP status code 412 (Precondition Failed)
 # : When a way has nodes that do not exist or are not visible (i.e. deleted): "`Way #{id} requires the nodes with id in (#{missing_ids}), which either do not exist, or are not visible.`"
 # : When a relation has elements that do not exist or are not visible: "`Relation with id #{id} cannot be saved due to #{element} with id #{element.id}`"
+# ; HTTP status code 429 (Too many requests)
+# : When the request has been blocked due to rate limiting
 #
 ### Notes ----
 # * This updates the bounding box of the changeset.
@@ -403,6 +407,8 @@ osm_update_object <- function(x, changeset_id) {
 # : When a relation is still member of another relation: `The relation #{id} is used in relation #{relation.id}.`
 # :
 # : Note when returned as a result of a OsmChange upload operation the error messages contain a spurious plural "s" as in "... still used by ways ...", "... still used by relations ..." even when only 1 way or relation id is returned, as this implies multiple ids can be returned if the deleted object was/is a member of multiple parent objects, these ids are seperated by commas.
+# ; HTTP status code 429 (Too many requests)
+# : When the request has been blocked due to rate limiting
 #
 ### Notes ----
 # * In earlier API versions no payload was required. It is needed now because of the need for changeset IDs and version numbers.

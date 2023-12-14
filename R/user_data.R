@@ -132,6 +132,7 @@ osm_details_user <- function(user_id, format = c("R", "xml", "json")) {
 # </syntaxhighlight>
 #
 # or an empty file if no user found for given identifier.
+# Note: Since [https://github.com/openstreetmap/openstreetmap-website/pull/4203 Pull request 4203 (deployed on August 26 2023)], both XML and JSON based variants of the users endpoint will skip any non-existing/suspended/deleted users, rather than reporting a previously undocumented HTTP 404 error.
 
 #' Details of multiple users
 #'
