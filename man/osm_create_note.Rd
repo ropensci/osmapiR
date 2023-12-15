@@ -19,7 +19,8 @@ osm_create_note(lat, lon, text, authenticate = TRUE)
 Create a new note
 }
 \details{
-If the request is made as an authenticated user, the note is associated to that user account.
+If the request is made as an authenticated user, the note is associated to that user account. If the OAuth access
+token used does not have the \code{allow_write_notes} permission, it is created as an anonymous note instead.
 }
 \seealso{
 Other edit notes' functions: 

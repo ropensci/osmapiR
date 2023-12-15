@@ -54,13 +54,12 @@ returned document are the changesets and their tags. To get the full set of chan
 Modification and extension of the basic queries above may be required to support rollback and other uses we find for
 changesets.
 
-This call returns at most 100 changesets matching criteria, it returns latest changesets
+This call returns latest changesets matching criteria,
 \href{https://github.com/openstreetmap/openstreetmap-website/blob/f1c6a87aa137c11d0aff5a4b0e563ac2c2a8f82d/app/controllers/api/changesets_controller.rb#L174}{ordered by \code{created_at}}
 – see the \href{https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174}{current state}.
 
 Te valid formats for \code{time} and \code{time_2} parameters are anything that
-\href{https://ruby-doc.org/3.2.2/exts/date/DateTime.html#method-c-parse}{this Ruby function} will parse. The default value
-is \verb{-4712-01-01T00:00:00+00:00}; this is Julian Day Number day 0.
+\href{https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse}{\code{Time.parse} Ruby function} will parse.
 }
 \examples{
 \dontrun{

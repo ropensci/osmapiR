@@ -24,6 +24,8 @@ API:
 in a changeset.
 \item \code{changesets} \code{default_query_limit} and \code{maximum_query_limit} are the default and maximum values of the limit
 parameter of \code{\link[=osm_query_changesets]{osm_query_changesets()}}.
+\item \code{notes} \code{default_query_limit} and \code{maximum_query_limit} are the default and maximum values of the limit parameter
+of notes bounding box queries (\code{\link[=osm_read_bbox_notes]{osm_read_bbox_notes()}}) and search (\code{\link[=osm_search_notes]{osm_search_notes()}}).
 \item The \code{status} element returns either \emph{online}, \emph{readonly} or \emph{offline} for each of the database, API and GPX
 API. The \code{database} field is informational, and the \code{API}/\code{GPX-API} fields indicate whether a client should expect read
 and write requests to work (\emph{online}), only read requests to work (\emph{readonly}) or no requests to work (\emph{offline}).

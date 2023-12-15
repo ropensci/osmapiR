@@ -269,7 +269,8 @@ osm_read_note <- function(note_id, format = c("R", "xml", "rss", "json", "gpx"))
 #' @param authenticate If `TRUE` (default), the note is authored by the logged user. Otherwise, anonymous note.
 #'
 #' @details
-#' If the request is made as an authenticated user, the note is associated to that user account.
+#' If the request is made as an authenticated user, the note is associated to that user account. If the OAuth access
+#' token used does not have the `allow_write_notes` permission, it is created as an anonymous note instead.
 #'
 #' @return
 #' @family edit notes' functions
@@ -524,7 +525,7 @@ osm_delete_note <- function(note_id) {
 # | none, optional parameter
 # |-
 # |<code>user</code>
-# | Same as <code>display_name</code>, but search based on user id instead of display name. When both options are provided, <code>display_name</code> takes priority. 
+# | Same as <code>display_name</code>, but search based on user id instead of display name. When both options are provided, <code>display_name</code> takes priority.
 # | Integer; User id
 # | none, optional parameter
 # |-
@@ -570,40 +571,45 @@ osm_delete_note <- function(note_id) {
 
 #' Search for notes
 #'
-#' Returns the existing notes matching either the initial note text or any of the comments.
+#' Returns notes that match the specified query. If no query is provided, the most recently updated notes are returned.
 #'
-#' @param q Specifies the search query.
-#' @param user Find notes by the user with the given user id (numeric) or display name (character).
-#' @param from Specifies the beginning of a date range to search in for a note. A valid
-#'   [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date.
-#' @param to Specifies the end of a date range to search in for a note. A valid
-#'   [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date. The date of today is the default.
+#' @param q Text search query, matching either note text or comments.
+#' @param user Search for notes which the given user interacted with. The value can be the user id (`numeric`) or the
+#'   display name (`character`).
+#' @param bbox Search area expressed as a string of coordinates of a valid bounding box (`left,bottom,right,top`) in
+#'   decimal degrees. Area must be at most 25 square degrees (see `osm_capabilities()$note_area` and
+#'   [this line in settings](https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27)
+#'   for the current value).
+#' @param from Beginning date range for `created_at` or `updated_at` (specified by `sort`). Preferably in
+#'   [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format.
+#' @param to End date range for `created_at` or `updated_at` (specified by `sort`). Preferably in
+#'   [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format. Only works when `from` is supplied.
 #' @param closed Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
 #'   only open notes are returned. A value of -1 means all notes are returned. 7 is the default.
-#' @param sort Specifies the value which should be used to sort the notes. It is either possible to sort them by their
-#'   creation date (`created_at`) or the date of the last update (`updated_at`, the default).
-#' @param order Specifies the order of the returned notes. It is possible to order them in ascending (`oldest`) or
-#'   descending (`newest`, the default) order.
-#' @param limit Specifies the number of entries returned at max. A value of between 1 and 10000 is valid.	100 is the
-#'   default.
+#' @param sort Sort results by creation (`created_at`) or update date (`updated_at`, the default).
+#' @param order Sorting order. `oldest` is ascending order, `newest` is descending order (the default).
+#' @param limit Maximum number of results between 1 and 10000 (may change, see `osm_capabilities()$api$notes` for the
+#'   current value). Default to 100.
 #' @param format Format of the the returned list of notes. Can be `R` (default), `xml`, `rss`, `json` or `gpx`.
 #'
 #' @details
-#' The notes will be ordered by the date of their last change, the most recent one will be first. If no query was
-#' specified, the latest notes are returned.
+#' The notes will be ordered by the date of their last change, the most recent one will be first.
 #'
 #' @return
 #' @family get notes' functions
 #' @export
 #'
 #' @examples
-#' notes <- osm_search_notes(q = "POI", from = "2017-10-01", to = "2017-10-27T15:27A", limit = 10)
+#' notes <- osm_search_notes(
+#'   q = "POI", bbox = "0.1594133,40.5229822,3.3222508,42.8615226",
+#'   from = "2017-10-01", to = "2018-10-27T15:27A", limit = 10
+#' )
 #' notes
 #'
 #' my_notes <- osm_search_notes(user = "jmaspons", closed = -1, format = "json")
 #' my_notes
 osm_search_notes <- function(
-    q, user, from, to, closed = 7,
+    q, user, bbox, from, to, closed = 7,
     sort = c("updated_at", "created_at"), order = c("newest", "oldest"),
     limit = 100, format = c("R", "xml", "rss", "json", "gpx")) {
   sort <- match.arg(sort)
@@ -626,6 +632,9 @@ osm_search_notes <- function(
     }
   }
 
+  if (missing(bbox)) {
+    bbox <- NULL
+  }
   if (missing(from)) {
     from <- NULL
   }
@@ -645,7 +654,7 @@ osm_search_notes <- function(
 
   req <- httr2::req_url_query(
     req,
-    q = q, user = user, display_name = display_name,
+    q = q, user = user, display_name = display_name, bbox = bbox,
     from = from, to = to, sort = sort, order = order, limit = limit
   )
 
@@ -688,7 +697,10 @@ osm_search_notes <- function(
 #' RSS Feed of notes in a bbox
 #'
 #' @param bbox Coordinates for the area to retrieve the notes from (`left,bottom,right,top`). Floating point numbers in
-#'   degrees, expressing a valid bounding box.
+#'   degrees, expressing a valid bounding box, not larger than the configured size limit, 25 square degrees (see
+#'   `osm_capabilities()$note_area` and
+#'   [this line in settings](https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27)
+#'   for the current value), not overlapping the dateline.
 #'
 #' @return
 #' @family get notes' functions

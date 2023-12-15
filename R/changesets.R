@@ -503,13 +503,12 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #' Modification and extension of the basic queries above may be required to support rollback and other uses we find for
 #' changesets.
 #'
-#' This call returns at most 100 changesets matching criteria, it returns latest changesets
+#' This call returns latest changesets matching criteria,
 #' [ordered by `created_at`](https://github.com/openstreetmap/openstreetmap-website/blob/f1c6a87aa137c11d0aff5a4b0e563ac2c2a8f82d/app/controllers/api/changesets_controller.rb#L174)
 #' – see the [current state](https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174).
 #'
 #' Te valid formats for `time` and `time_2` parameters are anything that
-#' [this Ruby function](https://ruby-doc.org/3.2.2/exts/date/DateTime.html#method-c-parse) will parse. The default value
-#' is `-4712-01-01T00:00:00+00:00`; this is Julian Day Number day 0.
+#' [`Time.parse` Ruby function](https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse) will parse.
 #'
 #' @return
 #' @family get changesets' functions

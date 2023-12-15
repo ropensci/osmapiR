@@ -8,7 +8,10 @@ osm_feed_notes(bbox)
 }
 \arguments{
 \item{bbox}{Coordinates for the area to retrieve the notes from (\verb{left,bottom,right,top}). Floating point numbers in
-degrees, expressing a valid bounding box.}
+degrees, expressing a valid bounding box, not larger than the configured size limit, 25 square degrees (see
+\code{osm_capabilities()$note_area} and
+\href{https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27}{this line in settings}
+for the current value), not overlapping the dateline.}
 }
 \description{
 RSS Feed of notes in a bbox

@@ -120,6 +120,8 @@ osm_api_versions <- function() {
 #'   in a changeset.
 #' * `changesets` `default_query_limit` and `maximum_query_limit` are the default and maximum values of the limit
 #'   parameter of [osm_query_changesets()].
+#' * `notes` `default_query_limit` and `maximum_query_limit` are the default and maximum values of the limit parameter
+#'   of notes bounding box queries ([osm_read_bbox_notes()]) and search ([osm_search_notes()]).
 #' * The `status` element returns either _online_, _readonly_ or _offline_ for each of the database, API and GPX
 #'   API. The `database` field is informational, and the `API`/`GPX-API` fields indicate whether a client should expect read
 #'   and write requests to work (_online_), only read requests to work (_readonly_) or no requests to work (_offline_).

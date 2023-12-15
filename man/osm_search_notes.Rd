@@ -7,6 +7,7 @@
 osm_search_notes(
   q,
   user,
+  bbox,
   from,
   to,
   closed = 7,
@@ -17,39 +18,45 @@ osm_search_notes(
 )
 }
 \arguments{
-\item{q}{Specifies the search query.}
+\item{q}{Text search query, matching either note text or comments.}
 
-\item{user}{Find notes by the user with the given user id (numeric) or display name (character).}
+\item{user}{Search for notes which the given user interacted with. The value can be the user id (\code{numeric}) or the
+display name (\code{character}).}
 
-\item{from}{Specifies the beginning of a date range to search in for a note. A valid
-\href{https://en.wikipedia.org/wiki/ISO_8601}{ISO 8601} date.}
+\item{bbox}{Search area expressed as a string of coordinates of a valid bounding box (\verb{left,bottom,right,top}) in
+decimal degrees. Area must be at most 25 square degrees (see \code{osm_capabilities()$note_area} and
+\href{https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27}{this line in settings}
+for the current value).}
 
-\item{to}{Specifies the end of a date range to search in for a note. A valid
-\href{https://en.wikipedia.org/wiki/ISO_8601}{ISO 8601} date. The date of today is the default.}
+\item{from}{Beginning date range for \code{created_at} or \code{updated_at} (specified by \code{sort}). Preferably in
+\href{https://en.wikipedia.org/wiki/ISO_8601}{ISO 8601} date format.}
+
+\item{to}{End date range for \code{created_at} or \code{updated_at} (specified by \code{sort}). Preferably in
+\href{https://en.wikipedia.org/wiki/ISO_8601}{ISO 8601} date format. Only works when \code{from} is supplied.}
 
 \item{closed}{Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
 only open notes are returned. A value of -1 means all notes are returned. 7 is the default.}
 
-\item{sort}{Specifies the value which should be used to sort the notes. It is either possible to sort them by their
-creation date (\code{created_at}) or the date of the last update (\code{updated_at}, the default).}
+\item{sort}{Sort results by creation (\code{created_at}) or update date (\code{updated_at}, the default).}
 
-\item{order}{Specifies the order of the returned notes. It is possible to order them in ascending (\code{oldest}) or
-descending (\code{newest}, the default) order.}
+\item{order}{Sorting order. \code{oldest} is ascending order, \code{newest} is descending order (the default).}
 
-\item{limit}{Specifies the number of entries returned at max. A value of between 1 and 10000 is valid.    100 is the
-default.}
+\item{limit}{Maximum number of results between 1 and 10000 (may change, see \code{osm_capabilities()$api$notes} for the
+current value). Default to 100.}
 
 \item{format}{Format of the the returned list of notes. Can be \code{R} (default), \code{xml}, \code{rss}, \code{json} or \code{gpx}.}
 }
 \description{
-Returns the existing notes matching either the initial note text or any of the comments.
+Returns notes that match the specified query. If no query is provided, the most recently updated notes are returned.
 }
 \details{
-The notes will be ordered by the date of their last change, the most recent one will be first. If no query was
-specified, the latest notes are returned.
+The notes will be ordered by the date of their last change, the most recent one will be first.
 }
 \examples{
-notes <- osm_search_notes(q = "POI", from = "2017-10-01", to = "2017-10-27T15:27A", limit = 10)
+notes <- osm_search_notes(
+  q = "POI", bbox = "0.1594133,40.5229822,3.3222508,42.8615226",
+  from = "2017-10-01", to = "2018-10-27T15:27A", limit = 10
+)
 notes
 
 my_notes <- osm_search_notes(user = "jmaspons", closed = -1, format = "json")
