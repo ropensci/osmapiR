@@ -35,7 +35,7 @@ oauth_request <- function(req) {
     cache_key = getOption("osmapir.base_api_url"),
     scope = paste(scope, collapse = " "),
     pkce = TRUE,
-    host_name = "127.0.0.1"
+    redirect_uri = "http://127.0.0.1"
   )
 
   return(req)
