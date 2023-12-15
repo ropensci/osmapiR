@@ -7,7 +7,8 @@
 osmchange_modify(x, tag_keys, members = FALSE, lat_lon = FALSE)
 }
 \arguments{
-\item{x}{A \code{data.frame} with the columns \code{type} and \code{id}.}
+\item{x}{A \code{data.frame} with the columns \code{type} and \code{id} with unique combinations of values plus columns specifying
+tags, members or latitude and longitude.}
 
 \item{tag_keys}{A character vector with the keys of the tags that will be modified. If missing (default),
 all tags will be updated, removed or created (doesn't work for \code{x} with tags in a wide format). If \code{FALSE}, don't

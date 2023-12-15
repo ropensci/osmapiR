@@ -483,7 +483,7 @@ osm_delete_note <- function(note_id) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # TODO: parse unknown xml response (only available for moderator)
+  # TODO: parse unknown xml response (only available for moderators)
 
   return(obj_xml)
 }

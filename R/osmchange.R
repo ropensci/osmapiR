@@ -2,7 +2,8 @@
 #'
 #' Update tags, members and/or latitude and longitude.
 #'
-#' @param x A `data.frame` with the columns `type` and `id`.
+#' @param x A `data.frame` with the columns `type` and `id` with unique combinations of values plus columns specifying
+#'   tags, members or latitude and longitude.
 #' @param tag_keys A character vector with the keys of the tags that will be modified. If missing (default),
 #'   all tags will be updated, removed or created (doesn't work for `x` with tags in a wide format). If `FALSE`, don't
 #'   modify tags.
