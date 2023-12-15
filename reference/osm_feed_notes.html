@@ -55,7 +55,10 @@
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>bbox</dt>
 <dd><p>Coordinates for the area to retrieve the notes from (<code>left,bottom,right,top</code>). Floating point numbers in
-degrees, expressing a valid bounding box.</p></dd>
+degrees, expressing a valid bounding box, not larger than the configured size limit, 25 square degrees (see
+<code>osm_capabilities()$note_area</code> and
+<a href="https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27" class="external-link">this line in settings</a>
+for the current value), not overlapping the dateline.</p></dd>
 
 </dl></div>
     <div class="section level2">
