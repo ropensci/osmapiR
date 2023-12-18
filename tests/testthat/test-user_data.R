@@ -14,17 +14,21 @@ class_columns <- list(
 ## Details of a user: `GET /api/0.6/user/#id` ----
 
 test_that("osm_details_user works", {
+  usr <- list()
   with_mock_dir("mock_details_user", {
-    usr <- osm_details_user(user_id = "11725140")
+    usr$usr <- osm_get_user_details(user_id = "11725140")
+    usr$mod <- osm_get_user_details(user_id = 61942)
   })
 
-  expect_s3_class(usr, "data.frame")
-  expect_named(usr, column_users)
+  lapply(usr, expect_s3_class, "data.frame")
+  lapply(usr, function(x) expect_named(x, column_users))
 
-  mapply(function(x, cl) expect_true(inherits(x, cl)), x = usr, cl = class_columns[names(usr)])
+  lapply(usr, lapply, function(x) {
+    mapply(function(y, cl) expect_true(inherits(y, cl)), y = x, cl = class_columns[names(x)])
+  })
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
-  expect_false(strftime(as.POSIXct(usr$account_created), format = "%M:%S") == "00:00")
+  lapply(usr, function(x) expect_false(all(strftime(as.POSIXct(x$account_created), format = "%M:%S") == "00:00")))
 })
 
 
@@ -33,8 +37,8 @@ test_that("osm_details_user works", {
 test_that("osm_details_users works", {
   usrs <- list()
   with_mock_dir("mock_details_users", {
-    usrs$usrs <- osm_details_users(user_ids = c(1, 24, 44, 45, 46, 48, 49, 50))
-    usrs$mod <- osm_details_users(user_ids = 61942)
+    usrs$usrs <- osm_get_user_details(user_id = c(1, 24, 44, 45, 46, 48, 49, 50))
+    usrs$mod <- osm_get_user_details(user_id = c(61942, 564990))
   })
 
   lapply(usrs, expect_s3_class, "data.frame")

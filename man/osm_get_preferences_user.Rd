@@ -23,7 +23,6 @@ prefs
 \seealso{
 Other users' functions: 
 \code{\link{osm_details_logged_user}()},
-\code{\link{osm_details_users}()},
-\code{\link{osm_details_user}()}
+\code{\link{osm_get_user_details}()}
 }
 \concept{users' functions}

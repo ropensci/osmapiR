@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<user id="61942" display_name="SomeoneElse" account_created="2008-08-24T23:21:40Z">
+  <description>I live near York (UK), though I do occasionally [venture further afield](http://yosmhm.neis-one.org/?zoom=6&amp;lat=53.08324&amp;lon=-2.42578&amp;layers=B000TTF&amp;u=SomeoneElse).
+I mainly map footpaths and other out-of-town things.  Also see related profile on 
+&lt;a rel="me" href="https://en.osm.town/@SomeoneElse"&gt;Mastodon&lt;/a&gt;.
+
+There are some bits and pieces (including [two](https://github.com/SomeoneElseOSM/SomeoneElse-style) [parts](https://github.com/SomeoneElseOSM/openstreetmap-carto-AJT) of an OSM-Carto-derived rendering style designed for out-of-town England and Wales) over at [Github](https://github.com/SomeoneElseOSM) that look like [this](https://map.atownsend.org.uk/maps/map/map.html).  There are some wiki pages behind [here](https://wiki.openstreetmap.org/wiki/User:SomeoneElse) (mostly to do with tileserver setup).  
+
+I'm a member of the [Data Working Group](http://wiki.openstreetmap.org/wiki/Data_working_group) (that's what the blue star above means), but if you've got any issues to raise with the DWG the [group email address](http://wiki.osmfoundation.org/wiki/Data_Working_Group#Contact) is the best one to use.  
+
+Other related accounts are [SomeoneElse2](http://www.openstreetmap.org/user/SomeoneElse2). [SomeoneElseSC](https://www.openstreetmap.org/user/SomeoneElseSC) and [SomeoneElse_Revert](http://www.openstreetmap.org/user/SomeoneElse_Revert), which is mainly used where people have requested that I help with reversions.
+
+The "User id" of this account is "61942".  I mention that because there have been a few attempts over the years to impersonate DWG members, including me, using names such as "SomeoneEIse" (with a capital "i" instead of a lower case "l") and others with various UTF-8 versions of characters that look similar to, but are not, regular ascii characters.</description>
+  <contributor-terms agreed="true"/>
+  <roles>
+    <moderator/>
+  </roles>
+  <changesets count="43837"/>
+  <traces count="6011"/>
+  <blocks>
+    <received count="0" active="0"/>
+    <issued count="10321" active="8376"/>
+  </blocks>
+</user>
+<user id="564990" display_name="mavl" account_created="2011-12-05T15:23:13Z">
+  <description>Занимаюсь Тюменской областью (Россия). Родной город – Заводоуковск. Также эта учётная запись была использована рабочей группой по данным (например, для  откатов пакетов правок).  
+Je mappe Oblast de Tioumen (Russie). Ma ville natale est Zavodooukovsk. Aussi ce compte d'utilisateur été utilisé par le Data Working Group (par exemple, pour les retours des groupes des modifications).  
+I map Tyumen Oblast (Russia). My native town is Zavodoukovsk. Also this account was used by Data Working Group (for example, the reverts of the changesets).  
+=============================================================  
+*Забытые страницы сайта:*
+
+https://www.openstreetmap.org/fixthemap  
+https://www.openstreetmap.org/user_blocks  
+https://www.openstreetmap.org/redactions  
+
+*Некоторые настройки сервера:*
+
+https://www.openstreetmap.org/api/versions  
+https://www.openstreetmap.org/api/capabilities</description>
+  <contributor-terms agreed="true"/>
+  <img href="https://www.openstreetmap.org/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6NDIzOTY2LCJwdXIiOiJibG9iX2lkIn19--3b784f4dde057612c331d651f52ebe6584b66df2/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJnaWYiLCJyZXNpemVfdG9fbGltaXQiOlsxMDAsMTAwXX0sInB1ciI6InZhcmlhdGlvbiJ9fQ==--84f2f91a334e8f265fc5bf85e4ea3c7805f829f8/osm-000.gif"/>
+  <roles>
+    <moderator/>
+  </roles>
+  <changesets count="6794"/>
+  <traces count="257"/>
+  <blocks>
+    <received count="0" active="0"/>
+    <issued count="547" active="192"/>
+  </blocks>
+</user>
+</osm>

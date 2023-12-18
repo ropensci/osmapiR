@@ -48,8 +48,8 @@
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
 #'
 #' @return
-#' @family users' functions
-#' @export
+# @family users' functions
+#' @noRd
 #'
 #' @examples
 #' \dontrun{
@@ -141,8 +141,8 @@ osm_details_user <- function(user_id, format = c("R", "xml", "json")) {
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
 #'
 #' @return
-#' @family users' functions
-#' @export
+# @family users' functions
+#' @noRd
 #'
 #' @examples
 #' \dontrun{
