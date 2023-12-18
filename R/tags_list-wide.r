@@ -5,7 +5,7 @@
 #' to change the format of the tags.
 #'
 #' @rdname tags_list-wide
-#' @param x An `osmapi_objects` or `osmapi_changesets` objects as returned by, for example, [osm_read_object()] or
+#' @param x An `osmapi_objects` or `osmapi_changesets` objects as returned by, for example, [osm_get_objects()] or
 #'   [osm_read_changeset()].
 #'
 #' @details

@@ -24,7 +24,7 @@ Update tags, members and/or latitude and longitude.
 \details{
 \code{x} should follow the format of \code{osmapi_objects} with tags in wide format or a \code{tags} column with a list of
 data.frames with \code{key} and \code{value} columns. Missing tags or tags with \code{NA} in the value will be removed. See
-\code{\link[=osm_read_object]{osm_read_object()}} for examples of the format.
+\code{\link[=osm_get_objects]{osm_get_objects()}} for examples of the format.
 }
 \seealso{
 Other OsmChange's functions: 

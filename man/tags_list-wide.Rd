@@ -10,7 +10,7 @@ tags_list2wide(x)
 tags_wide2list(x)
 }
 \arguments{
-\item{x}{An \code{osmapi_objects} or \code{osmapi_changesets} objects as returned by, for example, \code{\link[=osm_read_object]{osm_read_object()}} or
+\item{x}{An \code{osmapi_objects} or \code{osmapi_changesets} objects as returned by, for example, \code{\link[=osm_get_objects]{osm_get_objects()}} or
 \code{\link[=osm_read_changeset]{osm_read_changeset()}}.}
 }
 \description{

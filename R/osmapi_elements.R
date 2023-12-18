@@ -200,8 +200,8 @@ osm_create_object <- function(x, changeset_id) {
 #'   Ignored if `format != "R"`.
 #'
 #' @return
-#' @family get OSM objects' functions
-#' @export
+# @family get OSM objects' functions
+#' @noRd
 #'
 #' @examples
 #' \dontrun{
@@ -586,8 +586,8 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id,
 #'   Ignored if `format != "R"`.
 #'
 #' @return
-#' @family get OSM objects' functions
-#' @export
+# @family get OSM objects' functions
+#' @noRd
 #'
 #' @examples
 #' \dontrun{
@@ -665,8 +665,8 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' [osmdata::opq_osm_id()].
 #'
 #' @return
-#' @family get OSM objects' functions
-#' @export
+# @family get OSM objects' functions
+#' @noRd
 #'
 #' @examples
 #' \dontrun{
@@ -875,8 +875,8 @@ osm_ways_node <- function(node_id, format = c("R", "xml", "json"), tags_in_colum
 #' [osmdata::opq_osm_id()].
 #'
 #' @return
-#' @family get OSM objects' functions
-#' @export
+# @family get OSM objects' functions
+#' @noRd
 #'
 #' @examples
 #' \dontrun{

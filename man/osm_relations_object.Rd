@@ -38,11 +38,8 @@ rel
 \seealso{
 Other get OSM objects' functions: 
 \code{\link{osm_bbox_objects}()},
-\code{\link{osm_fetch_objects}()},
-\code{\link{osm_full_object}()},
+\code{\link{osm_get_objects}()},
 \code{\link{osm_history_object}()},
-\code{\link{osm_read_object}()},
-\code{\link{osm_version_object}()},
 \code{\link{osm_ways_node}()}
 }
 \concept{get OSM objects' functions}

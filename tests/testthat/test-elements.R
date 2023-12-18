@@ -14,9 +14,9 @@ class_columns <- list(
 test_that("osm_read_object works", {
   read <- list()
   with_mock_dir("mock_read_object", {
-    read$node <- osm_read_object(osm_type = "node", osm_id = 35308286)
-    read$way <- osm_read_object(osm_type = "way", osm_id = 13073736L)
-    read$rel <- osm_read_object(osm_type = "relation", osm_id = "40581")
+    read$node <- osm_get_objects(osm_type = "node", osm_id = 35308286)
+    read$way <- osm_get_objects(osm_type = "way", osm_id = 13073736L)
+    read$rel <- osm_get_objects(osm_type = "relation", osm_id = "40581")
   })
 
   lapply(read, expect_s3_class, c("osmapi_objects", "data.frame"))
@@ -147,9 +147,9 @@ test_that("osm_history_object works", {
 test_that("osm_version_object works", {
   version <- list()
   with_mock_dir("mock_version_object", {
-    version$node <- osm_version_object(osm_type = "node", osm_id = 35308286, version = 1)
-    version$way <- osm_version_object(osm_type = "way", osm_id = 13073736L, version = 2)
-    version$rel <- osm_version_object(osm_type = "relation", osm_id = "40581", version = 3)
+    version$node <- osm_get_objects(osm_type = "node", osm_id = 35308286, version = 1)
+    version$way <- osm_get_objects(osm_type = "way", osm_id = 13073736L, version = 2)
+    version$rel <- osm_get_objects(osm_type = "relation", osm_id = "40581", version = 3)
   })
 
   lapply(version, expect_s3_class, c("osmapi_objects", "data.frame"))
@@ -174,16 +174,16 @@ test_that("osm_fetch_objects works", {
   fetch <- list()
   fetch_xml <- list()
   with_mock_dir("mock_fetch_objects", {
-    fetch$node <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367))
-    fetch$way <- osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L))
+    fetch$node <- osm_get_objects(osm_type = "node", osm_id = c(35308286, 1935675367))
+    fetch$way <- osm_get_objects(osm_type = "way", osm_id = c(13073736L, 235744929L))
     # Specific versions
-    fetch$rel <- osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1))
+    fetch$rel <- osm_get_objects(osm_type = "relation", osm_id = c("40581", "341530"), version = c(3, 1))
 
-    fetch_xml$node <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367), format = "xml")
-    fetch_xml$way <- osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L), format = "xml")
+    fetch_xml$node <- osm_get_objects(osm_type = "node", osm_id = c(35308286, 1935675367), format = "xml")
+    fetch_xml$way <- osm_get_objects(osm_type = "way", osm_id = c(13073736L, 235744929L), format = "xml")
     # Specific versions
-    fetch_xml$rel <- osm_fetch_objects(
-      osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1), format = "xml"
+    fetch_xml$rel <- osm_get_objects(
+      osm_type = "relation", osm_id = c("40581", "341530"), version = c(3, 1), format = "xml"
     )
   })
 
@@ -260,8 +260,8 @@ test_that("osm_ways_node works", {
 test_that("osm_full_object works", {
   full <- list()
   with_mock_dir("mock_full_object", {
-    full$way <- osm_full_object(osm_type = "way", osm_id = 13073736)
-    full$rel <- osm_full_object(osm_type = "relation", osm_id = "6002785")
+    full$way <- osm_get_objects(osm_type = "way", osm_id = 13073736, full_objects = TRUE)
+    full$rel <- osm_get_objects(osm_type = "relation", osm_id = "6002785", full_objects = TRUE)
   })
 
   lapply(full, expect_s3_class, c("osmapi_objects", "data.frame"))

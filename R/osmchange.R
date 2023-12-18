@@ -13,7 +13,7 @@
 #' @details
 #' `x` should follow the format of `osmapi_objects` with tags in wide format or a `tags` column with a list of
 #' data.frames with `key` and `value` columns. Missing tags or tags with `NA` in the value will be removed. See
-#' [osm_read_object()] for examples of the format.
+#' [osm_get_objects()] for examples of the format.
 #'
 #' @return
 #' @family OsmChange's functions
