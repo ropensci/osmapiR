@@ -262,6 +262,11 @@ test_that("osm_full_object works", {
   with_mock_dir("mock_full_object", {
     full$way <- osm_get_objects(osm_type = "way", osm_id = 13073736, full_objects = TRUE)
     full$rel <- osm_get_objects(osm_type = "relation", osm_id = "6002785", full_objects = TRUE)
+    full_xml <- osm_get_objects(
+      osm_type = c("relation", "way", "way", "node"),
+      osm_id = c(6002785, 13073736, 235744929, 35308286),
+      full_objects = TRUE, format = "xml"
+    )
   })
 
   lapply(full, expect_s3_class, c("osmapi_objects", "data.frame"))
@@ -274,6 +279,25 @@ test_that("osm_full_object works", {
 
   # methods
   lapply(print(full), expect_s3_class, c("osmapi_objects", "data.frame"))
+
+
+  ## xml
+  expect_s3_class(full_xml, "xml_document")
+
+
+  ## json
+  with_mock_dir("mock_full_object_json", {
+    full_json <- osm_get_objects(
+      osm_type = c("relation", "way", "way", "node"),
+      osm_id = c(6002785, 13073736, 235744929, 35308286),
+      full_objects = TRUE, format = "json"
+    )
+  })
+  expect_type(full_json, "list")
+  expect_named(full_json, c("version", "generator", "copyright", "attribution", "license", "elements"))
+  lapply(full_json$elements, function(x) {
+    expect_contains(names(x), c("type", "id", "timestamp", "version", "changeset", "user", "uid"))
+  })
 })
 
 

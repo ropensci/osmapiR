@@ -1,0 +1,80 @@
+{
+    "version": "0.6",
+    "generator": "CGImap 0.8.10 (012345 ******.openstreetmap.org)",
+    "copyright": "OpenStreetMap and contributors",
+    "attribution": "http://www.openstreetmap.org/copyright",
+    "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+    "elements": [
+        {
+            "type": "node",
+            "id": 2438033107,
+            "lat": 41.3838674,
+            "lon": 2.1824148,
+            "timestamp": "2016-03-12T21:57:59Z",
+            "version": 2,
+            "changeset": 37791155,
+            "user": "Jose Antonio Fontaneda",
+            "uid": 2130444
+        },
+        {
+            "type": "node",
+            "id": 2438033109,
+            "lat": 41.3836273,
+            "lon": 2.1822465,
+            "timestamp": "2016-03-12T21:57:59Z",
+            "version": 2,
+            "changeset": 37791155,
+            "user": "Jose Antonio Fontaneda",
+            "uid": 2130444
+        },
+        {
+            "type": "node",
+            "id": 2992282983,
+            "lat": 41.3836295,
+            "lon": 2.1822400,
+            "timestamp": "2016-03-12T21:58:00Z",
+            "version": 2,
+            "changeset": 37791155,
+            "user": "Jose Antonio Fontaneda",
+            "uid": 2130444
+        },
+        {
+            "type": "node",
+            "id": 2992282984,
+            "lat": 41.3838706,
+            "lon": 2.1824067,
+            "timestamp": "2016-03-12T21:58:00Z",
+            "version": 2,
+            "changeset": 37791155,
+            "user": "Jose Antonio Fontaneda",
+            "uid": 2130444
+        },
+        {
+            "type": "way",
+            "id": 235744929,
+            "timestamp": "2021-12-24T03:46:41Z",
+            "version": 7,
+            "changeset": 115317958,
+            "user": "jmaspons",
+            "uid": 11725140,
+            "nodes": [
+                2438033107,
+                2438033109,
+                2992282983,
+                2992282984,
+                2438033107
+            ],
+            "tags": {
+                "architect": "Carme Fiol",
+                "barrier": "wall",
+                "historic": "memorial",
+                "inscription": "Al fossar de les moreres no s'hi enterra cap traïdor;fins perdent nostres banderes serà l'urna de l'honor.",
+                "name": "Fossar de les Moreres",
+                "name:ca": "Fossar de les Moreres",
+                "start_date": "1989",
+                "wikidata": "Q2749521",
+                "wikipedia": "ca:Fossar de les Moreres"
+            }
+        }
+    ]
+}
