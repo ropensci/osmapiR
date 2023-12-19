@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.8.10 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <node id="2438033107" visible="true" version="2" changeset="37791155" timestamp="2016-03-12T21:57:59Z" user="Jose Antonio Fontaneda" uid="2130444" lat="41.3838674" lon="2.1824148"/>
+ <node id="2438033109" visible="true" version="2" changeset="37791155" timestamp="2016-03-12T21:57:59Z" user="Jose Antonio Fontaneda" uid="2130444" lat="41.3836273" lon="2.1822465"/>
+ <node id="2992282983" visible="true" version="2" changeset="37791155" timestamp="2016-03-12T21:58:00Z" user="Jose Antonio Fontaneda" uid="2130444" lat="41.3836295" lon="2.1822400"/>
+ <node id="2992282984" visible="true" version="2" changeset="37791155" timestamp="2016-03-12T21:58:00Z" user="Jose Antonio Fontaneda" uid="2130444" lat="41.3838706" lon="2.1824067"/>
+ <way id="235744929" visible="true" version="7" changeset="115317958" timestamp="2021-12-24T03:46:41Z" user="jmaspons" uid="11725140">
+  <nd ref="2438033107"/>
+  <nd ref="2438033109"/>
+  <nd ref="2992282983"/>
+  <nd ref="2992282984"/>
+  <nd ref="2438033107"/>
+  <tag k="architect" v="Carme Fiol"/>
+  <tag k="barrier" v="wall"/>
+  <tag k="historic" v="memorial"/>
+  <tag k="inscription" v="Al fossar de les moreres no s'hi enterra cap traïdor;fins perdent nostres banderes serà l'urna de l'honor."/>
+  <tag k="name" v="Fossar de les Moreres"/>
+  <tag k="name:ca" v="Fossar de les Moreres"/>
+  <tag k="start_date" v="1989"/>
+  <tag k="wikidata" v="Q2749521"/>
+  <tag k="wikipedia" v="ca:Fossar de les Moreres"/>
+ </way>
+</osm>

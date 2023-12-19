@@ -13,10 +13,18 @@ function(response) {
     fixed = TRUE
   )
 
+  # xml
   response <- httptest2::gsub_response(
     response,
-    'generator="CGImap 0.8.8 \\([0-9]+ .+.openstreetmap.org\\)" copyright="OpenStreetMap and contributors"',
-    'generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors"'
+    'generator="CGImap ([0-9.]+) \\([0-9]+ .+\\.openstreetmap\\.org\\)" copyright="OpenStreetMap and contributors"',
+    'generator="CGImap \\1 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors"'
+  )
+
+  # json
+  response <- httptest2::gsub_response(
+    response,
+    '"CGImap ([0-9.]+) \\([0-9]+ .+\\.openstreetmap\\.org\\)",',
+    '"CGImap \\1 (012345 ******.openstreetmap.org)",',
   )
 
   return(response)

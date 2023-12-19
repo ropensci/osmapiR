@@ -200,8 +200,8 @@ osm_create_object <- function(x, changeset_id) {
 #'   Ignored if `format != "R"`.
 #'
 #' @return
-#' @family get OSM objects' functions
-#' @export
+# @family get OSM objects' functions
+#' @noRd
 #'
 #' @examples
 #' \dontrun{
@@ -586,8 +586,8 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id,
 #'   Ignored if `format != "R"`.
 #'
 #' @return
-#' @family get OSM objects' functions
-#' @export
+# @family get OSM objects' functions
+#' @noRd
 #'
 #' @examples
 #' \dontrun{
@@ -665,8 +665,8 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' [osmdata::opq_osm_id()].
 #'
 #' @return
-#' @family get OSM objects' functions
-#' @export
+# @family get OSM objects' functions
+#' @noRd
 #'
 #' @examples
 #' \dontrun{
@@ -690,12 +690,14 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
   }
 
   if (format == "json") {
-    osm_type <- paste0(osm_type, ".json")
+    osm_type_endpoint <- paste0(osm_type, ".json")
+  } else {
+    osm_type_endpoint <- osm_type
   }
 
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, osm_type)
+  req <- httr2::req_url_path_append(req, osm_type_endpoint)
 
   if (osm_type == "nodes") {
     req <- httr2::req_url_query(req, nodes = paste(osm_ids, collapse = ","))
@@ -875,8 +877,8 @@ osm_ways_node <- function(node_id, format = c("R", "xml", "json"), tags_in_colum
 #' [osmdata::opq_osm_id()].
 #'
 #' @return
-#' @family get OSM objects' functions
-#' @export
+# @family get OSM objects' functions
+#' @noRd
 #'
 #' @examples
 #' \dontrun{

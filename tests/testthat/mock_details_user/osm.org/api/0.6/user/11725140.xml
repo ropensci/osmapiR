@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
 <user id="11725140" display_name="jmaspons" account_created="2020-08-28T20:22:40Z">
-  <description></description>
+  <description>[Fòrums d'OSM](https://community.openstreetmap.org/u/jmaspons) - [Wiki d'OSM](https://wiki.openstreetmap.org/wiki/User:Jmaspons) - [OSM help](https://help.openstreetmap.org/users/23509/jmaspons)</description>
   <contributor-terms agreed="true"/>
+  <img href="https://www.openstreetmap.org/rails/active_storage/representations/redirect/eyJfcmFpbHMiOnsiZGF0YSI6MzI3NjExMDUsInB1ciI6ImJsb2JfaWQifX0=--e51481680572af88f4292d4979957d058e824344/eyJfcmFpbHMiOnsiZGF0YSI6eyJmb3JtYXQiOiJqcGciLCJyZXNpemVfdG9fbGltaXQiOlsxMDAsMTAwXX0sInB1ciI6InZhcmlhdGlvbiJ9fQ==--71e417a328c02e35ec87b6c7cd4e4524c74e4ec8/me.jpg"/>
   <roles>
   </roles>
-  <changesets count="25348"/>
+  <changesets count="26851"/>
   <traces count="26"/>
   <blocks>
     <received count="0" active="0"/>

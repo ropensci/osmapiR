@@ -7,20 +7,20 @@ I mainly map footpaths and other out-of-town things.  Also see related profile o
 
 There are some bits and pieces (including [two](https://github.com/SomeoneElseOSM/SomeoneElse-style) [parts](https://github.com/SomeoneElseOSM/openstreetmap-carto-AJT) of an OSM-Carto-derived rendering style designed for out-of-town England and Wales) over at [Github](https://github.com/SomeoneElseOSM) that look like [this](https://map.atownsend.org.uk/maps/map/map.html).  There are some wiki pages behind [here](https://wiki.openstreetmap.org/wiki/User:SomeoneElse) (mostly to do with tileserver setup).  
 
-I'm a member of the [Data Working Group](http://wiki.openstreetmap.org/wiki/Data_working_group) (that's what the blue star above means), but if you've you've got any issues to raise with the DWG the [group email address](http://wiki.osmfoundation.org/wiki/Data_Working_Group#Contact) is the best one to use.  
+I'm a member of the [Data Working Group](http://wiki.openstreetmap.org/wiki/Data_working_group) (that's what the blue star above means), but if you've got any issues to raise with the DWG the [group email address](http://wiki.osmfoundation.org/wiki/Data_Working_Group#Contact) is the best one to use.  
 
 Other related accounts are [SomeoneElse2](http://www.openstreetmap.org/user/SomeoneElse2). [SomeoneElseSC](https://www.openstreetmap.org/user/SomeoneElseSC) and [SomeoneElse_Revert](http://www.openstreetmap.org/user/SomeoneElse_Revert), which is mainly used where people have requested that I help with reversions.
 
-</description>
+The "User id" of this account is "61942".  I mention that because there have been a few attempts over the years to impersonate DWG members, including me, using names such as "SomeoneEIse" (with a capital "i" instead of a lower case "l") and others with various UTF-8 versions of characters that look similar to, but are not, regular ascii characters.</description>
   <contributor-terms agreed="true"/>
   <roles>
     <moderator/>
   </roles>
-  <changesets count="29842"/>
-  <traces count="5930"/>
+  <changesets count="43837"/>
+  <traces count="6011"/>
   <blocks>
     <received count="0" active="0"/>
-    <issued count="2691" active="847"/>
+    <issued count="10321" active="8376"/>
   </blocks>
 </user>
 </osm>
