@@ -62,7 +62,7 @@ to change the format of the tags.</p>
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>x</dt>
-<dd><p>An <code>osmapi_objects</code> or <code>osmapi_changesets</code> objects as returned by, for example, <code><a href="osm_read_object.html">osm_read_object()</a></code> or
+<dd><p>An <code>osmapi_objects</code> or <code>osmapi_changesets</code> objects as returned by, for example, <code><a href="osm_get_objects.html">osm_get_objects()</a></code> or
 <code><a href="osm_read_changeset.html">osm_read_changeset()</a></code>.</p></dd>
 
 </dl></div>
@@ -79,7 +79,7 @@ but can return the results in a wide format using the parameter <code>tags_in_co
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="va">peaks_wide</span> <span class="op">&lt;-</span> <span class="fu"><a href="osm_fetch_objects.html">osm_fetch_objects</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span><span class="va">peaks_wide</span> <span class="op">&lt;-</span> <span class="fu">osm_fetch_objects</span><span class="op">(</span></span></span>
 <span class="r-in"><span>  osm_type <span class="op">=</span> <span class="st">"nodes"</span>, osm_ids <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">35308286</span>, <span class="fl">1935675367</span><span class="op">)</span>, tags_in_columns <span class="op">=</span> <span class="cn">TRUE</span></span></span>
 <span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">peaks_list</span> <span class="op">&lt;-</span> <span class="fu">tags_wide2list</span><span class="op">(</span><span class="va">peaks_wide</span><span class="op">)</span></span></span>
@@ -91,7 +91,7 @@ but can return the results in a wide format using the parameter <code>tags_in_co
 <span class="r-in"><span><span class="va">peaks_wide</span><span class="op">[</span><span class="op">!</span><span class="fu"><a href="https://rdrr.io/r/base/NA.html" class="external-link">is.na</a></span><span class="op">(</span><span class="va">peaks_wide</span><span class="op">$</span><span class="va">prominence</span><span class="op">)</span>, <span class="op">]</span></span></span>
 <span class="r-in"><span><span class="va">peaks_list</span><span class="op">[</span><span class="fu"><a href="https://rdrr.io/r/base/lapply.html" class="external-link">sapply</a></span><span class="op">(</span><span class="va">peaks_list</span><span class="op">$</span><span class="va">tags</span>, <span class="kw">function</span><span class="op">(</span><span class="va">x</span><span class="op">)</span> <span class="fu"><a href="https://rdrr.io/r/base/any.html" class="external-link">any</a></span><span class="op">(</span><span class="va">x</span><span class="op">$</span><span class="va">key</span> <span class="op">==</span> <span class="st">"prominence"</span><span class="op">)</span><span class="op">)</span>, <span class="op">]</span></span></span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">cities_list</span> <span class="op">&lt;-</span> <span class="fu"><a href="osm_fetch_objects.html">osm_fetch_objects</a></span><span class="op">(</span>osm_type <span class="op">=</span> <span class="st">"relations"</span>, osm_ids <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"40581"</span>, <span class="st">"341530"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">cities_list</span> <span class="op">&lt;-</span> <span class="fu">osm_fetch_objects</span><span class="op">(</span>osm_type <span class="op">=</span> <span class="st">"relations"</span>, osm_ids <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"40581"</span>, <span class="st">"341530"</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="co"># Column name clash:</span></span></span>
 <span class="r-in"><span><span class="va">cities_wide</span> <span class="op">&lt;-</span> <span class="fu">tags_list2wide</span><span class="op">(</span><span class="va">cities_list</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>

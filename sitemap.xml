@@ -64,12 +64,6 @@
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_details_logged_user.html</loc>
   </url>
   <url>
-    <loc>https://jmaspons.github.io/osmapiR/reference/osm_details_user.html</loc>
-  </url>
-  <url>
-    <loc>https://jmaspons.github.io/osmapiR/reference/osm_details_users.html</loc>
-  </url>
-  <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_diff_upload_changeset.html</loc>
   </url>
   <url>
@@ -79,22 +73,22 @@
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_feed_notes.html</loc>
   </url>
   <url>
-    <loc>https://jmaspons.github.io/osmapiR/reference/osm_fetch_objects.html</loc>
-  </url>
-  <url>
-    <loc>https://jmaspons.github.io/osmapiR/reference/osm_full_object.html</loc>
-  </url>
-  <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_data_gpx.html</loc>
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_metadata_gpx.html</loc>
   </url>
   <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_objects.html</loc>
+  </url>
+  <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_points_gps.html</loc>
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_preferences_user.html</loc>
+  </url>
+  <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_user_details.html</loc>
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_hide_comment_changeset_discussion.html</loc>
@@ -119,9 +113,6 @@
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_read_note.html</loc>
-  </url>
-  <url>
-    <loc>https://jmaspons.github.io/osmapiR/reference/osm_read_object.html</loc>
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_redaction_object.html</loc>
@@ -149,9 +140,6 @@
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_update_object.html</loc>
-  </url>
-  <url>
-    <loc>https://jmaspons.github.io/osmapiR/reference/osm_version_object.html</loc>
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_ways_node.html</loc>
