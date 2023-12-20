@@ -690,14 +690,14 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
   }
 
   if (format == "json") {
-    osm_type_endpoint <- paste0(osm_type, ".json")
+    ext <- paste0(osm_type, ".json")
   } else {
-    osm_type_endpoint <- osm_type
+    ext <- osm_type
   }
 
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, osm_type_endpoint)
+  req <- httr2::req_url_path_append(req, ext)
 
   if (osm_type == "nodes") {
     req <- httr2::req_url_query(req, nodes = paste(osm_ids, collapse = ","))
