@@ -310,10 +310,11 @@ gpx_xml2list <- function(xml) {
 
     elem_points <- lapply(trkpt, function(y) {
       pt <- xml2::xml_children(y)
-      elem_name <- sapply(pt, xml2::xml_name)
+      elem_name <- vapply(pt, xml2::xml_name, FUN.VALUE = character(1))
+      sel <- elem_name %in% c("ele", "time")
       vals <- structure(
-        sapply(pt[elem_name %in% c("ele", "time")], xml2::xml_text),
-        names = elem_name[elem_name %in% c("ele", "time")]
+        vapply(pt[sel], xml2::xml_text, FUN.VALUE = character(1)),
+        names = elem_name[sel]
       )
 
       return(vals)
@@ -337,7 +338,7 @@ gpx_xml2list <- function(xml) {
     meta <- xml2::xml_children(gpx[xml2::xml_name(gpx) == "metadata"])
     meta_attrs <- xml2::xml_attrs(meta)
     names(meta_attrs) <- xml2::xml_name(meta)
-    meta_attrs <- meta_attrs[sapply(meta_attrs, length) > 0]
+    meta_attrs <- meta_attrs[vapply(meta_attrs, length, FUN.VALUE = integer(1)) > 0]
 
     attributes(trkL) <- c(attributes(trkL), unlist(metaL, recursive = FALSE), meta_attrs)
   }
