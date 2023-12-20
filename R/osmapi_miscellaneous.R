@@ -70,7 +70,7 @@ osm_api_versions <- function() {
 # 		<waynodes maximum="2000"/>
 # 		<relationmembers maximum="32000"/>
 # 		<changesets maximum_elements="10000" default_query_limit="100" maximum_query_limit="100"/>
-#		<notes default_query_limit="100" maximum_query_limit="10000"/>
+# 		<notes default_query_limit="100" maximum_query_limit="10000"/>
 # 		<timeout seconds="300"/>
 # 		<status database="online" api="online" gpx="online"/>
 # 	</api>

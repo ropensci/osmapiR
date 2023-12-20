@@ -8,7 +8,7 @@ osmchange_create(x)
 }
 \arguments{
 \item{x}{A \code{data.frame} with columns \code{type}, \code{changeset} and \code{tags} + column \code{members} for ways and relations + \code{lat}
-and \code{lon} for nodes. For \code{osmapi_obects}, the tags column is not needed but the object must inherit \code{tags_wide}.}
+and \code{lon} for nodes. For \code{osmapi_objects}, the tags column is not needed but the object must inherit \code{tags_wide}.}
 }
 \description{
 Create OSM objects

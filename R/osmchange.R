@@ -93,7 +93,7 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
   rm <- is.na(osmchange$action_type)
 
   if (sum(rm) > 0) {
-    message(sum(rm), " objects without modificacions will be discarded.")
+    message(sum(rm), " objects without modifications will be discarded.")
     osmchange <- osmchange[!rm, ]
   }
 
@@ -136,7 +136,7 @@ osmchange_delete <- function(x, delete_if_unused = TRUE) {
 #' Create OSM objects
 #'
 #' @param x A `data.frame` with columns `type`, `changeset` and `tags` + column `members` for ways and relations + `lat`
-#'   and `lon` for nodes. For `osmapi_obects`, the tags column is not needed but the object must inherit `tags_wide`.
+#'   and `lon` for nodes. For `osmapi_objects`, the tags column is not needed but the object must inherit `tags_wide`.
 #'
 #' @details
 #' Objects IDs are unknown and will be allocated by the server. Check
