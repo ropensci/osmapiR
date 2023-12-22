@@ -37,7 +37,7 @@
 </nav><div class="container template-reference-topic">
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="" class="logo" alt=""><h1>Download a changeset in OsmChange format</h1>
+      <img src="" class="logo" alt=""><h1>Download a changeset in <code>OsmChange</code> format</h1>
       <small class="dont-index">Source: <a href="https://github.com/jmaspons/osmapiR/blob/HEAD/R/osmapi_changesets.R" class="external-link"><code>R/osmapi_changesets.R</code></a></small>
       <div class="d-none name"><code>osm_download_changeset.Rd</code></div>
     </div>
@@ -62,6 +62,13 @@ requested.</p></dd>
 <dd><p>Format of the output. Can be <code>R</code> (default) or <code>xml</code>.</p></dd>
 
 </dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>If <code>format = "R"</code>, returns a data frame with one row for each edit action in the changeset. If <code>format = "xml</code>,
+returns a xml2::xml_document in the <a href="https://wiki.openstreetmap.org/wiki/OsmChange" class="external-link">OsmChange</a> format.</p>
+    </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     

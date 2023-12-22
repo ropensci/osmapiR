@@ -48,9 +48,42 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">osm_list_gpxs</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">osm_list_gpxs</span><span class="op">(</span>format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"R"</span>, <span class="st">"xml"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
+    <dl><dt>format</dt>
+<dd><p>Format of the output. Can be <code>R</code> (default) or <code>xml</code>.</p></dd>
+
+</dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>If <code>format = "R"</code>, returns a data frame with one trace per row. If <code>format = "xml"</code>, returns a
+xml2::xml_document similar to the one of <code><a href="osm_get_metadata_gpx.html">osm_get_metadata_gpx()</a></code>, except with multiple possible <code>&lt;gpx_file&gt;</code></p>
+
+
+<p>elements. Example:</p>
+
+
+<p></p><div class="sourceCode xml"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">osm</span><span class="ot"> version=</span><span class="st">"0.6"</span><span class="ot"> generator=</span><span class="st">"OpenStreetMap server"</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">gpx_file</span><span class="ot"> id=</span><span class="st">"836619"</span><span class="ot"> name=</span><span class="st">"track.gpx"</span><span class="ot"> lat=</span><span class="st">"52.0194"</span><span class="ot"> lon=</span><span class="st">"8.51807"</span><span class="ot"> uid=</span><span class="st">"1234"</span><span class="ot"> user=</span><span class="st">"Hartmut Holzgraefe"</span><span class="ot"> visibility=</span><span class="st">"public"</span><span class="ot"> pending=</span><span class="st">"false"</span><span class="ot"> timestamp=</span><span class="st">"2010-10-09T09:24:19Z"</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">description</span>&gt;PHP upload test&lt;/<span class="kw">description</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">tag</span>&gt;test&lt;/<span class="kw">tag</span>&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">tag</span>&gt;php&lt;/<span class="kw">tag</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">gpx_file</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">gpx_file</span><span class="ot"> id=</span><span class="st">"836620"</span><span class="ot"> name=</span><span class="st">"track.gpx"</span><span class="ot"> lat=</span><span class="st">"52.1194"</span><span class="ot"> lon=</span><span class="st">"8.61807"</span><span class="ot"> uid=</span><span class="st">"1234"</span><span class="ot"> user=</span><span class="st">"Hartmut Holzgraefe"</span><span class="ot"> visibility=</span><span class="st">"public"</span><span class="ot"> pending=</span><span class="st">"false"</span><span class="ot"> timestamp=</span><span class="st">"2010-10-09T09:27:31Z"</span>&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">description</span>&gt;PHP upload test 2&lt;/<span class="kw">description</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">tag</span>&gt;test&lt;/<span class="kw">tag</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">tag</span>&gt;php&lt;/<span class="kw">tag</span>&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">gpx_file</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">osm</span>&gt;</span></code></pre><p></p></div>
+
+
+    </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other get GPS' functions: 

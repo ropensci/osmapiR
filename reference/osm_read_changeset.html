@@ -77,6 +77,63 @@ Ignored if <code>format != "R"</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>If <code>format = "R"</code>, returns a data frame with one OSM changeset per row.</p><div class="section">
+<h3 id="format-xml-"><code>format = "xml"</code><a class="anchor" aria-label="anchor" href="#format-xml-"></a></h3>
+
+
+<p>Returns a xml2::xml_document with the following format:</p>
+<p></p><div class="sourceCode xml"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">osm</span>&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">changeset</span><span class="ot"> id=</span><span class="st">"10"</span><span class="ot"> created_at=</span><span class="st">"2008-11-08T19:07:39+01:00"</span><span class="ot"> open=</span><span class="st">"true"</span><span class="ot"> user=</span><span class="st">"fred"</span><span class="ot"> uid=</span><span class="st">"123"</span><span class="ot"> min_lon=</span><span class="st">"7.0191821"</span><span class="ot"> min_lat=</span><span class="st">"49.2785426"</span><span class="ot"> max_lon=</span><span class="st">"7.0197485"</span><span class="ot"> max_lat=</span><span class="st">"49.2793101"</span><span class="ot"> comments_count=</span><span class="st">"3"</span><span class="ot"> changes_count=</span><span class="st">"10"</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">tag</span><span class="ot"> k=</span><span class="st">"created_by"</span><span class="ot"> v=</span><span class="st">"JOSM 1.61"</span>/&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">tag</span><span class="ot"> k=</span><span class="st">"comment"</span><span class="ot"> v=</span><span class="st">"Just adding some streetnames"</span>/&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        ...</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">discussion</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">comment</span><span class="ot"> date=</span><span class="st">"2015-01-01T18:56:48Z"</span><span class="ot"> uid=</span><span class="st">"1841"</span><span class="ot"> user=</span><span class="st">"metaodi"</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">text</span>&gt;Did you verify those street names?&lt;/<span class="kw">text</span>&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">comment</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">comment</span><span class="ot"> date=</span><span class="st">"2015-01-01T18:58:03Z"</span><span class="ot"> uid=</span><span class="st">"123"</span><span class="ot"> user=</span><span class="st">"fred"</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">text</span>&gt;sure!&lt;/<span class="kw">text</span>&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">comment</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>            ...</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">discussion</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">changeset</span>&gt;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">osm</span>&gt;</span></code></pre><p></p></div>
+</div>
+
+
+
+<div class="section">
+<h3 id="format-json-"><code>format = "json"</code><a class="anchor" aria-label="anchor" href="#format-json-"></a></h3>
+
+
+<p>Returns a list with the following json structure:</p>
+<p></p><div class="sourceCode json"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"0.6"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> <span class="dt">"elements"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">"type"</span><span class="fu">:</span> <span class="st">"changeset"</span><span class="fu">,</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"id"</span><span class="fu">:</span> <span class="dv">10</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"created_at"</span><span class="fu">:</span> <span class="st">"2005-05-01T16:09:37Z"</span><span class="fu">,</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"closed_at"</span><span class="fu">:</span> <span class="st">"2005-05-01T17:16:44Z"</span><span class="fu">,</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"open"</span><span class="fu">:</span> <span class="er">False</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"user"</span><span class="fu">:</span> <span class="st">"Petter Reinholdtsen"</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"uid"</span><span class="fu">:</span> <span class="dv">24</span><span class="fu">,</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"minlat"</span><span class="fu">:</span> <span class="fl">59.9513092</span><span class="fu">,</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"minlon"</span><span class="fu">:</span> <span class="fl">10.7719727</span><span class="fu">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"maxlat"</span><span class="fu">:</span> <span class="fl">59.9561501</span><span class="fu">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"maxlon"</span><span class="fu">:</span> <span class="fl">10.7994537</span><span class="fu">,</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"comments_count"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"changes_count"</span><span class="fu">:</span> <span class="dv">10</span><span class="fu">,</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"discussion"</span><span class="fu">:</span> <span class="ot">[</span><span class="fu">{</span><span class="dt">"date"</span><span class="fu">:</span> <span class="st">"2022-03-22T20:58:30Z"</span><span class="fu">,</span> <span class="dt">"uid"</span><span class="fu">:</span> <span class="dv">15079200</span><span class="fu">,</span> <span class="dt">"user"</span><span class="fu">:</span> <span class="st">"Ethan White of Cheriton"</span><span class="fu">,</span> <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"wow no one have said anything here 3/22/2022</span><span class="ch">\n</span><span class="st">"</span><span class="fu">}</span><span class="ot">]</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span><span class="ot">]</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre><p></p></div>
+</div>
+
+
+    </div>
+    <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     
 <ul><li><p>The <code>uid</code> might not be available for changesets auto generated by the API v0.5 to API v0.6 transition</p></li>

@@ -72,6 +72,36 @@ parameter is 0 (zero), the command returns the first 5,000 points; when it is 1,
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>If <code>format = "R"</code>, returns a list of data frames with the points for each trace.</p><div class="section">
+<h3 id="format-gpx-"><code>format = "gpx"</code><a class="anchor" aria-label="anchor" href="#format-gpx-"></a></h3>
+
+
+<p>Returns a xml2::xml_document with the following format:</p>
+<p></p><div class="sourceCode xml"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">gpx</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> creator=</span><span class="st">"OpenStreetMap.org"</span><span class="ot"> xmlns=</span><span class="st">"http://www.topografix.com/GPX/1/0"</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">trk</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">name</span>&gt;20190626.gpx&lt;/<span class="kw">name</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">desc</span>&gt;Footpaths near Blackweir Pond, Epping Forest&lt;/<span class="kw">desc</span>&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">url</span>&gt;https://api.openstreetmap.org/user/John%20Leeming/traces/3031013&lt;/<span class="kw">url</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">trkseg</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">trkpt</span><span class="ot"> lat=</span><span class="st">"51.6616100"</span><span class="ot"> lon=</span><span class="st">"0.0534560"</span>&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">time</span>&gt;2019-06-26T14:27:58Z&lt;/<span class="kw">time</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">trkpt</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            ...</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">trkseg</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        ...</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">trk</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">gpx</span>&gt;</span></code></pre><p></p></div><ul><li><p>This response is NOT wrapped in an OSM xml parent element.</p></li>
+<li><p>The file format is GPX Version 1.0 which is not the current version. Verify that your tools support it.</p></li>
+</ul></div>
+
+
+    </div>
+    <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
     <p>In violation of the <a href="https://www.topografix.com/GPX/1/1/#type_trksegType" class="external-link">GPX standard</a> when downloading public
 GPX traces through the API, all waypoints of non-trackable traces are randomized (or rather sorted by lat/lon) and

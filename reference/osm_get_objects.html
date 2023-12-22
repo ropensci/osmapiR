@@ -88,6 +88,20 @@ retrieved. Recycled if it has different length than <code>osm_id</code>.</p></dd
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>If <code>format = "R"</code>, returns a data frame with one OSM object per row. If <code>format = "xml"</code>, returns a
+xml2::xml_document following the
+<a href="https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes" class="external-link">OSM_XML format</a>. If <code>format = "json"</code>,
+returns a list with a json structure following the <a href="https://wiki.openstreetmap.org/wiki/OSM_JSON" class="external-link">OSM_JSON format</a>.</p>
+
+
+<p>Objects are sorted in the same order than <code>osm_id</code> except for <code>full_objects = TRUE</code>, where the nodes comes first,
+then ways, and relations at the end as specified by
+<a href="https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes" class="external-link">OSM_XML format</a>.</p>
+    </div>
+    <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p><code>full_objects = TRUE</code> does not support specifying <code>version</code>.
 For ways, <code>full_objects = TRUE</code> implies that it will return the way specified plus all nodes referenced by the way.

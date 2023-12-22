@@ -81,6 +81,76 @@ only open notes are returned. A value of -1 means all notes are returned. Defaul
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>If <code>format = "R"</code>, returns a data frame with one map note per row.</p>
+
+
+<p><code>## format = "xml"</code></p>
+
+
+
+<p>Returns a xml2::xml_document with the following format:</p>
+
+
+<p></p><div class="sourceCode xml"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">osm</span><span class="ot"> version=</span><span class="st">"0.6"</span><span class="ot"> generator=</span><span class="st">"OpenStreetMap server"</span><span class="ot"> copyright=</span><span class="st">"OpenStreetMap and contributors"</span><span class="ot"> attribution=</span><span class="st">"https://www.openstreetmap.org/copyright"</span><span class="ot"> license=</span><span class="st">"https://opendatacommons.org/licenses/odbl/1-0/"</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">note</span><span class="ot"> lon=</span><span class="st">"0.1000000"</span><span class="ot"> lat=</span><span class="st">"51.0000000"</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">id</span>&gt;16659&lt;/<span class="kw">id</span>&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">url</span>&gt;https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659&lt;/<span class="kw">url</span>&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">comment_url</span>&gt;https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659/comment&lt;/<span class="kw">comment_url</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">close_url</span>&gt;https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659/close&lt;/<span class="kw">close_url</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">date_created</span>&gt;2019-06-15 08:26:04 UTC&lt;/<span class="kw">date_created</span>&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">status</span>&gt;open&lt;/<span class="kw">status</span>&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">comments</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">comment</span>&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">date</span>&gt;2019-06-15 08:26:04 UTC&lt;/<span class="kw">date</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">uid</span>&gt;1234&lt;/<span class="kw">uid</span>&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">user</span>&gt;userName&lt;/<span class="kw">user</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">user_url</span>&gt;https://master.apis.dev.openstreetmap.org/user/userName&lt;/<span class="kw">user_url</span>&gt;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">action</span>&gt;opened&lt;/<span class="kw">action</span>&gt;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">text</span>&gt;ThisIsANote&lt;/<span class="kw">text</span>&gt;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                &lt;<span class="kw">html</span>&gt;<span class="dv">&amp;lt;</span>p<span class="dv">&amp;gt;</span>ThisIsANote<span class="dv">&amp;lt;</span>/p<span class="dv">&amp;gt;</span>&lt;/<span class="kw">html</span>&gt;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>            &lt;/<span class="kw">comment</span>&gt;</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            ...</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">comments</span>&gt;</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">note</span>&gt;</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    ...</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">osm</span>&gt;</span></code></pre><p></p></div>
+
+
+<div class="section">
+<h3 id="format-json-"><code>format = "json"</code><a class="anchor" aria-label="anchor" href="#format-json-"></a></h3>
+
+
+<p>Returns a list with the following json structure:</p>
+<p></p><div class="sourceCode json"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"FeatureCollection"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> <span class="dt">"features"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"type"</span><span class="fu">:</span> <span class="st">"Feature"</span><span class="fu">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"geometry"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"type"</span><span class="fu">:</span> <span class="st">"Point"</span><span class="fu">,</span> <span class="dt">"coordinates"</span><span class="fu">:</span> <span class="ot">[</span><span class="fl">0.1000000</span><span class="ot">,</span> <span class="fl">51.0000000</span><span class="ot">]</span><span class="fu">},</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>   <span class="dt">"properties"</span><span class="fu">:</span> <span class="fu">{</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"id"</span><span class="fu">:</span> <span class="dv">16659</span><span class="fu">,</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"url"</span><span class="fu">:</span> <span class="st">"https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659.json"</span><span class="fu">,</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"comment_url"</span><span class="fu">:</span> <span class="st">"https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659/comment.json"</span><span class="fu">,</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"close_url"</span><span class="fu">:</span> <span class="st">"https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659/close.json"</span><span class="fu">,</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"date_created"</span><span class="fu">:</span> <span class="st">"2019-06-15 08:26:04 UTC"</span><span class="fu">,</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"status"</span><span class="fu">:</span> <span class="st">"open"</span><span class="fu">,</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    <span class="dt">"comments"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>     <span class="fu">{</span><span class="dt">"date"</span><span class="fu">:</span> <span class="st">"2019-06-15 08:26:04 UTC"</span><span class="fu">,</span> <span class="dt">"uid"</span><span class="fu">:</span> <span class="dv">1234</span><span class="fu">,</span> <span class="dt">"user"</span><span class="fu">:</span> <span class="st">"userName"</span><span class="fu">,</span> <span class="dt">"user_url"</span><span class="fu">:</span> <span class="st">"https://master.apis.dev.openstreetmap.org/user/userName"</span><span class="fu">,</span> <span class="dt">"action"</span><span class="fu">:</span> <span class="st">"opened"</span><span class="fu">,</span> <span class="dt">"text"</span><span class="fu">:</span> <span class="st">"ThisIsANote"</span><span class="fu">,</span> <span class="dt">"html"</span><span class="fu">:</span> <span class="st">"&lt;p&gt;ThisIsANote&lt;/p&gt;"</span><span class="fu">}</span><span class="ot">,</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>     <span class="er">...</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>    <span class="ot">]</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>   <span class="fu">}</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">}</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a> <span class="ot">]</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre><p></p></div>
+</div>
+
+
+    </div>
+    <div class="section level2">
     <h2 id="note">Note<a class="anchor" aria-label="anchor" href="#note"></a></h2>
     <p>The comment properties (<code>uid</code>, <code>user</code>, <code>user_url</code>) will be omitted if the comment was anonymous.</p>
     </div>

@@ -77,6 +77,15 @@ Ignored if <code>format != "R"</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>If <code>format = "R"</code>, returns a data frame with one OSM object per row. If <code>format = "xml"</code>, returns a
+xml2::xml_document following the
+<a href="https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes" class="external-link">OSM_XML format</a>. If <code>format = "json"</code>,
+returns a list with a json structure following the <a href="https://wiki.openstreetmap.org/wiki/OSM_JSON" class="external-link">OSM_JSON format</a>.</p>
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other get OSM objects' functions: 
 <code><a href="osm_bbox_objects.html">osm_bbox_objects</a>()</code>,

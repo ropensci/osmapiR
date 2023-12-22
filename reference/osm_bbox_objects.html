@@ -86,6 +86,15 @@ Ignored if <code>format != "R"</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>If <code>format = "R"</code>, returns a data frame with one OSM object per row. If <code>format = "xml"</code>, returns a
+xml2::xml_document following the
+<a href="https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes" class="external-link">OSM_XML format</a>. If <code>format = "json"</code>,
+returns a list with a json structure following the <a href="https://wiki.openstreetmap.org/wiki/OSM_JSON" class="external-link">OSM_JSON format</a>.</p>
+    </div>
+    <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Note that, while this command returns those relations that reference the aforementioned nodes and ways, the reverse
 is not true: it does not (necessarily) return all of the nodes and ways that are referenced by these relations. This

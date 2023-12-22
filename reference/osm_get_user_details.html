@@ -63,6 +63,61 @@ the display names).</p></dd>
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>For users not found, the result is empty. If <code>format = "R"</code>, returns a data frame with one user per row.</p><div class="section">
+<h3 id="format-xml-"><code>format = "xml"</code><a class="anchor" aria-label="anchor" href="#format-xml-"></a></h3>
+
+
+<p>Returns a xml2::xml_document with the following format:</p>
+<p></p><div class="sourceCode xml"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">osm</span><span class="ot"> version=</span><span class="st">"0.6"</span><span class="ot"> generator=</span><span class="st">"OpenStreetMap server"</span>&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">user</span><span class="ot"> id=</span><span class="st">"12023"</span><span class="ot"> display_name=</span><span class="st">"jbpbis"</span><span class="ot"> account_created=</span><span class="st">"2007-08-16T01:35:56Z"</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">description</span>&gt;&lt;/<span class="kw">description</span>&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">contributor-terms</span><span class="ot"> agreed=</span><span class="st">"false"</span>/&gt;</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">img</span><span class="ot"> href=</span><span class="st">"http://www.gravatar.com/avatar/c8c86cd15f60ecca66ce2b10cb6b9a00.jpg?s=256</span><span class="dv">&amp;amp;</span><span class="st">d=http%3A%2F%2Fwww.openstreetmap.org%2Fassets%2Fusers%2Fimages%2Flarge-39c3a9dc4e778311af6b70ddcf447b58.png"</span>/&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">roles</span>&gt;</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">roles</span>&gt;</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">changesets</span><span class="ot"> count=</span><span class="st">"1"</span>/&gt;</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">traces</span><span class="ot"> count=</span><span class="st">"0"</span>/&gt;</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">blocks</span>&gt;</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">received</span><span class="ot"> count=</span><span class="st">"0"</span><span class="ot"> active=</span><span class="st">"0"</span>/&gt;</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">blocks</span>&gt;</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">user</span>&gt;</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">user</span><span class="ot"> id=</span><span class="st">"210447"</span><span class="ot"> display_name=</span><span class="st">"siebh"</span><span class="ot"> account_created=</span><span class="st">"2009-12-20T10:11:42Z"</span>&gt;</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">description</span>&gt;&lt;/<span class="kw">description</span>&gt;</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">contributor-terms</span><span class="ot"> agreed=</span><span class="st">"true"</span>/&gt;</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">roles</span>&gt;</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">roles</span>&gt;</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">changesets</span><span class="ot"> count=</span><span class="st">"267"</span>/&gt;</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">traces</span><span class="ot"> count=</span><span class="st">"1"</span>/&gt;</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">blocks</span>&gt;</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>            &lt;<span class="kw">received</span><span class="ot"> count=</span><span class="st">"0"</span><span class="ot"> active=</span><span class="st">"0"</span>/&gt;</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        &lt;/<span class="kw">blocks</span>&gt;</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">user</span>&gt;</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">osm</span>&gt;</span></code></pre><p></p></div>
+</div>
+
+
+
+<div class="section">
+<h3 id="format-json-"><code>format = "json"</code><a class="anchor" aria-label="anchor" href="#format-json-"></a></h3>
+
+
+<p>Returns a list with the following json structure:</p>
+<p></p><div class="sourceCode json"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"0.6"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> <span class="dt">"generator"</span><span class="fu">:</span> <span class="st">"OpenStreetMap server"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> <span class="dt">"users"</span><span class="fu">:</span> <span class="ot">[</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">"user"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"id"</span><span class="fu">:</span> <span class="dv">12023</span><span class="fu">,</span> <span class="dt">"display_name"</span><span class="fu">:</span> <span class="st">"jbpbis"</span><span class="fu">,</span> <span class="dt">"account_created"</span><span class="fu">:</span> <span class="st">"2007-08-16T01:35:56Z"</span><span class="fu">,</span> <span class="dt">"description"</span><span class="fu">:</span> <span class="st">""</span><span class="fu">,</span> <span class="dt">"contributor_terms"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"agreed"</span><span class="fu">:</span> <span class="er">False</span><span class="fu">},</span> <span class="dt">"roles"</span><span class="fu">:</span> <span class="ot">[]</span><span class="fu">,</span> <span class="dt">"changesets"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"count"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">},</span> <span class="dt">"traces"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"count"</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">},</span> <span class="dt">"blocks"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"received"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"count"</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span> <span class="dt">"active"</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">}}}}</span><span class="ot">,</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">{</span><span class="dt">"user"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"id"</span><span class="fu">:</span> <span class="dv">210447</span><span class="fu">,</span> <span class="dt">"display_name"</span><span class="fu">:</span> <span class="st">"siebh"</span><span class="fu">,</span> <span class="dt">"account_created"</span><span class="fu">:</span> <span class="st">"2009-12-20T10:11:42Z"</span><span class="fu">,</span> <span class="dt">"description"</span><span class="fu">:</span> <span class="st">""</span><span class="fu">,</span> <span class="dt">"contributor_terms"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"agreed"</span><span class="fu">:</span> <span class="er">True</span><span class="fu">},</span> <span class="dt">"roles"</span><span class="fu">:</span> <span class="ot">[]</span><span class="fu">,</span> <span class="dt">"changesets"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"count"</span><span class="fu">:</span> <span class="dv">363</span><span class="fu">},</span> <span class="dt">"traces"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"count"</span><span class="fu">:</span> <span class="dv">1</span><span class="fu">},</span> <span class="dt">"blocks"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"received"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"count"</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">,</span> <span class="dt">"active"</span><span class="fu">:</span> <span class="dv">0</span><span class="fu">}}}}</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a> <span class="ot">]</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">}</span></span></code></pre><p></p></div>
+</div>
+
+
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other users' functions: 
 <code><a href="osm_details_logged_user.html">osm_details_logged_user</a>()</code>,

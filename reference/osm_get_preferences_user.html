@@ -62,6 +62,39 @@
 
 </dl></div>
     <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>If <code>format = "R"</code>, returns a data frame with <code>key</code> and <code>value</code> columns of the user preferences.</p><div class="section">
+<h3 id="format-xml-"><code>format = "xml"</code><a class="anchor" aria-label="anchor" href="#format-xml-"></a></h3>
+
+
+<p>Returns a xml2::xml_document with the following format:</p>
+<p></p><div class="sourceCode xml"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">osm</span><span class="ot"> version=</span><span class="st">"0.6"</span><span class="ot"> generator=</span><span class="st">"OpenStreetMap server"</span>&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">preferences</span>&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>        &lt;<span class="kw">preference</span><span class="ot"> k=</span><span class="st">"somekey"</span><span class="ot"> v=</span><span class="st">"somevalue"</span> /&gt;</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>        ...</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">preferences</span>&gt;</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">osm</span>&gt;</span></code></pre><p></p></div>
+</div>
+
+
+
+<div class="section">
+<h3 id="format-json-"><code>format = "json"</code><a class="anchor" aria-label="anchor" href="#format-json-"></a></h3>
+
+
+<p>Returns a list with the following json structure:</p>
+<p></p><div class="sourceCode json"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">{</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a> <span class="dt">"version"</span><span class="fu">:</span> <span class="st">"0.6"</span><span class="fu">,</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a> <span class="dt">"generator"</span><span class="fu">:</span> <span class="st">"OpenStreetMap server"</span><span class="fu">,</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a> <span class="dt">"preferences"</span><span class="fu">:</span> <span class="fu">{</span><span class="dt">"somekey"</span><span class="fu">:</span> <span class="st">"somevalue, ...}</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="st">}</span></span></code></pre><p></p></div>
+</div>
+
+
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Other users' functions: 
 <code><a href="osm_details_logged_user.html">osm_details_logged_user</a>()</code>,
