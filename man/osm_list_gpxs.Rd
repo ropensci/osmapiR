@@ -4,7 +4,30 @@
 \alias{osm_list_gpxs}
 \title{List user's GPX traces}
 \usage{
-osm_list_gpxs()
+osm_list_gpxs(format = c("R", "xml"))
+}
+\arguments{
+\item{format}{Format of the output. Can be \code{R} (default) or \code{xml}.}
+}
+\value{
+If \code{format = "R"}, returns a data frame with one trace per row. If \code{format = "xml"}, returns a
+\link[xml2:oldclass]{xml2::xml_document} similar to the one of \code{\link[=osm_get_metadata_gpx]{osm_get_metadata_gpx()}}, except with multiple possible \verb{<gpx_file>}
+elements. Example:
+
+\if{html}{\out{<div class="sourceCode xml">}}\preformatted{<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server">
+	<gpx_file id="836619" name="track.gpx" lat="52.0194" lon="8.51807" uid="1234" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:24:19Z">
+		<description>PHP upload test</description>
+		<tag>test</tag>
+		<tag>php</tag>
+	</gpx_file>
+	<gpx_file id="836620" name="track.gpx" lat="52.1194" lon="8.61807" uid="1234" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:27:31Z">
+		<description>PHP upload test 2</description>
+		<tag>test</tag>
+		<tag>php</tag>
+	</gpx_file>
+</osm>
+}\if{html}{\out{</div>}}
 }
 \description{
 Use this to get a list of GPX traces owned by the authenticated user. Requires authentication.

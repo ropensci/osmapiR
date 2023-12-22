@@ -285,8 +285,21 @@ osm_delete_gpx <- function(gpx_id) {
 #' Otherwise only usable by the owner account and requires authentication.
 #'
 #' @param gpx_id The track id represented by a numeric or a character value.
+#' @param format Format of the output. Can be `R` (default) or `xml`.
 #'
 #' @return
+#' If `format = "R"`, returns a data frame with one trace per row. If `format = "xml"`, returns a
+#' [xml2::xml_document-class] with the following format:
+#' ```xml
+#' <?xml version="1.0" encoding="UTF-8"?>
+#' <osm version="0.6" generator="OpenStreetMap server">
+#' 	<gpx_file id="836619" name="track.gpx" lat="52.0194" lon="8.51807" uid="1234" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:24:19Z">
+#' 		<description>PHP upload test</description>
+#' 		<tag>test</tag>
+#' 		<tag>php</tag>
+#' 	</gpx_file>
+#' </osm>
+#' ```
 #' @family get GPS' functions
 #' @export
 #'
@@ -295,7 +308,8 @@ osm_delete_gpx <- function(gpx_id) {
 #' trk_meta <- osm_get_metadata_gpx(gpx_id = 3498170)
 #' trk_meta
 #' }
-osm_get_metadata_gpx <- function(gpx_id) {
+osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml")) {
+  format <- match.arg(format)
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "gpx", gpx_id, "details")
@@ -303,7 +317,9 @@ osm_get_metadata_gpx <- function(gpx_id) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- gpx_meta_xml2DF(obj_xml)
+  if (format == "R") {
+    out <- gpx_meta_xml2DF(obj_xml)
+  }
 
   return(out)
 }
@@ -416,7 +432,27 @@ osm_get_data_gpx <- function(gpx_id, format) {
 #'
 #' Use this to get a list of GPX traces owned by the authenticated user. Requires authentication.
 #'
+#' @param format Format of the output. Can be `R` (default) or `xml`.
+#'
 #' @return
+#' If `format = "R"`, returns a data frame with one trace per row. If `format = "xml"`, returns a
+#' [xml2::xml_document-class] similar to the one of [osm_get_metadata_gpx()], except with multiple possible `<gpx_file>`
+#' elements. Example:
+#' ``` xml
+#' <?xml version="1.0" encoding="UTF-8"?>
+#' <osm version="0.6" generator="OpenStreetMap server">
+#' 	<gpx_file id="836619" name="track.gpx" lat="52.0194" lon="8.51807" uid="1234" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:24:19Z">
+#' 		<description>PHP upload test</description>
+#' 		<tag>test</tag>
+#' 		<tag>php</tag>
+#' 	</gpx_file>
+#' 	<gpx_file id="836620" name="track.gpx" lat="52.1194" lon="8.61807" uid="1234" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:27:31Z">
+#' 		<description>PHP upload test 2</description>
+#' 		<tag>test</tag>
+#' 		<tag>php</tag>
+#' 	</gpx_file>
+#' </osm>
+#' ```
 #' @family get GPS' functions
 #' @export
 #'
@@ -425,7 +461,8 @@ osm_get_data_gpx <- function(gpx_id, format) {
 #' traces <- osm_list_gpxs()
 #' traces
 #' }
-osm_list_gpxs <- function() {
+osm_list_gpxs <- function(format = c("R", "xml")) {
+  format <- match.arg(format)
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "user", "gpx_files")
@@ -433,7 +470,9 @@ osm_list_gpxs <- function() {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  out <- gpx_meta_xml2DF(obj_xml)
+  if (format == "R") {
+    out <- gpx_meta_xml2DF(obj_xml)
+  }
 
   return(out)
 }
