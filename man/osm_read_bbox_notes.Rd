@@ -25,8 +25,7 @@ only open notes are returned. A value of -1 means all notes are returned. Defaul
 }
 \value{
 If \code{format = "R"}, returns a data frame with one map note per row.
-
-\verb{## format = "xml"}
+\subsection{\code{format = "xml"}}{
 
 Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
 
@@ -55,6 +54,8 @@ Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
 	...
 </osm>
 }\if{html}{\out{</div>}}
+}
+
 \subsection{\code{format = "json"}}{
 
 Returns a list with the following json structure:

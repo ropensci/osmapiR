@@ -118,7 +118,7 @@
 #' @return
 #' If `format = "R"`, returns a data frame with one map note per row.
 #'
-#' `## format = "xml"`
+#' ## `format = "xml"`
 #'
 #' Returns a [xml2::xml_document-class] with the following format:
 #' ``` xml
