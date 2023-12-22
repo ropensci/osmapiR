@@ -362,6 +362,10 @@ empty_gpx <- function() {
 user_details_xml2DF <- function(xml) {
   users <- xml2::xml_children(xml)
 
+  if (length(users) == 0) {
+    return(empty_user())
+  }
+
   user_attrs <- do.call(rbind, xml2::xml_attrs(users))
   description <- xml2::xml_text(xml2::xml_child(users, "description"))
   img <- xml2::xml_attr(xml2::xml_child(users, "img"), "href")
@@ -401,6 +405,18 @@ user_details_xml2DF <- function(xml) {
   out[, int_cols] <- lapply(out[, int_cols], as.integer)
 
   out$account_created <- as.POSIXct(out$account_created, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+
+  return(out)
+}
+
+
+empty_user <- function() {
+  out <- data.frame(
+    id = character(), display_name = character(), account_created = as.POSIXct(Sys.time())[-1],
+    description = character(), img = character(), contributor_terms = logical(), roles = character(),
+    changesets_count = integer(), traces_count = integer(), blocks_received.count = integer(),
+    blocks_received.active = integer(), blocks_issued.count = integer(), blocks_issued.active = integer()
+  )
 
   return(out)
 }

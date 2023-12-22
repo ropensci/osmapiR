@@ -29,6 +29,23 @@ test_that("osm_details_user works", {
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
   lapply(usr, function(x) expect_false(all(strftime(as.POSIXct(x$account_created), format = "%M:%S") == "00:00")))
+
+
+  ## Empty results
+
+  with_mock_dir("mock_details_user_empty", {
+    empty_usr <- osm_get_user_details(user_id = 2)
+  })
+
+  expect_s3_class(empty_usr, "data.frame")
+  expect_named(empty_usr, column_users)
+  expect_identical(nrow(empty_usr), 0L)
+
+  mapply(
+    function(x, cl) expect_true(inherits(x, cl)),
+    x = empty_usr,
+    cl = class_columns[names(empty_usr)]
+  )
 })
 
 
@@ -50,6 +67,23 @@ test_that("osm_details_users works", {
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
   lapply(usrs, function(x) expect_false(all(strftime(as.POSIXct(x$account_created), format = "%M:%S") == "00:00")))
+
+
+  ## Empty results
+
+  with_mock_dir("mock_details_users_empty", {
+    empty_usrs <- osm_get_user_details(user_id = 2:3)
+  })
+
+  expect_s3_class(empty_usrs, "data.frame")
+  expect_named(empty_usrs, column_users)
+  expect_identical(nrow(empty_usrs), 0L)
+
+  mapply(
+    function(x, cl) expect_true(inherits(x, cl)),
+    x = empty_usrs,
+    cl = class_columns[names(empty_usrs)]
+  )
 })
 
 
