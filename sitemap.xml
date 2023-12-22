@@ -73,6 +73,9 @@
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_feed_notes.html</loc>
   </url>
   <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_changesets.html</loc>
+  </url>
+  <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_data_gpx.html</loc>
   </url>
   <url>
@@ -107,9 +110,6 @@
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_read_bbox_notes.html</loc>
-  </url>
-  <url>
-    <loc>https://jmaspons.github.io/osmapiR/reference/osm_read_changeset.html</loc>
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_read_note.html</loc>
