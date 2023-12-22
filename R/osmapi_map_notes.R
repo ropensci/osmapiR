@@ -696,6 +696,8 @@ osm_search_notes <- function(
 
   if (missing(bbox)) {
     bbox <- NULL
+  } else {
+    bbox <- paste(bbox, collapse = ",")
   }
   if (missing(from)) {
     from <- NULL
