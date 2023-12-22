@@ -28,7 +28,7 @@
     
     <a class="navbar-brand me-2" href="index.html">osmapiR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.13</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.14</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -141,7 +141,7 @@
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co">## Requires authentication</span></span>
 <span><span class="va">usr_traces</span> <span class="op">&lt;-</span>  <span class="fu"><a href="reference/osm_list_gpxs.html">osm_list_gpxs</a></span><span class="op">(</span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/osm_get_metadata_gpx.html">osm_get_metadata_gpx</a></span><span class="op">(</span>gpx_id <span class="op">=</span> <span class="fl">3790367</span><span class="op">)</span></span>
+<span><span class="fu"><a href="reference/osm_get_gpx_metadata.html">osm_get_gpx_metadata</a></span><span class="op">(</span>gpx_id <span class="op">=</span> <span class="fl">3790367</span><span class="op">)</span></span>
 <span><span class="fu"><a href="reference/osm_get_data_gpx.html">osm_get_data_gpx</a></span><span class="op">(</span>gpx_id <span class="op">=</span> <span class="fl">3790367</span>, format <span class="op">=</span> <span class="st">"R"</span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">gpx</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/osm_get_points_gps.html">osm_get_points_gps</a></span><span class="op">(</span>bbox <span class="op">=</span> <span class="va">bbox</span><span class="op">)</span></span>
