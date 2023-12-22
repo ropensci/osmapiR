@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<osm version="0.6" generator="CGImap 0.8.10 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
  <changeset id="137595351" created_at="2023-06-21T09:09:18Z" closed_at="2023-06-21T09:09:18Z" open="false" user="Quercinus" uid="19641470" min_lat="42.6799619" min_lon="2.6580564" max_lat="42.6936802" max_lon="2.7125775" comments_count="4" changes_count="1">
+  <tag k="changesets_count" v="1"/>
   <tag k="comment" v="Correcció d'acord amb la toponímia oficial en català"/>
   <tag k="created_by" v="iD 2.25.2"/>
   <tag k="host" v="https://www.openstreetmap.org/edit"/>
-  <tag k="locale" v="ca"/>
-  <tag k="imagery_used" v="BDOrtho IGN"/>
-  <tag k="changesets_count" v="1"/>
   <tag k="ideditor:walkthrough_progress" v="welcome;point;line;startEditing"/>
   <tag k="ideditor:walkthrough_started" v="yes"/>
+  <tag k="imagery_used" v="BDOrtho IGN"/>
+  <tag k="locale" v="ca"/>
   <discussion>
-   <comment date="2023-06-26T15:08:00Z" uid="207249" user="rainerU">
+   <comment id="1046854" date="2023-06-26T15:08:00Z" uid="207249" user="rainerU">
     <text>Hello,
 
 you changed the catalan name of the river &quot;Le Boulès&quot; from &quot;El Boles&quot; to &quot;El Bulès&quot; because this is the official catalan toponym from your point of view. Could you please specify the source of this assertion ? The only quasi official source for north catalan toponyms I know are the publications of Joan Becat he established in collaboration with local authorities and which are generally used by the local OSM community. In https://joanbecat.cat/wp-content/uploads/2019/06/fr-Web-jbk-cadastre_Bouleterne%CC%80re.pdf, he uses &quot;El Bolès&quot;, so I propose to use this ortography as well in OSM.
@@ -21,7 +21,7 @@ rainerU
             Published using OSMCha: https://osmcha.org/changesets/137595351
             </text>
    </comment>
-   <comment date="2023-06-27T08:41:11Z" uid="19641470" user="Quercinus">
+   <comment id="1047118" date="2023-06-27T08:41:11Z" uid="19641470" user="Quercinus">
     <text>Bon dia,
 
 An official toponym does not depend on a person's point of view, precisely that makes it official. In this case, it was well stablished in the publication 'Nomenclàtor toponímic de la Catalunya del Nord' (2007) by the Institut d'Estudis Catalans and the University of Perpinyà. You can download it from here: https://publicacions.iec.cat/repository/pdf/00000044/00000018.pdf
@@ -34,11 +34,11 @@ I have a proficiency degree in Catalan (which is my mother tongue) and I would n
 
 Salut!</text>
    </comment>
-   <comment date="2023-06-27T09:51:00Z" uid="207249" user="rainerU">
+   <comment id="1047136" date="2023-06-27T09:51:00Z" uid="207249" user="rainerU">
     <text>Thanks for your rapid answer and for the references. I would say, both spellings are usal. Even the eciclopèdia mentions &quot;riu del Bolès&quot;. It seems that Bolès is more frequent in french context, for example: http://www.sandre.eaufrance.fr/geo/CoursEau_Carthage2017/Y0460600
 I will add loc_name=&quot;El Bolès&quot; and add both name=&quot;El Bulès&quot; and loc_name=&quot;El Bolès&quot;  to all parts of the waterway, not only just to one single part of it.   </text>
    </comment>
-   <comment date="2023-07-03T11:37:31Z" uid="19641470" user="Quercinus">
+   <comment id="1049151" date="2023-07-03T11:37:31Z" uid="19641470" user="Quercinus">
     <text>Hello again,
 
 Sorry for the answering delay, I was off home for several days.

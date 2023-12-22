@@ -1,0 +1,34 @@
+{
+    "version": "0.6",
+    "generator": "CGImap 0.8.10 (012345 ******.openstreetmap.org)",
+    "copyright": "OpenStreetMap and contributors",
+    "attribution": "http://www.openstreetmap.org/copyright",
+    "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+    "elements": [
+        {
+            "type": "changeset",
+            "id": 137595351,
+            "created_at": "2023-06-21T09:09:18Z",
+            "closed_at": "2023-06-21T09:09:18Z",
+            "open": false,
+            "user": "Quercinus",
+            "uid": 19641470,
+            "minlat": 42.6799619,
+            "minlon": 2.6580564,
+            "maxlat": 42.6936802,
+            "maxlon": 2.7125775,
+            "comments_count": 4,
+            "changes_count": 1,
+            "tags": {
+                "changesets_count": "1",
+                "comment": "Correcció d'acord amb la toponímia oficial en català",
+                "created_by": "iD 2.25.2",
+                "host": "https://www.openstreetmap.org/edit",
+                "ideditor:walkthrough_progress": "welcome;point;line;startEditing",
+                "ideditor:walkthrough_started": "yes",
+                "imagery_used": "BDOrtho IGN",
+                "locale": "ca"
+            }
+        }
+    ]
+}

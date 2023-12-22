@@ -1,0 +1,28 @@
+{
+    "version": "0.6",
+    "generator": "CGImap 0.8.10 (012345 ******.openstreetmap.org)",
+    "copyright": "OpenStreetMap and contributors",
+    "attribution": "http://www.openstreetmap.org/copyright",
+    "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+    "elements": [
+        {
+            "type": "changeset",
+            "id": 113271550,
+            "created_at": "2021-11-02T08:41:20Z",
+            "closed_at": "2021-11-02T08:41:31Z",
+            "open": false,
+            "user": "jmaspons",
+            "uid": 11725140,
+            "minlat": 42.5033494,
+            "minlon": 2.3938477,
+            "maxlat": 42.5380701,
+            "maxlon": 2.4543207,
+            "comments_count": 0,
+            "changes_count": 17,
+            "tags": {
+                "comment": "Volta pel Canogó. Add Waste basket, 7 Information guidepost, Information; Edit Place of worship, Cabin, Village, 3 Mountain pass, Spring, Defibrillator.",
+                "created_by": "OsmAnd~ 3.9.10"
+            }
+        }
+    ]
+}

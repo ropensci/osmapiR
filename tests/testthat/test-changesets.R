@@ -2,7 +2,7 @@ column_changeset <- c(
   "id", "created_at", "closed_at", "open", "user", "uid",
   "min_lat", "min_lon", "max_lat", "max_lon", "comments_count", "changes_count", "discussion", "tags"
 )
-column_discuss <- c("date", "uid", "user", "comment_text")
+column_discuss <- c("id", "date", "uid", "user", "comment_text")
 
 column_osmchange <- c(
   "action_type", "type", "id", "visible", "version", "changeset",
@@ -22,7 +22,7 @@ class_columns_osmchange <- list(
 )
 
 class_columns_discussion <- list(
-  date = "POSIXct", uid = "character", user = "character", comment_text = "character"
+  id = "character", date = "POSIXct", uid = "character", user = "character", comment_text = "character"
 )
 
 
@@ -96,6 +96,7 @@ test_that("osm_read_changeset works", {
   with_mock_dir("mock_read_changeset", {
     chaset <- osm_get_changesets(changeset_id = 137595351)
     chaset_discuss <- osm_get_changesets(changeset_id = 137595351, include_discussion = TRUE)
+    chaset_xml <- osm_get_changesets(changeset_id = c(137595351, 113271550), format = "xml")
   })
 
   expect_s3_class(chaset, c("osmapi_changesets", "data.frame"))
@@ -127,6 +128,29 @@ test_that("osm_read_changeset works", {
   # methods
   expect_s3_class(print(chaset), c("osmapi_changesets", "data.frame"))
   expect_s3_class(print(chaset_discuss), c("osmapi_changesets", "data.frame"))
+
+
+  ## xml
+  expect_s3_class(chaset_xml, "xml_document")
+  expect_length(chaset_xml, 2)
+
+
+  ## json
+  with_mock_dir("mock_read_changeset_json", {
+    chaset_json <- osm_get_changesets(changeset_id = c(137595351, 113271550), format = "json")
+  })
+  expect_type(chaset_json, "list")
+  expect_named(chaset_json, c("version", "generator", "copyright", "attribution", "license", "elements"))
+  expect_length(chaset_json$elements, 2)
+  lapply(chaset_json$elements, function(x) {
+    expect_contains(
+      names(x),
+      c(
+        "type", "id", "created_at", "closed_at", "open", "user", "uid",
+        "minlat", "minlon", "maxlat", "maxlon", "comments_count", "changes_count", "tags"
+      )
+    )
+  })
 })
 
 
