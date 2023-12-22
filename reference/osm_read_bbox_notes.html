@@ -84,16 +84,11 @@ only open notes are returned. A value of -1 means all notes are returned. Defaul
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>If <code>format = "R"</code>, returns a data frame with one map note per row.</p>
-
-
-<p><code>## format = "xml"</code></p>
-
+<p>If <code>format = "R"</code>, returns a data frame with one map note per row.</p><div class="section">
+<h3 id="format-xml-"><code>format = "xml"</code><a class="anchor" aria-label="anchor" href="#format-xml-"></a></h3>
 
 
 <p>Returns a xml2::xml_document with the following format:</p>
-
-
 <p></p><div class="sourceCode xml"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">&lt;?xml</span><span class="ot"> version=</span><span class="st">"1.0"</span><span class="ot"> encoding=</span><span class="st">"UTF-8"</span><span class="fu">?&gt;</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">osm</span><span class="ot"> version=</span><span class="st">"0.6"</span><span class="ot"> generator=</span><span class="st">"OpenStreetMap server"</span><span class="ot"> copyright=</span><span class="st">"OpenStreetMap and contributors"</span><span class="ot"> attribution=</span><span class="st">"https://www.openstreetmap.org/copyright"</span><span class="ot"> license=</span><span class="st">"https://opendatacommons.org/licenses/odbl/1-0/"</span>&gt;</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">note</span><span class="ot"> lon=</span><span class="st">"0.1000000"</span><span class="ot"> lat=</span><span class="st">"51.0000000"</span>&gt;</span>
@@ -118,6 +113,8 @@ only open notes are returned. A value of -1 means all notes are returned. Defaul
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>    &lt;/<span class="kw">note</span>&gt;</span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>    ...</span>
 <span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">osm</span>&gt;</span></code></pre><p></p></div>
+</div>
+
 
 
 <div class="section">
