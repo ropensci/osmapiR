@@ -139,6 +139,6 @@ chsts2
 \seealso{
 Other get changesets' functions: 
 \code{\link{osm_download_changeset}()},
-\code{\link{osm_read_changeset}()}
+\code{\link{osm_get_changesets}()}
 }
 \concept{get changesets' functions}

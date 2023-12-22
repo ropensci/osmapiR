@@ -11,7 +11,7 @@ tags_wide2list(x)
 }
 \arguments{
 \item{x}{An \code{osmapi_objects} or \code{osmapi_changesets} objects as returned by, for example, \code{\link[=osm_get_objects]{osm_get_objects()}} or
-\code{\link[=osm_read_changeset]{osm_read_changeset()}}.}
+\code{\link[=osm_get_changesets]{osm_get_changesets()}}.}
 }
 \value{
 A data frame with the same class and data than the original (\code{osmapi_objects} or \code{osmapi_changesets}) but with the

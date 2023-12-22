@@ -6,7 +6,7 @@
 #'
 #' @rdname tags_list-wide
 #' @param x An `osmapi_objects` or `osmapi_changesets` objects as returned by, for example, [osm_get_objects()] or
-#'   [osm_read_changeset()].
+#'   [osm_get_changesets()].
 #'
 #' @details
 #' Both formats have advantages. Tags in a list of data.frames is a more compact representation and there is no risk of

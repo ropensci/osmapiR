@@ -40,7 +40,7 @@ test_that("edit changeset (create/update/diff upload) works", {
       "New changeset with id = "
     )
 
-    chaset <- osm_read_changeset(changeset_id = chset_id)
+    chaset <- osm_get_changesets(changeset_id = chset_id)
 
     ## Update: `PUT /api/0.6/changeset/#id` ----
     upd_chaset <- osm_update_changeset(
@@ -94,8 +94,8 @@ test_that("edit changeset (create/update/diff upload) works", {
 
 test_that("osm_read_changeset works", {
   with_mock_dir("mock_read_changeset", {
-    chaset <- osm_read_changeset(changeset_id = 137595351)
-    chaset_discuss <- osm_read_changeset(changeset_id = 137595351, include_discussion = TRUE)
+    chaset <- osm_get_changesets(changeset_id = 137595351)
+    chaset_discuss <- osm_get_changesets(changeset_id = 137595351, include_discussion = TRUE)
   })
 
   expect_s3_class(chaset, c("osmapi_changesets", "data.frame"))

@@ -264,8 +264,8 @@ osm_create_changeset <- function(comment, ...,
 #' }
 #' ```
 #'
-#' @family get changesets' functions
-#' @export
+# @family get changesets' functions
+#' @noRd
 #'
 #' @examples
 #' \dontrun{
@@ -444,7 +444,7 @@ osm_close_changeset <- function(changeset_id) {
 #' @details
 #' * The result of calling this may change as long as the changeset is open.
 #' * The elements in the OsmChange are sorted by timestamp and version number.
-#' * There is [osm_read_changeset()] to get only information about the changeset itself.
+#' * There is [osm_get_changesets()] to get only information about the changeset itself.
 #'
 #' @return
 #' If `format = "R"`, returns a data frame with one row for each edit action in the changeset. If `format = "xml`,

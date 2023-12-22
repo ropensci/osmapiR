@@ -23,7 +23,7 @@ Returns the \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange} docu
 \itemize{
 \item The result of calling this may change as long as the changeset is open.
 \item The elements in the OsmChange are sorted by timestamp and version number.
-\item There is \code{\link[=osm_read_changeset]{osm_read_changeset()}} to get only information about the changeset itself.
+\item There is \code{\link[=osm_get_changesets]{osm_get_changesets()}} to get only information about the changeset itself.
 }
 }
 \examples{
@@ -34,8 +34,8 @@ chaset
 }
 \seealso{
 Other get changesets' functions: 
-\code{\link{osm_query_changesets}()},
-\code{\link{osm_read_changeset}()}
+\code{\link{osm_get_changesets}()},
+\code{\link{osm_query_changesets}()}
 
 Other OsmChange's functions: 
 \code{\link{osm_diff_upload_changeset}()},
