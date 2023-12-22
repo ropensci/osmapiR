@@ -13,6 +13,9 @@ degrees, expressing a valid bounding box, not larger than the configured size li
 \href{https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27}{this line in settings}
 for the current value), not overlapping the dateline.}
 }
+\value{
+Returns a \link[xml2:oldclass]{xml2::xml_document} in the \code{RSS} format.
+}
 \description{
 RSS Feed of notes in a bbox
 }

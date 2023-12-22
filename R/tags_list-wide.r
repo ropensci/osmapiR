@@ -18,6 +18,9 @@
 #' but can return the results in a wide format using the parameter `tags_in_columns = TRUE`.
 #'
 #' @return
+#' A data frame with the same class and data than the original (`osmapi_objects` or `osmapi_changesets`) but with the
+#' specified tags' format.
+#'
 #' @family methods
 #' @export
 #'

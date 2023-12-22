@@ -224,6 +224,11 @@ osm_capabilities <- function() {
 #' use the Overpass API. A similar function to download OSM objects using Overpass, is implemented in [osmdata::opq()].
 #'
 #' @return
+#' If `format = "R"`, returns a data frame with one OSM object per row. If `format = "xml"`, returns a
+#' [xml2::xml_document-class] following the
+#' [OSM_XML format](https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes). If `format = "json"`,
+#' returns a list with a json structure following the [OSM_JSON format](https://wiki.openstreetmap.org/wiki/OSM_JSON).
+#'
 #' @family get OSM objects' functions
 #' @export
 #'

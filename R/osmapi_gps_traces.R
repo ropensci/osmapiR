@@ -65,6 +65,31 @@
 #'   time, before the waypoints of non-trackable traces.
 #'
 #' @return
+#' If `format = "R"`, returns a list of data frames with the points for each trace.
+#'
+#' ## `format = "gpx"`
+#' Returns a [xml2::xml_document-class] with the following format:
+#' ``` xml
+#' <?xml version="1.0" encoding="UTF-8"?>
+#' <gpx version="1.0" creator="OpenStreetMap.org" xmlns="http://www.topografix.com/GPX/1/0">
+#' 	<trk>
+#' 		<name>20190626.gpx</name>
+#' 		<desc>Footpaths near Blackweir Pond, Epping Forest</desc>
+#' 		<url>https://api.openstreetmap.org/user/John%20Leeming/traces/3031013</url>
+#' 		<trkseg>
+#' 			<trkpt lat="51.6616100" lon="0.0534560">
+#' 				<time>2019-06-26T14:27:58Z</time>
+#' 			</trkpt>
+#' 			...
+#' 		</trkseg>
+#' 		...
+#' 	</trk>
+#' 	...
+#' </gpx>
+#' ```
+#' * This response is NOT wrapped in an OSM xml parent element.
+#' * The file format is GPX Version 1.0 which is not the current version. Verify that your tools support it.
+#'
 #' @family get GPS' functions
 #' @export
 #'
@@ -192,7 +217,7 @@ osm_create_gpx <- function(file, description, tags, visibility = c("private", "p
 #' @param gpx_id The track id represented by a numeric or a character value.
 #' @param file The GPX file path containing the track points.
 #'
-#' @return
+#' @return Returns `NULL` invisibly.
 #' @family edit GPS traces' functions
 #' @export
 #'
@@ -220,7 +245,7 @@ osm_update_gpx <- function(gpx_id, file) {
 #'
 #' @param gpx_id The track id represented by a numeric or a character value.
 #'
-#' @return
+#' @return Returns `NULL` invisibly.
 #' @family edit GPS traces' functions
 #' @export
 #'
@@ -240,7 +265,7 @@ osm_delete_gpx <- function(gpx_id) {
 # Also available at `GET /api/0.6/gpx/#id`
 #
 # Use this to access the metadata about a GPX file. Available without authentication if the file is marked public. Otherwise only usable by the owner account and requires authentication.
-## TODO: HTTP 401 Unauthorized. (even for public or identificable tracks). FIX wiki or BUG to API ----
+## TODO: HTTP 401 Unauthorized. (even for public or identifiable tracks). FIX wiki or BUG to API ----
 # Example "details" response:
 # <syntaxhighlight lang="xml">
 # <?xml version="1.0" encoding="UTF-8"?>
@@ -311,6 +336,9 @@ osm_get_metadata_gpx <- function(gpx_id) {
 #'   non-standard simple concatenation of the files.
 #'
 #' @return
+#' If missing `format`, returns a [xml2::xml_document-class] with the original file data. If `format = "R"`, returns a
+#' data frame with one point per row. If `format = "gpx"`, returns a [xml2::xml_document-class] in the GPX format. If
+#' `format = "xml"`, returns a [xml2::xml_document-class] in an undocumented format.
 #' @family get GPS' functions
 #' @export
 #'

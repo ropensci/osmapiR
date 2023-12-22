@@ -14,6 +14,11 @@ If \code{R}, a \code{data.frame}.
 If \code{gpx}, the response will always be a GPX format file.
 If \code{xml}, a \code{XML} file in an undocumented format.}
 }
+\value{
+If missing \code{format}, returns a \link[xml2:oldclass]{xml2::xml_document} with the original file data. If \code{format = "R"}, returns a
+data frame with one point per row. If \code{format = "gpx"}, returns a \link[xml2:oldclass]{xml2::xml_document} in the GPX format. If
+\code{format = "xml"}, returns a \link[xml2:oldclass]{xml2::xml_document} in an undocumented format.
+}
 \description{
 Use this to download the full GPX file. Available without authentication if the file is marked public. Otherwise only
 usable by the owner account and requires authentication.

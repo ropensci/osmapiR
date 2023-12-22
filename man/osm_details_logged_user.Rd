@@ -10,7 +10,61 @@ osm_details_logged_user(format = c("R", "xml", "json"))
 \item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
 }
 \value{
-A list with the user details.
+If \code{format = "R"}, returns a list with the user details.
+\subsection{\code{format = "xml"}}{
+
+Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
+\if{html}{\out{<osm version="0.6" generator="OpenStreetMap server">}}
+\if{html}{\out{<user display_name="Max Muster" account_created="2006-07-21T19:28:26Z" id="1234">}}
+\if{html}{\out{<contributor-terms agreed="true" pd="true"/>}}
+\if{html}{\out{<img href="https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"/>}}
+\if{html}{\out{<roles>}}\if{html}{\out{</roles>}}
+\if{html}{\out{<changesets count="4182"/>}}
+\if{html}{\out{<traces count="513"/>}}
+\if{html}{\out{<blocks>}}
+\if{html}{\out{<received count="0" active="0"/>}}
+\if{html}{\out{</blocks>}}
+\if{html}{\out{<home lat="49.4733718952806" lon="8.89285988577866" zoom="3"/>}}
+\if{html}{\out{<description>}}The description of your profile\if{html}{\out{</description>}}
+\if{html}{\out{<languages>}}
+\if{html}{\out{<lang>}}de-DE\if{html}{\out{</lang>}}
+\if{html}{\out{<lang>}}de\if{html}{\out{</lang>}}
+\if{html}{\out{<lang>}}en-US\if{html}{\out{</lang>}}
+\if{html}{\out{<lang>}}en\if{html}{\out{</lang>}}
+\if{html}{\out{</languages>}}
+\if{html}{\out{<messages>}}
+\if{html}{\out{<received count="1" unread="0"/>}}
+\if{html}{\out{<sent count="0"/>}}
+\if{html}{\out{</messages>}}
+\if{html}{\out{</user>}}
+\if{html}{\out{</osm>}}
+
+\if{html}{\out{<div class="sourceCode">}}\preformatted{
+## `format = "json"`
+
+``` json
+\{
+ "version": "0.6",
+ "generator": "OpenStreetMap server",
+ "user": \{
+  "id": 1234,
+  "display_name": "Max Muster",
+  "account_created": "2006-07-21T19:28:26Z",
+  "description": "The description of your profile",
+  "contributor_terms": \{"agreed": True, "pd": True\},
+  "img": \{"href": "https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"\},
+  "roles": [],
+  "changesets": \{"count": 4182\},
+  "traces": \{"count": 513\},
+  "blocks": \{"received": \{"count": 0, "active": 0\}\},
+  "home": \{"lat": 49.4733718952806, "lon": 8.89285988577866, "zoom": 3\},
+  "languages": ["de-DE", "de", "en-US", "en"],
+  "messages": \{"received": \{"count": 1, "unread": 0\},
+  "sent": \{"count": 0\}\}
+ \}
+\}
+}\if{html}{\out{</div>}}
+}
 }
 \description{
 You can get the home location, the display name of the user and other details.

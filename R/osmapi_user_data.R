@@ -245,7 +245,63 @@ osm_details_users <- function(user_ids, format = c("R", "xml", "json")) {
 #'
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
 #'
-#' @return A list with the user details.
+#' @return
+#' If `format = "R"`, returns a list with the user details.
+#'
+#' ## `format = "xml"`
+#'
+#' Returns a [xml2::xml_document-class] with the following format:
+#' <osm version="0.6" generator="OpenStreetMap server">
+#' 	<user display_name="Max Muster" account_created="2006-07-21T19:28:26Z" id="1234">
+#' 		<contributor-terms agreed="true" pd="true"/>
+#' 		<img href="https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"/>
+#' 		<roles></roles>
+#' 		<changesets count="4182"/>
+#' 		<traces count="513"/>
+#' 		<blocks>
+#' 			<received count="0" active="0"/>
+#' 		</blocks>
+#' 		<home lat="49.4733718952806" lon="8.89285988577866" zoom="3"/>
+#' 		<description>The description of your profile</description>
+#' 		<languages>
+#' 			<lang>de-DE</lang>
+#' 			<lang>de</lang>
+#' 			<lang>en-US</lang>
+#' 			<lang>en</lang>
+#' 		</languages>
+#' 		<messages>
+#' 			<received count="1" unread="0"/>
+#' 			<sent count="0"/>
+#' 		</messages>
+#' 	</user>
+#' </osm>
+#' ```
+#'
+#' ## `format = "json"`
+#'
+#' ``` json
+#' {
+#'  "version": "0.6",
+#'  "generator": "OpenStreetMap server",
+#'  "user": {
+#'   "id": 1234,
+#'   "display_name": "Max Muster",
+#'   "account_created": "2006-07-21T19:28:26Z",
+#'   "description": "The description of your profile",
+#'   "contributor_terms": {"agreed": True, "pd": True},
+#'   "img": {"href": "https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"},
+#'   "roles": [],
+#'   "changesets": {"count": 4182},
+#'   "traces": {"count": 513},
+#'   "blocks": {"received": {"count": 0, "active": 0}},
+#'   "home": {"lat": 49.4733718952806, "lon": 8.89285988577866, "zoom": 3},
+#'   "languages": ["de-DE", "de", "en-US", "en"],
+#'   "messages": {"received": {"count": 1, "unread": 0},
+#'   "sent": {"count": 0}}
+#'  }
+#' }
+#' ```
+#'
 #' @family users' functions
 #' @export
 #'
@@ -338,6 +394,28 @@ osm_details_logged_user <- function(format = c("R", "xml", "json")) {
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`. Only relevant when `key` is missing.
 #'
 #' @return
+#' If `format = "R"`, returns a data frame with `key` and `value` columns of the user preferences.
+#'
+#' ## `format = "xml"`
+#' Returns a [xml2::xml_document-class] with the following format:
+#' ``` xml
+#' <osm version="0.6" generator="OpenStreetMap server">
+#' 	<preferences>
+#' 		<preference k="somekey" v="somevalue" />
+#' 		...
+#' 	</preferences>
+#' </osm>
+#' ```
+#'
+#' ## `format = "json"`
+#' Returns a list with the following json structure:
+#' ``` json
+#' {
+#'  "version": "0.6",
+#'  "generator": "OpenStreetMap server",
+#'  "preferences": {"somekey": "somevalue, ...}
+#' }
+#' ```
 #' @family users' functions
 #' @export
 #'

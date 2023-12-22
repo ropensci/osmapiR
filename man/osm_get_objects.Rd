@@ -29,6 +29,16 @@ retrieved. Recycled if it has different length than \code{osm_id}.}
 
 \item{tags_in_columns}{If \code{FALSE} (default), the tags of the objects are saved in a single list column \verb{tags``` containing a }data.frame\verb{for each OSM object with the keys and values. If}TRUE\verb{, add a column for each key. Ignored if }format != "R"`.}
 }
+\value{
+If \code{format = "R"}, returns a data frame with one OSM object per row. If \code{format = "xml"}, returns a
+\link[xml2:oldclass]{xml2::xml_document} following the
+\href{https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes}{OSM_XML format}. If \code{format = "json"},
+returns a list with a json structure following the \href{https://wiki.openstreetmap.org/wiki/OSM_JSON}{OSM_JSON format}.
+
+Objects are sorted in the same order than \code{osm_id} except for \code{full_objects = TRUE}, where the nodes comes first,
+then ways, and relations at the end as specified by
+\href{https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes}{OSM_XML format}.
+}
 \description{
 Retrieve objects by \code{type}, \code{id} and \code{version}.
 }

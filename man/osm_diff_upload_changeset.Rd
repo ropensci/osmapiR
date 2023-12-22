@@ -15,6 +15,27 @@ or following the structure of an \code{osmapi_OsmChange} object.}
 
 \item{format}{Format of the output. Can be \code{R} (default) or \code{xml}.}
 }
+\value{
+If a diff is successfully applied and \code{format = "R"}, it returns a data frame with one row for each edited object.
+For \code{format = "xml"}, a \link[xml2:oldclass]{xml2::xml_document} is returned in the following
+format:
+
+\if{html}{\out{<div class="sourceCode xml">}}\preformatted{<diffResult generator="OpenStreetMap Server" version="0.6">
+	<node|way|relation old_id="#" new_id="#" new_version="#"/>
+	...
+</diffResult>
+}\if{html}{\out{</div>}}
+
+with one element for every object in the upload.
+
+Note that this can be counter-intuitive when the same element has appeared multiple times in the input then it will
+appear multiple times in the output.\tabular{lccc}{
+   \strong{Attribute} \tab \strong{create} \tab \strong{modify} \tab \strong{delete} \cr
+   \strong{old_id} \tab same as uploaded element \tab same as uploaded element \tab same as uploaded element \cr
+   \strong{new_id} \tab new ID \tab new ID ''or'' same as uploaded \tab not present \cr
+   \strong{new_version} \tab new version \tab new version \tab not present \cr
+}
+}
 \description{
 With this API call files in the \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange} format can be uploaded to
 the server. This is guaranteed to be running in a transaction. So either all the changes are applied or none.

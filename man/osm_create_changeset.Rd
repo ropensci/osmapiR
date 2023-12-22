@@ -42,7 +42,7 @@ the updated changeset.
 Nothing is returned upon successful closing of a changeset.
 }
 \description{
-Create or update an open changeset for editing.
+Create, update, or close a changeset.
 }
 \details{
 See \url{https://wiki.openstreetmap.org/wiki/Changeset} for details and the most common changeset's tags.

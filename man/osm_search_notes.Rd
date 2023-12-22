@@ -46,6 +46,10 @@ current value). Default to 100.}
 
 \item{format}{Format of the the returned list of notes. Can be \code{R} (default), \code{xml}, \code{rss}, \code{json} or \code{gpx}.}
 }
+\value{
+If \code{format = "R"}, returns a data frame with one map note per row. If \code{format = "json"}, returns a list with the json
+structure. For \code{format} in \code{xml}, \code{rss}, and \code{gpx}, a \link[xml2:oldclass]{xml2::xml_document} with the corresponding format.
+}
 \description{
 Returns notes that match the specified query. If no query is provided, the most recently updated notes are returned.
 }

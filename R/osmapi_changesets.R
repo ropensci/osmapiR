@@ -60,7 +60,7 @@
 
 #' Create a changeset
 #'
-#' Create or update an open changeset for editing.
+#' Create, update, or close a changeset.
 #'
 #' @describeIn osm_create_changeset Open a new changeset for editing.
 #'
@@ -217,6 +217,53 @@ osm_create_changeset <- function(comment, ...,
 #'   this changeset. To access this information use [osm_download_changeset()].
 #'
 #' @return
+#' If `format = "R"`, returns a data frame with one OSM changeset per row.
+#'
+#' ## `format = "xml"`
+#' Returns a [xml2::xml_document-class] with the following format:
+#' ``` xml
+#' <osm>
+#' 	<changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
+#' 		<tag k="created_by" v="JOSM 1.61"/>
+#' 		<tag k="comment" v="Just adding some streetnames"/>
+#' 		...
+#' 		<discussion>
+#' 			<comment date="2015-01-01T18:56:48Z" uid="1841" user="metaodi">
+#' 				<text>Did you verify those street names?</text>
+#' 			</comment>
+#' 			<comment date="2015-01-01T18:58:03Z" uid="123" user="fred">
+#' 				<text>sure!</text>
+#' 			</comment>
+#' 			...
+#' 		</discussion>
+#' 	</changeset>
+#' </osm>
+#' ```
+#'
+#' ## `format = "json"`
+#' Returns a list with the following json structure:
+#' ``` json
+#' {
+#'  "version": "0.6",
+#'  "elements": [
+#'   {"type": "changeset",
+#'    "id": 10,
+#'    "created_at": "2005-05-01T16:09:37Z",
+#'    "closed_at": "2005-05-01T17:16:44Z",
+#'    "open": False,
+#'    "user": "Petter Reinholdtsen",
+#'    "uid": 24,
+#'    "minlat": 59.9513092,
+#'    "minlon": 10.7719727,
+#'    "maxlat": 59.9561501,
+#'    "maxlon": 10.7994537,
+#'    "comments_count": 1,
+#'    "changes_count": 10,
+#'    "discussion": [{"date": "2022-03-22T20:58:30Z", "uid": 15079200, "user": "Ethan White of Cheriton", "text": "wow no one have said anything here 3/22/2022\n"}]
+#'   }]
+#' }
+#' ```
+#'
 #' @family get changesets' functions
 #' @export
 #'
@@ -299,7 +346,6 @@ osm_read_changeset <- function(changeset_id, include_discussion = FALSE,
 #' @details
 #' When updating a changeset, unchanged tags have to be repeated in order to not be deleted.
 #'
-#' @return
 #' @export
 osm_update_changeset <- function(changeset_id, comment, ...,
                                  created_by = paste("osmapiR", utils::packageVersion("osmapiR")), verbose = FALSE) {
@@ -387,7 +433,7 @@ osm_close_changeset <- function(changeset_id) {
 # * The elements in the OsmChange are sorted by timestamp and version number.
 # * There is a [https://wiki.openstreetmap.org/wiki/API_v0.6#Read:_GET_/api/0.6/changeset/#id?include_discussion=true separate call] to get only information about the changeset itself
 
-#' Download a changeset in OsmChange format
+#' Download a changeset in `OsmChange` format
 #'
 #' Returns the [OsmChange](https://wiki.openstreetmap.org/wiki/OsmChange) document describing all changes associated with the changeset.
 #'
@@ -401,6 +447,9 @@ osm_close_changeset <- function(changeset_id) {
 #' * There is [osm_read_changeset()] to get only information about the changeset itself.
 #'
 #' @return
+#' If `format = "R"`, returns a data frame with one row for each edit action in the changeset. If `format = "xml`,
+#' returns a [xml2::xml_document-class] in the [OsmChange](https://wiki.openstreetmap.org/wiki/OsmChange) format.
+#'
 #' @family get changesets' functions
 #' @family OsmChange's functions
 #' @export
@@ -511,6 +560,56 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #' [`Time.parse` Ruby function](https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse) will parse.
 #'
 #' @return
+#' If `format = "R"`, returns a data frame with one OSM changeset per row.
+#'
+#' ## `format = "xml"`
+#' Returns a [xml2::xml_document-class] with the following format:
+#' ``` xml
+#' <osm>
+#' 	<changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
+#' 		<tag k="created_by" v="JOSM 1.61"/>
+#' 		<tag k="comment" v="Just adding some streetnames"/>
+#' 		...
+#' 		<discussion>
+#' 			<comment date="2015-01-01T18:56:48Z" uid="1841" user="metaodi">
+#' 				<text>Did you verify those street names?</text>
+#' 			</comment>
+#' 			<comment date="2015-01-01T18:58:03Z" uid="123" user="fred">
+#' 				<text>sure!</text>
+#' 			</comment>
+#' 			...
+#' 		</discussion>
+#' 	</changeset>
+#' 	<changeset ...>
+#' 	  ...
+#' 	</changeset>
+#' </osm>
+#' ```
+#'
+#' ## `format = "json"`
+#' Returns a list with the following json structure:
+#' ``` json
+#' {
+#'  "version": "0.6",
+#'  "elements": [
+#'   {"type": "changeset",
+#'    "id": 10,
+#'    "created_at": "2005-05-01T16:09:37Z",
+#'    "closed_at": "2005-05-01T17:16:44Z",
+#'    "open": False,
+#'    "user": "Petter Reinholdtsen",
+#'    "uid": 24,
+#'    "minlat": 59.9513092,
+#'    "minlon": 10.7719727,
+#'    "maxlat": 59.9561501,
+#'    "maxlon": 10.7994537,
+#'    "comments_count": 1,
+#'    "changes_count": 10,
+#'    "discussion": [{"date": "2022-03-22T20:58:30Z", "uid": 15079200, "user": "Ethan White of Cheriton", "text": "wow no one have said anything here 3/22/2022\n"}]
+#'   }, ...]
+#' }
+#' ```
+#'
 #' @family get changesets' functions
 #' @export
 #'
@@ -726,6 +825,26 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
 #' * Forward referencing of placeholder ids is not permitted and will be rejected by the API.
 #'
 #' @return
+#' If a diff is successfully applied and `format = "R"`, it returns a data frame with one row for each edited object.
+#'  For `format = "xml"`, a [xml2::xml_document-class] is returned in the following
+#' format:
+#' ```xml
+#' <diffResult generator="OpenStreetMap Server" version="0.6">
+#' 	<node|way|relation old_id="#" new_id="#" new_version="#"/>
+#' 	...
+#' </diffResult>
+#' ```
+#' with one element for every object in the upload.
+#'
+#' Note that this can be counter-intuitive when the same element has appeared multiple times in the input then it will
+#' appear multiple times in the output.
+#'
+#' | **Attribute**   | **create**  | **modify**  | **delete**  |
+#' |-----------------|:-----------:|:-----------:|:-----------:|
+#' | **old_id**      | same as uploaded element  | same as uploaded element | same as uploaded element |
+#' | **new_id**      | new ID      | new ID ''or'' same as uploaded | not present |
+#' | **new_version** | new version | new version | not present |
+#'
 #' @family edit changeset's functions
 #' @family OsmChange's functions
 #' @export

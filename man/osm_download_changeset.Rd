@@ -2,7 +2,7 @@
 % Please edit documentation in R/osmapi_changesets.R
 \name{osm_download_changeset}
 \alias{osm_download_changeset}
-\title{Download a changeset in OsmChange format}
+\title{Download a changeset in \code{OsmChange} format}
 \usage{
 osm_download_changeset(changeset_id, format = c("R", "xml"))
 }
@@ -11,6 +11,10 @@ osm_download_changeset(changeset_id, format = c("R", "xml"))
 requested.}
 
 \item{format}{Format of the output. Can be \code{R} (default) or \code{xml}.}
+}
+\value{
+If \code{format = "R"}, returns a data frame with one row for each edit action in the changeset. If \verb{format = "xml},
+returns a \link[xml2:oldclass]{xml2::xml_document} in the \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange} format.
 }
 \description{
 Returns the \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange} document describing all changes associated with the changeset.

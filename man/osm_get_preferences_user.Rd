@@ -11,6 +11,33 @@ osm_get_preferences_user(key, format = c("R", "xml", "json"))
 
 \item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}. Only relevant when \code{key} is missing.}
 }
+\value{
+If \code{format = "R"}, returns a data frame with \code{key} and \code{value} columns of the user preferences.
+\subsection{\code{format = "xml"}}{
+
+Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
+
+\if{html}{\out{<div class="sourceCode xml">}}\preformatted{<osm version="0.6" generator="OpenStreetMap server">
+	<preferences>
+		<preference k="somekey" v="somevalue" />
+		...
+	</preferences>
+</osm>
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\code{format = "json"}}{
+
+Returns a list with the following json structure:
+
+\if{html}{\out{<div class="sourceCode json">}}\preformatted{\{
+ "version": "0.6",
+ "generator": "OpenStreetMap server",
+ "preferences": \{"somekey": "somevalue, ...\}
+\}
+}\if{html}{\out{</div>}}
+}
+}
 \description{
 Preferences of the logged-in user
 }

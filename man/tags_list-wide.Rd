@@ -13,6 +13,10 @@ tags_wide2list(x)
 \item{x}{An \code{osmapi_objects} or \code{osmapi_changesets} objects as returned by, for example, \code{\link[=osm_get_objects]{osm_get_objects()}} or
 \code{\link[=osm_read_changeset]{osm_read_changeset()}}.}
 }
+\value{
+A data frame with the same class and data than the original (\code{osmapi_objects} or \code{osmapi_changesets}) but with the
+specified tags' format.
+}
 \description{
 Objects of classes \code{osmapi_objects} and \code{osmapi_changesets} can represent the tags in a column with a list with
 a data.frame for each row with 2 columns for keys and values, or by columns for each key. These functions allow

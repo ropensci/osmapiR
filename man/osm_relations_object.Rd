@@ -22,6 +22,12 @@ osm_relations_object(
 containing a \code{data.frame} for each OSM object with the keys and values. If \code{TRUE}, add a column for each key.
 Ignored if \code{format != "R"}.}
 }
+\value{
+If \code{format = "R"}, returns a data frame with one OSM object per row. If \code{format = "xml"}, returns a
+\link[xml2:oldclass]{xml2::xml_document} following the
+\href{https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes}{OSM_XML format}. If \code{format = "json"},
+returns a list with a json structure following the \href{https://wiki.openstreetmap.org/wiki/OSM_JSON}{OSM_JSON format}.
+}
 \description{
 Returns all (not deleted) relations in which the given object is used.
 }

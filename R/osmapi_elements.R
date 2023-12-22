@@ -200,6 +200,11 @@ osm_create_object <- function(x, changeset_id) {
 #'   Ignored if `format != "R"`.
 #'
 #' @return
+#' If `format = "R"`, returns a data frame with one OSM object per row. If `format = "xml"`, returns a
+#' [xml2::xml_document-class] following the
+#' [OSM_XML format](https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes). If `format = "json"`,
+#' returns a list with a json structure following the [OSM_JSON format](https://wiki.openstreetmap.org/wiki/OSM_JSON).
+#'
 # @family get OSM objects' functions
 #' @noRd
 #'
@@ -520,6 +525,10 @@ osm_delete_object <- function(x, changeset_id) {
 #'   Ignored if `format != "R"`.
 #'
 #' @return
+#' If `format = "R"`, returns a data frame with a version of the OSM object per row. If `format = "xml"`, returns a
+#' [xml2::xml_document-class] following the
+#' [OSM_XML format](https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes). If `format = "json"`,
+#' returns a list with a json structure following the [OSM_JSON format](https://wiki.openstreetmap.org/wiki/OSM_JSON).
 #' @family get OSM objects' functions
 #' @export
 #'
@@ -586,6 +595,11 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id,
 #'   Ignored if `format != "R"`.
 #'
 #' @return
+#' If `format = "R"`, returns a data frame with one OSM object per row. If `format = "xml"`, returns a
+#' [xml2::xml_document-class] following the
+#' [OSM_XML format](https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes). If `format = "json"`,
+#' returns a list with a json structure following the [OSM_JSON format](https://wiki.openstreetmap.org/wiki/OSM_JSON).
+#'
 # @family get OSM objects' functions
 #' @noRd
 #'
@@ -665,6 +679,11 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' [osmdata::opq_osm_id()].
 #'
 #' @return
+#' If `format = "R"`, returns a data frame with one OSM object per row. If `format = "xml"`, returns a
+#' [xml2::xml_document-class] following the
+#' [OSM_XML format](https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes). If `format = "json"`,
+#' returns a list with a json structure following the [OSM_JSON format](https://wiki.openstreetmap.org/wiki/OSM_JSON).
+#'
 # @family get OSM objects' functions
 #' @noRd
 #'
@@ -741,6 +760,11 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
 #'   Ignored if `format != "R"`.
 #'
 #' @return
+#' If `format = "R"`, returns a data frame with one OSM object per row. If `format = "xml"`, returns a
+#' [xml2::xml_document-class] following the
+#' [OSM_XML format](https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes). If `format = "json"`,
+#' returns a list with a json structure following the [OSM_JSON format](https://wiki.openstreetmap.org/wiki/OSM_JSON).
+#'
 #' @family get OSM objects' functions
 #' @export
 #'
@@ -801,6 +825,11 @@ osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id
 #'   Ignored if `format != "R"`.
 #'
 #' @return
+#' If `format = "R"`, returns a data frame with one OSM object per row. If `format = "xml"`, returns a
+#' [xml2::xml_document-class] following the
+#' [OSM_XML format](https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes). If `format = "json"`,
+#' returns a list with a json structure following the [OSM_JSON format](https://wiki.openstreetmap.org/wiki/OSM_JSON).
+#'
 #' @family get OSM objects' functions
 #' @export
 #'
@@ -877,6 +906,11 @@ osm_ways_node <- function(node_id, format = c("R", "xml", "json"), tags_in_colum
 #' [osmdata::opq_osm_id()].
 #'
 #' @return
+#' If `format = "R"`, returns a data frame with one OSM object per row. If `format = "xml"`, returns a
+#' [xml2::xml_document-class] following the
+#' [OSM_XML format](https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes). If `format = "json"`,
+#' returns a list with a json structure following the [OSM_JSON format](https://wiki.openstreetmap.org/wiki/OSM_JSON).
+#'
 # @family get OSM objects' functions
 #' @noRd
 #'

@@ -23,6 +23,66 @@ only open notes are returned. A value of -1 means all notes are returned. Defaul
 
 \item{format}{Format of the output. Can be \code{R} (default), \code{xml}, \code{rss}, \code{json} or \code{gpx}.}
 }
+\value{
+If \code{format = "R"}, returns a data frame with one map note per row.
+
+\verb{## format = "xml"}
+
+Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
+
+\if{html}{\out{<div class="sourceCode xml">}}\preformatted{<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="https://www.openstreetmap.org/copyright" license="https://opendatacommons.org/licenses/odbl/1-0/">
+	<note lon="0.1000000" lat="51.0000000">
+		<id>16659</id>
+		<url>https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659</url>
+		<comment_url>https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659/comment</comment_url>
+		<close_url>https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659/close</close_url>
+		<date_created>2019-06-15 08:26:04 UTC</date_created>
+		<status>open</status>
+		<comments>
+			<comment>
+				<date>2019-06-15 08:26:04 UTC</date>
+				<uid>1234</uid>
+				<user>userName</user>
+				<user_url>https://master.apis.dev.openstreetmap.org/user/userName</user_url>
+				<action>opened</action>
+				<text>ThisIsANote</text>
+				<html>&lt;p&gt;ThisIsANote&lt;/p&gt;</html>
+			</comment>
+			...
+		</comments>
+	</note>
+	...
+</osm>
+}\if{html}{\out{</div>}}
+\subsection{\code{format = "json"}}{
+
+Returns a list with the following json structure:
+
+\if{html}{\out{<div class="sourceCode json">}}\preformatted{\{
+ "type": "FeatureCollection",
+ "features": [
+  \{
+   "type": "Feature",
+   "geometry": \{"type": "Point", "coordinates": [0.1000000, 51.0000000]\},
+   "properties": \{
+    "id": 16659,
+    "url": "https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659.json",
+    "comment_url": "https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659/comment.json",
+    "close_url": "https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659/close.json",
+    "date_created": "2019-06-15 08:26:04 UTC",
+    "status": "open",
+    "comments": [
+     \{"date": "2019-06-15 08:26:04 UTC", "uid": 1234, "user": "userName", "user_url": "https://master.apis.dev.openstreetmap.org/user/userName", "action": "opened", "text": "ThisIsANote", "html": "<p>ThisIsANote</p>"\},
+     ...
+    ]
+   \}
+  \}
+ ]
+\}
+}\if{html}{\out{</div>}}
+}
+}
 \description{
 Returns the existing notes in the specified bounding box. The notes will be ordered by the date of their last change,
 the most recent one will be first.

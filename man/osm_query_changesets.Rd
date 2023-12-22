@@ -43,6 +43,60 @@ value.}
 containing a \code{data.frame} for each changeset with the keys and values. If \code{TRUE}, add a column for each key.
 Ignored if \code{format != "R"}.}
 }
+\value{
+If \code{format = "R"}, returns a data frame with one OSM changeset per row.
+\subsection{\code{format = "xml"}}{
+
+Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
+
+\if{html}{\out{<div class="sourceCode xml">}}\preformatted{<osm>
+	<changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
+		<tag k="created_by" v="JOSM 1.61"/>
+		<tag k="comment" v="Just adding some streetnames"/>
+		...
+		<discussion>
+			<comment date="2015-01-01T18:56:48Z" uid="1841" user="metaodi">
+				<text>Did you verify those street names?</text>
+			</comment>
+			<comment date="2015-01-01T18:58:03Z" uid="123" user="fred">
+				<text>sure!</text>
+			</comment>
+			...
+		</discussion>
+	</changeset>
+	<changeset ...>
+	  ...
+	</changeset>
+</osm>
+}\if{html}{\out{</div>}}
+}
+
+\subsection{\code{format = "json"}}{
+
+Returns a list with the following json structure:
+
+\if{html}{\out{<div class="sourceCode json">}}\preformatted{\{
+ "version": "0.6",
+ "elements": [
+  \{"type": "changeset",
+   "id": 10,
+   "created_at": "2005-05-01T16:09:37Z",
+   "closed_at": "2005-05-01T17:16:44Z",
+   "open": False,
+   "user": "Petter Reinholdtsen",
+   "uid": 24,
+   "minlat": 59.9513092,
+   "minlon": 10.7719727,
+   "maxlat": 59.9561501,
+   "maxlon": 10.7994537,
+   "comments_count": 1,
+   "changes_count": 10,
+   "discussion": [\{"date": "2022-03-22T20:58:30Z", "uid": 15079200, "user": "Ethan White of Cheriton", "text": "wow no one have said anything here 3/22/2022\\n"\}]
+  \}, ...]
+\}
+}\if{html}{\out{</div>}}
+}
+}
 \description{
 This is an API method for querying changesets. It supports querying by different criteria.
 }

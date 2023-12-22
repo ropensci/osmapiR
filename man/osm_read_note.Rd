@@ -11,6 +11,10 @@ osm_read_note(note_id, format = c("R", "xml", "rss", "json", "gpx"))
 
 \item{format}{Format of the output. Can be \code{R} (default), \code{xml}, \code{rss}, \code{json} or \code{gpx}.}
 }
+\value{
+If \code{format = "R"}, returns a data frame with one map note per row. If \code{format = "json"}, returns a list with the json
+structure. For \code{format} in \code{xml}, \code{rss}, and \code{gpx}, a \link[xml2:oldclass]{xml2::xml_document} with the corresponding format.
+}
 \description{
 Returns the existing note with the given ID.
 }

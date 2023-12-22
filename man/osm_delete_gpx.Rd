@@ -9,6 +9,9 @@ osm_delete_gpx(gpx_id)
 \arguments{
 \item{gpx_id}{The track id represented by a numeric or a character value.}
 }
+\value{
+Returns \code{NULL} invisibly.
+}
 \description{
 Use this to delete a GPX file. Only usable by the owner account. Requires authentication.
 }

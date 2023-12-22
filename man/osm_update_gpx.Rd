@@ -11,6 +11,9 @@ osm_update_gpx(gpx_id, file)
 
 \item{file}{The GPX file path containing the track points.}
 }
+\value{
+Returns \code{NULL} invisibly.
+}
 \description{
 Use this to update a GPX file. Only usable by the owner account. Requires authentication.
 }

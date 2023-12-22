@@ -17,7 +17,7 @@ Delete existing OSM objects
 }
 \details{
 If \verb{if-unused} attribute is present, then the delete operation(s) in this block are conditional and will only be
-executed if the object to be deleted is not used by another object. Without the ⁠if-unused⁠, such a situation would
+executed if the object to be deleted is not used by another object. Without the \verb{if-unused}, such a situation would
 lead to an error, and the whole diff upload would fail. Setting the attribute will also cause deletions of already
 deleted objects to not generate an error.
 }
