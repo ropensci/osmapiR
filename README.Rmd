@@ -78,7 +78,7 @@ Get GPX data:
 ``` r
 ## Requires authentication
 usr_traces <-  osm_list_gpxs()
-osm_get_metadata_gpx(gpx_id = 3790367)
+osm_get_gpx_metadata(gpx_id = 3790367)
 osm_get_data_gpx(gpx_id = 3790367, format = "R")
 ```
 ```{r gpx}

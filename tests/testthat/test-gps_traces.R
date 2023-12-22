@@ -1,11 +1,11 @@
-column_meta_gpx <- c("id", "name", "user", "visibility", "pending", "timestamp", "lat", "lon", "description", "tags")
+column_meta_gpx <- c("id", "name", "uid", "user", "visibility", "pending", "timestamp", "lat", "lon", "description", "tags")
 column_gpx <- c("lat", "lon", "ele", "time")
 column_pts_gps <- c("lat", "lon", "time")
 
 class_columns <- list(
-  id = "character", name = "character", user = "character", visibility = "character", pending = "logical",
-  timestamp = "POSIXct", lat = "character", lon = "character", description = "character", tags = "list",
-  ele = "character", time = "POSIXct"
+  id = "character", name = "character", uid = "character", user = "character", visibility = "character",
+  pending = "logical", timestamp = "POSIXct", lat = "character", lon = "character", description = "character",
+  tags = "list", ele = "character", time = "POSIXct"
 )
 
 
@@ -87,17 +87,21 @@ test_that("edit gpx works", {
 ## Download Metadata: `GET /api/0.6/gpx/#id/details` ----
 
 test_that("osm_get_metadata_gpx works", {
+  trk_meta <- list()
   with_mock_dir("mock_get_metadata_gpx", {
-    trk_meta <- osm_get_metadata_gpx(gpx_id = 3790367)
+    trk_meta$track <- osm_get_gpx_metadata(gpx_id = 3790367)
+    trk_meta$tracks <- osm_get_gpx_metadata(gpx_id = c(3790367, 3458743))
   })
 
-  expect_s3_class(trk_meta, "data.frame")
-  expect_named(trk_meta, column_meta_gpx)
+  lapply(trk_meta, function(x) expect_s3_class(x, "data.frame"))
+  lapply(trk_meta, function(x) expect_named(x, column_meta_gpx))
 
-  mapply(function(x, cl) expect_true(inherits(x, cl)), x = trk_meta, cl = class_columns[names(trk_meta)])
+  lapply(trk_meta, function(trk) {
+    mapply(function(x, cl) expect_true(inherits(x, cl)), x = trk, cl = class_columns[names(trk)])
+  })
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
-  expect_false(strftime(as.POSIXct(trk_meta$timestamp), format = "%M:%S") == "00:00")
+  lapply(trk_meta, function(x) expect_false(unique(strftime(as.POSIXct(x$timestamp), format = "%M:%S") == "00:00")))
 })
 
 

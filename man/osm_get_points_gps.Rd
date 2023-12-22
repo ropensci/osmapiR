@@ -66,7 +66,7 @@ pts_gps
 \seealso{
 Other get GPS' functions: 
 \code{\link{osm_get_data_gpx}()},
-\code{\link{osm_get_metadata_gpx}()},
+\code{\link{osm_get_gpx_metadata}()},
 \code{\link{osm_list_gpxs}()}
 }
 \concept{get GPS' functions}

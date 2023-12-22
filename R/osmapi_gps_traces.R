@@ -300,8 +300,8 @@ osm_delete_gpx <- function(gpx_id) {
 #' 	</gpx_file>
 #' </osm>
 #' ```
-#' @family get GPS' functions
-#' @export
+# @family get GPS' functions
+#' @noRd
 #'
 #' @examples
 #' \dontrun{
@@ -436,8 +436,7 @@ osm_get_data_gpx <- function(gpx_id, format) {
 #'
 #' @return
 #' If `format = "R"`, returns a data frame with one trace per row. If `format = "xml"`, returns a
-#' [xml2::xml_document-class] similar to the one of [osm_get_metadata_gpx()], except with multiple possible `<gpx_file>`
-#' elements. Example:
+#' [xml2::xml_document-class] similar to [osm_get_gpx_metadata()]. Example:
 #' ``` xml
 #' <?xml version="1.0" encoding="UTF-8"?>
 #' <osm version="0.6" generator="OpenStreetMap server">
