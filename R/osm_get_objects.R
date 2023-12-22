@@ -106,8 +106,6 @@ osm_get_objects <- function(osm_type, osm_id, version, full_objects = FALSE,
         if (format == "R") {
           full_obj <- do.call(rbind, full_objL)
         } else if (format == "xml") {
-          full_obj <- full_objL[[1]]
-
           full_obj <- xml2::xml_new_root(full_objL[[1]])
           for (i in seq_len(length(full_objL) - 1)) {
             for (j in seq_len(xml2::xml_length(full_objL[[i + 1]]))) {
