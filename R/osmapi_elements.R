@@ -957,8 +957,9 @@ osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
 #
 ### Notes ----
 # * only permitted for OSM accounts with the moderator role (DWG and server admins)
+# * requires either <code>write_redactions</code> or <code>write_api</code> OAuth scope; <code>write_redactions</code> is being phased out
 # * the #redaction_id is listed on https://www.openstreetmap.org/redactions
-# * more information can be found in [https://git.openstreetmap.org/rails.git/blob/HEAD:/app/controllers/old_controller.rb the source]
+# * more information can be found in [https://git.openstreetmap.org/rails.git/blob/HEAD:/app/controllers/api/old_controller.rb the source]
 # * This is an extremely specialized call
 #
 ### Error codes ----
@@ -979,7 +980,7 @@ osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
 #'
 #' @details
 #' The `redaction_id` is listed on <https://www.openstreetmap.org/redactions>. More information can be found in
-#' [the source](https://github.com/openstreetmap/openstreetmap-website/blob/4a24ba5f735f884f3ef3c0a514b7b6395809257c/app/controllers/api/old_controller.rb#L56)
+#' [the source](https://git.openstreetmap.org/rails.git/blob/HEAD:/app/controllers/api/old_controller.rb).
 #'
 #' @return
 #' @family functions for moderators

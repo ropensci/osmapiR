@@ -28,7 +28,7 @@ elements containing data privacy or copyright infringements. Only permitted for 
 }
 \details{
 The \code{redaction_id} is listed on \url{https://www.openstreetmap.org/redactions}. More information can be found in
-\href{https://github.com/openstreetmap/openstreetmap-website/blob/4a24ba5f735f884f3ef3c0a514b7b6395809257c/app/controllers/api/old_controller.rb#L56}{the source}
+\href{https://git.openstreetmap.org/rails.git/blob/HEAD:/app/controllers/api/old_controller.rb}{the source}.
 }
 \seealso{
 Other functions for moderators: 
