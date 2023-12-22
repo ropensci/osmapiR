@@ -28,7 +28,7 @@ test_that("osm_details_user works", {
   })
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
-  lapply(usr, function(x) expect_false(all(strftime(as.POSIXct(x$account_created), format = "%M:%S") == "00:00")))
+  lapply(usr, function(x) expect_false(unique(strftime(as.POSIXct(x$account_created), format = "%M:%S") == "00:00")))
 
 
   ## Empty results
@@ -66,7 +66,7 @@ test_that("osm_details_users works", {
   })
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
-  lapply(usrs, function(x) expect_false(all(strftime(as.POSIXct(x$account_created), format = "%M:%S") == "00:00")))
+  lapply(usrs, function(x) expect_false(unique(strftime(as.POSIXct(x$account_created), format = "%M:%S") == "00:00")))
 
 
   ## Empty results

@@ -37,13 +37,13 @@ test_that("osm_read_bbox_notes works", {
     mapply(function(y, cl) expect_true(inherits(y, cl)), y = x, cl = class_column_comments[names(x)])
 
     # Check that time is extracted, otherwise it's 00:00:00 in local time
-    expect_false(all(strftime(as.POSIXct(x$date), format = "%M:%S") == "00:00"))
+    expect_false(unique(strftime(as.POSIXct(x$date), format = "%M:%S") == "00:00"))
   })
 
   mapply(function(x, cl) expect_true(inherits(x, cl)), x = bbox_notes$df, cl = class_column_notes[names(bbox_notes$df)])
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
-  expect_false(all(strftime(as.POSIXct(bbox_notes$df$date_created), format = "%M:%S") == "00:00"))
+  expect_false(unique(strftime(as.POSIXct(bbox_notes$df$date_created), format = "%M:%S") == "00:00"))
 
 
   # methods

@@ -47,7 +47,7 @@ test_that("osm_bbox_objects works", {
   mapply(function(x, cl) expect_true(inherits(x, cl)), x = bbox_objects, cl = class_columns[names(bbox_objects)])
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
-  expect_false(all(strftime(as.POSIXct(bbox_objects$time), format = "%M:%S") == "00:00"))
+  expect_false(unique(strftime(as.POSIXct(bbox_objects$time), format = "%M:%S") == "00:00"))
 
 
   # methods

@@ -109,7 +109,7 @@ test_that("osm_read_changeset works", {
     mapply(function(y, cl) expect_true(inherits(y, cl)), y = x, cl = class_columns_discussion[names(x)])
 
     # Check that time is extracted, otherwise it's 00:00:00 in local time
-    expect_false(all(strftime(as.POSIXct(x$date), format = "%M:%S") == "00:00"))
+    expect_false(unique(strftime(as.POSIXct(x$date), format = "%M:%S") == "00:00"))
   })
 
   mapply(function(x, cl) expect_true(inherits(x, cl)), x = chaset, cl = class_columns[names(chaset)])
@@ -144,7 +144,7 @@ test_that("osm_download_changeset works", {
   mapply(function(x, cl) expect_true(inherits(x, cl)), x = osmchange, cl = class_columns_osmchange[names(osmchange)])
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
-  expect_false(all(strftime(as.POSIXct(osmchange$timestamp), format = "%M:%S") == "00:00"))
+  expect_false(unique(strftime(as.POSIXct(osmchange$timestamp), format = "%M:%S") == "00:00"))
 
 
   ### test transformation df <-> xml ----

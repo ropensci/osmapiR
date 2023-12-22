@@ -28,7 +28,7 @@ test_that("osm_get_points_gps works", {
   })
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
-  lapply(pts_gps$public, function(x) expect_false(all(strftime(as.POSIXct(x$time), format = "%M:%S") == "00:00")))
+  lapply(pts_gps$public, function(x) expect_false(unique(strftime(as.POSIXct(x$time), format = "%M:%S") == "00:00")))
 
   # methods
   summary_gpx <- lapply(pts_gps, summary)
