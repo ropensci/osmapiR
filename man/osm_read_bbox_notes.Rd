@@ -100,7 +100,7 @@ notes
 \seealso{
 Other get notes' functions: 
 \code{\link{osm_feed_notes}()},
-\code{\link{osm_read_note}()},
+\code{\link{osm_get_notes}()},
 \code{\link{osm_search_notes}()}
 }
 \concept{get notes' functions}

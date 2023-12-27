@@ -56,11 +56,11 @@ test_that("osm_read_bbox_notes works", {
 test_that("osm_read_note works", {
   read_note <- list()
   with_mock_dir("mock_read_note", {
-    read_note$df <- osm_read_note(note_id = "2067786")
-    read_note$xml <- osm_read_note(note_id = 2067786, format = "xml")
-    read_note$rss <- osm_read_note(note_id = 2067786, format = "rss")
-    read_note$json <- osm_read_note(note_id = 2067786, format = "json")
-    read_note$gpx <- osm_read_note(note_id = 2067786L, format = "gpx")
+    read_note$df <- osm_get_notes(note_id = "2067786")
+    read_note$xml <- osm_get_notes(note_id = 2067786, format = "xml")
+    read_note$rss <- osm_get_notes(note_id = 2067786, format = "rss")
+    read_note$json <- osm_get_notes(note_id = 2067786, format = "json")
+    read_note$gpx <- osm_get_notes(note_id = 2067786L, format = "gpx")
   })
 
   mapply(function(x, class) expect_true(inherits(x, class)), x = read_note, class = classes)

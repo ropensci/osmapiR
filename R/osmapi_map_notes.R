@@ -232,8 +232,8 @@ osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("R", "
 #' @return
 #' If `format = "R"`, returns a data frame with one map note per row. If `format = "json"`, returns a list with the json
 #' structure. For `format` in `xml`, `rss`, and `gpx`, a [xml2::xml_document-class] with the corresponding format.
-#' @family get notes' functions
-#' @export
+# @family get notes' functions
+#' @noRd
 #'
 #' @examples
 #' \dontrun{
