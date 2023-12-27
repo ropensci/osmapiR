@@ -82,6 +82,9 @@
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_gpx_metadata.html</loc>
   </url>
   <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_notes.html</loc>
+  </url>
+  <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_objects.html</loc>
   </url>
   <url>
@@ -110,9 +113,6 @@
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_read_bbox_notes.html</loc>
-  </url>
-  <url>
-    <loc>https://jmaspons.github.io/osmapiR/reference/osm_read_note.html</loc>
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_redaction_object.html</loc>
