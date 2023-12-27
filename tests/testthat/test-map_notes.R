@@ -55,23 +55,47 @@ test_that("osm_read_bbox_notes works", {
 
 test_that("osm_read_note works", {
   read_note <- list()
+  read_notes <- list()
   with_mock_dir("mock_read_note", {
     read_note$df <- osm_get_notes(note_id = "2067786")
     read_note$xml <- osm_get_notes(note_id = 2067786, format = "xml")
     read_note$rss <- osm_get_notes(note_id = 2067786, format = "rss")
     read_note$json <- osm_get_notes(note_id = 2067786, format = "json")
     read_note$gpx <- osm_get_notes(note_id = 2067786L, format = "gpx")
+
+    read_notes$df <- osm_get_notes(note_id = c("2067786", "2067786"))
+    read_notes$xml <- osm_get_notes(note_id = c(2067786, 2067786), format = "xml")
+    read_notes$rss <- osm_get_notes(note_id = c(2067786, 2067786), format = "rss")
+    read_notes$json <- osm_get_notes(note_id = c(2067786, 2067786), format = "json")
+    read_notes$gpx <- osm_get_notes(note_id = c(2067786L, 2067786), format = "gpx")
   })
 
   mapply(function(x, class) expect_true(inherits(x, class)), x = read_note, class = classes)
+  mapply(function(x, class) expect_true(inherits(x, class)), x = read_notes, class = classes)
+
   expect_named(read_note$df, column_notes)
+  expect_named(read_notes$df, column_notes)
+
   lapply(read_note$df$comments, function(x) {
     expect_s3_class(x, c("note_comments", "data.frame"))
     expect_named(x, column_comments)
   })
+  lapply(read_notes$df$comments, function(x) {
+    expect_s3_class(x, c("note_comments", "data.frame"))
+    expect_named(x, column_comments)
+  })
+
+  # xml_document
+  lapply(read_note[c("xml", "rss", "gpx")], function(x) expect_true(xml2::xml_length(x) == 1))
+  lapply(read_notes[c("xml", "rss", "gpx")], function(x) {
+    expect_true(xml2::xml_length(x) == 2)
+    try(expect_identical(xml2::xml_child(x, 1), xml2::xml_child(x, 2)))
+    # TODO: fix added namespaces in 2on node
+  })
 
   # methods
   expect_s3_class(print(read_note$df), classes$df)
+  expect_s3_class(print(read_notes$df), classes$df)
 })
 
 

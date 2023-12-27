@@ -35,6 +35,8 @@ osm_get_notes <- function(note_id, format = c("R", "xml", "rss", "json", "gpx"))
       for (i in seq_len(length(outL) - 1)) {
         xml2::xml_add_child(out, xml2::xml_child(outL[[i + 1]]))
       }
+# TODO: remove namespaces for format %in% c("rss", "gpx"). xml2::xml_structure(out) [<wpt [lon, lat]> VS <wpt [lon, lat, xmlns]>]
+      # xml namespace https://community.rstudio.com/t/adding-nodes-in-xml2-how-to-avoid-duplicate-default-namespaces/84870/
     } else if (format == "json") {
       out <- outL
     }
