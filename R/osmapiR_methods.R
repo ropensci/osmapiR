@@ -158,6 +158,9 @@ comments_as_text.note_comments <- function(x) {
 comments_as_text.comments <- function(x) {
   intro <- paste(nrow(x), if (nrow(x) == 1) "comment" else "comments", "from")
   users <- paste(unique(x$user), collapse = ", ")
+  if (all(is.na(unique(x$user)))) {
+    users <- "anonymous user"
+  }
   date_range <- paste(unique(as.Date(range(x$date))), collapse = " to ")
   paste(intro, date_range, "by", users)
 }
