@@ -2,21 +2,34 @@
 % Please edit documentation in R/osmapi_changeset_discussion.R
 \name{osm_hide_comment_changeset_discussion}
 \alias{osm_hide_comment_changeset_discussion}
-\title{Hide changeset comment}
+\alias{osm_unhide_comment_changeset_discussion}
+\title{Hide and unhide a changeset comment}
 \usage{
 osm_hide_comment_changeset_discussion(comment_id)
+
+osm_unhide_comment_changeset_discussion(comment_id)
 }
 \arguments{
 \item{comment_id}{Note that the changeset comment id differs from the changeset id.}
 }
 \description{
-Sets visible flag on changeset comment to false. This request needs to be done as an authenticated user with
-moderator role.
+This request needs to be done as an authenticated user with moderator role.
 }
+\section{Functions}{
+\itemize{
+\item \code{osm_hide_comment_changeset_discussion()}: Sets visible flag on changeset comment to false.
+
+\item \code{osm_unhide_comment_changeset_discussion()}: Sets visible flag on changeset comment to true.
+
+}}
 \seealso{
+Other changeset discussion's functions: 
+\code{\link{osm_comment_changeset_discussion}()},
+\code{\link{osm_subscribe_changeset_discussion}()}
+
 Other functions for moderators: 
 \code{\link{osm_delete_note}()},
-\code{\link{osm_redaction_object}()},
-\code{\link{osm_unhide_comment_changeset_discussion}()}
+\code{\link{osm_redaction_object}()}
 }
+\concept{changeset discussion's functions}
 \concept{functions for moderators}

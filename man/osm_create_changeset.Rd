@@ -4,7 +4,7 @@
 \alias{osm_create_changeset}
 \alias{osm_update_changeset}
 \alias{osm_close_changeset}
-\title{Create a changeset}
+\title{Create, update, or close a changeset}
 \usage{
 osm_create_changeset(
   comment,
@@ -42,7 +42,7 @@ the updated changeset.
 Nothing is returned upon successful closing of a changeset.
 }
 \description{
-Create, update, or close a changeset.
+Create, update, or close a changeset
 }
 \details{
 See \url{https://wiki.openstreetmap.org/wiki/Changeset} for details and the most common changeset's tags.

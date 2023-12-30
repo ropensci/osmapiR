@@ -18,6 +18,6 @@ Add a new comment to an existeing note. Requires authentication.
 Other edit notes' functions: 
 \code{\link{osm_close_note}()},
 \code{\link{osm_create_note}()},
-\code{\link{osm_reopen_note}()}
+\code{\link{osm_delete_note}()}
 }
 \concept{edit notes' functions}

@@ -101,7 +101,7 @@ set_osmapi_url <- function(osmapi_url) {
 }
 
 
-#' Authenticate osmapiR
+#' Authenticate or logout osmapiR
 #'
 #' Log in/out osmapiR.
 #'

@@ -2,20 +2,30 @@
 % Please edit documentation in R/osmapi_map_notes.R
 \name{osm_close_note}
 \alias{osm_close_note}
-\title{Close a note}
+\alias{osm_reopen_note}
+\title{Close and reopen a note}
 \usage{
 osm_close_note(note_id)
+
+osm_reopen_note(note_id)
 }
 \arguments{
 \item{note_id}{Note id represented by a numeric or a character value.}
 }
 \description{
-Close a note as fixed. Requires authentication.
+Requires authentication.
 }
+\section{Functions}{
+\itemize{
+\item \code{osm_close_note()}: Close a note as fixed.
+
+\item \code{osm_reopen_note()}: Reopen a closed note.
+
+}}
 \seealso{
 Other edit notes' functions: 
 \code{\link{osm_create_comment_note}()},
 \code{\link{osm_create_note}()},
-\code{\link{osm_reopen_note}()}
+\code{\link{osm_delete_note}()}
 }
 \concept{edit notes' functions}

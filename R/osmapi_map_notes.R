@@ -433,9 +433,11 @@ osm_create_comment_note <- function(note_id, text) {
 # ; HTTP status code 409 (Conflict)
 # : When closing an already closed note
 
-#' Close a note
+#' Close and reopen a note
 #'
-#' Close a note as fixed. Requires authentication.
+#' Requires authentication.
+#'
+#' @describeIn osm_close_note Close a note as fixed.
 #'
 #' @param note_id Note id represented by a numeric or a character value.
 #'
@@ -478,14 +480,9 @@ osm_close_note <- function(note_id) {
 # ; HTTP status code 410 (Gone)
 # : When reopening a deleted note
 
-#' Reopen a note
-#'
-#' Reopen a closed note. Requires authentication.
-#'
-#' @param note_id Note id represented by a numeric or a character value.
+#' @describeIn osm_close_note Reopen a closed note.
 #'
 #' @return
-#' @family edit notes' functions
 #' @export
 #'
 #' @examples
@@ -528,9 +525,10 @@ osm_reopen_note <- function(note_id) {
 #'
 #' @param note_id Note id represented by a numeric or a character value.
 #'
-#' @details Use [osm_reopen_note()]to make the note visible again.
+#' @details Use [osm_reopen_note()] to make the note visible again.
 #'
 #' @return
+#' @family edit notes' functions
 #' @family functions for moderators
 #' @export
 #'

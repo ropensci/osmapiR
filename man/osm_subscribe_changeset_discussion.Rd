@@ -2,22 +2,34 @@
 % Please edit documentation in R/osmapi_changeset_discussion.R
 \name{osm_subscribe_changeset_discussion}
 \alias{osm_subscribe_changeset_discussion}
-\title{Subscribe to a changeset discussion}
+\alias{osm_unsubscribe_changeset_discussion}
+\title{Subscribe or unsubscribe to a changeset discussion}
 \usage{
 osm_subscribe_changeset_discussion(changeset_id)
+
+osm_unsubscribe_changeset_discussion(changeset_id)
 }
 \arguments{
-\item{changeset_id}{The id of the changeset to subscribe to represented by a numeric or a character value.}
+\item{changeset_id}{The id of the changeset represented by a numeric or a character value.}
 }
 \value{
 Returns the changeset information invisibly as a \code{xml_document}.
 }
 \description{
-Subscribe to the discussion of a changeset to receive notifications for new comments.
+Subscribe or unsubscribe to a changeset discussion
 }
+\section{Functions}{
+\itemize{
+\item \code{osm_subscribe_changeset_discussion()}: Subscribe to the discussion of a changeset to receive notifications
+for new comments.
+
+\item \code{osm_unsubscribe_changeset_discussion()}: Unsubscribe from the discussion of a changeset to stop receiving
+notifications.
+
+}}
 \seealso{
 Other changeset discussion's functions: 
 \code{\link{osm_comment_changeset_discussion}()},
-\code{\link{osm_unsubscribe_changeset_discussion}()}
+\code{\link{osm_hide_comment_changeset_discussion}()}
 }
 \concept{changeset discussion's functions}

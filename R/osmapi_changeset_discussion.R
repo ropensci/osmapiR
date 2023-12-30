@@ -64,11 +64,12 @@ osm_comment_changeset_discussion <- function(changeset_id, comment) { # TODO: , 
 # ; HTTP status code 409 (Conflict)
 # : if the user is already subscribed to this changeset
 
-#' Subscribe to a changeset discussion
+#' Subscribe or unsubscribe to a changeset discussion
 #'
-#' Subscribe to the discussion of a changeset to receive notifications for new comments.
+#' @describeIn osm_subscribe_changeset_discussion Subscribe to the discussion of a changeset to receive notifications
+#'   for new comments.
 #'
-#' @param changeset_id The id of the changeset to subscribe to represented by a numeric or a character value.
+#' @param changeset_id The id of the changeset represented by a numeric or a character value.
 #'
 #' @return Returns the changeset information invisibly as a `xml_document`.
 #' @family changeset discussion's functions
@@ -103,14 +104,9 @@ osm_subscribe_changeset_discussion <- function(changeset_id) { # TODO: , format 
 # ; HTTP status code 404 (Not Found)
 # : if the user is not subscribed to this changeset
 
-#' Unsubscribe from a changeset discussion
+#' @describeIn osm_subscribe_changeset_discussion Unsubscribe from the discussion of a changeset to stop receiving
+#'   notifications.
 #'
-#' Unsubscribe from the discussion of a changeset to stop receiving notifications.
-#'
-#' @param changeset_id The id of the changeset to unsubscribe to represented by a numeric or a character value.
-#'
-#' @return Returns the changeset information invisibly as a `xml_document`.
-#' @family changeset discussion's functions
 #' @export
 #'
 #' @examples
@@ -145,14 +141,16 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , forma
 # ; HTTP status code 404 (Not Found)
 # : if the changeset comment id is unknown
 
-#' Hide changeset comment
+#' Hide and unhide a changeset comment
 #'
-#' Sets visible flag on changeset comment to false. This request needs to be done as an authenticated user with
-#' moderator role.
+#' This request needs to be done as an authenticated user with moderator role.
+#'
+#' @describeIn osm_hide_comment_changeset_discussion Sets visible flag on changeset comment to false.
 #'
 #' @param comment_id Note that the changeset comment id differs from the changeset id.
 #'
 #' @return
+#' @family changeset discussion's functions
 #' @family functions for moderators
 #' @export
 #'
@@ -188,15 +186,9 @@ osm_hide_comment_changeset_discussion <- function(comment_id) { # TODO: , format
 # ; HTTP status code 404 (Not Found)
 # : if the changeset comment id is unknown
 
-#' Unhide changeset comment
-#'
-#' Sets visible flag on changeset comment to true This request needs to be done as an authenticated user with
-#' moderator role.
-#'
-#' @param comment_id Note that the changeset comment id differs from the changeset id.
+#' @describeIn osm_hide_comment_changeset_discussion Sets visible flag on changeset comment to true.
 #'
 #' @return
-#' @family functions for moderators
 #' @export
 #'
 #' @examples

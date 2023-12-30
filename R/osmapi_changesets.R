@@ -58,9 +58,7 @@
 #
 # Clients ''should'' include a {{tag|created_by}} tag. Clients are advised to make sure that a {{tag|comment}} is present, which the user has entered. It is optional at the moment but this ''might'' change in later API versions. Clients ''should not'' automatically generate the comment tag, as this tag is for the end-user to describe their changes. Clients ''may'' add any other tags as they see fit.
 
-#' Create a changeset
-#'
-#' Create, update, or close a changeset.
+#' Create, update, or close a changeset
 #'
 #' @describeIn osm_create_changeset Open a new changeset for editing.
 #'
@@ -396,8 +394,6 @@ osm_update_changeset <- function(changeset_id, comment, ...,
 # : If the changeset in question has already been closed (either by the user itself or as a result of the auto-closing feature). A message with the format "`The changeset #id was closed at #closed_at.`" is returned
 # : Or if the user trying to update the changeset is not the same as the one that created it
 
-#' Close a changeset
-#'
 #' @describeIn osm_create_changeset Closes a changeset. A changeset may already have been closed without the owner
 #'   issuing this API call. In this case an error code is returned.
 #'

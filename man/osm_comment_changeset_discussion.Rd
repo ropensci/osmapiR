@@ -19,7 +19,7 @@ Add a comment to a changeset and subscribe to the discussion. The changeset must
 }
 \seealso{
 Other changeset discussion's functions: 
-\code{\link{osm_subscribe_changeset_discussion}()},
-\code{\link{osm_unsubscribe_changeset_discussion}()}
+\code{\link{osm_hide_comment_changeset_discussion}()},
+\code{\link{osm_subscribe_changeset_discussion}()}
 }
 \concept{changeset discussion's functions}

@@ -33,7 +33,6 @@ The \code{redaction_id} is listed on \url{https://www.openstreetmap.org/redactio
 \seealso{
 Other functions for moderators: 
 \code{\link{osm_delete_note}()},
-\code{\link{osm_hide_comment_changeset_discussion}()},
-\code{\link{osm_unhide_comment_changeset_discussion}()}
+\code{\link{osm_hide_comment_changeset_discussion}()}
 }
 \concept{functions for moderators}

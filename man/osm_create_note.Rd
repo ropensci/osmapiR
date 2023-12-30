@@ -26,6 +26,6 @@ token used does not have the \code{allow_write_notes} permission, it is created 
 Other edit notes' functions: 
 \code{\link{osm_close_note}()},
 \code{\link{osm_create_comment_note}()},
-\code{\link{osm_reopen_note}()}
+\code{\link{osm_delete_note}()}
 }
 \concept{edit notes' functions}

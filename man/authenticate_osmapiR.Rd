@@ -3,7 +3,7 @@
 \name{authenticate_osmapi}
 \alias{authenticate_osmapi}
 \alias{logout_osmapi}
-\title{Authenticate osmapiR}
+\title{Authenticate or logout osmapiR}
 \usage{
 authenticate_osmapi()
 

@@ -13,12 +13,17 @@ osm_delete_note(note_id)
 Hide (delete) a note. This request needs to be done as an authenticated user with moderator role.
 }
 \details{
-Use \code{\link[=osm_reopen_note]{osm_reopen_note()}}to make the note visible again.
+Use \code{\link[=osm_reopen_note]{osm_reopen_note()}} to make the note visible again.
 }
 \seealso{
+Other edit notes' functions: 
+\code{\link{osm_close_note}()},
+\code{\link{osm_create_comment_note}()},
+\code{\link{osm_create_note}()}
+
 Other functions for moderators: 
 \code{\link{osm_hide_comment_changeset_discussion}()},
-\code{\link{osm_redaction_object}()},
-\code{\link{osm_unhide_comment_changeset_discussion}()}
+\code{\link{osm_redaction_object}()}
 }
+\concept{edit notes' functions}
 \concept{functions for moderators}
