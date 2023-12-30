@@ -65,7 +65,7 @@
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>Returns the changeset information.</p>
+<p>Returns a data frame with the changeset (same format as <code><a href="osm_get_changesets.html">osm_get_changesets()</a></code> with <code>format = "R"</code>).</p>
     </div>
     <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
@@ -74,6 +74,19 @@
 <code><a href="osm_subscribe_changeset_discussion.html">osm_subscribe_changeset_discussion</a>()</code></p></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="API_configuration.html">set_osmapi_connection</a></span><span class="op">(</span><span class="st">"testing"</span><span class="op">)</span> <span class="co"># use the testing server</span></span></span>
+<span class="r-in"><span><span class="va">changeset</span> <span class="op">&lt;-</span> <span class="fu"><a href="osm_get_changesets.html">osm_get_changesets</a></span><span class="op">(</span><span class="fl">300626</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">updated_changeset</span> <span class="op">&lt;-</span> <span class="fu">osm_comment_changeset_discussion</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  changeset_id <span class="op">=</span> <span class="va">changeset</span><span class="op">$</span><span class="va">id</span>,</span></span>
+<span class="r-in"><span>  comment <span class="op">=</span> <span class="st">"A new comment to test osmapiR"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">updated_changeset</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
