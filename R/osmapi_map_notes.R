@@ -174,6 +174,10 @@
 #'  ]
 #' }
 #' ```
+#'
+#' ## `format = "rss"` & `format = "gpx"`
+#' For `format` in `rss`, and `gpx`, a [xml2::xml_document-class] with the corresponding format.
+#'
 #' @family get notes' functions
 #' @export
 #'
@@ -332,11 +336,16 @@ osm_read_note <- function(note_id, format = c("R", "xml", "rss", "json", "gpx"))
 #' If the request is made as an authenticated user, the note is associated to that user account. If the OAuth access
 #' token used does not have the `allow_write_notes` permission, it is created as an anonymous note instead.
 #'
-#' @return
+#' @return Returns a data frame with the map note (same format as `osm_get_notes()` with `format = "R"`).
 #' @family edit notes' functions
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' set_osmapi_connection("testing") # use the testing server
+#' new_note <- osm_create_note(lat = 41.38373, lon = 2.18233, text = "Testing osmapiR")
+#' new_note
+#' }
 osm_create_note <- function(lat, lon, text, authenticate = TRUE) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = authenticate)
   req <- httr2::req_method(req, "POST")
@@ -390,16 +399,23 @@ osm_create_note <- function(lat, lon, text, authenticate = TRUE) { # TODO: , for
 
 #' Create a new comment in a note
 #'
-#' Add a new comment to an existeing note. Requires authentication.
+#' Add a new comment to an existing note. Requires authentication.
 #'
 #' @param note_id Note id represented by a numeric or a character value.
 #' @param text The comment as arbitrary text.
 #'
-#' @return
+#' @return Returns a data frame with the map note and the new comment (same format as `osm_get_notes()` with
+#'   `format = "R"`).
 #' @family edit notes' functions
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' set_osmapi_connection("testing") # use the testing server
+#' note <- osm_get_notes(53726)
+#' updated_note <- osm_create_comment_note(note$id, text = "A new comment to the note")
+#' updated_note
+#' }
 osm_create_comment_note <- function(note_id, text) {
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
@@ -433,7 +449,7 @@ osm_create_comment_note <- function(note_id, text) {
 # ; HTTP status code 409 (Conflict)
 # : When closing an already closed note
 
-#' Close and reopen a note
+#' Close or reopen a note
 #'
 #' Requires authentication.
 #'
@@ -441,11 +457,19 @@ osm_create_comment_note <- function(note_id, text) {
 #'
 #' @param note_id Note id represented by a numeric or a character value.
 #'
-#' @return
+#' @return Returns a data frame with the closed map note (same format as `osm_get_notes()` with `format = "R"`).
 #' @family edit notes' functions
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' set_osmapi_connection("testing") # use the testing server
+#' note <- osm_create_note(lat = 41.38373, lon = 2.18233, text = "Testing osmapiR")
+#' closed_note <- osm_close_note(note$id)
+#' closed_note
+#' reopened_note <- osm_reopen_note(note$id)
+#' reopened_note
+#' }
 osm_close_note <- function(note_id) {
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")

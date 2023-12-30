@@ -12,10 +12,21 @@ osm_comment_changeset_discussion(changeset_id, comment)
 \item{comment}{The text of the comment to post.}
 }
 \value{
-Returns the changeset information.
+Returns a data frame with the changeset (same format as \code{osm_get_changesets()} with \code{format = "R"}).
 }
 \description{
 Add a comment to a changeset and subscribe to the discussion. The changeset must be closed. Requires authentication.
+}
+\examples{
+\dontrun{
+set_osmapi_connection("testing") # use the testing server
+changeset <- osm_get_changesets(300626)
+updated_changeset <- osm_comment_changeset_discussion(
+  changeset_id = changeset$id,
+  comment = "A new comment to test osmapiR"
+)
+updated_changeset
+}
 }
 \seealso{
 Other changeset discussion's functions: 

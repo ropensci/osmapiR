@@ -3,7 +3,7 @@
 \name{osm_hide_comment_changeset_discussion}
 \alias{osm_hide_comment_changeset_discussion}
 \alias{osm_unhide_comment_changeset_discussion}
-\title{Hide and unhide a changeset comment}
+\title{Hide or unhide a changeset comment}
 \usage{
 osm_hide_comment_changeset_discussion(comment_id)
 

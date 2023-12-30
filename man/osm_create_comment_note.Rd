@@ -11,8 +11,20 @@ osm_create_comment_note(note_id, text)
 
 \item{text}{The comment as arbitrary text.}
 }
+\value{
+Returns a data frame with the map note and the new comment (same format as \code{osm_get_notes()} with
+\code{format = "R"}).
+}
 \description{
-Add a new comment to an existeing note. Requires authentication.
+Add a new comment to an existing note. Requires authentication.
+}
+\examples{
+\dontrun{
+set_osmapi_connection("testing") # use the testing server
+note <- osm_get_notes(53726)
+updated_note <- osm_create_comment_note(note$id, text = "A new comment to the note")
+updated_note
+}
 }
 \seealso{
 Other edit notes' functions: 

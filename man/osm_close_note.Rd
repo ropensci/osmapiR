@@ -3,7 +3,7 @@
 \name{osm_close_note}
 \alias{osm_close_note}
 \alias{osm_reopen_note}
-\title{Close and reopen a note}
+\title{Close or reopen a note}
 \usage{
 osm_close_note(note_id)
 
@@ -11,6 +11,9 @@ osm_reopen_note(note_id)
 }
 \arguments{
 \item{note_id}{Note id represented by a numeric or a character value.}
+}
+\value{
+Returns a data frame with the closed map note (same format as \code{osm_get_notes()} with \code{format = "R"}).
 }
 \description{
 Requires authentication.
@@ -22,6 +25,16 @@ Requires authentication.
 \item \code{osm_reopen_note()}: Reopen a closed note.
 
 }}
+\examples{
+\dontrun{
+set_osmapi_connection("testing") # use the testing server
+note <- osm_create_note(lat = 41.38373, lon = 2.18233, text = "Testing osmapiR")
+closed_note <- osm_close_note(note$id)
+closed_note
+reopened_note <- osm_reopen_note(note$id)
+reopened_note
+}
+}
 \seealso{
 Other edit notes' functions: 
 \code{\link{osm_create_comment_note}()},

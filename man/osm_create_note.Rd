@@ -15,12 +15,22 @@ osm_create_note(lat, lon, text, authenticate = TRUE)
 
 \item{authenticate}{If \code{TRUE} (default), the note is authored by the logged user. Otherwise, anonymous note.}
 }
+\value{
+Returns a data frame with the map note (same format as \code{osm_get_notes()} with \code{format = "R"}).
+}
 \description{
 Create a new note
 }
 \details{
 If the request is made as an authenticated user, the note is associated to that user account. If the OAuth access
 token used does not have the \code{allow_write_notes} permission, it is created as an anonymous note instead.
+}
+\examples{
+\dontrun{
+set_osmapi_connection("testing") # use the testing server
+new_note <- osm_create_note(lat = 41.38373, lon = 2.18233, text = "Testing osmapiR")
+new_note
+}
 }
 \seealso{
 Other edit notes' functions: 

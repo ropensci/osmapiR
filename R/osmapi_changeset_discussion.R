@@ -30,11 +30,20 @@
 #' @param changeset_id The id of the changeset to comment represented by a numeric or a character value.
 #' @param comment The text of the comment to post.
 #'
-#' @return Returns the changeset information.
+#' @return Returns a data frame with the changeset (same format as `osm_get_changesets()` with `format = "R"`).
 #' @family changeset discussion's functions
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' set_osmapi_connection("testing") # use the testing server
+#' changeset <- osm_get_changesets(300626)
+#' updated_changeset <- osm_comment_changeset_discussion(
+#'   changeset_id = changeset$id,
+#'   comment = "A new comment to test osmapiR"
+#' )
+#' updated_changeset
+#' }
 osm_comment_changeset_discussion <- function(changeset_id, comment) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
@@ -144,7 +153,7 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , forma
 # ; HTTP status code 404 (Not Found)
 # : if the changeset comment id is unknown
 
-#' Hide and unhide a changeset comment
+#' Hide or unhide a changeset comment
 #'
 #' This request needs to be done as an authenticated user with moderator role.
 #'

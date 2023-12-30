@@ -83,6 +83,11 @@ Returns a list with the following json structure:
 \}
 }\if{html}{\out{</div>}}
 }
+
+\subsection{\code{format = "rss"} & \code{format = "gpx"}}{
+
+For \code{format} in \code{rss}, and \code{gpx}, a \link[xml2:oldclass]{xml2::xml_document} with the corresponding format.
+}
 }
 \description{
 Returns the existing notes in the specified bounding box. The notes will be ordered by the date of their last change,
