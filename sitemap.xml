@@ -121,19 +121,10 @@
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_relations_object.html</loc>
   </url>
   <url>
-    <loc>https://jmaspons.github.io/osmapiR/reference/osm_reopen_note.html</loc>
-  </url>
-  <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_search_notes.html</loc>
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_subscribe_changeset_discussion.html</loc>
-  </url>
-  <url>
-    <loc>https://jmaspons.github.io/osmapiR/reference/osm_unhide_comment_changeset_discussion.html</loc>
-  </url>
-  <url>
-    <loc>https://jmaspons.github.io/osmapiR/reference/osm_unsubscribe_changeset_discussion.html</loc>
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_update_gpx.html</loc>
