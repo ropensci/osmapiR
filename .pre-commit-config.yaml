@@ -15,7 +15,7 @@ repos:
         - git2r
         - httr2
     # codemeta must be above use-tidy-description when both are used
-    # -   id: codemeta-description-updated
+    -   id: codemeta-description-updated
     -   id: use-tidy-description
     -   id: spell-check
         exclude: >
@@ -63,7 +63,11 @@ repos:
     -   id: file-contents-sorter
         files: '^\.Rbuildignore$'
     -   id: end-of-file-fixer
-        exclude: '\.Rd'
+        exclude: >
+          (?x)^(
+          tests/testthat/mock_.*/.*|
+          .*\.Rd
+          )$
 -   repo: local
     hooks:
     -   id: forbid-to-commit
