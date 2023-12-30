@@ -97,7 +97,7 @@
 #' upd_chaset
 #' }
 osm_create_changeset <- function(comment, ...,
-                                 created_by = paste("osmapiR", utils::packageVersion("osmapiR")), verbose = FALSE) {
+                                 created_by = paste("osmapiR", getOption("osmapir.osmapir_version")), verbose = FALSE) {
   tags <- list(...)
 
   if (missing(comment)) {
@@ -346,7 +346,7 @@ osm_read_changeset <- function(changeset_id, include_discussion = FALSE,
 #'
 #' @export
 osm_update_changeset <- function(changeset_id, comment, ...,
-                                 created_by = paste("osmapiR", utils::packageVersion("osmapiR")), verbose = FALSE) {
+                                 created_by = paste("osmapiR", getOption("osmapir.osmapir_version")), verbose = FALSE) {
   tags <- list(...)
 
   if (missing(comment)) {

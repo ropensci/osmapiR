@@ -3,6 +3,10 @@
 .onLoad <- function(libname, pkgname) { # nocov start
   op <- options()
 
+  if (!"osmapir.osmapir_version" %in% names(op)) {
+    options(osmapir.osmapir_version = getOption("osmapir.osmapir_version"))
+  }
+
   if (!"osmapir.base_api_url" %in% names(op)) {
     options(osmapir.base_api_url = "https://api.openstreetmap.org")
   }

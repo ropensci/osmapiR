@@ -9,7 +9,7 @@
 osm_create_changeset(
   comment,
   ...,
-  created_by = paste("osmapiR", utils::packageVersion("osmapiR")),
+  created_by = paste("osmapiR", getOption("osmapir.osmapir_version")),
   verbose = FALSE
 )
 
@@ -17,7 +17,7 @@ osm_update_changeset(
   changeset_id,
   comment,
   ...,
-  created_by = paste("osmapiR", utils::packageVersion("osmapiR")),
+  created_by = paste("osmapiR", getOption("osmapir.osmapir_version")),
   verbose = FALSE
 )
 

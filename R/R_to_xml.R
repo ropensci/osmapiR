@@ -43,7 +43,7 @@ osmcha_DF2xml <- function(x) {
 
   xml <- xml2::xml_new_root(
     "osmChange",
-    version = "0.6", generator = paste("osmapiR", utils::packageVersion("osmapiR"))
+    version = "0.6", generator = paste("osmapiR", getOption("osmapir.osmapir_version"))
   )
 
   create_ids <- c(node = 0, way = 0, relation = 0)
@@ -94,7 +94,7 @@ object_DF2xml <- function(x) {
   x$version <- as.character(x$version)
   x$timestamp <- format(x$timestamp, format = "%FT%H:%M:%SZ", tz = "GMT")
 
-  xml <- xml2::xml_new_root("osm", version = "0.6", generator = paste("osmapiR", utils::packageVersion("osmapiR")))
+  xml <- xml2::xml_new_root("osm", version = "0.6", generator = paste("osmapiR", getOption("osmapir.osmapir_version")))
 
   for (i in seq_len(nrow(x))) {
     xml2::xml_add_child(
@@ -189,7 +189,7 @@ object_new_DF2xml <- function(x) {
     x <- tags_wide2list(x)
   }
 
-  xml <- xml2::xml_new_root("osm", version = "0.6", generator = paste("osmapiR", utils::packageVersion("osmapiR")))
+  xml <- xml2::xml_new_root("osm", version = "0.6", generator = paste("osmapiR", getOption("osmapir.osmapir_version")))
 
   for (i in seq_len(nrow(x))) {
     xml2::xml_add_child(
@@ -274,7 +274,7 @@ object_update_DF2xml <- function(x) {
 
   x$version <- as.character(x$version)
 
-  xml <- xml2::xml_new_root("osm", version = "0.6", generator = paste("osmapiR", utils::packageVersion("osmapiR")))
+  xml <- xml2::xml_new_root("osm", version = "0.6", generator = paste("osmapiR", getOption("osmapir.osmapir_version")))
 
   for (i in seq_len(nrow(x))) {
     xml2::xml_add_child(
