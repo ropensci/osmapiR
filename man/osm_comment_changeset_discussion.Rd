@@ -12,7 +12,7 @@ osm_comment_changeset_discussion(changeset_id, comment)
 \item{comment}{The text of the comment to post.}
 }
 \value{
-Returns the changeset information invisibly as a \code{xml_document}.
+Returns the changeset information.
 }
 \description{
 Add a comment to a changeset and subscribe to the discussion. The changeset must be closed. Requires authentication.

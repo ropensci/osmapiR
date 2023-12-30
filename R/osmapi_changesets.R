@@ -394,7 +394,7 @@ osm_update_changeset <- function(changeset_id, comment, ...,
 # : If the changeset in question has already been closed (either by the user itself or as a result of the auto-closing feature). A message with the format "`The changeset #id was closed at #closed_at.`" is returned
 # : Or if the user trying to update the changeset is not the same as the one that created it
 
-#' @describeIn osm_create_changeset Closes a changeset. A changeset may already have been closed without the owner
+#' @describeIn osm_create_changeset Close a changeset. A changeset may already have been closed without the owner
 #'   issuing this API call. In this case an error code is returned.
 #'
 #' @return Nothing is returned upon successful closing of a changeset.

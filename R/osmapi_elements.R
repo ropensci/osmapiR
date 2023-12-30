@@ -68,7 +68,7 @@
 #'
 #' Creates a new element in an open changeset as specified.
 #'
-#' @param x The new object data. Can be the path of an xml file, a `xml_document` or a data.frame inheriting
+#' @param x The new object data. Can be the path to an xml file, a `xml_document` or a data.frame inheriting
 #'   or following the structure of an `osmapi_objects` object.
 #' @param changeset_id The ID of an open changeset where to create the object. If missing, `x` should define the
 #'   changeset ID, otherwise it will be overwritten with `changeset_id`. Ignored if `x` is a path.
@@ -995,7 +995,8 @@ osm_redaction_object <- function(osm_type = c("node", "way", "relation"), osm_id
     req <- httr2::req_url_query(redaction = redaction_id)
   }
 
-  httr2::req_perform(req)
+  resp <- httr2::req_perform(req)
+  # TODO: parse unknown response (only available for moderators)
 
-  invisible()
+  return(resp)
 }

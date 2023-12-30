@@ -13,7 +13,7 @@ osm_unsubscribe_changeset_discussion(changeset_id)
 \item{changeset_id}{The id of the changeset represented by a numeric or a character value.}
 }
 \value{
-Returns the changeset information invisibly as a \code{xml_document}.
+Returns the changeset information.
 }
 \description{
 Subscribe or unsubscribe to a changeset discussion
@@ -27,6 +27,13 @@ for new comments.
 notifications.
 
 }}
+\examples{
+\dontrun{
+# set_osmapi_connection(server = "openstreetmap.org")
+osm_subscribe_changeset_discussion(137595351)
+osm_unsubscribe_changeset_discussion("137595351")
+}
+}
 \seealso{
 Other changeset discussion's functions: 
 \code{\link{osm_comment_changeset_discussion}()},

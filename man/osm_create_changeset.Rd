@@ -55,7 +55,7 @@ When updating a changeset, unchanged tags have to be repeated in order to not be
 
 \item \code{osm_update_changeset()}: Update the tags of an open changeset.
 
-\item \code{osm_close_changeset()}: Closes a changeset. A changeset may already have been closed without the owner
+\item \code{osm_close_changeset()}: Close a changeset. A changeset may already have been closed without the owner
 issuing this API call. In this case an error code is returned.
 
 }}

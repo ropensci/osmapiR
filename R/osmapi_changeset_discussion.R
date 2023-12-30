@@ -30,7 +30,7 @@
 #' @param changeset_id The id of the changeset to comment represented by a numeric or a character value.
 #' @param comment The text of the comment to post.
 #'
-#' @return Returns the changeset information invisibly as a `xml_document`.
+#' @return Returns the changeset information.
 #' @family changeset discussion's functions
 #' @export
 #'
@@ -71,11 +71,16 @@ osm_comment_changeset_discussion <- function(changeset_id, comment) { # TODO: , 
 #'
 #' @param changeset_id The id of the changeset represented by a numeric or a character value.
 #'
-#' @return Returns the changeset information invisibly as a `xml_document`.
+#' @return Returns the changeset information.
 #' @family changeset discussion's functions
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' # set_osmapi_connection(server = "openstreetmap.org")
+#' osm_subscribe_changeset_discussion(137595351)
+#' osm_unsubscribe_changeset_discussion("137595351")
+#' }
 osm_subscribe_changeset_discussion <- function(changeset_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
@@ -159,6 +164,7 @@ osm_hide_comment_changeset_discussion <- function(comment_id) { # TODO: , format
   obj_xml <- httr2::resp_body_xml(resp)
 
   out <- changeset_xml2DF(obj_xml)
+  # TODO: parse unknown xml response (only available for moderators)
 
   return(out)
 }
@@ -192,6 +198,7 @@ osm_unhide_comment_changeset_discussion <- function(comment_id) { # TODO: , form
   obj_xml <- httr2::resp_body_xml(resp)
 
   out <- changeset_xml2DF(obj_xml)
+  # TODO: parse unknown xml response (only available for moderators)
 
   return(out)
 }
