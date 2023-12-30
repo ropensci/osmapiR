@@ -108,8 +108,6 @@ osm_subscribe_changeset_discussion <- function(changeset_id) { # TODO: , format 
 #'   notifications.
 #'
 #' @export
-#'
-#' @examples
 osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
@@ -149,12 +147,9 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , forma
 #'
 #' @param comment_id Note that the changeset comment id differs from the changeset id.
 #'
-#' @return
 #' @family changeset discussion's functions
 #' @family functions for moderators
 #' @export
-#'
-#' @examples
 osm_hide_comment_changeset_discussion <- function(comment_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
@@ -187,11 +182,7 @@ osm_hide_comment_changeset_discussion <- function(comment_id) { # TODO: , format
 # : if the changeset comment id is unknown
 
 #' @describeIn osm_hide_comment_changeset_discussion Sets visible flag on changeset comment to true.
-#'
-#' @return
 #' @export
-#'
-#' @examples
 osm_unhide_comment_changeset_discussion <- function(comment_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")

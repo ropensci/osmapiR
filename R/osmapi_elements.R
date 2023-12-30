@@ -982,11 +982,8 @@ osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
 #' The `redaction_id` is listed on <https://www.openstreetmap.org/redactions>. More information can be found in
 #' [the source](https://git.openstreetmap.org/rails.git/blob/HEAD:/app/controllers/api/old_controller.rb).
 #'
-#' @return
 #' @family functions for moderators
 #' @export
-#'
-#' @examples
 osm_redaction_object <- function(osm_type = c("node", "way", "relation"), osm_id, version, redaction_id) {
   osm_type <- match.arg(osm_type)
 

@@ -482,10 +482,7 @@ osm_close_note <- function(note_id) {
 
 #' @describeIn osm_close_note Reopen a closed note.
 #'
-#' @return
 #' @export
-#'
-#' @examples
 osm_reopen_note <- function(note_id) {
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
@@ -527,12 +524,9 @@ osm_reopen_note <- function(note_id) {
 #'
 #' @details Use [osm_reopen_note()] to make the note visible again.
 #'
-#' @return
 #' @family edit notes' functions
 #' @family functions for moderators
 #' @export
-#'
-#' @examples
 osm_delete_note <- function(note_id) {
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "DELETE")
