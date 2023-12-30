@@ -1,4 +1,5 @@
 ^.*\.Rproj$
+^CODE_OF_CONDUCT\.md$
 ^LICENSE\.md$
 ^README\.Rmd$
 ^\.Rproj\.user$
@@ -7,5 +8,6 @@
 ^\.lintr$
 ^\.pre-commit-config\.yaml$
 ^_pkgdown\.yml$
+^codemeta\.json$
 ^docs$
 ^pkgdown$

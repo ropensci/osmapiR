@@ -101,3 +101,9 @@ upload any kind of data.
 
 To access the OSM map data for purposes other than editing or exploring the history of the objects, perhaps is better to
 use the other packages that implements the Overpass API (`osmdata`) or that works with `.pbf` files (`osmexcract`).
+
+## Code of Conduct
+
+Please note that the osmapiR project is released with a
+[Contributor Code of Conduct](https://jmaspons.github.io/osmapiR/CODE_OF_CONDUCT.html). By contributing to this project,
+you agree to abide by its terms.
