@@ -159,6 +159,7 @@ comments_as_text.note_comments <- function(x) {
   comments_as_text.comments(x)
 }
 
+#' @export
 comments_as_text.comments <- function(x) {
   intro <- paste(nrow(x), if (nrow(x) == 1) "comment" else "comments", "from")
   users <- paste(unique(x$user), collapse = ", ")

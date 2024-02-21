@@ -1,4 +1,6 @@
-column_meta_gpx <- c("id", "name", "uid", "user", "visibility", "pending", "timestamp", "lat", "lon", "description", "tags")
+column_meta_gpx <- c(
+  "id", "name", "uid", "user", "visibility", "pending", "timestamp", "lat", "lon", "description", "tags"
+)
 column_gpx <- c("lat", "lon", "ele", "time")
 column_pts_gps <- c("lat", "lon", "time")
 
