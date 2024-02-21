@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.8.10 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <way id="13073736" visible="true" version="3" changeset="9724157" timestamp="2011-11-02T17:55:59Z" user="morsi" uid="139580">
+  <nd ref="120303676"/>
+  <nd ref="120303671"/>
+  <nd ref="120303597"/>
+  <nd ref="120303605"/>
+  <nd ref="120303622"/>
+  <nd ref="120303691"/>
+  <nd ref="120303696"/>
+  <nd ref="120303660"/>
+  <nd ref="120303711"/>
+  <nd ref="120303707"/>
+  <nd ref="120303652"/>
+  <nd ref="120303612"/>
+  <nd ref="120303665"/>
+  <nd ref="120303700"/>
+  <nd ref="120303686"/>
+  <nd ref="120303601"/>
+  <nd ref="120303676"/>
+  <tag k="building" v="tower"/>
+  <tag k="historic" v="tower"/>
+  <tag k="name" v="Torres de Quart"/>
+ </way>
+ <way id="235744929" visible="true" version="2" changeset="18871484" timestamp="2013-11-13T10:32:50Z" user="SMP" uid="54441">
+  <nd ref="2438033107"/>
+  <nd ref="2438033109"/>
+  <tag k="barrier" v="wall"/>
+  <tag k="historic" v="memorial"/>
+  <tag k="name" v="Fossar de les Moreres"/>
+  <tag k="wikipedia" v="ca:Fossar de les Moreres"/>
+ </way>
+</osm>

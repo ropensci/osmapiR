@@ -2,7 +2,7 @@
 % Please edit documentation in R/osmchange.R
 \name{osmchange_create}
 \alias{osmchange_create}
-\title{Create OSM objects}
+\title{\code{osmchange} to create OSM objects}
 \usage{
 osmchange_create(x)
 }
@@ -10,8 +10,12 @@ osmchange_create(x)
 \item{x}{A \code{data.frame} with columns \code{type}, \code{changeset} and \code{tags} + column \code{members} for ways and relations + \code{lat}
 and \code{lon} for nodes. For \code{osmapi_objects}, the tags column is not needed but the object must inherit \code{tags_wide}.}
 }
+\value{
+Returns a \code{osmapi_OsmChange} data frame with one OSM object per row ready to send the editions to the servers
+with \code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}}.
+}
 \description{
-Create OSM objects
+Prepare data to create OSM objects.
 }
 \details{
 Objects IDs are unknown and will be allocated by the server. Check

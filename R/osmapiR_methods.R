@@ -29,23 +29,27 @@ print.osmapi_objects <- function(x, nchar_members = 60, nchar_tags = 80, ...) {
 
 #' @export
 print.osmapi_OsmChange <- function(x, nchar_members = 60, nchar_tags = 80, ...) {
-  y <- x
+  if (inherits(x, "osmapi_objects")) {
+    NextMethod()
+  } else {
+    y <- x
 
-  if ("members" %in% names(x)) {
-    members <- vapply(x$members, members_as_text, FUN.VALUE = "")
-    members <- ifelse(nchar(members) > nchar_members, paste0(substr(members, 1, nchar_members), "..."), members)
-    x$members <- members
+    if ("members" %in% names(x)) {
+      members <- vapply(x$members, members_as_text, FUN.VALUE = "")
+      members <- ifelse(nchar(members) > nchar_members, paste0(substr(members, 1, nchar_members), "..."), members)
+      x$members <- members
+    }
+
+    if ("tags" %in% names(x)) {
+      tags <- vapply(x$tags, tags_as_text, FUN.VALUE = "")
+      tags <- ifelse(nchar(tags) > nchar_tags, paste0(substr(tags, 1, nchar_tags), "..."), tags)
+      x$tags <- tags
+    }
+
+    NextMethod()
+
+    invisible(y)
   }
-
-  if ("tags" %in% names(x)) {
-    tags <- vapply(x$tags, tags_as_text, FUN.VALUE = "")
-    tags <- ifelse(nchar(tags) > nchar_tags, paste0(substr(tags, 1, nchar_tags), "..."), tags)
-    x$tags <- tags
-  }
-
-  NextMethod()
-
-  invisible(y)
 }
 
 
@@ -56,9 +60,9 @@ print.osmapi_changesets <- function(x, nchar_comments = 60, nchar_tags = 80, ...
   y <- x
 
   if ("discussion" %in% names(x)) {
-    discussion <- vapply(x$discussion, comments_as_text, FUN.VALUE = "")
-    discussion <- ifelse(nchar(discussion) > nchar_comments, paste0(substr(discussion, 1, nchar_comments - 3), "..."), discussion)
-    x$discussion <- discussion
+    disc <- vapply(x$discussion, comments_as_text, FUN.VALUE = "")
+    disc <- ifelse(nchar(disc) > nchar_comments, paste0(substr(disc, 1, nchar_comments - 3), "..."), disc)
+    x$discussion <- disc
   }
 
   if ("tags" %in% names(x)) {

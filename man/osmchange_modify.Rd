@@ -2,7 +2,7 @@
 % Please edit documentation in R/osmchange.R
 \name{osmchange_modify}
 \alias{osmchange_modify}
-\title{Modify existing OSM objects}
+\title{\code{osmchange} to modify existing OSM objects}
 \usage{
 osmchange_modify(x, tag_keys, members = FALSE, lat_lon = FALSE)
 }
@@ -18,13 +18,27 @@ modify tags.}
 
 \item{lat_lon}{If \code{TRUE} and \code{x} has a \code{lat} and \code{lon} columns, update the coordinates of the node objects.}
 }
+\value{
+Returns a \code{osmapi_OsmChange} data frame with one OSM object per row ready to send the editions to the servers
+with \code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}}.
+}
 \description{
-Update tags, members and/or latitude and longitude.
+Prepare data to update tags, members and/or latitude and longitude.
 }
 \details{
-\code{x} should follow the format of \code{osmapi_objects} with tags in wide format or a \code{tags} column with a list of
-data.frames with \code{key} and \code{value} columns. Missing tags or tags with \code{NA} in the value will be removed. See
-\code{\link[=osm_get_objects]{osm_get_objects()}} for examples of the format.
+\code{x} should be a \code{osmapi_objects} or follow the same format. Missing tags or tags with \code{NA} in the value will be
+removed if \code{tag_keys} is not specified. See \code{\link[=osm_get_objects]{osm_get_objects()}} for examples of the format.
+}
+\examples{
+\dontrun{
+obj <- osm_get_objects(
+  osm_type = c("node", "way", "way", "relation", "relation", "node"),
+  osm_id = c("35308286", "13073736", "235744929", "40581", "341530", "1935675367"),
+  version = c(1, 3, 2, 5, 7, 1) # Old versions
+)
+osmch <- osmchange_modify(obj)
+osmch
+}
 }
 \seealso{
 Other OsmChange's functions: 

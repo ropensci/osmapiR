@@ -1,6 +1,6 @@
-#' Modify existing OSM objects
+#' `osmchange` to modify existing OSM objects
 #'
-#' Update tags, members and/or latitude and longitude.
+#' Prepare data to update tags, members and/or latitude and longitude.
 #'
 #' @param x A `data.frame` with the columns `type` and `id` with unique combinations of values plus columns specifying
 #'   tags, members or latitude and longitude.
@@ -11,40 +11,56 @@
 #' @param lat_lon If `TRUE` and `x` has a `lat` and `lon` columns, update the coordinates of the node objects.
 #'
 #' @details
-#' `x` should follow the format of `osmapi_objects` with tags in wide format or a `tags` column with a list of
-#' data.frames with `key` and `value` columns. Missing tags or tags with `NA` in the value will be removed. See
-#' [osm_get_objects()] for examples of the format.
+#' `x` should be a `osmapi_objects` or follow the same format. Missing tags or tags with `NA` in the value will be
+#' removed if `tag_keys` is not specified. See [osm_get_objects()] for examples of the format.
 #'
-#' @return
+#' @return Returns a `osmapi_OsmChange` data frame with one OSM object per row ready to send the editions to the servers
+#'   with [osm_diff_upload_changeset()].
 #' @family OsmChange's functions
 #' @export
 #'
 #' @examples
+#' \dontrun{
+#' obj <- osm_get_objects(
+#'   osm_type = c("node", "way", "way", "relation", "relation", "node"),
+#'   osm_id = c("35308286", "13073736", "235744929", "40581", "341530", "1935675367"),
+#'   version = c(1, 3, 2, 5, 7, 1) # Old versions
+#' )
+#' osmch <- osmchange_modify(obj)
+#' osmch
+#' }
 osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
   if (inherits(x, "tags_wide")) {
     x <- tags_wide2list(x)
   }
 
-  if ("tags" %in% names(x)) {
-    if (missing(tag_keys)) { # Update all tags
+  if (missing(tag_keys)) { # Update all tags
+    if (inherits(x, "osmapi_objects")) {
       tags_upd <- x$tags
-    } else { # Update only tag_keys
-      tags_upd <- lapply(x$tags, function(y) {
-        y[y$key %in% tag_keys, ]
-      })
-    }
-  } else if (!"tags" %in% names(x) && all(tag_keys %in% names(x))) { # Tags in wide format and all tag_keys in columns
-    tags_upd <- list()
-    for (i in seq_len(nrow(x))) {
-      tags_upd[[i]] <- data.frame(key = tag_keys, value = as.character(x[i, tag_keys]))
+    } else {
+      stop(
+        "Specify `tag_keys` or pass a `osmapi_objects` as `x` parameter to update all tags. ",
+        "To omit tags, set parameter `tag_keys = FALSE`."
+      )
     }
   } else if (is.logical(tag_keys) && !tag_keys) { # Don't update tags
     tags_upd <- FALSE
-  } else {
-    stop(
-      "Specify `tag_keys` or pass `x` with a tag column with a list of data.frames with all tags. ",
-      "To omit tags, set parameter `tag_keys = FALSE`."
-    )
+  } else { # Update only tag_keys
+    if (inherits(x, "osmapi_objects")) {
+      tags_upd <- lapply(x$tags, function(y) {
+        y[y$key %in% tag_keys, ]
+      })
+    } else { # data.frame with tags in columns
+      if (all(tag_keys %in% names(x))) {
+        tags_upd <- list()
+        for (i in seq_len(nrow(x))) {
+          tags_upd[[i]] <- data.frame(key = tag_keys, value = as.character(x[i, tag_keys]))
+        }
+      } else {
+        miss <- setdiff(tag_keys, names(x))
+        stop("Missing columns for `tag_keys`: ", paste(miss, collapse = ", "))
+      }
+    }
   }
 
   x_type <- split(x, x$type)
@@ -54,26 +70,34 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
   x_uid <- do.call(paste, x[, c("type", "id")])
   osm_uid <- do.call(paste, x_osm[, c("type", "id")])
   x_osm <- x_osm[match(x_uid, osm_uid), ]
-  rownames(x_osm) <- rownames(x)
 
   osmchange <- x_osm
-  osmchange$action_type <- NA_character_
+  osmchange <- cbind(action_type = NA_character_, osmchange)
+  attr(osmchange, "row.names") <- attr(x, "row.names")
+  class(osmchange) <- class(x_osm)
 
   if (members && "members" %in% names(x)) {
     osmchange$members <- x$members
   }
 
-  if (lat_lon && "lat_lon" %in% names(x)) {
+  if (lat_lon && "lat" %in% names(x) && "lon" %in% names(x)) {
     osmchange[, c("lat", "lon")] <- x[, c("lat", "lon")]
   }
 
   for (i in seq_len(nrow(x))) {
     if (!isFALSE(tags_upd)) {
-      tags <- osmchange$tags[[i]]
-      tags <- tags[!tags$key %in% tag_keys, ]
-      tags <- rbind(tags, stats::na.omit(tags_upd[[i]]))
+      if (missing(tag_keys)) {
+        tags <- tags_upd[[i]]
+      } else {
+        tags <- osmchange$tags[[i]]
+        tags <- tags[!tags$key %in% tags_upd[[i]]$key, ]
+        tags <- rbind(tags, stats::na.omit(tags_upd[[i]]))
+      }
 
-      if (!identical(tags, osmchange$tags[[i]])) {
+      tags_osm <- osmchange$tags[[i]]
+      tags_osm <- tags_osm[order(tags_osm$key), ]
+      chng <- !isTRUE(all.equal(tags[order(tags$key), ], tags_osm, check.attributes = FALSE))
+      if (chng) {
         osmchange$tags[[i]] <- tags
         osmchange$action_type[i] <- "modify"
       }
@@ -83,28 +107,32 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
       osmchange$action_type[i] <- "modify"
     }
 
-    if (is.na(osmchange$action_type[i]) && lat_lon && !identical(x[, c("lat", "lon")], osmchange[, c("lat", "lon")])) {
+    if (
+      is.na(osmchange$action_type[i]) && lat_lon &&
+        !isTRUE(all.equal(x[i, c("lat", "lon")], osmchange[i, c("lat", "lon")], check.attributes = FALSE))
+    ) {
       osmchange$action_type[i] <- "modify"
     }
   }
 
-  class(osmchange) <- unique(c("osmapi_OsmChange", setdiff(class(x), "tags_wide")))
-
   rm <- is.na(osmchange$action_type)
-
   if (sum(rm) > 0) {
     message(sum(rm), " objects without modifications will be discarded.")
     osmchange <- osmchange[!rm, ]
   }
 
+  class(osmchange) <- c("osmapi_OsmChange", "osmapi_objects", "data.frame")
+
   return(osmchange)
 }
 
 
-#' Delete existing OSM objects
+#' `osmchange` to delete existing OSM objects
 #'
-#' @param x A `data.frame` with the columns `type` and `id`.
-#' @param delete_if_unused If `TRUE` (default), the `if-unused` attribute will be added. Can be a vector of length
+#' Prepare data to delete OSM objects.
+#'
+#' @param x A `data.frame` with the columns `type` and `id` for the objects to delete. Other columns will be ignored.
+#' @param delete_if_unused If `TRUE`, the `if-unused` attribute will be added (see details). Can be a vector of length
 #'   `nrow(x)`.
 #'
 #' @details
@@ -113,27 +141,35 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
 #' lead to an error, and the whole diff upload would fail. Setting the attribute will also cause deletions of already
 #' deleted objects to not generate an error.
 #'
-#' @return
+#' @return Returns a `osmapi_OsmChange` data frame with one OSM object per row ready to send the editions to the servers
+#'   with [osm_diff_upload_changeset()].
 #' @family OsmChange's functions
 #' @export
 #'
 #' @examples
-osmchange_delete <- function(x, delete_if_unused = TRUE) {
+#' \dontrun{
+#' obj_id <- data.frame(
+#'   type = c("way", "way", "relation", "node"),
+#'   id = c("722379703", "629132242", "8387952", "4739010921")
+#' )
+#' osmchange_del <- osmchange_delete(obj_id)
+#' }
+osmchange_delete <- function(x, delete_if_unused = FALSE) {
   x_type <- split(x, x$type)
   osmchange <- lapply(x_type, function(y) osm_fetch_objects(osm_type = unique(y$type), osm_ids = y$id))
   osmchange <- do.call(rbind, osmchange[c("relation", "way", "node")]) # sort to avoid deleting members of existing objs
-
   rownames(osmchange) <- NULL
+  osmchange <- cbind(action_type = ifelse(delete_if_unused, "delete if-unused", "delete"), osmchange)
 
-  osmchange$action_type <- ifelse(delete_if_unused, "delete if-unused", "delete")
-
-  class(osmchange) <- unique(c("osmapi_OsmChange", class(x)))
+  class(osmchange) <- c("osmapi_OsmChange", "osmapi_objects", "data.frame")
 
   return(osmchange)
 }
 
 
-#' Create OSM objects
+#' `osmchange` to create OSM objects
+#'
+#' Prepare data to create OSM objects.
 #'
 #' @param x A `data.frame` with columns `type`, `changeset` and `tags` + column `members` for ways and relations + `lat`
 #'   and `lon` for nodes. For `osmapi_objects`, the tags column is not needed but the object must inherit `tags_wide`.
@@ -143,18 +179,18 @@ osmchange_delete <- function(x, delete_if_unused = TRUE) {
 #' [OsmChange page](https://wiki.openstreetmap.org/wiki/OsmChange) for details about how to refer to objects still not
 #' created to define the members of relations and nodes of ways.
 #'
-#' @return
+#' @return Returns a `osmapi_OsmChange` data frame with one OSM object per row ready to send the editions to the servers
+#'   with [osm_diff_upload_changeset()].
 #' @family OsmChange's functions
 #' @export
 #'
 #' @examples
 osmchange_create <- function(x) {
   x_type <- split(x, x$type)
-  osmchange <- do.call(rbind, x_type[c("node", "way", "relation")]) # sort to avoid creating obj with missing members
-
+  osmchange <- do.call(rbind, x_type[c("node", "way", "relation")]) # sort to avoid creating objs with missing members
   rownames(osmchange) <- NULL
-
-  osmchange$action_type <- "create"
+  osmchange <- cbind(action_type = "create", osmchange)
+  ## TODO: to osmapi_objects() for !inherits(x, "osmapi_objects")
 
   class(osmchange) <- unique(c("osmapi_OsmChange", class(x)))
 
