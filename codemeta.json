@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/jmaspons/osmapiR",
   "issueTracker": "https://github.com/jmaspons/osmapiR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.0.0.17",
+  "version": "0.0.0.18",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -112,7 +112,7 @@
     "SystemRequirements": null
   },
   "keywords": ["openstreetmap", "OSM", "openstreetmap-api", "osmapi", "API", "osm", "r", "r-package"],
-  "fileSize": "1551.391KB",
+  "fileSize": "1588.431KB",
   "readme": "https://github.com/jmaspons/osmapiR/blob/main/README.md",
   "contIntegration": ["https://github.com/jmaspons/osmapiR/actions/workflows/R-CMD-check.yaml", "https://codecov.io/gh/jmaspons/osmapiR", "https://github.com/jmaspons/osmapiR/actions/workflows/pkgdown.yaml"],
   "developmentStatus": "https://lifecycle.r-lib.org/articles/stages.html#experimental"

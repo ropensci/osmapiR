@@ -2,24 +2,37 @@
 % Please edit documentation in R/osmchange.R
 \name{osmchange_delete}
 \alias{osmchange_delete}
-\title{Delete existing OSM objects}
+\title{\code{osmchange} to delete existing OSM objects}
 \usage{
-osmchange_delete(x, delete_if_unused = TRUE)
+osmchange_delete(x, delete_if_unused = FALSE)
 }
 \arguments{
-\item{x}{A \code{data.frame} with the columns \code{type} and \code{id}.}
+\item{x}{A \code{data.frame} with the columns \code{type} and \code{id} for the objects to delete. Other columns will be ignored.}
 
-\item{delete_if_unused}{If \code{TRUE} (default), the \verb{if-unused} attribute will be added. Can be a vector of length
+\item{delete_if_unused}{If \code{TRUE}, the \verb{if-unused} attribute will be added (see details). Can be a vector of length
 \code{nrow(x)}.}
 }
+\value{
+Returns a \code{osmapi_OsmChange} data frame with one OSM object per row ready to send the editions to the servers
+with \code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}}.
+}
 \description{
-Delete existing OSM objects
+Prepare data to delete OSM objects.
 }
 \details{
 If \verb{if-unused} attribute is present, then the delete operation(s) in this block are conditional and will only be
 executed if the object to be deleted is not used by another object. Without the \verb{if-unused}, such a situation would
 lead to an error, and the whole diff upload would fail. Setting the attribute will also cause deletions of already
 deleted objects to not generate an error.
+}
+\examples{
+\dontrun{
+obj_id <- data.frame(
+  type = c("way", "way", "relation", "node"),
+  id = c("722379703", "629132242", "8387952", "4739010921")
+)
+osmchange_del <- osmchange_delete(obj_id)
+}
 }
 \seealso{
 Other OsmChange's functions: 

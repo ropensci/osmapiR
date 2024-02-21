@@ -56,8 +56,8 @@ osmcha_DF2xml <- function(x) {
     }
 
     if (x$action_type[i] == "create" && is.na(x$id[i])) {
-      create_ids[x$type] <- create_ids[x$type] - 1
-      x$id <- create_ids[x$type]
+      create_ids[x$type[i]] <- create_ids[x$type[i]] - 1
+      x$id[i] <- create_ids[x$type[i]]
     }
 
     xml2::xml_add_child(
