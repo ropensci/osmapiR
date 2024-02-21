@@ -190,6 +190,7 @@ osmchange_create <- function(x) {
   osmchange <- do.call(rbind, x_type[c("node", "way", "relation")]) # sort to avoid creating objs with missing members
   rownames(osmchange) <- NULL
   osmchange <- cbind(action_type = "create", osmchange)
+  ## TODO: to osmapi_objects() for !inherits(x, "osmapi_objects")
 
   class(osmchange) <- unique(c("osmapi_OsmChange", class(x)))
 

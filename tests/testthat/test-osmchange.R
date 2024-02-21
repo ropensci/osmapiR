@@ -25,7 +25,8 @@ test_that("osmchange_create works", {
   })
   osmchange_crea <- list()
   osmchange_crea$osmapi_obj <- osmchange_create(obj_current)
-  df_current <- tags_list2wide(obj_current)
+  obj_current_norel <- obj_current[obj_current$type != "relation", ] ## TODO: rename type, id -> osm_*
+  df_current <- tags_list2wide(obj_current_norel) ## TODO: rename type, id -> osm_*
   class(df_current) <- "data.frame"
   osmchange_crea$df <- osmchange_create(df_current)
 
@@ -47,7 +48,13 @@ test_that("osmchange_create works", {
     x = osmchange_crea$df[sel_cols], cl = class_columns[sel_cols]
   )
 
-  lapply(osmchange_crea, function(x) expect_equal(nrow(x), nrow(obj_current)))
+  mapply(function(x, obj) {
+    expect_equal(nrow(x), nrow(obj))
+  }, x = osmchange_crea, obj = list(obj_current, obj_current_norel)) ## TODO: rename type, id -> osm_*
+
+  ## osmcha_DF2xml
+  lapply(osmchange_crea["osmapi_obj"], function(x) expect_s3_class(osmcha_DF2xml(x), "xml_document"))
+  ## TODO: to osmapi_objects(osmchange_crea$df)
 })
 
 
@@ -70,7 +77,7 @@ test_that("osmchange_modify works", {
       "Specify `tag_keys` or pass a `osmapi_objects` as `x` parameter to update all tags. To omit tags, set parameter"
     )
     # tags_in_columns = TRUE  # TODO tag type column clashes with id
-    df_current_wide <- osmapiR::tags_list2wide(obj_current)
+    df_current_wide <- tags_list2wide(obj_current[obj_current$type != "relation", ]) ## TODO: rename type, id -> osm_*
     class(df_current_wide) <- "data.frame"
     expect_message(
       osmchange_mod$current_df <- osmchange_modify(df_current_wide, tag_keys = "name", members = TRUE, lat_lon = TRUE),
