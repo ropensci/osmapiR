@@ -54,14 +54,13 @@
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>x</dt>
-<dd><p>A <code>data.frame</code> with the columns <code>type</code> and <code>id</code> with unique combinations of values plus columns specifying
-tags, members or latitude and longitude.</p></dd>
+<dd><p>A <a href="osmapi_objects.html">osmapi_objects</a> with the columns <code>type</code> and <code>id</code> with unique combinations of values plus columns
+specifying tags, members or latitude and longitude.</p></dd>
 
 
 <dt>tag_keys</dt>
 <dd><p>A character vector with the keys of the tags that will be modified. If missing (default),
-all tags will be updated, removed or created (doesn't work for <code>x</code> with tags in a wide format). If <code>FALSE</code>, don't
-modify tags.</p></dd>
+all tags will be updated, removed or created. If <code>FALSE</code>, don't modify tags.</p></dd>
 
 
 <dt>members</dt>
