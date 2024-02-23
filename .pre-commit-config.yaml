@@ -11,9 +11,12 @@ repos:
           tests/testthat/mock_.*/.*|
           )$
     -   id: roxygenize
+    # roxygen requires loading pkg -> add dependencies from DESCRIPTION
         additional_dependencies:
+        - curl
         - git2r
         - httr2
+        - xml2
     # codemeta must be above use-tidy-description when both are used
     -   id: codemeta-description-updated
     -   id: use-tidy-description

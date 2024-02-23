@@ -7,12 +7,11 @@
 osmchange_modify(x, tag_keys, members = FALSE, lat_lon = FALSE)
 }
 \arguments{
-\item{x}{A \code{data.frame} with the columns \code{type} and \code{id} with unique combinations of values plus columns specifying
-tags, members or latitude and longitude.}
+\item{x}{A \link{osmapi_objects} with the columns \code{type} and \code{id} with unique combinations of values plus columns
+specifying tags, members or latitude and longitude.}
 
 \item{tag_keys}{A character vector with the keys of the tags that will be modified. If missing (default),
-all tags will be updated, removed or created (doesn't work for \code{x} with tags in a wide format). If \code{FALSE}, don't
-modify tags.}
+all tags will be updated, removed or created. If \code{FALSE}, don't modify tags.}
 
 \item{members}{If \code{TRUE} and \code{x} has a \code{members} column, update the members of the ways and relations objects.}
 

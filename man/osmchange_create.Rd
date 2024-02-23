@@ -7,8 +7,8 @@
 osmchange_create(x)
 }
 \arguments{
-\item{x}{A \code{data.frame} with columns \code{type}, \code{changeset} and \code{tags} + column \code{members} for ways and relations + \code{lat}
-and \code{lon} for nodes. For \code{osmapi_objects}, the tags column is not needed but the object must inherit \code{tags_wide}.}
+\item{x}{A \link{osmapi_objects} with columns \code{type}, \code{changeset} + column \code{members} for ways and relations + \code{lat}
+and \code{lon} for nodes + tags if needed.}
 }
 \value{
 Returns a \code{osmapi_OsmChange} data frame with one OSM object per row ready to send the editions to the servers

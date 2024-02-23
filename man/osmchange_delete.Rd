@@ -7,7 +7,8 @@
 osmchange_delete(x, delete_if_unused = FALSE)
 }
 \arguments{
-\item{x}{A \code{data.frame} with the columns \code{type} and \code{id} for the objects to delete. Other columns will be ignored.}
+\item{x}{A \link{osmapi_objects} or \code{data.frame} with the columns \code{type} and \code{id} for the objects to delete. Other columns
+will be ignored.}
 
 \item{delete_if_unused}{If \code{TRUE}, the \verb{if-unused} attribute will be added (see details). Can be a vector of length
 \code{nrow(x)}.}
@@ -27,10 +28,10 @@ deleted objects to not generate an error.
 }
 \examples{
 \dontrun{
-obj_id <- data.frame(
+obj_id <- osmapi_objects(data.frame(
   type = c("way", "way", "relation", "node"),
   id = c("722379703", "629132242", "8387952", "4739010921")
-)
+))
 osmchange_del <- osmchange_delete(obj_id)
 }
 }
