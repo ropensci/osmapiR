@@ -20,31 +20,35 @@ changeset_create_xml <- function(tags) {
 }
 
 
+## OsmChange ----
+
 # https://wiki.openstreetmap.org/wiki/OsmChange
 
 #' `osmapi_OsmChange` data.frame to `xml_document`
 #'
 #' @param x An `osmapi_OsmChange` data.frame.
-#' @param changeset_id The changeset id to upload the diff to. TODO: not needed?
 #'
 #' @details
 #' https://wiki.openstreetmap.org/wiki/OsmChange
 #'
-#' @return an OsmChange
+#' @return an OsmChange `xml_document`
+#' @seealso [osm_download_changeset()], [osmchange_create()], [osmchange_modify()], [osmchange_delete()]
 #' @noRd
 osmcha_DF2xml <- function(x) {
   if (inherits(x, "tags_wide")) {
     x <- tags_wide2list(x)
   }
 
-  x$visible <- ifelse(x$visible, "true", "false")
-  x$version <- as.character(x$version)
-  x$timestamp <- format(x$timestamp, format = "%FT%H:%M:%SZ", tz = "GMT")
-
   xml <- xml2::xml_new_root(
     "osmChange",
     version = "0.6", generator = paste("osmapiR", getOption("osmapir.osmapir_version"))
   )
+
+  if (all(c("visible", "version", "timestamp") %in% names(x))) {
+    x$visible <- ifelse(x$visible, "true", "false")
+    x$version <- as.character(x$version)
+    x$timestamp <- format(x$timestamp, format = "%FT%H:%M:%SZ", tz = "GMT")
+  }
 
   create_ids <- c(node = 0, way = 0, relation = 0)
 
@@ -55,19 +59,175 @@ osmcha_DF2xml <- function(x) {
       xml2::xml_add_child(xml, x$action_type[i])
     }
 
-    if (x$action_type[i] == "create" && is.na(x$id[i])) {
-      create_ids[x$type[i]] <- create_ids[x$type[i]] - 1
-      x$id[i] <- create_ids[x$type[i]]
-    }
-
-    xml2::xml_add_child(
-      xml2::xml_child(xml, i),
-      .value = switch(x$type[i],
-        node = node_2xml(x[i, ]),
-        way = way_2xml(x[i, ]),
-        relation = relation_2xml(x[i, ])
+    if (x$action_type[i] == "create") {
+      if ("id" %in% names(x) && is.na(x$id[i])) {
+        create_ids[x$type[i]] <- create_ids[x$type[i]] - 1
+        x$id[i] <- create_ids[x$type[i]]
+      }
+      # For osmchange_create(), "visible", "version" & "timestamp" columns can be missing
+      xml2::xml_add_child(
+        xml2::xml_child(xml, i),
+        .value = switch(x$type[i],
+          node = node_create_2xml(x[i, ]),
+          way = way_create_2xml(x[i, ]),
+          relation = relation_create_2xml(x[i, ])
+        )
       )
+    } else {
+      xml2::xml_add_child(
+        xml2::xml_child(xml, i),
+        .value = switch(x$type[i],
+          node = node_2xml(x[i, ]),
+          way = way_2xml(x[i, ]),
+          relation = relation_2xml(x[i, ])
+        )
+      )
+    }
+  }
+
+  return(xml)
+}
+
+
+node_create_2xml <- function(x) {
+  x <- x[, !is.na(x)]
+  if (all(c("id", "visible", "version", "changeset", "timestamp", "user", "uid", "lat", "lon") %in% names(x))) {
+    xml <- xml2::xml_new_root(
+      x$type,
+      id = x$id, visible = x$visible, version = x$version, changeset = x$changeset,
+      timestamp = x$timestamp, user = x$user, uid = x$uid, lat = x$lat, lon = x$lon
     )
+  } else {
+    xml <- xml2::xml_new_root(x$type)
+
+    if ("id" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "id", value = x$id)
+    }
+    if ("visible" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "visible", value = x$visible)
+    }
+    if ("version" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "version", value = x$version)
+    }
+    if ("changeset" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "changeset", value = x$changeset)
+    }
+    if ("timestamp" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "timestamp", value = x$timestamp)
+    }
+    if ("user" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "user", value = x$user)
+    }
+    if ("uid" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "uid", value = x$uid)
+    }
+    if ("lat" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "lat", value = x$lat)
+    }
+    if ("lon" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "lon", value = x$lon)
+    }
+  }
+
+  tags <- x$tags[[1]]
+  for (i in seq_len(nrow(tags))) {
+    xml2::xml_add_child(xml, "tag", k = tags$key[i], v = tags$value[i])
+  }
+
+  return(xml)
+}
+
+
+way_create_2xml <- function(x) {
+  x <- x[, !is.na(x)]
+  if (all(c("id", "visible", "version", "changeset", "timestamp", "user", "uid") %in% names(x))) {
+    xml <- xml2::xml_new_root(
+      x$type,
+      id = x$id, visible = x$visible, version = x$version, changeset = x$changeset,
+      timestamp = x$timestamp, user = x$user, uid = x$uid
+    )
+  } else {
+    xml <- xml2::xml_new_root(x$type)
+
+    if ("id" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "id", value = x$id)
+    }
+    if ("visible" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "visible", value = x$visible)
+    }
+    if ("version" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "version", value = x$version)
+    }
+    if ("changeset" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "changeset", value = x$changeset)
+    }
+    if ("timestamp" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "timestamp", value = x$timestamp)
+    }
+    if ("user" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "user", value = x$user)
+    }
+    if ("uid" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "uid", value = x$uid)
+    }
+  }
+
+  members <- x$members[[1]]
+  for (i in seq_len(length(members))) {
+    xml2::xml_add_child(xml, "nd", ref = members[i])
+  }
+
+  tags <- x$tags[[1]]
+  for (i in seq_len(nrow(tags))) {
+    xml2::xml_add_child(xml, "tag", k = tags$key[i], v = tags$value[i])
+  }
+
+  return(xml)
+}
+
+
+relation_create_2xml <- function(x) {
+  x <- x[, !is.na(x)]
+  if (all(c("id", "visible", "version", "changeset", "timestamp", "user", "uid") %in% names(x))) {
+    xml <- xml2::xml_new_root(
+      x$type,
+      id = x$id, visible = x$visible, version = x$version, changeset = x$changeset,
+      timestamp = x$timestamp, user = x$user, uid = x$uid
+    )
+  } else {
+    xml <- xml2::xml_new_root(x$type)
+
+    if ("id" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "id", value = x$id)
+    }
+    if ("visible" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "visible", value = x$visible)
+    }
+    if ("version" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "version", value = x$version)
+    }
+    if ("changeset" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "changeset", value = x$changeset)
+    }
+    if ("timestamp" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "timestamp", value = x$timestamp)
+    }
+    if ("user" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "user", value = x$user)
+    }
+    if ("uid" %in% names(x)) {
+      xml2::xml_set_attr(xml, attr = "uid", value = x$uid)
+    }
+  }
+
+  members <- x$members[[1]]
+  for (i in seq_len(nrow(members))) {
+    xml2::xml_add_child(xml, "member", type = members[i, "type"], ref = members[i, "ref"], role = members[i, "role"])
+  }
+
+  tags <- x$tags[[1]]
+  for (i in seq_len(nrow(tags))) {
+    xml2::xml_add_child(xml, "tag", k = tags$key[i], v = tags$value[i])
   }
 
   return(xml)

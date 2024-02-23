@@ -11,11 +11,16 @@ class_columns <- list(
 
 
 test_that("osmchange_create works", {
+  # TODO: replace osm_get_objects()
   # obj_id <- data.frame(
   #   type = c("node", "way", "way", "relation", "relation", "node"),
   #   changeset = 2017,
+  #   lat = character(),
+  #   lon = character(),
+  #   members = list()
   #   tags = list()
   # )
+  # obj<- osmapi_objects(obj)
 
   with_mock_dir("mock_osmchange_create", {
     obj_current <- osm_get_objects(
@@ -23,38 +28,26 @@ test_that("osmchange_create works", {
       osm_id = c("35308286", "13073736", "235744929", "40581", "341530", "1935675367"),
     )
   })
+  obj_current <- obj_current[, setdiff(names(obj_current), c("id", "visible", "version", "timestamp", "user", "uid"))]
   osmchange_crea <- list()
   osmchange_crea$osmapi_obj <- osmchange_create(obj_current)
-  obj_current_norel <- obj_current[obj_current$type != "relation", ] ## TODO: rename type, id -> osm_*
-  df_current <- tags_list2wide(obj_current_norel) ## TODO: rename type, id -> osm_*
-  class(df_current) <- "data.frame"
-  osmchange_crea$df <- osmchange_create(df_current)
+  obj_current_wide <- tags_list2wide(obj_current)
+  osmchange_crea$osmapi_obj_wide <- osmchange_create(obj_current_wide)
 
-  expect_s3_class(
-    osmchange_crea$osmapi_obj,
-    class = c("osmapi_OsmChange", "osmapi_objects", "data.frame"), exact = TRUE
-  )
-  expect_s3_class(osmchange_crea$df, class = c("osmapi_OsmChange", "data.frame"), exact = TRUE)
-  expect_named(osmchange_crea$osmapi_obj, column_osmchange)
+  lapply(osmchange_crea, expect_s3_class, class = c("osmapi_OsmChange", "osmapi_objects", "data.frame"), exact = TRUE)
+  lapply(osmchange_crea, function(x) expect_true(all(names(x) %in% column_osmchange)))
 
-  mapply(
-    function(x, cl) expect_true(inherits(x, cl)),
-    x = osmchange_crea$osmapi_obj, cl = class_columns[names(osmchange_crea$osmapi_obj)]
-  )
+  lapply(osmchange_crea, function(x) {
+    mapply(
+      function(y, cl) expect_true(inherits(y, cl)),
+      y = x, cl = class_columns[names(x)]
+    )
+  })
 
-  sel_cols <- intersect(names(osmchange_crea$df), names(class_columns))
-  mapply(
-    function(x, cl) expect_true(inherits(x, cl)),
-    x = osmchange_crea$df[sel_cols], cl = class_columns[sel_cols]
-  )
-
-  mapply(function(x, obj) {
-    expect_equal(nrow(x), nrow(obj))
-  }, x = osmchange_crea, obj = list(obj_current, obj_current_norel)) ## TODO: rename type, id -> osm_*
+  lapply(osmchange_crea, function(x) expect_equal(nrow(x), nrow(obj_current)))
 
   ## osmcha_DF2xml
-  lapply(osmchange_crea["osmapi_obj"], function(x) expect_s3_class(osmcha_DF2xml(x), "xml_document"))
-  ## TODO: to osmapi_objects(osmchange_crea$df)
+  lapply(osmchange_crea, function(x) expect_s3_class(osmcha_DF2xml(x), "xml_document"))
 })
 
 
@@ -72,15 +65,11 @@ test_that("osmchange_modify works", {
 
     df_current <- obj_current
     class(df_current) <- "data.frame"
-    expect_error(
-      osmchange_modify(df_current, members = TRUE, lat_lon = TRUE),
-      "Specify `tag_keys` or pass a `osmapi_objects` as `x` parameter to update all tags. To omit tags, set parameter"
-    )
-    # tags_in_columns = TRUE  # TODO tag type column clashes with id
-    df_current_wide <- tags_list2wide(obj_current[obj_current$type != "relation", ]) ## TODO: rename type, id -> osm_*
-    class(df_current_wide) <- "data.frame"
+    expect_error(osmchange_modify(df_current, members = TRUE, lat_lon = TRUE))
+
+    current_wide <- tags_list2wide(obj_current)
     expect_message(
-      osmchange_mod$current_df <- osmchange_modify(df_current_wide, tag_keys = "name", members = TRUE, lat_lon = TRUE),
+      osmchange_mod$current_wide <- osmchange_modify(current_wide, tag_keys = "name", members = TRUE, lat_lon = TRUE),
       " objects without modifications will be discarded."
     )
 
@@ -106,14 +95,9 @@ test_that("osmchange_modify works", {
     )
   })
 
-  lapply(osmchange_mod[c("current", "current_df")], function(x) expect_equal(nrow(x), 0))
+  lapply(osmchange_mod[c("current", "current_wide")], function(x) expect_equal(nrow(x), 0))
   expect_equal(nrow(osmchange_mod$version), nrow(obj_version))
   expect_true(nrow(osmchange_mod$version_name) > 0)
-
-  expect_error(
-    osmchange_modify(df_current, tag_keys = "NON_existent"),
-    "Missing columns for `tag_keys`: "
-  )
 
   # osmcha_DF2xml
   lapply(osmchange_mod, function(x) expect_s3_class(osmcha_DF2xml(x), "xml_document"))
@@ -121,10 +105,10 @@ test_that("osmchange_modify works", {
 
 
 test_that("osmchange_delete works", {
-  obj_id <- data.frame(
+  obj_id <- osmapi_objects(data.frame(
     type = c("node", "way", "way", "relation", "relation", "node"),
     id = c("35308286", "13073736", "235744929", "40581", "341530", "1935675367")
-  )
+  ))
 
   osmchange_del <- list()
   with_mock_dir("mock_osmchange_delete", {

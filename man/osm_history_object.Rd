@@ -48,6 +48,7 @@ Other get OSM objects' functions:
 \code{\link{osm_bbox_objects}()},
 \code{\link{osm_get_objects}()},
 \code{\link{osm_relations_object}()},
-\code{\link{osm_ways_node}()}
+\code{\link{osm_ways_node}()},
+\code{\link{osmapi_objects}()}
 }
 \concept{get OSM objects' functions}

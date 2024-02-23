@@ -15,8 +15,7 @@ test_that("OSM objects tags_list-wide works", {
     )
   })
 
-  expect_warning(tags_2wide <- lapply(tags_list, tags_list2wide), regexp = "Tag's keys clash with other columns")
-
+  tags_2wide <- lapply(tags_list, tags_list2wide)
   tags_2list <- lapply(tags_wide, tags_wide2list)
 
   mapply(expect_identical, object = tags_2wide, expected = tags_wide)
