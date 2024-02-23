@@ -60,8 +60,12 @@ tags_list2wide <- function(x) {
     t(vapply(x$tags, function(y) structure(y$value, names = y$key)[cols], FUN.VALUE = character(length(cols)))),
     dimnames = list(NULL, cols)
   )
-  out <- cbind(x[, setdiff(names(x), "tags")], tags_wide)
 
+  out <- x[, setdiff(names(x), "tags")]
+  if (inherits(x, "osmapi_objects")) {
+    names(out) <- gsub("^(type|id)$", "osm_\\1", names(out))
+  }
+  out <- cbind(out, tags_wide)
   out <- fix_duplicated_columns(out)
 
   attr(out, "tag_columns") <- structure(ncol(x):ncol(out), names = cols)
@@ -98,6 +102,10 @@ tags_wide2list <- function(x) {
 
   out <- x[, -keys]
   out$tags <- tags_list
+
+  if (inherits(x, "osmapi_objects")) {
+    names(out) <- gsub("^osm_(type|id)$", "\\1", names(out))
+  }
 
   class(out) <- setdiff(class(x), "tags_wide")
 

@@ -227,6 +227,7 @@ object_xml2DF <- function(xml, tags_in_columns = FALSE) {
 
   if (tags_in_columns) {
     tags <- tags_xml2mat_wide(objects)
+    names(out) <- gsub("^(type|id)$", "osm_\\1", names(out))
     out <- cbind(out, tags)
 
     out <- fix_duplicated_columns(out)
