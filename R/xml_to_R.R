@@ -24,7 +24,7 @@ tags_xml2list_df <- function(xml_nodeset) {
       names = c("key", "value")
     )
 
-    class(tags_df) <- c("tags_df", class(tags_df))
+    class(tags_df) <- c("tags_df", "data.frame")
 
     return(tags_df)
   })
@@ -81,7 +81,7 @@ changeset_xml2DF <- function(xml, tags_in_columns = FALSE) {
       dis <- data.frame(comment_attrs, comment_text)
       dis$date <- as.POSIXct(dis$date, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
 
-      class(dis) <- c("changeset_comments", class(dis))
+      class(dis) <- c("changeset_comments", "data.frame")
 
       return(dis)
     })
@@ -96,10 +96,10 @@ changeset_xml2DF <- function(xml, tags_in_columns = FALSE) {
     out <- fix_duplicated_columns(out)
 
     attr(out, "tag_columns") <- structure((ncol(out) - ncol(tags) + 1):ncol(out), names = colnames(tags))
-    class(out) <- c("osmapi_changesets", "tags_wide", class(out))
+    class(out) <- c("osmapi_changesets", "tags_wide", "data.frame")
   } else {
     out$tags <- tags_xml2list_df(changesets)
-    class(out) <- c("osmapi_changesets", class(out))
+    class(out) <- c("osmapi_changesets", "data.frame")
   }
 
   return(out)
@@ -115,7 +115,7 @@ empty_changeset <- function() {
 
   out$tags <- list()
 
-  class(out) <- c("osmapi_changesets", class(out))
+  class(out) <- c("osmapi_changesets", "data.frame")
 
   return(out)
 }
@@ -129,7 +129,7 @@ osmchange_xml2DF <- function(xml) {
 
   out <- cbind(action_type, objects)
 
-  class(out) <- c("osmapi_OsmChange", class(out))
+  class(out) <- c("osmapi_OsmChange", "data.frame")
 
   return(out)
 }
@@ -233,10 +233,10 @@ object_xml2DF <- function(xml, tags_in_columns = FALSE) {
     out <- fix_duplicated_columns(out)
 
     attr(out, "tag_columns") <- structure((ncol(out) - ncol(tags) + 1):ncol(out), names = colnames(tags))
-    class(out) <- c("osmapi_objects", "tags_wide", class(out))
+    class(out) <- c("osmapi_objects", "tags_wide", "data.frame")
   } else {
     out$tags <- tags_xml2list_df(objects)
-    class(out) <- c("osmapi_objects", class(out))
+    class(out) <- c("osmapi_objects", "data.frame")
   }
 
   if (!is.null(bbox)) {
@@ -256,7 +256,7 @@ empty_object <- function() {
   out$members <- list()
   out$tags <- list()
 
-  class(out) <- c("osmapi_objects", class(out))
+  class(out) <- c("osmapi_objects", "data.frame")
 
   return(out)
 }
@@ -352,7 +352,7 @@ gpx_xml2list <- function(xml) {
 
 empty_gpx <- function() {
   out <- list()
-  class(out) <- c("osmapi_gpx", class(out))
+  class(out) <- c("osmapi_gpx", "list")
 
   return(out)
 }
@@ -498,7 +498,7 @@ note_xml2DF <- function(xml) {
     comm <- data.frame(date, uid, user, user_url, action, text, html)
     comm$date <- as.POSIXct(comm$date, format = "%Y-%m-%d %H:%M:%OS", tz = "GMT")
 
-    class(comm) <- c("note_comments", class(comm))
+    class(comm) <- c("note_comments", "data.frame")
 
     return(comm)
   })
@@ -508,7 +508,7 @@ note_xml2DF <- function(xml) {
 
   out$comments <- commentsL
 
-  class(out) <- c("osmapi_map_notes", class(out))
+  class(out) <- c("osmapi_map_notes", "data.frame")
 
   return(out)
 }
@@ -521,7 +521,7 @@ empty_notes <- function() {
   )
   out$comments <- list()
 
-  class(out) <- c("osmapi_map_notes", class(out))
+  class(out) <- c("osmapi_map_notes", "data.frame")
 
   return(out)
 }

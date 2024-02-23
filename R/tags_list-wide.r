@@ -70,7 +70,7 @@ tags_list2wide <- function(x) {
 
   attr(out, "tag_columns") <- structure(ncol(x):ncol(out), names = cols)
 
-  class(out) <- c(class(x)[1], "tags_wide", class(out))
+  class(out) <- c(setdiff(class(x), "data.frame"), "tags_wide", "data.frame")
 
   return(out)
 }
@@ -95,10 +95,10 @@ tags_wide2list <- function(x) {
 
     attr(out, "na.action") <- NULL
     rownames(out) <- NULL
-    class(out) <- c("tags_df", class(out))
+    class(out) <- c("tags_df", "data.frame")
 
     return(out)
-  })
+  }, simplify = FALSE)
 
   out <- x[, -keys]
   out$tags <- tags_list
