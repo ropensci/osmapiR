@@ -27,3 +27,12 @@ x$members <- list(NULL, NULL, 1:2)
 obj <- osmapi_objects(x, tag_columns = "name")
 obj
 }
+\seealso{
+Other get OSM objects' functions: 
+\code{\link{osm_bbox_objects}()},
+\code{\link{osm_get_objects}()},
+\code{\link{osm_history_object}()},
+\code{\link{osm_relations_object}()},
+\code{\link{osm_ways_node}()}
+}
+\concept{get OSM objects' functions}

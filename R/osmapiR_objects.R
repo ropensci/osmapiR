@@ -9,6 +9,7 @@
 # TODO
 #'
 #' @return An `osmapi_objects`
+#' @family get OSM objects' functions
 #' @export
 #'
 #' @examples
