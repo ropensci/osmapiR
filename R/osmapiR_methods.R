@@ -141,7 +141,7 @@ members_as_text.relation_members <- function(x) {
 
 #' @export
 members_as_text.default <- function(x) {
-  NA_character_
+  "NULL"
 }
 
 
@@ -172,7 +172,7 @@ comments_as_text.comments <- function(x) {
 
 #' @export
 comments_as_text.default <- function(x) {
-  NA_character_
+  "NULL"
 }
 
 
@@ -195,5 +195,5 @@ tags_as_text.tags_df <- function(x) {
 
 #' @export
 tags_as_text.default <- function(x) {
-  NA_character_
+  "NULL"
 }
