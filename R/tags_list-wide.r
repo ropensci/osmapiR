@@ -127,7 +127,7 @@ fix_duplicated_columns <- function(x) {
   if (!identical(names(x), cols_ori)) {
     warning(
       "Tag's keys clash with other columns and will be renamed by appending `.n`:\n\t",
-      paste(setdiff(cols_ori, names(x)), collapse = ", ")
+      paste(setdiff(names(x), cols_ori), collapse = ", ")
     )
   }
 
