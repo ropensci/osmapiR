@@ -20,8 +20,10 @@ bcb
 BEXER
 BFPlFMA
 Blackweir
+bool
 br
 BugReports
+byrow
 cadedb
 cb
 cbind
@@ -53,6 +55,7 @@ codeRepository
 colname
 colspan
 commentsL
+commited
 ComputerLanguage
 config
 Config
@@ -202,6 +205,7 @@ noRd
 nowiki
 nrow
 nThis
+num
 nVJ
 oauth
 OAuth

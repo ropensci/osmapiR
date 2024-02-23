@@ -85,14 +85,23 @@ new_osmapi_objects <- function(x) {
 }
 
 
-validate_osmapi_objects <- function(x) {
+#' Validate `osmapi_objects`
+#'
+#' @param x An `osmapi_objects`
+#' @param commited If `TRUE`, `x` must have columns `visible`, `version`, `changeset`, `timestamp`, `user` & `uid`.
+#'
+#' @return `x`
+#' @noRd
+validate_osmapi_objects <- function(x, commited = TRUE) {
   stopifnot(inherits(x, "osmapi_objects"))
   stopifnot(is.data.frame(x))
 
-  col_name <- c(
-    "type", "id", "visible", "version", "changeset", "timestamp", "user", "uid", "lat", "lon", "members", "tags"
-  )
-  names_ok <- setequal(names(x), col_name)
+  col_name <- c("type", "id", "lat", "lon", "members", "tags")
+  if (commited) {
+    col_name <- c(col_name, "visible", "version", "changeset", "timestamp", "user", "uid")
+  }
+  names_ok <- all(col_name %in% names(x))
+
   if (!names_ok) {
     stop("Missing columns: ", paste(setdiff(col_name, names(x)), collapse = ", "))
   }
@@ -145,12 +154,12 @@ new_relation_members <- function(x) {
 
 ## tags_df ----
 
-new_tags_df <- function(x) {
+new_tags_df <- function(x = data.frame(key = character(), value = character())) {
   stopifnot(is.data.frame(x))
   stopifnot(c("key", "value") %in% colnames(x))
   x$key <- as.character(x$key)
   x$value <- as.character(x$value)
 
-  class(x) <- "tags_df"
+  class(x) <- c("tags_df", "data.frame")
   x
 }
