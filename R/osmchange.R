@@ -71,7 +71,7 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
         tags <- tags_upd[[i]]
       } else {
         tags <- osmchange$tags[[i]]
-        tags <- tags[!tags$key %in% tags_upd[[i]]$key, ]
+        tags <- tags[!tags$key %in% tag_keys, ] # remove tags in tag_keys with no value or NA
         tags <- rbind(tags, stats::na.omit(tags_upd[[i]]))
       }
 
