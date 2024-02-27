@@ -221,6 +221,9 @@ relation_create_2xml <- function(x) {
   }
 
   members <- x$members[[1]]
+  if (!"role" %in% colnames(members)) {
+    members <- cbind(members, role = character(nrow(members)))
+  }
   for (i in seq_len(nrow(members))) {
     xml2::xml_add_child(xml, "member", type = members[i, "type"], ref = members[i, "ref"], role = members[i, "role"])
   }
