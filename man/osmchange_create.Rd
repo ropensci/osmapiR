@@ -22,6 +22,26 @@ Objects IDs are unknown and will be allocated by the server. Check
 \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange page} for details about how to refer to objects still not
 created to define the members of relations and nodes of ways.
 }
+\examples{
+d <- data.frame(
+  type = c("node", "node", "way", "relation"),
+  id = -(1:4),
+  lat = c(0, 1, NA, NA),
+  lon = c(0, 1, NA, NA),
+  name = c(NA, NA, "My way", "Our relation"),
+  type.1 = c(NA, NA, NA, "Column clash!")
+)
+d$members <- list(
+  NULL, NULL, -(1:2),
+  matrix(
+    c("node", "-1", NA, "node", "-2", NA, "way", "-3", "outer"),
+    nrow = 3, ncol = 3, byrow = TRUE, dimnames = list(NULL, c("type", "ref", "role"))
+  )
+)
+obj <- osmapi_objects(d, tag_columns = c(name = "name", type = "type.1"))
+osmcha <- osmchange_create(obj)
+osmcha
+}
 \seealso{
 Other OsmChange's functions: 
 \code{\link{osm_diff_upload_changeset}()},

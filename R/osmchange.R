@@ -170,6 +170,24 @@ osmchange_delete <- function(x, delete_if_unused = FALSE) {
 #' @export
 #'
 #' @examples
+#' d <- data.frame(
+#'   type = c("node", "node", "way", "relation"),
+#'   id = -(1:4),
+#'   lat = c(0, 1, NA, NA),
+#'   lon = c(0, 1, NA, NA),
+#'   name = c(NA, NA, "My way", "Our relation"),
+#'   type.1 = c(NA, NA, NA, "Column clash!")
+#' )
+#' d$members <- list(
+#'   NULL, NULL, -(1:2),
+#'   matrix(
+#'     c("node", "-1", NA, "node", "-2", NA, "way", "-3", "outer"),
+#'     nrow = 3, ncol = 3, byrow = TRUE, dimnames = list(NULL, c("type", "ref", "role"))
+#'   )
+#' )
+#' obj <- osmapi_objects(d, tag_columns = c(name = "name", type = "type.1"))
+#' osmcha <- osmchange_create(obj)
+#' osmcha
 osmchange_create <- function(x) {
   stopifnot(inherits(x, "osmapi_objects"))
   if (inherits(x, "tags_wide")) {

@@ -11,28 +11,27 @@ class_columns <- list(
 
 
 test_that("osmchange_create works", {
-  # TODO: replace osm_get_objects()
-  # obj_id <- data.frame(
-  #   type = c("node", "way", "way", "relation", "relation", "node"),
-  #   changeset = 2017,
-  #   lat = character(),
-  #   lon = character(),
-  #   members = list()
-  #   tags = list()
-  # )
-  # obj<- osmapi_objects(obj)
-
-  with_mock_dir("mock_osmchange_create", {
-    obj_current <- osm_get_objects(
-      osm_type = c("node", "way", "way", "relation", "relation", "node"),
-      osm_id = c("35308286", "13073736", "235744929", "40581", "341530", "1935675367"),
+  d <- data.frame(
+    type = c("node", "node", "way", "relation"),
+    id = -(1:4),
+    lat = c(0, 1, NA, NA),
+    lon = c(0, 1, NA, NA),
+    name = c(NA, NA, "My way", "Our relation"),
+    type.1 = c(NA, NA, NA, "Column clash!")
+  )
+  d$members <- list(
+    NULL, NULL, -(1:2),
+    matrix(
+      c("node", "-1", NA, "node", "-2", NA, "way", "-3", "outer"),
+      nrow = 3, ncol = 3, byrow = TRUE, dimnames = list(NULL, c("type", "ref", "role"))
     )
-  })
-  obj_current <- obj_current[, setdiff(names(obj_current), c("id", "visible", "version", "timestamp", "user", "uid"))]
+  )
+  obj <- osmapi_objects(d, tag_columns = c(name = "name", type = "type.1"))
+
   osmchange_crea <- list()
-  osmchange_crea$osmapi_obj <- osmchange_create(obj_current)
-  obj_current_wide <- tags_list2wide(obj_current)
-  osmchange_crea$osmapi_obj_wide <- osmchange_create(obj_current_wide)
+  osmchange_crea$osmapi_obj <- osmchange_create(obj)
+  obj_wide <- tags_list2wide(obj)
+  osmchange_crea$osmapi_obj_wide <- osmchange_create(obj_wide)
 
   lapply(osmchange_crea, expect_s3_class, class = c("osmapi_OsmChange", "osmapi_objects", "data.frame"), exact = TRUE)
   lapply(osmchange_crea, function(x) expect_true(all(names(x) %in% column_osmchange)))
@@ -44,7 +43,7 @@ test_that("osmchange_create works", {
     )
   })
 
-  lapply(osmchange_crea, function(x) expect_equal(nrow(x), nrow(obj_current)))
+  lapply(osmchange_crea, function(x) expect_equal(nrow(x), nrow(obj)))
 
   ## osmcha_DF2xml
   lapply(osmchange_crea, function(x) expect_s3_class(osmcha_DF2xml(x), "xml_document"))
