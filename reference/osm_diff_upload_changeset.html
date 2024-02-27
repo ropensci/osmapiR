@@ -12,7 +12,7 @@ the server. This is guaranteed to be running in a transaction. So either all the
     
     <a class="navbar-brand me-2" href="../index.html">osmapiR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.19</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.20</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -62,8 +62,8 @@ that created the changeset.</p></dd>
 
 
 <dt>osmcha</dt>
-<dd><p>The OsmChange data. Can be the path of an OsmChange file, a <code>xml_document</code> or a data.frame inheriting
-or following the structure of an <code>osmapi_OsmChange</code> object.</p></dd>
+<dd><p>The OsmChange data. Can be the path of an OsmChange file, a <code>xml_document</code> or an <code>osmapi_OsmChange</code>
+object (see <code>osmchange_*()</code> functions).</p></dd>
 
 
 <dt>format</dt>
@@ -79,10 +79,10 @@ For <code>format = "xml"</code>, a xml2::xml_document is returned in the followi
 format:</p>
 
 
-<p></p><div class="sourceCode xml"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>&lt;<span class="kw">diffResult</span><span class="ot"> generator=</span><span class="st">"OpenStreetMap Server"</span><span class="ot"> version=</span><span class="st">"0.6"</span>&gt;</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    &lt;<span class="kw">node</span><span class="er">|</span><span class="ot">way</span><span class="er">|relation</span> <span class="er">old_id</span><span class="ot">=</span><span class="st">"#"</span><span class="ot"> new_id=</span><span class="st">"#"</span><span class="ot"> new_version=</span><span class="st">"#"</span>/&gt;</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    ...</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>&lt;/<span class="kw">diffResult</span>&gt;</span></code></pre><p></p></div>
+<p></p><div class="sourceCode xml"><pre><code><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a>&lt;<span class="kw">diffResult</span><span class="ot"> generator=</span><span class="st">"OpenStreetMap Server"</span><span class="ot"> version=</span><span class="st">"0.6"</span>&gt;</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a>    &lt;<span class="kw">node</span><span class="er">|</span><span class="ot">way</span><span class="er">|relation</span> <span class="er">old_id</span><span class="ot">=</span><span class="st">"#"</span><span class="ot"> new_id=</span><span class="st">"#"</span><span class="ot"> new_version=</span><span class="st">"#"</span>/&gt;</span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>    ...</span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a>&lt;/<span class="kw">diffResult</span>&gt;</span></code></pre><p></p></div>
 
 
 

@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">osmapiR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.19</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.20</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -80,6 +80,43 @@ created to define the members of relations and nodes of ways.</p>
 <code><a href="osmchange_modify.html">osmchange_modify</a>()</code></p></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  type <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"node"</span>, <span class="st">"node"</span>, <span class="st">"way"</span>, <span class="st">"relation"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  id <span class="op">=</span> <span class="op">-</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">4</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  lat <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  lon <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0</span>, <span class="fl">1</span>, <span class="cn">NA</span>, <span class="cn">NA</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  name <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="cn">NA</span>, <span class="st">"My way"</span>, <span class="st">"Our relation"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  type.1 <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="cn">NA</span>, <span class="cn">NA</span>, <span class="cn">NA</span>, <span class="st">"Column clash!"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">d</span><span class="op">$</span><span class="va">members</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>  <span class="cn">NULL</span>, <span class="cn">NULL</span>, <span class="op">-</span><span class="op">(</span><span class="fl">1</span><span class="op">:</span><span class="fl">2</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  <span class="fu"><a href="https://rdrr.io/r/base/matrix.html" class="external-link">matrix</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"node"</span>, <span class="st">"-1"</span>, <span class="cn">NA</span>, <span class="st">"node"</span>, <span class="st">"-2"</span>, <span class="cn">NA</span>, <span class="st">"way"</span>, <span class="st">"-3"</span>, <span class="st">"outer"</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>    nrow <span class="op">=</span> <span class="fl">3</span>, ncol <span class="op">=</span> <span class="fl">3</span>, byrow <span class="op">=</span> <span class="cn">TRUE</span>, dimnames <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span><span class="cn">NULL</span>, <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"type"</span>, <span class="st">"ref"</span>, <span class="st">"role"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="osmapi_objects.html">osmapi_objects</a></span><span class="op">(</span><span class="va">d</span>, tag_columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"name"</span>, type <span class="op">=</span> <span class="st">"type.1"</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">osmcha</span> <span class="op">&lt;-</span> <span class="fu">osmchange_create</span><span class="op">(</span><span class="va">obj</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">osmcha</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   action_type     type id  lat  lon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1      create     node -1    0    0</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2      create     node -2    1    1</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3      create      way -3 &lt;NA&gt; &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4      create relation -4 &lt;NA&gt; &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                           members</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                            NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                            NULL</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                                 2 nodes: -1, -2</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 3 members: node/-1/NA, node/-2/NA, way/-3/outer</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                             tags</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1                                        No tags</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2                                        No tags</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3                             1 tag: name=My way</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 2 tags: name=Our relation | type=Column clash!</span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 

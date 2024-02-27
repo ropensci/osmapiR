@@ -1,8 +1,8 @@
-pandoc: 2.19.2
+pandoc: 3.1.11
 pkgdown: 2.0.7
 pkgdown_sha: ~
 articles: {}
-last_built: 2024-02-23T16:13Z
+last_built: 2024-02-27T20:52Z
 urls:
   reference: https://jmaspons.github.io/osmapiR/reference
   article: https://jmaspons.github.io/osmapiR/articles

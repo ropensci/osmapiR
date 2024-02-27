@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">osmapiR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.19</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.20</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -67,30 +67,30 @@
 
 <p>Returns a xml2::xml_document with the following format:
 <osm version="0.6" generator="OpenStreetMap server"><user display_name="Max Muster" account_created="2006-07-21T19:28:26Z" id="1234"><contributor-terms agreed="true" pd="true"></contributor-terms><img href="https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG" src="NA"><roles></roles><changesets count="4182"></changesets><traces count="513"></traces><blocks><received count="0" active="0"></received></blocks><home lat="49.4733718952806" lon="8.89285988577866" zoom="3"></home><description>The description of your profile</description><languages><lang>de-DE</lang><lang>de</lang><lang>en-US</lang><lang>en</lang></languages><messages><received count="1" unread="0"></received><sent count="0"></sent></messages></user></osm></p>
-<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="do">## `format = "json"`</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="st">```</span><span class="at"> json</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">{</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at"> "version": "0.6",</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at"> "generator": "OpenStreetMap server",</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at"> "user": {</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">  "id": 1234,</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">  "display_name": "Max Muster",</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">  "account_created": "2006-07-21T19:28:26Z",</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">  "description": "The description of your profile",</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">  "contributor_terms": {"agreed": True, "pd": True},</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">  "img": {"href": "https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"},</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">  "roles": [],</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="at">  "changesets": {"count": 4182},</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="at">  "traces": {"count": 513},</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="at">  "blocks": {"received": {"count": 0, "active": 0}},</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="at">  "home": {"lat": 49.4733718952806, "lon": 8.89285988577866, "zoom": 3},</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="at">  "languages": ["de-DE", "de", "en-US", "en"],</span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="at">  "messages": {"received": {"count": 1, "unread": 0},</span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="at">  "sent": {"count": 0}}</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="at"> }</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="at">}</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode"><pre><code><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a></span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a><span class="do">## `format = "json"`</span></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" tabindex="-1"></a><span class="st">```</span><span class="at"> json</span></span>
+<span id="cb1-5"><a href="#cb1-5" tabindex="-1"></a><span class="at">{</span></span>
+<span id="cb1-6"><a href="#cb1-6" tabindex="-1"></a><span class="at"> "version": "0.6",</span></span>
+<span id="cb1-7"><a href="#cb1-7" tabindex="-1"></a><span class="at"> "generator": "OpenStreetMap server",</span></span>
+<span id="cb1-8"><a href="#cb1-8" tabindex="-1"></a><span class="at"> "user": {</span></span>
+<span id="cb1-9"><a href="#cb1-9" tabindex="-1"></a><span class="at">  "id": 1234,</span></span>
+<span id="cb1-10"><a href="#cb1-10" tabindex="-1"></a><span class="at">  "display_name": "Max Muster",</span></span>
+<span id="cb1-11"><a href="#cb1-11" tabindex="-1"></a><span class="at">  "account_created": "2006-07-21T19:28:26Z",</span></span>
+<span id="cb1-12"><a href="#cb1-12" tabindex="-1"></a><span class="at">  "description": "The description of your profile",</span></span>
+<span id="cb1-13"><a href="#cb1-13" tabindex="-1"></a><span class="at">  "contributor_terms": {"agreed": True, "pd": True},</span></span>
+<span id="cb1-14"><a href="#cb1-14" tabindex="-1"></a><span class="at">  "img": {"href": "https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"},</span></span>
+<span id="cb1-15"><a href="#cb1-15" tabindex="-1"></a><span class="at">  "roles": [],</span></span>
+<span id="cb1-16"><a href="#cb1-16" tabindex="-1"></a><span class="at">  "changesets": {"count": 4182},</span></span>
+<span id="cb1-17"><a href="#cb1-17" tabindex="-1"></a><span class="at">  "traces": {"count": 513},</span></span>
+<span id="cb1-18"><a href="#cb1-18" tabindex="-1"></a><span class="at">  "blocks": {"received": {"count": 0, "active": 0}},</span></span>
+<span id="cb1-19"><a href="#cb1-19" tabindex="-1"></a><span class="at">  "home": {"lat": 49.4733718952806, "lon": 8.89285988577866, "zoom": 3},</span></span>
+<span id="cb1-20"><a href="#cb1-20" tabindex="-1"></a><span class="at">  "languages": ["de-DE", "de", "en-US", "en"],</span></span>
+<span id="cb1-21"><a href="#cb1-21" tabindex="-1"></a><span class="at">  "messages": {"received": {"count": 1, "unread": 0},</span></span>
+<span id="cb1-22"><a href="#cb1-22" tabindex="-1"></a><span class="at">  "sent": {"count": 0}}</span></span>
+<span id="cb1-23"><a href="#cb1-23" tabindex="-1"></a><span class="at"> }</span></span>
+<span id="cb1-24"><a href="#cb1-24" tabindex="-1"></a><span class="at">}</span></span></code></pre><p></p></div>
 </div>
 
 
