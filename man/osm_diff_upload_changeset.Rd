@@ -10,8 +10,8 @@ osm_diff_upload_changeset(changeset_id, osmcha, format = c("R", "xml"))
 \item{changeset_id}{The ID of the changeset this diff belongs to. The user issuing this API call has to be the same
 that created the changeset.}
 
-\item{osmcha}{The OsmChange data. Can be the path of an OsmChange file, a \code{xml_document} or a data.frame inheriting
-or following the structure of an \code{osmapi_OsmChange} object.}
+\item{osmcha}{The OsmChange data. Can be the path of an OsmChange file, a \code{xml_document} or an \code{osmapi_OsmChange}
+object (see \verb{osmchange_*()} functions).}
 
 \item{format}{Format of the output. Can be \code{R} (default) or \code{xml}.}
 }
