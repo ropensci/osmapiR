@@ -1,0 +1,119 @@
+---
+title: "How to edit OpenStreetMap"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{How to edit OpenStreetMap}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+**WARNING**: This vignette contain examples that can edit the data at
+[OpenStreetMap.org](https://www.openstreetmap.org). Please, create a user in the
+[testing server](https://master.apis.dev.openstreetmap.org) and configure `osmapiR` to use it. You will be responsible
+for any edition!
+
+```{r setup}
+library(osmapiR)
+set_osmapi_connection(server = "testing") # set the testing server
+```
+
+
+Create some dummy OSM objects.
+
+```{r create}
+d <- data.frame(
+  type = c("node", "node", "way", "relation"),
+  id = -(1:4),
+  lat = c(0, 1, NA, NA),
+  lon = c(0, 1, NA, NA),
+  name = c(NA, NA, "My way", "Our relation"),
+  type.1 = c(NA, NA, NA, "Column clash!")
+)
+d$members <- list(
+  NULL, NULL, -(1:2),
+  matrix(
+    c("node", "-1", "node", "-2", "way", "-3"),
+    nrow = 3, ncol = 2, byrow = TRUE, dimnames = list(NULL, c("type", "ref"))
+  )
+)
+obj <- osmapi_objects(d, tag_columns = c(name = "name", type = "type.1"))
+```
+
+
+## Using OSMChange format and [osm_diff_upload_changeset()]
+
+``` r
+osmcha_crea <- osmchange_create(obj)  
+osmcha_crea
+
+changeset_id <- osm_create_changeset(
+  comment = "Add objects for testing editions with osmchange format.",
+  hashtags = "#osmapiRvignette;#testing"
+)
+osmcha_diff <- osm_diff_upload_changeset(changeset_id = changeset_id, osmcha = osmcha_crea)
+
+message("See changeset at:\n\t", paste0(get_osmapi_url(), "/changeset/", changeset_id))
+```
+
+Even if it's a testing server, better to leave it clean. Let's remove the created objects and close the changeset:
+
+```r
+osmcha_del <- osmcha_diff[, c("type", "new_id")]
+names(osmcha_del) <- c("type", "id")
+osmcha_del <- osmchange_delete(osmcha_del)
+osmcha_del
+
+osmcha_diff_del <- osm_diff_upload_changeset(changeset_id = changeset_id, osmcha = osmcha_del)
+osmcha_diff_del
+
+osm_close_changeset(changeset_id)
+```
+
+
+## Using osmapi patterns
+
+To avoid performance issues when uploading multiple objects, the use of transactions with [osm_diff_upload_changeset()]
+as in the former example is highly recommended.
+
+```r
+changeset_id <- osm_create_changeset(
+  comment = "Add objects for testing editions with osmapi.",
+  hashtags = "#osmapiRvignette;#testing"
+)
+
+new_id <- character(nrow(obj))
+
+# create nodes
+for (i in 1:2) {
+  obj$id[i] <- osm_create_object(obj[i, ], changeset_id = changeset_id)
+}
+
+# create way
+obj$members[[3]] <- obj$id[1:2] # update id of the newly created nodes
+obj$id[3] <- osm_create_object(obj[3, ], changeset_id = changeset_id)
+
+# create relation
+obj$members[[4]][, "ref"] <- obj$id[1:3] # update id of the newly created objects
+obj$id[4] <- osm_create_object(obj[4, ], changeset_id = changeset_id)
+
+message("See changeset at:\n\t", paste0(get_osmapi_url(), "/changeset/", changeset_id))
+```
+
+Delete everything and close the changeset:
+
+```r
+obj$version <- "1"
+for (i in rev(seq_len(nrow(obj)))) { # reverse order to avoid error (Node xxx is still used by ways yyy.)
+  osm_delete_object(obj[i, ], changeset_id = changeset_id)
+}
+
+osm_close_changeset(changeset_id)
+```

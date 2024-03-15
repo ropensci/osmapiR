@@ -162,6 +162,7 @@ json
 JSON
 kh
 kHJqAo
+knitr
 kr
 lang
 lapply
@@ -239,6 +240,7 @@ OsmChage
 osmchange
 osmChange
 OsmChange
+OSMChange
 OsmChange's
 osmdata
 osmexctract
@@ -284,6 +286,7 @@ relationmembers
 rels
 reprex
 req
+rmarkdown
 rn
 Roxygen
 roxygen
@@ -365,6 +368,7 @@ vals
 vapply
 VAZUTwcmHJLwDEX
 Vectorized
+VignetteBuilder
 Visca
 VORx
 vt
