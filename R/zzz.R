@@ -4,7 +4,7 @@
   op <- options()
 
   if (!"osmapir.osmapir_version" %in% names(op)) {
-    options(osmapir.osmapir_version = getOption("osmapir.osmapir_version"))
+    options(osmapir.osmapir_version = utils::packageVersion("osmapiR"))
   }
 
   if (!"osmapir.base_api_url" %in% names(op)) {
