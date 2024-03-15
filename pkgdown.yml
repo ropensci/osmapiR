@@ -1,8 +1,9 @@
 pandoc: 3.1.11
 pkgdown: 2.0.7
 pkgdown_sha: ~
-articles: {}
-last_built: 2024-02-27T20:52Z
+articles:
+  how_to_edit_osm: how_to_edit_osm.html
+last_built: 2024-03-15T17:03Z
 urls:
   reference: https://jmaspons.github.io/osmapiR/reference
   article: https://jmaspons.github.io/osmapiR/articles
