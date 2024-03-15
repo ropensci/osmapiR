@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">osmapiR</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.20</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.0.0.21</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,9 +84,7 @@ configure <code>osmapiR</code> to use it. You will be responsible for
 any edition!</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://jmaspons.github.io/osmapiR">osmapiR</a></span><span class="op">)</span></span>
-<span><span class="co">#&gt; Data (c) OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright</span></span>
-<span><span class="fu"><a href="../reference/API_configuration.html">set_osmapi_connection</a></span><span class="op">(</span>server <span class="op">=</span> <span class="st">"testing"</span><span class="op">)</span> <span class="co"># set the testing server</span></span>
-<span><span class="co">#&gt; Logged out from https://api.openstreetmap.org</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/API_configuration.html">set_osmapi_connection</a></span><span class="op">(</span>server <span class="op">=</span> <span class="st">"testing"</span><span class="op">)</span> <span class="co"># set the testing server</span></span></code></pre></div>
 <p>Create some dummy OSM objects.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">d</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span></span>
@@ -106,7 +104,8 @@ any edition!</p>
 <span><span class="op">)</span></span>
 <span><span class="va">obj</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/osmapi_objects.html">osmapi_objects</a></span><span class="op">(</span><span class="va">d</span>, tag_columns <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span>name <span class="op">=</span> <span class="st">"name"</span>, type <span class="op">=</span> <span class="st">"type.1"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 <div class="section level2">
-<h2 id="using-osmchange-format-and-osm_diff_upload_changeset">Using OSMChange format and [osm_diff_upload_changeset()]<a class="anchor" aria-label="anchor" href="#using-osmchange-format-and-osm_diff_upload_changeset"></a>
+<h2 id="using-osmchange-format-and-osm_diff_upload_changeset">Using <code>OSMChange</code> format and
+<code>osm_diff_upload_changeset()</code><a class="anchor" aria-label="anchor" href="#using-osmchange-format-and-osm_diff_upload_changeset"></a>
 </h2>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">osmcha_crea</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/osmchange_create.html">osmchange_create</a></span><span class="op">(</span><span class="va">obj</span><span class="op">)</span>  </span>
