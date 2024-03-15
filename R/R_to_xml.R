@@ -224,6 +224,7 @@ relation_create_2xml <- function(x) {
   if (!"role" %in% colnames(members)) {
     members <- cbind(members, role = character(nrow(members)))
   }
+
   for (i in seq_len(nrow(members))) {
     xml2::xml_add_child(xml, "member", type = members[i, "type"], ref = members[i, "ref"], role = members[i, "role"])
   }
@@ -319,6 +320,9 @@ relation_2xml <- function(x) {
   )
 
   members <- x$members[[1]]
+  if (!"role" %in% colnames(members)) {
+    members <- cbind(members, role = character(nrow(members)))
+  }
   for (i in seq_len(nrow(members))) {
     xml2::xml_add_child(xml, "member", type = members[i, "type"], ref = members[i, "ref"], role = members[i, "role"])
   }
@@ -402,6 +406,10 @@ relation_new_2xml <- function(x) {
   xml <- xml2::xml_new_root(x$type, changeset = x$changeset)
 
   members <- x$members[[1]]
+  if (!"role" %in% colnames(members)) {
+    members <- cbind(members, role = character(nrow(members)))
+  }
+
   for (i in seq_len(nrow(members))) {
     xml2::xml_add_child(xml, "member", type = members[i, "type"], ref = members[i, "ref"], role = members[i, "role"])
   }
@@ -499,6 +507,9 @@ relation_update_2xml <- function(x) {
   xml <- xml2::xml_new_root(x$type, id = x$id, visible = x$visible, version = x$version, changeset = x$changeset)
 
   members <- x$members[[1]]
+  if (!"role" %in% colnames(members)) {
+    members <- cbind(members, role = character(nrow(members)))
+  }
 
   if (!is.null(members)) {
     for (i in seq_len(nrow(members))) {
