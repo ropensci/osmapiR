@@ -20,7 +20,7 @@ knitr::opts_chunk$set(
 [testing server](https://master.apis.dev.openstreetmap.org) and configure `osmapiR` to use it. You will be responsible
 for any edition!
 
-```{r setup}
+```r
 library(osmapiR)
 set_osmapi_connection(server = "testing") # set the testing server
 ```
@@ -28,7 +28,7 @@ set_osmapi_connection(server = "testing") # set the testing server
 
 Create some dummy OSM objects.
 
-```{r create}
+```r
 d <- data.frame(
   type = c("node", "node", "way", "relation"),
   id = -(1:4),
@@ -48,7 +48,7 @@ obj <- osmapi_objects(d, tag_columns = c(name = "name", type = "type.1"))
 ```
 
 
-## Using OSMChange format and [osm_diff_upload_changeset()]
+## Using `OSMChange` format and `osm_diff_upload_changeset()`
 
 ``` r
 osmcha_crea <- osmchange_create(obj)  
