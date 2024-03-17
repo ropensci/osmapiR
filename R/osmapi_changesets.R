@@ -846,6 +846,7 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
 #' @export
 #'
 #' @examples
+#' vignette("how_to_edit_osm", package = "osmapiR")
 osm_diff_upload_changeset <- function(changeset_id, osmcha, format = c("R", "xml")) {
   format <- match.arg(format)
 

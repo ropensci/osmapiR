@@ -35,6 +35,9 @@ recommended.
 \item The version of the created object will be 1.
 }
 }
+\examples{
+vignette("how_to_edit_osm", package = "osmapiR")
+}
 \seealso{
 Other edit OSM objects' functions: 
 \code{\link{osm_delete_object}()},

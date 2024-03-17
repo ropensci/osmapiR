@@ -92,6 +92,7 @@
 #' @export
 #'
 #' @examples
+#' vignette("how_to_edit_osm", package = "osmapiR")
 osm_create_object <- function(x, changeset_id) {
   if (is.character(x)) {
     if (file.exists(x)) {
@@ -450,6 +451,7 @@ osm_update_object <- function(x, changeset_id) {
 #' @export
 #'
 #' @examples
+#' vignette("how_to_edit_osm", package = "osmapiR")
 osm_delete_object <- function(x, changeset_id) {
   if (is.character(x)) {
     if (file.exists(x)) {

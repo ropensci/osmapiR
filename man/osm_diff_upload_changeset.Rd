@@ -67,6 +67,9 @@ size).
 \item Forward referencing of placeholder ids is not permitted and will be rejected by the API.
 }
 }
+\examples{
+vignette("how_to_edit_osm", package = "osmapiR")
+}
 \seealso{
 Other edit changeset's functions: 
 \code{\link{osm_create_changeset}()}
