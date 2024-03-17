@@ -31,6 +31,12 @@ osmapi_objects <- function(x, tag_columns) {
     x$members[x$type == "node"] <- lapply(x$members[x$type == "node"], function(m) NULL)
     x$members[x$type == "way"] <- lapply(x$members[x$type == "way"], new_way_members)
     x$members[x$type == "relation"] <- lapply(x$members[x$type == "relation"], new_relation_members)
+  } else {
+    x$members[x$type == "node"] <- lapply(seq_len(nrow(x[x$type == "node", ])), function(m) NULL)
+    x$members[x$type == "way"] <- lapply(seq_len(nrow(x[x$type == "way", ])), function(m) new_way_members())
+    x$members[x$type == "relation"] <- lapply(
+      seq_len(nrow(x[x$type == "relation", ])), function(m) new_relation_members()
+    )
   }
 
   if (!missing(tag_columns)) {
@@ -69,6 +75,8 @@ osmapi_objects <- function(x, tag_columns) {
     x$tags <- tags_list
   } else if ("tags" %in% names(x)) {
     x$tags <- lapply(x$tags, new_tags_df)
+  } else {
+    x$tags <- lapply(seq_len(nrow(x)), function(i) new_tags_df())
   }
 
   obj <- new_osmapi_objects(x)
@@ -136,14 +144,14 @@ validate_osmapi_objects <- function(x, commited = TRUE) {
 
 ## members ----
 
-new_way_members <- function(x) {
+new_way_members <- function(x = character()) {
   stopifnot(is.atomic(x))
   x <- as.character(x)
   class(x) <- "way_members"
   x
 }
 
-new_relation_members <- function(x) {
+new_relation_members <- function(x = matrix(character(), nrow = 0, ncol = 2, dimnames = list(NULL, c("type", "ref")))) {
   stopifnot(is.matrix(x))
   stopifnot(is.character(x))
   stopifnot(c("type", "ref") %in% colnames(x))
