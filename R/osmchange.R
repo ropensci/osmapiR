@@ -55,15 +55,9 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
   osmchange <- x_osm
   osmchange <- cbind(action_type = NA_character_, osmchange)
   attr(osmchange, "row.names") <- attr(x, "row.names")
-  class(osmchange) <- class(x_osm)
 
-  if (members && "members" %in% names(x)) {
-    osmchange$members <- x$members
-  }
-
-  if (lat_lon && "lat" %in% names(x) && "lon" %in% names(x)) {
-    osmchange[, c("lat", "lon")] <- x[, c("lat", "lon")]
-  }
+  mod_members <- members && "members" %in% names(x)
+  mod_lat_lon <- lat_lon && "lat" %in% names(x) && "lon" %in% names(x)
 
   for (i in seq_len(nrow(x))) {
     if (!isFALSE(tags_upd)) {
@@ -84,14 +78,16 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
       }
     }
 
-    if (is.na(osmchange$action_type[i]) && members && !identical(x$members[[i]], osmchange$members[[i]])) {
+    if (is.na(osmchange$action_type[i]) && mod_members && !identical(x$members[[i]], osmchange$members[[i]])) {
+      osmchange$members[[i]] <- x$members[[i]]
       osmchange$action_type[i] <- "modify"
     }
 
     if (
-      is.na(osmchange$action_type[i]) && lat_lon &&
+      is.na(osmchange$action_type[i]) && mod_lat_lon &&
         !isTRUE(all.equal(x[i, c("lat", "lon")], osmchange[i, c("lat", "lon")], check.attributes = FALSE))
     ) {
+      osmchange[i, c("lat", "lon")] <- x[i, c("lat", "lon")]
       osmchange$action_type[i] <- "modify"
     }
   }

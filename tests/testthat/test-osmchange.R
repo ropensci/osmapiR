@@ -80,6 +80,8 @@ test_that("osmchange_modify works", {
     )
     osmchange_mod$version <- osmchange_modify(obj_version, members = TRUE, lat_lon = TRUE)
     osmchange_mod$version_name <- osmchange_modify(obj_version, tag_keys = "name", members = TRUE, lat_lon = TRUE)
+
+    # TODO: test update of tags, members and lat_lon only with and without actual changes
   })
 
   lapply(osmchange_mod, function(x) {
