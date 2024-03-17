@@ -38,6 +38,9 @@ recommended. This is also the only way to ensure that multiple objects are updat
 transaction.
 }
 }
+\examples{
+vignette("how_to_edit_osm", package = "osmapiR")
+}
 \seealso{
 Other edit OSM objects' functions: 
 \code{\link{osm_create_object}()},

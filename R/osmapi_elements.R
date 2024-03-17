@@ -316,6 +316,7 @@ osm_read_object <- function(osm_type = c("node", "way", "relation"),
 #' @export
 #'
 #' @examples
+#' vignette("how_to_edit_osm", package = "osmapiR")
 osm_update_object <- function(x, changeset_id) {
   if (is.character(x)) {
     if (file.exists(x)) {

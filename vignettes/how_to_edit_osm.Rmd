@@ -51,7 +51,7 @@ obj <- osmapi_objects(d, tag_columns = c(name = "name", type = "type.1"))
 ## Using `OSMChange` format and `osm_diff_upload_changeset()`
 
 ``` r
-osmcha_crea <- osmchange_create(obj)  
+osmcha_crea <- osmchange_create(obj)
 osmcha_crea
 
 changeset_id <- osm_create_changeset(
@@ -63,10 +63,50 @@ osmcha_diff <- osm_diff_upload_changeset(changeset_id = changeset_id, osmcha = o
 message("See changeset at:\n\t", paste0(get_osmapi_url(), "/changeset/", changeset_id))
 ```
 
+Add a new node:
+
+```r
+new_node <- data.frame(type = "node", id = -1, lat = 0, lon = 1)
+new_node <- osmapi_objects(new_node)
+osmcha_new_node <- osmchange_create(new_node)
+```
+
+Update the `id` of the created objects which we want to modify with the `id` assigned by the server:
+
+```r
+mod_obj <- obj[3:4, ]
+mod_obj$id <- osmcha_diff$new_id[match(mod_obj$id, osmcha_diff$old_id)]
+
+mod_obj$members[[1]] <- osmcha_diff$new_id[match(mod_obj$members[[1]], osmcha_diff$old_id)]
+mod_obj$members[[2]][, "ref"] <- osmcha_diff$new_id[match(mod_obj$members[[2]][, "ref"], osmcha_diff$old_id)]
+```
+
+Add the new node to the way and the relation
+
+```r
+mod_obj$members[[1]] <- c(mod_obj$members[[1]], new_node$id)
+mod_obj$members[[2]] <- rbind(mod_obj$members[[2]], as.character(new_node[, c("type", "id")]))
+mod_obj <- osmapi_objects(mod_obj)
+
+osmcha_mod <- osmchange_modify(mod_obj, tag_keys = FALSE, members = TRUE)
+```
+
+Unite modification and new node changes and commit changes
+
+```r
+# Just for the rbind of `osmcha_create` and `osmcha_modify` which have different columns:
+osmcha_new_node <- osmapi_objects(osmcha_new_node)
+osmcha_new_node[, setdiff(names(osmcha_mod), names(osmcha_new_node))] <- NA
+
+osmcha_2 <- rbind(osmcha_new_node, osmcha_mod)
+
+osmcha_diff2 <- osm_diff_upload_changeset(changeset_id = changeset_id, osmcha = osmcha_2)
+```
+
 Even if it's a testing server, better to leave it clean. Let's remove the created objects and close the changeset:
 
 ```r
-osmcha_del <- osmcha_diff[, c("type", "new_id")]
+osmcha_del <- unique(rbind(osmcha_diff[, c("type", "new_id")], osmcha_diff2[, c("type", "new_id")]))
 names(osmcha_del) <- c("type", "id")
 osmcha_del <- osmchange_delete(osmcha_del)
 osmcha_del
@@ -107,10 +147,24 @@ obj$id[4] <- osm_create_object(obj[4, ], changeset_id = changeset_id)
 message("See changeset at:\n\t", paste0(get_osmapi_url(), "/changeset/", changeset_id))
 ```
 
+
+Update object:
+
+```r
+upd_obj <- osm_get_objects(osm_type = obj$type[4], osm_id = obj$id[4])
+new_tags <- upd_obj$tags[[1]]
+new_tags$value[2] <- "test"
+new_tags <- rbind(new_tags, data.frame(key = "name:ca", value = "La nostra relació"))
+upd_obj$tags[[1]] <- new_tags
+
+osm_update_object(upd_obj, changeset_id = changeset_id)
+```
+
 Delete everything and close the changeset:
 
 ```r
 obj$version <- "1"
+obj$version[4] <- "2" # updated object
 for (i in rev(seq_len(nrow(obj)))) { # reverse order to avoid error (Node xxx is still used by ways yyy.)
   osm_delete_object(obj[i, ], changeset_id = changeset_id)
 }
