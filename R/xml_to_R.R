@@ -147,7 +147,9 @@ osmchange_upload_response_xml2DF <- function(xml) {
 
   out <- cbind(type = object_type, action_attrs)
   out <- data.frame(out)
-  out$new_version <- as.integer(out$new_version)
+  if ("new_version" %in% names(out)) {
+    out$new_version <- as.integer(out$new_version)
+  }
 
   return(out)
 }
