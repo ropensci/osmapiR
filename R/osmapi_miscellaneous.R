@@ -221,7 +221,8 @@ osm_capabilities <- function() {
 #'
 #' @note
 #' For downloading data for purposes other than editing or exploring the history of the objects, perhaps is better to
-#' use the Overpass API. A similar function to download OSM objects using Overpass, is implemented in [osmdata::opq()].
+#' use the Overpass API. A similar function to download OSM objects using Overpass, is implemented in the
+#' \pkg{osmdata} function `opq()`.
 #'
 #' @return
 #' If `format = "R"`, returns a data frame with one OSM object per row. If `format = "xml"`, returns a

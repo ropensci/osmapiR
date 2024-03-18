@@ -58,7 +58,7 @@ n1, and n2. Not n3.
 \note{
 For downloading data for purposes other than editing or exploring the history of the objects, perhaps is better to
 use the Overpass API. A similar function to download OSM objects by \code{type} and \code{id} using Overpass, is implemented in
-\code{\link[osmdata:opq_osm_id]{osmdata::opq_osm_id()}}.
+the \pkg{osmdata} function \code{opq_osm_id()}.
 }
 \examples{
 \dontrun{

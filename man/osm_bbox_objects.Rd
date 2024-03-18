@@ -47,7 +47,8 @@ Also note that ways which intersect the bounding box but have no nodes within th
 }
 \note{
 For downloading data for purposes other than editing or exploring the history of the objects, perhaps is better to
-use the Overpass API. A similar function to download OSM objects using Overpass, is implemented in \code{\link[osmdata:opq]{osmdata::opq()}}.
+use the Overpass API. A similar function to download OSM objects using Overpass, is implemented in the
+\pkg{osmdata} function \code{opq()}.
 }
 \examples{
 map_data <- osm_bbox_objects(bbox = c(1.8366775, 41.8336843, 1.8379971, 41.8344537))

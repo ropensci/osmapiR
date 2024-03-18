@@ -28,7 +28,7 @@
 #' @note
 #' For downloading data for purposes other than editing or exploring the history of the objects, perhaps is better to
 #' use the Overpass API. A similar function to download OSM objects by `type` and `id` using Overpass, is implemented in
-#' [osmdata::opq_osm_id()].
+#' the \pkg{osmdata} function `opq_osm_id()`.
 #'
 #' @return
 #' If `format = "R"`, returns a data frame with one OSM object per row. If `format = "xml"`, returns a
