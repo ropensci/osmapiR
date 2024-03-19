@@ -42,7 +42,7 @@ test_that("Changesets tags_list-wide works", {
   tags_list <- list()
   tags_wide <- list()
   with_mock_dir("mock_query_changesets", {
-    tags_list$ids <- osm_query_changesets(changeset_ids = c(137627129, 137625624))
+    tags_list$ids <- osm_query_changesets(changeset_ids = c(137627129, 137625624), order = "oldest")
     tags_list$time <- osm_query_changesets(
       bbox = c(-1.241112, 38.0294955, 8.4203171, 42.9186456),
       user = "Mementomoristultus",
@@ -55,7 +55,9 @@ test_that("Changesets tags_list-wide works", {
       closed = TRUE
     )
 
-    tags_wide$ids <- osm_query_changesets(changeset_ids = c(137627129, 137625624), tags_in_columns = TRUE)
+    tags_wide$ids <- osm_query_changesets(
+      changeset_ids = c(137627129, 137625624), order = "oldest", tags_in_columns = TRUE
+    )
     tags_wide$time <- osm_query_changesets(
       bbox = c(-1.241112, 38.0294955, 8.4203171, 42.9186456),
       user = "Mementomoristultus",
