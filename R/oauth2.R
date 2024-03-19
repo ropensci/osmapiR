@@ -26,6 +26,7 @@ oauth_request <- function(req) {
   )$url
 
   scope <- c("read_prefs", "write_prefs", "write_api", "read_gpx", "write_gpx", "write_notes")
+  # "write_diary" # (Supported scope by OAuth2 but is not required by the API v0.6)
 
   req <- httr2::req_oauth_auth_code(
     req = req,

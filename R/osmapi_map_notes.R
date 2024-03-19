@@ -1,6 +1,6 @@
 ## Map Notes API
 #
-# This provides access to the [[notes]] feature, which allows users to add geo-referenced textual "post-it" notes. This feature was not originally in the API 0.6 and was only added later ( 04/23/2013 in commit 0c8ad2f86edefed72052b402742cadedb0d674d9 )
+# This provides access to the [[notes]] feature, which allows users to add geo-referenced textual "post-it" notes. This feature was not originally in the API 0.6 and was only added later ( 04/23/2013 in commit 0c8ad2f86edefed72052b402742cadedb0d674d9 ). As this was intended as a compatible replacement for the [[OpenStreetBugs]] API there are numerous idiosyncrasies relative to how the other parts of the OSM API work.
 
 
 ## Retrieving notes data by bounding box: `GET /api/0.6/notes` ----
@@ -8,7 +8,7 @@
 # TODO: executable JavaScript (format `js`) not implemented in the server? https://github.com/openstreetmap/openstreetmap-website/blob/512f7de4a95b0522bcb26ac03cc31e1a91521662/app/controllers/api/notes_controller.rb#L47
 # Returns the existing notes in the specified bounding box. The notes will be ordered by the date of their last change, the most recent one will be first. The list of notes can be returned in several different forms (e.g. as executable JavaScript, XML, RSS, json and GPX) depending on the file extension.
 #
-# '''Note:''' the XML format returned by the API is different from the, equally undocumented, format used for "osm" format files, available from [https://planet.openstreetmap.org/notes/ planet.openstreetmap.org], and as output from JOSM and Vespucci.
+# '''Note:''' the XML format returned by the API is different from the, equally undocumented, format used for "osn" format files, available from [https://planet.openstreetmap.org/notes/ planet.openstreetmap.org], and as output from JOSM and Vespucci.
 #
 # '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes?bbox=''left'',''bottom'',''right'',''top''
 # </code> ([https://api.openstreetmap.org/api/0.6/notes?bbox=-0.65094,51.312159,0.374908,51.669148 example])<br />
@@ -224,7 +224,7 @@ osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("R", "
 #
 ### Error codes ----
 # ; HTTP status code 404 (Not Found)
-# : When no note with the given id could be found. Currently both deleted and not yet existing notes give 404 error.
+# : When no note with the given id could be found. This should only be returned for not yet existing notes.
 
 #' Read notes
 #'
@@ -390,12 +390,14 @@ osm_create_note <- function(lat, lon, text, authenticate = TRUE) { # TODO: , for
 # ; HTTP status code 400 (Bad Request)
 # : if the text field was not present
 # ; HTTP status code 404 (Not found)
-# : if no note with that id is not available
+# : if no note with that id is not available. This should only happen for not yet existing notes.
 # : This also applies, if the request is not a HTTP POST request
 # ; <s>HTTP status code 405 (Method Not Allowed)</s>
 # : <s>If the request is not a HTTP POST request</s>
 # ; HTTP status code 409 (Conflict)
 # : When the note is closed
+# ; HTTP status code 410 (Gone)
+# : When the note has been hidden by a moderator. Note that the error message "The note with the id nnnnnnnnn has already been deleted" is misleading, as it isn't actually possible for non-moderators to delete (hide) Notes via the API.
 
 #' Create a new comment in a note
 #'
@@ -442,12 +444,14 @@ osm_create_comment_note <- function(note_id, text) {
 #
 ### Error codes ----
 # ; HTTP status code 404 (Not Found)
-# : When no note with the given id could be found
+# : When no note with the given id could be found. This should only happen for not yet existing notes.
 # : This also applies, if the request is not a HTTP POST request
 # ; <s>HTTP status code 405 (Method Not Allowed)</s>
 # : <s>If the request is not a HTTP POST request</s>
 # ; HTTP status code 409 (Conflict)
 # : When closing an already closed note
+# ; HTTP status code 410 (Gone)
+# : When the note has been hidden by a moderator. Note that the error message "The note with the id nnnnnnnnn has already been deleted" is misleading, as it isn't actually possible for a non-moderator to delete/hide Notes via the API.
 
 #' Close or reopen a note
 #'

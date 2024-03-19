@@ -12,6 +12,7 @@ osm_query_changesets(
   open,
   closed,
   changeset_ids,
+  order = c("newest", "oldest"),
   limit = 100,
   format = c("R", "xml", "json"),
   tags_in_columns = FALSE
@@ -33,6 +34,8 @@ reached the element limit for a changeset (10,000 at the moment \code{osm_capabi
 \item{closed}{If \code{TRUE}, only finds changesets that are \strong{closed} or have reached the element limit.}
 
 \item{changeset_ids}{Finds changesets with the specified ids.}
+
+\item{order}{If \code{newest} (default), sort newest changesets first. If \code{oldest}, reverse order.}
 
 \item{limit}{Specifies the maximum number of changesets returned. A number between 1 and 100, with 100 as the default
 value.}
@@ -108,9 +111,11 @@ returned document are the changesets and their tags. To get the full set of chan
 Modification and extension of the basic queries above may be required to support rollback and other uses we find for
 changesets.
 
-This call returns latest changesets matching criteria,
+This call returns latest changesets matching criteria. The default ordering is newest first, but you can specify
+\code{order=oldest} to reverse the sort order (see
 \href{https://github.com/openstreetmap/openstreetmap-website/blob/f1c6a87aa137c11d0aff5a4b0e563ac2c2a8f82d/app/controllers/api/changesets_controller.rb#L174}{ordered by \code{created_at}}
-– see the \href{https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174}{current state}.
+– see the \href{https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174}{current state}).
+Reverse ordering cannot be combined with \code{time}.
 
 Te valid formats for \code{time} and \code{time_2} parameters are anything that
 \href{https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse}{\code{Time.parse} Ruby function} will parse.

@@ -485,7 +485,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #
 # Modification and extension of the basic queries above may be required to support rollback and other uses we find for changesets.
 #
-# This call returns latest changesets matching criteria, ordered by created_at<ref>https://github.com/openstreetmap/openstreetmap-website/blob/f1c6a87aa137c11d0aff5a4b0e563ac2c2a8f82d/app/controllers/api/changesets_controller.rb#L174 - see the current state at https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174</ref>.
+# This call returns latest changesets matching criteria. The default ordering is newest first, but you can specify '''order=oldest''' to reverse the sort order<ref>https://github.com/openstreetmap/openstreetmap-website/blob/f1c6a87aa137c11d0aff5a4b0e563ac2c2a8f82d/app/controllers/api/changesets_controller.rb#L174 - see the current state at https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174</ref>. Reverse ordering cannot be combined with '''time'''.
 #
 ### Parameters ----
 # ; bbox=min_lon,min_lat,max_lon,max_lat (W,S,E,N)
@@ -533,6 +533,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #'   reached the element limit for a changeset (10,000 at the moment `osm_capabilities()$api$changesets`).
 #' @param closed If `TRUE`, only finds changesets that are **closed** or have reached the element limit.
 #' @param changeset_ids Finds changesets with the specified ids.
+#' @param order If `newest` (default), sort newest changesets first. If `oldest`, reverse order.
 #' @param limit Specifies the maximum number of changesets returned. A number between 1 and 100, with 100 as the default
 #'   value.
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
@@ -548,9 +549,11 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #' Modification and extension of the basic queries above may be required to support rollback and other uses we find for
 #' changesets.
 #'
-#' This call returns latest changesets matching criteria,
+#' This call returns latest changesets matching criteria. The default ordering is newest first, but you can specify
+#' `order=oldest` to reverse the sort order (see
 #' [ordered by `created_at`](https://github.com/openstreetmap/openstreetmap-website/blob/f1c6a87aa137c11d0aff5a4b0e563ac2c2a8f82d/app/controllers/api/changesets_controller.rb#L174)
-#' – see the [current state](https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174).
+#' – see the [current state](https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174)).
+#' Reverse ordering cannot be combined with `time`.
 #'
 #' Te valid formats for `time` and `time_2` parameters are anything that
 #' [`Time.parse` Ruby function](https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse) will parse.
@@ -629,9 +632,10 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #' )
 #' chsts2
 #' }
-osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changeset_ids, limit = 100,
-                                 format = c("R", "xml", "json"), tags_in_columns = FALSE) {
+osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changeset_ids, order = c("newest", "oldest"),
+                                 limit = 100, format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   format <- match.arg(format)
+  order <- match.arg(order)
 
   if (missing(bbox)) {
     bbox <- NULL
@@ -685,6 +689,10 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
     changeset_ids <- paste(changeset_ids, collapse = ",")
   }
 
+  if (order == "newest") {
+    order <- NULL
+  }
+
   if (format == "json") {
     ext <- "changesets.json"
   } else {
@@ -700,6 +708,7 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
     time = time, time_2 = time_2,
     open = open, closed = closed,
     changesets = changeset_ids,
+    order = order,
     limit = limit
   )
 
