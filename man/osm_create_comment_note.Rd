@@ -12,7 +12,7 @@ osm_create_comment_note(note_id, text)
 \item{text}{The comment as arbitrary text.}
 }
 \value{
-Returns a data frame with the map note and the new comment (same format as \code{osm_get_notes()} with
+Returns a data frame with the map note and the new comment (same format as \code{\link[=osm_get_notes]{osm_get_notes()}} with
 \code{format = "R"}).
 }
 \description{

@@ -336,7 +336,7 @@ osm_read_note <- function(note_id, format = c("R", "xml", "rss", "json", "gpx"))
 #' If the request is made as an authenticated user, the note is associated to that user account. If the OAuth access
 #' token used does not have the `allow_write_notes` permission, it is created as an anonymous note instead.
 #'
-#' @return Returns a data frame with the map note (same format as `osm_get_notes()` with `format = "R"`).
+#' @return Returns a data frame with the map note (same format as [osm_get_notes()] with `format = "R"`).
 #' @family edit notes' functions
 #' @export
 #'
@@ -406,7 +406,7 @@ osm_create_note <- function(lat, lon, text, authenticate = TRUE) { # TODO: , for
 #' @param note_id Note id represented by a numeric or a character value.
 #' @param text The comment as arbitrary text.
 #'
-#' @return Returns a data frame with the map note and the new comment (same format as `osm_get_notes()` with
+#' @return Returns a data frame with the map note and the new comment (same format as [osm_get_notes()] with
 #'   `format = "R"`).
 #' @family edit notes' functions
 #' @export
@@ -461,7 +461,7 @@ osm_create_comment_note <- function(note_id, text) {
 #'
 #' @param note_id Note id represented by a numeric or a character value.
 #'
-#' @return Returns a data frame with the closed map note (same format as `osm_get_notes()` with `format = "R"`).
+#' @return Returns a data frame with the closed map note (same format as [osm_get_notes()] with `format = "R"`).
 #' @family edit notes' functions
 #' @export
 #'

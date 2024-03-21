@@ -13,7 +13,7 @@ osm_reopen_note(note_id)
 \item{note_id}{Note id represented by a numeric or a character value.}
 }
 \value{
-Returns a data frame with the closed map note (same format as \code{osm_get_notes()} with \code{format = "R"}).
+Returns a data frame with the closed map note (same format as \code{\link[=osm_get_notes]{osm_get_notes()}} with \code{format = "R"}).
 }
 \description{
 Requires authentication.

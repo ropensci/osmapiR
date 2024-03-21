@@ -16,7 +16,7 @@ osm_create_note(lat, lon, text, authenticate = TRUE)
 \item{authenticate}{If \code{TRUE} (default), the note is authored by the logged user. Otherwise, anonymous note.}
 }
 \value{
-Returns a data frame with the map note (same format as \code{osm_get_notes()} with \code{format = "R"}).
+Returns a data frame with the map note (same format as \code{\link[=osm_get_notes]{osm_get_notes()}} with \code{format = "R"}).
 }
 \description{
 Create a new note
