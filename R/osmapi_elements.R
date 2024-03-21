@@ -985,6 +985,7 @@ osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
 #' The `redaction_id` is listed on <https://www.openstreetmap.org/redactions>. More information can be found in
 #' [the source](https://git.openstreetmap.org/rails.git/blob/HEAD:/app/controllers/api/old_controller.rb).
 #'
+#' @return Nothing is returned upon successful redaction or unredaction of an object.
 #' @family functions for moderators
 #' @export
 osm_redaction_object <- function(osm_type = c("node", "way", "relation"), osm_id, version, redaction_id) {
@@ -992,14 +993,13 @@ osm_redaction_object <- function(osm_type = c("node", "way", "relation"), osm_id
 
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
-  req <- httr2::req_url_path_append(req, osm_type, osm_id, version)
+  req <- httr2::req_url_path_append(req, osm_type, osm_id, version, "redact")
 
   if (!missing(redaction_id)) {
-    req <- httr2::req_url_query(redaction = redaction_id)
+    req <- httr2::req_url_query(req, redaction = redaction_id)
   }
 
-  resp <- httr2::req_perform(req)
-  # TODO: parse unknown response (only available for moderators)
+  httr2::req_perform(req)
 
-  return(resp)
+  invisible()
 }

@@ -201,6 +201,15 @@ test_that("osm_fetch_objects works", {
   lapply(fetch_xml, expect_s3_class, "xml_document")
 
 
+  # with_mock_dir("mock_fetch_objects_json", {
+  # fetch_json <- osm_get_objects(
+  #   osm_type = c("node", "node", "way", "way", "relation", "relation"),
+  #   osm_id = c(35308286, 1935675367, 13073736L, 235744929L, 40581, 341530),
+  #   format = "json"
+  # )
+  # })
+
+
   ### test transformation df <-> xml ----
 
   mapply(function(df, xml) {
@@ -304,5 +313,47 @@ test_that("osm_full_object works", {
 ## Redaction: `POST /api/0.6/[node|way|relation]/#id/#version/redact?redaction=#redaction_id` ----
 
 test_that("osm_redaction_object works", {
-  # osm_redaction_object(osm_type = c("node", "way", "relation"), osm_id, version, redaction_id)
+  # x <- data.frame(type = "node", lat = 0, lon = 0, name = "Test redaction.")
+  # obj <- osmapi_objects(x, tag_columns = "name")
+
+  # with_mock_dir("mock_redaction_object", {
+  #   changeset_id <- osm_create_changeset(
+  #     comment = "Test object redaction",
+  #     created_by = "osmapiR", # avoid changes in calls when updating version
+  #     hashtags = "#testing;#osmapiR",
+  #     verbose = TRUE
+  #   )
+  #
+  #   node_id <- osm_create_object(x = obj, changeset_id = changeset_id)
+  #   node_osm <- osm_read_object(osm_type = "node", osm_id = node_id)
+  #   deleted_version <- osm_delete_object(x = node_osm, changeset_id = changeset_id)
+  #   redaction <- osm_redaction_object(osm_type = node_osm$type, osm_id = node_osm$id, version = 1, redaction_id = 1)
+  #   unredaction <- osm_redaction_object(osm_type = node_osm$type, osm_id = node_osm$id, version = 1)
+  #
+  #   osm_close_changeset(changeset_id = changeset_id)
+  # })
+  ## TODO: works as expected but httptest2 fails:
+  # <error/rlang_error>
+  # Error in `resp_body_raw()`:
+  # ! Can't retrieve empty body.
+  # ---
+  # Backtrace:
+  #      ▆
+  #   1. ├─httptest2::with_mock_dir(...)
+  #   2. │ ├─httptest2:::with_mock_path(...)
+  #   3. │ │ └─base::eval.parent(expr)
+  #   4. │ │   └─base::eval(expr, p)
+  #   5. │ └─httptest2::capture_requests(expr, simplify = simplify)
+  #   6. │   └─base::eval.parent(expr)
+  #   7. │     └─base::eval(expr, p)
+  #   8. └─osmapiR::osm_redaction_object(...)
+  #   9.   └─httr2::req_perform(req) at osmapiR/R/osmapi_elements.R:1002:3
+  #  10.     ├─base::.doTrace(...) at osmapiR/R/osmapi_elements.R:1002:3
+  #  11.     │ └─base::eval.parent(exprObj)
+  #  12.     │   └─base::eval(expr, p)
+  #  13.     │     └─base::eval(expr, p)
+  #  14.     └─httptest2::save_response(...)
+  #  15.       └─httr2::resp_body_string(response)
+  #  16.         └─httr2::resp_body_raw(resp)
+  # Run rlang::last_trace(drop = FALSE) to see 2 hidden frames.
 })

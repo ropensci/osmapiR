@@ -21,6 +21,9 @@ osm_redaction_object(
 \item{redaction_id}{If missing, then this is an unredact operation. If a redaction ID was specified, then set this
 element to be redacted in that redaction.}
 }
+\value{
+Nothing is returned upon successful redaction or unredaction of an object.
+}
 \description{
 Used by the \href{https://wiki.openstreetmap.org/wiki/Data_working_group}{Data Working Group} to hide old versions of
 elements containing data privacy or copyright infringements. Only permitted for OSM accounts with the moderator role
