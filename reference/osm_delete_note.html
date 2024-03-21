@@ -54,7 +54,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">osm_delete_note</span><span class="op">(</span><span class="va">note_id</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">osm_delete_note</span><span class="op">(</span><span class="va">note_id</span>, <span class="va">text</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -62,7 +62,17 @@
     <dl><dt>note_id</dt>
 <dd><p>Note id represented by a numeric or a character value.</p></dd>
 
+
+<dt>text</dt>
+<dd><p>A non-mandatory comment as text.</p></dd>
+
 </dl></div>
+    <div class="section level2">
+    <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
+    
+
+<p>Returns a data frame with the hided map note (same format as <code><a href="osm_get_notes.html">osm_get_notes()</a></code> with <code>format = "R"</code>).</p>
+    </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Use <code><a href="osm_close_note.html">osm_reopen_note()</a></code> to make the note visible again.</p>
@@ -78,6 +88,16 @@
 <code><a href="osm_redaction_object.html">osm_redaction_object</a>()</code></p></div>
     </div>
 
+    <div class="section level2">
+    <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span><span class="fu"><a href="API_configuration.html">set_osmapi_connection</a></span><span class="op">(</span><span class="st">"testing"</span><span class="op">)</span> <span class="co"># use the testing server</span></span></span>
+<span class="r-in"><span><span class="va">note</span> <span class="op">&lt;-</span> <span class="fu"><a href="osm_create_note.html">osm_create_note</a></span><span class="op">(</span>lat <span class="op">=</span> <span class="st">"40.7327375"</span>, lon <span class="op">=</span> <span class="st">"0.1702526"</span>, text <span class="op">=</span> <span class="st">"Test note to delete."</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">del_note</span> <span class="op">&lt;-</span> <span class="fu">osm_delete_note</span><span class="op">(</span>note_id <span class="op">=</span> <span class="va">note</span><span class="op">$</span><span class="va">id</span>, text <span class="op">=</span> <span class="st">"Hide note"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">del_note</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
+</code></pre></div>
+    </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside></div>
 
