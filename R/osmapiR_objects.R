@@ -129,12 +129,16 @@ validate_osmapi_objects <- function(x, commited = TRUE) {
     col = x[sel_cols], cl = class_columns[sel_cols], col_name = sel_cols
   )
 
-  ok_members <- sapply(x$members, function(y) is.null(y) | inherits(y, "way_members") | inherits(y, "relation_members"))
+  ok_members <- vapply(
+    x$members,
+    function(y) is.null(y) | inherits(y, "way_members") | inherits(y, "relation_members"),
+    logical(1)
+  )
   if (any(!ok_members)) {
     stop("`members` column must be a list of `NULL`, `way_members` o `relation_members` objects.")
   }
 
-  if (any(!sapply(x$tags, inherits, what = "tags_df"))) {
+  if (any(!vapply(x$tags, function(y) inherits(y, what = "tags_df"), logical(1)))) {
     stop("`tag` column must be a list of `tags_df` objects, data.frames with `key` and `value` columns.")
   }
 
