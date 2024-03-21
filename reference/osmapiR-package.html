@@ -60,6 +60,230 @@
 <p></p><div class="sourceCode r"><pre><code><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>osmapir.user_agent <span class="op">=</span> <span class="st">"my new user agent"</span><span class="op">)</span></span></code></pre><p></p></div>
     </div>
     <div class="section level2">
+    <h2 id="overview-of-the-function">Overview of the function<a class="anchor" aria-label="anchor" href="#overview-of-the-function"></a></h2>
+    <p>All function starting with <code>osm_*</code> include calls to the server.</p><div class="section">
+<h3 id="osm-objects">OSM objects<a class="anchor" aria-label="anchor" href="#osm-objects"></a></h3>
+
+<div class="section">
+<h4 id="get-osm-objects">Get OSM objects<a class="anchor" aria-label="anchor" href="#get-osm-objects"></a></h4>
+
+
+<p><code><a href="osm_bbox_objects.html">osm_bbox_objects()</a></code>
+Retrieve map data by bounding box</p>
+<p><code><a href="osm_get_objects.html">osm_get_objects()</a></code>
+Get OSM objects</p>
+<p><code><a href="osm_history_object.html">osm_history_object()</a></code>
+Get the history of an object</p>
+<p><code><a href="osm_relations_object.html">osm_relations_object()</a></code>
+Relations of an object</p>
+<p><code><a href="osm_ways_node.html">osm_ways_node()</a></code>
+Ways of a node</p>
+<p><code><a href="osmapi_objects.html">osmapi_objects()</a></code>
+osmapi_objects</p>
+</div>
+
+<div class="section">
+<h4 id="edit-osm-objects">Edit OSM objects<a class="anchor" aria-label="anchor" href="#edit-osm-objects"></a></h4>
+
+
+<p><code><a href="osm_create_object.html">osm_create_object()</a></code>
+Create an OSM object</p>
+<p><code><a href="osm_delete_object.html">osm_delete_object()</a></code>
+Delete an OSM object</p>
+<p><code><a href="osm_update_object.html">osm_update_object()</a></code>
+Update an OSM object</p>
+</div>
+
+
+</div>
+
+<div class="section">
+<h3 id="changesets">Changesets<a class="anchor" aria-label="anchor" href="#changesets"></a></h3>
+
+
+<p>Every modification of the standard OSM elements has to reference an open changeset. A changeset may contain tags
+just like the other elements. A recommended tag for changesets is the key ''comment=*'' with a short human readable
+description of the changes being made in that changeset. A new changeset can be opened at any time and a changeset
+may be referenced from multiple API calls. Because of this it can be closed manually as the server can't know when
+one changeset ends and another should begin. To avoid stale open changesets a mechanism is implemented to
+automatically close changesets. See <a href="https://wiki.openstreetmap.org/wiki/Changeset" class="external-link">OSM wiki</a> for details.</p><div class="section">
+<h4 id="get-changesets">Get changesets<a class="anchor" aria-label="anchor" href="#get-changesets"></a></h4>
+
+
+<p><code><a href="osm_download_changeset.html">osm_download_changeset()</a></code>
+Download a changeset in OsmChange format</p>
+<p><code><a href="osm_get_changesets.html">osm_get_changesets()</a></code>
+Get changesets</p>
+<p><code><a href="osm_query_changesets.html">osm_query_changesets()</a></code>
+Query changesets</p>
+</div>
+
+<div class="section">
+<h4 id="edit-changeset">Edit changeset<a class="anchor" aria-label="anchor" href="#edit-changeset"></a></h4>
+
+
+<p><code><a href="osm_create_changeset.html">osm_create_changeset()</a></code> <code><a href="osm_create_changeset.html">osm_update_changeset()</a></code> <code><a href="osm_create_changeset.html">osm_close_changeset()</a></code>
+Create, update, or close a changeset</p>
+<p><code><a href="osm_diff_upload_changeset.html">osm_diff_upload_changeset()</a></code>
+Diff (OsmChange format) upload to a changeset</p>
+</div>
+
+<div class="section">
+<h4 id="changeset-s-discussion-">Changeset's discussion"<a class="anchor" aria-label="anchor" href="#changeset-s-discussion-"></a></h4>
+
+
+<p><code><a href="osm_comment_changeset_discussion.html">osm_comment_changeset_discussion()</a></code>
+Comment a changeset</p>
+<p><code><a href="osm_hide_comment_changeset_discussion.html">osm_hide_comment_changeset_discussion()</a></code> <code><a href="osm_hide_comment_changeset_discussion.html">osm_unhide_comment_changeset_discussion()</a></code>
+Hide or unhide a changeset comment</p>
+<p><code><a href="osm_subscribe_changeset_discussion.html">osm_subscribe_changeset_discussion()</a></code> <code><a href="osm_subscribe_changeset_discussion.html">osm_unsubscribe_changeset_discussion()</a></code>
+Subscribe or unsubscribe to a changeset discussion</p>
+</div>
+
+
+</div>
+
+<div class="section">
+<h3 id="map-notes">Map notes<a class="anchor" aria-label="anchor" href="#map-notes"></a></h3>
+
+
+<p>This functions provides access to the <a href="https://wiki.openstreetmap.org/wiki/Notes" class="external-link">notes</a> feature, which allows users
+to add geo-referenced textual \"post-it\" notes.</p><div class="section">
+<h4 id="get-map-notes">Get map notes<a class="anchor" aria-label="anchor" href="#get-map-notes"></a></h4>
+
+
+<p><code><a href="osm_feed_notes.html">osm_feed_notes()</a></code>
+RSS Feed of notes in a bbox</p>
+<p><code><a href="osm_get_notes.html">osm_get_notes()</a></code>
+Get notes</p>
+<p><code><a href="osm_read_bbox_notes.html">osm_read_bbox_notes()</a></code>
+Retrieve notes by bounding box</p>
+<p><code><a href="osm_search_notes.html">osm_search_notes()</a></code>
+Search for notes</p>
+</div>
+
+<div class="section">
+<h4 id="edit-map-notes">Edit map notes<a class="anchor" aria-label="anchor" href="#edit-map-notes"></a></h4>
+
+
+<p>osm_close_note()] <code><a href="osm_close_note.html">osm_reopen_note()</a></code>
+Close or reopen a note</p>
+<p><code><a href="osm_create_comment_note.html">osm_create_comment_note()</a></code>
+Create a new comment in a note</p>
+<p><code><a href="osm_create_note.html">osm_create_note()</a></code>
+Create a new note</p>
+<p><code><a href="osm_delete_note.html">osm_delete_note()</a></code>
+Delete a note</p>
+</div>
+
+
+</div>
+
+<div class="section">
+<h3 id="gps-traces">GPS' traces<a class="anchor" aria-label="anchor" href="#gps-traces"></a></h3>
+
+
+<p>In violation of the <a href="https://www.topografix.com/GPX/1/1/#type_trksegType" class="external-link">GPX standard</a> when downloading public GPX
+traces through the API, all waypoints of non-trackable traces are randomized (or rather sorted by lat/lon) and
+delivered as one trackSegment for privacy reasons. Trackable traces are delivered, sorted by descending upload time,
+before the waypoints of non-trackable traces.</p><div class="section">
+<h4 id="get-gps-traces">Get GPS traces<a class="anchor" aria-label="anchor" href="#get-gps-traces"></a></h4>
+
+
+<p><code><a href="osm_get_data_gpx.html">osm_get_data_gpx()</a></code>
+Download GPS Track Data</p>
+<p><code><a href="osm_get_gpx_metadata.html">osm_get_gpx_metadata()</a></code>
+Download GPS Track Metadata</p>
+<p><code><a href="osm_get_points_gps.html">osm_get_points_gps()</a></code>
+Get GPS Points</p>
+<p><code><a href="osm_list_gpxs.html">osm_list_gpxs()</a></code>
+List user's GPX traces</p>
+</div>
+
+<div class="section">
+<h4 id="edit-gps-traces">Edit GPS traces<a class="anchor" aria-label="anchor" href="#edit-gps-traces"></a></h4>
+
+
+<p><code><a href="osm_create_gpx.html">osm_create_gpx()</a></code>
+Create GPS trace</p>
+<p><code><a href="osm_delete_gpx.html">osm_delete_gpx()</a></code>
+Delete GPS trace</p>
+<p><code><a href="osm_update_gpx.html">osm_update_gpx()</a></code>
+Update GPS trace</p>
+</div>
+
+
+</div>
+
+<div class="section">
+<h3 id="users">Users<a class="anchor" aria-label="anchor" href="#users"></a></h3>
+
+
+<p><code><a href="osm_details_logged_user.html">osm_details_logged_user()</a></code>
+Details of the logged-in user</p>
+<p><code><a href="osm_get_preferences_user.html">osm_get_preferences_user()</a></code>
+Preferences of the logged-in user</p>
+<p><code><a href="osm_get_user_details.html">osm_get_user_details()</a></code>
+Details of users</p>
+</div>
+
+<div class="section">
+<h3 id="osmchange">OsmChange<a class="anchor" aria-label="anchor" href="#osmchange"></a></h3>
+
+
+<p>The <a href="https://wiki.openstreetmap.org/wiki/OsmChange" class="external-link">OsmChange</a> format can be uploaded to the server. This is
+guaranteed to be running in a transaction. So either all the changes are applied or none. To avoid performance
+issues when uploading multiple objects, the use of the <code><a href="osm_diff_upload_changeset.html">osm_diff_upload_changeset()</a></code> is highly recommended.</p>
+<p><code><a href="osm_diff_upload_changeset.html">osm_diff_upload_changeset()</a></code>
+Diff (OsmChange format) upload to a changeset</p>
+<p><code><a href="osm_download_changeset.html">osm_download_changeset()</a></code>
+Download a changeset in OsmChange format</p>
+<p><code><a href="osmchange_create.html">osmchange_create()</a></code>
+osmchange to create OSM objects</p>
+<p><code><a href="osmchange_delete.html">osmchange_delete()</a></code>
+osmchange to delete existing OSM objects</p>
+<p><code><a href="osmchange_modify.html">osmchange_modify()</a></code>
+osmchange to modify existing OSM objects</p>
+</div>
+
+<div class="section">
+<h3 id="methods">Methods<a class="anchor" aria-label="anchor" href="#methods"></a></h3>
+
+
+<p><code><a href="tags_list-wide.html">tags_list2wide()</a></code> <code><a href="tags_list-wide.html">tags_wide2list()</a></code>
+Change tags from a list column &lt;-&gt; columns for each key in wide format</p>
+</div>
+
+<div class="section">
+<h3 id="api">API<a class="anchor" aria-label="anchor" href="#api"></a></h3>
+
+
+<p><code><a href="API_configuration.html">set_osmapi_connection()</a></code> <code><a href="API_configuration.html">get_osmapi_url()</a></code> <code><a href="API_configuration.html">set_osmapi_url()</a></code>
+Configure connections from osmapiR</p>
+<p><code><a href="authenticate_osmapiR.html">authenticate_osmapi()</a></code> <code><a href="authenticate_osmapiR.html">logout_osmapi()</a></code>
+Authenticate or logout osmapiR</p>
+<p><code><a href="osm_api_versions.html">osm_api_versions()</a></code>
+Available API versions</p>
+<p><code><a href="osm_capabilities.html">osm_capabilities()</a></code>
+Capabilities of the API</p>
+<p><code><a href="osm_permissions.html">osm_permissions()</a></code>
+Retrieving permissions</p>
+</div>
+
+<div class="section">
+<h3 id="for-moderators">For moderators<a class="anchor" aria-label="anchor" href="#for-moderators"></a></h3>
+
+
+<p><code><a href="osm_delete_note.html">osm_delete_note()</a></code>
+Delete a note</p>
+<p><code><a href="osm_hide_comment_changeset_discussion.html">osm_hide_comment_changeset_discussion()</a></code> <code><a href="osm_hide_comment_changeset_discussion.html">osm_unhide_comment_changeset_discussion()</a></code>
+Hide or unhide a changeset comment</p>
+<p><code><a href="osm_redaction_object.html">osm_redaction_object()</a></code>
+Redact an object version</p>
+</div>
+
+    </div>
+    <div class="section level2">
     <h2 id="see-also">See also<a class="anchor" aria-label="anchor" href="#see-also"></a></h2>
     <div class="dont-index"><p>Useful links:</p><ul><li><p><a href="https://jmaspons.github.io/osmapiR%20https://github.com/jmaspons/osmapiR">https://jmaspons.github.io/osmapiR https://github.com/jmaspons/osmapiR</a></p></li>
 <li><p>Report bugs at <a href="https://github.com/jmaspons/osmapiR/issues" class="external-link">https://github.com/jmaspons/osmapiR/issues</a></p></li>
