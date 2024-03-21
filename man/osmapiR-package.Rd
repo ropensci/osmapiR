@@ -8,6 +8,14 @@
 \description{
 Implements OpenStreetMap API v0.6 (\url{https://wiki.openstreetmap.org/wiki/API_v0.6}).
 }
+\details{
+You are responsible for following the \href{https://operations.osmfoundation.org/policies/api/}{API Usage Policy}.
+
+You can modify the user agent of the requests by setting the option \code{osmapir.user_agent}:
+
+\if{html}{\out{<div class="sourceCode r">}}\preformatted{options(osmapir.user_agent = "my new user agent")
+}\if{html}{\out{</div>}}
+}
 \seealso{
 Useful links:
 \itemize{

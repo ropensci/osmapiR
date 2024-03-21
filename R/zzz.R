@@ -7,6 +7,14 @@
     options(osmapir.osmapir_version = utils::packageVersion("osmapiR"))
   }
 
+  if (!"osmapir.user_agent" %in% names(op)) {
+    options(
+      osmapir.user_agent = paste(
+        "osmapiR", getOption("osmapir.osmapir_version"), "(https://github.com/jmaspons/osmapiR)"
+      )
+    )
+  }
+
   if (!"osmapir.base_api_url" %in% names(op)) {
     options(osmapir.base_api_url = "https://api.openstreetmap.org")
   }
