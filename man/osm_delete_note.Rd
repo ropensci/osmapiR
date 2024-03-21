@@ -4,16 +4,29 @@
 \alias{osm_delete_note}
 \title{Delete a note}
 \usage{
-osm_delete_note(note_id)
+osm_delete_note(note_id, text)
 }
 \arguments{
 \item{note_id}{Note id represented by a numeric or a character value.}
+
+\item{text}{A non-mandatory comment as text.}
+}
+\value{
+Returns a data frame with the hided map note (same format as \code{\link[=osm_get_notes]{osm_get_notes()}} with \code{format = "R"}).
 }
 \description{
 Hide (delete) a note. This request needs to be done as an authenticated user with moderator role.
 }
 \details{
 Use \code{\link[=osm_reopen_note]{osm_reopen_note()}} to make the note visible again.
+}
+\examples{
+\dontrun{
+set_osmapi_connection("testing") # use the testing server
+note <- osm_create_note(lat = "40.7327375", lon = "0.1702526", text = "Test note to delete.")
+del_note <- osm_delete_note(note_id = note$id, text = "Hide note")
+del_note
+}
 }
 \seealso{
 Other edit notes' functions: 

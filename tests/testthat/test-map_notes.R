@@ -146,7 +146,19 @@ test_that("osm_reopen_note works", {
 ## Hide: `DELETE /api/0.6/notes/#id` ----
 
 test_that("osm_delete_note works", {
-  # TODO: requires moderator rights
+  with_mock_dir("mock_delete_note", {
+    note <- osm_create_note(lat = "40.7327375", lon = "0.1702526", text = "Test note to delete.")
+    del_note <- osm_delete_note(note_id = note$id, text = "Hide note")
+  })
+
+  expect_s3_class(del_note, c("osmapi_map_notes", "data.frame"), exact = TRUE)
+  expect_named(del_note, column_notes)
+
+
+  lapply(del_note$comments, function(x) {
+    expect_s3_class(x, c("note_comments", "data.frame"))
+    expect_named(x, column_comments)
+  })
 })
 
 

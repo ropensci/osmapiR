@@ -549,23 +549,36 @@ osm_reopen_note <- function(note_id) {
 #' Hide (delete) a note. This request needs to be done as an authenticated user with moderator role.
 #'
 #' @param note_id Note id represented by a numeric or a character value.
+#' @param text A non-mandatory comment as text.
 #'
 #' @details Use [osm_reopen_note()] to make the note visible again.
 #'
+#' @return Returns a data frame with the hided map note (same format as [osm_get_notes()] with `format = "R"`).
 #' @family edit notes' functions
 #' @family functions for moderators
 #' @export
-osm_delete_note <- function(note_id) {
+#'
+#' @examples
+#' \dontrun{
+#' set_osmapi_connection("testing") # use the testing server
+#' note <- osm_create_note(lat = "40.7327375", lon = "0.1702526", text = "Test note to delete.")
+#' del_note <- osm_delete_note(note_id = note$id, text = "Hide note")
+#' del_note
+#' }
+osm_delete_note <- function(note_id, text) {
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "DELETE")
   req <- httr2::req_url_path_append(req, "notes", note_id)
+  if (!missing(text)) {
+    req <- httr2::req_url_query(req, text = text)
+  }
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  # TODO: parse unknown xml response (only available for moderators)
+  out <- note_xml2DF(obj_xml)
 
-  return(obj_xml)
+  return(out)
 }
 
 
