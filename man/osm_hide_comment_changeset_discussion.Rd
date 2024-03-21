@@ -12,6 +12,9 @@ osm_unhide_comment_changeset_discussion(comment_id)
 \arguments{
 \item{comment_id}{Note that the changeset comment id differs from the changeset id.}
 }
+\value{
+Returns a data frame with the changeset (same format as \code{\link[=osm_get_changesets]{osm_get_changesets()}} with \code{format = "R"}).
+}
 \description{
 This request needs to be done as an authenticated user with moderator role.
 }
@@ -22,6 +25,13 @@ This request needs to be done as an authenticated user with moderator role.
 \item \code{osm_unhide_comment_changeset_discussion()}: Sets visible flag on changeset comment to true.
 
 }}
+\examples{
+\dontrun{
+chdis <- osm_get_changesets("265646", include_discussion = TRUE)
+hide_com <- osm_hide_comment_changeset_discussion(comment_id = chdis$discussion[[1]]$id[1])
+unhide_com <- osm_unhide_comment_changeset_discussion(comment_id = chdis$discussion[[1]]$id[1])
+}
+}
 \seealso{
 Other changeset discussion's functions: 
 \code{\link{osm_comment_changeset_discussion}()},

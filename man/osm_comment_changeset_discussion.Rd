@@ -12,7 +12,7 @@ osm_comment_changeset_discussion(changeset_id, comment)
 \item{comment}{The text of the comment to post.}
 }
 \value{
-Returns a data frame with the changeset (same format as \code{osm_get_changesets()} with \code{format = "R"}).
+Returns a data frame with the changeset (same format as \code{\link[=osm_get_changesets]{osm_get_changesets()}} with \code{format = "R"}).
 }
 \description{
 Add a comment to a changeset and subscribe to the discussion. The changeset must be closed. Requires authentication.

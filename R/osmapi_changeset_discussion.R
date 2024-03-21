@@ -30,7 +30,7 @@
 #' @param changeset_id The id of the changeset to comment represented by a numeric or a character value.
 #' @param comment The text of the comment to post.
 #'
-#' @return Returns a data frame with the changeset (same format as `osm_get_changesets()` with `format = "R"`).
+#' @return Returns a data frame with the changeset (same format as [osm_get_changesets()] with `format = "R"`).
 #' @family changeset discussion's functions
 #' @export
 #'
@@ -161,9 +161,17 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , forma
 #'
 #' @param comment_id Note that the changeset comment id differs from the changeset id.
 #'
+#' @return Returns a data frame with the changeset (same format as [osm_get_changesets()] with `format = "R"`).
 #' @family changeset discussion's functions
 #' @family functions for moderators
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' chdis <- osm_get_changesets("265646", include_discussion = TRUE)
+#' hide_com <- osm_hide_comment_changeset_discussion(comment_id = chdis$discussion[[1]]$id[1])
+#' unhide_com <- osm_unhide_comment_changeset_discussion(comment_id = chdis$discussion[[1]]$id[1])
+#' }
 osm_hide_comment_changeset_discussion <- function(comment_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
@@ -173,7 +181,6 @@ osm_hide_comment_changeset_discussion <- function(comment_id) { # TODO: , format
   obj_xml <- httr2::resp_body_xml(resp)
 
   out <- changeset_xml2DF(obj_xml)
-  # TODO: parse unknown xml response (only available for moderators)
 
   return(out)
 }
@@ -207,7 +214,6 @@ osm_unhide_comment_changeset_discussion <- function(comment_id) { # TODO: , form
   obj_xml <- httr2::resp_body_xml(resp)
 
   out <- changeset_xml2DF(obj_xml)
-  # TODO: parse unknown xml response (only available for moderators)
 
   return(out)
 }
