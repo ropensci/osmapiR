@@ -201,15 +201,6 @@ test_that("osm_fetch_objects works", {
   lapply(fetch_xml, expect_s3_class, "xml_document")
 
 
-  # with_mock_dir("mock_fetch_objects_json", {
-  # fetch_json <- osm_get_objects(
-  #   osm_type = c("node", "node", "way", "way", "relation", "relation"),
-  #   osm_id = c(35308286, 1935675367, 13073736L, 235744929L, 40581, 341530),
-  #   format = "json"
-  # )
-  # })
-
-
   ### test transformation df <-> xml ----
 
   mapply(function(df, xml) {
