@@ -252,6 +252,7 @@ OSMChange
 OsmChange's
 osmdata
 osmexctract
+osmfoundation
 osn
 outL
 packageStartupMessage
@@ -372,6 +373,7 @@ URI
 urlencoded
 UseMethod
 userName
+usethis
 usr
 usrs
 uvAy

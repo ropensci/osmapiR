@@ -16,6 +16,229 @@ You can modify the user agent of the requests by setting the option \code{osmapi
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{options(osmapir.user_agent = "my new user agent")
 }\if{html}{\out{</div>}}
 }
+\section{Overview of the function}{
+All function starting with \verb{osm_*} include calls to the server.
+\subsection{OSM objects}{
+\subsection{Get OSM objects}{
+
+\code{\link[=osm_bbox_objects]{osm_bbox_objects()}}
+Retrieve map data by bounding box
+
+\code{\link[=osm_get_objects]{osm_get_objects()}}
+Get OSM objects
+
+\code{\link[=osm_history_object]{osm_history_object()}}
+Get the history of an object
+
+\code{\link[=osm_relations_object]{osm_relations_object()}}
+Relations of an object
+
+\code{\link[=osm_ways_node]{osm_ways_node()}}
+Ways of a node
+
+\code{\link[=osmapi_objects]{osmapi_objects()}}
+osmapi_objects
+}
+
+\subsection{Edit OSM objects}{
+
+\code{\link[=osm_create_object]{osm_create_object()}}
+Create an OSM object
+
+\code{\link[=osm_delete_object]{osm_delete_object()}}
+Delete an OSM object
+
+\code{\link[=osm_update_object]{osm_update_object()}}
+Update an OSM object
+}
+
+}
+
+\subsection{Changesets}{
+
+Every modification of the standard OSM elements has to reference an open changeset. A changeset may contain tags
+just like the other elements. A recommended tag for changesets is the key ''comment=*'' with a short human readable
+description of the changes being made in that changeset. A new changeset can be opened at any time and a changeset
+may be referenced from multiple API calls. Because of this it can be closed manually as the server can't know when
+one changeset ends and another should begin. To avoid stale open changesets a mechanism is implemented to
+automatically close changesets. See \href{https://wiki.openstreetmap.org/wiki/Changeset}{OSM wiki} for details.
+\subsection{Get changesets}{
+
+\code{\link[=osm_download_changeset]{osm_download_changeset()}}
+Download a changeset in OsmChange format
+
+\code{\link[=osm_get_changesets]{osm_get_changesets()}}
+Get changesets
+
+\code{\link[=osm_query_changesets]{osm_query_changesets()}}
+Query changesets
+}
+
+\subsection{Edit changeset}{
+
+\code{\link[=osm_create_changeset]{osm_create_changeset()}} \code{\link[=osm_update_changeset]{osm_update_changeset()}} \code{\link[=osm_close_changeset]{osm_close_changeset()}}
+Create, update, or close a changeset
+
+\code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}}
+Diff (OsmChange format) upload to a changeset
+}
+
+\subsection{Changeset's discussion"}{
+
+\code{\link[=osm_comment_changeset_discussion]{osm_comment_changeset_discussion()}}
+Comment a changeset
+
+\code{\link[=osm_hide_comment_changeset_discussion]{osm_hide_comment_changeset_discussion()}} \code{\link[=osm_unhide_comment_changeset_discussion]{osm_unhide_comment_changeset_discussion()}}
+Hide or unhide a changeset comment
+
+\code{\link[=osm_subscribe_changeset_discussion]{osm_subscribe_changeset_discussion()}} \code{\link[=osm_unsubscribe_changeset_discussion]{osm_unsubscribe_changeset_discussion()}}
+Subscribe or unsubscribe to a changeset discussion
+}
+
+}
+
+\subsection{Map notes}{
+
+This functions provides access to the \href{https://wiki.openstreetmap.org/wiki/Notes}{notes} feature, which allows users
+to add geo-referenced textual \"post-it\" notes.
+\subsection{Get map notes}{
+
+\code{\link[=osm_feed_notes]{osm_feed_notes()}}
+RSS Feed of notes in a bbox
+
+\code{\link[=osm_get_notes]{osm_get_notes()}}
+Get notes
+
+\code{\link[=osm_read_bbox_notes]{osm_read_bbox_notes()}}
+Retrieve notes by bounding box
+
+\code{\link[=osm_search_notes]{osm_search_notes()}}
+Search for notes
+}
+
+\subsection{Edit map notes}{
+
+osm_close_note()] \code{\link[=osm_reopen_note]{osm_reopen_note()}}
+Close or reopen a note
+
+\code{\link[=osm_create_comment_note]{osm_create_comment_note()}}
+Create a new comment in a note
+
+\code{\link[=osm_create_note]{osm_create_note()}}
+Create a new note
+
+\code{\link[=osm_delete_note]{osm_delete_note()}}
+Delete a note
+}
+
+}
+
+\subsection{GPS' traces}{
+
+In violation of the \href{https://www.topografix.com/GPX/1/1/#type_trksegType}{GPX standard} when downloading public GPX
+traces through the API, all waypoints of non-trackable traces are randomized (or rather sorted by lat/lon) and
+delivered as one trackSegment for privacy reasons. Trackable traces are delivered, sorted by descending upload time,
+before the waypoints of non-trackable traces.
+\subsection{Get GPS traces}{
+
+\code{\link[=osm_get_data_gpx]{osm_get_data_gpx()}}
+Download GPS Track Data
+
+\code{\link[=osm_get_gpx_metadata]{osm_get_gpx_metadata()}}
+Download GPS Track Metadata
+
+\code{\link[=osm_get_points_gps]{osm_get_points_gps()}}
+Get GPS Points
+
+\code{\link[=osm_list_gpxs]{osm_list_gpxs()}}
+List user's GPX traces
+}
+
+\subsection{Edit GPS traces}{
+
+\code{\link[=osm_create_gpx]{osm_create_gpx()}}
+Create GPS trace
+
+\code{\link[=osm_delete_gpx]{osm_delete_gpx()}}
+Delete GPS trace
+
+\code{\link[=osm_update_gpx]{osm_update_gpx()}}
+Update GPS trace
+}
+
+}
+
+\subsection{Users}{
+
+\code{\link[=osm_details_logged_user]{osm_details_logged_user()}}
+Details of the logged-in user
+
+\code{\link[=osm_get_preferences_user]{osm_get_preferences_user()}}
+Preferences of the logged-in user
+
+\code{\link[=osm_get_user_details]{osm_get_user_details()}}
+Details of users
+}
+
+\subsection{OsmChange}{
+
+The \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange} format can be uploaded to the server. This is
+guaranteed to be running in a transaction. So either all the changes are applied or none. To avoid performance
+issues when uploading multiple objects, the use of the \code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}} is highly recommended.
+
+\code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}}
+Diff (OsmChange format) upload to a changeset
+
+\code{\link[=osm_download_changeset]{osm_download_changeset()}}
+Download a changeset in OsmChange format
+
+\code{\link[=osmchange_create]{osmchange_create()}}
+osmchange to create OSM objects
+
+\code{\link[=osmchange_delete]{osmchange_delete()}}
+osmchange to delete existing OSM objects
+
+\code{\link[=osmchange_modify]{osmchange_modify()}}
+osmchange to modify existing OSM objects
+}
+
+\subsection{Methods}{
+
+\code{\link[=tags_list2wide]{tags_list2wide()}} \code{\link[=tags_wide2list]{tags_wide2list()}}
+Change tags from a list column <-> columns for each key in wide format
+}
+
+\subsection{API}{
+
+\code{\link[=set_osmapi_connection]{set_osmapi_connection()}} \code{\link[=get_osmapi_url]{get_osmapi_url()}} \code{\link[=set_osmapi_url]{set_osmapi_url()}}
+Configure connections from osmapiR
+
+\code{\link[=authenticate_osmapi]{authenticate_osmapi()}} \code{\link[=logout_osmapi]{logout_osmapi()}}
+Authenticate or logout osmapiR
+
+\code{\link[=osm_api_versions]{osm_api_versions()}}
+Available API versions
+
+\code{\link[=osm_capabilities]{osm_capabilities()}}
+Capabilities of the API
+
+\code{\link[=osm_permissions]{osm_permissions()}}
+Retrieving permissions
+}
+
+\subsection{For moderators}{
+
+\code{\link[=osm_delete_note]{osm_delete_note()}}
+Delete a note
+
+\code{\link[=osm_hide_comment_changeset_discussion]{osm_hide_comment_changeset_discussion()}} \code{\link[=osm_unhide_comment_changeset_discussion]{osm_unhide_comment_changeset_discussion()}}
+Hide or unhide a changeset comment
+
+\code{\link[=osm_redaction_object]{osm_redaction_object()}}
+Redact an object version
+}
+}
+
 \seealso{
 Useful links:
 \itemize{
