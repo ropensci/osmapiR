@@ -5,21 +5,26 @@
 
 <!-- badges: start -->
 
-[![Lifecycle:
-experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![R-CMD-check](https://github.com/jmaspons/osmapiR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jmaspons/osmapiR/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/jmaspons/osmapiR/branch/main/graph/badge.svg)](https://codecov.io/gh/jmaspons/osmapiR)
 [![pkgdown](https://github.com/jmaspons/osmapiR/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/jmaspons/osmapiR/actions/workflows/pkgdown.yaml)
+[![Project Status:
+Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/osmapiR)](https://cran.r-project.org/package=osmapiR)
 <!-- badges: end -->
 
 Implements [OpenStreetMap
 API](https://wiki.openstreetmap.org/wiki/API_v0.6) for R.
 
-## Status
+You are responsible for following the [API Usage
+Policy](https://operations.osmfoundation.org/policies/api/). You can
+modify the user agent of the requests by setting the option
+`osmapir.user_agent`:
 
-All API end points implemented. Requires testing and vignettes
-explaining the flow for editing.
+``` r
+options(osmapir.user_agent = "my new user agent")
+```
 
 ## Installation
 
@@ -53,7 +58,7 @@ osm_objs <- osm_bbox_objects(bbox = bbox, tags_in_columns = TRUE)
 sel <- osm_objs$`name:ca` %in% "Abadia de Sant Miquel de Cuixà"
 obj <- osm_objs[sel, ]
 
-obj_history <- osm_history_object(osm_type = obj$type, osm_id = obj$id) # tags in a list column
+obj_history <- osm_history_object(osm_type = obj$osm_type, osm_id = obj$osm_id) # tags in a list column
 obj_history
 #>   type       id visible version changeset           timestamp     user    uid
 #> 1  way 50343004    TRUE       1   3882565 2010-02-15 12:14:11  Skywave  10927

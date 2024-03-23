@@ -6,7 +6,7 @@
 #' options(osmapir.user_agent = "my new user agent")
 #' ```
 #'
-#' # Overview of the function
+#' # Overview of the functions
 #' All function starting with `osm_*` include calls to the server.
 #'
 #' ## OSM objects

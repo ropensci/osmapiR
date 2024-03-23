@@ -16,7 +16,7 @@ You can modify the user agent of the requests by setting the option \code{osmapi
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{options(osmapir.user_agent = "my new user agent")
 }\if{html}{\out{</div>}}
 }
-\section{Overview of the function}{
+\section{Overview of the functions}{
 All function starting with \verb{osm_*} include calls to the server.
 \subsection{OSM objects}{
 \subsection{Get OSM objects}{
