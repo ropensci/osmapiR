@@ -2,8 +2,6 @@
 #
 # In violation of the [https://www.topografix.com/GPX/1/1/#type_trksegType GPX standard] when downloading public GPX traces through the API, all waypoints of non-trackable traces are randomized (or rather sorted by lat/lon) and delivered as one trackSegment for privacy reasons. Trackable traces are delivered, sorted by descending upload time, before the waypoints of non-trackable traces.
 
-# TODO: I found that `GET /api/0.6/gpx/#id/details` & `GET /api/0.6/gpx/#id/data` doesn't work without authentication (HTTP 401 Unauthorized) even for public or identificable tracks. Seems a bug in the API implementation or the documentation should be amended.
-
 
 ## Get GPS Points: `GET /api/0.6/trackpoints?bbox=*'left','bottom','right','top'*&page=*'pageNumber'*` ----
 # Use this to retrieve the GPS track points that are inside a given bounding box (formatted in a GPX format).
