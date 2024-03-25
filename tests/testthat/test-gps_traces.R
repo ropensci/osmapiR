@@ -93,17 +93,23 @@ test_that("osm_get_metadata_gpx works", {
   with_mock_dir("mock_get_metadata_gpx", {
     trk_meta$track <- osm_get_gpx_metadata(gpx_id = 3790367)
     trk_meta$tracks <- osm_get_gpx_metadata(gpx_id = c(3790367, 3458743))
+    trk_meta$track_xml <- osm_get_gpx_metadata(gpx_id = 3790367, format = "xml")
+    trk_meta$tracks_xml <- osm_get_gpx_metadata(gpx_id = c(3790367, 3458743), format = "xml")
   })
 
-  lapply(trk_meta, function(x) expect_s3_class(x, "data.frame"))
-  lapply(trk_meta, function(x) expect_named(x, column_meta_gpx))
+  lapply(trk_meta[c("track", "tracks")], function(x) expect_s3_class(x, "data.frame"))
+  lapply(trk_meta[c("track", "tracks")], function(x) expect_named(x, column_meta_gpx))
 
-  lapply(trk_meta, function(trk) {
+  lapply(trk_meta[c("track", "tracks")], function(trk) {
     mapply(function(x, cl) expect_true(inherits(x, cl)), x = trk, cl = class_columns[names(trk)])
   })
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
-  lapply(trk_meta, function(x) expect_false(unique(strftime(as.POSIXct(x$timestamp), format = "%M:%S") == "00:00")))
+  lapply(trk_meta[c("track", "tracks")], function(x) {
+    expect_false(unique(strftime(as.POSIXct(x$timestamp), format = "%M:%S") == "00:00"))
+  })
+
+  lapply(trk_meta[c("track_xml", "tracks_xml")], expect_s3_class, class = "xml_document")
 })
 
 
@@ -116,12 +122,14 @@ test_that("osm_get_metadata_gpx works", {
 test_that("osm_get_data_gpx works", {
   trk_data <- list()
   with_mock_dir("mock_get_data_gpx", {
-    # trk_data$raw <- osm_get_data_gpx(gpx_id = 3458743) # TODO: HTTP 400 Bad Request. without format
-    # trk_data$gpx <- osm_get_data_gpx(gpx_id = 3458743, format = "R") # identical to xml resp but heavier mock file
+    trk_data$raw <- osm_get_data_gpx(gpx_id = 3458743)
+    trk_data$gpx <- osm_get_data_gpx(gpx_id = 3458743, format = "gpx") # identical to xml resp but heavier mock file
     ## gpx responses has `content-type` = "application/gpx+xml and httptest2 save them as raw instead of xml files
-    # trk_data$xml <- osm_get_data_gpx(gpx_id = 3458743, format = "xml")
+    trk_data$xml <- osm_get_data_gpx(gpx_id = 3458743, format = "xml")
     trk_data$R <- osm_get_data_gpx(gpx_id = 3458743, format = "R")
   })
+
+  lapply(trk_data[c("raw", "gpx", "xml")], expect_s3_class, class = "xml_document")
 
   expect_s3_class(trk_data$R, c("osmapi_gps_track", "data.frame"))
   expect_named(trk_data$R, column_gpx)

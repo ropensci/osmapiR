@@ -265,7 +265,6 @@ osm_delete_gpx <- function(gpx_id) {
 # Also available at `GET /api/0.6/gpx/#id`
 #
 # Use this to access the metadata about a GPX file. Available without authentication if the file is marked public. Otherwise only usable by the owner account and requires authentication.
-## TODO: HTTP 401 Unauthorized. (even for public or identifiable tracks). FIX wiki or BUG to API ----
 # Example "details" response:
 # <syntaxhighlight lang="xml">
 # <?xml version="1.0" encoding="UTF-8"?>
@@ -319,6 +318,8 @@ osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml")) {
 
   if (format == "R") {
     out <- gpx_meta_xml2DF(obj_xml)
+  } else {
+    out <- obj_xml
   }
 
   return(out)
@@ -328,10 +329,8 @@ osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml")) {
 ## Download Data: `GET /api/0.6/gpx/#id/data` ----
 #
 # Use this to download the full GPX file. Available without authentication if the file is marked public. Otherwise only usable by the owner account and requires authentication.
-## TODO: HTTP 401 Unauthorized. (even for public or identificable tracks). FIX wiki or BUG to API ----
 #
 # The response will always be a GPX format file if you use a '''.gpx''' URL suffix, a XML file in an undocumented format if you use a '''.xml''' URL suffix, otherwise the response will be the exact file that was uploaded.
-# TODO: HTTP 400 Bad Request. without format
 #
 # NOTE: if you request refers to a multi-file archive the response when you force gpx or xml format will consist of a non-standard simple concatenation of the files.
 
