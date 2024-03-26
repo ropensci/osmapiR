@@ -527,3 +527,33 @@ relation_update_2xml <- function(x) {
 
   return(xml)
 }
+
+
+## User preferences ----
+
+user_preferences_DF2xml <- function(x) {
+  xml <- xml2::xml_new_root("osm", version = "0.6", generator = paste("osmapiR", getOption("osmapir.osmapir_version")))
+  xml2::xml_add_child(.x = xml, .value = "preferences")
+
+  for (i in seq_len(nrow(x))) {
+    xml2::xml_add_child(.x = xml2::xml_child(xml), .value = "preference", k = x$key[i], v = x$value[i])
+  }
+
+  return(xml)
+}
+
+
+user_preferences_json2xml <- function(x) {
+  xml <- xml2::xml_new_root("osm", version = "0.6", generator = paste("osmapiR", getOption("osmapir.osmapir_version")))
+  xml2::xml_add_child(.x = xml, .value = "preferences")
+
+  for (i in seq_along(x$preferences)) {
+    xml2::xml_add_child(
+      .x = xml2::xml_child(xml),
+      .value = "preference",
+      k = names(x$preferences)[i], v = x$preferences[[i]]
+    )
+  }
+
+  return(xml)
+}

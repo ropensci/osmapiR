@@ -1,0 +1,11 @@
+{
+    "version": "0.6",
+    "generator": "OpenStreetMap server",
+    "copyright": "OpenStreetMap and contributors",
+    "attribution": "http://www.openstreetmap.org/copyright",
+    "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+    "preferences": {
+        "gps.trace.visibility": "private",
+        "mapcomplete-language": "ca"
+    }
+}

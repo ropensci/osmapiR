@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
   <preferences>
-<preference k="gps.trace.visibility" v="identifiable"/>
+<preference k="gps.trace.visibility" v="private"/>
 <preference k="mapcomplete-language" v="ca"/>
-<preference k="mapcomplete-layer-gps_track-enabled" v="true"/>
-<preference k="overpass-ide_query-count" v="11"/>
   </preferences>
 </osm>

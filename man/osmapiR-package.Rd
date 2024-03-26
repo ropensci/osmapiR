@@ -173,8 +173,8 @@ Update GPS trace
 \code{\link[=osm_details_logged_user]{osm_details_logged_user()}}
 Details of the logged-in user
 
-\code{\link[=osm_get_preferences_user]{osm_get_preferences_user()}}
-Preferences of the logged-in user
+\code{\link[=osm_get_preferences_user]{osm_get_preferences_user()}} \code{\link[=osm_set_preferences_user]{osm_set_preferences_user()}}
+Get or set preferences of the logged-in user
 
 \code{\link[=osm_get_user_details]{osm_get_user_details()}}
 Details of users

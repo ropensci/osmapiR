@@ -468,10 +468,18 @@ osm_details_logged_user <- function(format = c("R", "xml", "json")) {
 #
 #  DELETE /api/0.6/user/preferences/[your_key]
 
-#' Preferences of the logged-in user
+#' Get or set preferences for the logged-in user
 #'
 #' @param key Returns a string with that preference's value. If missing, return all preferences.
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`. Only relevant when `key` is missing.
+#'
+#' @details
+#' The sizes of the key and value are limited to 255 characters.
+#'
+#' The OSM server supports storing arbitrary user preferences. This can be used by editors, for example, to offer the
+#' same configuration wherever the user logs in, instead of a locally-stored configuration. For an overview of
+#' applications using the preferences-API and which key-schemes they use, see
+#' [this wiki page](https://wiki.openstreetmap.org/wiki/Preferences).
 #'
 #' @return
 #' If `format = "R"`, returns a data frame with `key` and `value` columns of the user preferences.
@@ -497,12 +505,22 @@ osm_details_logged_user <- function(format = c("R", "xml", "json")) {
 #' }
 #' ```
 #' @family users' functions
+#' @rdname osm_preferences_user
 #' @export
 #'
 #' @examples
 #' \dontrun{
-#' prefs <- osm_get_preferences_user()
-#' prefs
+#' prefs_ori <- osm_get_preferences_user()
+#' prefs_ori
+#'
+#'
+#' osm_set_preferences_user(key = "osmapiR-test", value = "good!")
+#' osm_get_preferences_user(key = "osmapiR-test")
+#'
+#' osm_set_preferences_user(key = "osmapiR-test", value = NULL) # Delete pref
+#'
+#' ## Restore all preferences
+#' osm_set_preferences_user(all_prefs = prefs_ori)
 #' }
 osm_get_preferences_user <- function(key, format = c("R", "xml", "json")) {
   format <- match.arg(format)
@@ -539,4 +557,79 @@ osm_get_preferences_user <- function(key, format = c("R", "xml", "json")) {
 }
 
 
-# TODO: osm_set_preferences_user <- function() {}
+#' @rdname osm_preferences_user
+#' @param value A string with the preference value to set for `key`. If `NULL`, deletes the `key` preference.
+#' @param all_prefs A `data.frame`, `xml_document` or a json list following the format returned by
+#'   `osm_get_preferences_user()`. Also, a path to an xml file describing the user preferences.
+#'    **All** existing preferences are replaced by the newly uploaded set.
+#'
+#' @return ## Set preferences
+#' Nothing is returned upon successful setting of user preferences.
+#' @export
+osm_set_preferences_user <- function(key, value, all_prefs) {
+  if ((!missing(key) || !missing(value)) && !missing(all_prefs)) {
+    stop("`key` & `value`, or `all_prefs` must be provided but not all at the same time.")
+  }
+
+  rm_path <- FALSE
+  req <- osmapi_request(authenticate = TRUE)
+  req <- httr2::req_method(req, "PUT")
+
+
+  if (!missing(all_prefs)) { # set all preferences
+    req <- httr2::req_url_path_append(req, "user", "preferences")
+
+    if (is.character(all_prefs)) {
+      if (file.exists(all_prefs)) {
+        path <- all_prefs
+      } else {
+        stop(
+          "`all_prefs` is interpreted as a path to an xml file with the preferences, but it can't be found (",
+          all_prefs, ")."
+        )
+      }
+    } else {
+      if (inherits(all_prefs, "xml_document")) {
+        xml <- all_prefs
+      } else if (inherits(all_prefs, "data.frame")) {
+        xml <- user_preferences_DF2xml(all_prefs)
+      } else if (inherits(all_prefs, "list") && "preferences" %in% names(all_prefs)) {
+        xml <- user_preferences_json2xml(all_prefs)
+      } else {
+        stop(
+          "`all_prefs` must be a path to a xml file with the preferences, a `xml_document`, a json list or a data ",
+          "frame with columns `key` and `value` as returned by osm_get_preferences_user()."
+        )
+      }
+
+      path <- tempfile(fileext = ".xml")
+      xml2::write_xml(xml, path)
+      rm_path <- TRUE
+    }
+
+    req <- httr2::req_body_file(req, path = path)
+  } else { # set a single preference
+    if (missing(key)) {
+      stop("`key` is missing with no defaults.")
+    }
+    if (missing(value)) {
+      stop("`value` is missing with no defaults.")
+    }
+
+    req <- httr2::req_url_path_append(req, "user", "preferences", key)
+
+    if (is.null(value)) {
+      req <- httr2::req_method(req, "DELETE")
+    } else {
+      req <- httr2::req_body_raw(req, body = value)
+    }
+  }
+
+  httr2::req_perform(req)
+
+  if (rm_path) {
+    file.remove(path)
+  }
+
+  invisible(NULL)
+}

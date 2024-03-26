@@ -130,10 +130,46 @@ test_that("osm_details_logged_user works", {
 #  DELETE /api/0.6/user/preferences/[your_key]
 
 test_that("osm_get_preferences_user works", {
-  with_mock_dir("mock_preferences_user", {
+  path_xml <- tempfile(fileext = ".xml")
+  with_mock_dir("mock_get_prefs_user", {
     preferences <- osm_get_preferences_user()
+    preferences_xml <- osm_get_preferences_user(format = "xml")
+    preferences_json <- osm_get_preferences_user(format = "json")
+    preference <- osm_get_preferences_user(key = "mapcomplete-language")
+    # preference <- osm_get_preferences_user(key = "gps.trace.visibility") # TODO: error due to dots?
   })
+
+  with_mock_dir("mock_set_prefs_user",
+    {
+      expect_null(osm_set_preferences_user(key = "test-pref", value = "value"))
+      expect_null(osm_set_preferences_user(key = "test-pref", value = NULL))
+
+      expect_null(osm_set_preferences_user(all_prefs = preferences))
+      expect_null(osm_set_preferences_user(all_prefs = preferences_xml))
+      expect_null(osm_set_preferences_user(all_prefs = preferences_json))
+
+      xml2::write_xml(preferences_xml, file = path_xml)
+      expect_null(osm_set_preferences_user(all_prefs = path_xml))
+    },
+    simplify = FALSE
+  )
+  file.remove(path_xml)
+
 
   expect_s3_class(preferences, "data.frame")
   expect_named(preferences, c("key", "value"))
+
+  expect_s3_class(preferences_xml, "xml_document")
+  expect_type(preferences_json, "list")
+  expect_named(preferences_json, c("version", "generator", "copyright", "attribution", "license", "preferences"))
+  expect_type(preference, "character")
+
+
+  expect_error(
+    osm_set_preferences_user(key = "mapcomplete-language", value = preference, all_prefs = preferences_xml),
+    "`key` & `value`, or `all_prefs` must be provided but not all at the same time."
+  )
+  expect_error(osm_set_preferences_user(), "`key` is missing with no defaults.")
+  expect_error(osm_set_preferences_user(all_prefs = "x"), "`all_prefs` is interpreted as a path to an xml file with ")
+  expect_error(osm_set_preferences_user(all_prefs = TRUE), "`all_prefs` must be a path to a xml file with the ")
 })

@@ -151,8 +151,8 @@
 #' [osm_details_logged_user()]
 #'     Details of the logged-in user
 #'
-#' [osm_get_preferences_user()]
-#'     Preferences of the logged-in user
+#' [osm_get_preferences_user()] [osm_set_preferences_user()]
+#'     Get or set preferences of the logged-in user
 #'
 #' [osm_get_user_details()]
 #'     Details of users
