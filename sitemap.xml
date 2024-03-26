@@ -103,9 +103,6 @@
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_points_gps.html</loc>
   </url>
   <url>
-    <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_preferences_user.html</loc>
-  </url>
-  <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_get_user_details.html</loc>
   </url>
   <url>
@@ -119,6 +116,9 @@
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_permissions.html</loc>
+  </url>
+  <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/osm_preferences_user.html</loc>
   </url>
   <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/osm_query_changesets.html</loc>
