@@ -1,12 +1,11 @@
-#' osmapi_objects
+#' osmapi_objects constructor
 #'
 #' @param x `data.frame` representing OSM objects as rows. At least it has a `type` column with `node`, `way` or
 #'   `relation`.
 #' @param tag_columns A vector indicating the name or position of the columns representing tags. If missing, it's
 #'   assumed that `tags` column contain the tags (see details).
 #'
-# @details
-# TODO
+# TODO: @details
 #'
 #' @return An `osmapi_objects`
 #' @family get OSM objects' functions
@@ -46,9 +45,11 @@ osmapi_objects <- function(x, tag_columns) {
       } else {
         keys <- tag_columns
       }
-      tag_columns <- which(names(x) %in% tag_columns)
+      tag_columns <- match(tag_columns, names(x))
       names(tag_columns) <- keys
+      tag_columns <- sort(tag_columns)
     } else if (is.logical(tag_columns)) {
+      stopifnot(length(tag_columns) == ncol(x))
       if (!is.null(names(tag_columns))) {
         keys <- names(tag_columns)[tag_columns]
       } else {

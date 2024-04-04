@@ -16,11 +16,11 @@ test_that("osmapi_objects works", {
   )
 
   objs <- list()
-  objs$tag_ch <- osmapi_objects(x, tag_columns = "name")
-  objs$tag_num <- osmapi_objects(x, tag_columns = 5)
+  objs$tag_ch <- osmapi_objects(x, tag_columns = c("type.1", "name"))
+  objs$tag_num <- osmapi_objects(x, tag_columns = 6:5)
   objs$tag_bool <- osmapi_objects(x, tag_columns = c(FALSE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE))
-  objs$tag_ch_named <- osmapi_objects(x, tag_columns = c(type = "type.1"))
-  objs$tag_num_named <- osmapi_objects(x, tag_columns = c(type = 6))
+  objs$tag_ch_named <- osmapi_objects(x, tag_columns = c(type = "type.1", name = "name"))
+  objs$tag_num_named <- osmapi_objects(x, tag_columns = c(type = 6, name = 5))
 
   x$name <- NULL
   x$tags <- list(
@@ -37,5 +37,6 @@ test_that("osmapi_objects works", {
       class = c("osmapi_objects", "data.frame"),
       exact = TRUE
     )
+    lapply(x$tags, function(y) expect_false(any(is.na(y$value))))
   })
 })

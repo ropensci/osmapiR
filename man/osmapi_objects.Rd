@@ -2,7 +2,7 @@
 % Please edit documentation in R/osmapiR_objects.R
 \name{osmapi_objects}
 \alias{osmapi_objects}
-\title{osmapi_objects}
+\title{osmapi_objects constructor}
 \usage{
 osmapi_objects(x, tag_columns)
 }
@@ -17,7 +17,7 @@ assumed that \code{tags} column contain the tags (see details).}
 An \code{osmapi_objects}
 }
 \description{
-osmapi_objects
+osmapi_objects constructor
 }
 \examples{
 x <- data.frame(
