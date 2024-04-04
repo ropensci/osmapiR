@@ -24,8 +24,11 @@ function(response) {
   response <- httptest2::gsub_response(
     response,
     '"CGImap ([0-9.]+) \\([0-9]+ .+\\.openstreetmap\\.org\\)",',
-    '"CGImap \\1 (012345 ******.openstreetmap.org)",',
+    '"CGImap \\1 (012345 ******.openstreetmap.org)",'
   )
+
+  # simplify = FALSE
+  response <- httptest2::redact_headers(response, headers = c("x-request-id", "date", "Authorization"))
 
   return(response)
 }
