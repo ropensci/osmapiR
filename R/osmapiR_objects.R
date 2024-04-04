@@ -4,6 +4,8 @@
 #'   `relation`.
 #' @param tag_columns A vector indicating the name or position of the columns representing tags. If missing, it's
 #'   assumed that `tags` column contain the tags (see details).
+#' @param keep_na_tags If `TRUE`, don't drop the empty tags specified in `tag_columns` and add `NA` as a value.
+#'   Useful to remove specific tags with [osmchange_modify()] and specific `tag_keys`.
 #'
 # TODO: @details
 #'
@@ -18,7 +20,7 @@
 #' x$members <- list(NULL, NULL, 1:2)
 #' obj <- osmapi_objects(x, tag_columns = "name")
 #' obj
-osmapi_objects <- function(x, tag_columns) {
+osmapi_objects <- function(x, tag_columns, keep_na_tags = FALSE) {
   stopifnot(is.data.frame(x))
   stopifnot("type" %in% names(x))
 
@@ -63,7 +65,10 @@ osmapi_objects <- function(x, tag_columns) {
     }
 
     tags_list <- apply(x[, tag_columns, drop = FALSE], 1, function(y) {
-      out <- stats::na.omit(data.frame(key = names(tag_columns), value = y, row.names = NULL))
+      out <- data.frame(key = names(tag_columns), value = y, row.names = NULL)
+      if (!keep_na_tags) {
+        out <- stats::na.omit(out)
+      }
 
       attr(out, "na.action") <- NULL
       rownames(out) <- NULL

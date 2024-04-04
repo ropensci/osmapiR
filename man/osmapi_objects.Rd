@@ -4,7 +4,7 @@
 \alias{osmapi_objects}
 \title{osmapi_objects constructor}
 \usage{
-osmapi_objects(x, tag_columns)
+osmapi_objects(x, tag_columns, keep_na_tags = FALSE)
 }
 \arguments{
 \item{x}{\code{data.frame} representing OSM objects as rows. At least it has a \code{type} column with \code{node}, \code{way} or
@@ -12,6 +12,9 @@ osmapi_objects(x, tag_columns)
 
 \item{tag_columns}{A vector indicating the name or position of the columns representing tags. If missing, it's
 assumed that \code{tags} column contain the tags (see details).}
+
+\item{keep_na_tags}{If \code{TRUE}, don't drop the empty tags specified in \code{tag_columns} and add \code{NA} as a value.
+Useful to remove specific tags with \code{\link[=osmchange_modify]{osmchange_modify()}} and specific \code{tag_keys}.}
 }
 \value{
 An \code{osmapi_objects}

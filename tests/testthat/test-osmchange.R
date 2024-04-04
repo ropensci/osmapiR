@@ -78,6 +78,7 @@ test_that("osmchange_modify works", {
       osm_id = c("35308286", "13073736", "235744929", "40581", "341530", "1935675367"),
       version = c(1, 3, 2, 5, 7, 1)
     )
+    obj_version$tags[[5]]$value[obj_version$tags[[5]]$key %in% c("name", "name:ca")] <- NA_character_
     osmchange_mod$version <- osmchange_modify(obj_version, members = TRUE, lat_lon = TRUE)
     osmchange_mod$version_name <- osmchange_modify(obj_version, tag_keys = "name", members = TRUE, lat_lon = TRUE)
 
@@ -99,6 +100,13 @@ test_that("osmchange_modify works", {
   lapply(osmchange_mod[c("current", "current_wide")], function(x) expect_equal(nrow(x), 0))
   expect_equal(nrow(osmchange_mod$version), nrow(obj_version))
   expect_true(nrow(osmchange_mod$version_name) > 0)
+
+  expect_false("name" %in% osmchange_mod$version_name$tags[[5]]$key)
+  expect_true("name:ca" %in% osmchange_mod$version_name$tags[[5]]$key)
+  expect_true(all(c("name", "name:ca") %in% osmchange_mod$version$tags[[5]]$key))
+  expect_true(all(is.na(
+    osmchange_mod$version$tags[[5]]$value[osmchange_mod$version$tags[[5]]$key %in% c("name", "name:ca")]
+  )))
 
   # osmcha_DF2xml
   lapply(osmchange_mod, function(x) expect_s3_class(osmcha_DF2xml(x), "xml_document"))

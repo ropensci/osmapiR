@@ -22,14 +22,15 @@ test_that("osmapi_objects works", {
   objs$tag_ch_named <- osmapi_objects(x, tag_columns = c(type = "type.1", name = "name"))
   objs$tag_num_named <- osmapi_objects(x, tag_columns = c(type = 6, name = 5))
 
-  x$name <- NULL
-  x$tags <- list(
+  x_tags <- x
+  x_tags$name <- NULL
+  x_tags$tags <- list(
     new_tags_df(),
     new_tags_df(),
     new_tags_df(data.frame(key = "name", value = "May way")),
     new_tags_df(data.frame(key = "name", value = "Our relation"))
   )
-  objs$tags <- osmapi_objects(x)
+  objs$tags <- osmapi_objects(x_tags)
 
   lapply(objs, function(x) {
     expect_s3_class(
@@ -38,5 +39,24 @@ test_that("osmapi_objects works", {
       exact = TRUE
     )
     lapply(x$tags, function(y) expect_false(any(is.na(y$value))))
+  })
+
+  # keep_na_tags = TRUE
+  objs_na <- list()
+  objs_na$tag_ch <- osmapi_objects(x, tag_columns = c("type.1", "name"), keep_na_tags = TRUE)
+  objs_na$tag_num <- osmapi_objects(x, tag_columns = 6:5, keep_na_tags = TRUE)
+  objs_na$tag_bool <- osmapi_objects(
+    x = x, tag_columns = c(FALSE, FALSE, FALSE, FALSE, TRUE, FALSE, FALSE), keep_na_tags = TRUE
+  )
+  objs_na$tag_ch_named <- osmapi_objects(x, tag_columns = c(type = "type.1", name = "name"), keep_na_tags = TRUE)
+  objs_na$tag_num_named <- osmapi_objects(x, tag_columns = c(type = 6, name = 5), keep_na_tags = TRUE)
+
+  lapply(objs_na, function(x) {
+    expect_s3_class(
+      validate_osmapi_objects(x, commited = FALSE),
+      class = c("osmapi_objects", "data.frame"),
+      exact = TRUE
+    )
+    expect_true(any(sapply(x$tags, function(y) any(is.na(y$value)))))
   })
 })
