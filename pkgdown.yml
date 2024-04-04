@@ -3,7 +3,7 @@ pkgdown: 2.0.7
 pkgdown_sha: ~
 articles:
   how_to_edit_osm: how_to_edit_osm.html
-last_built: 2024-03-26T10:46Z
+last_built: 2024-04-04T17:28Z
 urls:
   reference: https://jmaspons.github.io/osmapiR/reference
   article: https://jmaspons.github.io/osmapiR/articles
