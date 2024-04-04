@@ -73,7 +73,7 @@ test_that("edit changeset (create/update/diff upload) works", {
   osm_change_xml <- osmcha_DF2xml(osm_change)
 
   with_mock_dir("mock_diff_up_changeset", {
-    # TODO: better testing for osm_idff_upload_changeset
+    # TODO: better testing for osm_diff_upload_changeset
     # fetch <- list()
     # fetch$node <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367))
     # fetch$way <- osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L))
