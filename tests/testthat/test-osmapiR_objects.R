@@ -57,6 +57,6 @@ test_that("osmapi_objects works", {
       class = c("osmapi_objects", "data.frame"),
       exact = TRUE
     )
-    expect_true(any(sapply(x$tags, function(y) any(is.na(y$value)))))
+    expect_true(any(vapply(x$tags, function(y) any(is.na(y$value)), FUN.VALUE = logical(1))))
   })
 })
