@@ -177,7 +177,7 @@ osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "gpx")) {
 #' @family edit GPS traces' functions
 #' @export
 #'
-#' @examples
+# @examples
 osm_create_gpx <- function(file, description, tags, visibility = c("private", "public", "trackable", "identifiable")) {
   visibility <- match.arg(visibility)
   if (missing(tags)) {
@@ -219,7 +219,7 @@ osm_create_gpx <- function(file, description, tags, visibility = c("private", "p
 #' @family edit GPS traces' functions
 #' @export
 #'
-#' @examples
+# @examples
 osm_update_gpx <- function(gpx_id, file) {
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "PUT")
@@ -247,7 +247,7 @@ osm_update_gpx <- function(gpx_id, file) {
 #' @family edit GPS traces' functions
 #' @export
 #'
-#' @examples
+# @examples
 osm_delete_gpx <- function(gpx_id) {
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "DELETE")
