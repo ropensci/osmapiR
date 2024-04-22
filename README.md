@@ -12,6 +12,7 @@ coverage](https://codecov.io/gh/jmaspons/osmapiR/branch/main/graph/badge.svg)](h
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/osmapiR)](https://cran.r-project.org/package=osmapiR)
+[![](https://badges.ropensci.org/633_status.svg)](https://github.com/ropensci/software-review/issues/633)
 <!-- badges: end -->
 
 Implements [OpenStreetMap
@@ -131,7 +132,7 @@ gpx
 
 - [osmdata](https://cran.r-project.org/package=osmdata) implements the
   Overpass API to query data from OSM.
-- [osmexctract](https://cran.r-project.org/package=osmextract) matches,
+- [osmextract](https://cran.r-project.org/package=osmextract) matches,
   downloads, converts and imports bulk OSM data (`.pbf` files)
 - [OpenStreetMap](https://cran.r-project.org/package=OpenStreetMap)
   Accesses high resolution raster maps using the OpenStreetMap protocol.
@@ -143,8 +144,10 @@ that allows editing and upload any kind of data.
 
 To access the OSM map data for purposes other than editing or exploring
 the history of the objects, perhaps is better to use the other packages
-that implements the Overpass API (`osmdata`) or that works with `.pbf`
-files (`osmexcract`).
+that implements the Overpass API
+([osmdata](https://cran.r-project.org/package=osmdata)) or that works
+with `.pbf` files
+([osmextract](https://cran.r-project.org/package=osmextract)).
 
 ## Code of Conduct
 
