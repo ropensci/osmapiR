@@ -1,8 +1,8 @@
-structure(list(method = "GET", url = "https://openstreetmap-gps-traces.s3.dualstack.eu-west-1.amazonaws.com/0j780j5aldkjjd07uk4jbg3lco3t?response-content-disposition=attachment%3B%20filename%3D%223458743.gpx%22%3B%20filename%2A%3DUTF-8%27%273458743.gpx&response-content-type=application%2Fgpx%2Bxml&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIASQUXHPE7AMJQRFOS%2F20240325%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20240325T094737Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=354f5893d357368971f31541c424bbdb8d3bf05e0c0712de4a522c4e94adda84", 
-    status_code = 200L, headers = structure(list(`x-amz-id-2` = "Or5n6T8Fxug1l4i2X8jLMwq70WfX6Iczq707fvVVwybSki2UHW1ILEJPPmDzoaDRwpKsaNzGHjU=", 
-        `x-amz-request-id` = "VQGZKK1EFBKZC6MX", Date = "Mon, 25 Mar 2024 09:47:38 GMT", 
-        `x-amz-replication-status` = "COMPLETED", `Last-Modified` = "Wed, 02 Mar 2022 22:41:40 GMT", 
-        ETag = "\"05a29542ae0f0181b1187b68a2b98535\"", `Cache-Control` = "public, max-age=31536000, immutable", 
+structure(list(method = "GET", url = "https://openstreetmap-gps-traces.s3.dualstack.eu-west-1.amazonaws.com/0j780j5aldkjjd07uk4jbg3lco3t?response-content-disposition=attachment%3B%20filename%3D%223458743.gpx%22%3B%20filename%2A%3DUTF-8%27%273458743.gpx&response-content-type=application%2Fgpx%2Bxml&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIASQUXHPE7AMJQRFOS%2F20240425%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20240425T084725Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=f3492c3e7af80ec0d26ee2910ec883457cbb0aafc7eb5531874c2299a4a9821f", 
+    status_code = 200L, headers = structure(list(`x-amz-id-2` = "REDACTED", 
+        `x-amz-request-id` = "REDACTED", Date = "REDACTED", `x-amz-replication-status` = "COMPLETED", 
+        `Last-Modified` = "Wed, 02 Mar 2022 22:41:40 GMT", ETag = "\"05a29542ae0f0181b1187b68a2b98535\"", 
+        `Cache-Control` = "public, max-age=31536000, immutable", 
         `Content-Disposition` = "attachment; filename=\"3458743.gpx\"; filename*=UTF-8''3458743.gpx", 
         `x-amz-version-id` = "lS5bf7hjJ8dTACfw8_yLzrg7TnQ4rDKC", 
         `Accept-Ranges` = "bytes", `Content-Type` = "application/gpx+xml", 
@@ -6262,7 +6262,7 @@ structure(list(method = "GET", url = "https://openstreetmap-gps-traces.s3.dualst
     0x2f, 0x67, 0x70, 0x78, 0x3e)), request = structure(list(
         url = "https://api.openstreetmap.org/api/0.6/gpx/3458743/data", 
         method = "GET", headers = structure(list(Authorization = "Bearer kcV3MYRNTBJOt-1Tqd5Yfv-jaAUEbDcbmynR0TdZ5ek"), redact = "Authorization"), 
-        body = NULL, fields = list(), options = list(useragent = "osmapiR 0.0.0.25 (https://github.com/jmaspons/osmapiR)"), 
+        body = NULL, fields = list(), options = list(useragent = "osmapiR (https://github.com/jmaspons/osmapiR)"), 
         policies = list(retry_max_tries = 10L, error_body = function (resp) 
         {
             out <- switch(httr2::resp_content_type(resp), `text/plain` = httr2::resp_body_string(resp), 
