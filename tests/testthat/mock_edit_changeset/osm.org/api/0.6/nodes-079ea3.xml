@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.10.0.2404251208 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <node id="4348975165" visible="true" version="1" changeset="357556" timestamp="2024-04-26T16:12:00Z" user="jmaspons" uid="12141" lat="0.0000000" lon="0.0000000"/>
+ <node id="4348975166" visible="true" version="1" changeset="357556" timestamp="2024-04-26T16:12:00Z" user="jmaspons" uid="12141" lat="1.0000000" lon="1.0000000"/>
+</osm>

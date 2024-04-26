@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
- <changeset id="268845" created_at="2023-08-18T16:28:07Z" open="true" user="jmaspons" uid="12141" comments_count="0" changes_count="0">
-  <tag k="hashtags" v="#testing;#osmapiR"/>
-  <tag k="source" v="GPS;survey"/>
-  <tag k="created_by" v="osmapiR"/>
-  <tag k="comment" v="Describe the changeset"/>
- </changeset>
-</osm>

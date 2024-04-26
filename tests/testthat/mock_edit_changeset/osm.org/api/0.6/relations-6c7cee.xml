@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.10.0.2404251208 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <relation id="4305223445" visible="true" version="1" changeset="357556" timestamp="2024-04-26T16:12:00Z" user="jmaspons" uid="12141">
+  <member type="node" ref="4348975165" role="NA"/>
+  <member type="node" ref="4348975166" role="NA"/>
+  <member type="way" ref="4306500964" role="outer"/>
+  <tag k="name" v="Our relation"/>
+  <tag k="type" v="Column clash!"/>
+ </relation>
+</osm>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.10.0.2404251208 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <way id="4306500964" visible="true" version="1" changeset="357556" timestamp="2024-04-26T16:12:00Z" user="jmaspons" uid="12141">
+  <nd ref="4348975165"/>
+  <nd ref="4348975166"/>
+  <tag k="name" v="My way"/>
+ </way>
+</osm>

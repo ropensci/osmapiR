@@ -27,6 +27,24 @@ class_columns_discussion <- list(
 
 
 test_that("edit changeset (create/update/diff upload) works", {
+  d <- data.frame(
+    type = c("node", "node", "way", "relation"),
+    id = -(1:4),
+    lat = c(0, 1, NA, NA),
+    lon = c(0, 1, NA, NA),
+    name = c(NA, NA, "My way", "Our relation"),
+    type.1 = c(NA, NA, NA, "Column clash!")
+  )
+  d$members <- list(
+    NULL, NULL, -(1:2),
+    matrix(
+      c("node", "-1", NA, "node", "-2", NA, "way", "-3", "outer"),
+      nrow = 3, ncol = 3, byrow = TRUE, dimnames = list(NULL, c("type", "ref", "role"))
+    )
+  )
+  obj <- osmapi_objects(d, tag_columns = c(name = "name", type = "type.1"))
+  osmchange_crea <- osmchange_create(obj)
+
   with_mock_dir("mock_edit_changeset", {
     ## Create: `PUT /api/0.6/changeset/create` ----
     expect_message(
@@ -49,44 +67,47 @@ test_that("edit changeset (create/update/diff upload) works", {
       created_by = "osmapiR", # avoid changes in calls when updating version
       hashtags = "#testing;#osmapiR"
     )
+
+    ## Diff upload: `POST /api/0.6/changeset/#id/upload` ----
+    diff_up <- osm_diff_upload_changeset(changeset_id = chset_id, osmcha = osmchange_crea)
+
+    osmchange_del <- osmchange_delete(data.frame(type = diff_up$type, id = diff_up$new_id))
+    osmchange_del_xml <- osmcha_DF2xml(osmchange_del[osmchange_del$type != "node", ])
+    osmchange_del_file <- osmcha_DF2xml(osmchange_del[osmchange_del$type == "node", ])
+    path_del <- tempfile(fileext = ".osc")
+    xml2::write_xml(osmchange_del_file, path_del)
+    diff_up_del1 <- osm_diff_upload_changeset(changeset_id = chset_id, osmcha = osmchange_del_xml, format = "xml")
+    diff_up_del2 <- osm_diff_upload_changeset(changeset_id = chset_id, osmcha = path_del)
+
+    ## Close: `PUT /api/0.6/changeset/#id/close` ----
+    resp_close <- osm_close_changeset(changeset_id = chset_id)
   })
+  file.remove(path_del)
 
   expect_type(chset_id, "character")
-  expect_s3_class(upd_chaset, c("osmapi_changesets", "data.frame"))
+  expect_s3_class(upd_chaset, c("osmapi_changesets", "data.frame"), exact = TRUE)
   expect_identical(chaset[, setdiff(names(chaset), "tags")], upd_chaset[, setdiff(names(upd_chaset), "tags")])
 
   expect_error(osm_create_changeset(), "A descriptive comment of the changeset is mandatory.")
   expect_error(osm_update_changeset(), "A descriptive comment of the changeset is mandatory.")
 
-  ## Diff upload: `POST /api/0.6/changeset/#id/upload` ----
+  expect_s3_class(diff_up, "data.frame")
+  expect_s3_class(diff_up_del1, "xml_document")
+  expect_s3_class(diff_up_del2, "data.frame")
+  expect_named(diff_up, c("type", "old_id", "new_id", "new_version"))
+  expect_named(diff_up_del2, c("type", "old_id"))
+  expect_equal(nrow(diff_up), nrow(obj))
+  expect_equal(length(xml2::xml_children(diff_up_del1)) + nrow(diff_up_del2), nrow(obj))
 
-  xml <- xml2::read_xml(test_path("sample_files/osm_objects.xml"))
-  objs <- object_xml2DF(xml)
-  osm_change <- cbind(action_type = c("delete", "modify", "delete", "modify", "modify"), objs)
-  class(osm_change) <- c("osmapi_OsmChange", class(osm_change))
-
-  osm_change$tags[osm_change$action_type == "modify"] <- lapply(
-    osm_change$tags[osm_change$action_type == "modify"],
-    function(x) rbind(x, c("name:ca", "Test modify with OsmChange"))
+  expect_error(
+    osm_diff_upload_changeset(changeset_id = chset_id, osmcha = numeric()),
+    "`osmcha` must be a path to a OsmChage file, a `xml_document` with a OsmChange content or an `osmapi_OsmChange` "
   )
-
-  osm_change_xml <- osmcha_DF2xml(osm_change)
-
-  with_mock_dir("mock_diff_up_changeset", {
-    # TODO: better testing for osm_diff_upload_changeset
-    # fetch <- list()
-    # fetch$node <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367))
-    # fetch$way <- osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L))
-    # fetch$rel <- osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"))
-    # HTTP 404 Not Found. (testing server)
-    # bbox_objects <- osm_bbox_objects(bbox = c(0.5, 40, 1, 40.5))
-
-    # diff_up <-  osm_diff_upload_changeset(changeset_id = chset_id, osmcha = osm_change)
-    # TODO: ! HTTP 409 Conflict. In testing server
-  })
-
-  ## Close: `PUT /api/0.6/changeset/#id/close` ----
-  # osm_close_changeset(changeset_id = chset_id)
+  expect_error(
+    osm_diff_upload_changeset(changeset_id = chset_id, osmcha = "doesnt_exist"),
+    "`osmcha` is interpreted as a path to an OsmChange file, but it can't be found "
+  )
+  expect_null(resp_close)
 })
 
 

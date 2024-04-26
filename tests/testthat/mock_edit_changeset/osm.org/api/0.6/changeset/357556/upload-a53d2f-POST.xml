@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<diffResult version="0.6" generator="CGImap 0.10.0.2404251208 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <node old_id="-1" new_id="4348975165" new_version="1"/>
+ <node old_id="-2" new_id="4348975166" new_version="1"/>
+ <way old_id="-3" new_id="4306500964" new_version="1"/>
+ <relation old_id="-4" new_id="4305223445" new_version="1"/>
+</diffResult>
