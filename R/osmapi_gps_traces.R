@@ -173,7 +173,7 @@ osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "gpx")) {
 #' successfully even if the file cannot be processed. The file may also be a .tar, .tar.gz or .zip containing multiple
 #' gpx files, although it will appear as a single entry in the upload log.
 #'
-#' @return A number representing the ID of the new gpx
+#' @return A number representing the ID of the new gpx.
 #' @family edit GPS traces' functions
 #' @export
 #'
@@ -224,7 +224,7 @@ osm_update_gpx <- function(gpx_id, file) {
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "PUT")
   req <- httr2::req_url_path_append(req, "gpx", gpx_id)
-  req <- httr2::req_body_multipart(req, file = curl::form_file(file))
+  req <- httr2::req_body_file(req, path = file)
 
   resp <- httr2::req_perform(req)
 

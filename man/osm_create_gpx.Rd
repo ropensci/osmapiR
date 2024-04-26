@@ -23,7 +23,7 @@ osm_create_gpx(
 \href{https://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces}{Visibility of GPS traces}).}
 }
 \value{
-A number representing the ID of the new gpx
+A number representing the ID of the new gpx.
 }
 \description{
 Use this to upload a GPX file or archive of GPX files. Requires authentication.

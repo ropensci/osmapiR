@@ -58,30 +58,25 @@ test_that("osm_get_points_gps works", {
 test_that("edit gpx works", {
   gpx_path <- test_path("sample_files", "sample.gpx")
 
-  ## Create: `POST /api/0.6/gpx/create` ----
-  # with_mock_dir("mock_create_gpx", { # TODO: fails with mock dir
-  # create_trace <- osm_create_gpx(
-  #   file = gpx_path,
-  #   description = "Test create gpx with osmapiR.",
-  #   tags = c("testing", "osmapiR")
-  # )
+  # with_mock_dir("mock_edit_gpx", {
+  #   # TODO: Error in x$value : $ operator is invalid for atomic vectors
+  #   # Called from: rawToChar(x$value)
+  #   ## Create: `POST /api/0.6/gpx/create` ----
+  #   create_trace <- osm_create_gpx(
+  #     file = gpx_path,
+  #     description = "Test create gpx with osmapiR.",
+  #     tags = c("testing", "osmapiR")
+  #   )
+  #
+  #   ## Update: `PUT /api/0.6/gpx/#id` ----
+  #   # upd_trace <- osm_update_gpx(gpx_id = create_trace, file = gpx_path)
+  #   # TODO: HTTP 400 Bad Request. Cannot parse valid trace from xml string
+  #
+  #   ## Delete: `DELETE /api/0.6/gpx/#id` ----
+  #   del_trace <- osm_delete_gpx(gpx_id = create_trace)
   # })
-
+  #
   # expect_type(create_trace, "character")
-
-  ## Update: `PUT /api/0.6/gpx/#id` ----
-
-  # with_mock_dir("mock_update_gpx", {
-  #   upd_trace <- osm_update_gpx(gpx_id = create_trace, file = gpx_path)
-  # TODO: HTTP 502 Bad Gateway.
-  # })
-
-  ## Delete: `DELETE /api/0.6/gpx/#id` ----
-
-  # expect_DELETE(
-  # del_trace <- osm_delete_gpx(gpx_id = create_trace)
-  # )
-
   # expect_null(del_trace)
 })
 
