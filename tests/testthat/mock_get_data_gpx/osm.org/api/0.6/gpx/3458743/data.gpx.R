@@ -5,7 +5,7 @@ structure(list(method = "GET", url = "osm.org/api/0.6/gpx/3458743/data.gpx",
         `content-language` = "en", `x-request-id` = "REDACTED", 
         `content-disposition` = "attachment; filename=\"3458743.gpx\"; filename*=UTF-8''3458743.gpx", 
         `x-download-options` = "noopen", `content-transfer-encoding` = "binary", 
-        `x-runtime` = "0.252595", `x-frame-options` = "sameorigin", 
+        `x-runtime` = "0.250427", `x-frame-options` = "sameorigin", 
         `x-content-type-options` = "nosniff", `content-security-policy` = "default-src 'self'; child-src 'self'; connect-src 'self' matomo.openstreetmap.org; font-src 'none'; form-action 'self'; frame-ancestors 'self'; frame-src 'self'; img-src 'self' data: www.gravatar.com *.wp.com tile.openstreetmap.org *.tile.openstreetmap.org *.tile.thunderforest.com tile.tracestrack.com *.openstreetmap.fr matomo.openstreetmap.org https://openstreetmap-user-avatars.s3.dualstack.eu-west-1.amazonaws.com https://openstreetmap-gps-images.s3.dualstack.eu-west-1.amazonaws.com; manifest-src 'self'; media-src 'none'; object-src 'self'; script-src 'self' matomo.openstreetmap.org; style-src 'self'; worker-src 'none'", 
         date = "REDACTED", `x-powered-by` = "Phusion Passenger(R) 6.0.20", 
         `strict-transport-security` = "max-age=31536000; includeSubDomains; preload", 
@@ -6263,26 +6263,4 @@ structure(list(method = "GET", url = "osm.org/api/0.6/gpx/3458743/data.gpx",
     0x72, 0x6b, 0x70, 0x74, 0x3e, 0x0a, 0x20, 0x20, 0x20, 0x20, 
     0x3c, 0x2f, 0x74, 0x72, 0x6b, 0x73, 0x65, 0x67, 0x3e, 0x0a, 
     0x20, 0x20, 0x3c, 0x2f, 0x74, 0x72, 0x6b, 0x3e, 0x0a, 0x3c, 
-    0x2f, 0x67, 0x70, 0x78, 0x3e)), request = structure(list(
-        url = "https://api.openstreetmap.org/api/0.6/gpx/3458743/data.gpx", 
-        method = "GET", headers = structure(list(Authorization = "Bearer kcV3MYRNTBJOt-1Tqd5Yfv-jaAUEbDcbmynR0TdZ5ek"), redact = "Authorization"), 
-        body = NULL, fields = list(), options = list(useragent = "osmapiR (https://github.com/jmaspons/osmapiR)"), 
-        policies = list(retry_max_tries = 10L, error_body = function (resp) 
-        {
-            out <- switch(httr2::resp_content_type(resp), `text/plain` = httr2::resp_body_string(resp), 
-                `text/html` = parse_html_error(resp), httr2::resp_headers(resp)$status)
-            return(out)
-        }, auth_oauth = list(cache = list(get = function () 
-        env_get(the$token_cache, key, default = NULL), set = function (token) 
-        env_poke(the$token_cache, key, token), clear = function () 
-        env_unbind(the$token_cache, key)), flow = "oauth_flow_auth_code", 
-            flow_params = list(client = structure(list(name = "osmapiR", 
-                id = "cxMGJjSNnEGiKHAdp0pGq54XtQPTSyuTOu-nVJ4P6FE", 
-                secret = structure("L9o3QNmMC-rn8Hl6qcJrCpkty2QUCJPAWoiB2lIwawoZup_gfImaV9iUfGSZIeZSLP_s89qiFrbAH_Y", class = "httr2_obfuscated"), 
-                key = NULL, token_url = "https://www.openstreetmap.org/oauth2/token", 
-                auth = "oauth_client_req_auth_header", auth_params = list()), class = "httr2_oauth_client"), 
-                auth_url = "https://www.openstreetmap.org/oauth2/authorize", 
-                scope = "read_prefs write_prefs write_api read_gpx write_gpx write_notes", 
-                pkce = TRUE, auth_params = list(), token_params = list(), 
-                redirect_uri = "http://127.0.0.1:44392")))), class = "httr2_request"), 
-    cache = new.env(parent = emptyenv())), class = "httr2_response")
+    0x2f, 0x67, 0x70, 0x78, 0x3e)), cache = new.env(parent = emptyenv())), class = "httr2_response")

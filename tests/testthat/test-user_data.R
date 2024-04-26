@@ -107,54 +107,32 @@ test_that("osm_details_logged_user works", {
 
 ## Preferences of the logged-in user: `GET /api/0.6/user/preferences` ----
 
-#  PUT /api/0.6/user/preferences
-#
-# The same structure in the body of the a PUT will upload preferences. All existing preferences are replaced by the newly uploaded set.
-#
-#  GET /api/0.6/user/preferences/[your_key] (without the brackets)
-#
-# Returns a string with that preference's value.
-#
-#  PUT /api/0.6/user/preferences/[your_key] (without the brackets)
-#
-# Will set a single preference's value to a string passed as the content of the request.
-#
-#  PUT /api/0.6/user/preferences/[your_key]
-#
-# in this instance, the payload of the request should only contain the value of the preference, i.e. not XML formatted.
-#
-# The PUT call returns HTTP response code 406 (not acceptable) if the same key occurs more than once, and code 413 (request entity too large) if you try to upload more than 150 preferences at once. The sizes of the key and value are limited to 255 characters.
-#
-# A single preference entry can be deleted with
-#
-#  DELETE /api/0.6/user/preferences/[your_key]
-
-test_that("osm_get_preferences_user works", {
-  path_xml <- tempfile(fileext = ".xml")
+test_that("osm_set-get_preferences_user works", {
   with_mock_dir("mock_get_prefs_user", {
+    ###  `GET /api/0.6/user/preferences` ----
     preferences <- osm_get_preferences_user()
     preferences_xml <- osm_get_preferences_user(format = "xml")
     preferences_json <- osm_get_preferences_user(format = "json")
+    ###  `GET /api/0.6/user/preferences/[your_key]` (without the brackets) ----
     preference <- osm_get_preferences_user(key = "mapcomplete-language")
     # preference <- osm_get_preferences_user(key = "gps.trace.visibility") # TODO: error due to dots?
   })
 
-  with_mock_dir("mock_set_prefs_user",
-    {
-      expect_null(osm_set_preferences_user(key = "test-pref", value = "value"))
-      expect_null(osm_set_preferences_user(key = "test-pref", value = NULL))
+  path_xml <- tempfile(fileext = ".xml")
+  with_mock_dir("mock_set_prefs_user", {
+    ###  `PUT /api/0.6/user/preferences/[your_key]` ----
+    expect_null(osm_set_preferences_user(key = "test-pref", value = "value"))
+    ###  `DELETE /api/0.6/user/preferences/[your_key]` ----
+    expect_null(osm_set_preferences_user(key = "test-pref", value = NULL))
+    ###  `PUT /api/0.6/user/preferences` ----
+    expect_null(osm_set_preferences_user(all_prefs = preferences))
+    expect_null(osm_set_preferences_user(all_prefs = preferences_xml))
+    expect_null(osm_set_preferences_user(all_prefs = preferences_json))
 
-      expect_null(osm_set_preferences_user(all_prefs = preferences))
-      expect_null(osm_set_preferences_user(all_prefs = preferences_xml))
-      expect_null(osm_set_preferences_user(all_prefs = preferences_json))
-
-      xml2::write_xml(preferences_xml, file = path_xml)
-      expect_null(osm_set_preferences_user(all_prefs = path_xml))
-    },
-    simplify = FALSE
-  )
+    xml2::write_xml(preferences_xml, file = path_xml)
+    expect_null(osm_set_preferences_user(all_prefs = path_xml))
+  })
   file.remove(path_xml)
-
 
   expect_s3_class(preferences, "data.frame")
   expect_named(preferences, c("key", "value"))

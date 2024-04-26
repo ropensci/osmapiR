@@ -1,8 +1,8 @@
-structure(list(method = "GET", url = "https://openstreetmap-gps-traces.s3.dualstack.eu-west-1.amazonaws.com/0j780j5aldkjjd07uk4jbg3lco3t?response-content-disposition=attachment%3B%20filename%3D%223458743.gpx%22%3B%20filename%2A%3DUTF-8%27%273458743.gpx&response-content-type=application%2Fgpx%2Bxml&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIASQUXHPE7AMJQRFOS%2F20240425%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20240425T084725Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=f3492c3e7af80ec0d26ee2910ec883457cbb0aafc7eb5531874c2299a4a9821f", 
-    status_code = 200L, headers = structure(list(`x-amz-id-2` = "REDACTED", 
-        `x-amz-request-id` = "REDACTED", Date = "REDACTED", `x-amz-replication-status` = "COMPLETED", 
-        `Last-Modified` = "Wed, 02 Mar 2022 22:41:40 GMT", ETag = "\"05a29542ae0f0181b1187b68a2b98535\"", 
-        `Cache-Control` = "public, max-age=31536000, immutable", 
+structure(list(method = "GET", url = "https://openstreetmap-gps-traces.s3.dualstack.eu-west-1.amazonaws.com/0j780j5aldkjjd07uk4jbg3lco3t?response-content-disposition=attachment%3B%20filename%3D%223458743.gpx%22%3B%20filename%2A%3DUTF-8%27%273458743.gpx&response-content-type=application%2Fgpx%2Bxml&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIASQUXHPE7AMJQRFOS%2F20240426%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20240426T102812Z&X-Amz-Expires=300&X-Amz-SignedHeaders=host&X-Amz-Signature=aa140fc459ac049d9a22cd0940415e03f005a272de358ebf6e013e68b3fb1ea4", 
+    status_code = 200L, headers = structure(list(`x-amz-id-2` = "8K25LubAjNTPqBq0P6UnjGK9h9WzTp68joIhBescwAHL0vvcBzbnYDF1uQEw2g4WsJLuw44gbsQ=", 
+        `x-amz-request-id` = "AZ9FE54K9F9B77BN", Date = "REDACTED", 
+        `x-amz-replication-status` = "COMPLETED", `Last-Modified` = "Wed, 02 Mar 2022 22:41:40 GMT", 
+        ETag = "\"05a29542ae0f0181b1187b68a2b98535\"", `Cache-Control` = "public, max-age=31536000, immutable", 
         `Content-Disposition` = "attachment; filename=\"3458743.gpx\"; filename*=UTF-8''3458743.gpx", 
         `x-amz-version-id` = "lS5bf7hjJ8dTACfw8_yLzrg7TnQ4rDKC", 
         `Accept-Ranges` = "bytes", `Content-Type` = "application/gpx+xml", 
@@ -6259,26 +6259,4 @@ structure(list(method = "GET", url = "https://openstreetmap-gps-traces.s3.dualst
     0x72, 0x6b, 0x70, 0x74, 0x3e, 0x0a, 0x20, 0x20, 0x20, 0x20, 
     0x3c, 0x2f, 0x74, 0x72, 0x6b, 0x73, 0x65, 0x67, 0x3e, 0x0a, 
     0x20, 0x20, 0x3c, 0x2f, 0x74, 0x72, 0x6b, 0x3e, 0x0a, 0x3c, 
-    0x2f, 0x67, 0x70, 0x78, 0x3e)), request = structure(list(
-        url = "https://api.openstreetmap.org/api/0.6/gpx/3458743/data", 
-        method = "GET", headers = structure(list(Authorization = "Bearer kcV3MYRNTBJOt-1Tqd5Yfv-jaAUEbDcbmynR0TdZ5ek"), redact = "Authorization"), 
-        body = NULL, fields = list(), options = list(useragent = "osmapiR (https://github.com/jmaspons/osmapiR)"), 
-        policies = list(retry_max_tries = 10L, error_body = function (resp) 
-        {
-            out <- switch(httr2::resp_content_type(resp), `text/plain` = httr2::resp_body_string(resp), 
-                `text/html` = parse_html_error(resp), httr2::resp_headers(resp)$status)
-            return(out)
-        }, auth_oauth = list(cache = list(get = function () 
-        env_get(the$token_cache, key, default = NULL), set = function (token) 
-        env_poke(the$token_cache, key, token), clear = function () 
-        env_unbind(the$token_cache, key)), flow = "oauth_flow_auth_code", 
-            flow_params = list(client = structure(list(name = "osmapiR", 
-                id = "cxMGJjSNnEGiKHAdp0pGq54XtQPTSyuTOu-nVJ4P6FE", 
-                secret = structure("L9o3QNmMC-rn8Hl6qcJrCpkty2QUCJPAWoiB2lIwawoZup_gfImaV9iUfGSZIeZSLP_s89qiFrbAH_Y", class = "httr2_obfuscated"), 
-                key = NULL, token_url = "https://www.openstreetmap.org/oauth2/token", 
-                auth = "oauth_client_req_auth_header", auth_params = list()), class = "httr2_oauth_client"), 
-                auth_url = "https://www.openstreetmap.org/oauth2/authorize", 
-                scope = "read_prefs write_prefs write_api read_gpx write_gpx write_notes", 
-                pkce = TRUE, auth_params = list(), token_params = list(), 
-                redirect_uri = "http://127.0.0.1:14149")))), class = "httr2_request"), 
-    cache = new.env(parent = emptyenv())), class = "httr2_response")
+    0x2f, 0x67, 0x70, 0x78, 0x3e)), cache = new.env(parent = emptyenv())), class = "httr2_response")

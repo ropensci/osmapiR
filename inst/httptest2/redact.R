@@ -30,7 +30,7 @@ function(response) {
   # simplify = FALSE
   response <- httptest2::redact_headers(
     response,
-    headers = c("x-request-id", "date", "Authorization", "x-amz-id-2", "x-amz-request-id")
+    headers = c("x-request-id", "date", "x-amz-id-2", "x-amz-request-id")
   )
 
   return(response)
