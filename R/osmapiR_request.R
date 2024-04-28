@@ -34,6 +34,13 @@ parse_html_error_body <- function(resp) {
   html <- httr2::resp_body_html(resp)
   msg <- xml2::xml_children(xml2::xml_find_all(html, ".//div"))
   out <- xml2::xml_text(msg)
+  out <- c(
+    out,
+    paste(
+      "Please, open an issue at `https://github.com/jmaspons/osmapiR/issues`",
+      "and report the output of `httr2::last_response()`."
+    )
+  )
 
   return(out)
 }

@@ -23,6 +23,11 @@ test_that("error handling works", {
       "The user doesn't own that changeset"
     )
 
-    ## TODO: look for error responses with body as text/html
+    ##  Message in the body (content-type: text/html)
+    expect_error(
+      osmapi_request() |> httr2::req_url_path_append("err") |> httr2::req_perform(),
+      "File not found"
+    )
+    # expect_error(osm_delete_gpx(1:2)) may be fixed in the future by vectorizing api calls
   })
 })
