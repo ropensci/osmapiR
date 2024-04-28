@@ -148,6 +148,7 @@ test_that("osm_set-get_preferences_user works", {
     "`key` & `value`, or `all_prefs` must be provided but not all at the same time."
   )
   expect_error(osm_set_preferences_user(), "`key` is missing with no defaults.")
+  expect_error(osm_set_preferences_user(key = "mapcomplete-language"), "`value` is missing with no defaults.")
   expect_error(osm_set_preferences_user(all_prefs = "x"), "`all_prefs` is interpreted as a path to an xml file with ")
   expect_error(osm_set_preferences_user(all_prefs = TRUE), "`all_prefs` must be a path to a xml file with the ")
 })

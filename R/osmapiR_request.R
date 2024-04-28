@@ -14,19 +14,23 @@ osmapi_request <- function(authenticate = FALSE) {
 
 
 error_body <- function(resp) {
-  out <- switch(httr2::resp_content_type(resp),
-    "text/plain" = httr2::resp_body_string(resp),
-    "text/html" = parse_html_error(resp),
-    httr2::resp_headers(resp)$status
-  )
+  if (!httr2::resp_has_body(resp)) {
+    out <- httr2::resp_header(resp, "error") # only when there is a body in resp? Identical content than body
+    if (is.null(out)) {
+      out <- NULL
+    }
+  } else {
+    out <- switch(httr2::resp_content_type(resp),
+      "text/plain" = httr2::resp_body_string(resp),
+      "text/html" = parse_html_error_body(resp),
+      httr2::resp_header(resp, "error")
+    )
+  }
 
   return(out)
 }
 
-parse_html_error <- function(resp) {
-  if (length(resp$body) == 0) {
-    return(httr2::resp_headers(resp)$status)
-  }
+parse_html_error_body <- function(resp) {
   html <- httr2::resp_body_html(resp)
   msg <- xml2::xml_children(xml2::xml_find_all(html, ".//div"))
   out <- xml2::xml_text(msg)

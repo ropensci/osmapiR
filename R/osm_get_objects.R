@@ -144,9 +144,14 @@ osm_get_objects <- function(osm_type, osm_id, version, full_objects = FALSE,
     # Order by types (node, way, relation)
 
     if (format == "R") {
-      out <- do.call(rbind, out[intersect(c("node", "way", "relation"), names(ord_out))])
+      out <- do.call(rbind, out[intersect(c("node", "way", "relation"), names(out))])
       out <- rbind(out[out$type == "node", ], out[out$type == "way", ])
       out <- rbind(out, out[out$type == "relation", ])
+      rownames(out) <- NULL
+
+      if (tags_in_columns) {
+        out <- tags_list2wide(out)
+      }
     } else if (format == "xml") {
       ## TODO: test. Use xml2::xml_find_all()?
       out <- out[intersect(c("node", "way", "relation"), names(out))]

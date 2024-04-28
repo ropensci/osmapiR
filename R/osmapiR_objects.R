@@ -33,10 +33,10 @@ osmapi_objects <- function(x, tag_columns, keep_na_tags = FALSE) {
     x$members[x$type == "way"] <- lapply(x$members[x$type == "way"], new_way_members)
     x$members[x$type == "relation"] <- lapply(x$members[x$type == "relation"], new_relation_members)
   } else {
-    x$members[x$type == "node"] <- lapply(seq_len(nrow(x[x$type == "node", ])), function(m) NULL)
-    x$members[x$type == "way"] <- lapply(seq_len(nrow(x[x$type == "way", ])), function(m) new_way_members())
+    x$members[x$type == "node"] <- lapply(seq_len(sum(x$type == "node")), function(m) NULL)
+    x$members[x$type == "way"] <- lapply(seq_len(sum(x$type == "way")), function(m) new_way_members())
     x$members[x$type == "relation"] <- lapply(
-      seq_len(nrow(x[x$type == "relation", ])), function(m) new_relation_members()
+      seq_len(sum(x$type == "relation")), function(m) new_relation_members()
     )
   }
 

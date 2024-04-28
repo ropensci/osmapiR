@@ -9,6 +9,44 @@ class_columns <- list(
 )
 
 
+## osm_get_objects ----
+
+test_that("osm_read_object works", {
+  ## Test errors
+
+  expect_error(
+    osm_get_objects(osm_type = "relation", osm_id = 1, version = 1, full_objects = TRUE),
+    "Getting full objects with specific version is not supported."
+  )
+  expect_error(
+    osm_get_objects(osm_type = c("node", "relation"), osm_id = 1:3),
+    "`osm_id` length must be a multiple of `osm_type` length."
+  )
+  expect_error(
+    osm_get_objects(osm_type = c("node", "relation"), osm_id = 1),
+    "`osm_id` length must be a multiple of `osm_type` length."
+  )
+  expect_error(
+    osm_get_objects(osm_type = "relation", osm_id = 1:3, version = 1:2),
+    "`osm_id` length must be a multiple of `version` length."
+  )
+  expect_error(
+    osm_get_objects(osm_type = "relation", osm_id = 1:2, version = 1:3),
+    "`osm_id` length must be a multiple of `version` length."
+  )
+
+  with_mock_dir("mock_get_objects", {
+    expect_warning(
+      objs <- osm_get_objects(
+        osm_type = c("way", "way", "relation"), osm_id = c(235744929, 235744929, 6002785),
+        full_objects = TRUE, tags_in_columns = TRUE
+      ),
+      "Duplicated elements discarded."
+    )
+  })
+})
+
+
 ## Read: `GET /api/0.6/[node|way|relation]/#id` ----
 
 test_that("osm_read_object works", {
@@ -111,6 +149,39 @@ test_that("edit OSM object works", {
   expect_match(create_id, "[0-9]+")
   lapply(update_version, expect_identical, "2")
   lapply(delete_version, expect_identical, "3")
+
+
+  ## Test errors
+
+  expect_error(
+    osm_create_object(x = "doesnt_exist", changeset_id = changeset_id),
+    "`x` is interpreted as a path to an xml file, but it can't be found "
+  )
+  expect_error(osm_create_object(x = data.frame(), changeset_id = changeset_id), "`x` lacks ")
+  expect_error(
+    osm_create_object(x = list(), changeset_id = changeset_id),
+    "`x` must be a path to a xml file, a `xml_document` "
+  )
+
+  expect_error(
+    osm_update_object(x = "doesnt_exist", changeset_id = changeset_id),
+    "`x` is interpreted as a path to an xml file, but it can't be found "
+  )
+  expect_error(osm_update_object(x = data.frame(), changeset_id = changeset_id), "`x` lacks ")
+  expect_error(
+    osm_update_object(x = list(), changeset_id = changeset_id),
+    "`x` must be a path to a xml file, a `xml_document` "
+  )
+
+  expect_error(
+    osm_delete_object(x = "doesnt_exist", changeset_id = changeset_id),
+    "`x` is interpreted as a path to an xml file, but it can't be found "
+  )
+  expect_error(osm_delete_object(x = data.frame(), changeset_id = changeset_id), "`x` lacks ")
+  expect_error(
+    osm_delete_object(x = list(), changeset_id = changeset_id),
+    "`x` must be a path to a xml file, a `xml_document` "
+  )
 })
 
 
@@ -174,6 +245,7 @@ test_that("osm_fetch_objects works", {
   with_mock_dir("mock_fetch_objects", {
     fetch$node <- osm_get_objects(osm_type = "node", osm_id = c(35308286, 1935675367))
     fetch$way <- osm_get_objects(osm_type = "way", osm_id = c(13073736L, 235744929L))
+    fetch$way_wide_tags <- osm_get_objects(osm_type = "way", osm_id = c(13073736L, 235744929L), tags_in_columns = TRUE)
     # Specific versions
     fetch$rel <- osm_get_objects(osm_type = "relation", osm_id = c("40581", "341530"), version = c(3, 1))
 
@@ -204,7 +276,7 @@ test_that("osm_fetch_objects works", {
   mapply(function(df, xml) {
     expect_identical(xml2::xml_children(object_DF2xml(df)), xml2::xml_children(xml))
     expect_identical(object_xml2DF(xml), df)
-  }, df = fetch, xml = fetch_xml)
+  }, df = fetch[names(fetch_xml)], xml = fetch_xml)
 
 
   # methods
