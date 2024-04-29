@@ -85,6 +85,7 @@ test_that("edit changeset (create/update/diff upload) works", {
   file.remove(path_del)
 
   expect_type(chset_id, "character")
+  expect_match(chset_id, "^[0-9]+$")
   expect_s3_class(upd_chaset, c("osmapi_changesets", "data.frame"), exact = TRUE)
   expect_identical(chaset[, setdiff(names(chaset), "tags")], upd_chaset[, setdiff(names(upd_chaset), "tags")])
 
