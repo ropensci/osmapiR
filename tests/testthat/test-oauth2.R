@@ -1,4 +1,4 @@
-test_that("multiplication works", {
+test_that("oauth_request works", {
   req <- httr2::request(get_osmapi_url())
   req_oauth <- oauth_request(req = req)
 
