@@ -130,6 +130,12 @@ osm_create_object <- function(x, changeset_id) {
     rm_path <- TRUE
   }
 
+  if (length(xml2::xml_children(xml)) > 1L) {
+    warning(
+      "Multiple elements are provided, but only the first is created. Use `osmchange_create()` + ",
+      "`osm_diff_upload_changeset()` to efficiently create more than one object."
+    )
+  }
   osm_type <- xml2::xml_name(xml2::xml_child(xml))
 
   if (length(osm_type) > 1) {
@@ -354,6 +360,13 @@ osm_update_object <- function(x, changeset_id) {
     rm_path <- TRUE
   }
 
+  if (length(xml2::xml_children(xml)) > 1L) {
+    warning(
+      "Multiple elements are provided, but only the first is updated. Use `osmchange_modify()` + ",
+      "`osm_diff_upload_changeset()` to efficiently update more than one object."
+    )
+  }
+
   osm_type <- xml2::xml_name(xml2::xml_child(xml))
   osm_id <- xml2::xml_attr(xml2::xml_child(xml), "id")
 
@@ -488,6 +501,13 @@ osm_delete_object <- function(x, changeset_id) {
     path <- tempfile(fileext = ".osm")
     xml2::write_xml(xml, path)
     rm_path <- TRUE
+  }
+
+  if (length(xml2::xml_children(xml)) > 1L) {
+    warning(
+      "Multiple elements are provided, but only the first is deleted. Use `osmchange_delete()` + ",
+      "`osm_diff_upload_changeset()` to efficiently delete more than one object."
+    )
   }
 
   osm_type <- xml2::xml_name(xml2::xml_child(xml))
