@@ -8,13 +8,20 @@
 #'   all tags will be updated, removed or created. If `FALSE`, don't modify tags.
 #' @param members If `TRUE` and `x` has a `members` column, update the members of the ways and relations objects.
 #' @param lat_lon If `TRUE` and `x` has a `lat` and `lon` columns, update the coordinates of the node objects.
+#' @param format Format of the output. Can be `R` (default), `osc` (`xml` is a synonym for `osc`).
 #'
 #' @details
 #' `x` should be a `osmapi_objects` or follow the same format. Missing tags or tags with `NA` in the value will be
 #' removed if `tag_keys` is not specified. See [osm_get_objects()] for examples of the format.
 #'
-#' @return Returns a `osmapi_OsmChange` data frame with one OSM object per row ready to send the editions to the servers
-#'   with [osm_diff_upload_changeset()].
+#' @return
+#' If `format = "R"`, returns a `osmapi_OsmChange` data frame with one OSM edition per row.
+#' If `format = "osc"` or `format = "xml"`, returns a [xml2::xml_document-class] following the
+#' [OsmChange format](https://wiki.openstreetmap.org/wiki/OsmChange) that can be saved with [xml2::write_xml()] and
+#' opened in other applications such as JOSM.
+#'
+#' The results are  ready to send the editions to the servers with [osm_diff_upload_changeset()].
+#'
 #' @family OsmChange's functions
 #' @export
 #'
@@ -28,7 +35,8 @@
 #' osmch <- osmchange_modify(obj)
 #' osmch
 #' }
-osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
+osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE, format = c("R", "osc", "xml")) {
+  format <- match.arg(format)
   stopifnot(inherits(x, "osmapi_objects"))
   if (inherits(x, "tags_wide")) {
     x <- tags_wide2list(x)
@@ -98,7 +106,11 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
     osmchange <- osmchange[!rm, ]
   }
 
-  class(osmchange) <- c("osmapi_OsmChange", "osmapi_objects", "data.frame")
+  if (format == "R") {
+    class(osmchange) <- c("osmapi_OsmChange", "osmapi_objects", "data.frame")
+  } else {
+    osmchange <- osmcha_DF2xml(osmchange)
+  }
 
   return(osmchange)
 }
@@ -112,6 +124,7 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
 #'   will be ignored.
 #' @param delete_if_unused If `TRUE`, the `if-unused` attribute will be added (see details). Can be a vector of length
 #'   `nrow(x)`.
+#' @param format Format of the output. Can be `R` (default), `osc` (`xml` is a synonym for `osc`).
 #'
 #' @details
 #' If `if-unused` attribute is present, then the delete operation(s) in this block are conditional and will only be
@@ -119,8 +132,14 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
 #' lead to an error, and the whole diff upload would fail. Setting the attribute will also cause deletions of already
 #' deleted objects to not generate an error.
 #'
-#' @return Returns a `osmapi_OsmChange` data frame with one OSM object per row ready to send the editions to the servers
-#'   with [osm_diff_upload_changeset()].
+#' @return
+#' If `format = "R"`, returns a `osmapi_OsmChange` data frame with one OSM edition per row.
+#' If `format = "osc"` or `format = "xml"`, returns a [xml2::xml_document-class] following the
+#' [OsmChange format](https://wiki.openstreetmap.org/wiki/OsmChange) that can be saved with [xml2::write_xml()] and
+#' opened in other applications such as JOSM.
+#'
+#' The results are  ready to send the editions to the servers with [osm_diff_upload_changeset()].
+#'
 #' @family OsmChange's functions
 #' @export
 #'
@@ -132,7 +151,8 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE) {
 #' ))
 #' osmchange_del <- osmchange_delete(obj_id)
 #' }
-osmchange_delete <- function(x, delete_if_unused = FALSE) {
+osmchange_delete <- function(x, delete_if_unused = FALSE, format = c("R", "osc", "xml")) {
+  format <- match.arg(format)
   if (inherits(x, "tags_wide")) {
     x <- tags_wide2list(x)
   }
@@ -142,7 +162,11 @@ osmchange_delete <- function(x, delete_if_unused = FALSE) {
   rownames(osmchange) <- NULL
   osmchange <- cbind(action_type = ifelse(delete_if_unused, "delete if-unused", "delete"), osmchange)
 
-  class(osmchange) <- c("osmapi_OsmChange", "osmapi_objects", "data.frame")
+  if (format == "R") {
+    class(osmchange) <- c("osmapi_OsmChange", "osmapi_objects", "data.frame")
+  } else {
+    osmchange <- osmcha_DF2xml(osmchange)
+  }
 
   return(osmchange)
 }
@@ -154,14 +178,21 @@ osmchange_delete <- function(x, delete_if_unused = FALSE) {
 #'
 #' @param x A [osmapi_objects] with columns `type`, `changeset` + column `members` for ways and relations + `lat`
 #'   and `lon` for nodes + tags if needed.
+#' @param format Format of the output. Can be `R` (default), `osc` (`xml` is a synonym for `osc`).
 #'
 #' @details
 #' Objects IDs are unknown and will be allocated by the server. Check
 #' [OsmChange page](https://wiki.openstreetmap.org/wiki/OsmChange) for details about how to refer to objects still not
 #' created to define the members of relations and nodes of ways.
 #'
-#' @return Returns a `osmapi_OsmChange` data frame with one OSM object per row ready to send the editions to the servers
-#'   with [osm_diff_upload_changeset()].
+#' @return
+#' If `format = "R"`, returns a `osmapi_OsmChange` data frame with one OSM edition per row.
+#' If `format = "osc"` or `format = "xml"`, returns a [xml2::xml_document-class] following the
+#' [OsmChange format](https://wiki.openstreetmap.org/wiki/OsmChange) that can be saved with [xml2::write_xml()] and
+#' opened in other applications such as JOSM.
+#'
+#' The results are  ready to send the editions to the servers with [osm_diff_upload_changeset()].
+#'
 #' @family OsmChange's functions
 #' @export
 #'
@@ -184,7 +215,8 @@ osmchange_delete <- function(x, delete_if_unused = FALSE) {
 #' obj <- osmapi_objects(d, tag_columns = c(name = "name", type = "type.1"))
 #' osmcha <- osmchange_create(obj)
 #' osmcha
-osmchange_create <- function(x) {
+osmchange_create <- function(x, format = c("R", "osc", "xml")) {
+  format <- match.arg(format)
   stopifnot(inherits(x, "osmapi_objects"))
   if (inherits(x, "tags_wide")) {
     x <- tags_wide2list(x)
@@ -195,7 +227,11 @@ osmchange_create <- function(x) {
   rownames(osmchange) <- NULL
   osmchange <- cbind(action_type = "create", osmchange)
 
-  class(osmchange) <- c("osmapi_OsmChange", "osmapi_objects", "data.frame")
+  if (format == "R") {
+    class(osmchange) <- c("osmapi_OsmChange", "osmapi_objects", "data.frame")
+  } else {
+    osmchange <- osmcha_DF2xml(osmchange)
+  }
 
   return(osmchange)
 }

@@ -4,15 +4,21 @@
 \alias{osmchange_create}
 \title{\code{osmchange} to create OSM objects}
 \usage{
-osmchange_create(x)
+osmchange_create(x, format = c("R", "osc", "xml"))
 }
 \arguments{
 \item{x}{A \link{osmapi_objects} with columns \code{type}, \code{changeset} + column \code{members} for ways and relations + \code{lat}
 and \code{lon} for nodes + tags if needed.}
+
+\item{format}{Format of the output. Can be \code{R} (default), \code{osc} (\code{xml} is a synonym for \code{osc}).}
 }
 \value{
-Returns a \code{osmapi_OsmChange} data frame with one OSM object per row ready to send the editions to the servers
-with \code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}}.
+If \code{format = "R"}, returns a \code{osmapi_OsmChange} data frame with one OSM edition per row.
+If \code{format = "osc"} or \code{format = "xml"}, returns a \link[xml2:oldclass]{xml2::xml_document} following the
+\href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange format} that can be saved with \code{\link[xml2:write_xml]{xml2::write_xml()}} and
+opened in other applications such as JOSM.
+
+The results are  ready to send the editions to the servers with \code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}}.
 }
 \description{
 Prepare data to create OSM objects.

@@ -4,7 +4,7 @@
 \alias{osmchange_delete}
 \title{\code{osmchange} to delete existing OSM objects}
 \usage{
-osmchange_delete(x, delete_if_unused = FALSE)
+osmchange_delete(x, delete_if_unused = FALSE, format = c("R", "osc", "xml"))
 }
 \arguments{
 \item{x}{A \link{osmapi_objects} or \code{data.frame} with the columns \code{type} and \code{id} for the objects to delete. Other columns
@@ -12,10 +12,16 @@ will be ignored.}
 
 \item{delete_if_unused}{If \code{TRUE}, the \verb{if-unused} attribute will be added (see details). Can be a vector of length
 \code{nrow(x)}.}
+
+\item{format}{Format of the output. Can be \code{R} (default), \code{osc} (\code{xml} is a synonym for \code{osc}).}
 }
 \value{
-Returns a \code{osmapi_OsmChange} data frame with one OSM object per row ready to send the editions to the servers
-with \code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}}.
+If \code{format = "R"}, returns a \code{osmapi_OsmChange} data frame with one OSM edition per row.
+If \code{format = "osc"} or \code{format = "xml"}, returns a \link[xml2:oldclass]{xml2::xml_document} following the
+\href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange format} that can be saved with \code{\link[xml2:write_xml]{xml2::write_xml()}} and
+opened in other applications such as JOSM.
+
+The results are  ready to send the editions to the servers with \code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}}.
 }
 \description{
 Prepare data to delete OSM objects.
