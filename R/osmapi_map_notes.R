@@ -418,7 +418,7 @@ osm_create_note <- function(lat, lon, text, authenticate = TRUE) { # TODO: , for
 #' updated_note <- osm_create_comment_note(note$id, text = "A new comment to the note")
 #' updated_note
 #' }
-osm_create_comment_note <- function(note_id, text) {
+osm_create_comment_note <- function(note_id, text) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "notes", note_id, "comment")
@@ -474,7 +474,7 @@ osm_create_comment_note <- function(note_id, text) {
 #' reopened_note <- osm_reopen_note(note$id)
 #' reopened_note
 #' }
-osm_close_note <- function(note_id) {
+osm_close_note <- function(note_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "notes", note_id, "close")
@@ -511,7 +511,7 @@ osm_close_note <- function(note_id) {
 #' @describeIn osm_close_note Reopen a closed note.
 #'
 #' @export
-osm_reopen_note <- function(note_id) {
+osm_reopen_note <- function(note_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "notes", note_id, "reopen")
@@ -565,7 +565,7 @@ osm_reopen_note <- function(note_id) {
 #' del_note <- osm_delete_note(note_id = note$id, text = "Hide note")
 #' del_note
 #' }
-osm_delete_note <- function(note_id, text) {
+osm_delete_note <- function(note_id, text) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "DELETE")
   req <- httr2::req_url_path_append(req, "notes", note_id)
