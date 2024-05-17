@@ -51,6 +51,7 @@ chsts
 cid
 cINWgt
 CMD
+cmd
 Codecov
 codecov
 codemeta
@@ -68,6 +69,7 @@ CPeZrFeAhjMQOj
 cran
 cre
 crea
+cumsum
 cxMGJjSNnEGiKHAdp
 dbTools
 ddcf
@@ -94,6 +96,7 @@ DWG
 ecca
 ecec
 edefed
+eee
 ef
 efn
 ele
@@ -200,8 +203,11 @@ minlat
 minlon
 mis
 misformed
+mispos
 mozilla
 msg
+municipis
+Municipis
 na
 nchar
 ncol
@@ -275,6 +281,7 @@ png
 policyL
 pos
 POSIXct
+PPCC
 preferen
 prefs
 programmingLanguage
@@ -351,6 +358,7 @@ ThisIsANote
 ThisIsANoteComment
 tidyverse
 topografix
+toponimsCat
 tracepoints
 trackable
 Trackable
