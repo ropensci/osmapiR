@@ -802,8 +802,8 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
 #'
 #' @param changeset_id The ID of the changeset this diff belongs to. The user issuing this API call has to be the same
 #'   that created the changeset.
-#' @param osmcha The OsmChange data. Can be the path of an OsmChange file, a `xml_document` or an `osmapi_OsmChange`
-#'   object (see `osmchange_*()` functions).
+#' @param osmcha The OsmChange data. Can be the path of an OsmChange file, a [xml2::xml_document-class] or an
+#'   `osmapi_OsmChange` object (see `osmchange_*()` functions).
 #' @param format Format of the output. Can be `R` (default) or `xml`.
 #'
 #' @details
