@@ -54,7 +54,7 @@
 
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">osmchange_create</span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span></code></pre></div>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">osmchange_create</span><span class="op">(</span><span class="va">x</span>, format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"R"</span>, <span class="st">"osc"</span>, <span class="st">"xml"</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
@@ -63,13 +63,22 @@
 <dd><p>A <a href="osmapi_objects.html">osmapi_objects</a> with columns <code>type</code>, <code>changeset</code> + column <code>members</code> for ways and relations + <code>lat</code>
 and <code>lon</code> for nodes + tags if needed.</p></dd>
 
+
+<dt>format</dt>
+<dd><p>Format of the output. Can be <code>R</code> (default), <code>osc</code> (<code>xml</code> is a synonym for <code>osc</code>).</p></dd>
+
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>Returns a <code>osmapi_OsmChange</code> data frame with one OSM object per row ready to send the editions to the servers
-with <code><a href="osm_diff_upload_changeset.html">osm_diff_upload_changeset()</a></code>.</p>
+<p>If <code>format = "R"</code>, returns a <code>osmapi_OsmChange</code> data frame with one OSM edition per row.
+If <code>format = "osc"</code> or <code>format = "xml"</code>, returns a xml2::xml_document following the
+<a href="https://wiki.openstreetmap.org/wiki/OsmChange" class="external-link">OsmChange format</a> that can be saved with <code><a href="http://xml2.r-lib.org/reference/write_xml.html" class="external-link">xml2::write_xml()</a></code> and
+opened in other applications such as JOSM.</p>
+
+
+<p>The results are  ready to send the editions to the servers with <code><a href="osm_diff_upload_changeset.html">osm_diff_upload_changeset()</a></code>.</p>
     </div>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
