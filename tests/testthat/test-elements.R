@@ -279,7 +279,7 @@ test_that("osm_fetch_objects works", {
   }, df = fetch[names(fetch_xml)], xml = fetch_xml)
 
 
-  ### Test long URL in batches to avoid ERROR: HTTP 414 URI Too Long ----
+  ### TODO: Test long URL in batches to avoid ERROR: HTTP 414 URI Too Long ----
 
   # Tests work when running interactively but fail in R CMD check:
   #
