@@ -1,0 +1,3106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="CGImap 0.9.2 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <relation id="348146" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T12:57:44Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45318282" role=""/>
+  <member type="way" ref="45314902" role=""/>
+  <member type="way" ref="45331630" role=""/>
+  <member type="way" ref="45347406" role=""/>
+  <member type="way" ref="45325004" role=""/>
+  <member type="way" ref="45358925" role=""/>
+  <member type="way" ref="45314909" role=""/>
+  <member type="way" ref="45358502" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Àger"/>
+  <tag k="ine:municipio" v="25002"/>
+  <tag k="is_in" v="Lleida, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Lleida"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Àger"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Ager (Lérida)"/>
+ </relation>
+ <relation id="348147" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T12:57:44Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45364168" role=""/>
+  <member type="way" ref="45345183" role=""/>
+  <member type="way" ref="45382559" role=""/>
+  <member type="way" ref="45369260" role=""/>
+  <member type="way" ref="45353040" role=""/>
+  <member type="way" ref="45358445" role=""/>
+  <member type="way" ref="45347338" role=""/>
+  <member type="way" ref="45353042" role=""/>
+  <member type="way" ref="45358447" role=""/>
+  <member type="way" ref="45345238" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Agramunt"/>
+  <tag k="ine:municipio" v="25003"/>
+  <tag k="is_in" v="Lleida, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Lleida"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Agramunt"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Agramunt"/>
+ </relation>
+ <relation id="348148" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T12:57:45Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45355953" role=""/>
+  <member type="way" ref="45352992" role=""/>
+  <member type="way" ref="45361258" role=""/>
+  <member type="way" ref="45382949" role=""/>
+  <member type="way" ref="45361261" role=""/>
+  <member type="way" ref="45314955" role=""/>
+  <member type="way" ref="45342390" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Albesa"/>
+  <tag k="ine:municipio" v="25008"/>
+  <tag k="is_in" v="Lleida, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Lleida"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Albesa"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Albesa"/>
+ </relation>
+ <relation id="348149" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T12:57:45Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45379140" role=""/>
+  <member type="way" ref="45364174" role=""/>
+  <member type="way" ref="45359027" role=""/>
+  <member type="way" ref="45359020" role=""/>
+  <member type="way" ref="45365415" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Albi (L')"/>
+  <tag k="ine:municipio" v="25009"/>
+  <tag k="is_in" v="Lleida, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Lleida"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="L'Albi"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Albi (España)"/>
+ </relation>
+ <relation id="348150" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T12:57:46Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45370390" role=""/>
+  <member type="way" ref="45370384" role=""/>
+  <member type="way" ref="45362809" role=""/>
+  <member type="way" ref="45324605" role=""/>
+  <member type="way" ref="45364209" role=""/>
+  <member type="way" ref="45322298" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Antella"/>
+  <tag k="ine:municipio" v="46040"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="Antella"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Antella"/>
+ </relation>
+ <relation id="348154" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T12:58:18Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45358716" role=""/>
+  <member type="way" ref="45315125" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Daimús"/>
+  <tag k="ine:municipio" v="46113"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="Daimús"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Daimuz"/>
+ </relation>
+ <relation id="348158" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T12:58:20Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45382956" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Emperador"/>
+  <tag k="ine:municipio" v="46117"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="Emperador"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Emperador (Valencia)"/>
+ </relation>
+ <relation id="348160" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T12:58:21Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45377803" role=""/>
+  <member type="way" ref="45377789" role=""/>
+  <member type="way" ref="45384027" role=""/>
+  <member type="way" ref="45358631" role=""/>
+  <member type="way" ref="45361308" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Ènova (l')"/>
+  <tag k="ine:municipio" v="46119"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="L'Ènova"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="348399" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:00:29Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45361313" role=""/>
+  <member type="way" ref="45367563" role=""/>
+  <member type="way" ref="45377805" role=""/>
+  <member type="way" ref="45387302" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Senyera"/>
+  <tag k="ine:municipio" v="46227"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="Senyera"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="348402" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:00:30Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45375226" role=""/>
+  <member type="way" ref="45350375" role=""/>
+  <member type="way" ref="45342512" role=""/>
+  <member type="way" ref="45315005" role=""/>
+  <member type="way" ref="45347639" role=""/>
+  <member type="way" ref="45377801" role=""/>
+  <member type="way" ref="45347226" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Sempere"/>
+  <tag k="ine:municipio" v="46226"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="Sempere"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Sempere"/>
+ </relation>
+ <relation id="348405" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:00:30Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45365465" role=""/>
+  <member type="way" ref="45382520" role=""/>
+  <member type="way" ref="45345084" role=""/>
+  <member type="way" ref="45324606" role=""/>
+  <member type="way" ref="45358675" role=""/>
+  <member type="way" ref="45375175" role=""/>
+  <member type="way" ref="45364210" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Sellent"/>
+  <tag k="ine:municipio" v="46225"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="Sellent"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Sellent"/>
+ </relation>
+ <relation id="348409" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:00:31Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45383057" role=""/>
+  <member type="way" ref="45323280" role=""/>
+  <member type="way" ref="45374854" role=""/>
+  <member type="way" ref="45383055" role=""/>
+  <member type="way" ref="45372625" role=""/>
+  <member type="way" ref="45343248" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Calders"/>
+  <tag k="ine:municipio" v="08034"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Calders"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Monistrol de Calders (Barcelona)"/>
+ </relation>
+ <relation id="348412" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:00:31Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45332231" role=""/>
+  <member type="way" ref="45346455" role=""/>
+  <member type="way" ref="45372330" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Calella"/>
+  <tag k="ine:municipio" v="08035"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Calella"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Calella"/>
+ </relation>
+ <relation id="348822" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:34:52Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45379146" role=""/>
+  <member type="way" ref="45329071" role=""/>
+  <member type="way" ref="45388289" role=""/>
+  <member type="way" ref="45365229" role=""/>
+  <member type="way" ref="45365832" role=""/>
+  <member type="way" ref="45342419" role=""/>
+  <member type="way" ref="45342425" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Calonge de Segarra"/>
+  <tag k="ine:municipio" v="08036"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Calonge de Segarra"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Calonge de Segarra"/>
+ </relation>
+ <relation id="348823" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:34:52Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45382237" role=""/>
+  <member type="way" ref="45323851" role=""/>
+  <member type="way" ref="45340030" role=""/>
+  <member type="way" ref="45341588" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Calldetenes"/>
+  <tag k="ine:municipio" v="08037"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Calldetenes"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Calldetenes"/>
+ </relation>
+ <relation id="348824" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:34:53Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45333081" role=""/>
+  <member type="way" ref="45359384" role=""/>
+  <member type="way" ref="45362677" role=""/>
+  <member type="way" ref="45357581" role=""/>
+  <member type="way" ref="45359818" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Cabrils"/>
+  <tag k="ine:municipio" v="08030"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Cabrils"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Cabrils"/>
+ </relation>
+ <relation id="348825" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:34:54Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45329026" role=""/>
+  <member type="way" ref="45329069" role=""/>
+  <member type="way" ref="45388289" role=""/>
+  <member type="way" ref="45365228" role=""/>
+  <member type="way" ref="45323964" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Calaf"/>
+  <tag k="ine:municipio" v="08031"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Calaf"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Calaf (España)"/>
+ </relation>
+ <relation id="348826" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:34:54Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45359456" role=""/>
+  <member type="way" ref="45377475" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Caldes d'Estrac"/>
+  <tag k="ine:municipio" v="08032"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Caldes d'Estrac"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="348827" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:34:55Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45328588" role=""/>
+  <member type="way" ref="45377477" role=""/>
+  <member type="way" ref="45341565" role=""/>
+  <member type="way" ref="45362683" role=""/>
+  <member type="way" ref="45378291" role=""/>
+  <member type="way" ref="45382999" role=""/>
+  <member type="way" ref="45338875" role=""/>
+  <member type="way" ref="45323861" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Caldes de Montbui"/>
+  <tag k="ine:municipio" v="08033"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Caldes de Montbui"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Caldas de Montbui"/>
+ </relation>
+ <relation id="348828" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:34:55Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45369281" role=""/>
+  <member type="way" ref="45382535" role=""/>
+  <member type="way" ref="45322919" role=""/>
+  <member type="way" ref="45322920" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Sedaví"/>
+  <tag k="ine:municipio" v="46223"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="Sedaví"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Sedaví (Valencia)"/>
+ </relation>
+ <relation id="348829" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:34:56Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45375653" role=""/>
+  <member type="way" ref="45323936" role=""/>
+  <member type="way" ref="45365822" role=""/>
+  <member type="way" ref="45357578" role=""/>
+  <member type="way" ref="45388290" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Callús"/>
+  <tag k="ine:municipio" v="08038"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Callús"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Callús"/>
+ </relation>
+ <relation id="348830" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:34:56Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45382351" role=""/>
+  <member type="way" ref="45341582" role=""/>
+  <member type="way" ref="45377934" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Campins"/>
+  <tag k="ine:municipio" v="08039"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Campins"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Campins"/>
+ </relation>
+ <relation id="348831" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:34:57Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45361316" role=""/>
+  <member type="way" ref="45377804" role=""/>
+  <member type="way" ref="45367561" role=""/>
+  <member type="way" ref="45387302" role=""/>
+  <member type="way" ref="45377806" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="San Juan de Énova"/>
+  <tag k="ine:municipio" v="46222"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="San Juan de Énova"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:San Juan de Énova"/>
+ </relation>
+ <relation id="348832" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:34:57Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45315699" role=""/>
+  <member type="way" ref="45374954" role=""/>
+  <member type="way" ref="45345060" role=""/>
+  <member type="way" ref="45375779" role=""/>
+  <member type="way" ref="45379506" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Salem"/>
+  <tag k="ine:municipio" v="46221"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="Salem"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Salem (Valencia)"/>
+ </relation>
+ <relation id="348833" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:34:58Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45379373" role=""/>
+  <member type="way" ref="45365467" role=""/>
+  <member type="way" ref="45364205" role=""/>
+  <member type="way" ref="45365459" role=""/>
+  <member type="way" ref="45315340" role=""/>
+  <member type="way" ref="45315344" role=""/>
+  <member type="way" ref="45347222" role=""/>
+  <member type="way" ref="45378533" role=""/>
+  <member type="way" ref="45315068" role=""/>
+  <member type="way" ref="45370386" role=""/>
+  <member type="way" ref="45324679" role=""/>
+  <member type="way" ref="45367213" role=""/>
+  <member type="way" ref="45335420" role=""/>
+  <member type="way" ref="45342569" role=""/>
+  <member type="way" ref="45365573" role=""/>
+  <member type="way" ref="45339503" role=""/>
+  <member type="way" ref="45364214" role=""/>
+  <member type="way" ref="45379489" role=""/>
+  <member type="way" ref="45324516" role=""/>
+  <member type="way" ref="45377812" role=""/>
+  <member type="way" ref="45377815" role=""/>
+  <member type="way" ref="45370387" role=""/>
+  <member type="way" ref="45315071" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Sagunto/Sagunt"/>
+  <tag k="ine:municipio" v="46220"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="Sagunto/Sagunt"/>
+  <tag k="name:ca" v="Sagunt"/>
+  <tag k="name:es" v="Sagunto"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Sagunto (Valencia)"/>
+ </relation>
+ <relation id="348882" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:35:56Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45370773" role=""/>
+  <member type="way" ref="45347403" role=""/>
+  <member type="way" ref="45360141" role=""/>
+  <member type="way" ref="45360207" role=""/>
+  <member type="way" ref="45374993" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Camporrélls"/>
+  <tag k="ine:municipio" v="22075"/>
+  <tag k="is_in" v="Huesca, Aragón, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Huesca"/>
+  <tag k="is_in:region" v="Aragón"/>
+  <tag k="name" v="Camporrélls"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Camporrells"/>
+ </relation>
+ <relation id="348886" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:35:57Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45369118" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Breda"/>
+  <tag k="ine:municipio" v="17027"/>
+  <tag k="is_in" v="Girona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Girona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Breda"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Breda (Gerona)"/>
+ </relation>
+ <relation id="348887" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:35:58Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45355668" role=""/>
+  <member type="way" ref="45363588" role=""/>
+  <member type="way" ref="45347726" role=""/>
+  <member type="way" ref="45360539" role=""/>
+  <member type="way" ref="45371846" role=""/>
+  <member type="way" ref="45370269" role=""/>
+  <member type="way" ref="45355645" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Borrassà"/>
+  <tag k="ine:municipio" v="17026"/>
+  <tag k="is_in" v="Girona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Girona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Borrassà"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Borrassà"/>
+ </relation>
+ <relation id="348888" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:35:59Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45323008" role=""/>
+  <member type="way" ref="45366666" role=""/>
+  <member type="way" ref="45382320" role=""/>
+  <member type="way" ref="45321960" role=""/>
+  <member type="way" ref="45357482" role=""/>
+  <member type="way" ref="45321956" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Bordils"/>
+  <tag k="ine:municipio" v="17025"/>
+  <tag k="is_in" v="Girona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Girona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Bordils"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Bordils"/>
+ </relation>
+ <relation id="348889" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:35:59Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45360516" role=""/>
+  <member type="way" ref="45360518" role=""/>
+  <member type="way" ref="45382834" role=""/>
+  <member type="way" ref="45360523" role=""/>
+  <member type="way" ref="45322995" role=""/>
+  <member type="way" ref="45324983" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Bolvir"/>
+  <tag k="ine:municipio" v="17024"/>
+  <tag k="is_in" v="Girona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Girona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Bolvir"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Bolvir"/>
+ </relation>
+ <relation id="348890" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:35:59Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45338918" role=""/>
+  <member type="way" ref="45378201" role=""/>
+  <member type="way" ref="45362285" role=""/>
+  <member type="way" ref="45369613" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Blanes"/>
+  <tag k="ine:municipio" v="17023"/>
+  <tag k="is_in" v="Girona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Girona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Blanes"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Blanes"/>
+ </relation>
+ <relation id="348891" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:00Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45332780" role=""/>
+  <member type="way" ref="45357467" role=""/>
+  <member type="way" ref="45358351" role=""/>
+  <member type="way" ref="45332768" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Bisbal d'Empordà (La)"/>
+  <tag k="ine:municipio" v="17022"/>
+  <tag k="is_in" v="Girona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Girona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="La Bisbal d'Empordà"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:La Tallada d'Empordà"/>
+ </relation>
+ <relation id="348892" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:00Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45369614" role=""/>
+  <member type="way" ref="45363584" role=""/>
+  <member type="way" ref="45384187" role=""/>
+  <member type="way" ref="45321896" role=""/>
+  <member type="way" ref="45321897" role=""/>
+  <member type="way" ref="45364964" role=""/>
+  <member type="way" ref="45364965" role=""/>
+  <member type="way" ref="45369116" role=""/>
+  <member type="way" ref="45364968" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Beuda"/>
+  <tag k="ine:municipio" v="17021"/>
+  <tag k="is_in" v="Girona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Girona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Beuda"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Beuda"/>
+ </relation>
+ <relation id="348893" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:02Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45384065" role=""/>
+  <member type="way" ref="45369113" role=""/>
+  <member type="way" ref="45321908" role=""/>
+  <member type="way" ref="45384205" role=""/>
+  <member type="way" ref="45332790" role=""/>
+  <member type="way" ref="45382995" role=""/>
+  <member type="way" ref="45382503" role=""/>
+  <member type="way" ref="45388303" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Bescanó"/>
+  <tag k="ine:municipio" v="17020"/>
+  <tag k="is_in" v="Girona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Girona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Bescanó"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Bescanó"/>
+ </relation>
+ <relation id="348894" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:02Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45378184" role=""/>
+  <member type="way" ref="45369605" role=""/>
+  <member type="way" ref="45370261" role=""/>
+  <member type="way" ref="45382488" role=""/>
+  <member type="way" ref="45382828" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Boadella i les Escaules"/>
+  <tag k="ine:municipio" v="17029"/>
+  <tag k="is_in" v="Girona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Girona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Boadella i les Escaules"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Les Avellanes i Santa Linya"/>
+ </relation>
+ <relation id="348895" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:03Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45384125" role=""/>
+  <member type="way" ref="45347709" role=""/>
+  <member type="way" ref="45388303" role=""/>
+  <member type="way" ref="45382512" role=""/>
+  <member type="way" ref="45371844" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Brunyola"/>
+  <tag k="ine:municipio" v="17028"/>
+  <tag k="is_in" v="Girona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Girona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Brunyola"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Brunyola"/>
+ </relation>
+ <relation id="348910" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:17Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45320136" role=""/>
+  <member type="way" ref="45379501" role=""/>
+  <member type="way" ref="45365489" role=""/>
+  <member type="way" ref="45378527" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Beniflá"/>
+  <tag k="ine:municipio" v="46061"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="Beniflá"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Beniflá (Valencia)"/>
+ </relation>
+ <relation id="348943" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:41Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45359443" role=""/>
+  <member type="way" ref="45339987" role=""/>
+  <member type="way" ref="45382350" role=""/>
+  <member type="way" ref="45346458" role=""/>
+  <member type="way" ref="45364670" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Sant Iscle de Vallalta"/>
+  <tag k="ine:municipio" v="08193"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Sant Iscle de Vallalta"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Sant Cebrià de Vallalta"/>
+ </relation>
+ <relation id="348944" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:41Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45365825" role=""/>
+  <member type="way" ref="45357579" role=""/>
+  <member type="way" ref="45388327" role=""/>
+  <member type="way" ref="45388290" role=""/>
+  <member type="way" ref="45359812" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Santpedor"/>
+  <tag k="ine:municipio" v="08192"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Santpedor"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Santpedor"/>
+ </relation>
+ <relation id="348945" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:42Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45383056" role=""/>
+  <member type="way" ref="45377945" role=""/>
+  <member type="way" ref="45365824" role=""/>
+  <member type="way" ref="45383033" role=""/>
+  <member type="way" ref="45359811" role=""/>
+  <member type="way" ref="45388327" role=""/>
+  <member type="way" ref="45383054" role=""/>
+  <member type="way" ref="45374851" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Sallent"/>
+  <tag k="ine:municipio" v="08191"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Sallent"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Sallent de Llobregat"/>
+ </relation>
+ <relation id="348946" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:42Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45341586" role=""/>
+  <member type="way" ref="45377940" role=""/>
+  <member type="way" ref="45339983" role=""/>
+  <member type="way" ref="45375139" role=""/>
+  <member type="way" ref="45374707" role=""/>
+  <member type="way" ref="45383036" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Saldes"/>
+  <tag k="ine:municipio" v="08190"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Saldes"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Saldes"/>
+ </relation>
+ <relation id="348947" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:42Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45372045" role=""/>
+  <member type="way" ref="45319682" role=""/>
+  <member type="way" ref="45377470" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Sant Andreu de Llavaneres"/>
+  <tag k="ine:municipio" v="08197"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Sant Andreu de Llavaneres"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:San Andrés de Llavaneras"/>
+ </relation>
+ <relation id="348948" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:43Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45319671" role=""/>
+  <member type="way" ref="45365812" role=""/>
+  <member type="way" ref="45378266" role=""/>
+  <member type="way" ref="45316318" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Sant Andreu de la Barca"/>
+  <tag k="ine:municipio" v="08196"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Sant Andreu de la Barca"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="348949" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:43Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45343292" role=""/>
+  <member type="way" ref="45382352" role=""/>
+  <member type="way" ref="45372332" role=""/>
+  <member type="way" ref="45371382" role=""/>
+  <member type="way" ref="45359429" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Sant Agustí de Lluçanès"/>
+  <tag k="ine:municipio" v="08195"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Sant Agustí de Lluçanès"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:San Agustín de Llusanés"/>
+ </relation>
+ <relation id="348950" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:43Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45383039" role=""/>
+  <member type="way" ref="45383034" role=""/>
+  <member type="way" ref="45382249" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Sant Adrià de Besòs"/>
+  <tag k="ine:municipio" v="08194"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Sant Adrià de Besòs"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:San Adrián de Besós"/>
+ </relation>
+ <relation id="348951" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:44Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45382231" role=""/>
+  <member type="way" ref="45340039" role=""/>
+  <member type="way" ref="45382211" role=""/>
+  <member type="way" ref="45329806" role=""/>
+  <member type="way" ref="45371369" role=""/>
+  <member type="way" ref="45372629" role=""/>
+  <member type="way" ref="45339100" role=""/>
+  <member type="way" ref="45339103" role=""/>
+  <member type="way" ref="45315059" role=""/>
+  <member type="way" ref="45372630" role=""/>
+  <member type="way" ref="45374846" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Sant Bartomeu del Grau"/>
+  <tag k="ine:municipio" v="08199"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Sant Bartomeu del Grau"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:San Bartolomé del Grau"/>
+ </relation>
+ <relation id="348952" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:44Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45364686" role=""/>
+  <member type="way" ref="45371366" role=""/>
+  <member type="way" ref="45334601" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Sant Antoni de Vilamajor"/>
+  <tag k="ine:municipio" v="08198"/>
+  <tag k="is_in" v="Barcelona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Barcelona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Sant Antoni de Vilamajor"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Sant Antoni de Vilamajor"/>
+ </relation>
+ <relation id="348970" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:56Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45347759" role=""/>
+  <member type="way" ref="45347762" role=""/>
+  <member type="way" ref="45347752" role=""/>
+  <member type="way" ref="45370247" role=""/>
+  <member type="way" ref="45358332" role=""/>
+  <member type="way" ref="45358156" role=""/>
+  <member type="way" ref="45324929" role=""/>
+  <member type="way" ref="45358255" role=""/>
+  <member type="way" ref="45358290" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Olot"/>
+  <tag k="ine:municipio" v="17114"/>
+  <tag k="is_in" v="Girona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Girona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="Olot"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Olot"/>
+ </relation>
+ <relation id="348971" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:56Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45358567" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Benisanó"/>
+  <tag k="ine:municipio" v="46067"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="Benisanó"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Benisanó (Valencia)"/>
+ </relation>
+ <relation id="348973" visible="true" version="1" changeset="3263558" timestamp="2009-12-01T13:36:57Z" user="balrog-kun" uid="20587">
+  <member type="way" ref="45315141" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Benirredrà"/>
+  <tag k="ine:municipio" v="46066"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="Benirredrà"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Benirredrá"/>
+ </relation>
+ <relation id="356747" visible="true" version="1" changeset="3291949" timestamp="2009-12-04T22:20:13Z" user="Skywave" uid="10927">
+  <member type="way" ref="25776674" role=""/>
+  <member type="way" ref="30814474" role=""/>
+  <member type="way" ref="30857588" role=""/>
+  <member type="way" ref="30814650" role=""/>
+  <member type="way" ref="31102424" role=""/>
+  <member type="way" ref="30814651" role=""/>
+  <tag k="admin_level" v="2"/>
+  <tag k="boundary" v="enclave"/>
+  <tag k="name" v="Llívia"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="392022" visible="true" version="1" changeset="3685296" timestamp="2010-01-22T17:44:31Z" user="xschaeffer" uid="89861">
+  <member type="way" ref="48700266" role=""/>
+  <member type="way" ref="48700267" role=""/>
+  <tag k="addr:postcode" v="66760"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Latour-de-Carol"/>
+  <tag k="ref:INSEE" v="66095"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="392027" visible="true" version="1" changeset="3685371" timestamp="2010-01-22T17:52:12Z" user="xschaeffer" uid="89861">
+  <member type="way" ref="48700548" role=""/>
+  <member type="way" ref="48700547" role=""/>
+  <member type="way" ref="31312261" role=""/>
+  <tag k="addr:postcode" v="66340"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Valcebollère"/>
+  <tag k="ref:INSEE" v="66220"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="392033" visible="true" version="1" changeset="3685421" timestamp="2010-01-22T17:57:14Z" user="xschaeffer" uid="89861">
+  <member type="way" ref="48700671" role=""/>
+  <member type="way" ref="48700670" role=""/>
+  <member type="way" ref="48700673" role=""/>
+  <tag k="addr:postcode" v="66340"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Palau-de-Cerdagne"/>
+  <tag k="ref:INSEE" v="66132"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="392223" visible="true" version="1" changeset="3688114" timestamp="2010-01-22T23:16:52Z" user="Skywave" uid="10927">
+  <member type="way" ref="48718117" role=""/>
+  <member type="way" ref="48718116" role="outer"/>
+  <member type="way" ref="48718115" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Villefranche-de-Conflent"/>
+  <tag k="type" v="multipolygon"/>
+ </relation>
+ <relation id="392304" visible="true" version="1" changeset="3688266" timestamp="2010-01-22T23:40:55Z" user="Skywave" uid="10927">
+  <member type="way" ref="48719469" role=""/>
+  <member type="way" ref="48719474" role=""/>
+  <member type="way" ref="41362405" role=""/>
+  <member type="way" ref="41362404" role=""/>
+  <member type="way" ref="45509288" role=""/>
+  <member type="way" ref="45509265" role=""/>
+  <member type="way" ref="45509287" role=""/>
+  <member type="way" ref="25910273" role=""/>
+  <member type="way" ref="48719472" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Maureillas-las-Illas"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="392308" visible="true" version="1" changeset="3688388" timestamp="2010-01-22T23:57:37Z" user="Skywave" uid="10927">
+  <member type="way" ref="48719679" role=""/>
+  <member type="way" ref="48719680" role=""/>
+  <member type="way" ref="25117476" role=""/>
+  <member type="way" ref="25117477" role=""/>
+  <member type="way" ref="48719681" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Saint-Féliu-d'Avall"/>
+  <tag k="ref:INSEE" v="66174"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="401880" visible="true" version="1" changeset="3796448" timestamp="2010-02-05T09:22:05Z" user="petrovsk" uid="90394">
+  <member type="way" ref="49568787" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Reynès"/>
+  <tag k="ref:INSEE" v="66160"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="409332" visible="true" version="1" changeset="3882565" timestamp="2010-02-15T12:14:13Z" user="Skywave" uid="10927">
+  <member type="way" ref="41311877" role=""/>
+  <member type="way" ref="41311876" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Codalet"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="409377" visible="true" version="1" changeset="3882859" timestamp="2010-02-15T12:55:21Z" user="Skywave" uid="10927">
+  <member type="way" ref="50344406" role=""/>
+  <member type="way" ref="50344392" role=""/>
+  <member type="way" ref="50344401" role=""/>
+  <member type="way" ref="50344396" role=""/>
+  <member type="way" ref="23301599" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Porté-Puymorens"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="409749" visible="true" version="1" changeset="3886460" timestamp="2010-02-15T20:17:52Z" user="Skywave" uid="10927">
+  <member type="way" ref="50402794" role=""/>
+  <member type="way" ref="30814475" role=""/>
+  <member type="way" ref="50402800" role=""/>
+  <member type="way" ref="50402791" role=""/>
+  <member type="way" ref="50402862" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Eyne"/>
+  <tag k="ref:INSEE" v="66075"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1069580" visible="true" version="1" changeset="5215180" timestamp="2010-07-14T09:31:37Z" user="Skywave" uid="10927">
+  <member type="way" ref="67614717" role=""/>
+  <member type="way" ref="67614715" role=""/>
+  <member type="way" ref="67614715" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Matemale"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1209766" visible="true" version="1" changeset="5978174" timestamp="2010-10-07T13:30:08Z" user="Skywave" uid="10927">
+  <member type="way" ref="80602778" role=""/>
+  <tag k="addr:postcode" v="66820"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Vernet-les-Bains"/>
+  <tag k="ref:INSEE" v="66222"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1235861" visible="true" version="1" changeset="6112381" timestamp="2010-10-20T12:13:50Z" user="Skywave" uid="10927">
+  <member type="way" ref="30814200" role=""/>
+  <member type="way" ref="30814477" role=""/>
+  <member type="way" ref="50402791" role=""/>
+  <member type="way" ref="30814199" role=""/>
+  <tag k="addr:postcode" v="66800"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Llo"/>
+  <tag k="ref:INSEE" v="66100"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1382208" visible="true" version="1" changeset="7019195" timestamp="2011-01-19T10:54:25Z" user="Skywave" uid="10927">
+  <member type="way" ref="43107344" role=""/>
+  <member type="way" ref="25094022" role=""/>
+  <member type="way" ref="25093916" role=""/>
+  <member type="way" ref="60171528" role=""/>
+  <member type="way" ref="95789011" role=""/>
+  <member type="way" ref="95789012" role=""/>
+  <member type="way" ref="95789010" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Claira"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1430537" visible="true" version="1" changeset="7303208" timestamp="2011-02-16T12:09:45Z" user="Skywave" uid="10927">
+  <member type="way" ref="100006383" role=""/>
+  <member type="way" ref="26053057" role=""/>
+  <member type="way" ref="31288960" role=""/>
+  <member type="way" ref="26053059" role=""/>
+  <member type="way" ref="100006381" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Saint-Féliu-d'Amont"/>
+  <tag k="ref:INSEE" v="66173"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1664392" visible="true" version="1" changeset="8727118" timestamp="2011-07-14T23:38:22Z" user="don-vip" uid="297482">
+  <member type="way" ref="100006391" role="outer"/>
+  <member type="way" ref="100006381" role="outer"/>
+  <member type="way" ref="48719679" role="outer"/>
+  <member type="way" ref="121772197" role="outer"/>
+  <member type="way" ref="121772204" role="outer"/>
+  <member type="node" ref="287557758" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Corneilla-la-Rivière"/>
+  <tag k="ref:INSEE" v="66058"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1664393" visible="true" version="1" changeset="8727118" timestamp="2011-07-14T23:38:23Z" user="don-vip" uid="297482">
+  <member type="way" ref="121772199" role="outer"/>
+  <member type="way" ref="121772195" role="outer"/>
+  <member type="way" ref="25992548" role="outer"/>
+  <member type="way" ref="25992549" role="outer"/>
+  <member type="way" ref="25093914" role="outer"/>
+  <member type="way" ref="59643601" role="outer"/>
+  <member type="way" ref="121772203" role="outer"/>
+  <member type="node" ref="26697009" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Rivesaltes"/>
+  <tag k="ref:INSEE" v="66164"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1664394" visible="true" version="1" changeset="8727118" timestamp="2011-07-14T23:38:23Z" user="don-vip" uid="297482">
+  <member type="way" ref="43058168" role="outer"/>
+  <member type="way" ref="41270481" role="outer"/>
+  <member type="way" ref="95789012" role="outer"/>
+  <member type="node" ref="313780748" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Saint-Hippolyte"/>
+  <tag k="ref:INSEE" v="66176"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1664395" visible="true" version="1" changeset="8727118" timestamp="2011-07-14T23:38:24Z" user="don-vip" uid="297482">
+  <member type="way" ref="121772198" role="outer"/>
+  <member type="way" ref="121772200" role="outer"/>
+  <member type="way" ref="121772199" role="outer"/>
+  <member type="way" ref="121772202" role="outer"/>
+  <member type="way" ref="41270481" role="outer"/>
+  <member type="way" ref="41270479" role="outer"/>
+  <member type="way" ref="121772196" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Salses-le-Château"/>
+  <tag k="ref:INSEE" v="66190"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1664419" visible="true" version="1" changeset="8727292" timestamp="2011-07-15T00:54:51Z" user="don-vip" uid="297482">
+  <member type="way" ref="121774465" role="outer"/>
+  <member type="way" ref="26002977" role="outer"/>
+  <member type="way" ref="26002979" role="outer"/>
+  <member type="way" ref="25116287" role="outer"/>
+  <member type="way" ref="48719469" role="outer"/>
+  <member type="way" ref="121774463" role="outer"/>
+  <member type="node" ref="139756779" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Saint-Jean-Pla-de-Corts"/>
+  <tag k="ref:INSEE" v="66178"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1664420" visible="true" version="1" changeset="8727292" timestamp="2011-07-15T00:54:51Z" user="don-vip" uid="297482">
+  <member type="way" ref="121774465" role="outer"/>
+  <member type="way" ref="28700771" role="outer"/>
+  <member type="way" ref="28700768" role="outer"/>
+  <member type="way" ref="28700769" role="outer"/>
+  <member type="way" ref="121774466" role="outer"/>
+  <member type="node" ref="313803890" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Vives"/>
+  <tag k="ref:INSEE" v="66233"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1798944" visible="true" version="1" changeset="9601620" timestamp="2011-10-19T16:56:30Z" user="rainerU" uid="207249">
+  <member type="way" ref="133882736" role="outer"/>
+  <tag k="addr:postcode" v="66600"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Calce"/>
+  <tag k="ref:INSEE" v="66023"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1798945" visible="true" version="1" changeset="9601620" timestamp="2011-10-19T16:56:30Z" user="rainerU" uid="207249">
+  <member type="way" ref="133882736" role="outer"/>
+  <member type="way" ref="133882734" role="outer"/>
+  <member type="way" ref="133882733" role="outer"/>
+  <tag k="addr:postcode" v="66110"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Villeneuve-la-Rivière"/>
+  <tag k="ref:INSEE" v="66228"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1809101" visible="true" version="1" changeset="9648234" timestamp="2011-10-24T22:36:58Z" user="egrn" uid="399394">
+  <member type="way" ref="134591854" role="outer"/>
+  <member type="way" ref="134591892" role="outer"/>
+  <member type="way" ref="134591899" role="outer"/>
+  <member type="way" ref="134591838" role="outer"/>
+  <member type="way" ref="113869739" role="outer"/>
+  <member type="way" ref="113869737" role="outer"/>
+  <member type="way" ref="113869746" role="outer"/>
+  <member type="way" ref="113869767" role="outer"/>
+  <member type="way" ref="113869699" role="outer"/>
+  <member type="way" ref="113869776" role="outer"/>
+  <member type="way" ref="114019926" role="outer"/>
+  <member type="way" ref="114019904" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Migjorn Gran, Es"/>
+  <tag k="ine:municipio" v="07902"/>
+  <tag k="is_in" v="Illes Balears, Illes Balears, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Illes Balears"/>
+  <tag k="is_in:region" v="Illes Balears"/>
+  <tag k="name" v="Es Migjorn Gran"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1809102" visible="true" version="1" changeset="9648234" timestamp="2011-10-24T22:37:00Z" user="egrn" uid="399394">
+  <member type="way" ref="134591834" role="outer"/>
+  <member type="way" ref="134591874" role="outer"/>
+  <member type="way" ref="114723016" role="outer"/>
+  <member type="way" ref="134591871" role="outer"/>
+  <member type="way" ref="114722998" role="outer"/>
+  <member type="way" ref="114723046" role="outer"/>
+  <member type="way" ref="114723037" role="outer"/>
+  <member type="way" ref="134591831" role="outer"/>
+  <member type="way" ref="114723015" role="outer"/>
+  <member type="way" ref="114723040" role="outer"/>
+  <member type="way" ref="114723055" role="outer"/>
+  <member type="way" ref="114723054" role="outer"/>
+  <member type="way" ref="114723049" role="outer"/>
+  <member type="way" ref="114723036" role="outer"/>
+  <member type="way" ref="114723034" role="outer"/>
+  <member type="way" ref="114723065" role="outer"/>
+  <member type="way" ref="118990911" role="outer"/>
+  <member type="way" ref="118990919" role="outer"/>
+  <member type="way" ref="114825706" role="outer"/>
+  <member type="way" ref="114825885" role="outer"/>
+  <member type="way" ref="114825835" role="outer"/>
+  <member type="way" ref="114825828" role="outer"/>
+  <member type="way" ref="114825799" role="outer"/>
+  <member type="way" ref="114825807" role="outer"/>
+  <member type="way" ref="114825771" role="outer"/>
+  <member type="way" ref="114825759" role="outer"/>
+  <member type="way" ref="114825778" role="outer"/>
+  <member type="way" ref="114825824" role="outer"/>
+  <member type="way" ref="114825796" role="outer"/>
+  <member type="way" ref="114825783" role="outer"/>
+  <member type="way" ref="114825802" role="outer"/>
+  <member type="way" ref="114825817" role="outer"/>
+  <member type="way" ref="114825695" role="outer"/>
+  <member type="way" ref="114825784" role="outer"/>
+  <member type="way" ref="118990940" role="outer"/>
+  <member type="way" ref="118990943" role="outer"/>
+  <member type="way" ref="118990950" role="outer"/>
+  <member type="way" ref="118990917" role="outer"/>
+  <member type="way" ref="34576619" role="outer"/>
+  <member type="way" ref="134591847" role="outer"/>
+  <member type="way" ref="134591881" role="outer"/>
+  <member type="way" ref="134591844" role="outer"/>
+  <member type="way" ref="134591843" role="outer"/>
+  <member type="way" ref="10315164" role="outer"/>
+  <member type="way" ref="53744254" role="outer"/>
+  <member type="way" ref="10315158" role="outer"/>
+  <member type="way" ref="10315143" role="outer"/>
+  <member type="way" ref="10315187" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Maó"/>
+  <tag k="ine:municipio" v="07032"/>
+  <tag k="is_in" v="Illes Balears, Illes Balears, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Illes Balears"/>
+  <tag k="is_in:region" v="Illes Balears"/>
+  <tag k="name" v="Maó"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1809104" visible="true" version="1" changeset="9648234" timestamp="2011-10-24T22:37:04Z" user="egrn" uid="399394">
+  <member type="way" ref="134591887" role="outer"/>
+  <member type="way" ref="134591849" role="outer"/>
+  <member type="way" ref="113752946" role="outer"/>
+  <member type="way" ref="113752980" role="outer"/>
+  <member type="way" ref="118990921" role="outer"/>
+  <member type="way" ref="118990931" role="outer"/>
+  <member type="way" ref="113752949" role="outer"/>
+  <member type="way" ref="113752981" role="outer"/>
+  <member type="way" ref="113597522" role="outer"/>
+  <member type="way" ref="113597523" role="outer"/>
+  <member type="way" ref="113520393" role="outer"/>
+  <member type="way" ref="113520383" role="outer"/>
+  <member type="way" ref="113514007" role="outer"/>
+  <member type="way" ref="113513928" role="outer"/>
+  <member type="way" ref="113514002" role="outer"/>
+  <member type="way" ref="113513966" role="outer"/>
+  <member type="way" ref="113513956" role="outer"/>
+  <member type="way" ref="113513986" role="outer"/>
+  <member type="way" ref="113513983" role="outer"/>
+  <member type="way" ref="113013886" role="outer"/>
+  <member type="way" ref="113014007" role="outer"/>
+  <member type="way" ref="113013852" role="outer"/>
+  <member type="way" ref="113013942" role="outer"/>
+  <member type="way" ref="113013951" role="outer"/>
+  <member type="way" ref="113014068" role="outer"/>
+  <member type="way" ref="113014039" role="outer"/>
+  <member type="way" ref="113013862" role="outer"/>
+  <member type="way" ref="113013960" role="outer"/>
+  <member type="way" ref="113601810" role="outer"/>
+  <member type="way" ref="113601820" role="outer"/>
+  <member type="way" ref="113601837" role="outer"/>
+  <member type="way" ref="113601778" role="outer"/>
+  <member type="way" ref="118990927" role="outer"/>
+  <member type="way" ref="118990944" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Ciutadella de Menorca"/>
+  <tag k="ine:municipio" v="07015"/>
+  <tag k="is_in" v="Illes Balears, Illes Balears, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Illes Balears"/>
+  <tag k="is_in:region" v="Illes Balears"/>
+  <tag k="name" v="Ciutadella de Menorca"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1809108" visible="true" version="1" changeset="9648234" timestamp="2011-10-24T22:37:08Z" user="egrn" uid="399394">
+  <member type="way" ref="134591857" role="outer"/>
+  <member type="way" ref="134591884" role="outer"/>
+  <member type="way" ref="115648497" role="outer"/>
+  <member type="way" ref="115648489" role="outer"/>
+  <member type="way" ref="115648533" role="outer"/>
+  <member type="way" ref="115648511" role="outer"/>
+  <member type="way" ref="134591881" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Castells, Es"/>
+  <tag k="ine:municipio" v="07064"/>
+  <tag k="is_in" v="Illes Balears, Illes Balears, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Illes Balears"/>
+  <tag k="is_in:region" v="Illes Balears"/>
+  <tag k="name" v="Es Castells"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1809111" visible="true" version="1" changeset="9648234" timestamp="2011-10-24T22:37:10Z" user="egrn" uid="399394">
+  <member type="way" ref="134591887" role="outer"/>
+  <member type="way" ref="134591876" role="outer"/>
+  <member type="way" ref="113605767" role="outer"/>
+  <member type="way" ref="113605786" role="outer"/>
+  <member type="way" ref="113623827" role="outer"/>
+  <member type="way" ref="113623856" role="outer"/>
+  <member type="way" ref="113869723" role="outer"/>
+  <member type="way" ref="134591899" role="outer"/>
+  <member type="way" ref="134591860" role="outer"/>
+  <member type="way" ref="113752955" role="outer"/>
+  <member type="way" ref="10315160" role="outer"/>
+  <member type="way" ref="39408241" role="outer"/>
+  <member type="way" ref="113752936" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Ferreries"/>
+  <tag k="ine:municipio" v="07023"/>
+  <tag k="is_in" v="Illes Balears, Illes Balears, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Illes Balears"/>
+  <tag k="is_in:region" v="Illes Balears"/>
+  <tag k="name" v="Ferreries"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1809113" visible="true" version="1" changeset="9648234" timestamp="2011-10-24T22:37:12Z" user="egrn" uid="399394">
+  <member type="way" ref="114885514" role="outer"/>
+  <member type="way" ref="134591834" role="outer"/>
+  <member type="way" ref="134591864" role="outer"/>
+  <member type="way" ref="134591854" role="outer"/>
+  <member type="way" ref="134591867" role="outer"/>
+  <member type="way" ref="114020065" role="outer"/>
+  <member type="way" ref="34576618" role="outer"/>
+  <member type="way" ref="114885518" role="outer"/>
+  <member type="way" ref="114885534" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Alaior"/>
+  <tag k="ine:municipio" v="07002"/>
+  <tag k="is_in" v="Illes Balears, Illes Balears, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Illes Balears"/>
+  <tag k="is_in:region" v="Illes Balears"/>
+  <tag k="name" v="Alaior"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1809115" visible="true" version="1" changeset="9648234" timestamp="2011-10-24T22:37:14Z" user="egrn" uid="399394">
+  <member type="way" ref="113752945" role="outer"/>
+  <member type="way" ref="113869743" role="outer"/>
+  <member type="way" ref="113869760" role="outer"/>
+  <member type="way" ref="114598294" role="outer"/>
+  <member type="way" ref="114598290" role="outer"/>
+  <member type="way" ref="114598285" role="outer"/>
+  <member type="way" ref="114598207" role="outer"/>
+  <member type="way" ref="114598306" role="outer"/>
+  <member type="way" ref="114598271" role="outer"/>
+  <member type="way" ref="114598244" role="outer"/>
+  <member type="way" ref="114598198" role="outer"/>
+  <member type="way" ref="114598315" role="outer"/>
+  <member type="way" ref="114598275" role="outer"/>
+  <member type="way" ref="114598201" role="outer"/>
+  <member type="way" ref="114598291" role="outer"/>
+  <member type="way" ref="114598217" role="outer"/>
+  <member type="way" ref="114598305" role="outer"/>
+  <member type="way" ref="114598280" role="outer"/>
+  <member type="way" ref="114598189" role="outer"/>
+  <member type="way" ref="114598282" role="outer"/>
+  <member type="way" ref="114598278" role="outer"/>
+  <member type="way" ref="114598230" role="outer"/>
+  <member type="way" ref="114598329" role="outer"/>
+  <member type="way" ref="114805740" role="outer"/>
+  <member type="way" ref="114805735" role="outer"/>
+  <member type="way" ref="114723023" role="outer"/>
+  <member type="way" ref="114723022" role="outer"/>
+  <member type="way" ref="114723001" role="outer"/>
+  <member type="way" ref="114723009" role="outer"/>
+  <member type="way" ref="134591896" role="outer"/>
+  <member type="way" ref="134591874" role="outer"/>
+  <member type="way" ref="134591864" role="outer"/>
+  <member type="way" ref="134591892" role="outer"/>
+  <member type="way" ref="134591860" role="outer"/>
+  <member type="way" ref="113752943" role="outer"/>
+  <member type="way" ref="113752984" role="outer"/>
+  <member type="way" ref="113752953" role="outer"/>
+  <member type="way" ref="113752979" role="outer"/>
+  <member type="way" ref="113752983" role="outer"/>
+  <member type="way" ref="113752954" role="outer"/>
+  <member type="way" ref="113752973" role="outer"/>
+  <member type="way" ref="113752968" role="outer"/>
+  <member type="way" ref="113752960" role="outer"/>
+  <member type="way" ref="113752944" role="outer"/>
+  <member type="way" ref="113752974" role="outer"/>
+  <member type="way" ref="113752956" role="outer"/>
+  <member type="way" ref="113752966" role="outer"/>
+  <member type="way" ref="113752927" role="outer"/>
+  <member type="way" ref="113752971" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Es Marcadals"/>
+  <tag k="ine:municipio" v="07037"/>
+  <tag k="is_in" v="Illes Balears, Illes Balears, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Illes Balears"/>
+  <tag k="is_in:region" v="Illes Balears"/>
+  <tag k="name" v="es Marcadals"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1809117" visible="true" version="1" changeset="9648234" timestamp="2011-10-24T22:37:16Z" user="egrn" uid="399394">
+  <member type="way" ref="45318933" role="outer"/>
+  <member type="way" ref="134591870" role="outer"/>
+  <member type="way" ref="134591846" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="La Canonja"/>
+  <tag k="ine:municipio" v="43907"/>
+  <tag k="is_in" v="Tarragona, Cataluña, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Tarragona"/>
+  <tag k="is_in:region" v="Cataluña"/>
+  <tag k="name" v="La Canonja"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="La Canonja"/>
+ </relation>
+ <relation id="1809121" visible="true" version="1" changeset="9648234" timestamp="2011-10-24T22:37:21Z" user="egrn" uid="399394">
+  <member type="way" ref="134591857" role="outer"/>
+  <member type="way" ref="112681533" role="outer"/>
+  <member type="way" ref="112681572" role="outer"/>
+  <member type="way" ref="114976379" role="outer"/>
+  <member type="way" ref="114976266" role="outer"/>
+  <member type="way" ref="118990942" role="outer"/>
+  <member type="way" ref="118990941" role="outer"/>
+  <member type="way" ref="114976301" role="outer"/>
+  <member type="way" ref="114976335" role="outer"/>
+  <member type="way" ref="134591844" role="outer"/>
+  <member type="way" ref="10315184" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Sant Lluís"/>
+  <tag k="ine:municipio" v="07052"/>
+  <tag k="is_in" v="Illes Balears, Illes Balears, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Illes Balears"/>
+  <tag k="is_in:region" v="Illes Balears"/>
+  <tag k="name" v="Sant Lluís"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:San José (Baleares)"/>
+ </relation>
+ <relation id="1820709" visible="true" version="1" changeset="9691760" timestamp="2011-10-30T09:32:38Z" user="didier2020" uid="300459">
+  <member type="way" ref="135251539" role="outer"/>
+  <member type="way" ref="135251541" role="outer"/>
+  <member type="way" ref="135251540" role="outer"/>
+  <member type="way" ref="31311498" role="outer"/>
+  <member type="way" ref="48856777" role="outer"/>
+  <member type="way" ref="31059440" role="outer"/>
+  <member type="way" ref="30814653" role="outer"/>
+  <member type="node" ref="153427402" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Bourg-Madame"/>
+  <tag k="ref:INSEE" v="66025"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1821272" visible="true" version="1" changeset="9696924" timestamp="2011-10-30T18:48:01Z" user="egrn" uid="399394">
+  <member type="way" ref="135305507" role="outer"/>
+  <member type="way" ref="135305514" role="outer"/>
+  <member type="way" ref="45370138" role="outer"/>
+  <member type="node" ref="339667528" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Benicull de Xúquer"/>
+  <tag k="ine:municipio" v="46904"/>
+  <tag k="is_in" v="Valencia, Comunidad Valenciana, Spain"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:province" v="Valencia/València"/>
+  <tag k="is_in:region" v="Comunidad Valenciana"/>
+  <tag k="name" v="Benicull de Xúquer"/>
+  <tag k="population" v="1018"/>
+  <tag k="population:date" v="2009"/>
+  <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Corbera"/>
+ </relation>
+ <relation id="1918699" visible="true" version="1" changeset="10137285" timestamp="2011-12-17T10:45:05Z" user="rainerU" uid="207249">
+  <member type="way" ref="141611454" role="outer"/>
+  <member type="way" ref="26053054" role="outer"/>
+  <member type="way" ref="141611453" role="outer"/>
+  <member type="way" ref="31822103" role="outer"/>
+  <member type="way" ref="31822102" role="outer"/>
+  <member type="way" ref="31288959" role="outer"/>
+  <tag k="addr:postcode" v="66130"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Corbère-les-Cabanes"/>
+  <tag k="ref:INSEE" v="66056"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1918726" visible="true" version="1" changeset="10137511" timestamp="2011-12-17T11:18:16Z" user="rainerU" uid="207249">
+  <member type="way" ref="137083624" role=""/>
+  <member type="way" ref="25117999" role=""/>
+  <member type="way" ref="31822379" role=""/>
+  <member type="way" ref="141611454" role=""/>
+  <member type="way" ref="141611452" role=""/>
+  <member type="way" ref="141612787" role=""/>
+  <member type="way" ref="141612788" role=""/>
+  <member type="way" ref="141612789" role=""/>
+  <member type="way" ref="137083520" role=""/>
+  <tag k="addr:postcode" v="66130"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Corbère"/>
+  <tag k="ref:INSEE" v="66055"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1918771" visible="true" version="1" changeset="10137696" timestamp="2011-12-17T11:47:51Z" user="rainerU" uid="207249">
+  <member type="way" ref="141618633" role="outer"/>
+  <member type="way" ref="141612788" role="outer"/>
+  <member type="way" ref="26052300" role="outer"/>
+  <member type="way" ref="141618631" role="outer"/>
+  <member type="way" ref="141618652" role="outer"/>
+  <tag k="addr:postcode" v="66130"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Saint-Michel-de-Llotes"/>
+  <tag k="name:ca" v="Sant Miquel de Llotes"/>
+  <tag k="ref:INSEE" v="66185"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1918812" visible="true" version="1" changeset="10137795" timestamp="2011-12-17T12:07:03Z" user="rainerU" uid="207249">
+  <member type="way" ref="141623255" role="outer"/>
+  <member type="way" ref="141623254" role="outer"/>
+  <member type="way" ref="141623253" role="outer"/>
+  <tag k="addr:postcode" v="66130"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Casefabre"/>
+  <tag k="name:ca" v="Casafabre"/>
+  <tag k="ref:INSEE" v="66040"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1918955" visible="true" version="1" changeset="10138866" timestamp="2011-12-17T14:56:29Z" user="rainerU" uid="207249">
+  <member type="way" ref="141638021" role="outer"/>
+  <member type="way" ref="26258134" role="outer"/>
+  <member type="way" ref="26258129" role="outer"/>
+  <tag k="addr:postcode" v="66130"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Prunet-et-Belpuig"/>
+  <tag k="ref:INSEE" v="66153"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1919150" visible="true" version="1" changeset="10140448" timestamp="2011-12-17T18:02:36Z" user="rainerU" uid="207249">
+  <member type="way" ref="141623255" role="outer"/>
+  <member type="way" ref="141661641" role="outer"/>
+  <member type="way" ref="141661661" role="outer"/>
+  <member type="way" ref="141638031" role="outer"/>
+  <tag k="addr:postcode" v="66130"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Boule d'Amont"/>
+  <tag k="name:ca" v="Bula d'Amunt"/>
+  <tag k="ref:INSEE" v="66022"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1919385" visible="true" version="1" changeset="10141617" timestamp="2011-12-17T20:24:53Z" user="rainerU" uid="207249">
+  <member type="way" ref="141661635" role="outer"/>
+  <member type="way" ref="141618652" role="outer"/>
+  <member type="way" ref="141684294" role="outer"/>
+  <member type="way" ref="141684297" role="outer"/>
+  <member type="way" ref="141661641" role="outer"/>
+  <tag k="addr:postcode" v="66130"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Bouleternère"/>
+  <tag k="name:ca" v="Bulaternera"/>
+  <tag k="ref:INSEE" v="66023"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1919494" visible="true" version="1" changeset="10142181" timestamp="2011-12-17T21:37:52Z" user="rainerU" uid="207249">
+  <member type="way" ref="141692147" role="outer"/>
+  <member type="way" ref="141692140" role="outer"/>
+  <member type="way" ref="141692145" role="outer"/>
+  <member type="way" ref="141684297" role="outer"/>
+  <member type="way" ref="141684295" role="outer"/>
+  <member type="way" ref="141692131" role="outer"/>
+  <tag k="addr:postcode" v="66320"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="code_departement" v="66"/>
+  <tag k="name" v="Rodès"/>
+  <tag k="name:ca" v="Rodés"/>
+  <tag k="ref:INSEE" v="66165"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1920120" visible="true" version="1" changeset="10145583" timestamp="2011-12-18T11:37:05Z" user="rainerU" uid="207249">
+  <member type="way" ref="141763881" role="outer"/>
+  <member type="way" ref="141763872" role="outer"/>
+  <member type="way" ref="141763877" role="outer"/>
+  <member type="way" ref="141763879" role="outer"/>
+  <tag k="addr:country" v="FR"/>
+  <tag k="addr:postcode" v="66320"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="code_departement" v="66"/>
+  <tag k="name" v="Marquixanes"/>
+  <tag k="name:ca" v="Marquixanes"/>
+  <tag k="ref:INSEE" v="66103"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1920644" visible="true" version="1" changeset="10148812" timestamp="2011-12-18T17:30:59Z" user="rainerU" uid="207249">
+  <member type="way" ref="82443367" role="outer"/>
+  <member type="way" ref="82443368" role="outer"/>
+  <member type="way" ref="141816302" role="outer"/>
+  <member type="way" ref="133887752" role="outer"/>
+  <member type="way" ref="121772204" role="outer"/>
+  <member type="way" ref="121772201" role="outer"/>
+  <member type="way" ref="41575136" role="outer"/>
+  <member type="way" ref="82443364" role="outer"/>
+  <tag k="addr:country" v="FR"/>
+  <tag k="addr:postcode" v="66720"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Montner"/>
+  <tag k="name:ca" v="Montner"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1920758" visible="true" version="1" changeset="10149182" timestamp="2011-12-18T18:08:08Z" user="rainerU" uid="207249">
+  <member type="way" ref="141821505" role="outer"/>
+  <member type="way" ref="43205212" role="outer"/>
+  <member type="way" ref="25743309" role="outer"/>
+  <member type="way" ref="59695746" role="outer"/>
+  <member type="way" ref="141816302" role="outer"/>
+  <member type="way" ref="141816298" role="outer"/>
+  <tag k="addr:country" v="FR"/>
+  <tag k="addr:postcode" v="66310"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="code_departement" v="66"/>
+  <tag k="name" v="Estagel"/>
+  <tag k="name:ca" v="Estagell"/>
+  <tag k="place" v="village"/>
+  <tag k="ref:INSEE" v="66071"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1952519" visible="true" version="1" changeset="10295116" timestamp="2012-01-04T20:41:42Z" user="vincent_95" uid="49047">
+  <member type="node" ref="313784697" role="admin_centre"/>
+  <member type="way" ref="25776674" role=""/>
+  <member type="way" ref="30814472" role=""/>
+  <member type="way" ref="30814480" role=""/>
+  <member type="way" ref="31312256" role=""/>
+  <member type="way" ref="31311500" role=""/>
+  <member type="way" ref="135251541" role=""/>
+  <tag k="addr:postcode" v="66800"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Sainte-Léocadie"/>
+  <tag k="population" v="143"/>
+  <tag k="ref:INSEE" v="66181"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="1966208" visible="true" version="1" changeset="10371925" timestamp="2012-01-12T18:36:32Z" user="Skywave" uid="10927">
+  <member type="way" ref="145308859" role=""/>
+  <member type="way" ref="89083341" role=""/>
+  <member type="way" ref="145308846" role=""/>
+  <member type="way" ref="50402794" role=""/>
+  <member type="way" ref="50402797" role=""/>
+  <member type="way" ref="95582348" role=""/>
+  <member type="way" ref="115468184" role=""/>
+  <member type="way" ref="95582259" role=""/>
+  <member type="way" ref="95582404" role=""/>
+  <member type="way" ref="95582343" role=""/>
+  <member type="way" ref="95582361" role=""/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="ref:insee" v="66020"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2084436" visible="true" version="1" changeset="10990369" timestamp="2012-03-15T16:54:59Z" user="Verdy_p" uid="90780">
+  <member type="node" ref="313764926" role="admin_centre"/>
+  <member type="way" ref="23305159" role="outer"/>
+  <member type="way" ref="155174610" role="outer"/>
+  <member type="way" ref="5820017" role="outer"/>
+  <member type="way" ref="45504157" role="outer"/>
+  <member type="way" ref="48719470" role="outer"/>
+  <member type="way" ref="94114503" role="outer"/>
+  <member type="way" ref="94114689" role="outer"/>
+  <member type="way" ref="50344398" role="outer"/>
+  <member type="way" ref="50344392" role="outer"/>
+  <member type="way" ref="94114546" role="outer"/>
+  <tag k="addr:country" v="FR"/>
+  <tag k="addr:postcode" v="66760"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Porta"/>
+  <tag k="ref:INSEE" v="66146"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2181768" visible="true" version="1" changeset="11588069" timestamp="2012-05-13T16:58:05Z" user="Verdy_p" uid="90780">
+  <member type="node" ref="283457932" role="admin_centre"/>
+  <member type="way" ref="111606356" role="outer"/>
+  <member type="way" ref="163419152" role="outer"/>
+  <member type="way" ref="163419151" role="outer"/>
+  <member type="way" ref="163419154" role="outer"/>
+  <member type="way" ref="163419174" role="outer"/>
+  <member type="way" ref="163419150" role="outer"/>
+  <member type="way" ref="163419171" role="outer"/>
+  <member type="way" ref="163419177" role="outer"/>
+  <member type="way" ref="163419153" role="outer"/>
+  <member type="way" ref="163419175" role="outer"/>
+  <member type="way" ref="163419162" role="outer"/>
+  <member type="way" ref="163419170" role="outer"/>
+  <member type="way" ref="163419164" role="outer"/>
+  <member type="way" ref="163419176" role="outer"/>
+  <member type="way" ref="163419167" role="outer"/>
+  <member type="way" ref="163419160" role="outer"/>
+  <member type="way" ref="163419168" role="outer"/>
+  <member type="way" ref="163423486" role="outer"/>
+  <member type="way" ref="163423484" role="outer"/>
+  <member type="way" ref="163423474" role="outer"/>
+  <member type="way" ref="163423461" role="outer"/>
+  <member type="way" ref="10316103" role="outer"/>
+  <member type="way" ref="111606354" role="outer"/>
+  <member type="way" ref="10316135" role="outer"/>
+  <member type="way" ref="10316062" role="outer"/>
+  <member type="way" ref="10316059" role="outer"/>
+  <member type="way" ref="10316071" role="outer"/>
+  <member type="way" ref="10316057" role="outer"/>
+  <member type="way" ref="111385625" role="outer"/>
+  <member type="way" ref="10316060" role="outer"/>
+  <member type="way" ref="84627536" role="outer"/>
+  <member type="way" ref="10316099" role="outer"/>
+  <member type="way" ref="111385630" role="outer"/>
+  <member type="way" ref="10316087" role="outer"/>
+  <member type="way" ref="74480597" role="outer"/>
+  <member type="way" ref="74480202" role="outer"/>
+  <member type="way" ref="10316024" role="outer"/>
+  <member type="way" ref="10316094" role="outer"/>
+  <member type="way" ref="10316110" role="outer"/>
+  <member type="way" ref="74760905" role="outer"/>
+  <member type="way" ref="111385627" role="outer"/>
+  <member type="way" ref="111385629" role="outer"/>
+  <member type="way" ref="111385626" role="outer"/>
+  <member type="way" ref="111385628" role="outer"/>
+  <member type="relation" ref="2181767" role="subarea"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="boundary_type" v="political"/>
+  <tag k="is_in" v="Illes Balears, Illes Balears, Spain, Europe"/>
+  <tag k="is_in:continent" v="Europe"/>
+  <tag k="is_in:country" v="Spain"/>
+  <tag k="is_in:country_code" v="ES"/>
+  <tag k="is_in:province" v="Illes Balears"/>
+  <tag k="is_in:region" v="Illes Balears"/>
+  <tag k="name" v="Formentera"/>
+  <tag k="name:ca" v="Formentera"/>
+  <tag k="name:es" v="Formentera"/>
+  <tag k="note" v="The island (with its surrounding islets) is not administratively subdivided into separate comarcas (level 7). It is administratively an insular council, assimilited to a comarca by itself."/>
+  <tag k="note:2" v="There's no numeric admin_level defined for this type of administrative boundary, between levels 6 and 7."/>
+  <tag k="note:3" v="This insular council was separated in 2007 from the insular council of Ibiza."/>
+  <tag k="official_name" v="Consell Insular de Formentera"/>
+  <tag k="official_name:ca" v="Consell Insular de Formentera"/>
+  <tag k="official_name:en" v="Insular Council of Formentera"/>
+  <tag k="official_name:es" v="Consejo Insular de Formentera"/>
+  <tag k="official_name:fr" v="Conseil insulaire de Formentera"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="es:Consejo Insular de Formentera"/>
+ </relation>
+ <relation id="2548784" visible="true" version="1" changeset="13728682" timestamp="2012-11-02T22:54:12Z" user="Skywave" uid="10927">
+  <member type="way" ref="25116286" role="outer"/>
+  <member type="way" ref="48719473" role="outer"/>
+  <member type="way" ref="188833217" role="outer"/>
+  <member type="way" ref="188833214" role="outer"/>
+  <member type="way" ref="188833215" role="outer"/>
+  <member type="way" ref="26000583" role="outer"/>
+  <tag k="addr:postcode" v="66740"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Montesquieu-des-Albères"/>
+  <tag k="ref:insee" v="66115"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2593113" visible="true" version="1" changeset="14010856" timestamp="2012-11-24T11:11:44Z" user="la colle" uid="530603">
+  <member type="way" ref="188829365" role="outer"/>
+  <member type="way" ref="26014756" role="outer"/>
+  <member type="way" ref="43205212" role="outer"/>
+  <member type="way" ref="43205735" role="outer"/>
+  <member type="way" ref="188829361" role="outer"/>
+  <member type="node" ref="313798335" role="admin_centre"/>
+  <tag k="addr:postcode" v="66720"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Tautavel"/>
+  <tag k="ref:INSEE" v="66205"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2621923" visible="true" version="1" changeset="14172564" timestamp="2012-12-06T08:43:55Z" user="Pmz" uid="4363">
+  <member type="way" ref="25116283" role="outer"/>
+  <member type="way" ref="28701932" role="outer"/>
+  <member type="way" ref="28701933" role="outer"/>
+  <member type="way" ref="26000585" role="outer"/>
+  <member type="way" ref="188833214" role="outer"/>
+  <member type="way" ref="121771082" role="outer"/>
+  <member type="way" ref="35594915" role="outer"/>
+  <member type="way" ref="35594914" role="outer"/>
+  <member type="node" ref="313802241" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Villelongue-dels-Monts"/>
+  <tag k="ref:INSEE" v="66225"/>
+  <tag k="source:ref:INSEE" v="COG"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2768132" visible="true" version="1" changeset="15072109" timestamp="2013-02-18T02:43:41Z" user="Verdy_p" uid="90780">
+  <member type="node" ref="313747280" role="admin_centre"/>
+  <member type="way" ref="41362407" role="outer"/>
+  <member type="way" ref="121771084" role="outer"/>
+  <member type="way" ref="121771082" role="outer"/>
+  <member type="way" ref="206041775" role="outer"/>
+  <member type="way" ref="206041777" role="outer"/>
+  <member type="way" ref="206041779" role="outer"/>
+  <tag k="addr:country" v="FR"/>
+  <tag k="addr:postcode" v="66480"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="L'Albère"/>
+  <tag k="name:ca" v="L'Albera"/>
+  <tag k="name:fr" v="L'Albère"/>
+  <tag k="name:oc" v="L'Albera"/>
+  <tag k="population" v="83"/>
+  <tag k="population:date" v="2009"/>
+  <tag k="ref:INSEE" v="66001"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="fr:L'Albère"/>
+ </relation>
+ <relation id="2768133" visible="true" version="1" changeset="15072109" timestamp="2013-02-18T02:43:42Z" user="Verdy_p" uid="90780">
+  <member type="node" ref="302075865" role="admin_centre"/>
+  <member type="way" ref="121771083" role="outer"/>
+  <member type="way" ref="41362406" role="outer"/>
+  <member type="way" ref="206041777" role="outer"/>
+  <member type="way" ref="188833217" role="outer"/>
+  <tag k="addr:country" v="FR"/>
+  <tag k="addr:postcode" v="66400"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Les Cluses"/>
+  <tag k="name:ca" v="Les Cluses"/>
+  <tag k="name:fr" v="Les Cluses"/>
+  <tag k="name:oc" v="Les Cluses"/>
+  <tag k="old_name:fr" v="Écluse"/>
+  <tag k="population" v="261"/>
+  <tag k="population:date" v="2009"/>
+  <tag k="ref:INSEE" v="66063"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="fr:Les Cluses"/>
+ </relation>
+ <relation id="2768134" visible="true" version="1" changeset="15072109" timestamp="2013-02-18T02:43:42Z" user="Verdy_p" uid="90780">
+  <member type="node" ref="313785170" role="admin_centre"/>
+  <member type="way" ref="206041778" role="outer"/>
+  <member type="way" ref="206041776" role="outer"/>
+  <member type="way" ref="49570721" role="outer"/>
+  <member type="way" ref="49570706" role="outer"/>
+  <member type="way" ref="49577696" role="outer"/>
+  <tag k="addr:country" v="FR"/>
+  <tag k="addr:postcode" v="66400"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="is_in" v="Europe, France, Languedoc-Roussillon, Pyrénées-Orientales"/>
+  <tag k="name" v="Taillet"/>
+  <tag k="name:ca" v="Tellet"/>
+  <tag k="name:fr" v="Taillet"/>
+  <tag k="name:oc" v="Tellet"/>
+  <tag k="population" v="93"/>
+  <tag k="population:date" v="2009"/>
+  <tag k="ref:INSEE" v="66199"/>
+  <tag k="source:addr:postcode" v="source of postcode is from galichon.com/INSEE"/>
+  <tag k="source:population" v="INSEE"/>
+  <tag k="source:ref:INSEE" v="source of ref is from galichon.com/INSEE"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikipedia" v="fr:Taillet"/>
+ </relation>
+ <relation id="2804753" visible="true" version="1" changeset="15270094" timestamp="2013-03-06T12:49:32Z" user="EliziR" uid="605366">
+  <member type="way" ref="208550569" role=""/>
+  <member type="way" ref="208557125" role=""/>
+  <member type="way" ref="208550565" role=""/>
+  <member type="way" ref="208550566" role=""/>
+  <tag k="admin_level" v="7"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Andorra la Vella"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2804754" visible="true" version="1" changeset="15270094" timestamp="2013-03-06T12:49:32Z" user="EliziR" uid="605366">
+  <member type="way" ref="208550571" role=""/>
+  <member type="way" ref="208550568" role=""/>
+  <member type="way" ref="23305159" role=""/>
+  <member type="way" ref="50344406" role=""/>
+  <member type="way" ref="8164186" role=""/>
+  <member type="way" ref="136391989" role=""/>
+  <member type="way" ref="208557121" role=""/>
+  <tag k="admin_level" v="7"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Canillo"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2804755" visible="true" version="1" changeset="15270094" timestamp="2013-03-06T12:49:33Z" user="EliziR" uid="605366">
+  <member type="way" ref="208550567" role=""/>
+  <member type="way" ref="208550570" role=""/>
+  <member type="way" ref="208557122" role=""/>
+  <member type="way" ref="208557120" role=""/>
+  <member type="way" ref="208550568" role=""/>
+  <tag k="admin_level" v="7"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Encamp"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2804756" visible="true" version="1" changeset="15270094" timestamp="2013-03-06T12:49:33Z" user="EliziR" uid="605366">
+  <member type="way" ref="208557124" role=""/>
+  <member type="way" ref="45511090" role=""/>
+  <member type="way" ref="208550570" role=""/>
+  <member type="way" ref="208557126" role=""/>
+  <member type="way" ref="208550566" role=""/>
+  <member type="way" ref="208557127" role=""/>
+  <tag k="admin_level" v="7"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Escaldes-Engordany"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2804757" visible="true" version="1" changeset="15270094" timestamp="2013-03-06T12:49:33Z" user="EliziR" uid="605366">
+  <member type="way" ref="45511076" role=""/>
+  <member type="way" ref="6165679" role=""/>
+  <member type="way" ref="136841192" role=""/>
+  <member type="way" ref="208550564" role=""/>
+  <member type="way" ref="208550567" role=""/>
+  <member type="way" ref="208557126" role=""/>
+  <member type="way" ref="208550569" role=""/>
+  <tag k="admin_level" v="7"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="La Massana"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2804758" visible="true" version="1" changeset="15270094" timestamp="2013-03-06T12:49:33Z" user="EliziR" uid="605366">
+  <member type="way" ref="208550564" role=""/>
+  <member type="way" ref="208550571" role=""/>
+  <member type="way" ref="136391986" role=""/>
+  <member type="way" ref="136813491" role=""/>
+  <member type="way" ref="136813494" role=""/>
+  <member type="way" ref="136822127" role=""/>
+  <member type="way" ref="208557119" role=""/>
+  <tag k="admin_level" v="7"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Ordino"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2804759" visible="true" version="1" changeset="15270094" timestamp="2013-03-06T12:49:34Z" user="EliziR" uid="605366">
+  <member type="way" ref="208557127" role=""/>
+  <member type="way" ref="208550565" role=""/>
+  <member type="way" ref="208557123" role=""/>
+  <tag k="admin_level" v="7"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Sant Julià de Lòria"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2814309" visible="true" version="1" changeset="15331923" timestamp="2013-03-11T19:24:53Z" user="Pinpin" uid="1685">
+  <member type="way" ref="209411151" role="outer"/>
+  <member type="way" ref="209411150" role="outer"/>
+  <member type="way" ref="30815158" role="outer"/>
+  <member type="way" ref="208006409" role="outer"/>
+  <member type="node" ref="297161742" role="admin_centre"/>
+  <tag k="addr:postcode" v="66760"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Dorres"/>
+  <tag k="ref:INSEE" v="66062"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2814313" visible="true" version="1" changeset="15331993" timestamp="2013-03-11T19:29:57Z" user="Pinpin" uid="1685">
+  <member type="node" ref="1675959332" role="admin_centre"/>
+  <member type="way" ref="204124914" role="outer"/>
+  <member type="way" ref="89083396" role="outer"/>
+  <member type="way" ref="89123565" role="outer"/>
+  <member type="way" ref="89123560" role="outer"/>
+  <member type="way" ref="89955471" role="outer"/>
+  <member type="way" ref="208006410" role="outer"/>
+  <member type="way" ref="208006411" role="outer"/>
+  <member type="way" ref="208006407" role="outer"/>
+  <member type="way" ref="83912359" role="outer"/>
+  <member type="way" ref="50344396" role="outer"/>
+  <member type="way" ref="209411151" role="outer"/>
+  <member type="way" ref="30814648" role="outer"/>
+  <member type="way" ref="30814651" role="outer"/>
+  <member type="way" ref="30857585" role="outer"/>
+  <member type="way" ref="145308832" role="outer"/>
+  <tag k="addr:postcode" v="66760"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Angoustrine-Villeneuve-des-Escaldes"/>
+  <tag k="population" v="637"/>
+  <tag k="population:date" v="2007"/>
+  <tag k="ref:INSEE" v="66005"/>
+  <tag k="source:population" v="INSEE"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2814562" visible="true" version="1" changeset="15333649" timestamp="2013-03-11T21:32:38Z" user="Pinpin" uid="1685">
+  <member type="node" ref="312261577" role="admin_centre"/>
+  <member type="way" ref="23301549" role="outer"/>
+  <member type="way" ref="140461373" role="outer"/>
+  <member type="way" ref="135630276" role="outer"/>
+  <member type="way" ref="209431711" role="outer"/>
+  <member type="way" ref="209431708" role="outer"/>
+  <member type="way" ref="203803006" role="outer"/>
+  <member type="way" ref="203803007" role="outer"/>
+  <member type="way" ref="209431710" role="outer"/>
+  <member type="way" ref="209431705" role="outer"/>
+  <member type="way" ref="209431706" role="outer"/>
+  <member type="way" ref="209431704" role="outer"/>
+  <member type="way" ref="82052687" role="outer"/>
+  <member type="way" ref="143859888" role="outer"/>
+  <member type="way" ref="209431709" role="outer"/>
+  <tag k="addr:postcode" v="66210"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Puyvalador"/>
+  <tag k="ref:INSEE" v="66154"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2814982" visible="true" version="1" changeset="15337327" timestamp="2013-03-12T09:17:39Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313751021" role="admin_centre"/>
+  <member type="way" ref="209513144" role="outer"/>
+  <member type="way" ref="131749302" role="outer"/>
+  <member type="way" ref="131749306" role="outer"/>
+  <member type="way" ref="131749305" role="outer"/>
+  <member type="way" ref="131749303" role="outer"/>
+  <member type="way" ref="209431711" role="outer"/>
+  <member type="way" ref="209431708" role="outer"/>
+  <member type="way" ref="203803006" role="outer"/>
+  <member type="way" ref="203803007" role="outer"/>
+  <member type="way" ref="209431710" role="outer"/>
+  <member type="way" ref="209513141" role="outer"/>
+  <tag k="addr:postcode" v="66210"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Fontrabiouse"/>
+  <tag k="ref:INSEE" v="66081"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2815058" visible="true" version="1" changeset="15338328" timestamp="2013-03-12T10:59:02Z" user="Pinpin" uid="1685">
+  <member type="node" ref="312261574" role="admin_centre"/>
+  <member type="way" ref="209537748" role="outer"/>
+  <member type="way" ref="209537746" role="outer"/>
+  <member type="way" ref="209537745" role="outer"/>
+  <member type="way" ref="82052548" role="outer"/>
+  <member type="way" ref="209431706" role="outer"/>
+  <member type="way" ref="209431705" role="outer"/>
+  <member type="way" ref="209513141" role="outer"/>
+  <member type="way" ref="209513144" role="outer"/>
+  <member type="way" ref="209513139" role="outer"/>
+  <member type="way" ref="208006411" role="outer"/>
+  <member type="way" ref="28576968" role="outer"/>
+  <member type="way" ref="43268435" role="outer"/>
+  <member type="way" ref="38121207" role="outer"/>
+  <member type="way" ref="209537747" role="outer"/>
+  <tag k="addr:postcode" v="66210"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Formiguères"/>
+  <tag k="ref:INSEE" v="66082"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2815362" visible="true" version="1" changeset="15341912" timestamp="2013-03-12T16:21:27Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313803400" role="admin_centre"/>
+  <member type="way" ref="209591103" role="outer"/>
+  <member type="way" ref="204034067" role="outer"/>
+  <member type="way" ref="188829358" role="outer"/>
+  <member type="way" ref="188829365" role="outer"/>
+  <member type="way" ref="26014757" role="outer"/>
+  <member type="way" ref="121772198" role="outer"/>
+  <tag k="addr:postcode" v="66600"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Vingrau"/>
+  <tag k="ref:INSEE" v="66231"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2815369" visible="true" version="1" changeset="15341960" timestamp="2013-03-12T16:26:01Z" user="Pinpin" uid="1685">
+  <member type="way" ref="100675906" role="outer"/>
+  <member type="way" ref="100492041" role="outer"/>
+  <member type="way" ref="100042917" role="outer"/>
+  <member type="way" ref="209591101" role="outer"/>
+  <member type="way" ref="209591103" role="outer"/>
+  <member type="node" ref="313758919" role="admin_centre"/>
+  <tag k="addr:postcode" v="66600"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Opoul-Périllos"/>
+  <tag k="ref:INSEE" v="66127"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2816871" visible="true" version="1" changeset="15351392" timestamp="2013-03-13T12:50:38Z" user="Pinpin" uid="1685">
+  <member type="node" ref="279181168" role="admin_centre"/>
+  <member type="way" ref="209770694" role="outer"/>
+  <member type="way" ref="180365892" role="outer"/>
+  <member type="way" ref="209770692" role="outer"/>
+  <tag k="addr:postcode" v="66320"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Tarerach"/>
+  <tag k="ref:INSEE" v="66201"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2817026" visible="true" version="1" changeset="15352312" timestamp="2013-03-13T14:15:06Z" user="Pinpin" uid="1685">
+  <member type="node" ref="60943687" role="admin_centre"/>
+  <member type="way" ref="209788609" role="outer"/>
+  <member type="way" ref="209788610" role="outer"/>
+  <member type="way" ref="209770693" role="outer"/>
+  <member type="way" ref="30815638" role="outer"/>
+  <member type="way" ref="209788608" role="outer"/>
+  <tag k="addr:postcode" v="66320"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Arboussols"/>
+  <tag k="ref:INSEE" v="66007"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2820388" visible="true" version="1" changeset="15371749" timestamp="2013-03-15T10:40:25Z" user="Pinpin" uid="1685">
+  <member type="node" ref="279096314" role="admin_centre"/>
+  <member type="way" ref="210203029" role="outer"/>
+  <member type="way" ref="210203027" role="outer"/>
+  <member type="way" ref="210203030" role="outer"/>
+  <member type="way" ref="90654748" role="outer"/>
+  <member type="way" ref="90654737" role="outer"/>
+  <member type="way" ref="86301480" role="outer"/>
+  <member type="way" ref="28701334" role="outer"/>
+  <member type="way" ref="31277916" role="outer"/>
+  <member type="way" ref="141763872" role="outer"/>
+  <member type="way" ref="209788609" role="outer"/>
+  <member type="way" ref="210043513" role="outer"/>
+  <member type="way" ref="210043512" role="outer"/>
+  <tag k="addr:postcode" v="66500"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Eus"/>
+  <tag k="ref:INSEE" v="66074"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2820610" visible="true" version="1" changeset="15373569" timestamp="2013-03-15T13:40:10Z" user="Pinpin" uid="1685">
+  <member type="node" ref="38900971" role="admin_centre"/>
+  <member type="way" ref="210228274" role="outer"/>
+  <member type="way" ref="210203029" role="outer"/>
+  <member type="way" ref="210203027" role="outer"/>
+  <member type="way" ref="210203030" role="outer"/>
+  <member type="way" ref="90654736" role="outer"/>
+  <member type="way" ref="90654740" role="outer"/>
+  <member type="way" ref="90654749" role="outer"/>
+  <member type="way" ref="90654730" role="outer"/>
+  <member type="way" ref="25444920" role="outer"/>
+  <tag k="addr:postcode" v="66500"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Catllar"/>
+  <tag k="ref:INSEE" v="66045"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2820751" visible="true" version="1" changeset="15374266" timestamp="2013-03-15T14:48:15Z" user="Pinpin" uid="1685">
+  <member type="node" ref="218637577" role="admin_centre"/>
+  <member type="way" ref="210239060" role="outer"/>
+  <member type="way" ref="210203028" role="outer"/>
+  <member type="way" ref="210228273" role="outer"/>
+  <member type="way" ref="210239061" role="outer"/>
+  <member type="way" ref="210239057" role="outer"/>
+  <tag k="addr:postcode" v="66500"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Molitg-les-Bains"/>
+  <tag k="population" v="207"/>
+  <tag k="ref:INSEE" v="66109"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2820851" visible="true" version="1" changeset="15374790" timestamp="2013-03-15T15:40:06Z" user="Pinpin" uid="1685">
+  <member type="node" ref="218637576" role="admin_centre"/>
+  <member type="way" ref="210239057" role="outer"/>
+  <member type="way" ref="210248019" role="outer"/>
+  <member type="way" ref="210248020" role="outer"/>
+  <member type="way" ref="210239060" role="outer"/>
+  <tag k="addr:postcode" v="66500"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Campôme"/>
+  <tag k="population" v="106"/>
+  <tag k="ref:INSEE" v="66034"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2827098" visible="true" version="1" changeset="15407653" timestamp="2013-03-18T12:57:52Z" user="Pinpin" uid="1685">
+  <member type="node" ref="218637575" role="admin_centre"/>
+  <member type="way" ref="210754699" role="outer"/>
+  <member type="way" ref="194282651" role="outer"/>
+  <member type="way" ref="210047153" role="outer"/>
+  <member type="way" ref="210047152" role="outer"/>
+  <member type="way" ref="210239059" role="outer"/>
+  <member type="way" ref="210248021" role="outer"/>
+  <member type="way" ref="210754697" role="outer"/>
+  <tag k="addr:postcode" v="66500"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Mosset"/>
+  <tag k="population" v="293"/>
+  <tag k="ref:INSEE" v="66119"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2827311" visible="true" version="1" changeset="15409536" timestamp="2013-03-18T15:55:17Z" user="Pinpin" uid="1685">
+  <member type="node" ref="206333273" role="admin_centre"/>
+  <member type="way" ref="210802081" role="outer"/>
+  <member type="way" ref="41311877" role="outer"/>
+  <member type="way" ref="210228275" role="outer"/>
+  <member type="way" ref="210228274" role="outer"/>
+  <member type="way" ref="210248020" role="outer"/>
+  <member type="way" ref="210754699" role="outer"/>
+  <member type="way" ref="210802082" role="outer"/>
+  <member type="way" ref="210802078" role="outer"/>
+  <tag k="addr:postcode" v="66500"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Ria-Sirach"/>
+  <tag k="ref:INSEE" v="66161"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2828302" visible="true" version="1" changeset="15417624" timestamp="2013-03-19T09:46:25Z" user="Pinpin" uid="1685">
+  <member type="node" ref="148505170" role="admin_centre"/>
+  <member type="way" ref="210934560" role="outer"/>
+  <member type="way" ref="210802079" role="outer"/>
+  <member type="way" ref="210802082" role="outer"/>
+  <member type="way" ref="48718115" role="outer"/>
+  <tag k="addr:postcode" v="66500"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Conat"/>
+  <tag k="population" v="45"/>
+  <tag k="ref:INSEE" v="66054"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2828560" visible="true" version="1" changeset="15419531" timestamp="2013-03-19T13:07:52Z" user="Pinpin" uid="1685">
+  <member type="node" ref="278773159" role="admin_centre"/>
+  <member type="way" ref="210934559" role="outer"/>
+  <member type="way" ref="210934560" role="outer"/>
+  <member type="way" ref="210958258" role="outer"/>
+  <tag k="addr:postcode" v="66500"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Urbanya"/>
+  <tag k="ref:INSEE" v="66219"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2829664" visible="true" version="1" changeset="15429521" timestamp="2013-03-20T10:05:39Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313778853" role="admin_centre"/>
+  <member type="way" ref="211098219" role="outer"/>
+  <member type="way" ref="211098220" role="outer"/>
+  <member type="way" ref="209431709" role="outer"/>
+  <member type="way" ref="143859888" role="outer"/>
+  <member type="way" ref="82052687" role="outer"/>
+  <member type="way" ref="209431704" role="outer"/>
+  <member type="way" ref="82052548" role="outer"/>
+  <member type="way" ref="209537745" role="outer"/>
+  <member type="way" ref="209537746" role="outer"/>
+  <member type="way" ref="211098221" role="outer"/>
+  <tag k="addr:postcode" v="66210"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Réal"/>
+  <tag k="ref:INSEE" v="66159"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2853657" visible="true" version="1" changeset="15567760" timestamp="2013-04-01T13:38:41Z" user="Eric V" uid="163480">
+  <member type="way" ref="214755055" role="outer"/>
+  <member type="way" ref="214755062" role="outer"/>
+  <member type="way" ref="214745879" role="outer"/>
+  <member type="node" ref="353781696" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Saint-Pierre-dels-Forcats"/>
+  <tag k="ref:INSEE" v="66188"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2853759" visible="true" version="1" changeset="15568492" timestamp="2013-04-01T13:57:11Z" user="Eric V" uid="163480">
+  <member type="way" ref="214755055" role="outer"/>
+  <member type="way" ref="145308861" role="outer"/>
+  <member type="way" ref="214760818" role="outer"/>
+  <member type="way" ref="214760822" role="outer"/>
+  <member type="way" ref="25779448" role="outer"/>
+  <member type="way" ref="214760820" role="outer"/>
+  <member type="way" ref="214745879" role="outer"/>
+  <member type="node" ref="153413914" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="La Cabanasse"/>
+  <tag k="ref:INSEE" v="66027"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2853831" visible="true" version="1" changeset="15568738" timestamp="2013-04-01T14:16:41Z" user="Eric V" uid="163480">
+  <member type="way" ref="214765067" role="outer"/>
+  <member type="way" ref="214749698" role="outer"/>
+  <member type="way" ref="214765071" role="outer"/>
+  <member type="node" ref="153407142" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Planès"/>
+  <tag k="ref:INSEE" v="66142"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2853900" visible="true" version="1" changeset="15568943" timestamp="2013-04-01T14:46:25Z" user="Eric V" uid="163480">
+  <member type="way" ref="214767653" role="outer"/>
+  <member type="way" ref="214760822" role="outer"/>
+  <member type="way" ref="145308846" role="outer"/>
+  <member type="way" ref="145308860" role="outer"/>
+  <member type="way" ref="67614715" role="outer"/>
+  <member type="way" ref="161636463" role="outer"/>
+  <member type="way" ref="161647007" role="outer"/>
+  <member type="node" ref="313752418" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="La Llagonne"/>
+  <tag k="ref:INSEE" v="66098"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2854010" visible="true" version="1" changeset="15569218" timestamp="2013-04-01T15:23:30Z" user="Eric V" uid="163480">
+  <member type="way" ref="214760826" role="outer"/>
+  <member type="way" ref="214760820" role="outer"/>
+  <member type="way" ref="214760824" role="outer"/>
+  <member type="way" ref="161647007" role="outer"/>
+  <member type="way" ref="161636466" role="outer"/>
+  <member type="way" ref="161647005" role="outer"/>
+  <member type="way" ref="161647004" role="outer"/>
+  <member type="way" ref="214774068" role="outer"/>
+  <member type="way" ref="214765067" role="outer"/>
+  <member type="node" ref="353779881" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Sauto"/>
+  <tag k="ref:INSEE" v="66192"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2854137" visible="true" version="1" changeset="15570026" timestamp="2013-04-01T15:59:37Z" user="Eric V" uid="163480">
+  <member type="way" ref="161647003" role="outer"/>
+  <member type="way" ref="45509278" role="outer"/>
+  <member type="way" ref="50402860" role="outer"/>
+  <member type="way" ref="214765069" role="outer"/>
+  <member type="way" ref="214774564" role="outer"/>
+  <member type="way" ref="214774068" role="outer"/>
+  <member type="node" ref="153439123" role="admin_centre"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Fontpédrouse"/>
+  <tag k="ref:INSEE" v="66080"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2858704" visible="true" version="1" changeset="15598523" timestamp="2013-04-03T18:29:23Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313779143" role="admin_centre"/>
+  <member type="way" ref="215297914" role="outer"/>
+  <member type="way" ref="215297916" role="outer"/>
+  <member type="way" ref="141763865" role="outer"/>
+  <tag k="addr:postcode" v="66320"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Rigarda"/>
+  <tag k="ref:INSEE" v="66162"/>
+  <tag k="ref:SIREN" v="216601625"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2858743" visible="true" version="1" changeset="15598885" timestamp="2013-04-03T18:53:59Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313752211" role="admin_centre"/>
+  <member type="way" ref="215300858" role="outer"/>
+  <member type="way" ref="215297915" role="outer"/>
+  <member type="way" ref="215297914" role="outer"/>
+  <tag k="addr:postcode" v="66320"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Joch"/>
+  <tag k="ref:INSEE" v="66089"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2858774" visible="true" version="1" changeset="15599198" timestamp="2013-04-03T19:12:14Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313750502" role="admin_centre"/>
+  <member type="way" ref="215303050" role="outer"/>
+  <member type="way" ref="215303049" role="outer"/>
+  <member type="way" ref="215300860" role="outer"/>
+  <tag k="addr:postcode" v="66320"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Finestret"/>
+  <tag k="ref:INSEE" v="66079"/>
+  <tag k="ref:SIREN" v="216600791"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2862615" visible="true" version="1" changeset="15623514" timestamp="2013-04-05T18:32:54Z" user="Pinpin" uid="1685">
+  <member type="node" ref="340251686" role="admin_centre"/>
+  <member type="way" ref="215633055" role="outer"/>
+  <member type="way" ref="141763879" role="outer"/>
+  <member type="way" ref="215303057" role="outer"/>
+  <member type="way" ref="215303050" role="outer"/>
+  <tag k="addr:postcode" v="66320"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Espira-de-Conflent"/>
+  <tag k="ref:INSEE" v="66070"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2862650" visible="true" version="1" changeset="15623834" timestamp="2013-04-05T18:57:25Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313751585" role="admin_centre"/>
+  <member type="way" ref="215635086" role="outer"/>
+  <member type="way" ref="141692134" role="outer"/>
+  <member type="way" ref="141692131" role="outer"/>
+  <member type="way" ref="215300859" role="outer"/>
+  <member type="way" ref="215300858" role="outer"/>
+  <member type="way" ref="215635085" role="outer"/>
+  <tag k="addr:postcode" v="66320"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Glorianes"/>
+  <tag k="ref:INSEE" v="66086"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2862710" visible="true" version="1" changeset="15624621" timestamp="2013-04-05T20:03:11Z" user="Pinpin" uid="1685">
+  <member type="node" ref="287558999" role="admin_centre"/>
+  <member type="way" ref="80602778" role="outer"/>
+  <member type="way" ref="215644168" role="outer"/>
+  <member type="way" ref="210802081" role="outer"/>
+  <member type="way" ref="215644161" role="outer"/>
+  <member type="way" ref="215644170" role="outer"/>
+  <member type="way" ref="215644163" role="outer"/>
+  <member type="way" ref="215644164" role="outer"/>
+  <member type="way" ref="215644166" role="outer"/>
+  <member type="way" ref="58711892" role="outer"/>
+  <tag k="addr:postcode" v="66820"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Corneilla-de-Conflent"/>
+  <tag k="ref:INSEE" v="66057"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2862762" visible="true" version="1" changeset="15625004" timestamp="2013-04-05T20:39:04Z" user="Pinpin" uid="1685">
+  <member type="node" ref="206329277" role="admin_centre"/>
+  <member type="way" ref="215647945" role="outer"/>
+  <member type="way" ref="215644172" role="outer"/>
+  <member type="way" ref="215644168" role="outer"/>
+  <member type="way" ref="215644173" role="outer"/>
+  <tag k="addr:postcode" v="66820"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Fillols"/>
+  <tag k="ref:INSEE" v="66078"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2863980" visible="true" version="1" changeset="15632492" timestamp="2013-04-06T21:14:45Z" user="Pinpin" uid="1685">
+  <member type="node" ref="38900955" role="admin_centre"/>
+  <member type="way" ref="215647946" role="outer"/>
+  <member type="way" ref="215843393" role="outer"/>
+  <member type="way" ref="50343008" role="outer"/>
+  <member type="way" ref="210802080" role="outer"/>
+  <member type="way" ref="215647944" role="outer"/>
+  <member type="way" ref="215647945" role="outer"/>
+  <tag k="addr:postcode" v="66500"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Taurinya"/>
+  <tag k="ref:INSEE" v="66204"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2864868" visible="true" version="1" changeset="15638700" timestamp="2013-04-07T11:04:09Z" user="Pinpin" uid="1685">
+  <member type="node" ref="38900065" role="admin_centre"/>
+  <member type="way" ref="86301491" role="outer"/>
+  <member type="way" ref="208006408" role="outer"/>
+  <member type="way" ref="215843393" role="outer"/>
+  <member type="way" ref="216111235" role="outer"/>
+  <member type="way" ref="216111236" role="outer"/>
+  <member type="way" ref="54854292" role="outer"/>
+  <member type="way" ref="54854293" role="outer"/>
+  <member type="way" ref="86301488" role="outer"/>
+  <tag k="addr:postcode" v="66500"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Clara"/>
+  <tag k="ref:INSEE" v="66051"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2865282" visible="true" version="1" changeset="15641232" timestamp="2013-04-07T14:37:25Z" user="Pinpin" uid="1685">
+  <member type="node" ref="247404479" role="admin_centre"/>
+  <member type="way" ref="216111234" role="outer"/>
+  <member type="way" ref="216111235" role="outer"/>
+  <member type="way" ref="141763859" role="outer"/>
+  <member type="way" ref="215633054" role="outer"/>
+  <member type="way" ref="215633055" role="outer"/>
+  <member type="way" ref="216191002" role="outer"/>
+  <tag k="addr:postcode" v="66320"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Estoher"/>
+  <tag k="ref:INSEE" v="66073"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2868083" visible="true" version="1" changeset="15658107" timestamp="2013-04-08T18:43:17Z" user="Pinpin" uid="1685">
+  <member type="node" ref="287550238" role="admin_centre"/>
+  <member type="way" ref="216518475" role="outer"/>
+  <member type="way" ref="215635086" role="outer"/>
+  <member type="way" ref="215633053" role="outer"/>
+  <member type="way" ref="216191002" role="outer"/>
+  <tag k="addr:postcode" v="66320"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Baillestavy"/>
+  <tag k="ref:INSEE" v="66013"/>
+  <tag k="ref:SIREN" v="216600130"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2875269" visible="true" version="1" changeset="15704575" timestamp="2013-04-12T18:44:11Z" user="Pinpin" uid="1685">
+  <member type="node" ref="38900768" role="admin_centre"/>
+  <member type="way" ref="210958256" role="outer"/>
+  <member type="way" ref="217182418" role="outer"/>
+  <member type="way" ref="210958257" role="outer"/>
+  <member type="way" ref="210958258" role="outer"/>
+  <tag k="addr:postcode" v="66500"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Nohèdes"/>
+  <tag k="ref:INSEE" v="66122"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2875472" visible="true" version="1" changeset="15706335" timestamp="2013-04-12T21:12:07Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313751189" role="admin_centre"/>
+  <member type="way" ref="217198195" role="outer"/>
+  <member type="way" ref="217198198" role="outer"/>
+  <member type="way" ref="215644170" role="outer"/>
+  <member type="way" ref="48718116" role="outer"/>
+  <member type="way" ref="215644164" role="outer"/>
+  <member type="way" ref="48718117" role="outer"/>
+  <member type="way" ref="58711892" role="outer"/>
+  <member type="way" ref="217198196" role="outer"/>
+  <tag k="addr:postcode" v="66820"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Fuilla"/>
+  <tag k="ref:INSEE" v="66085"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2897486" visible="true" version="1" changeset="15870981" timestamp="2013-04-26T11:19:18Z" user="Pinpin" uid="1685">
+  <member type="node" ref="206333179" role="admin_centre"/>
+  <member type="way" ref="218993824" role="outer"/>
+  <member type="way" ref="210934561" role="outer"/>
+  <member type="way" ref="217182417" role="outer"/>
+  <member type="way" ref="217182418" role="outer"/>
+  <member type="way" ref="218993825" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Serdinya"/>
+  <tag k="ref:INSEE" v="66193"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2897517" visible="true" version="1" changeset="15871466" timestamp="2013-04-26T12:06:53Z" user="Pinpin" uid="1685">
+  <member type="node" ref="205240133" role="admin_centre"/>
+  <member type="way" ref="218996986" role="outer"/>
+  <member type="way" ref="218993823" role="outer"/>
+  <member type="way" ref="218993825" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Jujols"/>
+  <tag k="ref:INSEE" v="66090"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2897645" visible="true" version="1" changeset="15872730" timestamp="2013-04-26T14:11:15Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313784942" role="admin_centre"/>
+  <member type="way" ref="210808110" role="outer"/>
+  <member type="way" ref="211098219" role="outer"/>
+  <member type="way" ref="209537748" role="outer"/>
+  <member type="way" ref="219008152" role="outer"/>
+  <member type="way" ref="219008154" role="outer"/>
+  <member type="way" ref="217182419" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Sansa"/>
+  <tag k="ref:INSEE" v="66191"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2912280" visible="true" version="1" changeset="15996468" timestamp="2013-05-06T11:42:26Z" user="Pinpin" uid="1685">
+  <member type="node" ref="297814447" role="admin_centre"/>
+  <member type="way" ref="220222241" role="outer"/>
+  <member type="way" ref="220222237" role="outer"/>
+  <member type="way" ref="220222247" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Railleu"/>
+  <tag k="ref:INSEE" v="66157"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2912304" visible="true" version="1" changeset="15996736" timestamp="2013-05-06T12:05:17Z" user="Pinpin" uid="1685">
+  <member type="node" ref="297814260" role="admin_centre"/>
+  <member type="way" ref="220225543" role="outer"/>
+  <member type="way" ref="220225545" role="outer"/>
+  <member type="way" ref="220225544" role="outer"/>
+  <member type="way" ref="214769191" role="outer"/>
+  <tag k="addr:postcode" v="66220"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Caudiès-de-Conflent"/>
+  <tag k="ref:INSEE" v="66047"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2912344" visible="true" version="1" changeset="15997126" timestamp="2013-05-06T12:35:36Z" user="Pinpin" uid="1685">
+  <member type="node" ref="287549649" role="admin_centre"/>
+  <member type="way" ref="161647005" role="outer"/>
+  <member type="way" ref="161646999" role="outer"/>
+  <member type="way" ref="220222241" role="outer"/>
+  <member type="way" ref="220225545" role="outer"/>
+  <member type="way" ref="161636463" role="outer"/>
+  <member type="way" ref="161636466" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Ayguatébia-Talau"/>
+  <tag k="ref:INSEE" v="66010"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2912375" visible="true" version="1" changeset="15997378" timestamp="2013-05-06T12:56:06Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313759099" role="admin_centre"/>
+  <member type="way" ref="220229290" role="outer"/>
+  <member type="way" ref="220229292" role="outer"/>
+  <member type="way" ref="220229289" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Oreilla"/>
+  <tag k="ref:INSEE" v="66128"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2912388" visible="true" version="1" changeset="15997517" timestamp="2013-05-06T13:09:06Z" user="Pinpin" uid="1685">
+  <member type="node" ref="35447964" role="admin_centre"/>
+  <member type="way" ref="220230172" role="outer"/>
+  <member type="way" ref="218996987" role="outer"/>
+  <member type="way" ref="218996986" role="outer"/>
+  <member type="way" ref="218996985" role="outer"/>
+  <member type="way" ref="219008152" role="outer"/>
+  <member type="way" ref="220229292" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Olette"/>
+  <tag k="ref:INSEE" v="66125"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2913416" visible="true" version="1" changeset="16007582" timestamp="2013-05-07T08:16:14Z" user="Pinpin" uid="1685">
+  <member type="node" ref="378309423" role="admin_centre"/>
+  <member type="way" ref="220312025" role="outer"/>
+  <member type="way" ref="161647003" role="outer"/>
+  <member type="way" ref="161647004" role="outer"/>
+  <member type="way" ref="161646999" role="outer"/>
+  <member type="way" ref="220230172" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Canaveilles"/>
+  <tag k="ref:INSEE" v="66036"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2913446" visible="true" version="1" changeset="16007769" timestamp="2013-05-07T08:36:10Z" user="Pinpin" uid="1685">
+  <member type="node" ref="277402077" role="admin_centre"/>
+  <member type="way" ref="220312027" role="outer"/>
+  <member type="way" ref="220313821" role="outer"/>
+  <member type="way" ref="220312025" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Souanyas"/>
+  <tag k="ref:INSEE" v="66197"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2913461" visible="true" version="1" changeset="16008088" timestamp="2013-05-07T09:05:34Z" user="Pinpin" uid="1685">
+  <member type="node" ref="279838664" role="admin_centre"/>
+  <member type="way" ref="220315491" role="outer"/>
+  <member type="way" ref="220315490" role="outer"/>
+  <member type="way" ref="220230171" role="outer"/>
+  <member type="way" ref="220315489" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Escaro"/>
+  <tag k="ref:INSEE" v="66068"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2913485" visible="true" version="1" changeset="16008415" timestamp="2013-05-07T09:32:45Z" user="Pinpin" uid="1685">
+  <member type="node" ref="38900956" role="admin_centre"/>
+  <member type="way" ref="220317244" role="outer"/>
+  <member type="way" ref="220317243" role="outer"/>
+  <member type="way" ref="217198195" role="outer"/>
+  <member type="way" ref="220317242" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Sahorre"/>
+  <tag k="ref:INSEE" v="66166"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2913659" visible="true" version="1" changeset="16010214" timestamp="2013-05-07T11:52:43Z" user="Pinpin" uid="1685">
+  <member type="node" ref="153436118" role="admin_centre"/>
+  <member type="way" ref="220331567" role="outer"/>
+  <member type="way" ref="220331569" role="outer"/>
+  <member type="way" ref="220331570" role="outer"/>
+  <member type="way" ref="220312026" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Thuès-Entre-Valls"/>
+  <tag k="ref:INSEE" v="66209"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2913745" visible="true" version="1" changeset="16011117" timestamp="2013-05-07T13:15:34Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313754931" role="admin_centre"/>
+  <member type="way" ref="220338621" role="outer"/>
+  <member type="way" ref="220338622" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Py"/>
+  <tag k="ref:INSEE" v="66155"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2913805" visible="true" version="1" changeset="16011415" timestamp="2013-05-07T13:42:27Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313754930" role="admin_centre"/>
+  <member type="way" ref="214780493" role="outer"/>
+  <member type="way" ref="220340567" role="outer"/>
+  <member type="way" ref="220340565" role="outer"/>
+  <member type="way" ref="220340563" role="outer"/>
+  <member type="way" ref="220340564" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Mantet"/>
+  <tag k="ref:INSEE" v="66102"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2913808" visible="true" version="1" changeset="16011451" timestamp="2013-05-07T13:44:52Z" user="Pinpin" uid="1685">
+  <member type="node" ref="277402192" role="admin_centre"/>
+  <member type="way" ref="220340563" role="outer"/>
+  <member type="way" ref="220331568" role="outer"/>
+  <member type="way" ref="220331567" role="outer"/>
+  <member type="way" ref="220331569" role="outer"/>
+  <member type="way" ref="220313818" role="outer"/>
+  <member type="way" ref="220313821" role="outer"/>
+  <member type="way" ref="220315491" role="outer"/>
+  <member type="way" ref="220340566" role="outer"/>
+  <tag k="addr:postcode" v="66360"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Nyer"/>
+  <tag k="ref:INSEE" v="66123"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2913877" visible="true" version="1" changeset="16012103" timestamp="2013-05-07T14:35:20Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313749375" role="admin_centre"/>
+  <member type="way" ref="220338621" role="outer"/>
+  <member type="way" ref="220317244" role="outer"/>
+  <member type="way" ref="215843394" role="outer"/>
+  <member type="way" ref="220344826" role="outer"/>
+  <tag k="addr:postcode" v="66820"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Casteil"/>
+  <tag k="ref:INSEE" v="66043"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2918640" visible="true" version="1" changeset="16060708" timestamp="2013-05-10T08:49:29Z" user="Pinpin" uid="1685">
+  <member type="node" ref="153343037" role="admin_centre"/>
+  <member type="way" ref="220706766" role="outer"/>
+  <member type="way" ref="220706765" role="outer"/>
+  <member type="way" ref="220344829" role="outer"/>
+  <member type="way" ref="220340567" role="outer"/>
+  <member type="way" ref="220340562" role="outer"/>
+  <member type="way" ref="45509280" role="outer"/>
+  <member type="way" ref="45509277" role="outer"/>
+  <tag k="addr:postcode" v="66230"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Prats-de-Mollo-la-Preste"/>
+  <tag k="ref:INSEE" v="66150"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2918769" visible="true" version="1" changeset="16061776" timestamp="2013-05-10T10:15:58Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313798509" role="admin_centre"/>
+  <member type="way" ref="220714479" role="outer"/>
+  <member type="way" ref="220714480" role="outer"/>
+  <member type="way" ref="220714478" role="outer"/>
+  <tag k="addr:postcode" v="66230"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Le Tech"/>
+  <tag k="ref:INSEE" v="66206"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2918951" visible="true" version="1" changeset="16064027" timestamp="2013-05-10T13:02:38Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313757785" role="admin_centre"/>
+  <member type="way" ref="220732051" role="outer"/>
+  <member type="way" ref="220732048" role="outer"/>
+  <tag k="addr:postcode" v="66150"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Montferrer"/>
+  <tag k="ref:INSEE" v="66116"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2918996" visible="true" version="1" changeset="16064560" timestamp="2013-05-10T13:40:26Z" user="Pinpin" uid="1685">
+  <member type="node" ref="287559805" role="admin_centre"/>
+  <member type="way" ref="220736709" role="outer"/>
+  <member type="way" ref="220736710" role="outer"/>
+  <member type="way" ref="220736708" role="outer"/>
+  <member type="way" ref="220736707" role="outer"/>
+  <member type="way" ref="220732057" role="outer"/>
+  <tag k="addr:postcode" v="66150"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Corsavy"/>
+  <tag k="ref:INSEE" v="66060"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2919019" visible="true" version="1" changeset="16064886" timestamp="2013-05-10T14:03:32Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313801428" role="admin_centre"/>
+  <member type="way" ref="220739361" role="outer"/>
+  <member type="way" ref="220736708" role="outer"/>
+  <member type="way" ref="220736710" role="outer"/>
+  <member type="way" ref="220344826" role="outer"/>
+  <member type="way" ref="216191001" role="outer"/>
+  <member type="way" ref="216518476" role="outer"/>
+  <member type="way" ref="216518475" role="outer"/>
+  <tag k="addr:postcode" v="66320"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Valmanya"/>
+  <tag k="ref:INSEE" v="66221"/>
+  <tag k="ref:SIREN" v="216602219"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2919091" visible="true" version="1" changeset="16065337" timestamp="2013-05-10T14:37:54Z" user="Pinpin" uid="1685">
+  <member type="node" ref="567343005" role="admin_centre"/>
+  <member type="way" ref="141638021" role="outer"/>
+  <member type="way" ref="220744863" role="outer"/>
+  <member type="way" ref="220739357" role="outer"/>
+  <member type="way" ref="220739361" role="outer"/>
+  <member type="way" ref="220739360" role="outer"/>
+  <member type="way" ref="216518477" role="outer"/>
+  <member type="way" ref="206018688" role="outer"/>
+  <tag k="addr:postcode" v="66110"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="La Bastide"/>
+  <tag k="ref:INSEE" v="66018"/>
+  <tag k="ref:SIREN" v="216600189"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2919179" visible="true" version="1" changeset="16065952" timestamp="2013-05-10T15:19:49Z" user="Pinpin" uid="1685">
+  <member type="node" ref="1676869515" role="admin_centre"/>
+  <member type="way" ref="220750749" role="outer"/>
+  <member type="way" ref="220744864" role="outer"/>
+  <member type="way" ref="220744863" role="outer"/>
+  <member type="way" ref="220744866" role="outer"/>
+  <member type="way" ref="141638032" role="outer"/>
+  <member type="way" ref="206041776" role="outer"/>
+  <tag k="addr:postcode" v="66110"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Saint-Marsal"/>
+  <tag k="ref:INSEE" v="66183"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2924113" visible="true" version="1" changeset="16106851" timestamp="2013-05-13T07:06:57Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313797658" role="admin_centre"/>
+  <member type="way" ref="221160953" role="outer"/>
+  <member type="way" ref="220750747" role="outer"/>
+  <member type="way" ref="220750749" role="outer"/>
+  <tag k="addr:postcode" v="66110"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Taulis"/>
+  <tag k="ref:INSEE" v="66203"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2924251" visible="true" version="1" changeset="16107497" timestamp="2013-05-13T08:58:43Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313755270" role="admin_centre"/>
+  <member type="way" ref="221160951" role="outer"/>
+  <member type="way" ref="221164540" role="outer"/>
+  <member type="way" ref="49568764" role="outer"/>
+  <member type="way" ref="49568787" role="outer"/>
+  <member type="way" ref="220750750" role="outer"/>
+  <member type="way" ref="221160952" role="outer"/>
+  <member type="way" ref="221160953" role="outer"/>
+  <tag k="addr:postcode" v="66110"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Montbolo"/>
+  <tag k="ref:INSEE" v="66113"/>
+  <tag k="ref:SIREN" v="216601138"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2924277" visible="true" version="1" changeset="16107833" timestamp="2013-05-13T09:29:50Z" user="Pinpin" uid="1685">
+  <member type="node" ref="153345553" role="admin_centre"/>
+  <member type="way" ref="221166811" role="outer"/>
+  <member type="way" ref="221164542" role="outer"/>
+  <member type="way" ref="221164540" role="outer"/>
+  <member type="way" ref="221164541" role="outer"/>
+  <member type="way" ref="221166809" role="outer"/>
+  <tag k="addr:postcode" v="66150"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Arles-sur-Tech"/>
+  <tag k="population" v="2787"/>
+  <tag k="ref:INSEE" v="66009"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2924304" visible="true" version="1" changeset="16108314" timestamp="2013-05-13T10:07:16Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313782034" role="admin_centre"/>
+  <member type="way" ref="221170445" role="outer"/>
+  <member type="way" ref="221170446" role="outer"/>
+  <member type="way" ref="220732051" role="outer"/>
+  <member type="way" ref="221166811" role="outer"/>
+  <member type="way" ref="221166810" role="outer"/>
+  <member type="way" ref="45509286" role="outer"/>
+  <tag k="addr:postcode" v="66260"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Saint-Laurent-De-Cerdans"/>
+  <tag k="ref:INSEE" v="66179"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2924446" visible="true" version="1" changeset="16109308" timestamp="2013-05-13T11:53:55Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313749507" role="admin_centre"/>
+  <member type="way" ref="221180097" role="outer"/>
+  <member type="way" ref="221180098" role="outer"/>
+  <member type="way" ref="221170445" role="outer"/>
+  <tag k="addr:postcode" v="66260"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Coustouges"/>
+  <tag k="ref:INSEE" v="66061"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2926262" visible="true" version="1" changeset="16121743" timestamp="2013-05-14T08:10:43Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313752537" role="admin_centre"/>
+  <member type="way" ref="221313370" role="outer"/>
+  <member type="way" ref="220706766" role="outer"/>
+  <member type="way" ref="220706761" role="outer"/>
+  <member type="way" ref="45509284" role="outer"/>
+  <member type="way" ref="15412295" role="outer"/>
+  <tag k="addr:postcode" v="66230"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Lamanère"/>
+  <tag k="ref:INSEE" v="66091"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="2926263" visible="true" version="1" changeset="16121743" timestamp="2013-05-14T08:10:43Z" user="Pinpin" uid="1685">
+  <member type="node" ref="313785004" role="admin_centre"/>
+  <member type="way" ref="221313370" role="outer"/>
+  <member type="way" ref="221313368" role="outer"/>
+  <member type="way" ref="221180098" role="outer"/>
+  <member type="way" ref="221180099" role="outer"/>
+  <member type="way" ref="220714479" role="outer"/>
+  <member type="way" ref="221313369" role="outer"/>
+  <tag k="addr:postcode" v="66230"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Serralongue"/>
+  <tag k="ref:INSEE" v="66194"/>
+  <tag k="type" v="boundary"/>
+ </relation>
+ <relation id="5245866" visible="true" version="1" changeset="31729596" timestamp="2015-06-04T19:55:05Z" user="Carlos_Sánchez" uid="754640">
+  <tag k="addr:country_code" v="ES"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="idee:name" v="Medinyà"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikidata" v="Q11776837"/>
+  <tag k="wikipedia" v="ca:Medinyà"/>
+ </relation>
+ <relation id="11755232" visible="true" version="1" changeset="92488586" timestamp="2020-10-14T18:46:17Z" user="jmaspons" uid="11725140">
+  <member type="way" ref="859026548" role="outer"/>
+  <member type="way" ref="45370513" role="outer"/>
+  <member type="way" ref="45366936" role="outer"/>
+  <member type="way" ref="45369887" role="outer"/>
+  <member type="way" ref="45352456" role="outer"/>
+  <member type="way" ref="859026549" role="outer"/>
+  <member type="way" ref="859026552" role="outer"/>
+  <member type="way" ref="45366947" role="outer"/>
+  <member type="way" ref="859026550" role="outer"/>
+  <member type="way" ref="859026553" role="outer"/>
+  <member type="way" ref="859026551" role="outer"/>
+  <tag k="boundary" v="political"/>
+  <tag k="name" v="el Carxe"/>
+  <tag k="name:es" v="el Carche"/>
+  <tag k="place" v="region"/>
+  <tag k="political_division" v="linguistic_community"/>
+  <tag k="type" v="boundary"/>
+  <tag k="wikidata" v="Q1765102"/>
+  <tag k="wikipedia" v="ca:El Carxe"/>
+ </relation>
+</osm>
