@@ -47,7 +47,7 @@ test_that("osm_read_bbox_notes works", {
 
 
   # methods
-  expect_s3_class(print(bbox_notes$df), classes$df)
+  expect_snapshot(print(bbox_notes$df))
 })
 
 
@@ -94,8 +94,8 @@ test_that("osm_read_note works", {
   })
 
   # methods
-  expect_s3_class(print(read_note$df), classes$df)
-  expect_s3_class(print(read_notes$df), classes$df)
+  expect_snapshot(print(read_note$df))
+  expect_snapshot(print(read_notes$df))
 })
 
 
@@ -182,7 +182,7 @@ test_that("osm_search_notes works", {
   })
 
   # methods
-  expect_s3_class(print(search_notes$df), classes$df)
+  expect_snapshot(print(search_notes$df))
 
 
   ## Empty results
@@ -202,7 +202,7 @@ test_that("osm_search_notes works", {
   )
 
   # methods
-  expect_s3_class(print(empty_search_notes), c("osmapi_map_notes", "data.frame"))
+  expect_snapshot(print(empty_search_notes))
 })
 
 

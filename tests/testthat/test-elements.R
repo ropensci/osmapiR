@@ -75,7 +75,7 @@ test_that("osm_read_object works", {
   lapply(read, function(x) expect_false(strftime(as.POSIXct(x$timestamp), format = "%M:%S") == "00:00"))
 
   # methods
-  lapply(print(read), expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(read, function(x) expect_snapshot(print(x)))
 })
 
 
@@ -207,7 +207,7 @@ test_that("osm_history_object works", {
   })
 
   # methods
-  lapply(print(history), expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(history, function(x) expect_snapshot(print(x)))
 })
 
 
@@ -233,7 +233,7 @@ test_that("osm_version_object works", {
   })
 
   # methods
-  lapply(print(version), expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(version, function(x) expect_snapshot(print(x)))
 })
 
 
@@ -402,7 +402,7 @@ test_that("osm_fetch_objects works", {
   set_osmapi_connection("testing") # TODO
 
   # methods
-  lapply(print(fetch), expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(fetch, function(x) expect_snapshot(print(x)))
 })
 
 
@@ -425,7 +425,7 @@ test_that("osm_relations_object works", {
   lapply(rels, function(x) expect_identical(names(x)[seq_len(length(column_objects))], column_objects))
 
   # methods
-  lapply(print(rels), expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(rels, function(x) expect_snapshot(print(x)))
 })
 
 
@@ -443,7 +443,7 @@ test_that("osm_ways_node works", {
   expect_identical(names(ways_node)[seq_len(length(column_objects))], column_objects)
 
   # methods
-  expect_s3_class(print(ways_node), c("osmapi_objects", "data.frame"))
+  expect_snapshot(print(ways_node))
 })
 
 
@@ -470,7 +470,7 @@ test_that("osm_full_object works", {
   lapply(full, function(x) expect_identical(names(x)[seq_len(length(column_objects))], column_objects))
 
   # methods
-  lapply(print(full), expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(full, function(x) expect_snapshot(print(x)))
 
 
   ## xml

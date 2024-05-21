@@ -9,6 +9,7 @@ repos:
         exclude: >
           (?x)^(
           tests/testthat/mock_.*/.*|
+          tests/testthat/_snaps/.*|
           )$
     -   id: roxygenize
     # roxygen requires loading pkg -> add dependencies from DESCRIPTION
@@ -46,6 +47,7 @@ repos:
           (.*/|)renv\.lock|
           (.*/|)WORDLIST|
           tests/testthat/mock_.*/.*|
+          tests/testthat/_snaps/.*|
           \.github/workflows/.*|
           LICENSE\.md
           )$
@@ -53,6 +55,7 @@ repos:
         exclude: >
           (?x)^(
           tests/testthat/mock_.*/.*|
+          tests/testthat/_snaps/.*|
           )$
     -   id: readme-rmd-rendered
     -   id: parsable-R
@@ -70,6 +73,7 @@ repos:
         exclude: >
           (?x)^(
           tests/testthat/mock_.*/.*|
+          tests/testthat/_snaps/.*|
           .*\.Rd
           )$
 -   repo: local
