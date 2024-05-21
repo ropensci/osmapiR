@@ -61,7 +61,7 @@ set_osmapi_connection <- function(server = c("openstreetmap.org", "testing"), ca
   if (!missing(cache_authentication)) {
     options(osmapir.cache_authentication = cache_authentication)
   }
-  ## TODO: persistent options
+  ## TODO: persistent options ?tools::R_user_dir()
 
   invisible(getOption("osmapir.base_api_url"))
 }
