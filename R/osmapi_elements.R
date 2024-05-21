@@ -1081,6 +1081,26 @@ osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
 #' @return Nothing is returned upon successful redaction or unredaction of an object.
 #' @family functions for moderators
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' ## WARNING: this example will edit the OSM (testing) DB with your user!
+#' # You will need a user with moderator role in the server to use `osm_redaction_object()`
+#' set_osmapi_connection(server = "testing") # setting https://master.apis.dev.openstreetmap.org
+#' x <- data.frame(type = "node", lat = 0, lon = 0, name = "Test redaction.")
+#' obj <- osmapi_objects(x, tag_columns = "name")
+#' changeset_id <- osm_create_changeset(
+#'   comment = "Test object redaction",
+#'   hashtags = "#testing;#osmapiR"
+#' )
+#'
+#' node_id <- osm_create_object(x = obj, changeset_id = changeset_id)
+#' node_osm <- osm_get_objects(osm_type = "node", osm_id = node_id)
+#' deleted_version <- osm_delete_object(x = node_osm, changeset_id = changeset_id)
+#' redaction <- osm_redaction_object(osm_type = node_osm$type, osm_id = node_osm$id, version = 1, redaction_id = 1)
+#' unredaction <- osm_redaction_object(osm_type = node_osm$type, osm_id = node_osm$id, version = 1)
+#' osm_close_changeset(changeset_id = changeset_id)
+#' }
 osm_redaction_object <- function(osm_type = c("node", "way", "relation"), osm_id, version, redaction_id) {
   osm_type <- match.arg(osm_type)
 

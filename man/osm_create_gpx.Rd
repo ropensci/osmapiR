@@ -34,6 +34,9 @@ trackpoints must have a valid timestamp. Since the file is processed asynchronou
 successfully even if the file cannot be processed. The file may also be a .tar, .tar.gz or .zip containing multiple
 gpx files, although it will appear as a single entry in the upload log.
 }
+\examples{
+vignette("how_to_edit_gps_traces", package = "osmapiR")
+}
 \seealso{
 Other edit GPS traces' functions: 
 \code{\link{osm_delete_gpx}()},

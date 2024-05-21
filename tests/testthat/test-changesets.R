@@ -147,8 +147,8 @@ test_that("osm_read_changeset works", {
   })
 
   # methods
-  expect_s3_class(print(chaset), c("osmapi_changesets", "data.frame"))
-  expect_s3_class(print(chaset_discuss), c("osmapi_changesets", "data.frame"))
+  expect_snapshot(print(chaset))
+  expect_snapshot(print(chaset_discuss))
 
 
   ## xml
@@ -198,7 +198,7 @@ test_that("osm_download_changeset works", {
   expect_identical(osmchange_xml2DF(osmchange_xml), osmchange)
 
   # methods
-  expect_s3_class(print(osmchange), c("osmapi_OsmChange", "data.frame"))
+  expect_snapshot(print(osmchange))
 })
 
 
@@ -231,7 +231,7 @@ test_that("osm_query_changesets works", {
   })
 
   # methods
-  lapply(print(chaset), expect_s3_class, c("osmapi_changesets", "data.frame"))
+  lapply(chaset, function(x) expect_snapshot(print(x)))
 
 
   ## Empty results
@@ -251,5 +251,5 @@ test_that("osm_query_changesets works", {
   )
 
   # methods
-  expect_s3_class(print(empty_chaset), c("osmapi_changesets", "data.frame"))
+  expect_snapshot(print(empty_chaset))
 })

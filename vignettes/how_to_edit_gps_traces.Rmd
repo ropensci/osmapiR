@@ -1,0 +1,60 @@
+---
+title: "How to edit GPS traces"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{How to edit GPS traces}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+**WARNING**: This vignette contain examples that can edit your GPX traces at
+[OpenStreetMap.org](https://www.openstreetmap.org). If you prefer to use the
+[testing server](https://master.apis.dev.openstreetmap.org), create a user there and configure `osmapiR` to use it.
+
+```r
+library(osmapiR)
+set_osmapi_connection(server = "testing") # set the testing server
+```
+
+Upload a local gpx file:
+
+```r
+gpx_path <- system.file("extdata", "St_Geroni.gpx", package = "osmapiR")
+gpx_id <- osm_create_gpx(
+  file = gpx_path,
+  description = "Test create gpx with osmapiR.",
+  tags = c("testing", "osmapiR")
+)
+```
+
+Update the gpx trace with the content of another file:
+
+*TODO: <https://github.com/openstreetmap/openstreetmap-website/issues/4821>*
+
+```r
+gpx_upd_path <- system.file("extdata", "St_Geroni_70nodes.gpx", package = "osmapiR")
+upd_trace <- osm_update_gpx(gpx_id = gpx_id, file = gpx_upd_path)
+#> ! HTTP 500 Internal Server Error.
+#> • The server encountered an internal error or
+#> misconfiguration and was unable to complete
+#> your request.
+#> • Please contact the server administrator at
+#>  webmaster@openstreetmap.org to inform them of the time this error occurred,
+#>  and the actions you performed just before this error.
+#> • More information about this error may be available
+#> in the server error log.
+```
+
+Delete the gpx trace:
+
+```r
+osm_delete_gpx(gpx_id = gpx_id)
+```

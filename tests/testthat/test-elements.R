@@ -75,7 +75,7 @@ test_that("osm_read_object works", {
   lapply(read, function(x) expect_false(strftime(as.POSIXct(x$timestamp), format = "%M:%S") == "00:00"))
 
   # methods
-  lapply(print(read), expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(read, function(x) expect_snapshot(print(x)))
 })
 
 
@@ -96,12 +96,15 @@ test_that("edit OSM object works", {
 
 
   with_mock_dir("mock_edit_objects", {
-    changeset_id <- osm_create_changeset(
-      comment = "Test object creation",
-      created_by = "osmapiR", # avoid changes in calls when updating version
-      source = "Imagination",
-      hashtags = "#testing;#osmapiR",
-      verbose = TRUE
+    expect_message(
+      changeset_id <- osm_create_changeset(
+        comment = "Test object creation",
+        created_by = "osmapiR", # avoid changes in calls when updating version
+        source = "Imagination",
+        hashtags = "#testing;#osmapiR",
+        verbose = TRUE
+      ),
+      "New changeset with id = "
     )
 
 
@@ -207,7 +210,7 @@ test_that("osm_history_object works", {
   })
 
   # methods
-  lapply(print(history), expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(history, function(x) expect_snapshot(print(x)))
 })
 
 
@@ -233,7 +236,7 @@ test_that("osm_version_object works", {
   })
 
   # methods
-  lapply(print(version), expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(version, function(x) expect_snapshot(print(x)))
 })
 
 
@@ -364,7 +367,7 @@ test_that("osm_fetch_objects works", {
   )
   osm_ids <- as.character(osm_ids)
 
-  set_osmapi_connection() # TODO: why it fails without changing the server?
+  expect_message(set_osmapi_connection(), "Logged out from ") # TODO: why it fails without changing the server?
   # Tests work when running interactively but fail in R CMD check:
   #
   #   Error in `stop_request(req)`: An unexpected request was made:
@@ -399,10 +402,10 @@ test_that("osm_fetch_objects works", {
     expect_identical(id, osm_ids)
     expect_false(any(duplicated(id)))
   })
-  set_osmapi_connection("testing") # TODO
+  expect_message(set_osmapi_connection("testing"), "Logged out from") # TODO
 
   # methods
-  lapply(print(fetch), expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(fetch, function(x) expect_snapshot(print(x)))
 })
 
 
@@ -425,7 +428,7 @@ test_that("osm_relations_object works", {
   lapply(rels, function(x) expect_identical(names(x)[seq_len(length(column_objects))], column_objects))
 
   # methods
-  lapply(print(rels), expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(rels, function(x) expect_snapshot(print(x)))
 })
 
 
@@ -443,7 +446,7 @@ test_that("osm_ways_node works", {
   expect_identical(names(ways_node)[seq_len(length(column_objects))], column_objects)
 
   # methods
-  expect_s3_class(print(ways_node), c("osmapi_objects", "data.frame"))
+  expect_snapshot(print(ways_node))
 })
 
 
@@ -470,7 +473,7 @@ test_that("osm_full_object works", {
   lapply(full, function(x) expect_identical(names(x)[seq_len(length(column_objects))], column_objects))
 
   # methods
-  lapply(print(full), expect_s3_class, c("osmapi_objects", "data.frame"))
+  lapply(full, function(x) expect_snapshot(print(x)))
 
 
   ## xml
@@ -500,11 +503,14 @@ test_that("osm_redaction_object works", {
   obj <- osmapi_objects(x, tag_columns = "name")
 
   with_mock_dir("mock_redact_object", {
-    changeset_id <- osm_create_changeset(
-      comment = "Test object redaction",
-      created_by = "osmapiR", # avoid changes in calls when updating version
-      hashtags = "#testing;#osmapiR",
-      verbose = TRUE
+    expect_message(
+      changeset_id <- osm_create_changeset(
+        comment = "Test object redaction",
+        created_by = "osmapiR", # avoid changes in calls when updating version
+        hashtags = "#testing;#osmapiR",
+        verbose = TRUE
+      ),
+      "New changeset with id = "
     )
 
     node_id <- osm_create_object(x = obj, changeset_id = changeset_id)

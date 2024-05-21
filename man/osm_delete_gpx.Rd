@@ -15,6 +15,9 @@ Returns \code{NULL} invisibly.
 \description{
 Use this to delete a GPX file. Only usable by the owner account. Requires authentication.
 }
+\examples{
+vignette("how_to_edit_gps_traces", package = "osmapiR")
+}
 \seealso{
 Other edit GPS traces' functions: 
 \code{\link{osm_create_gpx}()},
