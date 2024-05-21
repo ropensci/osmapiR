@@ -119,8 +119,12 @@ osm_create_changeset <- function(comment, ...,
   out <- httr2::resp_body_string(resp)
 
   if (verbose) {
-    message("New changeset with id = ", out, ", and the following tags:")
-    print(data.frame(key = names(tags), value = vapply(tags, I, FUN.VALUE = "", USE.NAMES = FALSE)))
+    df_msg <- data.frame(key = names(tags), value = vapply(tags, I, FUN.VALUE = character(1L), USE.NAMES = FALSE))
+
+    message(
+      "New changeset with id = ", out, ", and the following tags:\n",
+      paste(utils::capture.output(print(df_msg)), collapse = "\n")
+    )
   }
 
   file.remove(path)

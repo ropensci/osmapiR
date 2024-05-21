@@ -60,7 +60,7 @@ test_that("edit gpx works", {
 
   # with_mock_dir("mock_edit_gpx", {
   #   # TODO: Error in x$value : $ operator is invalid for atomic vectors
-  #   # Called from: rawToChar(x$value)
+  #   # FIXED with https://github.com/nealrichardson/httptest2/pull/40
   #   ## Create: `POST /api/0.6/gpx/create` ----
   #   create_trace <- osm_create_gpx(
   #     file = gpx_path,

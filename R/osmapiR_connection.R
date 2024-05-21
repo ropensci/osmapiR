@@ -127,9 +127,10 @@ authenticate_osmapi <- function() {
 
   perms <- osm_permissions()
 
-  message("Logged in at ", get_osmapi_url(), " as: ", display_name)
-  message("With the following permissions:")
-  message("\t", paste(perms, collapse = ", "))
+  message(
+    "Logged in at ", get_osmapi_url(), " as: ", display_name,
+    "\nWith the following permissions:\n\t", paste(perms, collapse = ", ")
+  )
 
   invisible(display_name)
 }
