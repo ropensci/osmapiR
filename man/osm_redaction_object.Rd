@@ -48,7 +48,9 @@ changeset_id <- osm_create_changeset(
 node_id <- osm_create_object(x = obj, changeset_id = changeset_id)
 node_osm <- osm_get_objects(osm_type = "node", osm_id = node_id)
 deleted_version <- osm_delete_object(x = node_osm, changeset_id = changeset_id)
-redaction <- osm_redaction_object(osm_type = node_osm$type, osm_id = node_osm$id, version = 1, redaction_id = 1)
+redaction <- osm_redaction_object(
+  osm_type = node_osm$type, osm_id = node_osm$id, version = 1, redaction_id = 1
+)
 unredaction <- osm_redaction_object(osm_type = node_osm$type, osm_id = node_osm$id, version = 1)
 osm_close_changeset(changeset_id = changeset_id)
 }
