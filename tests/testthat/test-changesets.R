@@ -117,12 +117,15 @@ test_that("osm_read_changeset works", {
   with_mock_dir("mock_read_changeset", {
     chaset <- osm_get_changesets(changeset_id = 137595351)
     chaset_discuss <- osm_get_changesets(changeset_id = 137595351, include_discussion = TRUE)
-    chaset_xml <- osm_get_changesets(changeset_id = c(137595351, 113271550), format = "xml")
+    chasets <- osm_get_changesets(changeset_id = c(137595351, 113271550), format = "R")
+    chasets_xml <- osm_get_changesets(changeset_id = c(137595351, 113271550), format = "xml")
   })
 
   expect_s3_class(chaset, c("osmapi_changesets", "data.frame"))
+  expect_s3_class(chasets, c("osmapi_changesets", "data.frame"))
   expect_s3_class(chaset_discuss, c("osmapi_changesets", "data.frame"))
   expect_identical(names(chaset), setdiff(column_changeset, "discussion"))
+  expect_identical(names(chasets), setdiff(column_changeset, "discussion"))
   expect_identical(names(chaset_discuss), c(column_changeset))
   lapply(chaset_discuss$discussion, function(x) {
     expect_s3_class(x, c("changeset_comments", "data.frame"))
@@ -135,11 +138,15 @@ test_that("osm_read_changeset works", {
   })
 
   mapply(function(x, cl) expect_true(inherits(x, cl)), x = chaset, cl = class_columns[names(chaset)])
+  mapply(function(x, cl) expect_true(inherits(x, cl)), x = chasets, cl = class_columns[names(chasets)])
   mapply(function(x, cl) expect_true(inherits(x, cl)), x = chaset_discuss, cl = class_columns[names(chaset_discuss)])
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
   lapply(chaset[, c("created_at", "closed_at")], function(x) {
     expect_false(strftime(as.POSIXct(x), format = "%M:%S") == "00:00")
+  })
+  lapply(chasets[, c("created_at", "closed_at")], function(x) {
+    expect_false(all(strftime(as.POSIXct(x), format = "%M:%S") == "00:00"))
   })
 
   lapply(chaset_discuss[, c("created_at", "closed_at")], function(x) {
@@ -152,8 +159,8 @@ test_that("osm_read_changeset works", {
 
 
   ## xml
-  expect_s3_class(chaset_xml, "xml_document")
-  expect_length(chaset_xml, 2)
+  expect_s3_class(chasets_xml, "xml_document")
+  expect_length(chasets_xml, 2)
 
 
   ## json
