@@ -4,18 +4,39 @@
 \alias{osm_update_gpx}
 \title{Update GPS trace}
 \usage{
-osm_update_gpx(gpx_id, file)
+osm_update_gpx(
+  gpx_id,
+  name,
+  description,
+  tags,
+  visibility = c("private", "public", "trackable", "identifiable")
+)
 }
 \arguments{
-\item{gpx_id}{The track id represented by a numeric or a character value.}
+\item{gpx_id}{The id of the track to update represented by a numeric or a character value.}
 
-\item{file}{The GPX file path containing the track points.}
+\item{name}{The file name of the track. Usually, the file name when using \code{\link[=osm_create_gpx]{osm_create_gpx()}}.}
+
+\item{description}{The trace description.}
+
+\item{tags}{A string containing tags for the trace that will replace the current ones.}
+
+\item{visibility}{One of the following: \code{private}, \code{public}, \code{trackable}, \code{identifiable}. For explanations see
+\href{https://www.openstreetmap.org/traces/mine}{OSM trace upload page} or
+\href{https://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces}{Visibility of GPS traces}).}
 }
 \value{
-Returns \code{NULL} invisibly.
+Returns a data frame with the updated metadata of the GPS trace. The same format that
+\code{\link[=osm_get_gpx_metadata]{osm_get_gpx_metadata()}} with \code{format = "R"}.
 }
 \description{
-Use this to update a GPX file. Only usable by the owner account. Requires authentication.
+Use this to update a GPX info. Only usable by the owner account. Requires authentication.
+}
+\details{
+Missing arguments won't be updated.
+}
+\examples{
+vignette("how_to_edit_gps_traces", package = "osmapiR")
 }
 \seealso{
 Other edit GPS traces' functions: 

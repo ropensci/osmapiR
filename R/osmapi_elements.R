@@ -68,7 +68,7 @@
 #'
 #' Creates a new element in an open changeset as specified.
 #'
-#' @param x The new object data. Can be the path to an xml file, a `xml_document` or a data.frame inheriting
+#' @param x The new object data. Can be the path to an xml file, a [xml2::xml_document-class] or a data.frame inheriting
 #'   or following the structure of an `osmapi_objects` object.
 #' @param changeset_id The ID of an open changeset where to create the object. If missing, `x` should define the
 #'   changeset ID, otherwise it will be overwritten with `changeset_id`. Ignored if `x` is a path.
@@ -130,6 +130,12 @@ osm_create_object <- function(x, changeset_id) {
     rm_path <- TRUE
   }
 
+  if (length(xml2::xml_children(xml)) > 1L) {
+    warning(
+      "Multiple elements are provided, but only the first is created. Use `osmchange_create()` + ",
+      "`osm_diff_upload_changeset()` to efficiently create more than one object."
+    )
+  }
   osm_type <- xml2::xml_name(xml2::xml_child(xml))
 
   if (length(osm_type) > 1) {
@@ -289,7 +295,7 @@ osm_read_object <- function(osm_type = c("node", "way", "relation"),
 #'
 #' Updates data from a preexisting element.
 #'
-#' @param x The new object data. Can be the path of an xml file, a `xml_document` or a data.frame inheriting
+#' @param x The new object data. Can be the path of an xml file, a [xml2::xml_document-class] or a data.frame inheriting
 #'   or following the structure of an `osmapi_objects` object.
 #' @param changeset_id The ID of an open changeset where to create the object. If missing, `x` should define the
 #'   changeset ID, otherwise it will be overwritten with `changeset_id`. Ignored if `x` is a path.
@@ -352,6 +358,13 @@ osm_update_object <- function(x, changeset_id) {
     path <- tempfile(fileext = ".osm")
     xml2::write_xml(xml, path)
     rm_path <- TRUE
+  }
+
+  if (length(xml2::xml_children(xml)) > 1L) {
+    warning(
+      "Multiple elements are provided, but only the first is updated. Use `osmchange_modify()` + ",
+      "`osm_diff_upload_changeset()` to efficiently update more than one object."
+    )
   }
 
   osm_type <- xml2::xml_name(xml2::xml_child(xml))
@@ -425,7 +438,7 @@ osm_update_object <- function(x, changeset_id) {
 #'
 #' Expects a valid XML representation of the element to be deleted.
 #'
-#' @param x The object data. Can be the path of an xml file, a `xml_document` or a data.frame inheriting
+#' @param x The object data. Can be the path of an xml file, a [xml2::xml_document-class] or a data.frame inheriting
 #'   or following the structure of an `osmapi_objects` object.
 #' @param changeset_id The ID of an open changeset where to create the object. If missing, `x` should define the
 #'   changeset ID, otherwise it will be overwritten with `changeset_id`. Ignored if `x` is a path.
@@ -488,6 +501,13 @@ osm_delete_object <- function(x, changeset_id) {
     path <- tempfile(fileext = ".osm")
     xml2::write_xml(xml, path)
     rm_path <- TRUE
+  }
+
+  if (length(xml2::xml_children(xml)) > 1L) {
+    warning(
+      "Multiple elements are provided, but only the first is deleted. Use `osmchange_delete()` + ",
+      "`osm_diff_upload_changeset()` to efficiently delete more than one object."
+    )
   }
 
   osm_type <- xml2::xml_name(xml2::xml_child(xml))
@@ -687,6 +707,8 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' [OSM_XML format](https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes). If `format = "json"`,
 #' returns a list with a json structure following the [OSM_JSON format](https://wiki.openstreetmap.org/wiki/OSM_JSON).
 #'
+#' Returned data doesn't follow the same order as `osm_ids` but the order returned by the server which can differ.
+#'
 # @family get OSM objects' functions
 #' @noRd
 #'
@@ -721,12 +743,26 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, ext)
 
+  ids <- paste(osm_ids, collapse = ",")
+
+  # Avoid ERROR: ! HTTP 414 URI Too Long: tested to be > 8213 characters in the URI
+  nchar_base <- nchar(req$url) + nchar(osm_type) + 2
+  nchar_url <- nchar(ids) + length(ids) * 2 + nchar_base # `,` in ids encoded in 3 char (%2C)
+  if (nchar_url > 8213) {
+    out <- fetch_objects_batches(
+      osm_type = osm_type, osm_ids = osm_ids, nchar_base = nchar_base,
+      format = format, tags_in_columns = tags_in_columns
+    )
+
+    return(out)
+  }
+
   if (osm_type == "nodes") {
-    req <- httr2::req_url_query(req, nodes = paste(osm_ids, collapse = ","))
+    req <- httr2::req_url_query(req, nodes = ids)
   } else if (osm_type == "ways") {
-    req <- httr2::req_url_query(req, ways = paste(osm_ids, collapse = ","))
+    req <- httr2::req_url_query(req, ways = ids)
   } else if (osm_type == "relations") {
-    req <- httr2::req_url_query(req, relations = paste(osm_ids, collapse = ","))
+    req <- httr2::req_url_query(req, relations = ids)
   }
 
   resp <- httr2::req_perform(req)
@@ -738,6 +774,63 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
     }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)
+  }
+
+  return(out)
+}
+
+
+#' Fetch objects in batches
+#'
+#' Called from [osm_fetch_objects()] to avoid `HTTP ERROR 414 URI Too Long` when characters in the URI > 8213.
+#'
+#' @inherit osm_fetch_objects
+#' @param nchar_base The number of characters of the URL without the parameters `osm_ids` appended.
+#'
+#' @noRd
+fetch_objects_batches <- function(osm_type, osm_ids, nchar_base, format, tags_in_columns) {
+  ids <- paste(osm_ids, collapse = ",")
+  ids_batch <- 1L
+  while (ids_batch[length(ids_batch)] < length(osm_ids)) {
+    mis_pos <- ids_batch[length(ids_batch)]:length(osm_ids)
+    dist_maxlon <- cumsum(nchar(osm_ids[mis_pos]) + 3) + nchar_base - 3 - 8213 # `,` encoded in 3 char (%2C)
+    sel_mispos <- which.min(abs(dist_maxlon))
+    sel_pos <- mis_pos[sel_mispos]
+    if (dist_maxlon[sel_mispos] > 0) {
+      sel_pos <- sel_pos - 1
+    }
+    ids_batch[length(ids_batch) + 1] <- sel_pos
+  }
+
+  obj_batch <- mapply(
+    function(from, to) {
+      ids <- osm_ids[from:to]
+      osm_fetch_objects(osm_type = osm_type, osm_ids = ids, format = format) # version is already part of osm_ids
+    },
+    from = ids_batch[-length(ids_batch)],
+    to = c(ids_batch[-c(1, length(ids_batch))] - 1, length(osm_ids)),
+    SIMPLIFY = FALSE
+  )
+
+  ## Unite batches
+
+  if (format == "R") {
+    out <- do.call(rbind, obj_batch)
+    rownames(out) <- NULL
+
+    if (tags_in_columns) {
+      out <- tags_list2wide(out)
+    }
+  } else if (format == "xml") {
+    out <- obj_batch[[1]]
+    lapply(obj_batch[-1], function(x) {
+      for (i in seq_len(length(xml2::xml_children(x)))) {
+        xml2::xml_add_child(out, xml2::xml_child(x, search = i))
+      }
+    })
+  } else if (format == "json") {
+    out <- obj_batch[[1]][setdiff(names(obj_batch[[1]]), "elements")]
+    out$elements <- do.call(c, lapply(obj_batch, function(x) x$elements))
   }
 
   return(out)
@@ -988,6 +1081,28 @@ osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
 #' @return Nothing is returned upon successful redaction or unredaction of an object.
 #' @family functions for moderators
 #' @export
+#'
+#' @examples
+#' \dontrun{
+#' ## WARNING: this example will edit the OSM (testing) DB with your user!
+#' # You will need a user with moderator role in the server to use `osm_redaction_object()`
+#' set_osmapi_connection(server = "testing") # setting https://master.apis.dev.openstreetmap.org
+#' x <- data.frame(type = "node", lat = 0, lon = 0, name = "Test redaction.")
+#' obj <- osmapi_objects(x, tag_columns = "name")
+#' changeset_id <- osm_create_changeset(
+#'   comment = "Test object redaction",
+#'   hashtags = "#testing;#osmapiR"
+#' )
+#'
+#' node_id <- osm_create_object(x = obj, changeset_id = changeset_id)
+#' node_osm <- osm_get_objects(osm_type = "node", osm_id = node_id)
+#' deleted_version <- osm_delete_object(x = node_osm, changeset_id = changeset_id)
+#' redaction <- osm_redaction_object(
+#'   osm_type = node_osm$type, osm_id = node_osm$id, version = 1, redaction_id = 1
+#' )
+#' unredaction <- osm_redaction_object(osm_type = node_osm$type, osm_id = node_osm$id, version = 1)
+#' osm_close_changeset(changeset_id = changeset_id)
+#' }
 osm_redaction_object <- function(osm_type = c("node", "way", "relation"), osm_id, version, redaction_id) {
   osm_type <- match.arg(osm_type)
 

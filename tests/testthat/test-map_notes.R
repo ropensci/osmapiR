@@ -15,6 +15,7 @@ class_column_comments <- list(
   action = "character", text = "character", html = "character"
 )
 
+
 ## Retrieving notes data by bounding box: `GET /api/0.6/notes` ----
 
 test_that("osm_read_bbox_notes works", {
@@ -47,7 +48,7 @@ test_that("osm_read_bbox_notes works", {
 
 
   # methods
-  expect_s3_class(print(bbox_notes$df), classes$df)
+  expect_snapshot(print(bbox_notes$df))
 })
 
 
@@ -89,13 +90,15 @@ test_that("osm_read_note works", {
   lapply(read_note[c("xml", "rss", "gpx")], function(x) expect_true(xml2::xml_length(x) == 1))
   lapply(read_notes[c("xml", "rss", "gpx")], function(x) {
     expect_true(xml2::xml_length(x) == 2)
-    try(expect_identical(xml2::xml_child(x, 1), xml2::xml_child(x, 2)))
-    # TODO: fix added namespaces in 2on node
+    tryCatch(
+      expect_identical(xml2::xml_child(x, 1), xml2::xml_child(x, 2)),
+      error = function(e) message("TODO: fix added namespaces in the 2on node R/osm_get_notes.R/osm_get_notes()")
+    )
   })
 
   # methods
-  expect_s3_class(print(read_note$df), classes$df)
-  expect_s3_class(print(read_notes$df), classes$df)
+  expect_snapshot(print(read_note$df))
+  expect_snapshot(print(read_notes$df))
 })
 
 
@@ -182,7 +185,7 @@ test_that("osm_search_notes works", {
   })
 
   # methods
-  expect_s3_class(print(search_notes$df), classes$df)
+  expect_snapshot(print(search_notes$df))
 
 
   ## Empty results
@@ -202,7 +205,7 @@ test_that("osm_search_notes works", {
   )
 
   # methods
-  expect_s3_class(print(empty_search_notes), c("osmapi_map_notes", "data.frame"))
+  expect_snapshot(print(empty_search_notes))
 })
 
 

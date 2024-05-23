@@ -24,6 +24,7 @@ BFPlFMA
 Blackweir
 bool
 br
+Bruc
 BugReports
 byrow
 cadedb
@@ -51,6 +52,7 @@ chsts
 cid
 cINWgt
 CMD
+cmd
 Codecov
 codecov
 codemeta
@@ -68,6 +70,7 @@ CPeZrFeAhjMQOj
 cran
 cre
 crea
+cumsum
 cxMGJjSNnEGiKHAdp
 dbTools
 ddcf
@@ -94,8 +97,10 @@ DWG
 ecca
 ecec
 edefed
+eee
 ef
 efn
+El
 ele
 Epping
 eval
@@ -118,6 +123,7 @@ fred
 Fusers
 Fwww
 geo
+Geroni
 getOption
 gfImaV
 gh
@@ -200,8 +206,11 @@ minlat
 minlon
 mis
 misformed
+mispos
 mozilla
 msg
+municipis
+Municipis
 na
 nchar
 ncol
@@ -209,6 +218,7 @@ nd
 ndash
 nealrichardson
 NextMethod
+nlimit
 nnnnnnnnn
 nocov
 nodeset
@@ -218,6 +228,7 @@ nrow
 nThis
 num
 nVJ
+nWith
 oauth
 OAuth
 objL
@@ -275,6 +286,7 @@ png
 policyL
 pos
 POSIXct
+PPCC
 preferen
 prefs
 programmingLanguage
@@ -313,7 +325,9 @@ rss
 rstudio
 RUcfAFUXF
 runtimePlatform
+Ruta
 sameAs
+Sant
 sapply
 schemaLocation
 seealso
@@ -350,7 +364,9 @@ testthat
 ThisIsANote
 ThisIsANoteComment
 tidyverse
+togpx
 topografix
+toponimsCat
 tracepoints
 trackable
 Trackable
@@ -362,6 +378,7 @@ trkL
 trkpt
 trkseg
 trksegType
+tryCatch
 tt
 tz
 uid
@@ -377,6 +394,7 @@ unversioned
 upd
 uri
 URI
+URL's
 urlencoded
 UseMethod
 userName

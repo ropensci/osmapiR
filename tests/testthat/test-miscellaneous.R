@@ -51,7 +51,7 @@ test_that("osm_bbox_objects works", {
 
 
   # methods
-  expect_s3_class(print(bbox_objects), c("osmapi_objects", "data.frame"), exact = TRUE)
+  expect_snapshot(print(bbox_objects))
 
 
   ## Empty results
@@ -73,7 +73,7 @@ test_that("osm_bbox_objects works", {
 
 
   # methods
-  expect_s3_class(print(empty_bbox_objects), c("osmapi_objects", "data.frame"), exact = TRUE)
+  expect_snapshot(print(empty_bbox_objects))
 })
 
 

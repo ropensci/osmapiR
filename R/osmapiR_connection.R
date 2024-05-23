@@ -61,7 +61,7 @@ set_osmapi_connection <- function(server = c("openstreetmap.org", "testing"), ca
   if (!missing(cache_authentication)) {
     options(osmapir.cache_authentication = cache_authentication)
   }
-  ## TODO: persistent options
+  ## TODO: persistent options ?tools::R_user_dir()
 
   invisible(getOption("osmapir.base_api_url"))
 }
@@ -127,9 +127,10 @@ authenticate_osmapi <- function() {
 
   perms <- osm_permissions()
 
-  message("Logged in at ", get_osmapi_url(), " as: ", display_name)
-  message("With the following permissions:")
-  message("\t", paste(perms, collapse = ", "))
+  message(
+    "Logged in at ", get_osmapi_url(), " as: ", display_name,
+    "\nWith the following permissions:\n\t", paste(perms, collapse = ", ")
+  )
 
   invisible(display_name)
 }

@@ -64,26 +64,25 @@ test_that("edit gpx works", {
 
   with_mock_dir("mock_edit_gpx", {
     ## Create: `POST /api/0.6/gpx/create` ----
-
-    create_trace_id <- osm_create_gpx(
+    gpx_id <- osm_create_gpx(
       file = gpx_path,
       description = "Test create gpx with osmapiR.",
       tags = c("testing", "osmapiR")
     )
 
-
     ## Update: `PUT /api/0.6/gpx/#id` ----
-    # upd_trace <- osm_update_gpx(gpx_id = create_trace_id, file = gpx_path)
-    # TODO: HTTP 400 Bad Request. Cannot parse valid trace from xml string
-
+    upd_trace <- osm_update_gpx(
+      gpx_id = gpx_id, name = "Upd.gpx", description = "Test update gpx with osmapiR",
+      tags = c("testing", "osmapiR", "updated"), visibility = "identifiable"
+    )
 
     ## Delete: `DELETE /api/0.6/gpx/#id` ----
-
-    del_trace <- osm_delete_gpx(gpx_id = create_trace_id)
+    del_trace <- osm_delete_gpx(gpx_id = gpx_id)
   })
 
-  expect_type(create_trace_id, "character")
-  expect_match(create_trace_id, "^[0-9]+$")
+  expect_type(gpx_id, "character")
+  expect_match(gpx_id, "^[0-9]+$")
+  expect_s3_class(upd_trace, "data.frame")
   expect_null(del_trace)
 })
 

@@ -6,7 +6,7 @@
 #'
 #' @param tags a named list with tags (`list(key1 = value1, key2 = value2)`)
 #'
-#' @return An `xml_document`
+#' @return An [xml2::xml_document-class]
 #' @noRd
 changeset_create_xml <- function(tags) {
   xml <- xml2::xml_new_root("osm")
@@ -31,7 +31,7 @@ changeset_create_xml <- function(tags) {
 #' @details
 #' https://wiki.openstreetmap.org/wiki/OsmChange
 #'
-#' @return an OsmChange `xml_document`
+#' @return an OsmChange [xml2::xml_document-class]
 #' @seealso [osm_download_changeset()], [osmchange_create()], [osmchange_modify()], [osmchange_delete()]
 #' @noRd
 osmcha_DF2xml <- function(x) {
@@ -247,7 +247,7 @@ relation_create_2xml <- function(x) {
 #'
 #' @param x An `osmapi_objects` data.frame.
 #'
-#' @return `xml_document`
+#' @return [xml2::xml_document-class]
 #' @noRd
 object_DF2xml <- function(x) {
   if (inherits(x, "tags_wide")) {
@@ -349,7 +349,7 @@ relation_2xml <- function(x) {
 #' @param x An `osmapi_objects` data.frame where columns `id`, `visible`, `version`, `timestamp`, `user` and `uid` can
 #'   be missing or will be ignored.
 #'
-#' @return `xml_document`
+#' @return [xml2::xml_document-class]
 #' @noRd
 object_new_DF2xml <- function(x) {
   if (inherits(x, "tags_wide")) {
@@ -432,7 +432,7 @@ relation_new_2xml <- function(x) {
 #'
 #' @param x An `osmapi_objects` data.frame where columns`timestamp`, `user` and `uid` can be missing or will be ignored.
 #'
-#' @return `xml_document`
+#' @return [xml2::xml_document-class]
 #' @noRd
 object_update_DF2xml <- function(x) {
   if (inherits(x, "tags_wide")) {

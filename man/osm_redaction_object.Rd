@@ -33,6 +33,28 @@ elements containing data privacy or copyright infringements. Only permitted for 
 The \code{redaction_id} is listed on \url{https://www.openstreetmap.org/redactions}. More information can be found in
 \href{https://git.openstreetmap.org/rails.git/blob/HEAD:/app/controllers/api/old_controller.rb}{the source}.
 }
+\examples{
+\dontrun{
+## WARNING: this example will edit the OSM (testing) DB with your user!
+# You will need a user with moderator role in the server to use `osm_redaction_object()`
+set_osmapi_connection(server = "testing") # setting https://master.apis.dev.openstreetmap.org
+x <- data.frame(type = "node", lat = 0, lon = 0, name = "Test redaction.")
+obj <- osmapi_objects(x, tag_columns = "name")
+changeset_id <- osm_create_changeset(
+  comment = "Test object redaction",
+  hashtags = "#testing;#osmapiR"
+)
+
+node_id <- osm_create_object(x = obj, changeset_id = changeset_id)
+node_osm <- osm_get_objects(osm_type = "node", osm_id = node_id)
+deleted_version <- osm_delete_object(x = node_osm, changeset_id = changeset_id)
+redaction <- osm_redaction_object(
+  osm_type = node_osm$type, osm_id = node_osm$id, version = 1, redaction_id = 1
+)
+unredaction <- osm_redaction_object(osm_type = node_osm$type, osm_id = node_osm$id, version = 1)
+osm_close_changeset(changeset_id = changeset_id)
+}
+}
 \seealso{
 Other functions for moderators: 
 \code{\link{osm_delete_note}()},

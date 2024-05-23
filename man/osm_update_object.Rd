@@ -7,7 +7,7 @@
 osm_update_object(x, changeset_id)
 }
 \arguments{
-\item{x}{The new object data. Can be the path of an xml file, a \code{xml_document} or a data.frame inheriting
+\item{x}{The new object data. Can be the path of an xml file, a \link[xml2:oldclass]{xml2::xml_document} or a data.frame inheriting
 or following the structure of an \code{osmapi_objects} object.}
 
 \item{changeset_id}{The ID of an open changeset where to create the object. If missing, \code{x} should define the

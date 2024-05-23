@@ -1,0 +1,52 @@
+---
+title: "How to edit GPS traces"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{How to edit GPS traces}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+
+**WARNING**: This vignette contain examples that can edit your GPX traces at
+[OpenStreetMap.org](https://www.openstreetmap.org). If you prefer to use the
+[testing server](https://master.apis.dev.openstreetmap.org), create a user there and configure `osmapiR` to use it.
+
+```r
+library(osmapiR)
+set_osmapi_connection(server = "testing") # set the testing server
+```
+
+Upload a local gpx file:
+
+```r
+gpx_path <- system.file("extdata", "St_Geroni.gpx", package = "osmapiR")
+gpx_id <- osm_create_gpx(
+  file = gpx_path,
+  description = "Test create gpx with osmapiR.",
+  tags = c("testing", "osmapiR")
+)
+```
+
+Update the gpx trace metadata:
+
+```r
+ori_trace <- osm_get_gpx_metadata(gpx_id = gpx_id)
+upd_trace <- osm_update_gpx(
+  gpx_id = gpx_id, name = "updated.gpx", description = "Test update gpx with osmapiR",
+  tags = c("testing", "osmapiR", "updated"), visibility = "identifiable"
+)
+```
+
+Delete the gpx trace:
+
+```r
+osm_delete_gpx(gpx_id = gpx_id)
+```
