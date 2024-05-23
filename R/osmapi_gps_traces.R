@@ -181,6 +181,7 @@ osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "gpx")) {
 #' vignette("how_to_edit_gps_traces", package = "osmapiR")
 osm_create_gpx <- function(file, description, tags, visibility = c("private", "public", "trackable", "identifiable")) {
   visibility <- match.arg(visibility)
+  stopifnot(!missing(description))
   if (missing(tags)) {
     tags <- NULL
   } else {
@@ -211,26 +212,62 @@ osm_create_gpx <- function(file, description, tags, visibility = c("private", "p
 
 #' Update GPS trace
 #'
-#' Use this to update a GPX file. Only usable by the owner account. Requires authentication.
+#' Use this to update a GPX info. Only usable by the owner account. Requires authentication.
 #'
-#' @param gpx_id The track id represented by a numeric or a character value.
-#' @param file The GPX file path containing the track points.
+#' @param gpx_id The id of the track to update represented by a numeric or a character value.
+#' @param name The file name of the track. Usually, the file name when using [osm_create_gpx()].
+#' @param description The trace description.
+#' @param tags A string containing tags for the trace that will replace the current ones.
+#' @param visibility One of the following: `private`, `public`, `trackable`, `identifiable`. For explanations see
+#'   [OSM trace upload page](https://www.openstreetmap.org/traces/mine) or
+#'   [Visibility of GPS traces](https://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces)).
 #'
-#' @return Returns `NULL` invisibly.
+#' @details
+#' Missing arguments won't be updated.
+#'
+#' @return Returns a data frame with the updated metadata of the GPS trace. The same format that
+#'   [osm_get_gpx_metadata()] with `format = "R"`.
 #' @family edit GPS traces' functions
 #' @export
 #'
 #' @examples
 #' vignette("how_to_edit_gps_traces", package = "osmapiR")
-osm_update_gpx <- function(gpx_id, file) {
+osm_update_gpx <- function(gpx_id, name, description, tags,
+                           visibility = c("private", "public", "trackable", "identifiable")) {
+  visibility <- match.arg(visibility)
+  stopifnot(!missing(description))
+
+  xml_upd <- osm_get_metadata_gpx(gpx_id = gpx_id, format = "xml")
+  if (!missing(name)) {
+    xml2::xml_set_attr(xml2::xml_child(xml_upd), attr = "name", value = name)
+  }
+  if (!missing(visibility)) {
+    xml2::xml_set_attr(xml2::xml_child(xml_upd), attr = "visibility", value = visibility)
+  }
+  if (!missing(description)) {
+    xml2::xml_set_text(xml2::xml_child(xml2::xml_child(xml_upd), search = "description"), value = description)
+  }
+  if (!missing(tags)) {
+    xml2::xml_remove(xml2::xml_find_all(xml_upd, xpath = ".//tag"))
+    for (tag in tags) {
+      tag_node <- xml2::xml_new_root(.value = "tag")
+      xml2::xml_set_text(tag_node, value = tag)
+      xml2::xml_add_child(xml2::xml_child(xml_upd), tag_node)
+    }
+  }
+  temp <- tempfile(fileext = ".xml")
+  on.exit(file.remove(temp))
+  xml2::write_xml(xml_upd, file = temp)
+
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "PUT")
   req <- httr2::req_url_path_append(req, "gpx", gpx_id)
-  req <- httr2::req_body_file(req, path = file)
+  req <- httr2::req_body_file(req, path = temp)
 
   resp <- httr2::req_perform(req)
 
-  invisible()
+  out <- gpx_meta_xml2DF(xml_upd)
+  return(out)
 }
 
 
