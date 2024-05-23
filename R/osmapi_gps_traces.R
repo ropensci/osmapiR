@@ -206,8 +206,8 @@ osm_create_gpx <- function(file, description, tags, visibility = c("private", "p
 }
 
 ## Update: `PUT /api/0.6/gpx/#id` ----
-# Use this to update a GPX file. Only usable by the owner account. Requires authentication.<br />The response body will be empty.
-## TODO: improve wiki. Poor documentation
+# Use this to update the metadata of a GPX file. Only usable by the owner account. Requires authentication. The request body is an xml file with the same structure as the responses of [[API_v0.6#Download_Metadata:_GET_/api/0.6/gpx/#id/details|Download Metadata]].
+# The response body will be empty.
 # https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/traces_controller.rb#L51
 
 #' Update GPS trace
