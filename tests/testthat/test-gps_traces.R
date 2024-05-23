@@ -59,8 +59,6 @@ test_that("osm_get_points_gps works", {
 })
 
 
-
-
 test_that("edit gpx works", {
   gpx_path <- test_path("sample_files", "sample.gpx")
 
