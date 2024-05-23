@@ -100,20 +100,13 @@ create a user there and configure <code>osmapiR</code> to use it.</p>
 <span>  description <span class="op">=</span> <span class="st">"Test create gpx with osmapiR."</span>,</span>
 <span>  tags <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"testing"</span>, <span class="st">"osmapiR"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
-<p>Update the gpx trace with the content of another file:</p>
-<p><em>TODO: <a href="https://github.com/openstreetmap/openstreetmap-website/issues/4821" class="external-link uri">https://github.com/openstreetmap/openstreetmap-website/issues/4821</a></em></p>
+<p>Update the gpx trace metadata:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">gpx_upd_path</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"extdata"</span>, <span class="st">"St_Geroni_70nodes.gpx"</span>, package <span class="op">=</span> <span class="st">"osmapiR"</span><span class="op">)</span></span>
-<span><span class="va">upd_trace</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/osm_update_gpx.html">osm_update_gpx</a></span><span class="op">(</span>gpx_id <span class="op">=</span> <span class="va">gpx_id</span>, file <span class="op">=</span> <span class="va">gpx_upd_path</span><span class="op">)</span></span>
-<span><span class="co">#&gt; ! HTTP 500 Internal Server Error.</span></span>
-<span><span class="co">#&gt; • The server encountered an internal error or</span></span>
-<span><span class="co">#&gt; misconfiguration and was unable to complete</span></span>
-<span><span class="co">#&gt; your request.</span></span>
-<span><span class="co">#&gt; • Please contact the server administrator at</span></span>
-<span><span class="co">#&gt;  webmaster@openstreetmap.org to inform them of the time this error occurred,</span></span>
-<span><span class="co">#&gt;  and the actions you performed just before this error.</span></span>
-<span><span class="co">#&gt; • More information about this error may be available</span></span>
-<span><span class="co">#&gt; in the server error log.</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">ori_trace</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/osm_get_gpx_metadata.html">osm_get_gpx_metadata</a></span><span class="op">(</span>gpx_id <span class="op">=</span> <span class="va">gpx_id</span><span class="op">)</span></span>
+<span><span class="va">upd_trace</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/osm_update_gpx.html">osm_update_gpx</a></span><span class="op">(</span></span>
+<span>  gpx_id <span class="op">=</span> <span class="va">gpx_id</span>, name <span class="op">=</span> <span class="st">"updated.gpx"</span>, description <span class="op">=</span> <span class="st">"Test update gpx with osmapiR"</span>,</span>
+<span>  tags <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"testing"</span>, <span class="st">"osmapiR"</span>, <span class="st">"updated"</span><span class="op">)</span>, visibility <span class="op">=</span> <span class="st">"identifiable"</span></span>
+<span><span class="op">)</span></span></code></pre></div>
 <p>Delete the gpx trace:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="../reference/osm_delete_gpx.html">osm_delete_gpx</a></span><span class="op">(</span>gpx_id <span class="op">=</span> <span class="va">gpx_id</span><span class="op">)</span></span></code></pre></div>
