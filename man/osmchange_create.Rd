@@ -24,9 +24,9 @@ The results are  ready to send the editions to the servers with \code{\link[=osm
 Prepare data to create OSM objects.
 }
 \details{
-Objects IDs are unknown and will be allocated by the server. Check
-\href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange page} for details about how to refer to objects still not
-created to define the members of relations and nodes of ways.
+Objects IDs are unknown and will be allocated by the server. If \code{id} column is missing in \code{x}, a negative
+placeholders will be used. Check \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange page} for details about
+how to refer to objects still not created to define the members of relations and nodes of ways.
 }
 \examples{
 d <- data.frame(

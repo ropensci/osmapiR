@@ -181,9 +181,9 @@ osmchange_delete <- function(x, delete_if_unused = FALSE, format = c("R", "osc",
 #' @param format Format of the output. Can be `R` (default), `osc` (`xml` is a synonym for `osc`).
 #'
 #' @details
-#' Objects IDs are unknown and will be allocated by the server. Check
-#' [OsmChange page](https://wiki.openstreetmap.org/wiki/OsmChange) for details about how to refer to objects still not
-#' created to define the members of relations and nodes of ways.
+#' Objects IDs are unknown and will be allocated by the server. If `id` column is missing in `x`, a negative
+#' placeholders will be used. Check [OsmChange page](https://wiki.openstreetmap.org/wiki/OsmChange) for details about
+#' how to refer to objects still not created to define the members of relations and nodes of ways.
 #'
 #' @return
 #' If `format = "R"`, returns a `osmapi_OsmChange` data frame with one OSM edition per row.
@@ -220,6 +220,10 @@ osmchange_create <- function(x, format = c("R", "osc", "xml")) {
   stopifnot(inherits(x, "osmapi_objects"))
   if (inherits(x, "tags_wide")) {
     x <- tags_wide2list(x)
+  }
+
+  if (!"id" %in% names(x)) {
+    x$id <- -seq_len(nrow(x))
   }
 
   x_type <- split(x, x$type)
