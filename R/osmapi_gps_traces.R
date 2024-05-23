@@ -194,9 +194,9 @@ osm_create_gpx <- function(file, description, tags, visibility = c("private", "p
   req <- httr2::req_body_multipart(
     req,
     file = curl::form_file(file),
-    description = description,
-    tags = tags,
-    visibility = visibility
+    description = curl::form_data(description),
+    tags = curl::form_data(tags),
+    visibility = curl::form_data(visibility)
   )
 
   resp <- httr2::req_perform(req)
