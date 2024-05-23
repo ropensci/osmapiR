@@ -60,6 +60,17 @@ test_that("osm_get_points_gps works", {
 
 
 test_that("edit gpx works", {
+  skip_on_os("windows") # TODO: issue in httptest2? different mock file name in windows
+  # https://github.com/nealrichardson/httptest2/issues/42
+  # Error in `stop_request(req)`: An unexpected request was made:
+  # POST https://master.apis.dev.openstreetmap.org/api/0.6/gpx/create Multipart form:
+  #   file = File: f42901c4e0e077e532e417da5224df67
+  #   description = Test create gpx with osmapiR.
+  #   tags = testing, osmapiR
+  #   visibility = private
+  #
+  # Expected mock file: osm.org/api/0.6/gpx/create-b3940a-POST.*
+
   gpx_path <- test_path("sample_files", "sample.gpx")
 
   with_mock_dir("mock_edit_gpx", {
