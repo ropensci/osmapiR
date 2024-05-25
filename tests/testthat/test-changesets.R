@@ -216,6 +216,7 @@ test_that("osm_query_changesets works", {
   chaset <- list()
   with_mock_dir("mock_query_changesets", {
     chaset$ids <- osm_query_changesets(changeset_ids = c(137627129, 137625624), order = "oldest")
+    chaset$empty <- osm_query_changesets(changeset_ids = c(151819967, 137595351)) # empty & no empty
     chaset$time <- osm_query_changesets(
       bbox = c(-1.241112, 38.0294955, 8.4203171, 42.9186456),
       user = "Mementomoristultus",

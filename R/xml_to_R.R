@@ -44,24 +44,23 @@ changeset_xml2DF <- function(xml, tags_in_columns = FALSE) {
     return(empty_changeset())
   }
 
-  changeset_attrs <- do.call(rbind, xml2::xml_attrs(changesets))
-
-  # read & query changeset calls have different order in attributes.
+  # read & query changeset calls have different order in attributes
   ord_cols <- c(
     "id", "created_at", "closed_at", "open", "user", "uid",
     "min_lat", "min_lon", "max_lat", "max_lon", "comments_count", "changes_count"
   )
 
-  # Open changesets lack some attributes
-  mis_cols <- setdiff(ord_cols, colnames(changeset_attrs))
-  if (length(mis_cols)) {
-    changeset_attrs <- cbind(
-      changeset_attrs,
-      matrix(NA_character_, nrow = nrow(changeset_attrs), ncol = length(mis_cols), dimnames = list(NULL, mis_cols))
-    )
-  }
+  changeset_attrs <- lapply(xml2::xml_attrs(changesets), function(x) {
+    # Open and empty changesets lack some attributes
+    mis_attrs <- setdiff(ord_cols, names(x))
+    if (length(mis_attrs)) {
+      x <- c(x, stats::setNames(rep(NA_character_, length(mis_attrs)), mis_attrs))
+    }
 
-  out <- data.frame(changeset_attrs[, ord_cols, drop = FALSE])
+    x[ord_cols]
+  })
+
+  out <- data.frame(do.call(rbind, changeset_attrs))
 
   out$open <- ifelse(out$open == "true", TRUE, FALSE)
   out$comments_count <- as.integer(out$comments_count)

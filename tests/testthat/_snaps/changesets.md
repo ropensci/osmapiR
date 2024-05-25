@@ -109,6 +109,21 @@
     Code
       print(x)
     Output
+               id          created_at           closed_at  open      user      uid
+      1 151819967 2024-05-25 16:49:04 2024-05-25 16:49:04 FALSE  jmaspons 11725140
+      2 137595351 2023-06-21 09:09:18 2023-06-21 09:09:18 FALSE Quercinus 19641470
+           min_lat   min_lon    max_lat   max_lon comments_count changes_count
+      1       <NA>      <NA>       <NA>      <NA>              0             0
+      2 42.6799619 2.6580564 42.6936802 2.7125775              4             1
+                                                                                       tags
+      1 4 tags: comment=Afegeixo `name:ca` a objectes que apareixen a https://www.openst...
+      2 8 tags: changesets_count=1 | comment=Correcció d'acord amb la toponímia oficial ...
+
+---
+
+    Code
+      print(x)
+    Output
                id          created_at           closed_at  open               user
       1 137627138 2023-06-22 02:24:02 2023-06-22 02:24:02 FALSE Mementomoristultus
       2 137627132 2023-06-22 02:23:42 2023-06-22 02:23:42 FALSE Mementomoristultus
