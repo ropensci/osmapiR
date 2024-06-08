@@ -1,0 +1,810 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<changeset id="137626978" created_at="2023-06-22T02:10:24Z" open="false" comments_count="0" changes_count="5" closed_at="2023-06-22T02:10:24Z" min_lat="42.4327433" min_lon="-6.9782486" max_lat="42.4328559" max_lon="-6.9780026" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="150"/>
+  <tag k="comment" v="18945"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626972" created_at="2023-06-22T02:09:43Z" open="false" comments_count="0" changes_count="5" closed_at="2023-06-22T02:09:44Z" min_lat="42.4327498" min_lon="-6.9765097" max_lat="42.4328834" max_lon="-6.9763031" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="149"/>
+  <tag k="comment" v="18945"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626970" created_at="2023-06-22T02:09:28Z" open="false" comments_count="0" changes_count="5" closed_at="2023-06-22T02:09:28Z" min_lat="42.4328903" min_lon="-6.9756364" max_lat="42.4330040" max_lon="-6.9754741" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="148"/>
+  <tag k="comment" v="18945"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626862" created_at="2023-06-22T02:01:25Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T02:01:26Z" min_lat="43.4488066" min_lon="-7.8527610" max_lat="43.4501613" max_lon="-7.8507456" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="144"/>
+  <tag k="comment" v="11"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626853" created_at="2023-06-22T02:00:48Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T02:00:48Z" min_lat="43.4499647" min_lon="-7.8526224" max_lat="43.4500774" max_lon="-7.8525214" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="143"/>
+  <tag k="comment" v="13"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626849" created_at="2023-06-22T02:00:24Z" open="false" comments_count="0" changes_count="7" closed_at="2023-06-22T02:00:24Z" min_lat="43.4498605" min_lon="-7.8527232" max_lat="43.4509926" max_lon="-7.8497643" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="142"/>
+  <tag k="comment" v="13"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626836" created_at="2023-06-22T01:59:16Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:59:16Z" min_lat="43.4509478" min_lon="-7.8490408" max_lat="43.4511815" max_lon="-7.8487310" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="141"/>
+  <tag k="comment" v="13"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626833" created_at="2023-06-22T01:58:51Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T01:58:51Z" min_lat="43.4503112" min_lon="-7.8491926" max_lat="43.4506422" max_lon="-7.8486152" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="140"/>
+  <tag k="comment" v="11"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626827" created_at="2023-06-22T01:58:12Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:58:12Z" min_lat="43.4515806" min_lon="-7.8518012" max_lat="43.4518359" max_lon="-7.8513226" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="139"/>
+  <tag k="comment" v="12"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+  <tag k="warnings:crossing_ways:building-building" v="1"/>
+</changeset>
+<changeset id="137626819" created_at="2023-06-22T01:57:49Z" open="false" comments_count="0" changes_count="5" closed_at="2023-06-22T01:57:49Z" min_lat="43.4517061" min_lon="-7.8521361" max_lat="43.4518324" max_lon="-7.8519759" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="138"/>
+  <tag k="comment" v="13"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626813" created_at="2023-06-22T01:57:20Z" open="false" comments_count="0" changes_count="5" closed_at="2023-06-22T01:57:20Z" min_lat="43.4522220" min_lon="-7.8526636" max_lat="43.4525296" max_lon="-7.8519676" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="137"/>
+  <tag k="comment" v="12"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626807" created_at="2023-06-22T01:56:41Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T01:56:42Z" min_lat="43.4517360" min_lon="-7.8530077" max_lat="43.4523902" max_lon="-7.8521619" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="136"/>
+  <tag k="comment" v="12"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626802" created_at="2023-06-22T01:56:13Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T01:56:14Z" min_lat="43.4520269" min_lon="-7.8533595" max_lat="43.4523774" max_lon="-7.8525364" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="135"/>
+  <tag k="comment" v="12"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626794" created_at="2023-06-22T01:55:22Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:55:22Z" min_lat="43.4511797" min_lon="-7.8532552" max_lat="43.4515458" max_lon="-7.8529505" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="134"/>
+  <tag k="comment" v="12"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626788" created_at="2023-06-22T01:54:57Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:54:57Z" min_lat="43.4513242" min_lon="-7.8541611" max_lat="43.4519930" max_lon="-7.8538848" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="133"/>
+  <tag k="comment" v="12"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626782" created_at="2023-06-22T01:54:22Z" open="false" comments_count="0" changes_count="3" closed_at="2023-06-22T01:54:22Z" min_lat="43.4516472" min_lon="-7.8541538" max_lat="43.4517629" max_lon="-7.8539604" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="132"/>
+  <tag k="comment" v="12"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626769" created_at="2023-06-22T01:53:38Z" open="false" comments_count="0" changes_count="4" closed_at="2023-06-22T01:53:38Z" min_lat="43.4522560" min_lon="-7.8541540" max_lat="43.4527330" max_lon="-7.8537188" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="131"/>
+  <tag k="comment" v="48"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626762" created_at="2023-06-22T01:53:12Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T01:53:13Z" min_lat="43.4521268" min_lon="-7.8541540" max_lat="43.4527162" max_lon="-7.8527612" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="130"/>
+  <tag k="comment" v="45"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626755" created_at="2023-06-22T01:52:35Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:52:36Z" min_lat="43.4526068" min_lon="-7.8534273" max_lat="43.4527321" max_lon="-7.8532516" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="129"/>
+  <tag k="comment" v="45"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626750" created_at="2023-06-22T01:52:18Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:52:18Z" min_lat="43.4527765" min_lon="-7.8531986" max_lat="43.4529264" max_lon="-7.8530484" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="128"/>
+  <tag k="comment" v="46"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626743" created_at="2023-06-22T01:51:52Z" open="false" comments_count="0" changes_count="25" closed_at="2023-06-22T01:51:52Z" min_lat="43.4535627" min_lon="-7.8540733" max_lat="43.4542773" max_lon="-7.8533637" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="127"/>
+  <tag k="comment" v="45"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626736" created_at="2023-06-22T01:51:21Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:51:22Z" min_lat="43.4536685" min_lon="-7.8537461" max_lat="43.4541080" max_lon="-7.8533637" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="126"/>
+  <tag k="comment" v="45"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+  <tag k="resolved:outdated_tags:noncanonical_brand" v="1"/>
+</changeset>
+<changeset id="137626718" created_at="2023-06-22T01:50:19Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:50:19Z" min_lat="43.4553224" min_lon="-7.8532966" max_lat="43.4560506" max_lon="-7.8527512" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="125"/>
+  <tag k="comment" v="45"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626713" created_at="2023-06-22T01:50:00Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:50:00Z" min_lat="43.4552444" min_lon="-7.8527283" max_lat="43.4559984" max_lon="-7.8521881" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="124"/>
+  <tag k="comment" v="67"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626710" created_at="2023-06-22T01:49:40Z" open="false" comments_count="0" changes_count="3" closed_at="2023-06-22T01:49:40Z" min_lat="43.4550015" min_lon="-7.8517976" max_lat="43.4551113" max_lon="-7.8516693" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="123"/>
+  <tag k="comment" v="56"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626704" created_at="2023-06-22T01:49:20Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T01:49:20Z" min_lat="43.4546616" min_lon="-7.8518618" max_lat="43.4551113" max_lon="-7.8515089" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="122"/>
+  <tag k="comment" v="47"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+  <tag k="warnings:crossing_ways:building-building" v="1"/>
+</changeset>
+<changeset id="137626693" created_at="2023-06-22T01:48:30Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:48:31Z" min_lat="43.4550767" min_lon="-7.8517039" max_lat="43.4558127" max_lon="-7.8502176" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="121"/>
+  <tag k="comment" v="48"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626667" created_at="2023-06-22T01:46:44Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:46:45Z" min_lat="43.4507498" min_lon="-7.8526686" max_lat="43.4507576" max_lon="-7.8526659" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="120"/>
+  <tag k="comment" v="56"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626664" created_at="2023-06-22T01:46:23Z" open="false" comments_count="0" changes_count="4" closed_at="2023-06-22T01:46:23Z" min_lat="43.4508942" min_lon="-7.8531805" max_lat="43.4511123" max_lon="-7.8527787" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="119"/>
+  <tag k="comment" v="74"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626659" created_at="2023-06-22T01:45:54Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:45:54Z" min_lat="43.4509098" min_lon="-7.8531698" max_lat="43.4511123" max_lon="-7.8527787" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="118"/>
+  <tag k="comment" v="14"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626644" created_at="2023-06-22T01:44:32Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:44:32Z" min_lat="43.4463618" min_lon="-7.8549352" max_lat="43.4466924" max_lon="-7.8544243" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="117"/>
+  <tag k="comment" v="18"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626632" created_at="2023-06-22T01:43:19Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:43:19Z" min_lat="43.4476405" min_lon="-7.8528130" max_lat="43.4510094" max_lon="-7.8431001" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="116"/>
+  <tag k="comment" v="27"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626618" created_at="2023-06-22T01:42:32Z" open="false" comments_count="1" changes_count="1" closed_at="2023-06-22T01:42:32Z" min_lat="43.3702548" min_lon="-8.0135855" max_lat="43.5705121" max_lon="-7.7441559" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="115"/>
+  <tag k="comment" v="21"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626593" created_at="2023-06-22T01:40:31Z" open="false" comments_count="0" changes_count="18" closed_at="2023-06-22T01:40:32Z" min_lat="43.2978359" min_lon="-7.6831051" max_lat="43.2982351" max_lon="-7.6826753" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="114"/>
+  <tag k="comment" v="22"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626567" created_at="2023-06-22T01:39:13Z" open="false" comments_count="0" changes_count="5" closed_at="2023-06-22T01:39:14Z" min_lat="43.2975390" min_lon="-7.6837125" max_lat="43.2983786" max_lon="-7.6823740" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="113"/>
+  <tag k="comment" v="23"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626527" created_at="2023-06-22T01:36:47Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:36:47Z" min_lat="43.2969182" min_lon="-7.6808522" max_lat="43.2972142" max_lon="-7.6803010" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="112"/>
+  <tag k="comment" v="24"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626508" created_at="2023-06-22T01:35:27Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:35:27Z" min_lat="43.2945706" min_lon="-7.6834252" max_lat="43.2969974" max_lon="-7.6808524" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="111"/>
+  <tag k="comment" v="26"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626497" created_at="2023-06-22T01:35:00Z" open="false" comments_count="0" changes_count="4" closed_at="2023-06-22T01:35:01Z" min_lat="43.2949139" min_lon="-7.6815947" max_lat="43.2964523" max_lon="-7.6786533" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="110"/>
+  <tag k="comment" v="26"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626489" created_at="2023-06-22T01:34:25Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T01:34:25Z" min_lat="43.2960746" min_lon="-7.6777508" max_lat="43.2961005" max_lon="-7.6773423" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="109"/>
+  <tag k="comment" v="27"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626470" created_at="2023-06-22T01:33:33Z" open="false" comments_count="0" changes_count="5" closed_at="2023-06-22T01:33:34Z" min_lat="43.2959736" min_lon="-7.6779547" max_lat="43.2962932" max_lon="-7.6767778" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="108"/>
+  <tag k="comment" v="79"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626459" created_at="2023-06-22T01:33:09Z" open="false" comments_count="0" changes_count="5" closed_at="2023-06-22T01:33:09Z" min_lat="43.2932307" min_lon="-7.6797783" max_lat="43.2968361" max_lon="-7.6651626" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="107"/>
+  <tag k="comment" v="78"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+  <tag k="warnings:mismatched_geometry:point_as_vertex" v="1"/>
+</changeset>
+<changeset id="137626449" created_at="2023-06-22T01:32:34Z" open="false" comments_count="0" changes_count="6" closed_at="2023-06-22T01:32:35Z" min_lat="43.2965293" min_lon="-7.6781078" max_lat="43.2968480" max_lon="-7.6768001" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="106"/>
+  <tag k="comment" v="87"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626404" created_at="2023-06-22T01:30:05Z" open="false" comments_count="0" changes_count="4" closed_at="2023-06-22T01:30:05Z" min_lat="42.4365591" min_lon="-8.0811560" max_lat="42.4379437" max_lon="-8.0787144" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="105"/>
+  <tag k="comment" v="87"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626387" created_at="2023-06-22T01:28:59Z" open="false" comments_count="0" changes_count="3" closed_at="2023-06-22T01:28:59Z" min_lat="42.4377503" min_lon="-8.1221443" max_lat="42.5539628" max_lon="-8.0792497" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="104"/>
+  <tag k="comment" v="80"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626383" created_at="2023-06-22T01:28:43Z" open="false" comments_count="0" changes_count="29" closed_at="2023-06-22T01:28:44Z" min_lat="42.4378920" min_lon="-8.0797572" max_lat="42.4388115" max_lon="-8.0785782" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="103"/>
+  <tag k="comment" v="49"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626365" created_at="2023-06-22T01:27:28Z" open="false" comments_count="0" changes_count="5" closed_at="2023-06-22T01:27:29Z" min_lat="42.4384228" min_lon="-8.0814797" max_lat="42.4392050" max_lon="-8.0799395" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="102"/>
+  <tag k="comment" v="42"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626344" created_at="2023-06-22T01:26:20Z" open="false" comments_count="0" changes_count="5" closed_at="2023-06-22T01:26:21Z" min_lat="42.4318442" min_lon="-8.0737985" max_lat="42.4319985" max_lon="-8.0735708" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="101"/>
+  <tag k="comment" v="40"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626336" created_at="2023-06-22T01:25:53Z" open="false" comments_count="0" changes_count="5" closed_at="2023-06-22T01:25:54Z" min_lat="42.4305063" min_lon="-8.0748481" max_lat="42.4328356" max_lon="-8.0731101" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="100"/>
+  <tag k="comment" v="39"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626330" created_at="2023-06-22T01:25:16Z" open="false" comments_count="0" changes_count="3" closed_at="2023-06-22T01:25:16Z" min_lat="42.4305063" min_lon="-8.0748516" max_lat="42.4328356" max_lon="-8.0731101" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="99"/>
+  <tag k="comment" v="38"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626323" created_at="2023-06-22T01:24:34Z" open="false" comments_count="0" changes_count="6" closed_at="2023-06-22T01:24:35Z" min_lat="42.4308621" min_lon="-8.0757847" max_lat="42.4321425" max_lon="-8.0739688" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="98"/>
+  <tag k="comment" v="35"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626304" created_at="2023-06-22T01:23:00Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T01:23:01Z" min_lat="42.4295185" min_lon="-8.0778774" max_lat="42.4296191" max_lon="-8.0776356" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="97"/>
+  <tag k="comment" v="38"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626292" created_at="2023-06-22T01:22:40Z" open="false" comments_count="0" changes_count="30" closed_at="2023-06-22T01:22:40Z" min_lat="42.4289511" min_lon="-8.0785746" max_lat="42.4295725" max_lon="-8.0778766" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="96"/>
+  <tag k="comment" v="37"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626254" created_at="2023-06-22T01:19:58Z" open="false" comments_count="0" changes_count="8" closed_at="2023-06-22T01:19:58Z" min_lat="42.4290614" min_lon="-8.0780855" max_lat="42.4294285" max_lon="-8.0775391" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="95"/>
+  <tag k="comment" v="He hecho más por Carballino que tu, pedazo vago, en diez años."/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626244" created_at="2023-06-22T01:19:01Z" open="false" comments_count="0" changes_count="5" closed_at="2023-06-22T01:19:01Z" min_lat="42.4290614" min_lon="-8.0779255" max_lat="42.4294285" max_lon="-8.0775391" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="94"/>
+  <tag k="comment" v="megaedificio"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626234" created_at="2023-06-22T01:18:38Z" open="false" comments_count="0" changes_count="10" closed_at="2023-06-22T01:18:38Z" min_lat="42.4293510" min_lon="-8.0777761" max_lat="42.4295216" max_lon="-8.0775239" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="93"/>
+  <tag k="comment" v="63"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626224" created_at="2023-06-22T01:18:03Z" open="false" comments_count="0" changes_count="11" closed_at="2023-06-22T01:18:03Z" min_lat="42.4293450" min_lon="-8.0776356" max_lat="42.4297637" max_lon="-8.0770954" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="92"/>
+  <tag k="comment" v="62"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626212" created_at="2023-06-22T01:16:56Z" open="false" comments_count="0" changes_count="12" closed_at="2023-06-22T01:16:56Z" min_lat="42.4295003" min_lon="-8.0776356" max_lat="42.4298676" max_lon="-8.0772233" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="91"/>
+  <tag k="comment" v="60"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626204" created_at="2023-06-22T01:16:05Z" open="false" comments_count="0" changes_count="8" closed_at="2023-06-22T01:16:06Z" min_lat="42.4290097" min_lon="-8.0780481" max_lat="42.4300046" max_lon="-8.0759415" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="90"/>
+  <tag k="comment" v="52"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626172" created_at="2023-06-22T01:15:15Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:15:16Z" min_lat="42.4300046" min_lon="-8.0780481" max_lat="42.4300046" max_lon="-8.0780481" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="89"/>
+  <tag k="comment" v="49"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626141" created_at="2023-06-22T01:12:52Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:12:52Z" min_lat="42.2060536" min_lon="-7.8122281" max_lat="42.2063592" max_lon="-7.8116694" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="88"/>
+  <tag k="comment" v="56"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626135" created_at="2023-06-22T01:12:10Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T01:12:10Z" min_lat="42.2053658" min_lon="-7.8122281" max_lat="42.2060536" max_lon="-7.8104450" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="87"/>
+  <tag k="comment" v="55"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626110" created_at="2023-06-22T01:09:57Z" open="false" comments_count="0" changes_count="3" closed_at="2023-06-22T01:09:57Z" min_lat="42.1981067" min_lon="-7.7269556" max_lat="42.2382445" max_lon="-7.6759058" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="86"/>
+  <tag k="comment" v="48"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626096" created_at="2023-06-22T01:08:59Z" open="false" comments_count="0" changes_count="3" closed_at="2023-06-22T01:08:59Z" min_lat="42.2072992" min_lon="-7.7062125" max_lat="42.2076398" max_lon="-7.7055245" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="85"/>
+  <tag k="comment" v="45"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626082" created_at="2023-06-22T01:08:20Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T01:08:20Z" min_lat="42.2074878" min_lon="-7.7059424" max_lat="42.2075134" max_lon="-7.7058701" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="84"/>
+  <tag k="comment" v="45"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626069" created_at="2023-06-22T01:07:36Z" open="false" comments_count="0" changes_count="13" closed_at="2023-06-22T01:07:36Z" min_lat="42.2112432" min_lon="-7.7045158" max_lat="42.2117544" max_lon="-7.7019787" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="83"/>
+  <tag k="comment" v="27"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626059" created_at="2023-06-22T01:06:54Z" open="false" comments_count="0" changes_count="6" closed_at="2023-06-22T01:06:54Z" min_lat="42.2111043" min_lon="-7.7032614" max_lat="42.2117268" max_lon="-7.7020659" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="82"/>
+  <tag k="comment" v="18"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626038" created_at="2023-06-22T01:06:05Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T01:06:05Z" min_lat="42.2094798" min_lon="-7.7075087" max_lat="42.2094798" max_lon="-7.7075087" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="81"/>
+  <tag k="comment" v="como tantos"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137626015" created_at="2023-06-22T01:04:17Z" open="false" comments_count="0" changes_count="7" closed_at="2023-06-22T01:04:18Z" min_lat="42.2109155" min_lon="-7.7391485" max_lat="42.2127529" max_lon="-7.7326565" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="80"/>
+  <tag k="comment" v="15"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+  <tag k="warnings:crossing_ways:highway-waterway" v="1"/>
+</changeset>
+<changeset id="137625998" created_at="2023-06-22T01:03:15Z" open="false" comments_count="0" changes_count="5" closed_at="2023-06-22T01:03:16Z" min_lat="42.2112087" min_lon="-7.7399101" max_lat="42.2115102" max_lon="-7.7371774" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="79"/>
+  <tag k="comment" v="47"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625985" created_at="2023-06-22T01:02:39Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T01:02:39Z" min_lat="42.2003794" min_lon="-7.7544323" max_lat="42.2226573" max_lon="-7.7162016" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="78"/>
+  <tag k="comment" v="en este río bañéme tantas veces... vete a la mierda, payaso"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625968" created_at="2023-06-22T01:01:13Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T01:01:13Z" min_lat="42.2029584" min_lon="-7.7384273" max_lat="42.2040140" max_lon="-7.7372429" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="77"/>
+  <tag k="comment" v="14"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625962" created_at="2023-06-22T01:00:32Z" open="false" comments_count="0" changes_count="7" closed_at="2023-06-22T01:00:33Z" min_lat="42.2025465" min_lon="-7.7392016" max_lat="42.2048786" max_lon="-7.7370296" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="76"/>
+  <tag k="comment" v="este fundó la Guardia Civil, pa ti ..."/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625947" created_at="2023-06-22T00:59:04Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T00:59:05Z" min_lat="42.2035186" min_lon="-7.7336482" max_lat="42.2041737" max_lon="-7.7332160" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="75"/>
+  <tag k="comment" v="79"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625938" created_at="2023-06-22T00:58:29Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:58:30Z" min_lat="42.2032290" min_lon="-7.7348917" max_lat="42.2045757" max_lon="-7.7327696" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="74"/>
+  <tag k="comment" v="Este Asdrubal fue un personaje en tiempos de Franco, Descansa en el cementerio, cemiterio pa ti."/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625923" created_at="2023-06-22T00:57:08Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:57:09Z" min_lat="42.2039616" min_lon="-7.7352359" max_lat="42.2039616" max_lon="-7.7352359" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="73"/>
+  <tag k="comment" v="47"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625913" created_at="2023-06-22T00:56:38Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:56:38Z" min_lat="42.2037376" min_lon="-7.7351734" max_lat="42.2044044" max_lon="-7.7347065" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="72"/>
+  <tag k="comment" v="una vez el nombrecito, basta"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625892" created_at="2023-06-22T00:55:35Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:55:36Z" min_lat="42.2041292" min_lon="-7.7351734" max_lat="42.2044044" max_lon="-7.7347111" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="71"/>
+  <tag k="comment" v="Colegiata es otro tipo de edificio distinto de Iglesia, a ver si te enteras chaval. A tus más de 50 años va siendo hora de que dejes de hacer el imbécil"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625865" created_at="2023-06-22T00:53:25Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:53:26Z" min_lat="42.2084783" min_lon="-7.7359982" max_lat="42.2084829" max_lon="-7.7359905" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="70"/>
+  <tag k="comment" v="80"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625861" created_at="2023-06-22T00:53:10Z" open="false" comments_count="0" changes_count="15" closed_at="2023-06-22T00:53:10Z" min_lat="42.2066220" min_lon="-7.7365168" max_lat="42.2084385" max_lon="-7.7359513" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="69"/>
+  <tag k="comment" v="79"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625835" created_at="2023-06-22T00:51:53Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:51:53Z" min_lat="42.2066257" min_lon="-7.7366514" max_lat="42.2068222" max_lon="-7.7363296" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="68"/>
+  <tag k="comment" v="78"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625820" created_at="2023-06-22T00:51:19Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:51:19Z" min_lat="42.2073067" min_lon="-7.7359941" max_lat="42.2073067" max_lon="-7.7359941" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="67"/>
+  <tag k="comment" v="4"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625811" created_at="2023-06-22T00:50:51Z" open="false" comments_count="0" changes_count="16" closed_at="2023-06-22T00:50:51Z" min_lat="42.2067814" min_lon="-7.7365875" max_lat="42.2075145" max_lon="-7.7359019" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="66"/>
+  <tag k="comment" v="5"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625792" created_at="2023-06-22T00:49:34Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T00:49:35Z" min_lat="42.2064378" min_lon="-7.7394477" max_lat="42.2109170" max_lon="-7.7348842" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="65"/>
+  <tag k="comment" v="6"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625777" created_at="2023-06-22T00:48:47Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:48:47Z" min_lat="42.2064378" min_lon="-7.7394477" max_lat="42.2109170" max_lon="-7.7348842" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="64"/>
+  <tag k="comment" v="7"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625737" created_at="2023-06-22T00:46:44Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:46:44Z" min_lat="42.2083628" min_lon="-7.7365713" max_lat="42.2083658" max_lon="-7.7365713" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="63"/>
+  <tag k="comment" v="7"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625736" created_at="2023-06-22T00:46:25Z" open="false" comments_count="0" changes_count="3" closed_at="2023-06-22T00:46:25Z" min_lat="42.2077566" min_lon="-7.7365713" max_lat="42.2084783" max_lon="-7.7358144" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="62"/>
+  <tag k="comment" v="8"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625716" created_at="2023-06-22T00:44:56Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:44:56Z" min_lat="42.2078951" min_lon="-7.7365713" max_lat="42.2084783" max_lon="-7.7358144" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="61"/>
+  <tag k="comment" v="8"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625708" created_at="2023-06-22T00:44:29Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:44:29Z" min_lat="42.2079468" min_lon="-7.7365713" max_lat="42.2084783" max_lon="-7.7358340" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="60"/>
+  <tag k="comment" v="con uno basta"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625696" created_at="2023-06-22T00:43:38Z" open="false" comments_count="0" changes_count="6" closed_at="2023-06-22T00:43:38Z" min_lat="42.2035461" min_lon="-7.7356534" max_lat="42.2042092" max_lon="-7.7350585" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="59"/>
+  <tag k="comment" v="9"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625683" created_at="2023-06-22T00:42:40Z" open="false" comments_count="0" changes_count="3" closed_at="2023-06-22T00:42:40Z" min_lat="42.2040033" min_lon="-7.7365230" max_lat="42.2042079" max_lon="-7.7362766" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="58"/>
+  <tag k="comment" v="10"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625675" created_at="2023-06-22T00:42:03Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:42:03Z" min_lat="42.2052446" min_lon="-7.7373669" max_lat="42.2052460" max_lon="-7.7368374" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="57"/>
+  <tag k="comment" v="11"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625650" created_at="2023-06-22T00:40:26Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:40:26Z" min_lat="42.2045757" min_lon="-7.7353771" max_lat="42.2047506" max_lon="-7.7348122" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="56"/>
+  <tag k="comment" v="18"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625645" created_at="2023-06-22T00:39:56Z" open="false" comments_count="0" changes_count="4" closed_at="2023-06-22T00:39:57Z" min_lat="42.2049363" min_lon="-7.7359801" max_lat="42.2050278" max_lon="-7.7354976" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="55"/>
+  <tag k="comment" v="10"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625631" created_at="2023-06-22T00:38:59Z" open="false" comments_count="0" changes_count="3" closed_at="2023-06-22T00:38:59Z" min_lat="42.2049363" min_lon="-7.7359801" max_lat="42.2050642" max_lon="-7.7351732" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="54"/>
+  <tag k="comment" v="12"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625624" created_at="2023-06-22T00:38:20Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:38:20Z" min_lat="42.2050642" min_lon="-7.7351732" max_lat="42.2050642" max_lon="-7.7351732" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="53"/>
+  <tag k="comment" v="A ver, subnormal, en español es JUNUQUERA DE AMBIA. Pero supongo que tu esyupidez gallegoide congénita te impide aceptarlo."/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625596" created_at="2023-06-22T00:36:19Z" open="false" comments_count="0" changes_count="66" closed_at="2023-06-22T00:36:19Z" min_lat="42.2406176" min_lon="-7.6729808" max_lat="42.2426174" max_lon="-7.6713559" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="52"/>
+  <tag k="comment" v="10"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+  <tag k="resolved:crossing_ways:building-building" v="2"/>
+  <tag k="resolved:crossing_ways:building-highway" v="1"/>
+</changeset>
+<changeset id="137625554" created_at="2023-06-22T00:33:00Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T00:33:00Z" min_lat="42.2395130" min_lon="-7.6722150" max_lat="42.2403324" max_lon="-7.6717483" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="51"/>
+  <tag k="comment" v="ssbm"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625545" created_at="2023-06-22T00:32:09Z" open="false" comments_count="0" changes_count="17" closed_at="2023-06-22T00:32:09Z" min_lat="42.2401764" min_lon="-7.6722545" max_lat="42.2407140" max_lon="-7.6717036" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="50"/>
+  <tag k="comment" v="11"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625535" created_at="2023-06-22T00:31:25Z" open="false" comments_count="0" changes_count="2" closed_at="2023-06-22T00:31:26Z" min_lat="42.2404198" min_lon="-7.6717710" max_lat="42.2404601" max_lon="-7.6717028" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="49"/>
+  <tag k="comment" v="no hay casa (viajo a menudo)"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+<changeset id="137625517" created_at="2023-06-22T00:30:52Z" open="false" comments_count="0" changes_count="1" closed_at="2023-06-22T00:30:52Z" min_lat="42.2403208" min_lon="-7.6720857" max_lat="42.2404641" max_lon="-7.6717036" uid="19648429" user="Mementomoristultus">
+  <tag k="changesets_count" v="48"/>
+  <tag k="comment" v="ssbm"/>
+  <tag k="created_by" v="iD 2.25.2"/>
+  <tag k="host" v="https://www.openstreetmap.org/edit"/>
+  <tag k="imagery_used" v="PNOA Spain"/>
+  <tag k="locale" v="es"/>
+</changeset>
+</osm>
