@@ -537,7 +537,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #'   reached the element limit for a changeset (10,000 at the moment `osm_capabilities()$api$changesets`).
 #' @param closed If `TRUE`, only finds changesets that are **closed** or have reached the element limit.
 #' @param changeset_ids Finds changesets with the specified ids.
-#' @param order If `newest` (default), sort newest changesets first. If `oldest`, reverse order.
+#' @param order If `"newest"` (default), sort newest changesets first. If `"oldest"`, reverse order.
 #' @param limit Specifies the maximum number of changesets returned. A number between 1 and 100, with 100 as the default
 #'   value.
 #' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
@@ -554,7 +554,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #' changesets.
 #'
 #' This call returns latest changesets matching criteria. The default ordering is newest first, but you can specify
-#' `order=oldest` to reverse the sort order (see
+#' `order="oldest"` to reverse the sort order (see
 #' [ordered by `created_at`](https://github.com/openstreetmap/openstreetmap-website/blob/f1c6a87aa137c11d0aff5a4b0e563ac2c2a8f82d/app/controllers/api/changesets_controller.rb#L174)
 #' – see the [current state](https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174)).
 #' Reverse ordering cannot be combined with `time`.
@@ -614,7 +614,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #' ```
 #'
 #' @family get changesets' functions
-#' @export
+#' @noRd
 #'
 #' @examples
 #' \dontrun{
@@ -632,23 +632,19 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #' chsts2 <- osm_query_changesets(
 #'   bbox = c("-9.3015367,41.8073642,-6.7339533,43.790422"),
 #'   user = "Mementomoristultus",
-#'   closed = TRUE
+#'   closed = "true"
 #' )
 #' chsts2
 #' }
-osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changeset_ids, order = c("newest", "oldest"),
-                                 limit = 100, format = c("R", "xml", "json"), tags_in_columns = FALSE) {
+.osm_query_changesets <- function(bbox = NULL, user = NULL, time = NULL, time_2 = NULL, open = NULL, closed = NULL,
+                                  changeset_ids = NULL, order = NULL,
+                                  limit = getOption(
+                                    "osmapir.api_capabilities"
+                                  )$api$changesets["default_query_limit"],
+                                  format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   format <- match.arg(format)
-  order <- match.arg(order)
 
-  if (missing(bbox)) {
-    bbox <- NULL
-  } else {
-    bbox <- paste(bbox, collapse = ",")
-  }
-
-  if (missing(user)) {
-    user <- NULL
+  if (is.null(user)) {
     display_name <- NULL
   } else {
     if (is.numeric(user)) {
@@ -659,42 +655,12 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
     }
   }
 
-  if (missing(time)) {
-    time <- NULL
+  if (!is.null(time) && inherits(time, "POSIXt")) {
+    time <- format(time, "%Y-%m-%dT%H:%M:%SZ")
   }
-  if (missing(time_2)) {
-    time_2 <- NULL
-  }
-  stopifnot(is.null(time) && is.null(time_2) || !is.null(time))
-
-  if (missing(open)) {
-    open <- NULL
-  } else {
-    if (open) {
-      open <- "true"
-    } else {
-      open <- "false"
-    }
-  }
-
-  if (missing(closed)) {
-    closed <- NULL
-  } else {
-    if (closed) {
-      closed <- "true"
-    } else {
-      closed <- "false"
-    }
-  }
-
-  if (missing(changeset_ids)) {
-    changeset_ids <- NULL
-  } else {
-    changeset_ids <- paste(changeset_ids, collapse = ",")
-  }
-
-  if (order == "newest") {
-    order <- NULL
+  if (!is.null(time_2) && inherits(time_2, "POSIXt")) {
+    time_2 <- format(time_2, "%Y-%m-%dT%H:%M:%SZ")
+    time <- paste0(time, ",", time_2)
   }
 
   if (format == "json") {
@@ -709,7 +675,7 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
   req <- httr2::req_url_query(req,
     bbox = bbox,
     user = user, display_name = display_name,
-    time = time, time_2 = time_2,
+    time = time,
     open = open, closed = closed,
     changesets = changeset_ids,
     order = order,

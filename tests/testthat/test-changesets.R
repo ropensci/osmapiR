@@ -224,9 +224,32 @@ test_that("osm_query_changesets works", {
       time_2 = "2023-06-22T00:38:20Z"
     )
     chaset$closed <- osm_query_changesets(
-      bbox = c("-9.3015367,41.8073642,-6.7339533,43.790422"),
+      bbox = "-9.3015367,41.8073642,-6.7339533,43.790422",
       user = "Mementomoristultus",
       closed = TRUE
+    )
+
+    # limit > 100: requests in batches
+    chaset$batches <- osm_query_changesets(
+      bbox = "-9.3015367,41.8073642,-6.7339533,43.790422",
+      user = "Mementomoristultus",
+      closed = TRUE,
+      limit = 120
+    )
+
+    chaset_xml <- osm_query_changesets(
+      bbox = "-9.3015367,41.8073642,-6.7339533,43.790422",
+      user = "Mementomoristultus",
+      closed = TRUE,
+      limit = 120,
+      format = "xml"
+    )
+    chaset_json <- osm_query_changesets(
+      bbox = "-9.3015367,41.8073642,-6.7339533,43.790422",
+      user = "Mementomoristultus",
+      closed = TRUE,
+      limit = 120,
+      format = "json"
     )
   })
 
@@ -238,6 +261,10 @@ test_that("osm_query_changesets works", {
       expect_named(y, column_discuss)
     })
   })
+
+  # Check batch union for xml and json
+  expect_identical(nrow(chaset$batches), length(xml2::xml_children(chaset_xml)))
+  expect_identical(nrow(chaset$batches), length(chaset_json$changeset))
 
   # methods
   lapply(chaset, function(x) expect_snapshot(print(x)))
@@ -261,4 +288,16 @@ test_that("osm_query_changesets works", {
 
   # methods
   expect_snapshot(print(empty_chaset))
+
+
+  ## Input errors
+
+  expect_error(
+    osm_query_changesets(time = "don't care", order = "oldest"),
+    "Cannot use `order = \"oldest\"` with `time` parameter."
+  )
+  expect_error(
+    osm_query_changesets(order = "oldest", limit = 101),
+    "Cannot use `order = \"oldest\"` with `limit` > 100."
+  )
 })

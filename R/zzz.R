@@ -39,6 +39,16 @@
     options(osmapir.api_version = "0.6")
   }
 
+  if (!"osmapir.api_capabilities" %in% names(op)) {
+    ## server_capabilities <- osm_capabilities() # Only used values and avoid a server call when loading the package
+    server_capabilities <- list(
+      api = list(
+        changesets = c(default_query_limit = "100", maximum_query_limit = "100")
+      )
+    )
+    options(osmapir.api_capabilities = server_capabilities)
+  }
+
   invisible()
 } # nocov end
 
