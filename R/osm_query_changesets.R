@@ -163,6 +163,13 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
     order <- NULL
   }
 
+  if (!is.null(order) && !is.null(time)) {
+    stop("Cannot use `order = \"oldest\"` with `time` parameter.")
+    # Avoid API error:
+    # ! HTTP 400 Bad Request.
+    # • cannot use order=oldest with time
+  }
+
   if (limit <= getOption("osmapir.api_capabilities")$api$changesets["maximum_query_limit"]) { # no batch needed
     out <- .osm_query_changesets(
       bbox = bbox, user = user, time = time, time_2 = time_2, open = open, closed = closed,
@@ -170,6 +177,11 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
     )
 
     return(out)
+  } else if (!is.null(order)) {
+    stop("Cannot use `order = \"oldest\"` with `limit` > 100.")
+    # Avoid API error:
+    # ! HTTP 400 Bad Request.
+    # • cannot use order=oldest with time
   }
 
   outL <- list()
@@ -190,50 +202,15 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
 
     if (format == "R") {
       n <- nrow(outL[[i]])
-      if (is.null(order)) { # order == "newest"
-        time_2 <- outL[[i]]$created_at[n]
-      } else { # order == "oldest"
-        time <- outL[[i]]$closed_at[n]
-        if (!is.null(time_2) && time > time_2) {
-          break
-        }
-      }
+      time_2 <- outL[[i]]$created_at[n]
     } else if (format == "xml") {
       n <- length(xml2::xml_children(outL[[i]]))
-      if (is.null(order)) { # order == "newest"
-        time_2 <- xml2::xml_attr(xml2::xml_child(outL[[i]], n), attr = "created_at")
-        time_2 <- as.POSIXct(time_2, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT") ## TODO: needed?
-      } else { # order == "oldest"
-        time <- xml2::xml_attr(xml2::xml_child(outL[[i]], n), attr = "closed_at")
-        time <- as.POSIXct(time, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT") ## TODO: needed?
-        if (!is.null(time_2)) {
-          if (!inherits(time_2, "POSIXt")) {
-            time_2 <- as.POSIXct(time_2, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
-          }
-          # time <- as.POSIXct(time, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
-          if (time > time_2) {
-            break
-          }
-        }
-      }
+      time_2 <- xml2::xml_attr(xml2::xml_child(outL[[i]], n), attr = "created_at")
+      time_2 <- as.POSIXct(time_2, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT") ## TODO: needed?
     } else if (format == "json") {
       n <- length(outL[[i]]$changesets)
-      if (is.null(order)) { # order == "newest"
-        time_2 <- outL[[i]]$changesets[[n]]$created_at
-        time_2 <- as.POSIXct(time_2, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT") ## TODO: needed?
-      } else { # order == "oldest"
-        time <- outL[[i]]$changesets[[n]]$closed_at
-        time <- as.POSIXct(time, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT") ## TODO: needed?
-        if (!is.null(time_2)) {
-          if (!inherits(time_2, "POSIXt")) {
-            time_2 <- as.POSIXct(time_2, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
-          }
-          # time <- as.POSIXct(time, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
-          if (time > time_2) {
-            break
-          }
-        }
-      }
+      time_2 <- outL[[i]]$changesets[[n]]$created_at
+      time_2 <- as.POSIXct(time_2, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT") ## TODO: needed?
     }
 
     n_out <- n_out + n
