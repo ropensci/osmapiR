@@ -45,7 +45,7 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="../logo.svg" class="logo" alt=""><h1>Query changesets</h1>
-      <small class="dont-index">Source: <a href="https://github.com/jmaspons/osmapiR/blob/HEAD/R/osmapi_changesets.R" class="external-link"><code>R/osmapi_changesets.R</code></a></small>
+      <small class="dont-index">Source: <a href="https://github.com/jmaspons/osmapiR/blob/HEAD/R/osm_query_changesets.R" class="external-link"><code>R/osm_query_changesets.R</code></a></small>
       <div class="d-none name"><code>osm_query_changesets.Rd</code></div>
     </div>
 
@@ -64,7 +64,7 @@
 <span>  <span class="va">closed</span>,</span>
 <span>  <span class="va">changeset_ids</span>,</span>
 <span>  order <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"newest"</span>, <span class="st">"oldest"</span><span class="op">)</span>,</span>
-<span>  limit <span class="op">=</span> <span class="fl">100</span>,</span>
+<span>  limit <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">getOption</a></span><span class="op">(</span><span class="st">"osmapir.api_capabilities"</span><span class="op">)</span><span class="op">$</span><span class="va">api</span><span class="op">$</span><span class="va">changesets</span><span class="op">[</span><span class="st">"default_query_limit"</span><span class="op">]</span>,</span>
 <span>  format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"R"</span>, <span class="st">"xml"</span>, <span class="st">"json"</span><span class="op">)</span>,</span>
 <span>  tags_in_columns <span class="op">=</span> <span class="cn">FALSE</span></span>
 <span><span class="op">)</span></span></code></pre></div>
@@ -103,12 +103,11 @@ reached the element limit for a changeset (10,000 at the moment <code>osm_capabi
 
 
 <dt>order</dt>
-<dd><p>If <code>newest</code> (default), sort newest changesets first. If <code>oldest</code>, reverse order.</p></dd>
+<dd><p>If <code>"newest"</code> (default), sort newest changesets first. If <code>"oldest"</code>, reverse order.</p></dd>
 
 
 <dt>limit</dt>
-<dd><p>Specifies the maximum number of changesets returned. A number between 1 and 100, with 100 as the default
-value.</p></dd>
+<dd><p>Specifies the maximum number of changesets returned. 100 as the default value.</p></dd>
 
 
 <dt>format</dt>
@@ -189,7 +188,7 @@ returned document are the changesets and their tags. To get the full set of chan
 <p>Modification and extension of the basic queries above may be required to support rollback and other uses we find for
 changesets.</p>
 <p>This call returns latest changesets matching criteria. The default ordering is newest first, but you can specify
-<code>order=oldest</code> to reverse the sort order (see
+<code>order = "oldest"</code> to reverse the sort order (see
 <a href="https://github.com/openstreetmap/openstreetmap-website/blob/f1c6a87aa137c11d0aff5a4b0e563ac2c2a8f82d/app/controllers/api/changesets_controller.rb#L174" class="external-link">ordered by <code>created_at</code></a>
 – see the <a href="https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174" class="external-link">current state</a>).
 Reverse ordering cannot be combined with <code>time</code>.</p>
