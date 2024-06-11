@@ -40,10 +40,12 @@
   }
 
   if (!"osmapir.api_capabilities" %in% names(op)) {
-    ## server_capabilities <- osm_capabilities() # Only used values and avoid a server call when loading the package
+    ## server_capabilities <- osm_capabilities()
+    # Avoid a server request when loading the package but requires to update values
     server_capabilities <- list(
       api = list(
-        changesets = c(default_query_limit = "100", maximum_query_limit = "100")
+        changesets = c(maximum_elements = "10000", default_query_limit = "100", maximum_query_limit = "100"),
+        notes = c(default_query_limit = "100", maximum_query_limit = "10000")
       )
     )
     options(osmapir.api_capabilities = server_capabilities)

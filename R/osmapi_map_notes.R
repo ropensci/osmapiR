@@ -706,10 +706,15 @@ osm_delete_note <- function(note_id, text) { # TODO: , format = c("R", "xml", "j
 osm_search_notes <- function(
     q, user, bbox, from, to, closed = 7,
     sort = c("updated_at", "created_at"), order = c("newest", "oldest"),
-    limit = 100, format = c("R", "xml", "rss", "json", "gpx")) {
+    limit = getOption("osmapir.api_capabilities")$api$notes["default_query_limit"],
+    format = c("R", "xml", "rss", "json", "gpx")) {
   sort <- match.arg(sort)
   order <- match.arg(order)
   format <- match.arg(format)
+
+  # if (limit > getOption("osmapir.api_capabilities")$api$notes["maximum_query_limit"]) {
+  #   # TODO: calls in batches by date range as in osm_query_changesets()
+  # }
 
   if (missing(q)) {
     q <- NULL

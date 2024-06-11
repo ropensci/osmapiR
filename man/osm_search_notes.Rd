@@ -13,7 +13,7 @@ osm_search_notes(
   closed = 7,
   sort = c("updated_at", "created_at"),
   order = c("newest", "oldest"),
-  limit = 100,
+  limit = getOption("osmapir.api_capabilities")$api$notes["default_query_limit"],
   format = c("R", "xml", "rss", "json", "gpx")
 )
 }
