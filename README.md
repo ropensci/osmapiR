@@ -34,7 +34,7 @@ You can install the development version of osmapiR from
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("jmaspons/osmapiR")
+remotes::install_github("jmaspons/osmapiR", build_vignettes = TRUE)
 ```
 
 ## Examples
@@ -44,6 +44,9 @@ This is a basic example which shows how to get map data:
 ``` r
 library(osmapiR)
 #> Data (c) OpenStreetMap contributors, ODbL 1.0. https://www.openstreetmap.org/copyright
+```
+
+``` r
 
 # For testing edition without breaking the OSM data,
 # make calls to `https://master.apis.dev.openstreetmap.org`
