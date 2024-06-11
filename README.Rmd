@@ -38,6 +38,7 @@ You can install the development version of osmapiR from [GitHub](https://github.
 
 ``` r
 # install.packages("remotes")
+# install.packages("rmarkdown") # Needed to build vignettes.
 remotes::install_github("jmaspons/osmapiR", build_vignettes = TRUE)
 ```
 
