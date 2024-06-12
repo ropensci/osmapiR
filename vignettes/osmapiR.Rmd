@@ -1,0 +1,132 @@
+---
+title: "osmapiR"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{osmapiR}
+  %\VignetteEncoding{UTF-8}
+  %\VignetteEngine{knitr::rmarkdown}
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+osmapiR can fetch and edit all kinds data associated with the [OpenStreetMap](https://www.openstreetmap.org) project.
+This vignette shows samples of each data type and how to configure the connection to the servers.
+
+Most of the functions have a `format` argument that allows to modify the result to get the raw xml or a JSON list. By
+default, the results are data.frames. Check the documentation of each function for details.
+
+
+## Setup
+
+```{r setup}
+library(osmapiR)
+```
+
+For testing editions without breaking the OSM data, you can open and account and make calls to
+<https://master.apis.dev.openstreetmap.org>.
+
+```r
+# set_osmapi_connection(server = "testing") # lacks data for the following examples
+```
+
+To modify the default user agent of the requests (``r getOption("osmapir.user_agent")``), set the option `osmapir.user_agent`:
+```r
+options(osmapir.user_agent = "my new user agent")
+```
+
+
+## Map objects
+
+```{r osm objects}
+## Download objects by bounding box
+osm_objs <- osm_bbox_objects(
+  bbox = c(2.4166059, 42.5945594, 2.4176574, 42.5962101),
+  tags_in_columns = TRUE
+)
+
+## View the history of an object
+sel <- osm_objs$`name:ca` %in% "Abadia de Sant Miquel de Cuixà"
+obj <- osm_objs[sel, ]
+
+obj_history <- osm_history_object(
+  osm_type = obj$osm_type, osm_id = obj$osm_id,
+  tags_in_columns = FALSE # tags in a list at column `tags`
+)
+obj_history
+# obj_history$tags # tags in list format
+```
+
+Notice the different formats to represent the tags controlled by the `tags_in_columns` argument. In `osm_objs`, every
+tag is represented by a column in the data.frame (wide format), while in `obj_history` there is a `tag` column
+containing a list of data.frames with `key` and `value` columns (list format). See `?tags_list2wide()` for details.
+
+
+## Changesets
+
+```{r changesets}
+chsts <- osm_query_changesets(
+  bbox = c(-1.241112, 38.0294955, 8.4203171, 42.9186456),
+  user = "Mementomoristultus",
+  time = "2023-06-22T02:23:23Z",
+  time_2 = "2023-06-22T00:38:20Z"
+)
+chsts
+osmchange <- osm_download_changeset(changeset_id = 137595351, format = "xml")
+osmchange
+
+# Osmchange file compatible with JOSM and others:
+# xml2::write_xml(osmchange, file = tempfile(fileext = ".osc"))
+```
+
+Similar to the map objects, changeset's data also have the tags as a list column that can be changed with
+`tags_in_columns` argument.
+
+
+## Notes
+
+```{r notes}
+notes <- osm_read_bbox_notes(bbox = "2.4166059,42.5945594,2.4176574,42.5962101", closed = -1)
+notes
+# notes$comments
+```
+
+
+## GPX data
+
+``` r
+## Requires authentication
+usr_traces <-  osm_list_gpxs()
+osm_get_gpx_metadata(gpx_id = 3790367)
+#>        id                 name      uid     user visibility pending           timestamp
+#> 1 3790367 Airoto_Marimanha.gpx 11725140 jmaspons     public   FALSE 2021-08-20 10:30:15 
+#>                 lat                lon               description              tags
+#> 1 42.69660229794681 1.0419843904674053 Airoto Marimanha Oriental 1 camp, a, través
+pts <- osm_get_data_gpx(gpx_id = 3790367, format = "R")
+head(pts)
+#>                  lat                lon               ele                time
+#> 1  42.69660229794681 1.0419843904674053 2190.199951171875 2021-08-12 09:52:18
+#> 2  42.69662777893245   1.04197240434587              2189 2021-08-12 09:52:24
+#> 3  42.69664118997753  1.041965363547206  2188.39990234375 2021-08-12 09:52:25
+#> 4  42.69665057770908 1.0419651120901108 2187.800048828125 2021-08-12 09:52:26
+#> 5 42.696685614064336 1.0419511143118143 2186.800048828125 2021-08-12 09:52:29
+#> 6  42.69673557020724 1.0419355239719152              2187 2021-08-12 09:52:34
+```
+```{r gpx}
+gpx <- osm_get_points_gps(bbox = c(2.4166059, 42.5945594, 2.4176574, 42.5962101))
+gpx
+```
+
+
+## Users
+
+```{r users}
+usrs <- osm_get_user_details(user_id = c(1, 24, 44, 45))
+usrs
+```

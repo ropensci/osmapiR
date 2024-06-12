@@ -24,7 +24,10 @@ knitr::opts_chunk$set(
 [![](https://badges.ropensci.org/633_status.svg)](https://github.com/ropensci/software-review/issues/633)
 <!-- badges: end -->
 
-Implements [OpenStreetMap API](https://wiki.openstreetmap.org/wiki/API_v0.6) for R.
+An R interface to [OpenStreetMap API v0.6](https://wiki.openstreetmap.org/wiki/API_v0.6) for fetching and saving raw
+geodata from/to the OpenStreetMap database. This package allows to access OSM maps data as well as map notes, GPS
+traces, changelogs and users data. To access the OSM map data for purposes other than editing or exploring the history
+of the objects see [Related packages](README.md#related-packages).
 
 You are responsible for following the [API Usage Policy](https://operations.osmfoundation.org/policies/api/).
 You can modify the user agent of the requests by setting the option `osmapir.user_agent`:
@@ -32,63 +35,29 @@ You can modify the user agent of the requests by setting the option `osmapir.use
 options(osmapir.user_agent = "my new user agent")
 ```
 
+Respect and follow the
+[standards and conventions](https://wiki.openstreetmap.org/wiki/Editing_Standards_and_Conventions) of the OpenStreetMap
+community. If you plan to do automated edits, check the 
+[Automated Edits code of conduct](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct).
+
+
 ## Installation
 
-You can install the development version of osmapiR from [GitHub](https://github.com/) with:
+You can install the development version of osmapiR from [GitHub](https://github.com) with:
 
 ``` r
 # install.packages("remotes")
 remotes::install_github("jmaspons/osmapiR", build_vignettes = TRUE)
 ```
 
-## Examples
 
-This is a basic example which shows how to get map data:
+## Get started
 
-```{r osm objects}
-library(osmapiR)
+For an overview of the functions, check `?osmapiR-package` or the
+[web](https://jmaspons.github.io/osmapiR/reference/index.html).
 
-# For testing edition without breaking the OSM data,
-# make calls to `https://master.apis.dev.openstreetmap.org`
-
-# set_osmapi_connection(server = "testing") # lacks data
-
-bbox <- c(2.4166059, 42.5945594, 2.4176574, 42.5962101)
-
-## Download objects by bounding box
-osm_objs <- osm_bbox_objects(bbox = bbox, tags_in_columns = TRUE)
-
-## View history of an object
-sel <- osm_objs$`name:ca` %in% "Abadia de Sant Miquel de Cuixà"
-obj <- osm_objs[sel, ]
-
-obj_history <- osm_history_object(osm_type = obj$osm_type, osm_id = obj$osm_id) # tags in a list column
-obj_history
-
-# obj_history$tags
-```
-
-
-Get notes:
-```{r notes}
-notes <- osm_read_bbox_notes(bbox = bbox, closed = -1)
-notes
-
-# notes$comments
-```
-
-
-Get GPX data:
-``` r
-## Requires authentication
-usr_traces <-  osm_list_gpxs()
-osm_get_gpx_metadata(gpx_id = 3790367)
-osm_get_data_gpx(gpx_id = 3790367, format = "R")
-```
-```{r gpx}
-gpx <- osm_get_points_gps(bbox = bbox)
-gpx
-```
+For basic examples, check
+[`vignette("osmapiR", package="osmapiR")`](https://jmaspons.github.io/osmapiR/articles/osmapiR.html).
 
 
 ## Related packages
@@ -106,6 +75,7 @@ upload any kind of data.
 To access the OSM map data for purposes other than editing or exploring the history of the objects, perhaps is better to
 use the other packages that implements the Overpass API ([osmdata](https://cran.r-project.org/package=osmdata)) or
 that works with `.pbf` files ([osmextract](https://cran.r-project.org/package=osmextract)).
+
 
 ## Code of Conduct
 
