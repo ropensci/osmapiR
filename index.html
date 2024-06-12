@@ -82,7 +82,7 @@
 </div>
 <!-- badges: start -->
 
-<p>An R interface to <a href="https://wiki.openstreetmap.org/wiki/API_v0.6" class="external-link">OpenStreetMap API v0.6</a> for fetching and saving raw geodata from/to the OpenStreetMap database. It allows to access other OSM data than the maps data (map notes, GPS traces, changelogs and users). To access the OSM map data for purposes other than editing or exploring the history of the objects see <a href="README.html#related-packages">Related packages</a>.</p>
+<p>An R interface to <a href="https://wiki.openstreetmap.org/wiki/API_v0.6" class="external-link">OpenStreetMap API v0.6</a> for fetching and saving raw geodata from/to the OpenStreetMap database. This package allows to access OSM maps data as well as map notes, GPS traces, changelogs and users data. To access the OSM map data for purposes other than editing or exploring the history of the objects see <a href="README.html#related-packages">Related packages</a>.</p>
 <p>You are responsible for following the <a href="https://operations.osmfoundation.org/policies/api/" class="external-link">API Usage Policy</a>. You can modify the user agent of the requests by setting the option <code>osmapir.user_agent</code>:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/options.html" class="external-link">options</a></span><span class="op">(</span>osmapir.user_agent <span class="op">=</span> <span class="st">"my new user agent"</span><span class="op">)</span></span></code></pre></div>
@@ -93,13 +93,17 @@
 <p>You can install the development version of osmapiR from <a href="https://github.com" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"jmaspons/osmapiR"</span><span class="op">)</span> <span class="co"># Without vignettes</span></span>
+<span></span>
+<span><span class="co">## With vignettes (also accessible at https://jmaspons.github.io/osmapiR/ &gt; Articles)</span></span>
+<span><span class="co"># install.packages("rmarkdown") # Needed to build vignettes.</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"jmaspons/osmapiR"</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="getting-started">Getting started<a class="anchor" aria-label="anchor" href="#getting-started"></a>
+<h2 id="get-started">Get started<a class="anchor" aria-label="anchor" href="#get-started"></a>
 </h2>
-<p>For an overview of the functionalities, check <code>?osmapiR-package</code> or the <a href="https://jmaspons.github.io/osmapiR/reference/index.html">web</a>.</p>
-<p>For examples, check <a href="https://jmaspons.github.io/osmapiR/articles/osmapiR.html"><code>vignette("osmapiR", package="osmapiR")</code></a></p>
+<p>For an overview of the functions, check <code>?osmapiR-package</code> or the <a href="https://jmaspons.github.io/osmapiR/reference/index.html">web</a>.</p>
+<p>For basic examples, check <a href="https://jmaspons.github.io/osmapiR/articles/osmapiR.html"><code>vignette("osmapiR", package="osmapiR")</code></a>.</p>
 </div>
 <div class="section level2">
 <h2 id="related-packages">Related packages<a class="anchor" aria-label="anchor" href="#related-packages"></a>
