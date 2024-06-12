@@ -64,6 +64,12 @@ osmapi_objects <- function(x, tag_columns, keep_na_tags = FALSE) {
       names(tag_columns) <- names(x)[tag_columns]
     }
 
+    if (nrow(x) == 0) {
+      x <- x[, -tag_columns]
+      x$tags <- list()
+      return(new_osmapi_objects(x))
+    }
+
     tags_list <- apply(x[, tag_columns, drop = FALSE], 1, function(y) {
       out <- data.frame(key = names(tag_columns), value = y, row.names = NULL)
       if (!keep_na_tags) {

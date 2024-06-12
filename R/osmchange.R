@@ -38,6 +38,11 @@
 osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE, format = c("R", "osc", "xml")) {
   format <- match.arg(format)
   stopifnot(inherits(x, "osmapi_objects"))
+
+  if (nrow(x) == 0) {
+    return(osmchange_empty(format = format))
+  }
+
   if (inherits(x, "tags_wide")) {
     x <- tags_wide2list(x)
   }
@@ -153,6 +158,11 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE, form
 #' }
 osmchange_delete <- function(x, delete_if_unused = FALSE, format = c("R", "osc", "xml")) {
   format <- match.arg(format)
+
+  if (nrow(x) == 0) {
+    return(osmchange_empty(format = format))
+  }
+
   if (inherits(x, "tags_wide")) {
     x <- tags_wide2list(x)
   }
@@ -218,6 +228,11 @@ osmchange_delete <- function(x, delete_if_unused = FALSE, format = c("R", "osc",
 osmchange_create <- function(x, format = c("R", "osc", "xml")) {
   format <- match.arg(format)
   stopifnot(inherits(x, "osmapi_objects"))
+
+  if (nrow(x) == 0) {
+    return(osmchange_create_empty(format = format))
+  }
+
   if (inherits(x, "tags_wide")) {
     x <- tags_wide2list(x)
   }
@@ -238,4 +253,35 @@ osmchange_create <- function(x, format = c("R", "osc", "xml")) {
   }
 
   return(osmchange)
+}
+
+
+osmchange_create_empty <- function(format = "R") {
+  out <- list2DF(list(
+    action_type = character(), type = character(), id = character(),
+    lat = character(), lon = character(), members = list(), tags = list()
+  ))
+  class(out) <- c("osmapi_OsmChange", "osmapi_objects", "data.frame")
+
+  if (format != "R") {
+    out <- osmcha_DF2xml(out)
+  }
+
+  return(out)
+}
+
+
+osmchange_empty <- function(format = "R") {
+  out <- list2DF(list(
+    action_type = character(), type = character(), id = character(), visible = logical(), version = integer(),
+    changeset = character(), timestamp = as.POSIXct(character()), user = character(), uid = character(),
+    lat = character(), lon = character(), members = list(), tags = list()
+  ))
+  class(out) <- c("osmapi_OsmChange", "osmapi_objects", "data.frame")
+
+  if (format != "R") {
+    out <- osmcha_DF2xml(out)
+  }
+
+  return(out)
 }

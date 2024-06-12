@@ -32,6 +32,7 @@ test_that("osmchange_create works", {
   osmchange_crea$osmapi_obj <- osmchange_create(obj)
   obj_wide <- tags_list2wide(obj)
   osmchange_crea$osmapi_obj_wide <- osmchange_create(obj_wide)
+  osmchange_crea$osmapi_obj_empty <- osmchange_create(obj[logical(), ])
 
   lapply(osmchange_crea, expect_s3_class, class = c("osmapi_OsmChange", "osmapi_objects", "data.frame"), exact = TRUE)
   lapply(osmchange_crea, function(x) expect_true(all(names(x) %in% column_osmchange)))
@@ -43,7 +44,7 @@ test_that("osmchange_create works", {
     )
   })
 
-  lapply(osmchange_crea, function(x) expect_equal(nrow(x), nrow(obj)))
+  lapply(osmchange_crea[!grepl("empty", names(osmchange_crea))], function(x) expect_equal(nrow(x), nrow(obj)))
 
   ## osmcha_DF2xml
   lapply(osmchange_crea, function(x) expect_s3_class(osmcha_DF2xml(x), "xml_document"))
@@ -84,6 +85,8 @@ test_that("osmchange_modify works", {
 
     # TODO: test update of tags, members and lat_lon only with and without actual changes
   })
+  osmchange_mod$empty <- osmchange_modify(obj_current[logical(), ])
+  osmchange_mod$empty_name <- osmchange_modify(obj_current[logical(), ], tag_keys = "name")
 
   lapply(osmchange_mod, function(x) {
     expect_s3_class(x, class = c("osmapi_OsmChange", "osmapi_objects", "data.frame"), exact = TRUE)
@@ -124,6 +127,7 @@ test_that("osmchange_delete works", {
     osmchange_del$del <- osmchange_delete(obj_id, delete_if_unused = FALSE)
     osmchange_del$if_unused <- osmchange_delete(obj_id, delete_if_unused = TRUE)
   })
+  osmchange_del$empty <- osmchange_delete(obj_id[logical(), ])
 
   lapply(osmchange_del, function(x) {
     expect_s3_class(x, class = c("osmapi_OsmChange", "osmapi_objects", "data.frame"), exact = TRUE)
@@ -137,7 +141,7 @@ test_that("osmchange_delete works", {
     )
   })
 
-  lapply(osmchange_del, function(x) expect_equal(nrow(x), nrow(obj_id)))
+  lapply(osmchange_del[!grepl("empty", names(osmchange_del))], function(x) expect_equal(nrow(x), nrow(obj_id)))
 
   ## osmcha_DF2xml
   lapply(osmchange_del, function(x) expect_s3_class(osmcha_DF2xml(x), "xml_document"))
