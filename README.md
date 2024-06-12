@@ -17,9 +17,9 @@ Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repost
 
 An R interface to [OpenStreetMap API
 v0.6](https://wiki.openstreetmap.org/wiki/API_v0.6) for fetching and
-saving raw geodata from/to the OpenStreetMap database. It allows to
-access other OSM data than the maps data (map notes, GPS traces,
-changelogs and users). To access the OSM map data for purposes other
+saving raw geodata from/to the OpenStreetMap database. This package
+allows to access OSM maps data as well as map notes, GPS traces,
+changelogs and users data. To access the OSM map data for purposes other
 than editing or exploring the history of the objects see [Related
 packages](README.md#related-packages).
 
@@ -45,16 +45,20 @@ You can install the development version of osmapiR from
 
 ``` r
 # install.packages("remotes")
+remotes::install_github("jmaspons/osmapiR") # Without vignettes
+
+## With vignettes (also accessible at https://jmaspons.github.io/osmapiR/ > Articles)
+# install.packages("rmarkdown") # Needed to build vignettes.
 remotes::install_github("jmaspons/osmapiR", build_vignettes = TRUE)
 ```
 
-## Getting started
+## Get started
 
-For an overview of the functionalities, check `?osmapiR-package` or the
+For an overview of the functions, check `?osmapiR-package` or the
 [web](https://jmaspons.github.io/osmapiR/reference/index.html).
 
-For examples, check
-[`vignette("osmapiR", package="osmapiR")`](https://jmaspons.github.io/osmapiR/articles/osmapiR.html)
+For basic examples, check
+[`vignette("osmapiR", package="osmapiR")`](https://jmaspons.github.io/osmapiR/articles/osmapiR.html).
 
 ## Related packages
 
