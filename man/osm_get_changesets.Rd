@@ -16,7 +16,7 @@ osm_get_changesets(
 
 \item{include_discussion}{Indicates whether the result should contain the changeset discussion or not.}
 
-\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"xml"}, or \code{"json"}.}
 
 \item{tags_in_columns}{If \code{FALSE} (default), the tags of the changesets are saved in a single list column \code{tags}
 containing a \code{data.frame} for each changeset with the keys and values. If \code{TRUE}, add a column for each key.

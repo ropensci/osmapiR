@@ -6,7 +6,7 @@
 #' Otherwise only usable by the owner account and requires authentication.
 #'
 #' @param gpx_id A vector of track ids represented by a numeric or a character value.
-#' @param format Format of the output. Can be `R` (default) or `xml`.
+#' @param format Format of the output. Can be `"R"` (default) or `"xml"`.
 #'
 #' @return
 #' If `format = "R"`, returns a data frame with one trace per row. If `format = "xml"`, returns a

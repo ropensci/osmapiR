@@ -25,7 +25,7 @@ retrieved. Recycled if it has different length than \code{osm_id}.}
 \item{full_objects}{If \code{TRUE}, retrieves all other objects referenced by ways or relations. Not compatible with
 \code{version}.}
 
-\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"xml"}, or \code{"json"}.}
 
 \item{tags_in_columns}{If \code{FALSE} (default), the tags of the objects are saved in a single list column \verb{tags``` containing a }data.frame\verb{for each OSM object with the keys and values. If}TRUE\verb{, add a column for each key. Ignored if }format != "R"`.}
 }

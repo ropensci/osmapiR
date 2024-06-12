@@ -9,7 +9,7 @@ osm_get_gpx_metadata(gpx_id, format = c("R", "xml"))
 \arguments{
 \item{gpx_id}{A vector of track ids represented by a numeric or a character value.}
 
-\item{format}{Format of the output. Can be \code{R} (default) or \code{xml}.}
+\item{format}{Format of the output. Can be \code{"R"} (default) or \code{"xml"}.}
 }
 \value{
 If \code{format = "R"}, returns a data frame with one trace per row. If \code{format = "xml"}, returns a

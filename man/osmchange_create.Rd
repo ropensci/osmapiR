@@ -10,7 +10,7 @@ osmchange_create(x, format = c("R", "osc", "xml"))
 \item{x}{A \link{osmapi_objects} with columns \code{type}, \code{changeset} + column \code{members} for ways and relations + \code{lat}
 and \code{lon} for nodes + tags if needed.}
 
-\item{format}{Format of the output. Can be \code{R} (default), \code{osc} (\code{xml} is a synonym for \code{osc}).}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"osc"} (\code{"xml"} is a synonym for \code{"osc"}).}
 }
 \value{
 If \code{format = "R"}, returns a \code{osmapi_OsmChange} data frame with one OSM edition per row.

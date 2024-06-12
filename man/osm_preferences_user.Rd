@@ -10,9 +10,10 @@ osm_get_preferences_user(key, format = c("R", "xml", "json"))
 osm_set_preferences_user(key, value, all_prefs)
 }
 \arguments{
-\item{key}{Returns a string with that preference's value. If missing, return all preferences.}
+\item{key}{Returns a string with this preference's value. If missing, return all preferences.}
 
-\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}. Only relevant when \code{key} is missing.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"xml"}, or \code{"json"}. Only relevant when \code{key} is
+missing.}
 
 \item{value}{A string with the preference value to set for \code{key}. If \code{NULL}, deletes the \code{key} preference.}
 

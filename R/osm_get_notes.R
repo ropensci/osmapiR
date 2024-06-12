@@ -5,7 +5,7 @@
 #' Returns the existing note with the given ID.
 #'
 #' @param note_id Note id represented by a numeric or a character value.
-#' @param format Format of the output. Can be `R` (default), `xml`, `rss`, `json` or `gpx`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, `"rss"`, `"json"` or `"gpx"`.
 #'
 #' @return
 #' If `format = "R"`, returns a data frame with one map note per row.
@@ -68,7 +68,7 @@
 #' ```
 #'
 #' ## `format = "rss"` & `format = "gpx"`
-#' For `format` in `rss`, and `gpx`, a [xml2::xml_document-class] with the corresponding format.
+#' For `format` in `"rss"`, and `"gpx"`, a [xml2::xml_document-class] with the corresponding format.
 #'
 #' @family get notes' functions
 #' @export

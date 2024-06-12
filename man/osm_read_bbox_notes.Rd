@@ -21,7 +21,7 @@ overlapping the dateline.}
 \item{closed}{Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
 only open notes are returned. A value of -1 means all notes are returned. Default to 7.}
 
-\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, \code{rss}, \code{json} or \code{gpx}.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"xml"}, \code{"rss"}, \code{"json"} or \code{"gpx"}.}
 }
 \value{
 If \code{format = "R"}, returns a data frame with one map note per row.
@@ -86,7 +86,7 @@ Returns a list with the following json structure:
 
 \subsection{\code{format = "rss"} & \code{format = "gpx"}}{
 
-For \code{format} in \code{rss}, and \code{gpx}, a \link[xml2:oldclass]{xml2::xml_document} with the corresponding format.
+For \code{format} in \code{"rss"}, and \code{"gpx"}, a \link[xml2:oldclass]{xml2::xml_document} with the corresponding format.
 }
 }
 \description{

@@ -13,7 +13,7 @@ that created the changeset.}
 \item{osmcha}{The OsmChange data. Can be the path of an OsmChange file, a \link[xml2:oldclass]{xml2::xml_document} or an
 \code{osmapi_OsmChange} object (see \verb{osmchange_*()} functions).}
 
-\item{format}{Format of the output. Can be \code{R} (default) or \code{xml}.}
+\item{format}{Format of the output. Can be \code{"R"} (default) or \code{"xml"}.}
 }
 \value{
 If a diff is successfully applied and \code{format = "R"}, it returns a data frame with one row for each edited object.

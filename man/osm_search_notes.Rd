@@ -44,11 +44,12 @@ only open notes are returned. A value of -1 means all notes are returned. 7 is t
 \item{limit}{Maximum number of results between 1 and 10000 (may change, see \code{osm_capabilities()$api$notes} for the
 current value). Default to 100.}
 
-\item{format}{Format of the the returned list of notes. Can be \code{R} (default), \code{xml}, \code{rss}, \code{json} or \code{gpx}.}
+\item{format}{Format of the the returned list of notes. Can be \code{"R"} (default), \code{"xml"}, \code{"rss"}, \code{"json"} or
+\code{"gpx"}.}
 }
 \value{
 If \code{format = "R"}, returns a data frame with one map note per row. If \code{format = "json"}, returns a list with the json
-structure. For \code{format} in \code{xml}, \code{rss}, and \code{gpx}, a \link[xml2:oldclass]{xml2::xml_document} with the corresponding format.
+structure. For \code{format} in \code{"xml"}, \code{"rss"}, and \code{"gpx"}, a \link[xml2:oldclass]{xml2::xml_document} with the corresponding format.
 }
 \description{
 Returns notes that match the specified query. If no query is provided, the most recently updated notes are returned.

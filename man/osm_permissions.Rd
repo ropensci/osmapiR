@@ -7,7 +7,7 @@
 osm_permissions(format = c("R", "xml", "json"))
 }
 \arguments{
-\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"xml"}, or \code{"json"}.}
 }
 \value{
 If the API client is not authorized, an empty list of permissions will be returned. Otherwise, the list will

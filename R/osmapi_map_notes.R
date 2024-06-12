@@ -111,7 +111,7 @@
 #' @param limit Specifies the number of entries returned at max. A value between 1 and 10000 is valid. Default to 100.
 #' @param closed Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
 #'   only open notes are returned. A value of -1 means all notes are returned. Default to 7.
-#' @param format Format of the output. Can be `R` (default), `xml`, `rss`, `json` or `gpx`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, `"rss"`, `"json"` or `"gpx"`.
 #'
 #' @note The comment properties (`uid`, `user`, `user_url`) will be omitted if the comment was anonymous.
 #'
@@ -176,7 +176,7 @@
 #' ```
 #'
 #' ## `format = "rss"` & `format = "gpx"`
-#' For `format` in `rss`, and `gpx`, a [xml2::xml_document-class] with the corresponding format.
+#' For `format` in `"rss"`, and `"gpx"`, a [xml2::xml_document-class] with the corresponding format.
 #'
 #' @family get notes' functions
 #' @export
@@ -231,11 +231,11 @@ osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("R", "
 #' Returns the existing note with the given ID.
 #'
 #' @param note_id Note id represented by a numeric or a character value.
-#' @param format Format of the output. Can be `R` (default), `xml`, `rss`, `json` or `gpx`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, `"rss"`, `"json"` or `"gpx"`.
 #'
 #' @return
 #' If `format = "R"`, returns a data frame with one map note per row. If `format = "json"`, returns a list with the json
-#' structure. For `format` in `xml`, `rss`, and `gpx`, a [xml2::xml_document-class] with the corresponding format.
+#' structure. For `format` in `"xml"`, `"rss"`, and `"gpx"`, a [xml2::xml_document-class] with the corresponding format.
 # @family get notes' functions
 #' @noRd
 #'
@@ -683,14 +683,15 @@ osm_delete_note <- function(note_id, text) { # TODO: , format = c("R", "xml", "j
 #' @param order Sorting order. `oldest` is ascending order, `newest` is descending order (the default).
 #' @param limit Maximum number of results between 1 and 10000 (may change, see `osm_capabilities()$api$notes` for the
 #'   current value). Default to 100.
-#' @param format Format of the the returned list of notes. Can be `R` (default), `xml`, `rss`, `json` or `gpx`.
+#' @param format Format of the the returned list of notes. Can be `"R"` (default), `"xml"`, `"rss"`, `"json"` or
+#'   `"gpx"`.
 #'
 #' @details
 #' The notes will be ordered by the date of their last change, the most recent one will be first.
 #'
 #' @return
 #' If `format = "R"`, returns a data frame with one map note per row. If `format = "json"`, returns a list with the json
-#' structure. For `format` in `xml`, `rss`, and `gpx`, a [xml2::xml_document-class] with the corresponding format.
+#' structure. For `format` in `"xml"`, `"rss"`, and `"gpx"`, a [xml2::xml_document-class] with the corresponding format.
 #' @family get notes' functions
 #' @export
 #'

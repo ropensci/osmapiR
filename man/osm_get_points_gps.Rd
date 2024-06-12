@@ -17,7 +17,7 @@ box)— in order to retrieve all of the points for a bounding box that contains 
 parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns points
 5,001–10,000, etc.}
 
-\item{format}{Format of the output. Can be \code{R} (default) or \code{gpx}.}
+\item{format}{Format of the output. Can be \code{"R"} (default) or \code{"gpx"}.}
 }
 \value{
 If \code{format = "R"}, returns a list of data frames with the points for each trace.

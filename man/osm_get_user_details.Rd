@@ -10,7 +10,7 @@ osm_get_user_details(user_id, format = c("R", "xml", "json"))
 \item{user_id}{The ids of the users to retrieve the details for, represented by a numeric or a character value (not
 the display names).}
 
-\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"xml"}, or \code{"json"}.}
 }
 \value{
 For users not found, the result is empty. If \code{format = "R"}, returns a data frame with one user per row.
@@ -66,7 +66,7 @@ Details of users
 }
 \examples{
 \dontrun{
-usrs <- osm_details_users(user_ids = c(1, 24, 44, 45, 46, 48, 49, 50))
+usrs <- osm_get_user_details(user_id = c(1, 24, 44, 45, 46, 48, 49, 50))
 usrs
 }
 }

@@ -9,7 +9,7 @@ osm_get_notes(note_id, format = c("R", "xml", "rss", "json", "gpx"))
 \arguments{
 \item{note_id}{Note id represented by a numeric or a character value.}
 
-\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, \code{rss}, \code{json} or \code{gpx}.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"xml"}, \code{"rss"}, \code{"json"} or \code{"gpx"}.}
 }
 \value{
 If \code{format = "R"}, returns a data frame with one map note per row.
@@ -74,7 +74,7 @@ Returns a list with the following json structure:
 
 \subsection{\code{format = "rss"} & \code{format = "gpx"}}{
 
-For \code{format} in \code{rss}, and \code{gpx}, a \link[xml2:oldclass]{xml2::xml_document} with the corresponding format.
+For \code{format} in \code{"rss"}, and \code{"gpx"}, a \link[xml2:oldclass]{xml2::xml_document} with the corresponding format.
 }
 }
 \description{

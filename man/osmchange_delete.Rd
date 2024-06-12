@@ -13,7 +13,7 @@ will be ignored.}
 \item{delete_if_unused}{If \code{TRUE}, the \verb{if-unused} attribute will be added (see details). Can be a vector of length
 \code{nrow(x)}.}
 
-\item{format}{Format of the output. Can be \code{R} (default), \code{osc} (\code{xml} is a synonym for \code{osc}).}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"osc"} (\code{"xml"} is a synonym for \code{"osc"}).}
 }
 \value{
 If \code{format = "R"}, returns a \code{osmapi_OsmChange} data frame with one OSM edition per row.

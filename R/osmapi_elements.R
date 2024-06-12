@@ -201,7 +201,7 @@ osm_create_object <- function(x, changeset_id) {
 #'
 #' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the objects are saved in a single list column `tags`
 #'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.
@@ -542,7 +542,7 @@ osm_delete_object <- function(x, changeset_id) {
 #'
 #' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the objects are saved in a single list column `tags`
 #'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.
@@ -612,7 +612,7 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id,
 #' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
 #' @param version Version of the object to retrieve.
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the objects are saved in a single list column `tags`
 #'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.
@@ -691,7 +691,7 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' @param osm_type Type of the objects(`"nodes"`, `"ways"` or `"relations"`).
 #' @param osm_ids Object ids represented by a numeric or a character vector.
 #' @param versions Version numbers for each object may be optionally provided.
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the objects are saved in a single list column `tags`
 #'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.
@@ -850,7 +850,7 @@ fetch_objects_batches <- function(osm_type, osm_ids, nchar_base, format, tags_in
 #'
 #' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the objects are saved in a single list column `tags`
 #'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.
@@ -915,7 +915,7 @@ osm_relations_object <- function(osm_type = c("node", "way", "relation"), osm_id
 #' Returns all the (not deleted) ways in which the given node is used.
 #'
 #' @param node_id Node id represented by a numeric or a character value.
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the objects are saved in a single list column `tags`
 #'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.
@@ -981,7 +981,7 @@ osm_ways_node <- function(node_id, format = c("R", "xml", "json"), tags_in_colum
 #'
 #' @param osm_type Object type (`"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the objects are saved in a single list column `tags`
 #'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.

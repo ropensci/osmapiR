@@ -202,7 +202,7 @@ osm_capabilities <- function() {
 #'   apply recursively, see explanation below.)
 #'
 #' @param bbox Coordinates for the area to retrieve the map data from (`left,bottom,right,top`).
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the objects are saved in a single list column `tags`
 #'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.
@@ -319,7 +319,7 @@ osm_bbox_objects <- function(bbox, format = c("R", "xml", "json"), tags_in_colum
 #'
 #' Returns the permissions granted to the current API connection.
 #'
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #'
 #' @details
 #' Currently the following permissions can appear in the result, corresponding directly to the ones used in the OAuth

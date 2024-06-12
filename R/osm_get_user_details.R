@@ -2,7 +2,7 @@
 #'
 #' @param user_id The ids of the users to retrieve the details for, represented by a numeric or a character value (not
 #'   the display names).
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #'
 #' @return
 #' For users not found, the result is empty. If `format = "R"`, returns a data frame with one user per row.
@@ -57,7 +57,7 @@
 #'
 #' @examples
 #' \dontrun{
-#' usrs <- osm_details_users(user_ids = c(1, 24, 44, 45, 46, 48, 49, 50))
+#' usrs <- osm_get_user_details(user_id = c(1, 24, 44, 45, 46, 48, 49, 50))
 #' usrs
 #' }
 osm_get_user_details <- function(user_id, format = c("R", "xml", "json")) {

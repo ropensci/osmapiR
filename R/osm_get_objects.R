@@ -9,7 +9,7 @@
 #'   retrieved. Recycled if it has different length than `osm_id`.
 #' @param full_objects If `TRUE`, retrieves all other objects referenced by ways or relations. Not compatible with
 #'   `version`.
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the objects are saved in a single list column `tags```
 #'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.

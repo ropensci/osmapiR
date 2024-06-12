@@ -13,7 +13,7 @@
 #' @param changeset_ids Finds changesets with the specified ids.
 #' @param order If `"newest"` (default), sort newest changesets first. If `"oldest"`, reverse order.
 #' @param limit Specifies the maximum number of changesets returned. 100 as the default value.
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the changesets are saved in a single list column `tags`
 #'   containing a `data.frame` for each changeset with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.

@@ -23,7 +23,7 @@ all tags will be updated, removed or created. If \code{FALSE}, don't modify tags
 
 \item{lat_lon}{If \code{TRUE} and \code{x} has a \code{lat} and \code{lon} columns, update the coordinates of the node objects.}
 
-\item{format}{Format of the output. Can be \code{R} (default), \code{osc} (\code{xml} is a synonym for \code{osc}).}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"osc"} (\code{"xml"} is a synonym for \code{"osc"}).}
 }
 \value{
 If \code{format = "R"}, returns a \code{osmapi_OsmChange} data frame with one OSM edition per row.

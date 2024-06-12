@@ -205,7 +205,7 @@ osm_create_changeset <- function(comment, ...,
 #'
 #' @param changeset_id The id of the changeset to retrieve represented by a numeric or a character value.
 #' @param include_discussion Indicates whether the result should contain the changeset discussion or not.
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the changesets are saved in a single list column `tags`
 #'   containing a `data.frame` for each changeset with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.
@@ -439,7 +439,7 @@ osm_close_changeset <- function(changeset_id) {
 #'
 #' @param changeset_id The id of the changeset represented by a numeric or a character value for which the OsmChange is
 #'   requested.
-#' @param format Format of the output. Can be `R` (default) or `xml`.
+#' @param format Format of the output. Can be `"R"` (default) or `"osc"` (`"xml"` is a synonym for `"osc"`).
 #'
 #' @details
 #' * The result of calling this may change as long as the changeset is open.
@@ -447,7 +447,7 @@ osm_close_changeset <- function(changeset_id) {
 #' * There is [osm_get_changesets()] to get only information about the changeset itself.
 #'
 #' @return
-#' If `format = "R"`, returns a data frame with one row for each edit action in the changeset. If `format = "xml`,
+#' If `format = "R"`, returns a data frame with one row for each edit action in the changeset. If `format = "osc"`,
 #' returns a [xml2::xml_document-class] in the [OsmChange](https://wiki.openstreetmap.org/wiki/OsmChange) format.
 #'
 #' @family get changesets' functions
@@ -459,7 +459,7 @@ osm_close_changeset <- function(changeset_id) {
 #' chaset <- osm_download_changeset(changeset_id = 137003062)
 #' chaset
 #' }
-osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
+osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) {
   format <- match.arg(format)
 
   req <- osmapi_request()
@@ -540,7 +540,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #' @param order If `"newest"` (default), sort newest changesets first. If `"oldest"`, reverse order.
 #' @param limit Specifies the maximum number of changesets returned. A number between 1 and 100, with 100 as the default
 #'   value.
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the changesets are saved in a single list column `tags`
 #'   containing a `data.frame` for each changeset with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.
@@ -774,7 +774,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "xml")) {
 #'   that created the changeset.
 #' @param osmcha The OsmChange data. Can be the path of an OsmChange file, a [xml2::xml_document-class] or an
 #'   `osmapi_OsmChange` object (see `osmchange_*()` functions).
-#' @param format Format of the output. Can be `R` (default) or `xml`.
+#' @param format Format of the output. Can be `"R"` (default) or `"xml"`.
 #'
 #' @details
 #' To upload an OSC file it has to conform to the [OsmChange](https://wiki.openstreetmap.org/wiki/OsmChange)

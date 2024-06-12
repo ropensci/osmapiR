@@ -8,7 +8,7 @@
 #'   all tags will be updated, removed or created. If `FALSE`, don't modify tags.
 #' @param members If `TRUE` and `x` has a `members` column, update the members of the ways and relations objects.
 #' @param lat_lon If `TRUE` and `x` has a `lat` and `lon` columns, update the coordinates of the node objects.
-#' @param format Format of the output. Can be `R` (default), `osc` (`xml` is a synonym for `osc`).
+#' @param format Format of the output. Can be `"R"` (default), `"osc"` (`"xml"` is a synonym for `"osc"`).
 #'
 #' @details
 #' `x` should be a `osmapi_objects` or follow the same format. Missing tags or tags with `NA` in the value will be
@@ -124,7 +124,7 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE, form
 #'   will be ignored.
 #' @param delete_if_unused If `TRUE`, the `if-unused` attribute will be added (see details). Can be a vector of length
 #'   `nrow(x)`.
-#' @param format Format of the output. Can be `R` (default), `osc` (`xml` is a synonym for `osc`).
+#' @param format Format of the output. Can be `"R"` (default), `"osc"` (`"xml"` is a synonym for `"osc"`).
 #'
 #' @details
 #' If `if-unused` attribute is present, then the delete operation(s) in this block are conditional and will only be
@@ -178,7 +178,7 @@ osmchange_delete <- function(x, delete_if_unused = FALSE, format = c("R", "osc",
 #'
 #' @param x A [osmapi_objects] with columns `type`, `changeset` + column `members` for ways and relations + `lat`
 #'   and `lon` for nodes + tags if needed.
-#' @param format Format of the output. Can be `R` (default), `osc` (`xml` is a synonym for `osc`).
+#' @param format Format of the output. Can be `"R"` (default), `"osc"` (`"xml"` is a synonym for `"osc"`).
 #'
 #' @details
 #' Objects IDs are unknown and will be allocated by the server. If `id` column is missing in `x`, a negative

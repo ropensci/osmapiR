@@ -6,7 +6,7 @@
 #'
 #' @param changeset_id A vector with ids of changesets to retrieve represented by a numeric or a character values.
 #' @param include_discussion Indicates whether the result should contain the changeset discussion or not.
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the changesets are saved in a single list column `tags`
 #'   containing a `data.frame` for each changeset with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.

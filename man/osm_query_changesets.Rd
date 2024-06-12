@@ -39,7 +39,7 @@ reached the element limit for a changeset (10,000 at the moment \code{osm_capabi
 
 \item{limit}{Specifies the maximum number of changesets returned. 100 as the default value.}
 
-\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"xml"}, or \code{"json"}.}
 
 \item{tags_in_columns}{If \code{FALSE} (default), the tags of the changesets are saved in a single list column \code{tags}
 containing a \code{data.frame} for each changeset with the keys and values. If \code{TRUE}, add a column for each key.

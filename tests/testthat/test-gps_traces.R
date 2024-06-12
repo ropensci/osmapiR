@@ -128,9 +128,9 @@ test_that("osm_get_metadata_gpx works", {
 ## Download Data: `GET /api/0.6/gpx/#id/data` ----
 
 #' @param format Format of the output. If missing (default), the response will be the exact file that was uploaded.
-#'   If `R`, a `data.frame`.
-#'   If `gpx`, the response will always be a GPX format file.
-#'   If `xml`, a `XML` file in an undocumented format.
+#'   If `"R"`, a `data.frame`.
+#'   If `"gpx"`, the response will always be a GPX format file.
+#'   If `"xml"`, a `"xml"` file in an undocumented format.
 test_that("osm_get_data_gpx works", {
   trk_data <- list()
   with_mock_dir("mock_get_data_gpx", {

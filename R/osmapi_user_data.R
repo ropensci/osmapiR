@@ -45,7 +45,7 @@
 #' Details of a user
 #'
 #' @param user_id The id of the user to retrieve represented by a numeric or a character value (not the display name).
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #'
 #' @return
 #' For users not found, the result is empty. If `format = "R"`, returns a data frame with one user per row.
@@ -171,7 +171,7 @@ osm_details_user <- function(user_id, format = c("R", "xml", "json")) {
 #'
 #' @param user_ids The ids of the users to retrieve represented by a numeric or a character value (not the display
 #'   names).
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #'
 #' @return
 #' For users not found, the result is empty. If `format = "R"`, returns a data frame with one user per row.
@@ -323,7 +323,7 @@ osm_details_users <- function(user_ids, format = c("R", "xml", "json")) {
 #'
 #' You can get the home location, the display name of the user and other details.
 #'
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #'
 #' @return
 #' If `format = "R"`, returns a list with the user details.
@@ -470,8 +470,9 @@ osm_details_logged_user <- function(format = c("R", "xml", "json")) {
 
 #' Get or set preferences for the logged-in user
 #'
-#' @param key Returns a string with that preference's value. If missing, return all preferences.
-#' @param format Format of the output. Can be `R` (default), `xml`, or `json`. Only relevant when `key` is missing.
+#' @param key Returns a string with this preference's value. If missing, return all preferences.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`. Only relevant when `key` is
+#'   missing.
 #'
 #' @details
 #' The sizes of the key and value are limited to 255 characters.

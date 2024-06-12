@@ -7,7 +7,7 @@
 osm_details_logged_user(format = c("R", "xml", "json"))
 }
 \arguments{
-\item{format}{Format of the output. Can be \code{R} (default), \code{xml}, or \code{json}.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"xml"}, or \code{"json"}.}
 }
 \value{
 If \code{format = "R"}, returns a list with the user details.
