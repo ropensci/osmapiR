@@ -4,7 +4,7 @@ pkgdown_sha: ~
 articles:
   how_to_edit_gps_traces: how_to_edit_gps_traces.html
   how_to_edit_osm: how_to_edit_osm.html
-last_built: 2024-06-11T11:05Z
+last_built: 2024-06-12T07:43Z
 urls:
   reference: https://jmaspons.github.io/osmapiR/reference
   article: https://jmaspons.github.io/osmapiR/articles

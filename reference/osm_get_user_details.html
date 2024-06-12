@@ -66,7 +66,7 @@ the display names).</p></dd>
 
 
 <dt>format</dt>
-<dd><p>Format of the output. Can be <code>R</code> (default), <code>xml</code>, or <code>json</code>.</p></dd>
+<dd><p>Format of the output. Can be <code>"R"</code> (default), <code>"xml"</code>, or <code>"json"</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
@@ -134,7 +134,7 @@ the display names).</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="cn">FALSE</span><span class="op">)</span> <span class="op">{</span></span></span>
-<span class="r-in"><span><span class="va">usrs</span> <span class="op">&lt;-</span> <span class="fu">osm_details_users</span><span class="op">(</span>user_ids <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">24</span>, <span class="fl">44</span>, <span class="fl">45</span>, <span class="fl">46</span>, <span class="fl">48</span>, <span class="fl">49</span>, <span class="fl">50</span><span class="op">)</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">usrs</span> <span class="op">&lt;-</span> <span class="fu">osm_get_user_details</span><span class="op">(</span>user_id <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>, <span class="fl">24</span>, <span class="fl">44</span>, <span class="fl">45</span>, <span class="fl">46</span>, <span class="fl">48</span>, <span class="fl">49</span>, <span class="fl">50</span><span class="op">)</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">usrs</span></span></span>
 <span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
