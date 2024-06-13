@@ -554,9 +554,9 @@ osm_create_comment_note <- function(note_id, text) { # TODO: , format = c("R", "
 #' @details Use [osm_reopen_note()] to make the note visible again.
 #'
 #' @return Returns a data frame with the hided map note (same format as [osm_get_notes()] with `format = "R"`).
-#' @family edit notes' functions
-#' @family functions for moderators
-#' @export
+# @family edit notes' functions
+# @family functions for moderators
+#' @noRd
 #'
 #' @examples
 #' \dontrun{
@@ -565,7 +565,7 @@ osm_create_comment_note <- function(note_id, text) { # TODO: , format = c("R", "
 #' del_note <- osm_delete_note(note_id = note$id, text = "Hide note")
 #' del_note
 #' }
-osm_delete_note <- function(note_id, text) { # TODO: , format = c("R", "xml", "json")
+.osm_delete_note <- function(note_id, text) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "DELETE")
   req <- httr2::req_url_path_append(req, "notes", note_id)
