@@ -283,12 +283,12 @@ osm_update_gpx <- function(gpx_id, name, description, tags,
 #' @param gpx_id The track id represented by a numeric or a character value.
 #'
 #' @return Returns `NULL` invisibly.
-#' @family edit GPS traces' functions
-#' @export
+# @family edit GPS traces' functions
+#' @noRd
 #'
 #' @examples
 #' vignette("how_to_edit_gps_traces", package = "osmapiR")
-osm_delete_gpx <- function(gpx_id) {
+.osm_delete_gpx <- function(gpx_id) {
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "DELETE")
   req <- httr2::req_url_path_append(req, "gpx", gpx_id)
