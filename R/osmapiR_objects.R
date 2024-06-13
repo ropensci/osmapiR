@@ -132,13 +132,14 @@ validate_osmapi_objects <- function(x, commited = TRUE) {
     lat = "character", lon = "character", members = "list", tags = "list"
   )
   sel_cols <- intersect(names(x), names(class_columns))
-  mapply(
+  .mapply(
     function(col, cl, col_name) {
       if (!inherits(col, cl)) {
         stop("Column `", col_name, "` is not of `", cl, "` type.")
       }
     },
-    col = x[sel_cols], cl = class_columns[sel_cols], col_name = sel_cols
+    dots = list(col = x[sel_cols], cl = class_columns[sel_cols], col_name = sel_cols),
+    MoreArgs = NULL
   )
 
   ok_members <- vapply(

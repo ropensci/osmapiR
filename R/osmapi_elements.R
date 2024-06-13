@@ -802,14 +802,16 @@ fetch_objects_batches <- function(osm_type, osm_ids, nchar_base, format, tags_in
     ids_batch[length(ids_batch) + 1] <- sel_pos
   }
 
-  obj_batch <- mapply(
+  obj_batch <- .mapply(
     function(from, to) {
       ids <- osm_ids[from:to]
       osm_fetch_objects(osm_type = osm_type, osm_ids = ids, format = format) # version is already part of osm_ids
     },
-    from = ids_batch[-length(ids_batch)],
-    to = c(ids_batch[-c(1, length(ids_batch))] - 1, length(osm_ids)),
-    SIMPLIFY = FALSE
+    dots = list(
+      from = ids_batch[-length(ids_batch)],
+      to = c(ids_batch[-c(1, length(ids_batch))] - 1, length(osm_ids))
+    ),
+    MoreArgs = NULL
   )
 
   ## Unite batches
