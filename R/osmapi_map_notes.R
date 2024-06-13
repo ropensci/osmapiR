@@ -462,8 +462,8 @@ osm_create_comment_note <- function(note_id, text) { # TODO: , format = c("R", "
 #' @param note_id Note id represented by a numeric or a character value.
 #'
 #' @return Returns a data frame with the closed map note (same format as [osm_get_notes()] with `format = "R"`).
-#' @family edit notes' functions
-#' @export
+# @family edit notes' functions
+#' @noRd
 #'
 #' @examples
 #' \dontrun{
@@ -474,7 +474,7 @@ osm_create_comment_note <- function(note_id, text) { # TODO: , format = c("R", "
 #' reopened_note <- osm_reopen_note(note$id)
 #' reopened_note
 #' }
-osm_close_note <- function(note_id) { # TODO: , format = c("R", "xml", "json")
+.osm_close_note <- function(note_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "notes", note_id, "close")
@@ -510,8 +510,8 @@ osm_close_note <- function(note_id) { # TODO: , format = c("R", "xml", "json")
 
 #' @describeIn osm_close_note Reopen a closed note.
 #'
-#' @export
-osm_reopen_note <- function(note_id) { # TODO: , format = c("R", "xml", "json")
+#' @noRd
+.osm_reopen_note <- function(note_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "notes", note_id, "reopen")
