@@ -100,8 +100,10 @@ osm_get_changesets <- function(changeset_id, include_discussion = FALSE,
       }
     } else if (format == "xml") {
       out <- xml2::xml_new_root(outL[[1]])
-      for (i in seq_len(length(outL) - 1)) {
-        xml2::xml_add_child(out, xml2::xml_child(outL[[i + 1]]))
+      for (i in seq_along(outL[-1]) + 1) {
+        lapply(xml2::xml_children(outL[[i]]), function(node) {
+          xml2::xml_add_child(out, node)
+        })
       }
     } else if (format == "json") {
       out <- outL[[1]]

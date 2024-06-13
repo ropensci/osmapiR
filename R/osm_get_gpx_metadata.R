@@ -46,8 +46,10 @@ osm_get_gpx_metadata <- function(gpx_id, format = c("R", "xml")) {
       out <- do.call(rbind, outL)
     } else if (format == "xml") {
       out <- xml2::xml_new_root(outL[[1]])
-      for (i in seq_len(length(outL) - 1)) {
-        xml2::xml_add_child(out, xml2::xml_child(outL[[i + 1]]))
+      for (i in seq_along(outL[-1]) + 1) {
+        lapply(xml2::xml_children(outL[[i]]), function(node) {
+          xml2::xml_add_child(out, node)
+        })
       }
     }
   }
