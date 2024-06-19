@@ -7,8 +7,8 @@
 #'   bounding box is 0.25 degree.
 #' @param page_number Specifies which groups of 5,000 points, or page, to return. The API call does not return more
 #'   than 5,000 points at a time. In order to retrieve all of the points for a bounding box, set `page_number = -1`.
-#'   When this parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns points
-#'   5,001–10,000, etc. A vector is also valid (e.g. `0:2` to get the first 3 pages).
+#'   When this parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns
+#'   points 5,001–10,000, etc. A vector is also valid (e.g. `0:2` to get the first 3 pages).
 #' @param format Format of the output. Can be `"R"` (default) or `"gpx"`.
 #'
 #' @note In violation of the [GPX standard](https://www.topografix.com/GPX/1/1/#type_trksegType) when downloading public
@@ -16,9 +16,12 @@
 #'   delivered as one trackSegment for privacy reasons. Trackable traces are delivered, sorted by descending upload
 #'   time, before the waypoints of non-trackable traces.
 #'
+#'   Private traces without `name`, `desc` and `url` can be separated in different items in the result if they get
+#'   split due to server pagination. Public traces are united using matching URL.
+#'
 #' @return
 #' If `format = "R"`, returns a list of data frames with the points for each trace. For public traces, the data frame
-#' include the attributes `name`, `desc` and `url`
+#' include the attributes `name`, `desc` and `url`.
 #'
 #' ## `format = "gpx"`
 #' Returns a [xml2::xml_document-class] with the following format:
@@ -78,32 +81,64 @@ osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "gpx")) {
     }
   }
 
-  if (format == "R") {
-    # TODO: rbind only the last and first trkseg of consecutive pages
-    names_1n_page <- lapply(outL, function(x) names(x)[c(1, length(x))])
+  if (length(outL) == 1) {
+    return(outL[[1]])
+  }
 
-    ## END TODO
+  if (format == "R") {
+    # rbind the last and first trkseg of consecutive pages if they have the same url (non private traces)
+    url_1n_page <- lapply(outL, function(x) names(x)[c(1, length(x))])
+    # TODO: length(url_1n_page[[i]]) == 1 OR trace divided in > 2 pages
+    for (i in seq_along(url_1n_page)[-1]) {
+      if (url_1n_page[[i]][1] == url_1n_page[[i - 1]][2] && "" != url_1n_page[[i]][1]) {
+        n <- length(outL[[i - 1]])
+        if (n == 0) next
+        outL[[i - 1]][[n]] <- rbind(outL[[i - 1]][[n]], outL[[i]][[1]])
+        outL[[i]][[1]] <- NULL
+      }
+    }
+    outL <- outL[vapply(outL, length, FUN.VALUE = integer(1)) > 0]
 
     out <- do.call(c, outL)
-    part_trkseg <- which(names(out)[-1] == names(out)[-length(out)]) + 1
-
-    for (i in part_trkseg) {
-      out[[i - 1]] <- rbind(out[[i - 1]], out[[i]])
-      out[[i]] <- NA # Not NULL to avoid breaking part_trkseg
-    }
-    out <- out[!vapply(out, function(x) is.atomic(x) && is.na(x), FUN.VALUE = logical(1))]
     class(out) <- c("osmapi_gpx", "list")
   } else { # format == "gpx"
+    # unite the last and first trkseg of consecutive pages if they have the same url (non private traces)
+    # lapply(outL, function(x) xml2::xml_find_all(x, "//url", flatten = FALSE)) # TODO: doesn't work :(
+    url_1n_page <- lapply(outL, function(x) {
+      trkseg <- xml2::xml_children(x)
+      trkseg_1n <- trkseg[c(1, length(trkseg))]
+      do.call(c, lapply(trkseg_1n, function(y) {
+        if ("url" %in% xml2::xml_name(xml2::xml_children(y))) {
+          xml2::xml_text(xml2::xml_child(y, search = 3)) # TODO: search = "url" fail
+        } else {
+          ""
+        }
+      }))
+    })
+
+    for (i in seq_along(url_1n_page)[-1]) {
+      # TODO: length(url_1n_page[[i]]) == 1 OR trace divided in > 2 pages
+      if ("" != url_1n_page[[i]][1] && url_1n_page[[i]][1] == url_1n_page[[i - 1]][2]) {
+        n <- xml2::xml_length(outL[[i - 1]])
+        part_0 <- xml2::xml_child(outL[[i - 1]], n)
+        part_1 <- xml2::xml_child(outL[[i]], 1)
+        trkseg_0 <- xml2::xml_child(part_0, search = 4) # TODO: search = "trkseg" fail
+        trkseg_1 <- xml2::xml_child(part_1, search = 4) # TODO: search = "trkseg" fail
+
+        lapply(xml2::xml_children(trkseg_1), function(point) {
+          xml2::xml_add_child(trkseg_0, point)
+        })
+
+        xml2::xml_remove(part_1)
+      }
+    }
+
     out <- xml2::xml_new_root(outL[[1]])
     for (i in seq_along(outL[-1]) + 1) {
       lapply(xml2::xml_children(outL[[i]]), function(node) {
         xml2::xml_add_child(out, node)
       })
     }
-    ## TODO: unite trkseg parted due to pagination
-    # xml2::xml_find_all(xml2::xml_children(out), "//name", flatten = FALSE)
-    # lapply(xml2::xml_children(out), function(x) xml2::xml_name(xml2::xml_child(x)))
-    # part_trkseg <- which(names(out)[-1] == names(out)[-length(out)]) + 1
   }
 
   return(out)

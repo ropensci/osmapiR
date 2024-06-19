@@ -13,14 +13,14 @@ bounding box is 0.25 degree.}
 
 \item{page_number}{Specifies which groups of 5,000 points, or page, to return. The API call does not return more
 than 5,000 points at a time. In order to retrieve all of the points for a bounding box, set \code{page_number = -1}.
-When this parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns points
-5,001–10,000, etc. A vector is also valid (e.g. \code{0:2} to get the first 3 pages).}
+When this parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns
+points 5,001–10,000, etc. A vector is also valid (e.g. \code{0:2} to get the first 3 pages).}
 
 \item{format}{Format of the output. Can be \code{"R"} (default) or \code{"gpx"}.}
 }
 \value{
 If \code{format = "R"}, returns a list of data frames with the points for each trace. For public traces, the data frame
-include the attributes \code{name}, \code{desc} and \code{url}
+include the attributes \code{name}, \code{desc} and \code{url}.
 \subsection{\code{format = "gpx"}}{
 
 Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
@@ -56,6 +56,9 @@ In violation of the \href{https://www.topografix.com/GPX/1/1/#type_trksegType}{G
 GPX traces through the API, all waypoints of non-trackable traces are randomized (or rather sorted by lat/lon) and
 delivered as one trackSegment for privacy reasons. Trackable traces are delivered, sorted by descending upload
 time, before the waypoints of non-trackable traces.
+
+Private traces without \code{name}, \code{desc} and \code{url} can be separated in different items in the result if they get
+split due to server pagination. Public traces are united using matching URL.
 }
 \examples{
 pts_gps <- osm_get_points_gps(bbox = c(-0.3667545, 40.2153246, -0.3354263, 40.2364915))

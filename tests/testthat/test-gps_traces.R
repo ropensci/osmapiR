@@ -43,7 +43,7 @@ test_that("osm_get_points_gps works", {
   lapply(pts_gps$public, function(x) expect_false(unique(strftime(as.POSIXct(x$time), format = "%M:%S") == "00:00")))
 
   mapply(function(d, x) {
-    # expect_identical(length(d), length(xml2::xml_children(x)))
+    expect_identical(length(d), xml2::xml_length(x))
     c(length(d), length(xml2::xml_children(x)))
   }, d = pts_gps, x = xml_gps)
   # methods
@@ -68,6 +68,7 @@ test_that("osm_get_points_gps works", {
   lapply(empty_pts, expect_length, n = 0)
 
   lapply(empty_xml, expect_s3_class, "xml_document")
+  lapply(empty_xml, function(x) expect_identical(xml2::xml_length(x), 0L))
 
   # methods
   summary_gpx <- lapply(empty_pts, summary)
