@@ -40,15 +40,24 @@
   }
 
   if (!"osmapir.api_capabilities" %in% names(op)) {
-    ## server_capabilities <- osm_capabilities()
-    # Avoid a server request when loading the package but requires to update values
-    server_capabilities <- list(
+    # api_capabilities <- osm_capabilities()
+    # dput(api_capabilities["api"])
+    ## Avoid a server request when loading the package but requires to update values
+    api_capabilities <- list(
       api = list(
+        version = c(minimum = "0.6", maximum = "0.6"),
+        area = c(maximum = "0.25"),
+        note_area = c(maximum = "25"),
+        tracepoints = c(per_page = "5000"),
+        waynodes = c(maximum = "2000"),
+        relationmembers = c(maximum = "32000"),
         changesets = c(maximum_elements = "10000", default_query_limit = "100", maximum_query_limit = "100"),
-        notes = c(default_query_limit = "100", maximum_query_limit = "10000")
+        notes = c(default_query_limit = "100", maximum_query_limit = "10000"),
+        timeout = c(seconds = "300"),
+        status = c(database = "online", api = "online", gpx = "online")
       )
     )
-    options(osmapir.api_capabilities = server_capabilities)
+    options(osmapir.api_capabilities = api_capabilities)
   }
 
   invisible()

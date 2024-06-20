@@ -178,7 +178,10 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
 
     return(out)
   } else if (!is.null(order)) {
-    stop("Cannot use `order = \"oldest\"` with `limit` > 100.")
+    stop(
+      "Cannot use `order = \"oldest\"` with `limit` > ",
+      getOption("osmapir.api_capabilities")$api$changesets["maximum_query_limit"], "."
+    )
     # Avoid API error:
     # ! HTTP 400 Bad Request.
     # • cannot use order=oldest with time
@@ -196,7 +199,8 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
   while (n_out < limit && n > 0) {
     outL[[i]] <- .osm_query_changesets(
       bbox = bbox, user = user, time = time, time_2 = time_2, open = open, closed = closed,
-      changeset_ids = changeset_ids, order = order, limit = min(limit - n_out, 100),
+      changeset_ids = changeset_ids, order = order,
+      limit = min(limit - n_out, getOption("osmapir.api_capabilities")$api$changesets["maximum_query_limit"]),
       format = format, tags_in_columns = FALSE
     )
 
