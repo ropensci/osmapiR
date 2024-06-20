@@ -84,8 +84,9 @@ display name (<code>character</code>).</p></dd>
 
 
 <dt>bbox</dt>
-<dd><p>Search area expressed as a string of coordinates of a valid bounding box (<code>left,bottom,right,top</code>) in
-decimal degrees. Area must be at most 25 square degrees (see <code>osm_capabilities()$note_area</code> and
+<dd><p>Search area expressed as a string or a numeric vector of 4 coordinates of a valid bounding box
+(<code>left,bottom,right,top</code>) in decimal degrees. Area must be at most 25 square degrees (see
+<code>osm_capabilities()$note_area</code> and
 <a href="https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27" class="external-link">this line in settings</a>
 for the current value).</p></dd>
 
@@ -106,11 +107,11 @@ only open notes are returned. A value of -1 means all notes are returned. 7 is t
 
 
 <dt>sort</dt>
-<dd><p>Sort results by creation (<code>created_at</code>) or update date (<code>updated_at</code>, the default).</p></dd>
+<dd><p>Sort results by creation (<code>"created_at"</code>) or update date (<code>"updated_at"</code>, the default).</p></dd>
 
 
 <dt>order</dt>
-<dd><p>Sorting order. <code>oldest</code> is ascending order, <code>newest</code> is descending order (the default).</p></dd>
+<dd><p>Sorting order. <code>"oldest"</code> is ascending order, <code>"newest"</code> is descending order (the default).</p></dd>
 
 
 <dt>limit</dt>
@@ -153,7 +154,10 @@ structure. For <code>format</code> in <code>"xml"</code>, <code>"rss"</code>, an
 <span class="r-out co"><span class="r-pr">#&gt;</span> [6] close_url    date_created status       comments    </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;0 rows&gt; (or 0-length row.names)</span>
 <span class="r-in"><span></span></span>
-<span class="r-in"><span><span class="va">my_notes</span> <span class="op">&lt;-</span> <span class="fu">osm_search_notes</span><span class="op">(</span>user <span class="op">=</span> <span class="st">"jmaspons"</span>, closed <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, format <span class="op">=</span> <span class="st">"json"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="va">my_notes</span> <span class="op">&lt;-</span> <span class="fu">osm_search_notes</span><span class="op">(</span></span></span>
+<span class="r-in"><span>  user <span class="op">=</span> <span class="st">"jmaspons"</span>, bbox <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="op">-</span><span class="fl">0.1594133</span>, <span class="fl">40.5229822</span>, <span class="fl">3.322251</span>, <span class="fl">42.861523</span><span class="op">)</span>,</span></span>
+<span class="r-in"><span>  closed <span class="op">=</span> <span class="op">-</span><span class="fl">1</span>, format <span class="op">=</span> <span class="st">"json"</span></span></span>
+<span class="r-in"><span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">my_notes</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $type</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> [1] "FeatureCollection"</span>
