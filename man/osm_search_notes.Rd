@@ -23,8 +23,9 @@ osm_search_notes(
 \item{user}{Search for notes which the given user interacted with. The value can be the user id (\code{numeric}) or the
 display name (\code{character}).}
 
-\item{bbox}{Search area expressed as a string of coordinates of a valid bounding box (\verb{left,bottom,right,top}) in
-decimal degrees. Area must be at most 25 square degrees (see \code{osm_capabilities()$note_area} and
+\item{bbox}{Search area expressed as a string or a numeric vector of 4 coordinates of a valid bounding box
+(\verb{left,bottom,right,top}) in decimal degrees. Area must be at most 25 square degrees (see
+\code{osm_capabilities()$note_area} and
 \href{https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27}{this line in settings}
 for the current value).}
 
@@ -37,9 +38,9 @@ for the current value).}
 \item{closed}{Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
 only open notes are returned. A value of -1 means all notes are returned. 7 is the default.}
 
-\item{sort}{Sort results by creation (\code{created_at}) or update date (\code{updated_at}, the default).}
+\item{sort}{Sort results by creation (\code{"created_at"}) or update date (\code{"updated_at"}, the default).}
 
-\item{order}{Sorting order. \code{oldest} is ascending order, \code{newest} is descending order (the default).}
+\item{order}{Sorting order. \code{"oldest"} is ascending order, \code{"newest"} is descending order (the default).}
 
 \item{limit}{Maximum number of results between 1 and 10000 (may change, see \code{osm_capabilities()$api$notes} for the
 current value). Default to 100.}
@@ -64,7 +65,10 @@ notes <- osm_search_notes(
 )
 notes
 
-my_notes <- osm_search_notes(user = "jmaspons", closed = -1, format = "json")
+my_notes <- osm_search_notes(
+  user = "jmaspons", bbox = c(-0.1594133, 40.5229822, 3.322251, 42.861523),
+  closed = -1, format = "json"
+)
 my_notes
 }
 \seealso{

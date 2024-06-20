@@ -669,8 +669,9 @@ osm_create_comment_note <- function(note_id, text) { # TODO: , format = c("R", "
 #' @param q Text search query, matching either note text or comments.
 #' @param user Search for notes which the given user interacted with. The value can be the user id (`numeric`) or the
 #'   display name (`character`).
-#' @param bbox Search area expressed as a string of coordinates of a valid bounding box (`left,bottom,right,top`) in
-#'   decimal degrees. Area must be at most 25 square degrees (see `osm_capabilities()$note_area` and
+#' @param bbox Search area expressed as a string or a numeric vector of 4 coordinates of a valid bounding box
+#'   (`left,bottom,right,top`) in decimal degrees. Area must be at most 25 square degrees (see
+#'   `osm_capabilities()$note_area` and
 #'   [this line in settings](https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27)
 #'   for the current value).
 #' @param from Beginning date range for `created_at` or `updated_at` (specified by `sort`). Preferably in
@@ -679,8 +680,8 @@ osm_create_comment_note <- function(note_id, text) { # TODO: , format = c("R", "
 #'   [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format. Only works when `from` is supplied.
 #' @param closed Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
 #'   only open notes are returned. A value of -1 means all notes are returned. 7 is the default.
-#' @param sort Sort results by creation (`created_at`) or update date (`updated_at`, the default).
-#' @param order Sorting order. `oldest` is ascending order, `newest` is descending order (the default).
+#' @param sort Sort results by creation (`"created_at"`) or update date (`"updated_at"`, the default).
+#' @param order Sorting order. `"oldest"` is ascending order, `"newest"` is descending order (the default).
 #' @param limit Maximum number of results between 1 and 10000 (may change, see `osm_capabilities()$api$notes` for the
 #'   current value). Default to 100.
 #' @param format Format of the the returned list of notes. Can be `"R"` (default), `"xml"`, `"rss"`, `"json"` or
@@ -702,7 +703,10 @@ osm_create_comment_note <- function(note_id, text) { # TODO: , format = c("R", "
 #' )
 #' notes
 #'
-#' my_notes <- osm_search_notes(user = "jmaspons", closed = -1, format = "json")
+#' my_notes <- osm_search_notes(
+#'   user = "jmaspons", bbox = c(-0.1594133, 40.5229822, 3.322251, 42.861523),
+#'   closed = -1, format = "json"
+#' )
 #' my_notes
 osm_search_notes <- function(
     q, user, bbox, from, to, closed = 7,
