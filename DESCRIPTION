@@ -3,7 +3,7 @@ Package: osmapiR
 Title: OpenStreetMap API
 Version: 0.0.0.40
 Authors@R: 
-    person("Joan", "Maspons", , "joanmaspons@gmail.com", role = c("aut", "cre"),
+    person("Joan", "Maspons", , "joanmaspons@gmail.com", role = c("aut", "cre", "cph"),
            comment = c(ORCID = "0000-0003-2286-8727"))
 Maintainer: Joan Maspons <joanmaspons@gmail.com>
 Description: Interface to OpenStreetMap API for fetching and saving data
