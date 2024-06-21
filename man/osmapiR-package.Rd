@@ -12,7 +12,8 @@ Interface to OpenStreetMap API for fetching and saving data from/to the OpenStre
 An R interface to \href{https://wiki.openstreetmap.org/wiki/API_v0.6}{OpenStreetMap API v0.6} for fetching and saving raw
 geodata from/to the OpenStreetMap database. This package allows to access OSM maps data as well as map notes, GPS
 traces, changelogs and users data. To access the OSM map data for purposes other than editing or exploring the
-history of the objects see \href{README.md#related-packages}{Related packages}.
+history of the objects see
+\href{https://github.com/jmaspons/osmapiR/blob/main/README.md#related-packages}{Related packages}.
 
 You are responsible for following the \href{https://operations.osmfoundation.org/policies/api/}{API Usage Policy}.
 You can modify the user agent of the requests by setting the option \code{osmapir.user_agent}:

@@ -76,7 +76,7 @@
 #' @details
 #' If `x` is a data.frame, the columns `type`, `changeset`, `tags` must be present + column `members` for ways and
 #' relations + `lat` and `lon` for nodes. For the xml format, see the
-#' [OSM wiki](https://wiki.openstreetmap.org/wiki/API_v0.6#Create:_PUT_/api/0.6/[node|way|relation]/create).
+#' [OSM wiki](https://wiki.openstreetmap.org/wiki/API_v0.6#Create:_PUT_/api/0.6/%5Bnode%7Cway%7Crelation%5D/create).
 #'
 #' If multiple elements are provided only the first is created. The rest is discarded.
 #'
@@ -307,7 +307,7 @@ osm_read_object <- function(osm_type = c("node", "way", "relation"),
 #'
 #' If `x` is a data.frame, the columns `type`, `id`, `visible`, `version`, `changeset`, and `tags` must be present +
 #' column `members` for ways and relations + `lat` and `lon` for nodes. For the xml format, see the
-#' [OSM wiki](https://wiki.openstreetmap.org/wiki/API_v0.6#Update:_PUT_/api/0.6/[node|way|relation]/#id).
+#' [OSM wiki](https://wiki.openstreetmap.org/wiki/API_v0.6#Update:_PUT_/api/0.6/%5Bnode%7Cway%7Crelation%5D/%23id).
 #'
 #' If multiple elements are provided only the first is updated. The rest is discarded.
 #'
@@ -450,7 +450,7 @@ osm_update_object <- function(x, changeset_id) {
 #'
 #' If `x` is a data.frame, the columns `type`, `id`, `version` and `changeset` must be present + `lat` and `lon` for
 #' nodes. For the xml format, see the
-#' [OSM wiki](https://wiki.openstreetmap.org/wiki/API_v0.6#Delete:_DELETE_/api/0.6/[node|way|relation]/#id).
+#' [OSM wiki](https://wiki.openstreetmap.org/wiki/API_v0.6#Delete:_DELETE_/api/0.6/%5Bnode%7Cway%7Crelation%5D/%23id).
 #'
 #' If multiple elements are provided only the first is deleted. The rest is discarded.
 #'

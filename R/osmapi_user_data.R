@@ -331,6 +331,7 @@ osm_details_users <- function(user_ids, format = c("R", "xml", "json")) {
 #' ## `format = "xml"`
 #'
 #' Returns a [xml2::xml_document-class] with the following format:
+#' ``` xml
 #' <osm version="0.6" generator="OpenStreetMap server">
 #' 	<user display_name="Max Muster" account_created="2006-07-21T19:28:26Z" id="1234">
 #' 		<contributor-terms agreed="true" pd="true"/>

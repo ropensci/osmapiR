@@ -26,7 +26,7 @@ it must match the current version of the element in the database.
 
 If \code{x} is a data.frame, the columns \code{type}, \code{id}, \code{visible}, \code{version}, \code{changeset}, and \code{tags} must be present +
 column \code{members} for ways and relations + \code{lat} and \code{lon} for nodes. For the xml format, see the
-\href{https://wiki.openstreetmap.org/wiki/API_v0.6#Update:_PUT_/api/0.6/[node|way|relation]/#id}{OSM wiki}.
+\href{https://wiki.openstreetmap.org/wiki/API_v0.6#Update:_PUT_/api/0.6/\%5Bnode\%7Cway\%7Crelation\%5D/\%23id}{OSM wiki}.
 
 If multiple elements are provided only the first is updated. The rest is discarded.
 }

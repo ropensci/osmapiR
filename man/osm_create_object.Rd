@@ -22,7 +22,7 @@ Creates a new element in an open changeset as specified.
 \details{
 If \code{x} is a data.frame, the columns \code{type}, \code{changeset}, \code{tags} must be present + column \code{members} for ways and
 relations + \code{lat} and \code{lon} for nodes. For the xml format, see the
-\href{https://wiki.openstreetmap.org/wiki/API_v0.6#Create:_PUT_/api/0.6/[node|way|relation]/create}{OSM wiki}.
+\href{https://wiki.openstreetmap.org/wiki/API_v0.6#Create:_PUT_/api/0.6/\%5Bnode\%7Cway\%7Crelation\%5D/create}{OSM wiki}.
 
 If multiple elements are provided only the first is created. The rest is discarded.
 }

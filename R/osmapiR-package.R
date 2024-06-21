@@ -2,7 +2,8 @@
 #' An R interface to [OpenStreetMap API v0.6](https://wiki.openstreetmap.org/wiki/API_v0.6) for fetching and saving raw
 #' geodata from/to the OpenStreetMap database. This package allows to access OSM maps data as well as map notes, GPS
 #' traces, changelogs and users data. To access the OSM map data for purposes other than editing or exploring the
-#' history of the objects see [Related packages](README.md#related-packages).
+#' history of the objects see
+#' [Related packages](https://github.com/jmaspons/osmapiR/blob/main/README.md#related-packages).
 #'
 #' You are responsible for following the [API Usage Policy](https://operations.osmfoundation.org/policies/api/).
 #' You can modify the user agent of the requests by setting the option `osmapir.user_agent`:

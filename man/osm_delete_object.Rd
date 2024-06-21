@@ -26,7 +26,7 @@ except for lat/long which are required for nodes, without lat+lon the server giv
 
 If \code{x} is a data.frame, the columns \code{type}, \code{id}, \code{version} and \code{changeset} must be present + \code{lat} and \code{lon} for
 nodes. For the xml format, see the
-\href{https://wiki.openstreetmap.org/wiki/API_v0.6#Delete:_DELETE_/api/0.6/[node|way|relation]/#id}{OSM wiki}.
+\href{https://wiki.openstreetmap.org/wiki/API_v0.6#Delete:_DELETE_/api/0.6/\%5Bnode\%7Cway\%7Crelation\%5D/\%23id}{OSM wiki}.
 
 If multiple elements are provided only the first is deleted. The rest is discarded.
 }
