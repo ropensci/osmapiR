@@ -81,8 +81,9 @@ parameter of <code><a href="osm_query_changesets.html">osm_query_changesets()</a
 <li><p><code>notes</code> <code>default_query_limit</code> and <code>maximum_query_limit</code> are the default and maximum values of the limit parameter
 of notes bounding box queries (<code><a href="osm_read_bbox_notes.html">osm_read_bbox_notes()</a></code>) and search (<code><a href="osm_search_notes.html">osm_search_notes()</a></code>).</p></li>
 <li><p>The <code>status</code> element returns either <em>online</em>, <em>readonly</em> or <em>offline</em> for each of the database, API and GPX
-API. The <code>database</code> field is informational, and the <code>API</code>/<code>GPX-API</code> fields indicate whether a client should expect read
-and write requests to work (<em>online</em>), only read requests to work (<em>readonly</em>) or no requests to work (<em>offline</em>).</p></li>
+API. The <code>database</code> field is informational, and the <code>API</code>/<code>GPX-API</code> fields indicate whether a client should expect
+read and write requests to work (<em>online</em>), only read requests to work (<em>readonly</em>) or no requests to work
+(<em>offline</em>).</p></li>
 </ul><p>Policy:</p><ul><li><p>Imagery blacklist lists all aerial and map sources, which are not permitted for OSM usage due to copyright. Editors
 must not show these resources as background layer.</p></li>
 </ul></div>
@@ -105,35 +106,35 @@ must not show these resources as background layer.</p></li>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $api$area</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> maximum </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  "0.25" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    0.25 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $api$note_area</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> maximum </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>    "25" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>      25 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $api$tracepoints</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> per_page </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "5000" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     5000 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $api$waynodes</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> maximum </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  "2000" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    2000 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $api$relationmembers</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> maximum </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> "32000" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>   32000 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $api$changesets</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    maximum_elements default_query_limit maximum_query_limit </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>             "10000"               "100"               "100" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>               10000                 100                 100 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $api$notes</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> default_query_limit maximum_query_limit </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>               "100"             "10000" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                 100               10000 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $api$timeout</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> seconds </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>   "300" </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>     300 </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> $api$status</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> database      api      gpx </span>
