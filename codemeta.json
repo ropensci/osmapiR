@@ -2,9 +2,9 @@
   "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
   "@type": "SoftwareSourceCode",
   "identifier": "osmapiR",
-  "description": "Implements OpenStreetMap API v0.6 (<https://wiki.openstreetmap.org/wiki/API_v0.6>).",
+  "description": "Interface to OpenStreetMap API for fetching and saving data from/to the OpenStreetMap database (<https://wiki.openstreetmap.org/wiki/API_v0.6>).",
   "name": "osmapiR: OpenStreetMap API",
-  "relatedLink": "https://jmaspons.github.io/osmapiR",
+  "relatedLink": "https://jmaspons.github.io/osmapiR/",
   "codeRepository": "https://github.com/jmaspons/osmapiR",
   "issueTracker": "https://github.com/jmaspons/osmapiR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
@@ -16,6 +16,15 @@
   },
   "runtimePlatform": "R version 4.4.1 (2024-06-14)",
   "author": [
+    {
+      "@type": "Person",
+      "givenName": "Joan",
+      "familyName": "Maspons",
+      "email": "joanmaspons@gmail.com",
+      "@id": "https://orcid.org/0000-0003-2286-8727"
+    }
+  ],
+  "copyrightHolder": [
     {
       "@type": "Person",
       "givenName": "Joan",
@@ -136,7 +145,7 @@
     "SystemRequirements": null
   },
   "keywords": ["openstreetmap", "OSM", "openstreetmap-api", "osmapi", "API", "osm", "r", "r-package"],
-  "fileSize": "13377.709KB",
+  "fileSize": "13366.559KB",
   "readme": "https://github.com/jmaspons/osmapiR/blob/main/README.md",
   "contIntegration": ["https://github.com/jmaspons/osmapiR/actions/workflows/R-CMD-check.yaml", "https://codecov.io/gh/jmaspons/osmapiR", "https://github.com/jmaspons/osmapiR/actions/workflows/pkgdown.yaml"],
   "developmentStatus": "https://www.repostatus.org/#active",

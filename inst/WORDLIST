@@ -28,6 +28,7 @@ Bruc
 BugReports
 byrow
 cadedb
+Carles
 cb
 cbind
 ccbf
@@ -66,6 +67,7 @@ config
 Config
 contIntegration
 coords
+copyrightHolder
 CPeZrFeAhjMQOj
 cph
 cran
@@ -328,6 +330,7 @@ rlang
 rmarkdown
 rn
 ropensci
+rOpenSci
 Roxygen
 roxygen
 RoxygenNote
