@@ -8,11 +8,6 @@ concurrency:
 on:
   # Manually trigger the Action under Actions/pkgcheck
   workflow_dispatch:
-  # Run on every push to main
-  push:
-    branches:
-      - main
-      - pkcheck
 
 jobs:
   pkgcheck:
