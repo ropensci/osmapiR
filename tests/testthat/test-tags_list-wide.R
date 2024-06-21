@@ -39,6 +39,11 @@ test_that("OSM objects tags_list-wide works", {
 
 
 test_that("Changesets tags_list-wide works", {
+  api_capabilities_ori <- getOption("osmapir.api_capabilities")
+  api_capabilities <- api_capabilities_ori
+  api_capabilities$api$changesets[c("default_query_limit", "maximum_query_limit")] <- c(10, 20)
+  options(osmapir.api_capabilities = api_capabilities)
+
   tags_list <- list()
   tags_wide <- list()
   with_mock_dir("mock_query_changesets", {
@@ -88,4 +93,7 @@ test_that("Changesets tags_list-wide works", {
 
   expect_message(tags_list2wide(tags_wide[[1]]), "x is already in a tags wide format.")
   expect_message(tags_wide2list(tags_list[[1]]), "x is already in a tags list column format.")
+
+
+  options(osmapir.api_capabilities = api_capabilities_ori)
 })

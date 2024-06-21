@@ -1,0 +1,230 @@
+{
+    "version": "0.6",
+    "generator": "OpenStreetMap server",
+    "copyright": "OpenStreetMap and contributors",
+    "attribution": "http://www.openstreetmap.org/copyright",
+    "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+    "changesets": [
+        {
+            "id": 137626459,
+            "created_at": "2023-06-22T01:33:09Z",
+            "open": false,
+            "comments_count": 0,
+            "changes_count": 5,
+            "closed_at": "2023-06-22T01:33:09Z",
+            "min_lat": 43.2932307,
+            "min_lon": -7.6797783,
+            "max_lat": 43.2968361,
+            "max_lon": -7.6651626,
+            "uid": 19648429,
+            "user": "Mementomoristultus",
+            "tags": {
+                "changesets_count": "107",
+                "comment": "78",
+                "created_by": "iD 2.25.2",
+                "host": "https://www.openstreetmap.org/edit",
+                "imagery_used": "PNOA Spain",
+                "locale": "es",
+                "warnings:mismatched_geometry:point_as_vertex": "1"
+            }
+        },
+        {
+            "id": 137626449,
+            "created_at": "2023-06-22T01:32:34Z",
+            "open": false,
+            "comments_count": 0,
+            "changes_count": 6,
+            "closed_at": "2023-06-22T01:32:35Z",
+            "min_lat": 43.2965293,
+            "min_lon": -7.6781078,
+            "max_lat": 43.296848,
+            "max_lon": -7.6768001,
+            "uid": 19648429,
+            "user": "Mementomoristultus",
+            "tags": {
+                "changesets_count": "106",
+                "comment": "87",
+                "created_by": "iD 2.25.2",
+                "host": "https://www.openstreetmap.org/edit",
+                "imagery_used": "PNOA Spain",
+                "locale": "es"
+            }
+        },
+        {
+            "id": 137626404,
+            "created_at": "2023-06-22T01:30:05Z",
+            "open": false,
+            "comments_count": 0,
+            "changes_count": 4,
+            "closed_at": "2023-06-22T01:30:05Z",
+            "min_lat": 42.4365591,
+            "min_lon": -8.081156,
+            "max_lat": 42.4379437,
+            "max_lon": -8.0787144,
+            "uid": 19648429,
+            "user": "Mementomoristultus",
+            "tags": {
+                "changesets_count": "105",
+                "comment": "87",
+                "created_by": "iD 2.25.2",
+                "host": "https://www.openstreetmap.org/edit",
+                "imagery_used": "PNOA Spain",
+                "locale": "es"
+            }
+        },
+        {
+            "id": 137626387,
+            "created_at": "2023-06-22T01:28:59Z",
+            "open": false,
+            "comments_count": 0,
+            "changes_count": 3,
+            "closed_at": "2023-06-22T01:28:59Z",
+            "min_lat": 42.4377503,
+            "min_lon": -8.1221443,
+            "max_lat": 42.5539628,
+            "max_lon": -8.0792497,
+            "uid": 19648429,
+            "user": "Mementomoristultus",
+            "tags": {
+                "changesets_count": "104",
+                "comment": "80",
+                "created_by": "iD 2.25.2",
+                "host": "https://www.openstreetmap.org/edit",
+                "imagery_used": "PNOA Spain",
+                "locale": "es"
+            }
+        },
+        {
+            "id": 137626383,
+            "created_at": "2023-06-22T01:28:43Z",
+            "open": false,
+            "comments_count": 0,
+            "changes_count": 29,
+            "closed_at": "2023-06-22T01:28:44Z",
+            "min_lat": 42.437892,
+            "min_lon": -8.0797572,
+            "max_lat": 42.4388115,
+            "max_lon": -8.0785782,
+            "uid": 19648429,
+            "user": "Mementomoristultus",
+            "tags": {
+                "changesets_count": "103",
+                "comment": "49",
+                "created_by": "iD 2.25.2",
+                "host": "https://www.openstreetmap.org/edit",
+                "imagery_used": "PNOA Spain",
+                "locale": "es"
+            }
+        },
+        {
+            "id": 137626365,
+            "created_at": "2023-06-22T01:27:28Z",
+            "open": false,
+            "comments_count": 0,
+            "changes_count": 5,
+            "closed_at": "2023-06-22T01:27:29Z",
+            "min_lat": 42.4384228,
+            "min_lon": -8.0814797,
+            "max_lat": 42.439205,
+            "max_lon": -8.0799395,
+            "uid": 19648429,
+            "user": "Mementomoristultus",
+            "tags": {
+                "changesets_count": "102",
+                "comment": "42",
+                "created_by": "iD 2.25.2",
+                "host": "https://www.openstreetmap.org/edit",
+                "imagery_used": "PNOA Spain",
+                "locale": "es"
+            }
+        },
+        {
+            "id": 137626344,
+            "created_at": "2023-06-22T01:26:20Z",
+            "open": false,
+            "comments_count": 0,
+            "changes_count": 5,
+            "closed_at": "2023-06-22T01:26:21Z",
+            "min_lat": 42.4318442,
+            "min_lon": -8.0737985,
+            "max_lat": 42.4319985,
+            "max_lon": -8.0735708,
+            "uid": 19648429,
+            "user": "Mementomoristultus",
+            "tags": {
+                "changesets_count": "101",
+                "comment": "40",
+                "created_by": "iD 2.25.2",
+                "host": "https://www.openstreetmap.org/edit",
+                "imagery_used": "PNOA Spain",
+                "locale": "es"
+            }
+        },
+        {
+            "id": 137626336,
+            "created_at": "2023-06-22T01:25:53Z",
+            "open": false,
+            "comments_count": 0,
+            "changes_count": 5,
+            "closed_at": "2023-06-22T01:25:54Z",
+            "min_lat": 42.4305063,
+            "min_lon": -8.0748481,
+            "max_lat": 42.4328356,
+            "max_lon": -8.0731101,
+            "uid": 19648429,
+            "user": "Mementomoristultus",
+            "tags": {
+                "changesets_count": "100",
+                "comment": "39",
+                "created_by": "iD 2.25.2",
+                "host": "https://www.openstreetmap.org/edit",
+                "imagery_used": "PNOA Spain",
+                "locale": "es"
+            }
+        },
+        {
+            "id": 137626330,
+            "created_at": "2023-06-22T01:25:16Z",
+            "open": false,
+            "comments_count": 0,
+            "changes_count": 3,
+            "closed_at": "2023-06-22T01:25:16Z",
+            "min_lat": 42.4305063,
+            "min_lon": -8.0748516,
+            "max_lat": 42.4328356,
+            "max_lon": -8.0731101,
+            "uid": 19648429,
+            "user": "Mementomoristultus",
+            "tags": {
+                "changesets_count": "99",
+                "comment": "38",
+                "created_by": "iD 2.25.2",
+                "host": "https://www.openstreetmap.org/edit",
+                "imagery_used": "PNOA Spain",
+                "locale": "es"
+            }
+        },
+        {
+            "id": 137626323,
+            "created_at": "2023-06-22T01:24:34Z",
+            "open": false,
+            "comments_count": 0,
+            "changes_count": 6,
+            "closed_at": "2023-06-22T01:24:35Z",
+            "min_lat": 42.4308621,
+            "min_lon": -8.0757847,
+            "max_lat": 42.4321425,
+            "max_lon": -8.0739688,
+            "uid": 19648429,
+            "user": "Mementomoristultus",
+            "tags": {
+                "changesets_count": "98",
+                "comment": "35",
+                "created_by": "iD 2.25.2",
+                "host": "https://www.openstreetmap.org/edit",
+                "imagery_used": "PNOA Spain",
+                "locale": "es"
+            }
+        }
+    ]
+}

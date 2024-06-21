@@ -213,6 +213,11 @@ test_that("osm_download_changeset works", {
 ## Query: `GET /api/0.6/changesets` ----
 
 test_that("osm_query_changesets works", {
+  api_capabilities_ori <- getOption("osmapir.api_capabilities")
+  api_capabilities <- api_capabilities_ori
+  api_capabilities$api$changesets[c("default_query_limit", "maximum_query_limit")] <- c(10, 20)
+  options(osmapir.api_capabilities = api_capabilities)
+
   chaset <- list()
   with_mock_dir("mock_query_changesets", {
     chaset$ids <- osm_query_changesets(changeset_ids = c(137627129, 137625624), order = "oldest")
@@ -229,26 +234,26 @@ test_that("osm_query_changesets works", {
       closed = TRUE
     )
 
-    # limit > 100: requests in batches
+    # limit > maximum_query_limit: requests in batches
     chaset$batches <- osm_query_changesets(
       bbox = "-9.3015367,41.8073642,-6.7339533,43.790422",
       user = "Mementomoristultus",
       closed = TRUE,
-      limit = 120
+      limit = 50
     )
 
     chaset_xml <- osm_query_changesets(
       bbox = "-9.3015367,41.8073642,-6.7339533,43.790422",
       user = "Mementomoristultus",
       closed = TRUE,
-      limit = 120,
+      limit = 50,
       format = "xml"
     )
     chaset_json <- osm_query_changesets(
       bbox = "-9.3015367,41.8073642,-6.7339533,43.790422",
       user = "Mementomoristultus",
       closed = TRUE,
-      limit = 120,
+      limit = 50,
       format = "json"
     )
   })
@@ -298,6 +303,9 @@ test_that("osm_query_changesets works", {
   )
   expect_error(
     osm_query_changesets(order = "oldest", limit = 101),
-    "Cannot use `order = \"oldest\"` with `limit` > 100."
+    "Cannot use `order = \"oldest\"` with `limit` > "
   )
+
+
+  options(osmapir.api_capabilities = api_capabilities_ori)
 })
