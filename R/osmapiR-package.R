@@ -1,10 +1,19 @@
 #' @details
-#' You are responsible for following the [API Usage Policy](https://operations.osmfoundation.org/policies/api/).
+#' An R interface to [OpenStreetMap API v0.6](https://wiki.openstreetmap.org/wiki/API_v0.6) for fetching and saving raw
+#' geodata from/to the OpenStreetMap database. This package allows to access OSM maps data as well as map notes, GPS
+#' traces, changelogs and users data. To access the OSM map data for purposes other than editing or exploring the
+#' history of the objects see [Related packages](README.md#related-packages).
 #'
+#' You are responsible for following the [API Usage Policy](https://operations.osmfoundation.org/policies/api/).
 #' You can modify the user agent of the requests by setting the option `osmapir.user_agent`:
 #' ```r
 #' options(osmapir.user_agent = "my new user agent")
 #' ```
+#'
+#' Respect and follow the
+#' [standards and conventions](https://wiki.openstreetmap.org/wiki/Editing_Standards_and_Conventions) of the
+#' OpenStreetMap community. If you plan to do automated edits, check the
+#' [Automated Edits code of conduct](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct).
 #'
 #' # Overview of the functions
 #' All function starting with `osm_*` include calls to the server.

@@ -31,7 +31,7 @@ elements containing data privacy or copyright infringements. Only permitted for 
 }
 \details{
 The \code{redaction_id} is listed on \url{https://www.openstreetmap.org/redactions}. More information can be found in
-\href{https://git.openstreetmap.org/rails.git/blob/HEAD:/app/controllers/api/old_controller.rb}{the source}.
+\href{https://git.openstreetmap.org/rails.git/blob/HEAD:/app/controllers/redactions_controller.rb}{the source}.
 }
 \examples{
 \dontrun{

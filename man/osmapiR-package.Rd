@@ -6,15 +6,24 @@
 \alias{osmapiR-package}
 \title{osmapiR: OpenStreetMap API}
 \description{
-Implements OpenStreetMap API v0.6 (\url{https://wiki.openstreetmap.org/wiki/API_v0.6}).
+Interface to OpenStreetMap API for fetching and saving data from/to the OpenStreetMap database (\url{https://wiki.openstreetmap.org/wiki/API_v0.6}).
 }
 \details{
-You are responsible for following the \href{https://operations.osmfoundation.org/policies/api/}{API Usage Policy}.
+An R interface to \href{https://wiki.openstreetmap.org/wiki/API_v0.6}{OpenStreetMap API v0.6} for fetching and saving raw
+geodata from/to the OpenStreetMap database. This package allows to access OSM maps data as well as map notes, GPS
+traces, changelogs and users data. To access the OSM map data for purposes other than editing or exploring the
+history of the objects see \href{README.md#related-packages}{Related packages}.
 
+You are responsible for following the \href{https://operations.osmfoundation.org/policies/api/}{API Usage Policy}.
 You can modify the user agent of the requests by setting the option \code{osmapir.user_agent}:
 
 \if{html}{\out{<div class="sourceCode r">}}\preformatted{options(osmapir.user_agent = "my new user agent")
 }\if{html}{\out{</div>}}
+
+Respect and follow the
+\href{https://wiki.openstreetmap.org/wiki/Editing_Standards_and_Conventions}{standards and conventions} of the
+OpenStreetMap community. If you plan to do automated edits, check the
+\href{https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct}{Automated Edits code of conduct}.
 }
 \section{Overview of the functions}{
 All function starting with \verb{osm_*} include calls to the server.
@@ -242,13 +251,14 @@ Redact an object version
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://jmaspons.github.io/osmapiR https://github.com/jmaspons/osmapiR}
+  \item \url{https://jmaspons.github.io/osmapiR/}
+  \item \url{https://github.com/jmaspons/osmapiR}
   \item Report bugs at \url{https://github.com/jmaspons/osmapiR/issues}
 }
 
 }
 \author{
-\strong{Maintainer}: Joan Maspons \email{joanmaspons@gmail.com} (\href{https://orcid.org/0000-0003-2286-8727}{ORCID})
+\strong{Maintainer}: Joan Maspons \email{joanmaspons@gmail.com} (\href{https://orcid.org/0000-0003-2286-8727}{ORCID}) [copyright holder]
 
 }
 \keyword{internal}
