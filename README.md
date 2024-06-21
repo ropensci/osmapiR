@@ -7,7 +7,7 @@
 
 [![R-CMD-check](https://github.com/jmaspons/osmapiR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jmaspons/osmapiR/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/jmaspons/osmapiR/branch/main/graph/badge.svg)](https://codecov.io/gh/jmaspons/osmapiR)
+coverage](https://codecov.io/gh/jmaspons/osmapiR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jmaspons/osmapiR)
 [![pkgdown](https://github.com/jmaspons/osmapiR/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/jmaspons/osmapiR/actions/workflows/pkgdown.yaml)
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
