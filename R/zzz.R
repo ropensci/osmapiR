@@ -46,14 +46,14 @@
     api_capabilities <- list(
       api = list(
         version = c(minimum = "0.6", maximum = "0.6"),
-        area = c(maximum = "0.25"),
-        note_area = c(maximum = "25"),
-        tracepoints = c(per_page = "5000"),
-        waynodes = c(maximum = "2000"),
-        relationmembers = c(maximum = "32000"),
-        changesets = c(maximum_elements = "10000", default_query_limit = "100", maximum_query_limit = "100"),
-        notes = c(default_query_limit = "100", maximum_query_limit = "10000"),
-        timeout = c(seconds = "300"),
+        area = c(maximum = 0.25),
+        note_area = c(maximum = 25),
+        tracepoints = c(per_page = 5000L),
+        waynodes = c(maximum = 2000L),
+        relationmembers = c(maximum = 32000L),
+        changesets = c(maximum_elements = 10000L, default_query_limit = 100L, maximum_query_limit = 100L),
+        notes = c(default_query_limit = 100L, maximum_query_limit = 10000L),
+        timeout = c(seconds = 300),
         status = c(database = "online", api = "online", gpx = "online")
       )
     )

@@ -123,8 +123,9 @@ osm_api_versions <- function() {
 #' * `notes` `default_query_limit` and `maximum_query_limit` are the default and maximum values of the limit parameter
 #'   of notes bounding box queries ([osm_read_bbox_notes()]) and search ([osm_search_notes()]).
 #' * The `status` element returns either _online_, _readonly_ or _offline_ for each of the database, API and GPX
-#'   API. The `database` field is informational, and the `API`/`GPX-API` fields indicate whether a client should expect read
-#'   and write requests to work (_online_), only read requests to work (_readonly_) or no requests to work (_offline_).
+#'   API. The `database` field is informational, and the `API`/`GPX-API` fields indicate whether a client should expect
+#'   read and write requests to work (_online_), only read requests to work (_readonly_) or no requests to work
+#'   (_offline_).
 #'
 #' Policy:
 #' * Imagery blacklist lists all aerial and map sources, which are not permitted for OSM usage due to copyright. Editors
@@ -148,6 +149,14 @@ osm_capabilities <- function() {
 
   api <- xml2::xml_contents(xml2::xml_child(obj_xml, search = "api"))
   apiL <- structure(xml2::xml_attrs(api), names = xml2::xml_name(api))
+  num <- c("area", "note_area", "timeout")
+  apiL[num] <- lapply(apiL[num], function(x) {
+    stats::setNames(as.numeric(x), nm = names(x))
+  })
+  int <- c("tracepoints", "waynodes", "relationmembers", "changesets", "notes")
+  apiL[int] <- lapply(apiL[int], function(x) {
+    stats::setNames(as.integer(x), nm = names(x))
+  })
 
   policy <- xml2::xml_contents(xml2::xml_child(obj_xml, search = "policy"))
   policyL <- lapply(policy, function(x) {
