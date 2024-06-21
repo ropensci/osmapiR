@@ -2,9 +2,12 @@ Type: Package
 Package: osmapiR
 Title: OpenStreetMap API
 Version: 0.0.0.40
-Authors@R: 
+Authors@R: c(
     person("Joan", "Maspons", , "joanmaspons@gmail.com", role = c("aut", "cre"),
-           comment = c(ORCID = "0000-0003-2286-8727"))
+           comment = c(ORCID = "0000-0003-2286-8727")),
+    person("Jon", "Harmon", role = "rev"),
+    person("Carlos", "Cámara", role = "rev")
+  )
 Maintainer: Joan Maspons <joanmaspons@gmail.com>
 Description: Implements OpenStreetMap API v0.6
     (<https://wiki.openstreetmap.org/wiki/API_v0.6>).
