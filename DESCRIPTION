@@ -10,7 +10,7 @@ Description: Interface to OpenStreetMap API for fetching and saving data
     from/to the OpenStreetMap database
     (<https://wiki.openstreetmap.org/wiki/API_v0.6>).
 License: GPL (>= 3)
-URL: https://jmaspons.github.io/osmapiR
+URL: https://jmaspons.github.io/osmapiR/,
     https://github.com/jmaspons/osmapiR
 BugReports: https://github.com/jmaspons/osmapiR/issues
 Imports: 

@@ -251,7 +251,8 @@ Redact an object version
 \seealso{
 Useful links:
 \itemize{
-  \item \url{https://jmaspons.github.io/osmapiR/ https://github.com/jmaspons/osmapiR}
+  \item \url{https://jmaspons.github.io/osmapiR/}
+  \item \url{https://github.com/jmaspons/osmapiR}
   \item Report bugs at \url{https://github.com/jmaspons/osmapiR/issues}
 }
 
