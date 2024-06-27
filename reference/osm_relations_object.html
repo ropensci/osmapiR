@@ -109,21 +109,54 @@ returns a list with a json structure following the <a href="https://wiki.openstr
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">node</span> <span class="op">&lt;-</span> <span class="fu">osm_relations_object</span><span class="op">(</span>osm_type <span class="op">=</span> <span class="st">"node"</span>, osm_id <span class="op">=</span> <span class="fl">152364165</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">node</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] type      id        visible   version   changeset timestamp user     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] uid       lat       lon       members   tags     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;0 rows&gt; (or 0-length row.names)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       type       id visible version changeset           timestamp   user    uid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 relation   347950    TRUE     106 152390011 2024-06-07 19:07:15 EliziR 605366</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 relation   349035    TRUE     167 152390043 2024-06-07 19:08:20 EliziR 605366</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 relation   349053    TRUE     799 152390043 2024-06-07 19:08:20 EliziR 605366</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 relation  2417889    TRUE      59 152390011 2024-06-07 19:07:15 EliziR 605366</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 relation  2807397    TRUE     111 152390043 2024-06-07 19:08:20 EliziR 605366</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 relation 11746917    TRUE     223 152390043 2024-06-07 19:08:20 EliziR 605366</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 relation 11747082    TRUE     405 152390043 2024-06-07 19:08:20 EliziR 605366</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    lat  lon                                                         members</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 &lt;NA&gt; &lt;NA&gt; 97 members: node/152364165/admin_centre, way/96647329/outer,...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 &lt;NA&gt; &lt;NA&gt; 515 members: node/152364165/admin_centre, way/45319680/outer...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 &lt;NA&gt; &lt;NA&gt; 2229 members: node/152364165/admin_centre, node/602512999/la...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 &lt;NA&gt; &lt;NA&gt; 113 members: node/152364165/admin_centre, way/185724656/oute...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 &lt;NA&gt; &lt;NA&gt; 449 members: node/152364165/admin_centre, way/45327666/outer...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 &lt;NA&gt; &lt;NA&gt; 2203 members: node/152364165/admin_centre, way/585618147/out...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 &lt;NA&gt; &lt;NA&gt; 3497 members: node/8000963558/label, node/152364165/admin_ce...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                  tags</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 33 tags: admin_level=8 | alt_name:gl=Barna | boundary=administrative | idee:name...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 31 tags: admin_level=6 | boundary=administrative | ine:provincia=08 | ISO3166-2=...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3 65 tags: admin_level=4 | alt_name:el=Καταλονία | alt_name:eo=Katalunujo | alt_na...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4 23 tags: admin_level=7 | boundary=administrative | idescat:comarca=13 | name=Bar...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5 13 tags: boundary=political | idescat:àmbit=01 | name=Àmbit metropolità | name:a...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6 8 tags: boundary=political | default_language=ca | name=Català com a llengua prò...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7 44 tags: boundary=political | name=Països Catalans | name:an=Países Catalans | n...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">way</span> <span class="op">&lt;-</span> <span class="fu">osm_relations_object</span><span class="op">(</span>osm_type <span class="op">=</span> <span class="st">"way"</span>, osm_id <span class="op">=</span> <span class="fl">372011578</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">way</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] type      id        visible   version   changeset timestamp user     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] uid       lat       lon       members   tags     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;0 rows&gt; (or 0-length row.names)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       type      id visible version changeset           timestamp   user    uid</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 relation 5524720    TRUE      38 153218834 2024-06-26 19:49:19 EliziR 605366</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>    lat  lon                                                         members</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 &lt;NA&gt; &lt;NA&gt; 174 members: way/372006138/, way/372006137/, way/486335278/,...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                  tags</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 9 tags: distance=62.65 | name=GR 179 Sender dels Maquis | network=nwn | operator...</span>
 <span class="r-in"><span></span></span>
 <span class="r-in"><span><span class="va">rel</span> <span class="op">&lt;-</span> <span class="fu">osm_relations_object</span><span class="op">(</span>osm_type <span class="op">=</span> <span class="st">"relation"</span>, osm_id <span class="op">=</span> <span class="fl">342792</span><span class="op">)</span></span></span>
 <span class="r-in"><span><span class="va">rel</span></span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [1] type      id        visible   version   changeset timestamp user     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>  [8] uid       lat       lon       members   tags     </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> &lt;0 rows&gt; (or 0-length row.names)</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>       type       id visible version changeset           timestamp</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 relation   349012    TRUE     108 148725656 2024-03-16 10:50:43</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 relation 11739086    TRUE     109 148820542 2024-03-18 14:38:52</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                user      uid  lat  lon</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 Hugoren Martinako  3392826 &lt;NA&gt; &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2          Langenb1 20134577 &lt;NA&gt; &lt;NA&gt;</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                           members</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 392 members: node/21323935/admin_centre, way/86411973/outer,...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 1032 members: node/34105607/admin_centre, node/8000963555/la...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>                                                                                  tags</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1 36 tags: admin_level=6 | alt_name:gl=Alacante | border_type=province | boundary=...</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2 54 tags: alt_name=País Valencià | alt_name:ca=País Valencià | boundary=political...</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

@@ -115,8 +115,28 @@ also configure the authentication parameters needed for <code>PUT</code>, <code>
 
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
-    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="fu">set_osmapi_connection</span><span class="op">(</span>server <span class="op">=</span> <span class="st">"testing"</span><span class="op">)</span></span></span>
+    <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">ori</span> <span class="op">&lt;-</span> <span class="fu">get_osmapi_url</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="fu">set_osmapi_connection</span><span class="op">(</span>server <span class="op">=</span> <span class="st">"testing"</span><span class="op">)</span></span></span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> Logged out from https://api.openstreetmap.org</span>
+<span class="r-in"><span><span class="fu">get_osmapi_url</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://master.apis.dev.openstreetmap.org"</span>
+<span class="r-in"><span><span class="fu">set_osmapi_connection</span><span class="op">(</span>server <span class="op">=</span> <span class="st">"openstreetmap.org"</span><span class="op">)</span></span></span>
+<span class="r-msg co"><span class="r-pr">#&gt;</span> Logged out from https://master.apis.dev.openstreetmap.org</span>
+<span class="r-in"><span><span class="fu">get_osmapi_url</span><span class="op">(</span><span class="op">)</span></span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> [1] "https://api.openstreetmap.org"</span>
+<span class="r-in"><span></span></span>
+<span class="r-in"><span><span class="co">## Restore options</span></span></span>
+<span class="r-in"><span><span class="kw">if</span> <span class="op">(</span><span class="va">ori</span> <span class="op">==</span> <span class="st">"https://api.openstreetmap.org"</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu">set_osmapi_connection</span><span class="op">(</span>server <span class="op">=</span> <span class="st">"openstreetmap.org"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="kw">else</span> <span class="kw">if</span> <span class="op">(</span><span class="va">ori</span> <span class="op">==</span> <span class="st">"https://master.apis.dev.openstreetmap.org"</span><span class="op">)</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="fu">set_osmapi_connection</span><span class="op">(</span>server <span class="op">=</span> <span class="st">"testing"</span><span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span> <span class="kw">else</span> <span class="op">{</span></span></span>
+<span class="r-in"><span>  <span class="kw"><a href="https://rdrr.io/r/base/warning.html" class="external-link">warning</a></span><span class="op">(</span></span></span>
+<span class="r-in"><span>    <span class="st">"A non standard osmapiR connection detected ("</span>, <span class="va">ori</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"). If you configured manually options like \"osmapir.base_api_url\" or \"osmapir.oauth_id\", "</span>,</span></span>
+<span class="r-in"><span>    <span class="st">"configure it again."</span></span></span>
+<span class="r-in"><span>  <span class="op">)</span></span></span>
+<span class="r-in"><span><span class="op">}</span></span></span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

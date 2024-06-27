@@ -88,8 +88,7 @@ for the current value), not overlapping the dateline.</p></dd>
     <div class="section level2">
     <h2 id="ref-examples">Examples<a class="anchor" aria-label="anchor" href="#ref-examples"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span class="r-in"><span><span class="va">feed_notes</span> <span class="op">&lt;-</span> <span class="fu">osm_feed_notes</span><span class="op">(</span>bbox <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">0.8205414</span>, <span class="fl">40.6686604</span>, <span class="fl">0.8857727</span>, <span class="fl">40.7493377</span><span class="op">)</span><span class="op">)</span></span></span>
-<span class="r-in"><span><span class="co">## bbox as a character value also works. Equivalent call:</span></span></span>
-<span class="r-in"><span><span class="co"># feed_notes &lt;- osm_feed_notes(bbox = "0.8205414,40.6686604,0.8857727,40.7493377")</span></span></span>
+<span class="r-in"><span><span class="co">## bbox as a character value also works (bbox = "0.8205414,40.6686604,0.8857727,40.7493377").</span></span></span>
 <span class="r-in"><span><span class="va">feed_notes</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> {xml_document}</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> &lt;rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#" xmlns:georss="http://www.georss.org/georss"&gt;</span>
