@@ -261,5 +261,11 @@ Useful links:
 \author{
 \strong{Maintainer}: Joan Maspons \email{joanmaspons@gmail.com} (\href{https://orcid.org/0000-0003-2286-8727}{ORCID}) [copyright holder]
 
+Other contributors:
+\itemize{
+  \item Jon Harmon (\href{https://orcid.org/0000-0003-4781-4346}{ORCID}) (Jon reviewed the package for rOpenSci, see https://github.com/ropensci/software-review/issues/633) [reviewer]
+  \item Carlos Cámara (\href{https://orcid.org/0000-0002-9378-0549}{ORCID}) (Carles reviewed the package for rOpenSci, see https://github.com/ropensci/software-review/issues/633) [reviewer]
+}
+
 }
 \keyword{internal}
