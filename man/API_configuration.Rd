@@ -46,7 +46,24 @@ also configure the authentication parameters needed for \code{PUT}, \code{POST} 
 For further details, see \url{https://wiki.openstreetmap.org/wiki/API_v0.6}.
 }
 \examples{
+ori <- get_osmapi_url()
 set_osmapi_connection(server = "testing")
+get_osmapi_url()
+set_osmapi_connection(server = "openstreetmap.org")
+get_osmapi_url()
+
+## Restore options
+if (ori == "https://api.openstreetmap.org") {
+  set_osmapi_connection(server = "openstreetmap.org")
+} else if (ori == "https://master.apis.dev.openstreetmap.org") {
+  set_osmapi_connection(server = "testing")
+} else {
+  warning(
+    "A non standard osmapiR connection detected (", ori,
+    "). If you configured manually options like \"osmapir.base_api_url\" or \"osmapir.oauth_id\", ",
+    "configure it again."
+  )
+}
 }
 \seealso{
 Other API functions: 
