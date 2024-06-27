@@ -98,8 +98,7 @@ The comment properties (\code{uid}, \code{user}, \code{user_url}) will be omitte
 }
 \examples{
 notes <- osm_read_bbox_notes(bbox = c(3.7854767, 39.7837403, 4.3347931, 40.1011851), limit = 10)
-## bbox as a character value also works. Equivalent call:
-# osm_read_bbox_notes(bbox = "3.7854767,39.7837403,4.3347931,40.1011851", limit = 10)
+## bbox as a character value also works (bbox = "3.7854767,39.7837403,4.3347931,40.1011851").
 notes
 }
 \seealso{

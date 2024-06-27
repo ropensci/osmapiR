@@ -52,8 +52,7 @@ use the Overpass API. A similar function to download OSM objects using Overpass,
 }
 \examples{
 map_data <- osm_bbox_objects(bbox = c(1.8366775, 41.8336843, 1.8379971, 41.8344537))
-## bbox as a character value also works. Equivalent call:
-# map_data <- osm_bbox_objects(bbox = "1.8366775,41.8336843,1.8379971,41.8344537")
+## bbox as a character value also works (bbox = "1.8366775,41.8336843,1.8379971,41.8344537").
 map_data
 }
 \seealso{

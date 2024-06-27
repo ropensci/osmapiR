@@ -62,8 +62,7 @@ split due to server pagination. Public traces are united using matching URL.
 }
 \examples{
 pts_gps <- osm_get_points_gps(bbox = c(-0.3667545, 40.2153246, -0.3354263, 40.2364915))
-## bbox as a character value also works. Equivalent call:
-# pts_gps <- osm_get_points_gps(bbox = "-0.3667545,40.2153246,-0.3354263,40.2364915")
+## bbox as a character value also works(bbox = "-0.3667545,40.2153246,-0.3354263,40.2364915").
 pts_gps
 
 ## get attributes

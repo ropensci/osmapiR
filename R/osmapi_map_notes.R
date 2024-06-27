@@ -183,8 +183,7 @@
 #'
 #' @examples
 #' notes <- osm_read_bbox_notes(bbox = c(3.7854767, 39.7837403, 4.3347931, 40.1011851), limit = 10)
-#' ## bbox as a character value also works. Equivalent call:
-#' # osm_read_bbox_notes(bbox = "3.7854767,39.7837403,4.3347931,40.1011851", limit = 10)
+#' ## bbox as a character value also works (bbox = "3.7854767,39.7837403,4.3347931,40.1011851").
 #' notes
 osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("R", "xml", "rss", "json", "gpx")) {
   format <- match.arg(format)
@@ -816,8 +815,7 @@ osm_search_notes <- function(
 #'
 #' @examples
 #' feed_notes <- osm_feed_notes(bbox = c(0.8205414, 40.6686604, 0.8857727, 40.7493377))
-#' ## bbox as a character value also works. Equivalent call:
-#' # feed_notes <- osm_feed_notes(bbox = "0.8205414,40.6686604,0.8857727,40.7493377")
+#' ## bbox as a character value also works (bbox = "0.8205414,40.6686604,0.8857727,40.7493377").
 #' feed_notes
 osm_feed_notes <- function(bbox) {
   req <- osmapi_request()
