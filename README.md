@@ -12,6 +12,8 @@ coverage](https://codecov.io/gh/jmaspons/osmapiR/branch/main/graph/badge.svg)](h
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/osmapiR)](https://cran.r-project.org/package=osmapiR)
+[![CRAN
+Downloads](https://cranlogs.r-pkg.org/badges/grand-total/osmapiR)](https://cran.r-project.org/package=osmapiR)
 [![](https://badges.ropensci.org/633_status.svg)](https://github.com/ropensci/software-review/issues/633)
 <!-- badges: end -->
 
@@ -39,6 +41,12 @@ the [Automated Edits code of
 conduct](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct).
 
 ## Installation
+
+To install latest CRAN version:
+
+``` r
+install.packages("osmapiR")
+```
 
 You can install the development version of osmapiR from
 [GitHub](https://github.com) with:

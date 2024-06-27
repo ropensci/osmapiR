@@ -1,5 +1,6 @@
 ^.*\.Rproj$
 ^CODE_OF_CONDUCT\.md$
+^CRAN-SUBMISSION$
 ^LICENSE\.md$
 ^README\.Rmd$
 ^\.Rproj\.user$
@@ -9,5 +10,6 @@
 ^\.pre-commit-config\.yaml$
 ^_pkgdown\.yml$
 ^codemeta\.json$
+^cran-comments\.md$
 ^docs$
 ^pkgdown$

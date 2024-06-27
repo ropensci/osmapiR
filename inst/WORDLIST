@@ -325,10 +325,12 @@ Reinholdtsen
 relatedLink
 relationmember
 relationmembers
+releaseNotes
 rels
 repostatus
 reprex
 req
+Resubmission
 rlang
 rmarkdown
 Rmd
@@ -413,6 +415,7 @@ upd
 uri
 URI
 URL's
+urlchecker
 urlencoded
 UseMethod
 userName
@@ -423,6 +426,7 @@ uvAy
 vals
 vapply
 VAZUTwcmHJLwDEX
+Vectorization
 Vectorized
 vectorizing
 VignetteBuilder
