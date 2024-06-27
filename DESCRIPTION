@@ -1,6 +1,6 @@
 Type: Package
 Package: osmapiR
-Title: OpenStreetMap API
+Title: 'OpenStreetMap' API
 Version: 0.0.0.40
 Authors@R: c(
     person("Joan", "Maspons", , "joanmaspons@gmail.com", role = c("aut", "cre", "cph"),
@@ -11,8 +11,8 @@ Authors@R: c(
            comment = c("Carles reviewed the package for rOpenSci, see https://github.com/ropensci/software-review/issues/633", ORCID = "0000-0002-9378-0549"))
   )
 Maintainer: Joan Maspons <joanmaspons@gmail.com>
-Description: Interface to OpenStreetMap API for fetching and saving data
-    from/to the OpenStreetMap database
+Description: Interface to 'OpenStreetMap API' for fetching and saving data
+    from/to the 'OpenStreetMap' database
     (<https://wiki.openstreetmap.org/wiki/API_v0.6>).
 License: GPL (>= 3)
 URL: https://jmaspons.github.io/osmapiR/,

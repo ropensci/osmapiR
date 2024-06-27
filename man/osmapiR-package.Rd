@@ -4,9 +4,9 @@
 \name{osmapiR-package}
 \alias{osmapiR}
 \alias{osmapiR-package}
-\title{osmapiR: OpenStreetMap API}
+\title{osmapiR: 'OpenStreetMap' API}
 \description{
-Interface to OpenStreetMap API for fetching and saving data from/to the OpenStreetMap database (\url{https://wiki.openstreetmap.org/wiki/API_v0.6}).
+Interface to 'OpenStreetMap API' for fetching and saving data from/to the 'OpenStreetMap' database (\url{https://wiki.openstreetmap.org/wiki/API_v0.6}).
 }
 \details{
 An R interface to \href{https://wiki.openstreetmap.org/wiki/API_v0.6}{OpenStreetMap API v0.6} for fetching and saving raw
