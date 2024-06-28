@@ -1,3 +1,5 @@
+# osmapiR (development version)
+
 # osmapiR 0.1.0
 
 * Initial CRAN submission implementing calls to all the API endpoints.
