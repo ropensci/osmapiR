@@ -17,11 +17,11 @@ Downloads](https://cranlogs.r-pkg.org/badges/grand-total/osmapiR)](https://cran.
 [![](https://badges.ropensci.org/633_status.svg)](https://github.com/ropensci/software-review/issues/633)
 <!-- badges: end -->
 
-An R interface to [OpenStreetMap API
+An R interface to the [OpenStreetMap API
 v0.6](https://wiki.openstreetmap.org/wiki/API_v0.6) for fetching and
 saving raw geodata from/to the OpenStreetMap database. This package
-allows to access OSM maps data as well as map notes, GPS traces,
-changelogs and users data. To access the OSM map data for purposes other
+allows access to OSM maps data as well as map notes, GPS traces,
+changelogs, and users data. To access OSM map data for purposes other
 than editing or exploring the history of the objects see [Related
 packages](README.md#related-packages).
 
@@ -73,18 +73,18 @@ For basic examples, check
 - [osmdata](https://cran.r-project.org/package=osmdata) implements the
   Overpass API to query data from OSM.
 - [osmextract](https://cran.r-project.org/package=osmextract) matches,
-  downloads, converts and imports bulk OSM data (`.pbf` files)
+  downloads, converts, and imports bulk OSM data (`.pbf` files).
 - [OpenStreetMap](https://cran.r-project.org/package=OpenStreetMap)
-  Accesses high resolution raster maps using the OpenStreetMap protocol.
+  accesses high resolution raster maps using the OpenStreetMap protocol.
 
 `osmapiR` is the only package to access other OSM data than the maps
-data (map notes, GPS traces, changelogs and users). It can be also
-useful to get the history of the OSM objects and is the only package
-that allows editing and upload any kind of data.
+data (map notes, GPS traces, changelogs and users). It is also useful to
+get the history of the OSM objects and is the only package that allows
+editing and upload any kind of data.
 
-To access the OSM map data for purposes other than editing or exploring
-the history of the objects, perhaps is better to use the other packages
-that implements the Overpass API
+To access OSM map data for purposes other than editing or exploring the
+history of objects, it may be better to use other packages that
+implement the Overpass API
 ([osmdata](https://cran.r-project.org/package=osmdata)) or that works
 with `.pbf` files
 ([osmextract](https://cran.r-project.org/package=osmextract)).
