@@ -4,17 +4,23 @@
   "identifier": "osmapiR",
   "description": "Interface to 'OpenStreetMap API' for fetching and saving data from/to the 'OpenStreetMap' database (<https://wiki.openstreetmap.org/wiki/API_v0.6>).",
   "name": "osmapiR: 'OpenStreetMap' API",
-  "relatedLink": "https://jmaspons.github.io/osmapiR/",
+  "relatedLink": ["https://jmaspons.github.io/osmapiR/", "https://CRAN.R-project.org/package=osmapiR"],
   "codeRepository": "https://github.com/jmaspons/osmapiR",
   "issueTracker": "https://github.com/jmaspons/osmapiR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.1.0",
+  "version": "0.1.0.9001",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
     "url": "https://r-project.org"
   },
   "runtimePlatform": "R version 4.4.1 (2024-06-14)",
+  "provider": {
+    "@id": "https://cran.r-project.org",
+    "@type": "Organization",
+    "name": "Comprehensive R Archive Network (CRAN)",
+    "url": "https://cran.r-project.org"
+  },
   "author": [
     {
       "@type": "Person",
@@ -145,7 +151,28 @@
     "SystemRequirements": null
   },
   "keywords": ["openstreetmap", "OSM", "openstreetmap-api", "osmapi", "API", "osm", "r", "r-package"],
-  "fileSize": "13368.165KB",
+  "fileSize": "13370.387KB",
+  "citation": [
+    {
+      "@type": "SoftwareSourceCode",
+      "datePublished": "2024",
+      "author": [
+        {
+          "@type": "Person",
+          "givenName": "Joan",
+          "familyName": "Maspons",
+          "email": "joanmaspons@gmail.com",
+          "@id": "https://orcid.org/0000-0003-2286-8727"
+        }
+      ],
+      "name": "osmapiR: OpenStreetMap API",
+      "identifier": "10.32614/CRAN.package.osmapiR",
+      "url": "https://jmaspons.github.io/osmapiR/",
+      "description": "R package version 0.1.0.9001 \nhttps://github.com/jmaspons/osmapiR",
+      "@id": "https://doi.org/10.32614/CRAN.package.osmapiR",
+      "sameAs": "https://doi.org/10.32614/CRAN.package.osmapiR"
+    }
+  ],
   "releaseNotes": "https://github.com/jmaspons/osmapiR/blob/master/NEWS.md",
   "readme": "https://github.com/jmaspons/osmapiR/blob/main/README.md",
   "contIntegration": ["https://github.com/jmaspons/osmapiR/actions/workflows/R-CMD-check.yaml", "https://app.codecov.io/gh/jmaspons/osmapiR", "https://github.com/jmaspons/osmapiR/actions/workflows/pkgdown.yaml"],

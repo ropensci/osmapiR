@@ -1,5 +1,8 @@
 # osmapiR (development version)
 
+* Upgrade logo by @atarom
+* Add inst/CITATION
+
 # osmapiR 0.1.0
 
 * Initial CRAN submission implementing calls to all the API endpoints.
