@@ -3,22 +3,24 @@
     Code
       print(x)
     Output
-        type       id visible version changeset           timestamp   user     uid
-      1 node 35308286    TRUE      15  63949815 2018-10-28 13:07:37 ManelG 2491053
+        type       id visible version changeset           timestamp     user      uid
+      1 node 35308286    TRUE      17 140341361 2023-08-24 20:19:22 jmaspons 11725140
                lat       lon members
       1 42.5189047 2.4565596    NULL
                                                                                        tags
-      1 5 tags: ele=2784.66 | name=Pic du Canigou | name:ca=Pic del Canigó | natural=pea...
+      1 7 tags: ele=2784.66 | name=Pic du Canigou | name:ca=Pic del Canigó | natural=pea...
 
 ---
 
     Code
       print(x)
     Output
-        type       id visible version changeset           timestamp     user      uid
-      1  way 13073736    TRUE      21 114656477 2021-12-07 11:27:19 jmaspons 11725140
-         lat  lon                                                         members
-      1 <NA> <NA> 61 nodes: 6771540804, 6771540805, 6771540806, 6957604952, 67...
+        type       id visible version changeset           timestamp
+      1  way 13073736    TRUE      27 140205821 2023-08-22 01:47:19
+                      user     uid  lat  lon
+      1 SomeoneElse_Revert 1778799 <NA> <NA>
+                                                                members
+      1 61 nodes: 6771540804, 6771540805, 6771540806, 6957604952, 67...
                                                                                        tags
       1 12 tags: alt_name:ca=Torres de Quart | building=tower | building:levels=4 | buil...
 
@@ -27,50 +29,56 @@
     Code
       print(x)
     Output
-            type    id visible version changeset           timestamp  user     uid
-      1 relation 40581    TRUE      53 135982205 2023-05-11 15:10:18 l2212 1775455
-         lat  lon                                                         members
-      1 <NA> <NA> 20 members: node/72994199/admin_centre, way/165579897/outer,...
+            type    id visible version changeset           timestamp        user
+      1 relation 40581    TRUE      62 151100114 2024-05-09 13:23:23 Siciliapars
+             uid  lat  lon
+      1 21349271 <NA> <NA>
+                                                                members
+      1 20 members: node/72994199/admin_centre, way/165579897/outer,...
                                                                                        tags
-      1 22 tags: admin_level=8 | boundary=administrative | name=L'Alguer/Alghero | name:...
+      1 22 tags: admin_level=8 | boundary=administrative | name=Alghero / l'Alguer | nam...
 
 # osm_history_object works
 
     Code
       print(x)
     Output
-         type       id visible version changeset           timestamp     user     uid
-      1  node 35308286    TRUE       1    292412 2007-09-02 14:55:33  Skywave   10927
-      2  node 35308286    TRUE       2     39997 2007-12-02 19:28:54  Skywave   10927
-      3  node 35308286    TRUE       3     39997 2007-12-02 19:29:01  Skywave   10927
-      4  node 35308286    TRUE       4    131335 2007-12-06 21:08:56  Skywave   10927
-      5  node 35308286    TRUE       5    544716 2008-01-05 17:55:28  Skywave   10927
-      6  node 35308286    TRUE       6    433656 2008-08-28 00:14:47  Skywave   10927
-      7  node 35308286    TRUE       7     61302 2008-10-04 20:55:22  Skywave   10927
-      8  node 35308286    TRUE       8    731089 2009-03-03 20:23:52   Eric S   45284
-      9  node 35308286    TRUE       9   4188890 2010-03-21 10:17:52 petrovsk   90394
-      10 node 35308286    TRUE      10   5978159 2010-10-07 13:28:57  Skywave   10927
-      11 node 35308286    TRUE      11   5980618 2010-10-07 19:16:33  Skywave   10927
-      12 node 35308286    TRUE      12   9467521 2011-10-04 08:48:09  WernerP  315015
-      13 node 35308286    TRUE      13  13343795 2012-10-03 07:49:42      FMB  316958
-      14 node 35308286    TRUE      14  18407951 2013-10-17 18:21:18    janes  428521
-      15 node 35308286    TRUE      15  63949815 2018-10-28 13:07:37   ManelG 2491053
-                lat       lon members
-      1  42.5178841 2.4567366    NULL
-      2  42.5116144 2.4580973    NULL
-      3  42.5184471 2.4580973    NULL
-      4  42.5184471 2.4580973    NULL
-      5  42.5184471 2.4580973    NULL
-      6  42.5184481 2.4580929    NULL
-      7  42.5187840 2.4567709    NULL
-      8  42.5187840 2.4567709    NULL
-      9  42.5189368 2.4566062    NULL
-      10 42.5189176 2.4565525    NULL
-      11 42.5189047 2.4565596    NULL
-      12 42.5189047 2.4565596    NULL
-      13 42.5189047 2.4565596    NULL
-      14 42.5189047 2.4565596    NULL
-      15 42.5189047 2.4565596    NULL
+         type       id visible version changeset           timestamp     user
+      1  node 35308286    TRUE       1    292412 2007-09-02 14:55:33  Skywave
+      2  node 35308286    TRUE       2     39997 2007-12-02 19:28:54  Skywave
+      3  node 35308286    TRUE       3     39997 2007-12-02 19:29:01  Skywave
+      4  node 35308286    TRUE       4    131335 2007-12-06 21:08:56  Skywave
+      5  node 35308286    TRUE       5    544716 2008-01-05 17:55:28  Skywave
+      6  node 35308286    TRUE       6    433656 2008-08-28 00:14:47  Skywave
+      7  node 35308286    TRUE       7     61302 2008-10-04 20:55:22  Skywave
+      8  node 35308286    TRUE       8    731089 2009-03-03 20:23:52   Eric S
+      9  node 35308286    TRUE       9   4188890 2010-03-21 10:17:52 petrovsk
+      10 node 35308286    TRUE      10   5978159 2010-10-07 13:28:57  Skywave
+      11 node 35308286    TRUE      11   5980618 2010-10-07 19:16:33  Skywave
+      12 node 35308286    TRUE      12   9467521 2011-10-04 08:48:09  WernerP
+      13 node 35308286    TRUE      13  13343795 2012-10-03 07:49:42      FMB
+      14 node 35308286    TRUE      14  18407951 2013-10-17 18:21:18    janes
+      15 node 35308286    TRUE      15  63949815 2018-10-28 13:07:37   ManelG
+      16 node 35308286    TRUE      16 140341359 2023-08-24 20:19:21 jmaspons
+      17 node 35308286    TRUE      17 140341361 2023-08-24 20:19:22 jmaspons
+              uid        lat       lon members
+      1     10927 42.5178841 2.4567366    NULL
+      2     10927 42.5116144 2.4580973    NULL
+      3     10927 42.5184471 2.4580973    NULL
+      4     10927 42.5184471 2.4580973    NULL
+      5     10927 42.5184471 2.4580973    NULL
+      6     10927 42.5184481 2.4580929    NULL
+      7     10927 42.5187840 2.4567709    NULL
+      8     45284 42.5187840 2.4567709    NULL
+      9     90394 42.5189368 2.4566062    NULL
+      10    10927 42.5189176 2.4565525    NULL
+      11    10927 42.5189047 2.4565596    NULL
+      12   315015 42.5189047 2.4565596    NULL
+      13   316958 42.5189047 2.4565596    NULL
+      14   428521 42.5189047 2.4565596    NULL
+      15  2491053 42.5189047 2.4565596    NULL
+      16 11725140 42.5189047 2.4565596    NULL
+      17 11725140 42.5189047 2.4565596    NULL
                                                                                         tags
       1  5 tags: altitude=2784,66 | created_by=Potlatch alpha | ele=2784,66 | name=Pic du...
       2  5 tags: altitude=2784,66 | created_by=Potlatch 0.5d | ele=2784,66 | name=Pic du ...
@@ -87,6 +95,8 @@
       13 4 tags: ele=2784.66 | name=Pic du Canigou | name:ca=Pica del Canigó | natural=pe...
       14 4 tags: ele=2784.66 | name=Pic du Canigou | name:ca=Pic del Canigó | natural=pea...
       15 5 tags: ele=2784.66 | name=Pic du Canigou | name:ca=Pic del Canigó | natural=pea...
+      16 6 tags: ele=2784.66 | name=Pic du Canigou | name:ca=Pic del Canigó | natural=pea...
+      17 7 tags: ele=2784.66 | name=Pic du Canigou | name:ca=Pic del Canigó | natural=pea...
 
 ---
 
@@ -115,28 +125,40 @@
       19  way 13073736    TRUE      19  92154431 2020-10-08 07:42:45
       20  way 13073736    TRUE      20  92482152 2020-10-14 15:49:32
       21  way 13073736    TRUE      21 114656477 2021-12-07 11:27:19
-                       user      uid  lat  lon
-      1         ivansanchez     5265 <NA> <NA>
-      2                jgui     8016 <NA> <NA>
-      3               morsi   139580 <NA> <NA>
-      4             rubensd   472193 <NA> <NA>
-      5          pere prlpz  1513644 <NA> <NA>
-      6              qientx  2258523 <NA> <NA>
-      7            gorogoro  2937174 <NA> <NA>
-      8       Леонид Библис  4979200 <NA> <NA>
-      9       Marion_Moseby  5379200 <NA> <NA>
-      10           av223119   190711 <NA> <NA>
-      11      Baxe Nafarroa  6672338 <NA> <NA>
-      12     homocomputeris  3777620 <NA> <NA>
-      13            rubensd   472193 <NA> <NA>
-      14      CapitanColoto  8940402 <NA> <NA>
-      15      CapitanColoto  8940402 <NA> <NA>
-      16 editemapes_imports 10063912 <NA> <NA>
-      17      Georg_M_Weber 10241965 <NA> <NA>
-      18          MikelCalo 11126976 <NA> <NA>
-      19       Emilio Gomez     2904 <NA> <NA>
-      20           jmaspons 11725140 <NA> <NA>
-      21           jmaspons 11725140 <NA> <NA>
+      22  way 13073736    TRUE      22 140148279 2023-08-20 19:16:50
+      23  way 13073736    TRUE      23 140150766 2023-08-20 20:29:55
+      24  way 13073736    TRUE      24 140156836 2023-08-21 00:40:48
+      25  way 13073736    TRUE      25 140161821 2023-08-21 05:35:09
+      26  way 13073736    TRUE      26 140197966 2023-08-21 19:33:10
+      27  way 13073736    TRUE      27 140205821 2023-08-22 01:47:19
+                                 user      uid  lat  lon
+      1                   ivansanchez     5265 <NA> <NA>
+      2                          jgui     8016 <NA> <NA>
+      3                         morsi   139580 <NA> <NA>
+      4                       rubensd   472193 <NA> <NA>
+      5                    pere prlpz  1513644 <NA> <NA>
+      6                        qientx  2258523 <NA> <NA>
+      7                      gorogoro  2937174 <NA> <NA>
+      8                 Леонид Библис  4979200 <NA> <NA>
+      9                 Marion_Moseby  5379200 <NA> <NA>
+      10                     av223119   190711 <NA> <NA>
+      11                Baxe Nafarroa  6672338 <NA> <NA>
+      12               homocomputeris  3777620 <NA> <NA>
+      13                      rubensd   472193 <NA> <NA>
+      14                CapitanColoto  8940402 <NA> <NA>
+      15                CapitanColoto  8940402 <NA> <NA>
+      16           editemapes_imports 10063912 <NA> <NA>
+      17                Georg_M_Weber 10241965 <NA> <NA>
+      18                    MikelCalo 11126976 <NA> <NA>
+      19                 Emilio Gomez     2904 <NA> <NA>
+      20                     jmaspons 11725140 <NA> <NA>
+      21                     jmaspons 11725140 <NA> <NA>
+      22                     CorfuF08 20047280 <NA> <NA>
+      23                      Thiskal 15944521 <NA> <NA>
+      24 OverRtliyBoomrYxtracalicular 20047746 <NA> <NA>
+      25                    NorthCrab 15215305 <NA> <NA>
+      26     UnfNYllyHyperdposityL736 20048566 <NA> <NA>
+      27           SomeoneElse_Revert  1778799 <NA> <NA>
                                                                  members
       1  17 nodes: 120303676, 120303671, 120303597, 120303605, 120303...
       2  17 nodes: 120303676, 120303671, 120303597, 120303605, 120303...
@@ -159,6 +181,12 @@
       19 61 nodes: 6771540804, 6771540805, 6771540806, 6957604952, 67...
       20 61 nodes: 6771540804, 6771540805, 6771540806, 6957604952, 67...
       21 61 nodes: 6771540804, 6771540805, 6771540806, 6957604952, 67...
+      22 61 nodes: 6771540804, 6771540805, 6771540806, 6957604952, 67...
+      23 61 nodes: 6771540804, 6771540805, 6771540806, 6957604952, 67...
+      24 61 nodes: 6771540804, 6771540805, 6771540806, 6957604952, 67...
+      25 61 nodes: 6771540804, 6771540805, 6771540806, 6957604952, 67...
+      26 61 nodes: 6771540804, 6771540805, 6771540806, 6957604952, 67...
+      27 61 nodes: 6771540804, 6771540805, 6771540806, 6957604952, 67...
                                                                                         tags
       1  4 tags: created_by=Potlatch alpha | historic=castle | name=Torres de Quart | tou...
       2                                   2 tags: building=tower | created_by=Potlatch alpha
@@ -181,6 +209,12 @@
       19 10 tags: alt_name:ca=Torres de Quart | building=tower | building:levels=4 | buil...
       20 11 tags: alt_name:ca=Torres de Quart | building=tower | building:levels=4 | buil...
       21 12 tags: alt_name:ca=Torres de Quart | building=tower | building:levels=4 | buil...
+      22 11 tags: alt_name:ca=Torres de Quart | building=tower | building:levels=4 | buil...
+      23 12 tags: alt_name:ca=Torres de Quart | building=tower | building:levels=4 | buil...
+      24 11 tags: alt_name:ca=Torres de Quart | building=tower | building:levels=4 | buil...
+      25 12 tags: alt_name:ca=Torres de Quart | building=tower | building:levels=4 | buil...
+      26 11 tags: alt_name:ca=Torres de Quart | building=tower | building:levels=4 | buil...
+      27 12 tags: alt_name:ca=Torres de Quart | building=tower | building:levels=4 | buil...
 
 ---
 
@@ -241,6 +275,15 @@
       51 relation 40581    TRUE      51 118611187 2022-03-17 21:13:14
       52 relation 40581    TRUE      52 124236416 2022-07-29 15:11:43
       53 relation 40581    TRUE      53 135982205 2023-05-11 15:10:18
+      54 relation 40581    TRUE      54 139761106 2023-08-11 18:02:05
+      55 relation 40581    TRUE      55 143271690 2023-10-28 16:39:31
+      56 relation 40581    TRUE      56 150504881 2024-04-25 16:28:13
+      57 relation 40581    TRUE      57 150508547 2024-04-25 18:02:27
+      58 relation 40581    TRUE      58 150515740 2024-04-25 22:10:14
+      59 relation 40581    TRUE      59 150693583 2024-04-30 07:43:50
+      60 relation 40581    TRUE      60 150702242 2024-04-30 11:14:53
+      61 relation 40581    TRUE      61 150722050 2024-04-30 18:29:37
+      62 relation 40581    TRUE      62 151100114 2024-05-09 13:23:23
                        user      uid  lat  lon
       1              simone      137 <NA> <NA>
       2               lerks   188477 <NA> <NA>
@@ -295,6 +338,15 @@
       51     Gianfranco2014  1928626 <NA> <NA>
       52           ftrebien   401472 <NA> <NA>
       53              l2212  1775455 <NA> <NA>
+      54           jmaspons 11725140 <NA> <NA>
+      55         b-jazz-bot  9451067 <NA> <NA>
+      56        Siciliapars 21349271 <NA> <NA>
+      57            cucunto 21350717 <NA> <NA>
+      58        Siciliapars 21349271 <NA> <NA>
+      59             froipe 21385987 <NA> <NA>
+      60         Adriaticum 21387693 <NA> <NA>
+      61             froipe 21385987 <NA> <NA>
+      62        Siciliapars 21349271 <NA> <NA>
                                                                  members
       1  7 members: way/27966652/, way/27966705/, way/27966846/, way/...
       2  7 members: way/27966652/outer, way/27966705/outer, way/27966...
@@ -349,6 +401,15 @@
       51 18 members: node/72994199/admin_centre, way/165579897/outer,...
       52 20 members: node/72994199/admin_centre, way/165579897/outer,...
       53 20 members: node/72994199/admin_centre, way/165579897/outer,...
+      54 20 members: node/72994199/admin_centre, way/165579897/outer,...
+      55 20 members: node/72994199/admin_centre, way/165579897/outer,...
+      56 20 members: node/72994199/admin_centre, way/165579897/outer,...
+      57 20 members: node/72994199/admin_centre, way/165579897/outer,...
+      58 20 members: node/72994199/admin_centre, way/165579897/outer,...
+      59 20 members: node/72994199/admin_centre, way/165579897/outer,...
+      60 20 members: node/72994199/admin_centre, way/165579897/outer,...
+      61 20 members: node/72994199/admin_centre, way/165579897/outer,...
+      62 20 members: node/72994199/admin_centre, way/165579897/outer,...
                                                                                         tags
       1  6 tags: admin_level=8 | boundary=administrative | created_by=ShapeToOSM - Laser ...
       2  5 tags: admin_level=8 | boundary=administrative | name=Alghero | source=Based on...
@@ -403,6 +464,15 @@
       51 22 tags: admin_level=8 | boundary=administrative | name=Alghero - L'Alguer | nam...
       52 22 tags: admin_level=8 | boundary=administrative | name=Alghero - L'Alguer | nam...
       53 22 tags: admin_level=8 | boundary=administrative | name=L'Alguer/Alghero | name:...
+      54 22 tags: admin_level=8 | boundary=administrative | name=l'Alguer/Alghero | name:...
+      55 22 tags: admin_level=8 | boundary=administrative | name=l'Alguer/Alghero | name:...
+      56 22 tags: admin_level=8 | boundary=administrative | name=Alghero / l'Alguer | nam...
+      57 22 tags: admin_level=8 | boundary=administrative | name=l'Alguer/Alghero | name:...
+      58 22 tags: admin_level=8 | boundary=administrative | name=Alghero / l'Alguer | nam...
+      59 22 tags: admin_level=8 | boundary=administrative | name=l'Alguer/Alghero | name:...
+      60 22 tags: admin_level=8 | boundary=administrative | name=Alghero / l'Alguer | nam...
+      61 22 tags: admin_level=8 | boundary=administrative | name=l'Alguer/Alghero | name:...
+      62 22 tags: admin_level=8 | boundary=administrative | name=Alghero / l'Alguer | nam...
 
 # osm_version_object works
 
@@ -527,7 +597,7 @@
       print(x)
     Output
             type      id visible version changeset           timestamp
-      1 relation  347424    TRUE      15 135030675 2023-04-17 19:56:44
+      1 relation  347424    TRUE      17 150682923 2024-04-29 21:58:54
       2 relation 1692442    TRUE       8 102509369 2021-04-07 23:06:52
                      user     uid  lat  lon
       1 Hugoren Martinako 3392826 <NA> <NA>
@@ -536,7 +606,7 @@
       1 10 members: way/45365865/outer, way/45330518/outer, way/4537...
       2 34 members: way/45372121/outer, way/45365895/outer, way/4536...
                                                                                        tags
-      1 15 tags: admin_level=8 | boundary=administrative | idee:name=Alcoi | ine:municip...
+      1 16 tags: admin_level=8 | boundary=administrative | idee:name=Alcoi | ine:municip...
       2 13 tags: admin_level=7 | alt_name=Alcoià | alt_name:es=Hoya de Alcoy | boundary=...
 
 ---
@@ -544,12 +614,10 @@
     Code
       print(x)
     Output
-            type      id visible version changeset           timestamp     user
-      1 relation 5524720    TRUE      35 135819835 2023-05-07 16:51:26 jmaspons
-             uid  lat  lon
-      1 11725140 <NA> <NA>
-                                                                members
-      1 166 members: way/1054059258/, way/372003030/, way/43054345/,...
+            type      id visible version changeset           timestamp   user    uid
+      1 relation 5524720    TRUE      38 153218834 2024-06-26 19:49:19 EliziR 605366
+         lat  lon                                                         members
+      1 <NA> <NA> 174 members: way/372006138/, way/372006137/, way/486335278/,...
                                                                                        tags
       1 9 tags: distance=62.65 | name=GR 179 Sender dels Maquis | network=nwn | operator...
 
@@ -558,17 +626,17 @@
     Code
       print(x)
     Output
-            type       id visible version changeset           timestamp     user
-      1 relation   349012    TRUE     104 133498794 2023-03-10 00:12:38 arte2002
-      2 relation 11739086    TRUE      98 134555232 2023-04-05 22:06:24 Jordi MF
-            uid  lat  lon
-      1  662113 <NA> <NA>
-      2 8278438 <NA> <NA>
+            type       id visible version changeset           timestamp
+      1 relation   349012    TRUE     108 148725656 2024-03-16 10:50:43
+      2 relation 11739086    TRUE     109 148820542 2024-03-18 14:38:52
+                     user      uid  lat  lon
+      1 Hugoren Martinako  3392826 <NA> <NA>
+      2          Langenb1 20134577 <NA> <NA>
                                                                 members
-      1 388 members: node/21323935/admin_centre, way/86411973/outer,...
-      2 1028 members: node/34105607/admin_centre, node/8000963555/la...
+      1 392 members: node/21323935/admin_centre, way/86411973/outer,...
+      2 1032 members: node/34105607/admin_centre, node/8000963555/la...
                                                                                        tags
-      1 35 tags: admin_level=6 | alt_name:gl=Alacante | border_type=province | boundary=...
+      1 36 tags: admin_level=6 | alt_name:gl=Alacante | border_type=province | boundary=...
       2 54 tags: alt_name=País Valencià | alt_name:ca=País Valencià | boundary=political...
 
 # osm_ways_node works

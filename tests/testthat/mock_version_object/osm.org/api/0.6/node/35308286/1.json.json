@@ -1,0 +1,27 @@
+{
+    "version": "0.6",
+    "generator": "OpenStreetMap server",
+    "copyright": "OpenStreetMap and contributors",
+    "attribution": "http://www.openstreetmap.org/copyright",
+    "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+    "elements": [
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5178841,
+            "lon": 2.4567366,
+            "timestamp": "2007-09-02T14:55:33Z",
+            "version": 1,
+            "changeset": 292412,
+            "user": "Skywave",
+            "uid": 10927,
+            "tags": {
+                "altitude": "2784,66",
+                "created_by": "Potlatch alpha",
+                "ele": "2784,66",
+                "name": "Pic du Canigou",
+                "natural": "peak"
+            }
+        }
+    ]
+}

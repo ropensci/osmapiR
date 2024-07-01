@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<osm version="0.6" generator="CGImap 0.9.3 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
  <node id="35308286" visible="true" version="1" changeset="292412" timestamp="2007-09-02T14:55:33Z" user="Skywave" uid="10927" lat="42.5178841" lon="2.4567366">
   <tag k="altitude" v="2784,66"/>
   <tag k="created_by" v="Potlatch alpha"/>
@@ -98,5 +98,22 @@
   <tag k="name:ca" v="Pic del Canigó"/>
   <tag k="natural" v="peak"/>
   <tag k="prominence" v="550"/>
+ </node>
+ <node id="35308286" visible="true" version="16" changeset="140341359" timestamp="2023-08-24T20:19:21Z" user="jmaspons" uid="11725140" lat="42.5189047" lon="2.4565596">
+  <tag k="ele" v="2784.66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="name:ca" v="Pic del Canigó"/>
+  <tag k="natural" v="peak"/>
+  <tag k="prominence" v="550"/>
+  <tag k="summit:cross" v="yes"/>
+ </node>
+ <node id="35308286" visible="true" version="17" changeset="140341361" timestamp="2023-08-24T20:19:22Z" user="jmaspons" uid="11725140" lat="42.5189047" lon="2.4565596">
+  <tag k="ele" v="2784.66"/>
+  <tag k="name" v="Pic du Canigou"/>
+  <tag k="name:ca" v="Pic del Canigó"/>
+  <tag k="natural" v="peak"/>
+  <tag k="prominence" v="550"/>
+  <tag k="summit:cross" v="yes"/>
+  <tag k="summit:register" v="no"/>
  </node>
 </osm>

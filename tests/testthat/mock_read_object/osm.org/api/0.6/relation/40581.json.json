@@ -1,0 +1,144 @@
+{
+    "version": "0.6",
+    "generator": "CGImap 0.9.3 (012345 ******.openstreetmap.org)",
+    "copyright": "OpenStreetMap and contributors",
+    "attribution": "http://www.openstreetmap.org/copyright",
+    "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+    "elements": [
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2024-05-09T13:23:23Z",
+            "version": 62,
+            "changeset": 151100114,
+            "user": "Siciliapars",
+            "uid": 21349271,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346184,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero / l'Alguer",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "l'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:la": "Algarium",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "https://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "ca:L'Alguer"
+            }
+        }
+    ]
+}

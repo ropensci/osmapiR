@@ -1,0 +1,284 @@
+{
+    "version": "0.6",
+    "generator": "CGImap 0.9.3 (012345 ******.openstreetmap.org)",
+    "copyright": "OpenStreetMap and contributors",
+    "attribution": "http://www.openstreetmap.org/copyright",
+    "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+    "elements": [
+        {
+            "type": "relation",
+            "id": 347424,
+            "timestamp": "2024-04-29T21:58:54Z",
+            "version": 17,
+            "changeset": 150682923,
+            "user": "Hugoren Martinako",
+            "uid": 3392826,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 45365865,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45330518,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45374969,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45378098,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45346173,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45378743,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45356699,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45333490,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45370538,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 1470837704,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "idee:name": "Alcoi",
+                "ine:municipio": "03009",
+                "name": "Alcoi / Alcoy",
+                "name:ca": "Alcoi",
+                "name:es": "Alcoy",
+                "name:gl": "Alcoi",
+                "official_name": "Alcoi / Alcoy",
+                "population": "59493",
+                "population:date": "2023",
+                "ref:ine": "03009000000",
+                "source": "BDLL25, EGRN, Instituto Geográfico Nacional",
+                "type": "boundary",
+                "wikidata": "Q494777",
+                "wikipedia": "ca:Alcoi"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 1692442,
+            "timestamp": "2021-04-07T23:06:52Z",
+            "version": 8,
+            "changeset": 102509369,
+            "user": "arte2002",
+            "uid": 662113,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 45372121,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45365895,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45365893,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45365897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 927376428,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45365898,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 927376429,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45333497,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45370484,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45378738,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45365473,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45350357,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45378100,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45378098,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45365865,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45365864,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45345864,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45345868,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45345845,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45356667,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45370536,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45370539,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45370534,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45328282,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45330524,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45330519,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45330518,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45374969,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45356696,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45365896,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45372119,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45372120,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 45352492,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 1470837704,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "7",
+                "alt_name": "Alcoià",
+                "alt_name:es": "Hoya de Alcoy",
+                "boundary": "administrative",
+                "name": "l'Alcoià",
+                "name:ca": "l'Alcoià",
+                "name:es": "La Hoya de Alcoy",
+                "name:ru": "Ойя-де-Алькой",
+                "place": "region",
+                "rank": "region",
+                "type": "boundary",
+                "wikidata": "Q746061",
+                "wikipedia": "es:Hoya de Alcoy"
+            }
+        }
+    ]
+}

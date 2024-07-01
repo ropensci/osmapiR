@@ -11,7 +11,7 @@ class_columns <- list(
 
 ## osm_get_objects ----
 
-test_that("osm_read_object works", {
+test_that("osm_get_objects works", {
   ## Test errors
 
   expect_error(
@@ -51,10 +51,20 @@ test_that("osm_read_object works", {
 
 test_that("osm_read_object works", {
   read <- list()
+  xml_read <- list()
+  json_read <- list()
   with_mock_dir("mock_read_object", {
     read$node <- osm_get_objects(osm_type = "node", osm_id = 35308286)
     read$way <- osm_get_objects(osm_type = "way", osm_id = 13073736L)
     read$rel <- osm_get_objects(osm_type = "relation", osm_id = "40581")
+
+    xml_read$node <- osm_get_objects(osm_type = "node", osm_id = 35308286, format = "xml")
+    xml_read$way <- osm_get_objects(osm_type = "way", osm_id = 13073736L, format = "xml")
+    xml_read$rel <- osm_get_objects(osm_type = "relation", osm_id = "40581", format = "xml")
+
+    json_read$node <- osm_get_objects(osm_type = "node", osm_id = 35308286, format = "json")
+    json_read$way <- osm_get_objects(osm_type = "way", osm_id = 13073736L, format = "json")
+    json_read$rel <- osm_get_objects(osm_type = "relation", osm_id = "40581", format = "json")
   })
 
   lapply(read, expect_s3_class, c("osmapi_objects", "data.frame"))
@@ -76,6 +86,19 @@ test_that("osm_read_object works", {
 
   # methods
   lapply(read, function(x) expect_snapshot(print(x)))
+
+
+  lapply(xml_read, expect_s3_class, "xml_document")
+  lapply(json_read, expect_type, "list")
+
+
+  # Compare xml, json & R
+  mapply(function(d, x) {
+    expect_identical(nrow(d), xml2::xml_length(x))
+  }, d = read, x = xml_read)
+  mapply(function(d, x) {
+    expect_identical(nrow(d), length(x$elements))
+  }, d = read, x = json_read)
 })
 
 
@@ -192,10 +215,20 @@ test_that("edit OSM object works", {
 
 test_that("osm_history_object works", {
   history <- list()
+  xml_history <- list()
+  json_history <- list()
   with_mock_dir("mock_history_object", {
     history$node <- osm_history_object(osm_type = "node", osm_id = 35308286)
     history$way <- osm_history_object(osm_type = "way", osm_id = 13073736L)
     history$rel <- osm_history_object(osm_type = "relation", osm_id = "40581")
+
+    xml_history$node <- osm_history_object(osm_type = "node", osm_id = 35308286, format = "xml")
+    xml_history$way <- osm_history_object(osm_type = "way", osm_id = 13073736L, format = "xml")
+    xml_history$rel <- osm_history_object(osm_type = "relation", osm_id = "40581", format = "xml")
+
+    json_history$node <- osm_history_object(osm_type = "node", osm_id = 35308286, format = "json")
+    json_history$way <- osm_history_object(osm_type = "way", osm_id = 13073736L, format = "json")
+    json_history$rel <- osm_history_object(osm_type = "relation", osm_id = "40581", format = "json")
   })
 
   lapply(history, expect_s3_class, c("osmapi_objects", "data.frame"))
@@ -211,6 +244,19 @@ test_that("osm_history_object works", {
 
   # methods
   lapply(history, function(x) expect_snapshot(print(x)))
+
+
+  lapply(xml_history, expect_s3_class, "xml_document")
+  lapply(json_history, expect_type, "list")
+
+
+  # Compare xml, json & R
+  mapply(function(d, x) {
+    expect_identical(nrow(d), xml2::xml_length(x))
+  }, d = history, x = xml_history)
+  mapply(function(d, x) {
+    expect_identical(nrow(d), length(x$elements))
+  }, d = history, x = json_history)
 })
 
 
@@ -218,10 +264,20 @@ test_that("osm_history_object works", {
 
 test_that("osm_version_object works", {
   version <- list()
+  xml_version <- list()
+  json_version <- list()
   with_mock_dir("mock_version_object", {
     version$node <- osm_get_objects(osm_type = "node", osm_id = 35308286, version = 1)
     version$way <- osm_get_objects(osm_type = "way", osm_id = 13073736L, version = 2)
     version$rel <- osm_get_objects(osm_type = "relation", osm_id = "40581", version = 3)
+
+    xml_version$node <- osm_get_objects(osm_type = "node", osm_id = 35308286, version = 1, format = "xml")
+    xml_version$way <- osm_get_objects(osm_type = "way", osm_id = 13073736L, version = 2, format = "xml")
+    xml_version$rel <- osm_get_objects(osm_type = "relation", osm_id = "40581", version = 3, format = "xml")
+
+    json_version$node <- osm_get_objects(osm_type = "node", osm_id = 35308286, version = 1, format = "json")
+    json_version$way <- osm_get_objects(osm_type = "way", osm_id = 13073736L, version = 2, format = "json")
+    json_version$rel <- osm_get_objects(osm_type = "relation", osm_id = "40581", version = 3, format = "json")
   })
 
   lapply(version, expect_s3_class, c("osmapi_objects", "data.frame"))
@@ -237,6 +293,19 @@ test_that("osm_version_object works", {
 
   # methods
   lapply(version, function(x) expect_snapshot(print(x)))
+
+
+  lapply(xml_version, expect_s3_class, "xml_document")
+  lapply(json_version, expect_type, "list")
+
+
+  # Compare xml, json & R
+  mapply(function(d, x) {
+    expect_identical(nrow(d), xml2::xml_length(x))
+  }, d = version, x = xml_version)
+  mapply(function(d, x) {
+    expect_identical(nrow(d), length(x$elements))
+  }, d = version, x = json_version)
 })
 
 
@@ -402,6 +471,11 @@ test_that("osm_fetch_objects works", {
     expect_identical(id, osm_ids)
     expect_false(any(duplicated(id)))
   })
+
+  mapply(function(d, x) {
+    expect_identical(nrow(d), xml2::xml_length(x))
+  }, d = fetch_many[1:2], x = fetch_many_xml)
+
   expect_message(set_osmapi_connection("testing"), "Logged out from") # TODO
 
   # methods
@@ -413,10 +487,20 @@ test_that("osm_fetch_objects works", {
 
 test_that("osm_relations_object works", {
   rels <- list()
+  xml_rels <- list()
+  json_rels <- list()
   with_mock_dir("mock_relations_object", {
     rels$node <- osm_relations_object(osm_type = "node", osm_id = 1470837704)
     rels$way <- osm_relations_object(osm_type = "way", osm_id = 372011578)
     rels$rel <- osm_relations_object(osm_type = "relation", osm_id = 342792)
+
+    xml_rels$node <- osm_relations_object(osm_type = "node", osm_id = 1470837704, format = "xml")
+    xml_rels$way <- osm_relations_object(osm_type = "way", osm_id = 372011578, format = "xml")
+    xml_rels$rel <- osm_relations_object(osm_type = "relation", osm_id = 342792, format = "xml")
+
+    json_rels$node <- osm_relations_object(osm_type = "node", osm_id = 1470837704, format = "json")
+    json_rels$way <- osm_relations_object(osm_type = "way", osm_id = 372011578, format = "json")
+    json_rels$rel <- osm_relations_object(osm_type = "relation", osm_id = 342792, format = "json")
   })
 
   lapply(rels, expect_s3_class, c("osmapi_objects", "data.frame"))
@@ -429,6 +513,19 @@ test_that("osm_relations_object works", {
 
   # methods
   lapply(rels, function(x) expect_snapshot(print(x)))
+
+
+  lapply(xml_rels, expect_s3_class, "xml_document")
+  lapply(json_rels, expect_type, "list")
+
+
+  # Compare xml, json & R
+  mapply(function(d, x) {
+    expect_identical(nrow(d), xml2::xml_length(x))
+  }, d = rels, x = xml_rels)
+  mapply(function(d, x) {
+    expect_identical(nrow(d), length(x$elements))
+  }, d = rels, x = json_rels)
 })
 
 
@@ -437,6 +534,8 @@ test_that("osm_relations_object works", {
 test_that("osm_ways_node works", {
   with_mock_dir("mock_ways_node", {
     ways_node <- osm_ways_node(node_id = 35308286)
+    xml_ways_node <- osm_ways_node(node_id = 35308286, format = "xml")
+    json_ways_node <- osm_ways_node(node_id = 35308286, format = "json")
   })
 
   expect_s3_class(ways_node, c("osmapi_objects", "data.frame"))
@@ -447,6 +546,15 @@ test_that("osm_ways_node works", {
 
   # methods
   expect_snapshot(print(ways_node))
+
+
+  expect_s3_class(xml_ways_node, "xml_document")
+  expect_type(json_ways_node, "list")
+
+
+  # Compare xml, json & R
+  expect_identical(nrow(ways_node), xml2::xml_length(xml_ways_node))
+  expect_identical(nrow(ways_node), length(json_ways_node$elements))
 })
 
 
@@ -457,6 +565,11 @@ test_that("osm_full_object works", {
   with_mock_dir("mock_full_object", {
     full$way <- osm_get_objects(osm_type = "way", osm_id = 13073736, full_objects = TRUE)
     full$rel <- osm_get_objects(osm_type = "relation", osm_id = "6002785", full_objects = TRUE)
+    full_df <- osm_get_objects(
+      osm_type = c("relation", "way", "way", "node"),
+      osm_id = c(6002785, 13073736, 235744929, 35308286),
+      full_objects = TRUE, format = "R"
+    )
     full_xml <- osm_get_objects(
       osm_type = c("relation", "way", "way", "node"),
       osm_id = c(6002785, 13073736, 235744929, 35308286),
@@ -493,6 +606,22 @@ test_that("osm_full_object works", {
   lapply(full_json$elements, function(x) {
     expect_contains(names(x), c("type", "id", "timestamp", "version", "changeset", "user", "uid"))
   })
+
+
+  # Compare xml, json & R
+  id_df <- full_df$id
+  id_xml <- sapply(xml2::xml_children(full_xml), xml2::xml_attr, attr = "id")
+  id_json <- as.character(sapply(full_json$elements, function(x) x$id))
+
+  setequal(id_df, id_xml)
+  setequal(id_df, id_xml[-131]) # TODO: last object lost in df
+  setequal(id_xml, id_json)
+  all.equal(id_df, id_xml)
+  setdiff(id_df, id_xml[-131])
+  setdiff(id_xml, id_df)
+  which(id_xml == setdiff(id_xml, id_df))
+  # expect_identical(nrow(full_df), xml2::xml_length(full_xml)) ## TODO
+  # expect_identical(nrow(full_df), length(full_json$elements))
 })
 
 

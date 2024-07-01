@@ -42,10 +42,11 @@ test_that("osm_get_points_gps works", {
   # Check that time is extracted, otherwise it's 00:00:00 in local time
   lapply(pts_gps$public, function(x) expect_false(unique(strftime(as.POSIXct(x$time), format = "%M:%S") == "00:00")))
 
+  # Compare xml & R
   mapply(function(d, x) {
     expect_identical(length(d), xml2::xml_length(x))
-    c(length(d), length(xml2::xml_children(x)))
   }, d = pts_gps, x = xml_gps)
+
   # methods
   summary_gpx <- lapply(pts_gps, summary)
   lapply(summary_gpx, expect_s3_class, "data.frame")
@@ -108,26 +109,33 @@ test_that("edit gpx works", {
 
 test_that("osm_get_metadata_gpx works", {
   trk_meta <- list()
+  xml_trk_meta <- list()
   with_mock_dir("mock_get_metadata_gpx", {
     trk_meta$track <- osm_get_gpx_metadata(gpx_id = 3790367)
     trk_meta$tracks <- osm_get_gpx_metadata(gpx_id = c(3790367, 3458743))
-    trk_meta$track_xml <- osm_get_gpx_metadata(gpx_id = 3790367, format = "xml")
-    trk_meta$tracks_xml <- osm_get_gpx_metadata(gpx_id = c(3790367, 3458743), format = "xml")
+
+    xml_trk_meta$track_xml <- osm_get_gpx_metadata(gpx_id = 3790367, format = "xml")
+    xml_trk_meta$tracks_xml <- osm_get_gpx_metadata(gpx_id = c(3790367, 3458743), format = "xml")
   })
 
-  lapply(trk_meta[c("track", "tracks")], function(x) expect_s3_class(x, "data.frame"))
-  lapply(trk_meta[c("track", "tracks")], function(x) expect_named(x, column_meta_gpx))
+  lapply(trk_meta, function(x) expect_s3_class(x, "data.frame"))
+  lapply(trk_meta, function(x) expect_named(x, column_meta_gpx))
 
-  lapply(trk_meta[c("track", "tracks")], function(trk) {
+  lapply(trk_meta, function(trk) {
     mapply(function(x, cl) expect_true(inherits(x, cl)), x = trk, cl = class_columns[names(trk)])
   })
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
-  lapply(trk_meta[c("track", "tracks")], function(x) {
+  lapply(trk_meta, function(x) {
     expect_false(unique(strftime(as.POSIXct(x$timestamp), format = "%M:%S") == "00:00"))
   })
 
-  lapply(trk_meta[c("track_xml", "tracks_xml")], expect_s3_class, class = "xml_document")
+  lapply(xml_trk_meta, expect_s3_class, class = "xml_document")
+
+  # Compare xml & R
+  mapply(function(d, x) {
+    expect_identical(nrow(d), xml2::xml_length(x))
+  }, d = trk_meta, x = xml_trk_meta)
 })
 
 
@@ -156,6 +164,11 @@ test_that("osm_get_data_gpx works", {
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
   expect_false(all(strftime(as.POSIXct(trk_data$R$time), format = "%M:%S") == "00:00"))
+
+  # Compare xml & R
+  trk <- xml2::xml_child(trk_data$xml, search = 2)
+  trkseg <- xml2::xml_child(trk, search = 3)
+  expect_equal(nrow(trk_data$R), xml2::xml_length(trkseg))
 })
 
 
@@ -164,8 +177,14 @@ test_that("osm_get_data_gpx works", {
 test_that("osm_list_gpxs works", {
   with_mock_dir("mock_list_gpxs", {
     traces <- osm_list_gpxs()
+    xml_traces <- osm_list_gpxs(format = "xml")
   })
 
   expect_s3_class(traces, "data.frame")
   expect_named(traces, column_meta_gpx)
+
+  expect_s3_class(xml_traces, "xml_document")
+
+  # Compare xml & R
+  expect_equal(nrow(traces), xml2::xml_length(xml_traces))
 })

@@ -133,7 +133,7 @@
 ---
 
     Code
-      print(empty_search_notes)
+      print(empty_search_notes$df)
     Output
       [1] lon          lat          id           url          comment_url 
       [6] close_url    date_created status       comments    

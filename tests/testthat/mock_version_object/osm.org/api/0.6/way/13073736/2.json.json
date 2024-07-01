@@ -1,0 +1,41 @@
+{
+    "version": "0.6",
+    "generator": "OpenStreetMap server",
+    "copyright": "OpenStreetMap and contributors",
+    "attribution": "http://www.openstreetmap.org/copyright",
+    "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+    "elements": [
+        {
+            "type": "way",
+            "id": 13073736,
+            "timestamp": "2007-12-12T11:13:02Z",
+            "version": 2,
+            "changeset": 270381,
+            "user": "jgui",
+            "uid": 8016,
+            "nodes": [
+                120303676,
+                120303671,
+                120303597,
+                120303605,
+                120303622,
+                120303691,
+                120303696,
+                120303660,
+                120303711,
+                120303707,
+                120303652,
+                120303612,
+                120303665,
+                120303700,
+                120303686,
+                120303601,
+                120303676
+            ],
+            "tags": {
+                "building": "tower",
+                "created_by": "Potlatch alpha"
+            }
+        }
+    ]
+}

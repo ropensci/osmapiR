@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
- <relation id="40581" visible="true" version="53" changeset="135982205" timestamp="2023-05-11T15:10:18Z" user="l2212" uid="1775455">
+<osm version="0.6" generator="CGImap 0.9.3 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <relation id="40581" visible="true" version="62" changeset="151100114" timestamp="2024-05-09T13:23:23Z" user="Siciliapars" uid="21349271">
   <member type="node" ref="72994199" role="admin_centre"/>
   <member type="way" ref="165579897" role="outer"/>
   <member type="way" ref="963065356" role="outer"/>
@@ -23,11 +23,11 @@
   <member type="way" ref="109864312" role="outer"/>
   <tag k="admin_level" v="8"/>
   <tag k="boundary" v="administrative"/>
-  <tag k="name" v="L'Alguer/Alghero"/>
+  <tag k="name" v="Alghero / l'Alguer"/>
   <tag k="name:ar" v="ألغيرو"/>
   <tag k="name:az-Arab" v="آلگرو"/>
   <tag k="name:azb" v="آلگرو"/>
-  <tag k="name:ca" v="L'Alguer"/>
+  <tag k="name:ca" v="l'Alguer"/>
   <tag k="name:co" v="L'Aliera"/>
   <tag k="name:el" v="Αλγκέρο"/>
   <tag k="name:es" v="Alguer"/>
@@ -40,7 +40,7 @@
   <tag k="ref:catasto" v="A192"/>
   <tag k="ref:ISTAT" v="090003"/>
   <tag k="type" v="boundary"/>
-  <tag k="website" v="http://www.comune.alghero.ss.it/"/>
+  <tag k="website" v="https://www.comune.alghero.ss.it/"/>
   <tag k="wikidata" v="Q166282"/>
   <tag k="wikipedia" v="ca:L'Alguer"/>
  </relation>
