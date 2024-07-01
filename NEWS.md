@@ -2,6 +2,7 @@
 
 * Upgrade logo by @atarom
 * Add inst/CITATION
+* Improve tests and fix bugs (#35, 08fb4b10abf0270d8bea2473b02b2520ba341521)
 
 # osmapiR 0.1.0
 

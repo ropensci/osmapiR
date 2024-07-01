@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/jmaspons/osmapiR",
   "issueTracker": "https://github.com/jmaspons/osmapiR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.1.0.9001",
+  "version": "0.1.0.9002",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -151,7 +151,7 @@
     "SystemRequirements": null
   },
   "keywords": ["openstreetmap", "OSM", "openstreetmap-api", "osmapi", "API", "osm", "r", "r-package"],
-  "fileSize": "13370.387KB",
+  "fileSize": "14033.436KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -168,7 +168,7 @@
       "name": "osmapiR: OpenStreetMap API",
       "identifier": "10.32614/CRAN.package.osmapiR",
       "url": "https://jmaspons.github.io/osmapiR/",
-      "description": "R package version 0.1.0.9001 \nhttps://github.com/jmaspons/osmapiR",
+      "description": "R package version 0.1.0.9002 \nhttps://github.com/jmaspons/osmapiR",
       "@id": "https://doi.org/10.32614/CRAN.package.osmapiR",
       "sameAs": "https://doi.org/10.32614/CRAN.package.osmapiR"
     }
