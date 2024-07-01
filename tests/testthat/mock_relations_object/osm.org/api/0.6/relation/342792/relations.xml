@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
- <relation id="349012" visible="true" version="104" changeset="133498794" timestamp="2023-03-10T00:12:38Z" user="arte2002" uid="662113">
+<osm version="0.6" generator="CGImap 0.9.3 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <relation id="349012" visible="true" version="108" changeset="148725656" timestamp="2024-03-16T10:50:43Z" user="Hugoren Martinako" uid="3392826">
   <member type="node" ref="21323935" role="admin_centre"/>
   <member type="way" ref="86411973" role="outer"/>
   <member type="way" ref="159337320" role="outer"/>
@@ -32,6 +32,8 @@
   <member type="way" ref="1101750410" role="outer"/>
   <member type="way" ref="1101750412" role="outer"/>
   <member type="way" ref="1101549702" role="outer"/>
+  <member type="way" ref="1194822043" role="outer"/>
+  <member type="way" ref="1194822039" role="outer"/>
   <member type="way" ref="1101750426" role="outer"/>
   <member type="way" ref="1101549703" role="outer"/>
   <member type="way" ref="1101750424" role="outer"/>
@@ -108,6 +110,7 @@
   <member type="way" ref="162335375" role="outer"/>
   <member type="way" ref="26318879" role="outer"/>
   <member type="way" ref="162335453" role="outer"/>
+  <member type="way" ref="1213092765" role="outer"/>
   <member type="way" ref="92939318" role="outer"/>
   <member type="way" ref="162335496" role="outer"/>
   <member type="way" ref="92939327" role="outer"/>
@@ -158,6 +161,7 @@
   <member type="way" ref="45350323" role="outer"/>
   <member type="way" ref="45350280" role="outer"/>
   <member type="way" ref="45360234" role="outer"/>
+  <member type="way" ref="1193286983" role="outer"/>
   <member type="way" ref="45330501" role="outer"/>
   <member type="way" ref="45360230" role="outer"/>
   <member type="way" ref="45347563" role="outer"/>
@@ -418,6 +422,7 @@
   <tag k="official_name:en" v="Province of Alicante"/>
   <tag k="official_name:es" v="Provincia de Alicante"/>
   <tag k="official_name:fr" v="Province d'Alicante"/>
+  <tag k="place" v="province"/>
   <tag k="ref:nuts" v="ES521"/>
   <tag k="ref:nuts:3" v="ES521"/>
   <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
@@ -425,7 +430,7 @@
   <tag k="wikidata" v="Q54936"/>
   <tag k="wikipedia" v="es:Provincia de Alicante"/>
  </relation>
- <relation id="11739086" visible="true" version="98" changeset="134555232" timestamp="2023-04-05T22:06:24Z" user="Jordi MF" uid="8278438">
+ <relation id="11739086" visible="true" version="109" changeset="148820542" timestamp="2024-03-18T14:38:52Z" user="Langenb1" uid="20134577">
   <member type="node" ref="34105607" role="admin_centre"/>
   <member type="node" ref="8000963555" role="label"/>
   <member type="way" ref="471452697" role="outer"/>
@@ -496,6 +501,7 @@
   <member type="way" ref="160450188" role="outer"/>
   <member type="way" ref="161989200" role="outer"/>
   <member type="way" ref="161989152" role="outer"/>
+  <member type="way" ref="1209556864" role="outer"/>
   <member type="way" ref="161989154" role="outer"/>
   <member type="way" ref="161989189" role="outer"/>
   <member type="way" ref="4791178" role="outer"/>
@@ -655,9 +661,9 @@
   <member type="way" ref="45322891" role="outer"/>
   <member type="way" ref="45324913" role="outer"/>
   <member type="way" ref="45317066" role="outer"/>
-  <member type="way" ref="45324920" role="outer"/>
-  <member type="way" ref="45374781" role="outer"/>
-  <member type="way" ref="45374782" role="outer"/>
+  <member type="way" ref="45317067" role="outer"/>
+  <member type="way" ref="45370394" role="outer"/>
+  <member type="way" ref="45374783" role="outer"/>
   <member type="way" ref="45382966" role="outer"/>
   <member type="way" ref="45382526" role="outer"/>
   <member type="way" ref="45375800" role="outer"/>
@@ -668,11 +674,11 @@
   <member type="way" ref="45314987" role="outer"/>
   <member type="way" ref="45347488" role="outer"/>
   <member type="way" ref="1128269788" role="outer"/>
+  <member type="way" ref="1263765395" role="outer"/>
   <member type="way" ref="45322299" role="outer"/>
   <member type="way" ref="45322292" role="outer"/>
   <member type="way" ref="45322300" role="outer"/>
   <member type="way" ref="45364211" role="outer"/>
-  <member type="way" ref="971396839" role="outer"/>
   <member type="way" ref="45375175" role="outer"/>
   <member type="way" ref="45365464" role="outer"/>
   <member type="way" ref="45375174" role="outer"/>
@@ -779,6 +785,7 @@
   <member type="way" ref="162335375" role="outer"/>
   <member type="way" ref="26318879" role="outer"/>
   <member type="way" ref="162335453" role="outer"/>
+  <member type="way" ref="1213092765" role="outer"/>
   <member type="way" ref="92939318" role="outer"/>
   <member type="way" ref="162335496" role="outer"/>
   <member type="way" ref="92939327" role="outer"/>
@@ -868,6 +875,8 @@
   <member type="way" ref="1010784068" role="outer"/>
   <member type="way" ref="1010784069" role="outer"/>
   <member type="way" ref="4787543" role="outer"/>
+  <member type="way" ref="1219095871" role="outer"/>
+  <member type="way" ref="1219095872" role="outer"/>
   <member type="way" ref="1010784067" role="outer"/>
   <member type="way" ref="1010784066" role="outer"/>
   <member type="way" ref="12097322" role="outer"/>
@@ -972,7 +981,6 @@
   <member type="way" ref="161269680" role="outer"/>
   <member type="way" ref="161269635" role="outer"/>
   <member type="way" ref="4787518" role="outer"/>
-  <member type="way" ref="574294863" role="outer"/>
   <member type="way" ref="161269667" role="outer"/>
   <member type="way" ref="161269620" role="outer"/>
   <member type="way" ref="159360553" role="outer"/>
@@ -1412,6 +1420,7 @@
   <member type="relation" ref="346710" role="subarea"/>
   <member type="relation" ref="346711" role="subarea"/>
   <member type="relation" ref="341234" role="subarea"/>
+  <member type="relation" ref="345966" role="subarea"/>
   <member type="relation" ref="341235" role="subarea"/>
   <member type="relation" ref="341236" role="subarea"/>
   <member type="relation" ref="346719" role="subarea"/>

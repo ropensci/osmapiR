@@ -138,9 +138,6 @@ osm_create_object <- function(x, changeset_id) {
   }
   osm_type <- xml2::xml_name(xml2::xml_child(xml))
 
-  if (length(osm_type) > 1) {
-    warning("More than one OSM object found. Only the first is created.")
-  }
   if (!osm_type[1] %in% c("node", "way", "relation")) {
     warning("Malformed xml. Node name is ", osm_type[1], ", and should be one of `node`, `way` or `relation`.")
   }

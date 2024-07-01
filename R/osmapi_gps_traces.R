@@ -509,6 +509,8 @@ osm_list_gpxs <- function(format = c("R", "xml")) {
 
   if (format == "R") {
     out <- gpx_meta_xml2DF(obj_xml)
+  } else {
+    out <- obj_xml
   }
 
   return(out)

@@ -1,0 +1,312 @@
+{
+    "version": "0.6",
+    "generator": "CGImap 0.9.3 (012345 ******.openstreetmap.org)",
+    "copyright": "OpenStreetMap and contributors",
+    "attribution": "http://www.openstreetmap.org/copyright",
+    "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+    "elements": [
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5178841,
+            "lon": 2.4567366,
+            "timestamp": "2007-09-02T14:55:33Z",
+            "version": 1,
+            "changeset": 292412,
+            "user": "Skywave",
+            "uid": 10927,
+            "tags": {
+                "altitude": "2784,66",
+                "created_by": "Potlatch alpha",
+                "ele": "2784,66",
+                "name": "Pic du Canigou",
+                "natural": "peak"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5116144,
+            "lon": 2.4580973,
+            "timestamp": "2007-12-02T19:28:54Z",
+            "version": 2,
+            "changeset": 39997,
+            "user": "Skywave",
+            "uid": 10927,
+            "tags": {
+                "altitude": "2784,66",
+                "created_by": "Potlatch 0.5d",
+                "ele": "2784,66",
+                "name": "Pic du Canigou",
+                "natural": "peak"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5184471,
+            "lon": 2.4580973,
+            "timestamp": "2007-12-02T19:29:01Z",
+            "version": 3,
+            "changeset": 39997,
+            "user": "Skywave",
+            "uid": 10927,
+            "tags": {
+                "altitude": "2784,66",
+                "created_by": "Potlatch 0.5d",
+                "ele": "2784,66",
+                "name": "Pic du Canigou",
+                "natural": "peak"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5184471,
+            "lon": 2.4580973,
+            "timestamp": "2007-12-06T21:08:56Z",
+            "version": 4,
+            "changeset": 131335,
+            "user": "Skywave",
+            "uid": 10927,
+            "tags": {
+                "created_by": "Potlatch 0.5d",
+                "ele": "2784,66",
+                "name": "Pic du Canigou",
+                "natural": "peak"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5184471,
+            "lon": 2.4580973,
+            "timestamp": "2008-01-05T17:55:28Z",
+            "version": 5,
+            "changeset": 544716,
+            "user": "Skywave",
+            "uid": 10927,
+            "tags": {
+                "created_by": "Potlatch 0.5d",
+                "ele": "2784,66",
+                "name": "Pic du Canigou",
+                "name:ca": "Puig del Canigó",
+                "natural": "peak"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5184481,
+            "lon": 2.4580929,
+            "timestamp": "2008-08-28T00:14:47Z",
+            "version": 6,
+            "changeset": 433656,
+            "user": "Skywave",
+            "uid": 10927,
+            "tags": {
+                "created_by": "Potlatch 0.10b",
+                "ele": "2784,66",
+                "elevation": "2784,66 meters",
+                "name": "Pic du Canigou",
+                "name:ca": "Puig del Canigó",
+                "natural": "peak"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5187840,
+            "lon": 2.4567709,
+            "timestamp": "2008-10-04T20:55:22Z",
+            "version": 7,
+            "changeset": 61302,
+            "user": "Skywave",
+            "uid": 10927,
+            "tags": {
+                "created_by": "Potlatch 0.10c",
+                "ele": "2784,66",
+                "elevation": "2784,66 meters",
+                "name": "Pic du Canigou",
+                "name:ca": "Puig del Canigó",
+                "natural": "peak"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5187840,
+            "lon": 2.4567709,
+            "timestamp": "2009-03-03T20:23:52Z",
+            "version": 8,
+            "changeset": 731089,
+            "user": "Eric S",
+            "uid": 45284,
+            "tags": {
+                "ele": "2784,66",
+                "name": "Pic du Canigou",
+                "name:ca": "Puig del Canigó",
+                "natural": "peak"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5189368,
+            "lon": 2.4566062,
+            "timestamp": "2010-03-21T10:17:52Z",
+            "version": 9,
+            "changeset": 4188890,
+            "user": "petrovsk",
+            "uid": 90394,
+            "tags": {
+                "ele": "2784,66",
+                "name": "Pic du Canigou",
+                "name:ca": "Puig del Canigó",
+                "natural": "peak"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5189176,
+            "lon": 2.4565525,
+            "timestamp": "2010-10-07T13:28:57Z",
+            "version": 10,
+            "changeset": 5978159,
+            "user": "Skywave",
+            "uid": 10927,
+            "tags": {
+                "ele": "2784,66",
+                "name": "Pic du Canigou",
+                "name:ca": "Puig del Canigó",
+                "natural": "peak"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5189047,
+            "lon": 2.4565596,
+            "timestamp": "2010-10-07T19:16:33Z",
+            "version": 11,
+            "changeset": 5980618,
+            "user": "Skywave",
+            "uid": 10927,
+            "tags": {
+                "ele": "2784,66",
+                "name": "Pic du Canigou",
+                "name:ca": "Puig del Canigó",
+                "natural": "peak"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5189047,
+            "lon": 2.4565596,
+            "timestamp": "2011-10-04T08:48:09Z",
+            "version": 12,
+            "changeset": 9467521,
+            "user": "WernerP",
+            "uid": 315015,
+            "tags": {
+                "ele": "2784.66",
+                "name": "Pic du Canigou",
+                "name:ca": "Puig del Canigó",
+                "natural": "peak"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5189047,
+            "lon": 2.4565596,
+            "timestamp": "2012-10-03T07:49:42Z",
+            "version": 13,
+            "changeset": 13343795,
+            "user": "FMB",
+            "uid": 316958,
+            "tags": {
+                "ele": "2784.66",
+                "name": "Pic du Canigou",
+                "name:ca": "Pica del Canigó",
+                "natural": "peak"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5189047,
+            "lon": 2.4565596,
+            "timestamp": "2013-10-17T18:21:18Z",
+            "version": 14,
+            "changeset": 18407951,
+            "user": "janes",
+            "uid": 428521,
+            "tags": {
+                "ele": "2784.66",
+                "name": "Pic du Canigou",
+                "name:ca": "Pic del Canigó",
+                "natural": "peak"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5189047,
+            "lon": 2.4565596,
+            "timestamp": "2018-10-28T13:07:37Z",
+            "version": 15,
+            "changeset": 63949815,
+            "user": "ManelG",
+            "uid": 2491053,
+            "tags": {
+                "ele": "2784.66",
+                "name": "Pic du Canigou",
+                "name:ca": "Pic del Canigó",
+                "natural": "peak",
+                "prominence": "550"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5189047,
+            "lon": 2.4565596,
+            "timestamp": "2023-08-24T20:19:21Z",
+            "version": 16,
+            "changeset": 140341359,
+            "user": "jmaspons",
+            "uid": 11725140,
+            "tags": {
+                "ele": "2784.66",
+                "name": "Pic du Canigou",
+                "name:ca": "Pic del Canigó",
+                "natural": "peak",
+                "prominence": "550",
+                "summit:cross": "yes"
+            }
+        },
+        {
+            "type": "node",
+            "id": 35308286,
+            "lat": 42.5189047,
+            "lon": 2.4565596,
+            "timestamp": "2023-08-24T20:19:22Z",
+            "version": 17,
+            "changeset": 140341361,
+            "user": "jmaspons",
+            "uid": 11725140,
+            "tags": {
+                "ele": "2784.66",
+                "name": "Pic du Canigou",
+                "name:ca": "Pic del Canigó",
+                "natural": "peak",
+                "prominence": "550",
+                "summit:cross": "yes",
+                "summit:register": "no"
+            }
+        }
+    ]
+}

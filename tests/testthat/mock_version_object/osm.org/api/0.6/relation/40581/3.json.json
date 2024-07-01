@@ -1,0 +1,64 @@
+{
+    "version": "0.6",
+    "generator": "OpenStreetMap server",
+    "copyright": "OpenStreetMap and contributors",
+    "attribution": "http://www.openstreetmap.org/copyright",
+    "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+    "elements": [
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2012-05-30T08:57:05Z",
+            "version": 3,
+            "changeset": 11746232,
+            "user": "lerks",
+            "uid": 188477,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 27966652,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966705,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966846,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966863,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966976,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966991,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966993,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "wikipedia": "it:Alghero"
+            }
+        }
+    ]
+}

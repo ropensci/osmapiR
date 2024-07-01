@@ -49,6 +49,13 @@ test_that("osm_read_bbox_notes works", {
 
   # methods
   expect_snapshot(print(bbox_notes$df))
+
+
+  # Compare xml, rss, json, gpx & R
+  expect_identical(nrow(bbox_notes$df), xml2::xml_length(bbox_notes$xml))
+  expect_identical(nrow(bbox_notes$df), length(xml2::xml_find_all(bbox_notes$rss, xpath = "//item")))
+  expect_identical(nrow(bbox_notes$df), length(bbox_notes$json$features))
+  expect_identical(nrow(bbox_notes$df), xml2::xml_length(bbox_notes$gpx))
 })
 
 
@@ -99,6 +106,13 @@ test_that("osm_read_note works", {
   # methods
   expect_snapshot(print(read_note$df))
   expect_snapshot(print(read_notes$df))
+
+
+  # Compare xml, rss, json, gpx & R
+  expect_identical(nrow(read_notes$df), xml2::xml_length(read_notes$xml))
+  expect_identical(nrow(read_notes$df), length(xml2::xml_find_all(read_notes$rss, xpath = "//item")))
+  expect_identical(nrow(read_notes$df), length(read_notes$json))
+  expect_identical(nrow(read_notes$df), xml2::xml_length(read_notes$gpx))
 })
 
 
@@ -188,24 +202,44 @@ test_that("osm_search_notes works", {
   expect_snapshot(print(search_notes$df))
 
 
+  # Compare xml, rss, json, gpx & R
+  ## TODO test after batch calls implementation for identical search arguments
+
+
   ## Empty results
 
+  empty_search_notes <- list()
   with_mock_dir("mock_search_notes_empty", {
-    empty_search_notes <- osm_search_notes(q = "Visca la terra!", user = "jmaspons")
+    empty_search_notes$df <- osm_search_notes(q = "Visca la terra!", user = "jmaspons")
+    empty_search_notes$xml <- osm_search_notes(q = "Visca la terra!", user = "jmaspons", format = "xml")
+    empty_search_notes$rss <- osm_search_notes(q = "Visca la terra!", user = "jmaspons", format = "rss")
+    empty_search_notes$json <- osm_search_notes(q = "Visca la terra!", user = "jmaspons", format = "json")
+    empty_search_notes$gpx <- osm_search_notes(q = "Visca la terra!", user = "jmaspons", format = "gpx")
   })
 
-  expect_s3_class(empty_search_notes, c("osmapi_map_notes", "data.frame"))
-  expect_identical(names(empty_search_notes), column_notes)
-  expect_identical(nrow(empty_search_notes), 0L)
+  expect_s3_class(empty_search_notes$df, c("osmapi_map_notes", "data.frame"), exact = TRUE)
+  expect_identical(names(empty_search_notes$df), column_notes)
 
   mapply(
     function(x, cl) expect_true(inherits(x, cl)),
-    x = empty_search_notes,
-    cl = class_column_notes[names(empty_search_notes)]
+    x = empty_search_notes$df,
+    cl = class_column_notes[names(empty_search_notes$df)]
   )
 
   # methods
-  expect_snapshot(print(empty_search_notes))
+  expect_snapshot(print(empty_search_notes$df))
+
+
+  lapply(empty_search_notes[c("xml", "rss", "gpx")], expect_s3_class, class = "xml_document")
+  expect_type(empty_search_notes$json, "list")
+
+
+  # Compare xml, rss, json, gpx & R
+  expect_identical(nrow(empty_search_notes$df), 0L)
+  expect_identical(xml2::xml_length(empty_search_notes$xml), 0L)
+  expect_identical(length(xml2::xml_find_all(empty_search_notes$rss, xpath = "//item")), 0L)
+  expect_identical(xml2::xml_length(empty_search_notes$gpx), 0L)
+  expect_identical(length(empty_search_notes$json$features), 0L)
 })
 
 

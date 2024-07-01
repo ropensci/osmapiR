@@ -1,0 +1,6359 @@
+{
+    "version": "0.6",
+    "generator": "CGImap 0.9.3 (012345 ******.openstreetmap.org)",
+    "copyright": "OpenStreetMap and contributors",
+    "attribution": "http://www.openstreetmap.org/copyright",
+    "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+    "elements": [
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2008-10-25T05:35:48Z",
+            "version": 1,
+            "changeset": 568221,
+            "user": "simone",
+            "uid": 137,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 27966652,
+                    "role": ""
+                },
+                {
+                    "type": "way",
+                    "ref": 27966705,
+                    "role": ""
+                },
+                {
+                    "type": "way",
+                    "ref": 27966846,
+                    "role": ""
+                },
+                {
+                    "type": "way",
+                    "ref": 27966863,
+                    "role": ""
+                },
+                {
+                    "type": "way",
+                    "ref": 27966976,
+                    "role": ""
+                },
+                {
+                    "type": "way",
+                    "ref": 27966991,
+                    "role": ""
+                },
+                {
+                    "type": "way",
+                    "ref": 27966993,
+                    "role": ""
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "created_by": "ShapeToOSM - Laser Navigation s.r.l.",
+                "name": "Alghero",
+                "source": "Based on ISTAT data - 2001 Italian Census",
+                "type": "boundary"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2012-05-27T12:05:32Z",
+            "version": 2,
+            "changeset": 11714681,
+            "user": "lerks",
+            "uid": 188477,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 27966652,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966705,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966846,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966863,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966976,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966991,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966993,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "source": "Based on ISTAT data - 2001 Italian Census",
+                "type": "boundary"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2012-05-30T08:57:05Z",
+            "version": 3,
+            "changeset": 11746232,
+            "user": "lerks",
+            "uid": 188477,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 27966652,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966705,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966846,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966863,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966976,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966991,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966993,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "wikipedia": "it:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2012-06-08T18:01:23Z",
+            "version": 4,
+            "changeset": 11837646,
+            "user": "sabas88",
+            "uid": 454589,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 27966652,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966705,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966846,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966863,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966976,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966993,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "wikipedia": "it:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2012-06-08T20:25:11Z",
+            "version": 5,
+            "changeset": 11839138,
+            "user": "lerks",
+            "uid": 188477,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 27966652,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966846,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966863,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966976,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966993,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "wikipedia": "it:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2012-06-08T20:51:42Z",
+            "version": 6,
+            "changeset": 11838130,
+            "user": "lerks",
+            "uid": 188477,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 27966846,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966652,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966993,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966976,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 27966863,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "wikipedia": "it:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2012-06-22T16:39:50Z",
+            "version": 7,
+            "changeset": 11980761,
+            "user": "sabas88",
+            "uid": 454589,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "wikipedia": "it:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2013-10-15T14:16:51Z",
+            "version": 8,
+            "changeset": 18369633,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer-Alghero",
+                "name:ca": "L'Alguer",
+                "name:it": "Alghero",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "wikipedia": "it:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2013-11-01T17:02:49Z",
+            "version": 9,
+            "changeset": 18654817,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:it": "Alghero",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "it:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2014-01-07T15:19:27Z",
+            "version": 10,
+            "changeset": 19864829,
+            "user": "Paoletto",
+            "uid": 170997,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:it": "Alghero",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "it:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2014-01-09T03:42:07Z",
+            "version": 11,
+            "changeset": 19893801,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:it": "Alghero",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "it:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2014-01-09T17:49:09Z",
+            "version": 12,
+            "changeset": 19904315,
+            "user": "Paoletto",
+            "uid": 170997,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:it": "Alghero",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "it:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2014-01-09T23:03:35Z",
+            "version": 13,
+            "changeset": 19909641,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:it": "Alghero",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "it:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2014-02-01T21:58:59Z",
+            "version": 14,
+            "changeset": 20324867,
+            "user": "mcheckimport",
+            "uid": 893327,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:it": "Alghero",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "it:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2014-02-26T03:52:17Z",
+            "version": 15,
+            "changeset": 20783674,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:it": "Alghero",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "it:Alghero",
+                "wikipedia:ca": "L'Alguer",
+                "wikipedia:sc": "S'Alighèra"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2014-02-26T03:56:58Z",
+            "version": 16,
+            "changeset": 20783699,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "it:Alghero",
+                "wikipedia:ca": "L'Alguer",
+                "wikipedia:sc": "S'Alighèra"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2014-08-26T10:32:56Z",
+            "version": 17,
+            "changeset": 25024005,
+            "user": "jmontane",
+            "uid": 28773,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "l'Alguer/Alghero",
+                "name:ca": "l'Alguer",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "it:Alghero",
+                "wikipedia:ca": "L'Alguer",
+                "wikipedia:sc": "S'Alighèra"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2015-06-03T07:36:51Z",
+            "version": 18,
+            "changeset": 31684773,
+            "user": "simone",
+            "uid": 137,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "l'Alguer/Alghero",
+                "name:ca": "l'Alguer",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-07-20T01:19:33Z",
+            "version": 19,
+            "changeset": 40885359,
+            "user": "fayor",
+            "uid": 743479,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-07-31T15:16:38Z",
+            "version": 20,
+            "changeset": 41147692,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "l'Alguer/Alghero",
+                "name:ca": "l'Alguer",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-08-01T00:24:38Z",
+            "version": 21,
+            "changeset": 41156298,
+            "user": "fayor",
+            "uid": 743479,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-08-01T09:03:50Z",
+            "version": 22,
+            "changeset": 41162305,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-08-03T03:36:05Z",
+            "version": 23,
+            "changeset": 41206301,
+            "user": "fayor",
+            "uid": 743479,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-08-03T11:16:49Z",
+            "version": 24,
+            "changeset": 41212009,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-08-03T13:21:37Z",
+            "version": 25,
+            "changeset": 41214566,
+            "user": "fayor",
+            "uid": 743479,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-08-03T13:40:57Z",
+            "version": 26,
+            "changeset": 41214925,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-08-03T14:26:01Z",
+            "version": 27,
+            "changeset": 41215848,
+            "user": "fayor",
+            "uid": 743479,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-08-03T14:50:48Z",
+            "version": 28,
+            "changeset": 41216353,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-08-03T16:12:29Z",
+            "version": 29,
+            "changeset": 41217947,
+            "user": "fayor",
+            "uid": 743479,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-08-03T18:54:32Z",
+            "version": 30,
+            "changeset": 41221606,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-08-03T19:58:40Z",
+            "version": 31,
+            "changeset": 41223121,
+            "user": "fayor",
+            "uid": 743479,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-08-03T20:26:15Z",
+            "version": 32,
+            "changeset": 41223747,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-09-01T16:28:22Z",
+            "version": 33,
+            "changeset": 41852822,
+            "user": "fayor",
+            "uid": 743479,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-09-02T14:05:24Z",
+            "version": 34,
+            "changeset": 41869838,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-09-03T13:57:10Z",
+            "version": 35,
+            "changeset": 41889305,
+            "user": "fayor",
+            "uid": 743479,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-09-03T15:50:28Z",
+            "version": 36,
+            "changeset": 41891270,
+            "user": "SomeoneElse_Revert",
+            "uid": 1778799,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-11-16T21:48:53Z",
+            "version": 37,
+            "changeset": 43712169,
+            "user": "GBicozzo",
+            "uid": 4853063,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-11-17T20:03:24Z",
+            "version": 38,
+            "changeset": 43742170,
+            "user": "SomeoneElse_Revert",
+            "uid": 1778799,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-11-18T01:09:29Z",
+            "version": 39,
+            "changeset": 43750924,
+            "user": "nyuriks",
+            "uid": 339581,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-11-21T19:18:40Z",
+            "version": 40,
+            "changeset": 43854877,
+            "user": "GBicozzo",
+            "uid": 4853063,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2016-11-21T20:25:39Z",
+            "version": 41,
+            "changeset": 43856068,
+            "user": "SomeoneElse_Revert",
+            "uid": 1778799,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2017-01-05T15:17:57Z",
+            "version": 42,
+            "changeset": 44927268,
+            "user": "dan980",
+            "uid": 1240942,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2017-08-30T08:28:01Z",
+            "version": 43,
+            "changeset": 51567307,
+            "user": "osm_fede",
+            "uid": 5631066,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2017-08-31T10:50:49Z",
+            "version": 44,
+            "changeset": 51609472,
+            "user": "Garmin-User",
+            "uid": 177389,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2019-01-22T15:54:20Z",
+            "version": 45,
+            "changeset": 66542092,
+            "user": "s141739",
+            "uid": 25132,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "name": "Alghero - L'Alguer",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "restriction": "only_straight_on",
+                "type": "restriction",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2019-01-22T17:01:40Z",
+            "version": 46,
+            "changeset": 66543985,
+            "user": "Garmin-User",
+            "uid": 177389,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero - L'Alguer",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2021-07-10T00:32:19Z",
+            "version": 47,
+            "changeset": 107730109,
+            "user": "Olyon",
+            "uid": 1443767,
+            "members": [
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                },
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero - L'Alguer",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2021-09-15T13:05:46Z",
+            "version": 48,
+            "changeset": 111244602,
+            "user": "nilogian",
+            "uid": 673435,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero - L'Alguer",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:es": "Alguer",
+                "name:it": "Alghero",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "en:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2021-12-22T00:20:00Z",
+            "version": 49,
+            "changeset": 115229896,
+            "user": "Yamílo",
+            "uid": 11332999,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero - L'Alguer",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "ca:L'Alguer",
+                "wikipedia:ca": "L'Alguer",
+                "wikipedia:es": "Alguer",
+                "wikipedia:it": "Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2021-12-29T06:50:31Z",
+            "version": 50,
+            "changeset": 115501973,
+            "user": "user_5359",
+            "uid": 5359,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero - L'Alguer",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "ca:L'Alguer"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2022-03-17T21:13:14Z",
+            "version": 51,
+            "changeset": 118611187,
+            "user": "Gianfranco2014",
+            "uid": 1928626,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero - L'Alguer",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:la": "Algarium",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "ca:L'Alguer"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2022-07-29T15:11:43Z",
+            "version": 52,
+            "changeset": 124236416,
+            "user": "ftrebien",
+            "uid": 401472,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346184,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero - L'Alguer",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:la": "Algarium",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "ca:L'Alguer"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2023-05-11T15:10:18Z",
+            "version": 53,
+            "changeset": 135982205,
+            "user": "l2212",
+            "uid": 1775455,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346184,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "L'Alguer/Alghero",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "L'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:la": "Algarium",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "ca:L'Alguer"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2023-08-11T18:02:05Z",
+            "version": 54,
+            "changeset": 139761106,
+            "user": "jmaspons",
+            "uid": 11725140,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346184,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "l'Alguer/Alghero",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "l'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:la": "Algarium",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "http://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "ca:L'Alguer"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2023-10-28T16:39:31Z",
+            "version": 55,
+            "changeset": 143271690,
+            "user": "b-jazz-bot",
+            "uid": 9451067,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346184,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "l'Alguer/Alghero",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "l'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:la": "Algarium",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "https://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "ca:L'Alguer"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2024-04-25T16:28:13Z",
+            "version": 56,
+            "changeset": 150504881,
+            "user": "Siciliapars",
+            "uid": 21349271,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346184,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero / l'Alguer",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "l'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:la": "Algarium",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "https://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "ca:L'Alguer"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2024-04-25T18:02:27Z",
+            "version": 57,
+            "changeset": 150508547,
+            "user": "cucunto",
+            "uid": 21350717,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346184,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "l'Alguer/Alghero",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "l'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:la": "Algarium",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "https://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "ca:L'Alguer"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2024-04-25T22:10:14Z",
+            "version": 58,
+            "changeset": 150515740,
+            "user": "Siciliapars",
+            "uid": 21349271,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346184,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero / l'Alguer",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "l'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:la": "Algarium",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "https://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "it:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2024-04-30T07:43:50Z",
+            "version": 59,
+            "changeset": 150693583,
+            "user": "froipe",
+            "uid": 21385987,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346184,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "l'Alguer/Alghero",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "l'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:la": "Algarium",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "https://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "ca:L'Alguer"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2024-04-30T11:14:53Z",
+            "version": 60,
+            "changeset": 150702242,
+            "user": "Adriaticum",
+            "uid": 21387693,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346184,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero / l'Alguer",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "l'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:la": "Algarium",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "https://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "it:Alghero"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2024-04-30T18:29:37Z",
+            "version": 61,
+            "changeset": 150722050,
+            "user": "froipe",
+            "uid": 21385987,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346184,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "l'Alguer/Alghero",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "l'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:la": "Algarium",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "https://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "ca:L'Alguer"
+            }
+        },
+        {
+            "type": "relation",
+            "id": 40581,
+            "timestamp": "2024-05-09T13:23:23Z",
+            "version": 62,
+            "changeset": 151100114,
+            "user": "Siciliapars",
+            "uid": 21349271,
+            "members": [
+                {
+                    "type": "node",
+                    "ref": 72994199,
+                    "role": "admin_centre"
+                },
+                {
+                    "type": "way",
+                    "ref": 165579897,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 963065356,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618143,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 1082346184,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623039,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 983618141,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606149,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606181,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606180,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606185,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 168606132,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090337,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 117090596,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10277182,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623045,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 10276762,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 166623043,
+                    "role": "outer"
+                },
+                {
+                    "type": "way",
+                    "ref": 109864312,
+                    "role": "outer"
+                }
+            ],
+            "tags": {
+                "admin_level": "8",
+                "boundary": "administrative",
+                "name": "Alghero / l'Alguer",
+                "name:ar": "ألغيرو",
+                "name:az-Arab": "آلگرو",
+                "name:azb": "آلگرو",
+                "name:ca": "l'Alguer",
+                "name:co": "L'Aliera",
+                "name:el": "Αλγκέρο",
+                "name:es": "Alguer",
+                "name:fa": "آلگرو",
+                "name:it": "Alghero",
+                "name:kk-Arab": "الگەرو",
+                "name:la": "Algarium",
+                "name:ru": "Альгеро",
+                "name:sc": "S'Alighèra",
+                "ref:catasto": "A192",
+                "ref:ISTAT": "090003",
+                "type": "boundary",
+                "website": "https://www.comune.alghero.ss.it/",
+                "wikidata": "Q166282",
+                "wikipedia": "ca:L'Alguer"
+            }
+        }
+    ]
+}

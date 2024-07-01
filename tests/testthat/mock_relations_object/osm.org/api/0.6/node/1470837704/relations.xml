@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
- <relation id="347424" visible="true" version="15" changeset="135030675" timestamp="2023-04-17T19:56:44Z" user="Hugoren Martinako" uid="3392826">
+<osm version="0.6" generator="CGImap 0.9.3 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+ <relation id="347424" visible="true" version="17" changeset="150682923" timestamp="2024-04-29T21:58:54Z" user="Hugoren Martinako" uid="3392826">
   <member type="way" ref="45365865" role="outer"/>
   <member type="way" ref="45330518" role="outer"/>
   <member type="way" ref="45374969" role="outer"/>
@@ -19,8 +19,9 @@
   <tag k="name:ca" v="Alcoi"/>
   <tag k="name:es" v="Alcoy"/>
   <tag k="name:gl" v="Alcoi"/>
-  <tag k="population" v="58960"/>
-  <tag k="population:date" v="2022"/>
+  <tag k="official_name" v="Alcoi / Alcoy"/>
+  <tag k="population" v="59493"/>
+  <tag k="population:date" v="2023"/>
   <tag k="ref:ine" v="03009000000"/>
   <tag k="source" v="BDLL25, EGRN, Instituto Geográfico Nacional"/>
   <tag k="type" v="boundary"/>

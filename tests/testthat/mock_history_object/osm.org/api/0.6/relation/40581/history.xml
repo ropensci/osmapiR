@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<osm version="0.6" generator="CGImap 0.9.3 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
  <relation id="40581" visible="true" version="1" changeset="568221" timestamp="2008-10-25T05:35:48Z" user="simone" uid="137">
   <member type="way" ref="27966652" role=""/>
   <member type="way" ref="27966705" role=""/>
@@ -1561,6 +1561,402 @@
   <tag k="ref:ISTAT" v="090003"/>
   <tag k="type" v="boundary"/>
   <tag k="website" v="http://www.comune.alghero.ss.it/"/>
+  <tag k="wikidata" v="Q166282"/>
+  <tag k="wikipedia" v="ca:L'Alguer"/>
+ </relation>
+ <relation id="40581" visible="true" version="54" changeset="139761106" timestamp="2023-08-11T18:02:05Z" user="jmaspons" uid="11725140">
+  <member type="node" ref="72994199" role="admin_centre"/>
+  <member type="way" ref="165579897" role="outer"/>
+  <member type="way" ref="963065356" role="outer"/>
+  <member type="way" ref="983618143" role="outer"/>
+  <member type="way" ref="1082346185" role="outer"/>
+  <member type="way" ref="1082346184" role="outer"/>
+  <member type="way" ref="166623039" role="outer"/>
+  <member type="way" ref="983618141" role="outer"/>
+  <member type="way" ref="168606149" role="outer"/>
+  <member type="way" ref="168606181" role="outer"/>
+  <member type="way" ref="168606180" role="outer"/>
+  <member type="way" ref="168606185" role="outer"/>
+  <member type="way" ref="168606132" role="outer"/>
+  <member type="way" ref="117090337" role="outer"/>
+  <member type="way" ref="117090596" role="outer"/>
+  <member type="way" ref="10277182" role="outer"/>
+  <member type="way" ref="166623045" role="outer"/>
+  <member type="way" ref="10276762" role="outer"/>
+  <member type="way" ref="166623043" role="outer"/>
+  <member type="way" ref="109864312" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="l'Alguer/Alghero"/>
+  <tag k="name:ar" v="ألغيرو"/>
+  <tag k="name:az-Arab" v="آلگرو"/>
+  <tag k="name:azb" v="آلگرو"/>
+  <tag k="name:ca" v="l'Alguer"/>
+  <tag k="name:co" v="L'Aliera"/>
+  <tag k="name:el" v="Αλγκέρο"/>
+  <tag k="name:es" v="Alguer"/>
+  <tag k="name:fa" v="آلگرو"/>
+  <tag k="name:it" v="Alghero"/>
+  <tag k="name:kk-Arab" v="الگەرو"/>
+  <tag k="name:la" v="Algarium"/>
+  <tag k="name:ru" v="Альгеро"/>
+  <tag k="name:sc" v="S'Alighèra"/>
+  <tag k="ref:catasto" v="A192"/>
+  <tag k="ref:ISTAT" v="090003"/>
+  <tag k="type" v="boundary"/>
+  <tag k="website" v="http://www.comune.alghero.ss.it/"/>
+  <tag k="wikidata" v="Q166282"/>
+  <tag k="wikipedia" v="ca:L'Alguer"/>
+ </relation>
+ <relation id="40581" visible="true" version="55" changeset="143271690" timestamp="2023-10-28T16:39:31Z" user="b-jazz-bot" uid="9451067">
+  <member type="node" ref="72994199" role="admin_centre"/>
+  <member type="way" ref="165579897" role="outer"/>
+  <member type="way" ref="963065356" role="outer"/>
+  <member type="way" ref="983618143" role="outer"/>
+  <member type="way" ref="1082346185" role="outer"/>
+  <member type="way" ref="1082346184" role="outer"/>
+  <member type="way" ref="166623039" role="outer"/>
+  <member type="way" ref="983618141" role="outer"/>
+  <member type="way" ref="168606149" role="outer"/>
+  <member type="way" ref="168606181" role="outer"/>
+  <member type="way" ref="168606180" role="outer"/>
+  <member type="way" ref="168606185" role="outer"/>
+  <member type="way" ref="168606132" role="outer"/>
+  <member type="way" ref="117090337" role="outer"/>
+  <member type="way" ref="117090596" role="outer"/>
+  <member type="way" ref="10277182" role="outer"/>
+  <member type="way" ref="166623045" role="outer"/>
+  <member type="way" ref="10276762" role="outer"/>
+  <member type="way" ref="166623043" role="outer"/>
+  <member type="way" ref="109864312" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="l'Alguer/Alghero"/>
+  <tag k="name:ar" v="ألغيرو"/>
+  <tag k="name:az-Arab" v="آلگرو"/>
+  <tag k="name:azb" v="آلگرو"/>
+  <tag k="name:ca" v="l'Alguer"/>
+  <tag k="name:co" v="L'Aliera"/>
+  <tag k="name:el" v="Αλγκέρο"/>
+  <tag k="name:es" v="Alguer"/>
+  <tag k="name:fa" v="آلگرو"/>
+  <tag k="name:it" v="Alghero"/>
+  <tag k="name:kk-Arab" v="الگەرو"/>
+  <tag k="name:la" v="Algarium"/>
+  <tag k="name:ru" v="Альгеро"/>
+  <tag k="name:sc" v="S'Alighèra"/>
+  <tag k="ref:catasto" v="A192"/>
+  <tag k="ref:ISTAT" v="090003"/>
+  <tag k="type" v="boundary"/>
+  <tag k="website" v="https://www.comune.alghero.ss.it/"/>
+  <tag k="wikidata" v="Q166282"/>
+  <tag k="wikipedia" v="ca:L'Alguer"/>
+ </relation>
+ <relation id="40581" visible="true" version="56" changeset="150504881" timestamp="2024-04-25T16:28:13Z" user="Siciliapars" uid="21349271">
+  <member type="node" ref="72994199" role="admin_centre"/>
+  <member type="way" ref="165579897" role="outer"/>
+  <member type="way" ref="963065356" role="outer"/>
+  <member type="way" ref="983618143" role="outer"/>
+  <member type="way" ref="1082346185" role="outer"/>
+  <member type="way" ref="1082346184" role="outer"/>
+  <member type="way" ref="166623039" role="outer"/>
+  <member type="way" ref="983618141" role="outer"/>
+  <member type="way" ref="168606149" role="outer"/>
+  <member type="way" ref="168606181" role="outer"/>
+  <member type="way" ref="168606180" role="outer"/>
+  <member type="way" ref="168606185" role="outer"/>
+  <member type="way" ref="168606132" role="outer"/>
+  <member type="way" ref="117090337" role="outer"/>
+  <member type="way" ref="117090596" role="outer"/>
+  <member type="way" ref="10277182" role="outer"/>
+  <member type="way" ref="166623045" role="outer"/>
+  <member type="way" ref="10276762" role="outer"/>
+  <member type="way" ref="166623043" role="outer"/>
+  <member type="way" ref="109864312" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Alghero / l'Alguer"/>
+  <tag k="name:ar" v="ألغيرو"/>
+  <tag k="name:az-Arab" v="آلگرو"/>
+  <tag k="name:azb" v="آلگرو"/>
+  <tag k="name:ca" v="l'Alguer"/>
+  <tag k="name:co" v="L'Aliera"/>
+  <tag k="name:el" v="Αλγκέρο"/>
+  <tag k="name:es" v="Alguer"/>
+  <tag k="name:fa" v="آلگرو"/>
+  <tag k="name:it" v="Alghero"/>
+  <tag k="name:kk-Arab" v="الگەرو"/>
+  <tag k="name:la" v="Algarium"/>
+  <tag k="name:ru" v="Альгеро"/>
+  <tag k="name:sc" v="S'Alighèra"/>
+  <tag k="ref:catasto" v="A192"/>
+  <tag k="ref:ISTAT" v="090003"/>
+  <tag k="type" v="boundary"/>
+  <tag k="website" v="https://www.comune.alghero.ss.it/"/>
+  <tag k="wikidata" v="Q166282"/>
+  <tag k="wikipedia" v="ca:L'Alguer"/>
+ </relation>
+ <relation id="40581" visible="true" version="57" changeset="150508547" timestamp="2024-04-25T18:02:27Z" user="cucunto" uid="21350717">
+  <member type="node" ref="72994199" role="admin_centre"/>
+  <member type="way" ref="165579897" role="outer"/>
+  <member type="way" ref="963065356" role="outer"/>
+  <member type="way" ref="983618143" role="outer"/>
+  <member type="way" ref="1082346185" role="outer"/>
+  <member type="way" ref="1082346184" role="outer"/>
+  <member type="way" ref="166623039" role="outer"/>
+  <member type="way" ref="983618141" role="outer"/>
+  <member type="way" ref="168606149" role="outer"/>
+  <member type="way" ref="168606181" role="outer"/>
+  <member type="way" ref="168606180" role="outer"/>
+  <member type="way" ref="168606185" role="outer"/>
+  <member type="way" ref="168606132" role="outer"/>
+  <member type="way" ref="117090337" role="outer"/>
+  <member type="way" ref="117090596" role="outer"/>
+  <member type="way" ref="10277182" role="outer"/>
+  <member type="way" ref="166623045" role="outer"/>
+  <member type="way" ref="10276762" role="outer"/>
+  <member type="way" ref="166623043" role="outer"/>
+  <member type="way" ref="109864312" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="l'Alguer/Alghero"/>
+  <tag k="name:ar" v="ألغيرو"/>
+  <tag k="name:az-Arab" v="آلگرو"/>
+  <tag k="name:azb" v="آلگرو"/>
+  <tag k="name:ca" v="l'Alguer"/>
+  <tag k="name:co" v="L'Aliera"/>
+  <tag k="name:el" v="Αλγκέρο"/>
+  <tag k="name:es" v="Alguer"/>
+  <tag k="name:fa" v="آلگرو"/>
+  <tag k="name:it" v="Alghero"/>
+  <tag k="name:kk-Arab" v="الگەرو"/>
+  <tag k="name:la" v="Algarium"/>
+  <tag k="name:ru" v="Альгеро"/>
+  <tag k="name:sc" v="S'Alighèra"/>
+  <tag k="ref:catasto" v="A192"/>
+  <tag k="ref:ISTAT" v="090003"/>
+  <tag k="type" v="boundary"/>
+  <tag k="website" v="https://www.comune.alghero.ss.it/"/>
+  <tag k="wikidata" v="Q166282"/>
+  <tag k="wikipedia" v="ca:L'Alguer"/>
+ </relation>
+ <relation id="40581" visible="true" version="58" changeset="150515740" timestamp="2024-04-25T22:10:14Z" user="Siciliapars" uid="21349271">
+  <member type="node" ref="72994199" role="admin_centre"/>
+  <member type="way" ref="165579897" role="outer"/>
+  <member type="way" ref="963065356" role="outer"/>
+  <member type="way" ref="983618143" role="outer"/>
+  <member type="way" ref="1082346185" role="outer"/>
+  <member type="way" ref="1082346184" role="outer"/>
+  <member type="way" ref="166623039" role="outer"/>
+  <member type="way" ref="983618141" role="outer"/>
+  <member type="way" ref="168606149" role="outer"/>
+  <member type="way" ref="168606181" role="outer"/>
+  <member type="way" ref="168606180" role="outer"/>
+  <member type="way" ref="168606185" role="outer"/>
+  <member type="way" ref="168606132" role="outer"/>
+  <member type="way" ref="117090337" role="outer"/>
+  <member type="way" ref="117090596" role="outer"/>
+  <member type="way" ref="10277182" role="outer"/>
+  <member type="way" ref="166623045" role="outer"/>
+  <member type="way" ref="10276762" role="outer"/>
+  <member type="way" ref="166623043" role="outer"/>
+  <member type="way" ref="109864312" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Alghero / l'Alguer"/>
+  <tag k="name:ar" v="ألغيرو"/>
+  <tag k="name:az-Arab" v="آلگرو"/>
+  <tag k="name:azb" v="آلگرو"/>
+  <tag k="name:ca" v="l'Alguer"/>
+  <tag k="name:co" v="L'Aliera"/>
+  <tag k="name:el" v="Αλγκέρο"/>
+  <tag k="name:es" v="Alguer"/>
+  <tag k="name:fa" v="آلگرو"/>
+  <tag k="name:it" v="Alghero"/>
+  <tag k="name:kk-Arab" v="الگەرو"/>
+  <tag k="name:la" v="Algarium"/>
+  <tag k="name:ru" v="Альгеро"/>
+  <tag k="name:sc" v="S'Alighèra"/>
+  <tag k="ref:catasto" v="A192"/>
+  <tag k="ref:ISTAT" v="090003"/>
+  <tag k="type" v="boundary"/>
+  <tag k="website" v="https://www.comune.alghero.ss.it/"/>
+  <tag k="wikidata" v="Q166282"/>
+  <tag k="wikipedia" v="it:Alghero"/>
+ </relation>
+ <relation id="40581" visible="true" version="59" changeset="150693583" timestamp="2024-04-30T07:43:50Z" user="froipe" uid="21385987">
+  <member type="node" ref="72994199" role="admin_centre"/>
+  <member type="way" ref="165579897" role="outer"/>
+  <member type="way" ref="963065356" role="outer"/>
+  <member type="way" ref="983618143" role="outer"/>
+  <member type="way" ref="1082346185" role="outer"/>
+  <member type="way" ref="1082346184" role="outer"/>
+  <member type="way" ref="166623039" role="outer"/>
+  <member type="way" ref="983618141" role="outer"/>
+  <member type="way" ref="168606149" role="outer"/>
+  <member type="way" ref="168606181" role="outer"/>
+  <member type="way" ref="168606180" role="outer"/>
+  <member type="way" ref="168606185" role="outer"/>
+  <member type="way" ref="168606132" role="outer"/>
+  <member type="way" ref="117090337" role="outer"/>
+  <member type="way" ref="117090596" role="outer"/>
+  <member type="way" ref="10277182" role="outer"/>
+  <member type="way" ref="166623045" role="outer"/>
+  <member type="way" ref="10276762" role="outer"/>
+  <member type="way" ref="166623043" role="outer"/>
+  <member type="way" ref="109864312" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="l'Alguer/Alghero"/>
+  <tag k="name:ar" v="ألغيرو"/>
+  <tag k="name:az-Arab" v="آلگرو"/>
+  <tag k="name:azb" v="آلگرو"/>
+  <tag k="name:ca" v="l'Alguer"/>
+  <tag k="name:co" v="L'Aliera"/>
+  <tag k="name:el" v="Αλγκέρο"/>
+  <tag k="name:es" v="Alguer"/>
+  <tag k="name:fa" v="آلگرو"/>
+  <tag k="name:it" v="Alghero"/>
+  <tag k="name:kk-Arab" v="الگەرو"/>
+  <tag k="name:la" v="Algarium"/>
+  <tag k="name:ru" v="Альгеро"/>
+  <tag k="name:sc" v="S'Alighèra"/>
+  <tag k="ref:catasto" v="A192"/>
+  <tag k="ref:ISTAT" v="090003"/>
+  <tag k="type" v="boundary"/>
+  <tag k="website" v="https://www.comune.alghero.ss.it/"/>
+  <tag k="wikidata" v="Q166282"/>
+  <tag k="wikipedia" v="ca:L'Alguer"/>
+ </relation>
+ <relation id="40581" visible="true" version="60" changeset="150702242" timestamp="2024-04-30T11:14:53Z" user="Adriaticum" uid="21387693">
+  <member type="node" ref="72994199" role="admin_centre"/>
+  <member type="way" ref="165579897" role="outer"/>
+  <member type="way" ref="963065356" role="outer"/>
+  <member type="way" ref="983618143" role="outer"/>
+  <member type="way" ref="1082346185" role="outer"/>
+  <member type="way" ref="1082346184" role="outer"/>
+  <member type="way" ref="166623039" role="outer"/>
+  <member type="way" ref="983618141" role="outer"/>
+  <member type="way" ref="168606149" role="outer"/>
+  <member type="way" ref="168606181" role="outer"/>
+  <member type="way" ref="168606180" role="outer"/>
+  <member type="way" ref="168606185" role="outer"/>
+  <member type="way" ref="168606132" role="outer"/>
+  <member type="way" ref="117090337" role="outer"/>
+  <member type="way" ref="117090596" role="outer"/>
+  <member type="way" ref="10277182" role="outer"/>
+  <member type="way" ref="166623045" role="outer"/>
+  <member type="way" ref="10276762" role="outer"/>
+  <member type="way" ref="166623043" role="outer"/>
+  <member type="way" ref="109864312" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Alghero / l'Alguer"/>
+  <tag k="name:ar" v="ألغيرو"/>
+  <tag k="name:az-Arab" v="آلگرو"/>
+  <tag k="name:azb" v="آلگرو"/>
+  <tag k="name:ca" v="l'Alguer"/>
+  <tag k="name:co" v="L'Aliera"/>
+  <tag k="name:el" v="Αλγκέρο"/>
+  <tag k="name:es" v="Alguer"/>
+  <tag k="name:fa" v="آلگرو"/>
+  <tag k="name:it" v="Alghero"/>
+  <tag k="name:kk-Arab" v="الگەرو"/>
+  <tag k="name:la" v="Algarium"/>
+  <tag k="name:ru" v="Альгеро"/>
+  <tag k="name:sc" v="S'Alighèra"/>
+  <tag k="ref:catasto" v="A192"/>
+  <tag k="ref:ISTAT" v="090003"/>
+  <tag k="type" v="boundary"/>
+  <tag k="website" v="https://www.comune.alghero.ss.it/"/>
+  <tag k="wikidata" v="Q166282"/>
+  <tag k="wikipedia" v="it:Alghero"/>
+ </relation>
+ <relation id="40581" visible="true" version="61" changeset="150722050" timestamp="2024-04-30T18:29:37Z" user="froipe" uid="21385987">
+  <member type="node" ref="72994199" role="admin_centre"/>
+  <member type="way" ref="165579897" role="outer"/>
+  <member type="way" ref="963065356" role="outer"/>
+  <member type="way" ref="983618143" role="outer"/>
+  <member type="way" ref="1082346185" role="outer"/>
+  <member type="way" ref="1082346184" role="outer"/>
+  <member type="way" ref="166623039" role="outer"/>
+  <member type="way" ref="983618141" role="outer"/>
+  <member type="way" ref="168606149" role="outer"/>
+  <member type="way" ref="168606181" role="outer"/>
+  <member type="way" ref="168606180" role="outer"/>
+  <member type="way" ref="168606185" role="outer"/>
+  <member type="way" ref="168606132" role="outer"/>
+  <member type="way" ref="117090337" role="outer"/>
+  <member type="way" ref="117090596" role="outer"/>
+  <member type="way" ref="10277182" role="outer"/>
+  <member type="way" ref="166623045" role="outer"/>
+  <member type="way" ref="10276762" role="outer"/>
+  <member type="way" ref="166623043" role="outer"/>
+  <member type="way" ref="109864312" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="l'Alguer/Alghero"/>
+  <tag k="name:ar" v="ألغيرو"/>
+  <tag k="name:az-Arab" v="آلگرو"/>
+  <tag k="name:azb" v="آلگرو"/>
+  <tag k="name:ca" v="l'Alguer"/>
+  <tag k="name:co" v="L'Aliera"/>
+  <tag k="name:el" v="Αλγκέρο"/>
+  <tag k="name:es" v="Alguer"/>
+  <tag k="name:fa" v="آلگرو"/>
+  <tag k="name:it" v="Alghero"/>
+  <tag k="name:kk-Arab" v="الگەرو"/>
+  <tag k="name:la" v="Algarium"/>
+  <tag k="name:ru" v="Альгеро"/>
+  <tag k="name:sc" v="S'Alighèra"/>
+  <tag k="ref:catasto" v="A192"/>
+  <tag k="ref:ISTAT" v="090003"/>
+  <tag k="type" v="boundary"/>
+  <tag k="website" v="https://www.comune.alghero.ss.it/"/>
+  <tag k="wikidata" v="Q166282"/>
+  <tag k="wikipedia" v="ca:L'Alguer"/>
+ </relation>
+ <relation id="40581" visible="true" version="62" changeset="151100114" timestamp="2024-05-09T13:23:23Z" user="Siciliapars" uid="21349271">
+  <member type="node" ref="72994199" role="admin_centre"/>
+  <member type="way" ref="165579897" role="outer"/>
+  <member type="way" ref="963065356" role="outer"/>
+  <member type="way" ref="983618143" role="outer"/>
+  <member type="way" ref="1082346185" role="outer"/>
+  <member type="way" ref="1082346184" role="outer"/>
+  <member type="way" ref="166623039" role="outer"/>
+  <member type="way" ref="983618141" role="outer"/>
+  <member type="way" ref="168606149" role="outer"/>
+  <member type="way" ref="168606181" role="outer"/>
+  <member type="way" ref="168606180" role="outer"/>
+  <member type="way" ref="168606185" role="outer"/>
+  <member type="way" ref="168606132" role="outer"/>
+  <member type="way" ref="117090337" role="outer"/>
+  <member type="way" ref="117090596" role="outer"/>
+  <member type="way" ref="10277182" role="outer"/>
+  <member type="way" ref="166623045" role="outer"/>
+  <member type="way" ref="10276762" role="outer"/>
+  <member type="way" ref="166623043" role="outer"/>
+  <member type="way" ref="109864312" role="outer"/>
+  <tag k="admin_level" v="8"/>
+  <tag k="boundary" v="administrative"/>
+  <tag k="name" v="Alghero / l'Alguer"/>
+  <tag k="name:ar" v="ألغيرو"/>
+  <tag k="name:az-Arab" v="آلگرو"/>
+  <tag k="name:azb" v="آلگرو"/>
+  <tag k="name:ca" v="l'Alguer"/>
+  <tag k="name:co" v="L'Aliera"/>
+  <tag k="name:el" v="Αλγκέρο"/>
+  <tag k="name:es" v="Alguer"/>
+  <tag k="name:fa" v="آلگرو"/>
+  <tag k="name:it" v="Alghero"/>
+  <tag k="name:kk-Arab" v="الگەرو"/>
+  <tag k="name:la" v="Algarium"/>
+  <tag k="name:ru" v="Альгеро"/>
+  <tag k="name:sc" v="S'Alighèra"/>
+  <tag k="ref:catasto" v="A192"/>
+  <tag k="ref:ISTAT" v="090003"/>
+  <tag k="type" v="boundary"/>
+  <tag k="website" v="https://www.comune.alghero.ss.it/"/>
   <tag k="wikidata" v="Q166282"/>
   <tag k="wikipedia" v="ca:L'Alguer"/>
  </relation>

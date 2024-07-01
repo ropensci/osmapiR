@@ -66,11 +66,39 @@ osm_get_user_details <- function(user_id, format = c("R", "xml", "json")) {
   if (length(user_id) == 1) {
     out <- tryCatch( # ! HTTP 404 Not Found. Different from osm_details_users()
       osm_details_user(user_id = user_id, format = format),
-      error = function(e) empty_user()
+      error = function(e) {
+        switch(format,
+          R = empty_user(),
+          xml = empty_usr_xml(),
+          json = empty_usr_json()
+        )
+      }
     )
   } else {
     out <- osm_details_users(user_ids = user_id, format = format)
   }
+
+  return(out)
+}
+
+
+empty_usr_xml <- function() {
+  out <- xml2::xml_new_root(
+    "osm",
+    version = "0.6", generator = "OpenStreetMap server", copyright = "OpenStreetMap and contributors",
+    attribution = "http://www.openstreetmap.org/copyright", license = "http://opendatacommons.org/licenses/odbl/1-0/"
+  )
+
+  return(out)
+}
+
+
+empty_usr_json <- function() {
+  out <- list(
+    version = "0.6", generator = "OpenStreetMap server", copyright = "OpenStreetMap and contributors",
+    attribution = "http://www.openstreetmap.org/copyright", license = "http://opendatacommons.org/licenses/odbl/1-0/",
+    users = list()
+  )
 
   return(out)
 }

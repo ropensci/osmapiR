@@ -166,12 +166,12 @@ test_that("osm_read_changeset works", {
 
   ## json
   with_mock_dir("mock_read_changeset_json", {
-    chaset_json <- osm_get_changesets(changeset_id = c(137595351, 113271550), format = "json")
+    chasets_json <- osm_get_changesets(changeset_id = c(137595351, 113271550), format = "json")
   })
-  expect_type(chaset_json, "list")
-  expect_named(chaset_json, c("version", "generator", "copyright", "attribution", "license", "elements"))
-  expect_length(chaset_json$elements, 2)
-  lapply(chaset_json$elements, function(x) {
+  expect_type(chasets_json, "list")
+  expect_named(chasets_json, c("version", "generator", "copyright", "attribution", "license", "elements"))
+  expect_length(chasets_json$elements, 2)
+  lapply(chasets_json$elements, function(x) {
     expect_contains(
       names(x),
       c(
@@ -180,6 +180,10 @@ test_that("osm_read_changeset works", {
       )
     )
   })
+
+  # Compare xml, json & R
+  expect_identical(nrow(chasets), xml2::xml_length(chasets_xml))
+  expect_identical(nrow(chasets), length(chasets_json$elements))
 })
 
 
@@ -207,6 +211,9 @@ test_that("osm_download_changeset works", {
 
   # methods
   expect_snapshot(print(osmchange))
+
+  # Compare xml & R
+  expect_identical(nrow(osmchange), xml2::xml_length(osmchange_xml))
 })
 
 
@@ -267,8 +274,8 @@ test_that("osm_query_changesets works", {
     })
   })
 
-  # Check batch union for xml and json
-  expect_identical(nrow(chaset$batches), length(xml2::xml_children(chaset_xml)))
+  # Compare xml, json & R
+  expect_identical(nrow(chaset$batches), xml2::xml_length(chaset_xml))
   expect_identical(nrow(chaset$batches), length(chaset_json$changeset))
 
   # methods
@@ -279,6 +286,8 @@ test_that("osm_query_changesets works", {
 
   with_mock_dir("mock_query_changesets_empty", {
     empty_chaset <- osm_query_changesets(bbox = c(-180, 0, -179.9, 0.1), user = "jmaspons")
+    empty_chaset_xml <- osm_query_changesets(bbox = c(-180, 0, -179.9, 0.1), user = "jmaspons", format = "xml")
+    empty_chaset_json <- osm_query_changesets(bbox = c(-180, 0, -179.9, 0.1), user = "jmaspons", format = "json")
   })
 
   expect_s3_class(empty_chaset, c("osmapi_changesets", "data.frame"))
@@ -293,6 +302,10 @@ test_that("osm_query_changesets works", {
 
   # methods
   expect_snapshot(print(empty_chaset))
+
+  # Compare xml, json & R
+  expect_identical(nrow(empty_chaset), xml2::xml_length(empty_chaset_xml))
+  expect_identical(nrow(empty_chaset), length(empty_chaset_json$changesets))
 
 
   ## Input errors

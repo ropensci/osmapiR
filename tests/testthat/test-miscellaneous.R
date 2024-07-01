@@ -26,6 +26,8 @@ test_that("osm_capabilities works", {
 test_that("osm_bbox_objects works", {
   with_mock_dir("mock_bbox_objects", {
     bbox_objects <- osm_bbox_objects(bbox = c(1.8366775, 41.8336843, 1.8379971, 41.8344537))
+    xml_bbox_objects <- osm_bbox_objects(bbox = c(1.8366775, 41.8336843, 1.8379971, 41.8344537), format = "xml")
+    json_bbox_objects <- osm_bbox_objects(bbox = c(1.8366775, 41.8336843, 1.8379971, 41.8344537), format = "json")
   })
 
   expect_s3_class(bbox_objects, c("osmapi_objects", "data.frame"))
@@ -51,19 +53,28 @@ test_that("osm_bbox_objects works", {
 
 
   # methods
-  expect_snapshot(print(bbox_objects))
+  expect_snapshot(print(bbox_objects, max = 100))
+
+
+  expect_s3_class(xml_bbox_objects, "xml_document")
+  expect_type(json_bbox_objects, "list")
+
+  # Compare xml, json & R
+  expect_identical(nrow(bbox_objects), xml2::xml_length(xml_bbox_objects) - 1L) # first xml node <bounds>
+  expect_identical(nrow(bbox_objects), length(json_bbox_objects$elements))
 
 
   ## Empty results
 
   with_mock_dir("mock_bbox_objects_empty", {
     empty_bbox_objects <- osm_bbox_objects(bbox = c(-180, 0, -179.9, 0.1))
+    xml_empty_bbox_objects <- osm_bbox_objects(bbox = c(-180, 0, -179.9, 0.1), format = "xml")
+    json_empty_bbox_objects <- osm_bbox_objects(bbox = c(-180, 0, -179.9, 0.1), format = "json")
   })
 
   expect_s3_class(empty_bbox_objects, c("osmapi_objects", "data.frame"), exact = TRUE)
   expect_identical(names(empty_bbox_objects), obj_cols)
   expect_named(attr(empty_bbox_objects, "bbox"), c("minlat", "minlon", "maxlat", "maxlon"))
-  expect_identical(nrow(empty_bbox_objects), 0L)
 
   mapply(
     function(x, cl) expect_true(inherits(x, cl)),
@@ -74,6 +85,15 @@ test_that("osm_bbox_objects works", {
 
   # methods
   expect_snapshot(print(empty_bbox_objects))
+
+
+  expect_s3_class(xml_empty_bbox_objects, "xml_document")
+  expect_type(json_empty_bbox_objects, "list")
+
+  # Compare xml, json & R
+  expect_identical(nrow(empty_bbox_objects), 0L)
+  expect_identical(xml2::xml_length(xml_empty_bbox_objects) - 1L, 0L) # first xml node <bounds>
+  expect_identical(length(json_empty_bbox_objects$elements), 0L)
 })
 
 
@@ -82,7 +102,15 @@ test_that("osm_bbox_objects works", {
 test_that("osm_permissions works", {
   with_mock_dir("mock_permissions", {
     perms <- osm_permissions()
+    xml_perms <- osm_permissions(format = "xml")
+    json_perms <- osm_permissions(format = "json")
   })
 
   expect_type(perms, "character")
+  expect_s3_class(xml_perms, "xml_document")
+  expect_type(json_perms, "list")
+
+  # Compare xml, json & R
+  expect_identical(length(perms), length(xml2::xml_find_all(xml_perms, xpath = "//permission")))
+  expect_identical(length(perms), length(json_perms$permissions))
 })
