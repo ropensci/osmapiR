@@ -107,10 +107,10 @@ osm_get_objects <- function(osm_type, osm_id, version, full_objects = FALSE,
           full_obj <- do.call(rbind, full_objL)
         } else if (format == "xml") {
           full_obj <- xml2::xml_new_root(full_objL[[1]])
-          for (i in seq_len(length(full_objL) - 1)) {
-            for (j in seq_len(xml2::xml_length(full_objL[[i + 1]]))) {
-              xml2::xml_add_child(full_obj, xml2::xml_child(full_objL[[i + 1]], search = j))
-            }
+          for (i in seq_along(full_objL[-1]) + 1) {
+            lapply(xml2::xml_children(full_objL[[i]]), function(node) {
+              xml2::xml_add_child(full_obj, node)
+            })
           }
         } else if (format == "json") {
           full_obj <- full_objL[[1]]
@@ -144,9 +144,8 @@ osm_get_objects <- function(osm_type, osm_id, version, full_objects = FALSE,
     # Order by types (node, way, relation)
 
     if (format == "R") {
-      out <- do.call(rbind, out[intersect(c("node", "way", "relation"), names(out))])
-      out <- rbind(out[out$type == "node", ], out[out$type == "way", ])
-      out <- rbind(out, out[out$type == "relation", ])
+      out <- do.call(rbind, out)
+      out <- rbind(out[out$type == "node", ], out[out$type == "way", ], out[out$type == "relation", ])
       rownames(out) <- NULL
 
       if (tags_in_columns) {

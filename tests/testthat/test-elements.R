@@ -565,7 +565,8 @@ test_that("osm_full_object works", {
   with_mock_dir("mock_full_object", {
     full$way <- osm_get_objects(osm_type = "way", osm_id = 13073736, full_objects = TRUE)
     full$rel <- osm_get_objects(osm_type = "relation", osm_id = "6002785", full_objects = TRUE)
-    full_df <- osm_get_objects(
+
+    full$df <- osm_get_objects(
       osm_type = c("relation", "way", "way", "node"),
       osm_id = c(6002785, 13073736, 235744929, 35308286),
       full_objects = TRUE, format = "R"
@@ -574,6 +575,11 @@ test_that("osm_full_object works", {
       osm_type = c("relation", "way", "way", "node"),
       osm_id = c(6002785, 13073736, 235744929, 35308286),
       full_objects = TRUE, format = "xml"
+    )
+    full_json <- osm_get_objects(
+      osm_type = c("relation", "way", "way", "node"),
+      osm_id = c(6002785, 13073736, 235744929, 35308286),
+      full_objects = TRUE, format = "json"
     )
   })
 
@@ -589,18 +595,8 @@ test_that("osm_full_object works", {
   lapply(full, function(x) expect_snapshot(print(x)))
 
 
-  ## xml
   expect_s3_class(full_xml, "xml_document")
 
-
-  ## json
-  with_mock_dir("mock_full_object_json", {
-    full_json <- osm_get_objects(
-      osm_type = c("relation", "way", "way", "node"),
-      osm_id = c(6002785, 13073736, 235744929, 35308286),
-      full_objects = TRUE, format = "json"
-    )
-  })
   expect_type(full_json, "list")
   expect_named(full_json, c("version", "generator", "copyright", "attribution", "license", "elements"))
   lapply(full_json$elements, function(x) {
@@ -609,19 +605,14 @@ test_that("osm_full_object works", {
 
 
   # Compare xml, json & R
-  id_df <- full_df$id
+  expect_identical(nrow(full$df), xml2::xml_length(full_xml))
+  expect_identical(nrow(full$df), length(full_json$elements))
+
+  id_df <- full$df$id
   id_xml <- sapply(xml2::xml_children(full_xml), xml2::xml_attr, attr = "id")
   id_json <- as.character(sapply(full_json$elements, function(x) x$id))
-
-  setequal(id_df, id_xml)
-  setequal(id_df, id_xml[-131]) # TODO: last object lost in df
-  setequal(id_xml, id_json)
-  all.equal(id_df, id_xml)
-  setdiff(id_df, id_xml[-131])
-  setdiff(id_xml, id_df)
-  which(id_xml == setdiff(id_xml, id_df))
-  # expect_identical(nrow(full_df), xml2::xml_length(full_xml)) ## TODO
-  # expect_identical(nrow(full_df), length(full_json$elements))
+  expect_setequal(id_df, id_xml)
+  expect_setequal(id_df, id_json)
 })
 
 

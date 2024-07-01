@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<osm version="0.6" generator="CGImap 0.8.8 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<osm version="0.6" generator="CGImap 0.9.3 (012345 ******.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
  <node id="1987589881" visible="true" version="1" changeset="13666675" timestamp="2012-10-28T20:10:51Z" user="EliziR" uid="605366" lat="42.3229954" lon="3.1666430"/>
  <node id="1987589883" visible="true" version="1" changeset="13666675" timestamp="2012-10-28T20:10:51Z" user="EliziR" uid="605366" lat="42.3230133" lon="3.1667173"/>
  <node id="1987589884" visible="true" version="1" changeset="13666675" timestamp="2012-10-28T20:10:51Z" user="EliziR" uid="605366" lat="42.3230151" lon="3.1665900"/>
@@ -137,7 +137,7 @@
   <tag k="name" v="Claustre"/>
   <tag k="name:ca" v="Claustre"/>
  </way>
- <relation id="6002785" visible="true" version="6" changeset="115301929" timestamp="2021-12-23T15:52:41Z" user="jmaspons" uid="11725140">
+ <relation id="6002785" visible="true" version="7" changeset="152677228" timestamp="2024-06-14T12:56:49Z" user="Jean-Louis Stanus" uid="116840">
   <member type="way" ref="188131984" role="outer"/>
   <member type="way" ref="399588560" role="inner"/>
   <tag k="amenity" v="place_of_worship"/>
@@ -150,6 +150,7 @@
   <tag k="religion" v="christian"/>
   <tag k="tourism" v="attraction"/>
   <tag k="type" v="multipolygon"/>
+  <tag k="wheelchair" v="no"/>
   <tag k="wikidata" v="Q798606"/>
   <tag k="wikipedia" v="ca:Sant Pere de Rodes"/>
  </relation>
