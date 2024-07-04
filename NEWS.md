@@ -6,6 +6,7 @@
 * Add format = "sf" for functions returning objects of class `osmapi_map_notes` (#36)
 * Add format = "sf" for functions returning objects of class `osmapi_changesets` (#37)
 * Add format = "sf" for functions returning objects of class `osmapi_gpx_metadata` (#38)
+* Updated links to the new osmapiR home at rOpenSci (#40)
 
 # osmapiR 0.1.0
 
