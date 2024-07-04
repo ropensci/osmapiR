@@ -386,6 +386,7 @@ setequal
 setHook
 setNames
 sexualized
+sfc
 siebh
 socio
 SoftwareApplication
@@ -482,7 +483,9 @@ wMpPI
 wpt
 www
 xdworld
+xmax
 xMH
+xmin
 xmlns
 XMLSchema
 xpath
@@ -492,4 +495,6 @@ XtQPTSyuTOu
 xU
 xyz
 yaml
+ymax
+ymin
 yml

@@ -77,6 +77,28 @@ print.osmapi_changesets <- function(x, nchar_comments = 60, nchar_tags = 80, ...
 }
 
 
+#' @export
+print.sf_osmapi_changesets <- function(x, nchar_comments = 60, nchar_tags = 80, ...) {
+  y <- x
+
+  if ("discussion" %in% names(x)) {
+    disc <- vapply(x$discussion, comments_as_text, FUN.VALUE = "")
+    disc <- ifelse(nchar(disc) > nchar_comments, paste0(substr(disc, 1, nchar_comments - 3), "..."), disc)
+    x$discussion <- disc
+  }
+
+  if ("tags" %in% names(x)) {
+    tags <- vapply(x$tags, tags_as_text, FUN.VALUE = "")
+    tags <- ifelse(nchar(tags) > nchar_tags, paste0(substr(tags, 1, nchar_tags), "..."), tags)
+    x$tags <- tags
+  }
+
+  NextMethod()
+
+  invisible(y)
+}
+
+
 ## Notes ----
 
 #' @export

@@ -24,6 +24,65 @@
                                                                                        tags
       1 8 tags: changesets_count=1 | comment=Correcció d'acord amb la toponímia oficial ...
 
+---
+
+    Code
+      print(chaset_discuss_sf)
+    Output
+      Simple feature collection with 1 feature and 10 fields
+      Geometry type: POLYGON
+      Dimension:     XY
+      Bounding box:  xmin: 2.658056 ymin: 42.67996 xmax: 2.712578 ymax: 42.69368
+      Geodetic CRS:  WGS 84
+               id          created_at           closed_at  open      user      uid
+      1 137595351 2023-06-21 09:09:18 2023-06-21 09:09:18 FALSE Quercinus 19641470
+        comments_count changes_count
+      1              4             1
+                                                          discussion
+      1 4 comments from 2023-06-26 to 2023-07-03 by rainerU, Quer...
+                                                                                       tags
+      1 8 tags: changesets_count=1 | comment=Correcció d'acord amb la toponímia oficial ...
+                              geometry
+      1 POLYGON ((2.658056 42.67996...
+
+---
+
+    Code
+      print(chasets)
+    Output
+               id          created_at           closed_at  open      user      uid
+      1 137595351 2023-06-21 09:09:18 2023-06-21 09:09:18 FALSE Quercinus 19641470
+      2 113271550 2021-11-02 08:41:20 2021-11-02 08:41:31 FALSE  jmaspons 11725140
+           min_lat   min_lon    max_lat   max_lon comments_count changes_count
+      1 42.6799619 2.6580564 42.6936802 2.7125775              4             1
+      2 42.5033494 2.3938477 42.5380701 2.4543207              0            17
+                                                                                       tags
+      1 8 tags: changesets_count=1 | comment=Correcció d'acord amb la toponímia oficial ...
+      2 2 tags: comment=Volta pel Canogó. Add Waste basket, 7 Information guidepost, Inf...
+
+---
+
+    Code
+      print(chasets_sf)
+    Output
+      Simple feature collection with 2 features and 9 fields
+      Geometry type: POLYGON
+      Dimension:     XY
+      Bounding box:  xmin: 2.658056 ymin: 42.67996 xmax: 2.712578 ymax: 42.69368
+      Geodetic CRS:  WGS 84
+               id          created_at           closed_at  open      user      uid
+      1 137595351 2023-06-21 09:09:18 2023-06-21 09:09:18 FALSE Quercinus 19641470
+      2 113271550 2021-11-02 08:41:20 2021-11-02 08:41:31 FALSE  jmaspons 11725140
+        comments_count changes_count
+      1              4             1
+      2              0            17
+                                                                                       tags
+      1 8 tags: changesets_count=1 | comment=Correcció d'acord amb la toponímia oficial ...
+      2 2 tags: comment=Volta pel Canogó. Add Waste basket, 7 Information guidepost, Inf...
+                              geometry
+      1 POLYGON ((2.658056 42.67996...
+      2 POLYGON ((2.658056 42.67996...
+
 # osm_download_changeset works
 
     Code
@@ -404,10 +463,78 @@
 ---
 
     Code
+      print(chaset_sf)
+    Output
+      Simple feature collection with 50 features and 9 fields
+      Geometry type: POLYGON
+      Dimension:     XY
+      Bounding box:  xmin: -6.978249 ymin: 42.43274 xmax: -6.978003 ymax: 42.43286
+      Geodetic CRS:  WGS 84
+      First 10 features:
+                id          created_at           closed_at  open               user
+      1  137626978 2023-06-22 02:10:24 2023-06-22 02:10:24 FALSE Mementomoristultus
+      2  137626972 2023-06-22 02:09:43 2023-06-22 02:09:44 FALSE Mementomoristultus
+      3  137626970 2023-06-22 02:09:28 2023-06-22 02:09:28 FALSE Mementomoristultus
+      4  137626862 2023-06-22 02:01:25 2023-06-22 02:01:26 FALSE Mementomoristultus
+      5  137626853 2023-06-22 02:00:48 2023-06-22 02:00:48 FALSE Mementomoristultus
+      6  137626849 2023-06-22 02:00:24 2023-06-22 02:00:24 FALSE Mementomoristultus
+      7  137626836 2023-06-22 01:59:16 2023-06-22 01:59:16 FALSE Mementomoristultus
+      8  137626833 2023-06-22 01:58:51 2023-06-22 01:58:51 FALSE Mementomoristultus
+      9  137626827 2023-06-22 01:58:12 2023-06-22 01:58:12 FALSE Mementomoristultus
+      10 137626819 2023-06-22 01:57:49 2023-06-22 01:57:49 FALSE Mementomoristultus
+              uid comments_count changes_count
+      1  19648429              0             5
+      2  19648429              0             5
+      3  19648429              0             5
+      4  19648429              0             2
+      5  19648429              0             1
+      6  19648429              0             7
+      7  19648429              0             1
+      8  19648429              0             2
+      9  19648429              0             1
+      10 19648429              0             5
+                                                                                        tags
+      1  6 tags: changesets_count=150 | comment=18945 | created_by=iD 2.25.2 | host=https...
+      2  6 tags: changesets_count=149 | comment=18945 | created_by=iD 2.25.2 | host=https...
+      3  6 tags: changesets_count=148 | comment=18945 | created_by=iD 2.25.2 | host=https...
+      4  6 tags: changesets_count=144 | comment=11 | created_by=iD 2.25.2 | host=https://...
+      5  6 tags: changesets_count=143 | comment=13 | created_by=iD 2.25.2 | host=https://...
+      6  6 tags: changesets_count=142 | comment=13 | created_by=iD 2.25.2 | host=https://...
+      7  6 tags: changesets_count=141 | comment=13 | created_by=iD 2.25.2 | host=https://...
+      8  6 tags: changesets_count=140 | comment=11 | created_by=iD 2.25.2 | host=https://...
+      9  7 tags: changesets_count=139 | comment=12 | created_by=iD 2.25.2 | host=https://...
+      10 6 tags: changesets_count=138 | comment=13 | created_by=iD 2.25.2 | host=https://...
+                               geometry
+      1  POLYGON ((-6.978249 42.4327...
+      2  POLYGON ((-6.978249 42.4327...
+      3  POLYGON ((-6.978249 42.4327...
+      4  POLYGON ((-6.978249 42.4327...
+      5  POLYGON ((-6.978249 42.4327...
+      6  POLYGON ((-6.978249 42.4327...
+      7  POLYGON ((-6.978249 42.4327...
+      8  POLYGON ((-6.978249 42.4327...
+      9  POLYGON ((-6.978249 42.4327...
+      10 POLYGON ((-6.978249 42.4327...
+
+---
+
+    Code
       print(empty_chaset)
     Output
        [1] id             created_at     closed_at      open           user          
        [6] uid            min_lat        min_lon        max_lat        max_lon       
       [11] comments_count changes_count  tags          
+      <0 rows> (or 0-length row.names)
+
+---
+
+    Code
+      print(empty_chaset_sf)
+    Output
+      Simple feature collection with 0 features and 9 fields
+      Bounding box:  xmin: NA ymin: NA xmax: NA ymax: NA
+      Geodetic CRS:  WGS 84
+       [1] id             created_at     closed_at      open           user          
+       [6] uid            comments_count changes_count  tags           geometry      
       <0 rows> (or 0-length row.names)
 

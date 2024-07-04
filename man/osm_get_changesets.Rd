@@ -7,7 +7,7 @@
 osm_get_changesets(
   changeset_id,
   include_discussion = FALSE,
-  format = c("R", "xml", "json"),
+  format = c("R", "sf", "xml", "json"),
   tags_in_columns = FALSE
 )
 }
@@ -16,14 +16,15 @@ osm_get_changesets(
 
 \item{include_discussion}{Indicates whether the result should contain the changeset discussion or not.}
 
-\item{format}{Format of the output. Can be \code{"R"} (default), \code{"xml"}, or \code{"json"}.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"sf"}, \code{"xml"}, or \code{"json"}.}
 
 \item{tags_in_columns}{If \code{FALSE} (default), the tags of the changesets are saved in a single list column \code{tags}
 containing a \code{data.frame} for each changeset with the keys and values. If \code{TRUE}, add a column for each key.
 Ignored if \code{format != "R"}.}
 }
 \value{
-If \code{format = "R"}, returns a data frame with one OSM changeset per row.
+If \code{format = "R"}, returns a data frame with one OSM changeset per row. If \code{format = "sf"}, returns a \code{sf} object
+from \pkg{sf}.
 \subsection{\code{format = "xml"}}{
 
 Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:

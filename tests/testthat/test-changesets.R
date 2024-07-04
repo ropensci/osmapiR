@@ -2,6 +2,10 @@ column_changeset <- c(
   "id", "created_at", "closed_at", "open", "user", "uid",
   "min_lat", "min_lon", "max_lat", "max_lon", "comments_count", "changes_count", "discussion", "tags"
 )
+column_changeset_sf <- c(
+  "id", "created_at", "closed_at", "open", "user", "uid",
+  "comments_count", "changes_count", "discussion", "tags", "geometry"
+)
 column_discuss <- c("id", "date", "uid", "user", "comment_text")
 
 column_osmchange <- c(
@@ -12,7 +16,8 @@ column_osmchange <- c(
 class_columns <- list(
   id = "character", created_at = "POSIXct", closed_at = "POSIXct", open = "logical", user = "character",
   uid = "character", min_lat = "character", min_lon = "character", max_lat = "character", max_lon = "character",
-  comments_count = "integer", changes_count = "integer", discussion = "list", tags = "list"
+  comments_count = "integer", changes_count = "integer", discussion = "list", tags = "list",
+  geometry = c("sfc_POLYGON", "sfc")
 )
 
 class_columns_osmchange <- list(
@@ -118,17 +123,34 @@ test_that("osm_read_changeset works", {
   with_mock_dir("mock_read_changeset", {
     chaset <- osm_get_changesets(changeset_id = 137595351)
     chaset_discuss <- osm_get_changesets(changeset_id = 137595351, include_discussion = TRUE)
+    chaset_discuss_sf <- osm_get_changesets(changeset_id = 137595351, include_discussion = TRUE, format = "sf")
     chasets <- osm_get_changesets(changeset_id = c(137595351, 113271550), format = "R")
+    chasets_sf <- osm_get_changesets(changeset_id = c(137595351, 113271550), format = "sf")
     chasets_xml <- osm_get_changesets(changeset_id = c(137595351, 113271550), format = "xml")
   })
 
-  expect_s3_class(chaset, c("osmapi_changesets", "data.frame"))
-  expect_s3_class(chasets, c("osmapi_changesets", "data.frame"))
-  expect_s3_class(chaset_discuss, c("osmapi_changesets", "data.frame"))
-  expect_identical(names(chaset), setdiff(column_changeset, "discussion"))
-  expect_identical(names(chasets), setdiff(column_changeset, "discussion"))
-  expect_identical(names(chaset_discuss), c(column_changeset))
+  expect_s3_class(chaset, class = c("osmapi_changesets", "data.frame"), exact = TRUE)
+  expect_s3_class(chasets, class = c("osmapi_changesets", "data.frame"), exact = TRUE)
+  expect_s3_class(chaset_discuss, class = c("osmapi_changesets", "data.frame"), exact = TRUE)
+  expect_s3_class(chaset_discuss_sf, class = c("sf_osmapi_changesets", "sf", "data.frame"), exact = TRUE)
+  expect_s3_class(chasets_sf, class = c("sf_osmapi_changesets", "sf", "data.frame"), exact = TRUE)
+
+  expect_named(chaset, setdiff(column_changeset, "discussion"))
+  expect_named(chasets, setdiff(column_changeset, "discussion"))
+  expect_named(chaset_discuss, column_changeset)
+  expect_named(chaset_discuss_sf, column_changeset_sf)
+  expect_named(chasets_sf, setdiff(column_changeset_sf, "discussion"))
+
   lapply(chaset_discuss$discussion, function(x) {
+    expect_s3_class(x, c("changeset_comments", "data.frame"))
+    expect_named(x, column_discuss)
+
+    mapply(function(y, cl) expect_true(inherits(y, cl)), y = x, cl = class_columns_discussion[names(x)])
+
+    # Check that time is extracted, otherwise it's 00:00:00 in local time
+    expect_false(unique(strftime(as.POSIXct(x$date), format = "%M:%S") == "00:00"))
+  })
+  lapply(chaset_discuss_sf$discussion, function(x) {
     expect_s3_class(x, c("changeset_comments", "data.frame"))
     expect_named(x, column_discuss)
 
@@ -141,6 +163,10 @@ test_that("osm_read_changeset works", {
   mapply(function(x, cl) expect_true(inherits(x, cl)), x = chaset, cl = class_columns[names(chaset)])
   mapply(function(x, cl) expect_true(inherits(x, cl)), x = chasets, cl = class_columns[names(chasets)])
   mapply(function(x, cl) expect_true(inherits(x, cl)), x = chaset_discuss, cl = class_columns[names(chaset_discuss)])
+  mapply(function(x, cl) expect_true(inherits(x, cl)), x = chasets_sf, cl = class_columns[names(chasets_sf)])
+  mapply(function(x, cl) expect_true(inherits(x, cl)),
+    x = chaset_discuss_sf, cl = class_columns[names(chaset_discuss_sf)]
+  )
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
   lapply(chaset[, c("created_at", "closed_at")], function(x) {
@@ -157,6 +183,9 @@ test_that("osm_read_changeset works", {
   # methods
   expect_snapshot(print(chaset))
   expect_snapshot(print(chaset_discuss))
+  expect_snapshot(print(chaset_discuss_sf))
+  expect_snapshot(print(chasets))
+  expect_snapshot(print(chasets_sf))
 
 
   ## xml
@@ -182,6 +211,7 @@ test_that("osm_read_changeset works", {
   })
 
   # Compare xml, json & R
+  expect_identical(nrow(chasets), nrow(chasets_sf))
   expect_identical(nrow(chasets), xml2::xml_length(chasets_xml))
   expect_identical(nrow(chasets), length(chasets_json$elements))
 })
@@ -249,6 +279,13 @@ test_that("osm_query_changesets works", {
       limit = 50
     )
 
+    chaset_sf <- osm_query_changesets(
+      bbox = "-9.3015367,41.8073642,-6.7339533,43.790422",
+      user = "Mementomoristultus",
+      closed = TRUE,
+      limit = 50,
+      format = "sf"
+    )
     chaset_xml <- osm_query_changesets(
       bbox = "-9.3015367,41.8073642,-6.7339533,43.790422",
       user = "Mementomoristultus",
@@ -274,38 +311,57 @@ test_that("osm_query_changesets works", {
     })
   })
 
-  # Compare xml, json & R
+  expect_s3_class(chaset_sf, class = c("sf_osmapi_changesets", "sf", "data.frame"), exact = TRUE)
+  expect_s3_class(chaset_xml, class = "xml_document")
+  expect_type(chaset_json, type = "list")
+
+
+  # Compare sf, xml, json & R
+  expect_identical(nrow(chaset$batches), nrow(chaset_sf))
   expect_identical(nrow(chaset$batches), xml2::xml_length(chaset_xml))
   expect_identical(nrow(chaset$batches), length(chaset_json$changeset))
 
+
   # methods
   lapply(chaset, function(x) expect_snapshot(print(x)))
+  expect_snapshot(print(chaset_sf))
 
 
   ## Empty results
 
   with_mock_dir("mock_query_changesets_empty", {
     empty_chaset <- osm_query_changesets(bbox = c(-180, 0, -179.9, 0.1), user = "jmaspons")
+    empty_chaset_sf <- osm_query_changesets(bbox = c(-180, 0, -179.9, 0.1), user = "jmaspons", format = "sf")
     empty_chaset_xml <- osm_query_changesets(bbox = c(-180, 0, -179.9, 0.1), user = "jmaspons", format = "xml")
     empty_chaset_json <- osm_query_changesets(bbox = c(-180, 0, -179.9, 0.1), user = "jmaspons", format = "json")
   })
 
-  expect_s3_class(empty_chaset, c("osmapi_changesets", "data.frame"))
-  expect_identical(names(empty_chaset), setdiff(column_changeset, "discussion"))
-  expect_identical(nrow(empty_chaset), 0L)
+  expect_s3_class(empty_chaset, c("osmapi_changesets", "data.frame"), exact = TRUE)
+  expect_s3_class(empty_chaset_sf, c("sf", "data.frame"), exact = TRUE)
+
+  expect_named(empty_chaset, setdiff(column_changeset, "discussion"))
+  expect_named(empty_chaset_sf, setdiff(column_changeset_sf, "discussion"))
 
   mapply(
     function(x, cl) expect_true(inherits(x, cl)),
     x = empty_chaset,
     cl = class_columns[names(empty_chaset)]
   )
+  mapply(
+    function(x, cl) expect_true(inherits(x, cl)),
+    x = empty_chaset_sf,
+    cl = class_columns[names(empty_chaset_sf)]
+  )
 
   # methods
   expect_snapshot(print(empty_chaset))
+  expect_snapshot(print(empty_chaset_sf))
 
-  # Compare xml, json & R
-  expect_identical(nrow(empty_chaset), xml2::xml_length(empty_chaset_xml))
-  expect_identical(nrow(empty_chaset), length(empty_chaset_json$changesets))
+  # Compare sf, xml, json & R
+  expect_identical(nrow(empty_chaset), 0L)
+  expect_identical(nrow(empty_chaset_sf), 0L)
+  expect_identical(xml2::xml_length(empty_chaset_xml), 0L)
+  expect_identical(length(empty_chaset_json$changesets), 0L)
 
 
   ## Input errors
