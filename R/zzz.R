@@ -14,7 +14,7 @@
   if (!"osmapir.user_agent" %in% names(op)) {
     options(
       osmapir.user_agent = paste(
-        "osmapiR", getOption("osmapir.osmapir_version"), "(https://github.com/jmaspons/osmapiR)"
+        "osmapiR", getOption("osmapir.osmapir_version"), "(https://github.com/ropensci/osmapiR)"
       )
     )
   }

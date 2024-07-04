@@ -428,7 +428,7 @@ osm_get_data_gpx <- function(gpx_id, format) {
       warning(
         "Unexpected output format at osm_get_data_gpx().",
         "Please, open and issue with the `gpx_id` or the original file if the gpx is not public ",
-        "at https://github.com/jmaspons/osmapiR/issues"
+        "at https://github.com/ropensci/osmapiR/issues"
       )
     } else {
       attrs <- attributes(out)

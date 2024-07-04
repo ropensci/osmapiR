@@ -1,14 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# osmapiR <a href="https://jmaspons.github.io/osmapiR/"><img src="man/figures/logo.svg" align="right" height="200" alt="osmapiR website" /></a>
+# osmapiR <a href="https://docs.ropensci.org/osmapiR/"><img src="man/figures/logo.svg" align="right" height="200" alt="osmapiR website" /></a>
 
 <!-- badges: start -->
 
-[![R-CMD-check](https://github.com/jmaspons/osmapiR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/jmaspons/osmapiR/actions/workflows/R-CMD-check.yaml)
+[![R-CMD-check](https://github.com/ropensci/osmapiR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/osmapiR/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
-coverage](https://codecov.io/gh/jmaspons/osmapiR/branch/main/graph/badge.svg)](https://app.codecov.io/gh/jmaspons/osmapiR)
-[![pkgdown](https://github.com/jmaspons/osmapiR/actions/workflows/pkgdown.yaml/badge.svg)](https://github.com/jmaspons/osmapiR/actions/workflows/pkgdown.yaml)
+coverage](https://codecov.io/gh/ropensci/osmapiR/graph/badge.svg)](https://app.codecov.io/gh/ropensci/osmapiR)
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/osmapiR)](https://cran.r-project.org/package=osmapiR)
@@ -23,7 +22,7 @@ saving raw geodata from/to the OpenStreetMap database. This package
 allows access to OSM maps data as well as map notes, GPS traces,
 changelogs, and users data. To access OSM map data for purposes other
 than editing or exploring the history of the objects see [Related
-packages](README.md#related-packages).
+packages](#related-packages).
 
 You are responsible for following the [API Usage
 Policy](https://operations.osmfoundation.org/policies/api/). You can
@@ -53,20 +52,20 @@ You can install the development version of osmapiR from
 
 ``` r
 # install.packages("remotes")
-remotes::install_github("jmaspons/osmapiR") # Without vignettes
+remotes::install_github("ropensci/osmapiR") # Without vignettes
 
-## With vignettes (also accessible at https://jmaspons.github.io/osmapiR/ > Articles)
+## With vignettes (also accessible at https://docs.ropensci.org/osmapiR/ > Articles)
 # install.packages("rmarkdown") # Needed to build vignettes.
-remotes::install_github("jmaspons/osmapiR", build_vignettes = TRUE)
+remotes::install_github("ropensci/osmapiR", build_vignettes = TRUE)
 ```
 
 ## Get started
 
 For an overview of the functions, check `?osmapiR-package` or the
-[web](https://jmaspons.github.io/osmapiR/reference/index.html).
+[web](https://docs.ropensci.org/osmapiR/reference/index.html).
 
 For basic examples, check
-[`vignette("osmapiR", package="osmapiR")`](https://jmaspons.github.io/osmapiR/articles/osmapiR.html).
+[`vignette("osmapiR", package="osmapiR")`](https://docs.ropensci.org/osmapiR/articles/osmapiR.html).
 
 ## Related packages
 
@@ -91,7 +90,6 @@ with `.pbf` files
 
 ## Code of Conduct
 
-Please note that the osmapiR project is released with a [Contributor
-Code of
-Conduct](https://jmaspons.github.io/osmapiR/CODE_OF_CONDUCT.html). By
-contributing to this project, you agree to abide by its terms.
+Please note that this package is released with a [Contributor Code of
+Conduct](https://ropensci.org/code-of-conduct/). By contributing to this
+project, you agree to abide by its terms.

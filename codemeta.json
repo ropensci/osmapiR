@@ -4,11 +4,11 @@
   "identifier": "osmapiR",
   "description": "Interface to 'OpenStreetMap API' for fetching and saving data from/to the 'OpenStreetMap' database (<https://wiki.openstreetmap.org/wiki/API_v0.6>).",
   "name": "osmapiR: 'OpenStreetMap' API",
-  "relatedLink": ["https://jmaspons.github.io/osmapiR/", "https://CRAN.R-project.org/package=osmapiR"],
-  "codeRepository": "https://github.com/jmaspons/osmapiR",
-  "issueTracker": "https://github.com/jmaspons/osmapiR/issues",
+  "relatedLink": ["https://docs.ropensci.org/osmapiR/", "https://CRAN.R-project.org/package=osmapiR"],
+  "codeRepository": "https://github.com/ropensci/osmapiR",
+  "issueTracker": "https://github.com/ropensci/osmapiR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.1.0.9003",
+  "version": "0.1.0.9004",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -163,7 +163,7 @@
     "SystemRequirements": null
   },
   "keywords": ["openstreetmap", "OSM", "openstreetmap-api", "osmapi", "API", "osm", "r", "r-package"],
-  "fileSize": "14068.659KB",
+  "fileSize": "14111.337KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -180,13 +180,13 @@
       "name": "osmapiR: OpenStreetMap API",
       "identifier": "10.32614/CRAN.package.osmapiR",
       "url": "https://jmaspons.github.io/osmapiR/",
-      "description": "R package version 0.1.0.9003 \nhttps://github.com/jmaspons/osmapiR",
+      "description": "R package version 0.1.0.9004 \nhttps://github.com/jmaspons/osmapiR",
       "@id": "https://doi.org/10.32614/CRAN.package.osmapiR",
       "sameAs": "https://doi.org/10.32614/CRAN.package.osmapiR"
     }
   ],
-  "releaseNotes": "https://github.com/jmaspons/osmapiR/blob/master/NEWS.md",
-  "readme": "https://github.com/jmaspons/osmapiR/blob/main/README.md",
+  "releaseNotes": "https://github.com/ropensci/osmapiR/blob/master/NEWS.md",
+  "readme": "https://github.com/ropensci/osmapiR/blob/main/README.md",
   "contIntegration": ["https://github.com/jmaspons/osmapiR/actions/workflows/R-CMD-check.yaml", "https://app.codecov.io/gh/jmaspons/osmapiR", "https://github.com/jmaspons/osmapiR/actions/workflows/pkgdown.yaml"],
   "developmentStatus": "https://www.repostatus.org/#active",
   "review": {
