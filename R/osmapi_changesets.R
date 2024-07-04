@@ -801,8 +801,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 #'
 #' @return
 #' If a diff is successfully applied and `format = "R"`, it returns a data frame with one row for each edited object.
-#'  For `format = "xml"`, a [xml2::xml_document-class] is returned in the following
-#' format:
+#' For `format = "xml"`, a [xml2::xml_document-class] is returned in the following format:
 #' ```xml
 #' <diffResult generator="OpenStreetMap Server" version="0.6">
 #' 	<node|way|relation old_id="#" new_id="#" new_version="#"/>

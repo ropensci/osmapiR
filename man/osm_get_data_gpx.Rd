@@ -12,7 +12,7 @@ osm_get_data_gpx(gpx_id, format)
 \item{format}{Format of the output. If missing (default), the response will be the exact file that was uploaded.
 If \code{"R"}, a \code{data.frame}.
 If \code{"gpx"}, the response will always be a GPX format file.
-If \code{"xml"}, a \code{"xml"} file in an undocumented format.}
+If \code{"xml"}, a \code{xml} file in an undocumented format.}
 }
 \value{
 If missing \code{format}, returns a \link[xml2:oldclass]{xml2::xml_document} with the original file data. If \code{format = "R"}, returns a

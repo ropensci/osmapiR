@@ -383,7 +383,7 @@ osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml")) {
 #' @param format Format of the output. If missing (default), the response will be the exact file that was uploaded.
 #'   If `"R"`, a `data.frame`.
 #'   If `"gpx"`, the response will always be a GPX format file.
-#'   If `"xml"`, a `"xml"` file in an undocumented format.
+#'   If `"xml"`, a `xml` file in an undocumented format.
 #'
 #' @note If you request refers to a multi-file archive the response when you force gpx or xml format will consist of a
 #'   non-standard simple concatenation of the files.
