@@ -26,7 +26,6 @@ Suggests:
     httptest2,
     httpuv,
     knitr,
-    rlang,
     rmarkdown,
     sf,
     testthat (>= 3.0.0)
