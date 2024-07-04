@@ -37,7 +37,7 @@ parse_html_error_body <- function(resp) {
   out <- c(
     out,
     paste(
-      "Please, open an issue at `https://github.com/jmaspons/osmapiR/issues`",
+      "Please, open an issue at `https://github.com/ropensci/osmapiR/issues`",
       "and report a reproducible example and the output of `httr2::last_response()`."
     )
   )

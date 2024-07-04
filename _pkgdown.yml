@@ -1,4 +1,4 @@
-url: https://jmaspons.github.io/osmapiR
+url: https://docs.ropensci.org/osmapiR/
 template:
   bootstrap: 5
 deploy:
