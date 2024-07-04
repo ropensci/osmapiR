@@ -38,7 +38,7 @@ test_that("osm_bbox_objects works", {
   obj_cols <- c(
     "type", "id", "visible", "version", "changeset", "timestamp", "user", "uid", "lat", "lon", "members", "tags"
   )
-  expect_identical(names(bbox_objects), obj_cols)
+  expect_named(bbox_objects, obj_cols)
   expect_named(attr(bbox_objects, "bbox"), c("minlat", "minlon", "maxlat", "maxlon"))
 
   class_columns <- list(
@@ -73,7 +73,7 @@ test_that("osm_bbox_objects works", {
   })
 
   expect_s3_class(empty_bbox_objects, c("osmapi_objects", "data.frame"), exact = TRUE)
-  expect_identical(names(empty_bbox_objects), obj_cols)
+  expect_named(empty_bbox_objects, obj_cols)
   expect_named(attr(empty_bbox_objects, "bbox"), c("minlat", "minlon", "maxlat", "maxlon"))
 
   mapply(

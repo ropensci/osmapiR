@@ -226,7 +226,7 @@ test_that("osm_download_changeset works", {
   })
 
   expect_s3_class(osmchange, c("osmapi_OsmChange", "data.frame"))
-  expect_identical(names(osmchange), column_osmchange)
+  expect_named(osmchange, column_osmchange)
 
   mapply(function(x, cl) expect_true(inherits(x, cl)), x = osmchange, cl = class_columns_osmchange[names(osmchange)])
 
@@ -303,7 +303,7 @@ test_that("osm_query_changesets works", {
   })
 
   lapply(chaset, expect_s3_class, c("osmapi_changesets", "data.frame"))
-  lapply(chaset, function(x) expect_identical(names(x), setdiff(column_changeset, "discussion")))
+  lapply(chaset, function(x) expect_named(x, setdiff(column_changeset, "discussion")))
   lapply(chaset, function(x) {
     lapply(x$discussion, function(y) {
       expect_s3_class(y, c("changeset_comments", "data.frame"))
