@@ -3,14 +3,17 @@
 \name{st_as_sf}
 \alias{st_as_sf}
 \alias{st_as_sf.osmapi_map_notes}
+\alias{st_as_sf.osmapi_changesets}
 \title{Convert osmapiR objects to sf objects}
 \usage{
 st_as_sf.osmapi_map_notes(x, ...)
+
+st_as_sf.osmapi_changesets(x, ...)
 }
 \arguments{
 \item{x}{an osmapiR object.}
 
-\item{...}{passed on to \code{st_sf} form \pkg{sf}.}
+\item{...}{passed on to \code{st_as_sf()} from \pkg{sf}.}
 }
 \value{
 Returns a \code{sf} object from \pkg{sf}.
@@ -19,6 +22,8 @@ Returns a \code{sf} object from \pkg{sf}.
 Convert osmapiR objects to sf objects
 }
 \seealso{
+\code{st_as_sf()} from \pkg{sf}
+
 Other methods: 
 \code{\link{tags_list2wide}()}
 }

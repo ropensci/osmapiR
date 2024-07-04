@@ -13,7 +13,7 @@
 #' @param changeset_ids Finds changesets with the specified ids.
 #' @param order If `"newest"` (default), sort newest changesets first. If `"oldest"`, reverse order.
 #' @param limit Specifies the maximum number of changesets returned. 100 as the default value.
-#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
+#' @param format Format of the output. Can be `"R"` (default), `"sf"`, `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the changesets are saved in a single list column `tags`
 #'   containing a `data.frame` for each changeset with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.
@@ -36,7 +36,8 @@
 #' [`Time.parse` Ruby function](https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse) will parse.
 #'
 #' @return
-#' If `format = "R"`, returns a data frame with one OSM changeset per row.
+#' If `format = "R"`, returns a data frame with one OSM changeset per row. If `format = "sf"`, returns a `sf` object
+#' from \pkg{sf}.
 #'
 #' ## `format = "xml"`
 #' Returns a [xml2::xml_document-class] with the following format:
@@ -111,9 +112,14 @@
 #' }
 osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changeset_ids, order = c("newest", "oldest"),
                                  limit = getOption("osmapir.api_capabilities")$api$changesets["default_query_limit"],
-                                 format = c("R", "xml", "json"), tags_in_columns = FALSE) {
+                                 format = c("R", "sf", "xml", "json"), tags_in_columns = FALSE) {
   format <- match.arg(format)
   order <- match.arg(order)
+
+  .format <- if (format == "sf") "R" else format
+  if (format == "sf" && !requireNamespace("sf", quietly = TRUE)) {
+    stop("Missing `sf` package. Install with:\n\tinstall.package(\"sf\")")
+  }
 
   if (missing(bbox)) {
     bbox <- NULL
@@ -173,8 +179,12 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
   if (limit <= getOption("osmapir.api_capabilities")$api$changesets["maximum_query_limit"]) { # no batch needed
     out <- .osm_query_changesets(
       bbox = bbox, user = user, time = time, time_2 = time_2, open = open, closed = closed,
-      changeset_ids = changeset_ids, order = order, limit = limit, format = format, tags_in_columns = tags_in_columns
+      changeset_ids = changeset_ids, order = order, limit = limit, format = .format, tags_in_columns = tags_in_columns
     )
+
+    if (format == "sf") {
+      out <- sf::st_as_sf(out)
+    }
 
     return(out)
   } else if (!is.null(order)) {
@@ -201,17 +211,17 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
       bbox = bbox, user = user, time = time, time_2 = time_2, open = open, closed = closed,
       changeset_ids = changeset_ids, order = order,
       limit = min(limit - n_out, getOption("osmapir.api_capabilities")$api$changesets["maximum_query_limit"]),
-      format = format, tags_in_columns = FALSE
+      format = .format, tags_in_columns = FALSE
     )
 
-    if (format == "R") {
+    if (.format == "R") {
       n <- nrow(outL[[i]])
       time_2 <- outL[[i]]$created_at[n]
-    } else if (format == "xml") {
+    } else if (.format == "xml") {
       n <- length(xml2::xml_children(outL[[i]]))
       time_2 <- xml2::xml_attr(xml2::xml_child(outL[[i]], n), attr = "created_at")
       time_2 <- as.POSIXct(time_2, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT") ## TODO: needed?
-    } else if (format == "json") {
+    } else if (.format == "json") {
       n <- length(outL[[i]]$changesets)
       time_2 <- outL[[i]]$changesets[[n]]$created_at
       time_2 <- as.POSIXct(time_2, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT") ## TODO: needed?
@@ -221,19 +231,22 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
     i <- i + 1
   }
 
-  if (format == "R") {
+  if (.format == "R") {
     out <- do.call(rbind, outL)
     if (tags_in_columns) {
       out <- tags_list2wide(out)
     }
-  } else if (format == "xml") {
+    if (format == "sf") {
+      out <- sf::st_as_sf(out)
+    }
+  } else if (.format == "xml") {
     out <- xml2::xml_new_root(outL[[1]])
     for (i in seq_along(outL[-1])) {
       for (j in seq_len(length(xml2::xml_children(outL[[i + 1]])))) {
         xml2::xml_add_child(out, xml2::xml_child(outL[[i + 1]], search = j))
       }
     }
-  } else if (format == "json") {
+  } else if (.format == "json") {
     out <- outL[[1]]
     for (i in seq_along(outL[-1])) {
       out$changesets <- c(out$changesets, outL[[i + 1]]$changesets)

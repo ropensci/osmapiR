@@ -6,7 +6,7 @@
 #'
 #' @param changeset_id A vector with ids of changesets to retrieve represented by a numeric or a character values.
 #' @param include_discussion Indicates whether the result should contain the changeset discussion or not.
-#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
+#' @param format Format of the output. Can be `"R"` (default), `"sf"`, `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the changesets are saved in a single list column `tags`
 #'   containing a `data.frame` for each changeset with the keys and values. If `TRUE`, add a column for each key.
 #'   Ignored if `format != "R"`.
@@ -20,7 +20,8 @@
 #'   this changeset. To access this information use [osm_download_changeset()].
 #'
 #' @return
-#' If `format = "R"`, returns a data frame with one OSM changeset per row.
+#' If `format = "R"`, returns a data frame with one OSM changeset per row. If `format = "sf"`, returns a `sf` object
+#' from \pkg{sf}.
 #'
 #' ## `format = "xml"`
 #' Returns a [xml2::xml_document-class] with the following format:
@@ -80,37 +81,45 @@
 #' chaset$discussion
 #' }
 osm_get_changesets <- function(changeset_id, include_discussion = FALSE,
-                               format = c("R", "xml", "json"), tags_in_columns = FALSE) {
+                               format = c("R", "sf", "xml", "json"), tags_in_columns = FALSE) {
   format <- match.arg(format)
+  .format <- if (format == "sf") "R" else format
+  if (format == "sf" && !requireNamespace("sf", quietly = TRUE)) {
+    stop("Missing `sf` package. Install with:\n\tinstall.package(\"sf\")")
+  }
 
   if (length(changeset_id) == 1) {
     out <- osm_read_changeset(
       changeset_id = changeset_id, include_discussion = include_discussion,
-      format = format, tags_in_columns = tags_in_columns
+      format = .format, tags_in_columns = tags_in_columns
     )
   } else {
     outL <- lapply(changeset_id, function(id) {
-      osm_read_changeset(changeset_id = id, include_discussion = include_discussion, format = format)
+      osm_read_changeset(changeset_id = id, include_discussion = include_discussion, format = .format)
     })
 
-    if (format == "R") {
+    if (.format == "R") {
       out <- do.call(rbind, outL)
       if (tags_in_columns) {
         out <- tags_list2wide(out)
       }
-    } else if (format == "xml") {
+    } else if (.format == "xml") {
       out <- xml2::xml_new_root(outL[[1]])
       for (i in seq_along(outL[-1]) + 1) {
         lapply(xml2::xml_children(outL[[i]]), function(node) {
           xml2::xml_add_child(out, node)
         })
       }
-    } else if (format == "json") {
+    } else if (.format == "json") {
       out <- outL[[1]]
       if (length(outL) > 1) {
         out$elements <- do.call(c, c(list(out$elements), lapply(outL[-1], function(x) x$elements)))
       }
     }
+  }
+
+  if (format == "sf") {
+    out <- sf::st_as_sf(out)
   }
 
   return(out)
