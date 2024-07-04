@@ -68,7 +68,7 @@ the most recent one will be first.</p>
 <span>  <span class="va">bbox</span>,</span>
 <span>  limit <span class="op">=</span> <span class="fl">100</span>,</span>
 <span>  closed <span class="op">=</span> <span class="fl">7</span>,</span>
-<span>  format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"R"</span>, <span class="st">"xml"</span>, <span class="st">"rss"</span>, <span class="st">"json"</span>, <span class="st">"gpx"</span><span class="op">)</span></span>
+<span>  format <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"R"</span>, <span class="st">"sf"</span>, <span class="st">"xml"</span>, <span class="st">"rss"</span>, <span class="st">"json"</span>, <span class="st">"gpx"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
@@ -90,14 +90,15 @@ only open notes are returned. A value of -1 means all notes are returned. Defaul
 
 
 <dt>format</dt>
-<dd><p>Format of the output. Can be <code>"R"</code> (default), <code>"xml"</code>, <code>"rss"</code>, <code>"json"</code> or <code>"gpx"</code>.</p></dd>
+<dd><p>Format of the output. Can be <code>"R"</code> (default), <code>"sf"</code> <code>"xml"</code>, <code>"rss"</code>, <code>"json"</code> or <code>"gpx"</code>.</p></dd>
 
 </dl></div>
     <div class="section level2">
     <h2 id="value">Value<a class="anchor" aria-label="anchor" href="#value"></a></h2>
     
 
-<p>If <code>format = "R"</code>, returns a data frame with one map note per row.</p><div class="section">
+<p>If <code>format = "R"</code>, returns a data frame with one map note per row. If <code>format = "sf"</code>, returns a <code>sf</code> object from
+<span class="pkg">sf</span>.</p><div class="section">
 <h3 id="format-xml-"><code>format = "xml"</code><a class="anchor" aria-label="anchor" href="#format-xml-"></a></h3>
 
 
@@ -187,60 +188,60 @@ only open notes are returned. A value of -1 means all notes are returned. Defaul
 <span class="r-in"><span><span class="co">## bbox as a character value also works (bbox = "3.7854767,39.7837403,4.3347931,40.1011851").</span></span></span>
 <span class="r-in"><span><span class="va">notes</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>          lon        lat      id</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  4.0087087 39.9832614 4284593</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  4.0040635 39.9816121 4284592</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  4.0036994 39.9800265 4284590</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  4.0009603 39.9713972 4284586</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  3.9991461 39.9691093 4284582</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  3.9982414 39.9689456 4284581</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  4.2892993 39.8778725 4281486</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  4.0783739 39.8992958 4275714</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  4.0178272 39.9305598 4275713</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 3.9376020 39.9389737 4275712</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  4.0452817 39.9136028 4316804</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  4.0087087 39.9832614 4284593</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  4.0040635 39.9816121 4284592</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  4.0036994 39.9800265 4284590</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  4.0009603 39.9713972 4284586</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  3.9991461 39.9691093 4284582</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  3.9982414 39.9689456 4284581</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  4.2892993 39.8778725 4281486</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  4.0783739 39.8992958 4275714</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 4.0178272 39.9305598 4275713</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                        url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  https://api.openstreetmap.org/api/0.6/notes/4284593.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  https://api.openstreetmap.org/api/0.6/notes/4284592.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  https://api.openstreetmap.org/api/0.6/notes/4284590.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  https://api.openstreetmap.org/api/0.6/notes/4284586.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  https://api.openstreetmap.org/api/0.6/notes/4284582.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  https://api.openstreetmap.org/api/0.6/notes/4284581.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  https://api.openstreetmap.org/api/0.6/notes/4281486.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  https://api.openstreetmap.org/api/0.6/notes/4275714.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  https://api.openstreetmap.org/api/0.6/notes/4275713.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 https://api.openstreetmap.org/api/0.6/notes/4275712.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  https://api.openstreetmap.org/api/0.6/notes/4316804.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  https://api.openstreetmap.org/api/0.6/notes/4284593.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  https://api.openstreetmap.org/api/0.6/notes/4284592.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  https://api.openstreetmap.org/api/0.6/notes/4284590.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  https://api.openstreetmap.org/api/0.6/notes/4284586.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  https://api.openstreetmap.org/api/0.6/notes/4284582.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  https://api.openstreetmap.org/api/0.6/notes/4284581.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  https://api.openstreetmap.org/api/0.6/notes/4281486.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  https://api.openstreetmap.org/api/0.6/notes/4275714.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 https://api.openstreetmap.org/api/0.6/notes/4275713.xml</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                        comment_url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  https://api.openstreetmap.org/api/0.6/notes/4284593/comment.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  https://api.openstreetmap.org/api/0.6/notes/4284592/comment.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  https://api.openstreetmap.org/api/0.6/notes/4284590/comment.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  https://api.openstreetmap.org/api/0.6/notes/4284586/comment.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  https://api.openstreetmap.org/api/0.6/notes/4284582/comment.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  https://api.openstreetmap.org/api/0.6/notes/4284581/comment.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  https://api.openstreetmap.org/api/0.6/notes/4281486/comment.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  https://api.openstreetmap.org/api/0.6/notes/4275714/comment.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  https://api.openstreetmap.org/api/0.6/notes/4275713/comment.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 https://api.openstreetmap.org/api/0.6/notes/4275712/comment.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  https://api.openstreetmap.org/api/0.6/notes/4316804/comment.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  https://api.openstreetmap.org/api/0.6/notes/4284593/comment.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  https://api.openstreetmap.org/api/0.6/notes/4284592/comment.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  https://api.openstreetmap.org/api/0.6/notes/4284590/comment.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  https://api.openstreetmap.org/api/0.6/notes/4284586/comment.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  https://api.openstreetmap.org/api/0.6/notes/4284582/comment.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  https://api.openstreetmap.org/api/0.6/notes/4284581/comment.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  https://api.openstreetmap.org/api/0.6/notes/4281486/comment.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  https://api.openstreetmap.org/api/0.6/notes/4275714/comment.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 https://api.openstreetmap.org/api/0.6/notes/4275713/comment.xml</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>                                                        close_url</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  https://api.openstreetmap.org/api/0.6/notes/4284593/close.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  https://api.openstreetmap.org/api/0.6/notes/4284592/close.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  https://api.openstreetmap.org/api/0.6/notes/4284590/close.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  https://api.openstreetmap.org/api/0.6/notes/4284586/close.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  https://api.openstreetmap.org/api/0.6/notes/4284582/close.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  https://api.openstreetmap.org/api/0.6/notes/4284581/close.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  https://api.openstreetmap.org/api/0.6/notes/4281486/close.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  https://api.openstreetmap.org/api/0.6/notes/4275714/close.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  https://api.openstreetmap.org/api/0.6/notes/4275713/close.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 https://api.openstreetmap.org/api/0.6/notes/4275712/close.xml</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span>           date_created status                           comments</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2024-06-09 06:07:42   open 1 comment from 2024-06-09 by edvac</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2024-06-09 05:59:58   open 1 comment from 2024-06-09 by edvac</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2024-06-09 05:55:12   open 1 comment from 2024-06-09 by edvac</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2024-06-09 05:42:14   open 1 comment from 2024-06-09 by edvac</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2024-06-09 05:37:58   open 1 comment from 2024-06-09 by edvac</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2024-06-09 05:36:03   open 1 comment from 2024-06-09 by edvac</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2024-06-06 18:51:03   open 1 comment from 2024-06-06 by edvac</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2024-06-02 13:02:35   open 1 comment from 2024-06-02 by edvac</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2024-06-02 13:02:34   open 1 comment from 2024-06-02 by edvac</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2024-06-02 13:02:33   open 1 comment from 2024-06-02 by edvac</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  https://api.openstreetmap.org/api/0.6/notes/4316804/close.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  https://api.openstreetmap.org/api/0.6/notes/4284593/close.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  https://api.openstreetmap.org/api/0.6/notes/4284592/close.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  https://api.openstreetmap.org/api/0.6/notes/4284590/close.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  https://api.openstreetmap.org/api/0.6/notes/4284586/close.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  https://api.openstreetmap.org/api/0.6/notes/4284582/close.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  https://api.openstreetmap.org/api/0.6/notes/4284581/close.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  https://api.openstreetmap.org/api/0.6/notes/4281486/close.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  https://api.openstreetmap.org/api/0.6/notes/4275714/close.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 https://api.openstreetmap.org/api/0.6/notes/4275713/close.xml</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span>           date_created status                                comments</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 1  2024-07-02 15:20:08   open 1 comment from 2024-07-02 by Johannes58</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 2  2024-06-09 06:07:42   open      1 comment from 2024-06-09 by edvac</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 3  2024-06-09 05:59:58   open      1 comment from 2024-06-09 by edvac</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 4  2024-06-09 05:55:12   open      1 comment from 2024-06-09 by edvac</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 5  2024-06-09 05:42:14   open      1 comment from 2024-06-09 by edvac</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 6  2024-06-09 05:37:58   open      1 comment from 2024-06-09 by edvac</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 7  2024-06-09 05:36:03   open      1 comment from 2024-06-09 by edvac</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 8  2024-06-06 18:51:03   open      1 comment from 2024-06-06 by edvac</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 9  2024-06-02 13:02:35   open      1 comment from 2024-06-02 by edvac</span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> 10 2024-06-02 13:02:34   open      1 comment from 2024-06-02 by edvac</span>
 </code></pre></div>
     </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

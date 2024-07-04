@@ -172,6 +172,9 @@
     <loc>https://jmaspons.github.io/osmapiR/reference/osmchange_modify.html</loc>
   </url>
   <url>
+    <loc>https://jmaspons.github.io/osmapiR/reference/st_as_sf.html</loc>
+  </url>
+  <url>
     <loc>https://jmaspons.github.io/osmapiR/reference/tags_list-wide.html</loc>
   </url>
 </urlset>
