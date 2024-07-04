@@ -1,13 +1,16 @@
 column_meta_gpx <- c(
   "id", "name", "uid", "user", "visibility", "pending", "timestamp", "lat", "lon", "description", "tags"
 )
+column_meta_gpx_sf <- c(
+  "id", "name", "uid", "user", "visibility", "pending", "timestamp", "description", "tags", "geometry"
+)
 column_gpx <- c("lat", "lon", "ele", "time")
 column_pts_gps <- c("lat", "lon", "time")
 
 class_columns <- list(
   id = "character", name = "character", uid = "character", user = "character", visibility = "character",
   pending = "logical", timestamp = "POSIXct", lat = "character", lon = "character", description = "character",
-  tags = "list", ele = "character", time = "POSIXct"
+  tags = "list", ele = "character", time = "POSIXct", geometry = c("sfc_POINT", "sfc")
 )
 
 
@@ -109,19 +112,28 @@ test_that("edit gpx works", {
 
 test_that("osm_get_metadata_gpx works", {
   trk_meta <- list()
+  sf_trk_meta <- list()
   xml_trk_meta <- list()
   with_mock_dir("mock_get_metadata_gpx", {
     trk_meta$track <- osm_get_gpx_metadata(gpx_id = 3790367)
     trk_meta$tracks <- osm_get_gpx_metadata(gpx_id = c(3790367, 3458743))
 
+    sf_trk_meta$track <- osm_get_gpx_metadata(gpx_id = 3790367, format = "sf")
+    sf_trk_meta$tracks <- osm_get_gpx_metadata(gpx_id = c(3790367, 3458743), format = "sf")
+
     xml_trk_meta$track_xml <- osm_get_gpx_metadata(gpx_id = 3790367, format = "xml")
     xml_trk_meta$tracks_xml <- osm_get_gpx_metadata(gpx_id = c(3790367, 3458743), format = "xml")
   })
 
-  lapply(trk_meta, function(x) expect_s3_class(x, "data.frame"))
+  lapply(trk_meta, function(x) expect_s3_class(x, class = "data.frame", exact = TRUE))
+  lapply(sf_trk_meta, function(x) expect_s3_class(x, class = c("sf", "data.frame"), exact = TRUE))
   lapply(trk_meta, function(x) expect_named(x, column_meta_gpx))
+  lapply(sf_trk_meta, function(x) expect_named(x, column_meta_gpx_sf))
 
   lapply(trk_meta, function(trk) {
+    mapply(function(x, cl) expect_true(inherits(x, cl)), x = trk, cl = class_columns[names(trk)])
+  })
+  lapply(sf_trk_meta, function(trk) {
     mapply(function(x, cl) expect_true(inherits(x, cl)), x = trk, cl = class_columns[names(trk)])
   })
 
@@ -129,13 +141,22 @@ test_that("osm_get_metadata_gpx works", {
   lapply(trk_meta, function(x) {
     expect_false(unique(strftime(as.POSIXct(x$timestamp), format = "%M:%S") == "00:00"))
   })
+  lapply(sf_trk_meta, function(x) {
+    expect_false(unique(strftime(as.POSIXct(x$timestamp), format = "%M:%S") == "00:00"))
+  })
+
 
   lapply(xml_trk_meta, expect_s3_class, class = "xml_document")
+
 
   # Compare xml & R
   mapply(function(d, x) {
     expect_identical(nrow(d), xml2::xml_length(x))
   }, d = trk_meta, x = xml_trk_meta)
+
+  mapply(function(d, x) {
+    expect_identical(nrow(d), nrow(x))
+  }, d = trk_meta, x = sf_trk_meta)
 })
 
 

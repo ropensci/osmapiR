@@ -4,16 +4,16 @@
 \alias{osm_get_gpx_metadata}
 \title{Download GPS Track Metadata}
 \usage{
-osm_get_gpx_metadata(gpx_id, format = c("R", "xml"))
+osm_get_gpx_metadata(gpx_id, format = c("R", "sf", "xml"))
 }
 \arguments{
 \item{gpx_id}{A vector of track ids represented by a numeric or a character value.}
 
-\item{format}{Format of the output. Can be \code{"R"} (default) or \code{"xml"}.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"sf"}, or \code{"xml"}.}
 }
 \value{
-If \code{format = "R"}, returns a data frame with one trace per row. If \code{format = "xml"}, returns a
-\link[xml2:oldclass]{xml2::xml_document} with the following format:
+If \code{format = "R"}, returns a data frame with one trace per row. If \code{format = "sf"}, returns a \code{sf} object from
+\pkg{sf}. If \code{format = "xml"}, returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="OpenStreetMap server">
