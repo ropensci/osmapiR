@@ -216,6 +216,9 @@ osmchange to modify existing OSM objects
 
 \code{\link[=tags_list2wide]{tags_list2wide()}} \code{\link[=tags_wide2list]{tags_wide2list()}}
 Change tags from a list column <-> columns for each key in wide format
+
+\code{\link[=st_as_sf]{st_as_sf()}}
+Convert osmapiR objects to sf objects
 }
 
 \subsection{API}{

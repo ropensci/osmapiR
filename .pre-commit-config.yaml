@@ -17,6 +17,7 @@ repos:
         - curl
         - git2r
         - httr2
+        - sf
         - xml2
     # codemeta must be above use-tidy-description when both are used
     -   id: codemeta-description-updated

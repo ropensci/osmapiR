@@ -5,10 +5,11 @@
 #' Returns the existing note with the given ID.
 #'
 #' @param note_id Note id represented by a numeric or a character value.
-#' @param format Format of the output. Can be `"R"` (default), `"xml"`, `"rss"`, `"json"` or `"gpx"`.
+#' @param format Format of the output. Can be `"R"` (default), `"sf"`, `"xml"`, `"rss"`, `"json"` or `"gpx"`.
 #'
 #' @return
-#' If `format = "R"`, returns a data frame with one map note per row.
+#' If `format = "R"`, returns a data frame with one map note per row. If `format = "sf"`, returns a `sf` object from
+#' \pkg{sf}.
 #'
 #' ## `format = "xml"`
 #'
@@ -78,19 +79,23 @@
 #' note <- osm_get_notes(note_id = "2067786")
 #' note
 #' }
-osm_get_notes <- function(note_id, format = c("R", "xml", "rss", "json", "gpx")) {
+osm_get_notes <- function(note_id, format = c("R", "sf", "xml", "rss", "json", "gpx")) {
   format <- match.arg(format)
+  .format <- if (format == "sf") "R" else format
+  if (format == "sf" && !requireNamespace("sf", quietly = TRUE)) {
+    stop("Missing `sf` package. Install with:\n\tinstall.package(\"sf\")")
+  }
 
   if (length(note_id) == 1) {
-    out <- osm_read_note(note_id = note_id, format = format)
+    out <- osm_read_note(note_id = note_id, format = .format)
   } else {
     outL <- lapply(note_id, function(id) {
-      osm_read_note(note_id = id, format = format)
+      osm_read_note(note_id = id, format = .format)
     })
 
-    if (format == "R") {
+    if (.format == "R") {
       out <- do.call(rbind, outL)
-    } else if (format %in% c("xml", "rss", "gpx")) {
+    } else if (.format %in% c("xml", "rss", "gpx")) {
       out <- xml2::xml_new_root(outL[[1]])
       for (i in seq_along(outL[-1]) + 1) {
         lapply(xml2::xml_children(outL[[i]]), function(node) {
@@ -102,6 +107,10 @@ osm_get_notes <- function(note_id, format = c("R", "xml", "rss", "json", "gpx"))
     } else if (format == "json") {
       out <- outL
     }
+  }
+
+  if (format == "sf") {
+    out <- sf::st_as_sf(out)
   }
 
   return(out)

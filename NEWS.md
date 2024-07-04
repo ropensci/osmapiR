@@ -3,6 +3,7 @@
 * Upgrade logo by @atarom
 * Add inst/CITATION
 * Improve tests and fix bugs (#35, 08fb4b10abf0270d8bea2473b02b2520ba341521)
+* Add format = "sf" for functions returning objects of class `osmapi_map_notes` (#36)
 
 # osmapiR 0.1.0
 

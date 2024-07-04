@@ -8,6 +8,7 @@ api
 apiL
 apis
 arg
+asNamespace
 attr
 attrs
 attrsL
@@ -39,6 +40,7 @@ cd
 cdf
 ce
 CGImap
+Changelog
 changelogs
 changeset
 Changeset
@@ -50,6 +52,7 @@ chaset
 chdis
 Cheriton
 chng
+choosealicense
 chset
 chst
 chsts
@@ -65,6 +68,9 @@ colname
 colspan
 commentsL
 commited
+compat
+compats
+Compats
 ComputerLanguage
 config
 Config
@@ -77,6 +83,7 @@ cran
 cre
 crea
 Crelation
+crs
 cumsum
 Cway
 cxMGJjSNnEGiKHAdp
@@ -92,6 +99,7 @@ desc
 describeIn
 dev
 developmentStatus
+devtools
 df
 DF
 diffResult
@@ -114,11 +122,16 @@ ef
 efn
 El
 ele
+env
+envir
+environmentIsLocked
+environmentName
 Epping
 eval
 existeing
 expr
 exprObj
+factorsAsCharacter
 familyName
 Fassets
 fb
@@ -130,6 +143,7 @@ fileSize
 Fimages
 Flarge
 floatingpoint
+fn
 fot
 fred
 Fusers
@@ -137,7 +151,9 @@ Fwww
 geo
 geodata
 Geroni
+getenv
 getOption
+getRversion
 gfImaV
 gh
 github
@@ -175,6 +191,8 @@ ifelse
 img
 io
 isFALSE
+isNamespace
+isNamespaceLoaded
 issueTracker
 isTRUE
 iUfGSZIeZSLP
@@ -206,6 +224,7 @@ lon
 lt
 mapcomplete
 mapply
+mapview
 Maspons
 maxlat
 maxlon
@@ -287,6 +306,7 @@ osmextract
 osmfoundation
 osn
 outL
+packageEvent
 packageStartupMessage
 packageVersion
 pageNumber
@@ -298,6 +318,7 @@ pGq
 php
 pkce
 pkgdown
+pkgload
 pkgname
 pkgs
 png
@@ -325,17 +346,21 @@ readme
 README
 readonly
 redactions
+registerS
 Reinholdtsen
 relatedLink
 relationmember
 relationmembers
 releaseNotes
 rels
+repo
 repostatus
 reprex
 req
+requireNamespace
 Resubmission
 rlang
+rlang's
 rmarkdown
 Rmd
 rn
@@ -358,6 +383,7 @@ sel
 seperated
 setdiff
 setequal
+setHook
 setNames
 sexualized
 siebh
@@ -370,10 +396,12 @@ somekey
 someLongURLOrOther
 somevalue
 spdx
+sprintf
 stdlib
 stopifnot
 streetnames
 strftime
+strsplit
 styler
 substr
 suppressWarnings
@@ -387,8 +415,11 @@ terra
 testthat
 ThisIsANote
 ThisIsANoteComment
+tibble
 tidyverse
+tinstall
 togpx
+topenv
 topografix
 toponimsCat
 tracepoints
@@ -409,6 +440,7 @@ uid
 UID
 unhide
 Unhide
+unlicense
 unlist
 unredact
 unredaction
@@ -430,6 +462,8 @@ uvAy
 vals
 vapply
 VAZUTwcmHJLwDEX
+vctr
+vctrs
 Vectorization
 Vectorized
 vectorizing

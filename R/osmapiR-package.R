@@ -193,6 +193,9 @@
 #' [tags_list2wide()] [tags_wide2list()]
 #'     Change tags from a list column <-> columns for each key in wide format
 #'
+#' [st_as_sf()]
+#'     Convert osmapiR objects to sf objects
+#'
 #' ## API
 #'
 #' [set_osmapi_connection()] [get_osmapi_url()] [set_osmapi_url()]
