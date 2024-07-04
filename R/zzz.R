@@ -1,6 +1,9 @@
 # inspired by osmdata package
 
 .onLoad <- function(libname, pkgname) { # nocov start
+  s3_register("sf::st_as_sf", "osmapi_map_notes")
+
+
   op <- options()
 
   if (!"osmapir.osmapir_version" %in% names(op)) {

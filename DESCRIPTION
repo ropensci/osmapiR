@@ -27,6 +27,7 @@ Suggests:
     httpuv,
     knitr,
     rmarkdown,
+    sf,
     testthat (>= 3.0.0)
 VignetteBuilder: 
     knitr

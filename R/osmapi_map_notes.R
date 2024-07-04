@@ -111,12 +111,13 @@
 #' @param limit Specifies the number of entries returned at max. A value between 1 and 10000 is valid. Default to 100.
 #' @param closed Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
 #'   only open notes are returned. A value of -1 means all notes are returned. Default to 7.
-#' @param format Format of the output. Can be `"R"` (default), `"xml"`, `"rss"`, `"json"` or `"gpx"`.
+#' @param format Format of the output. Can be `"R"` (default), `"sf"` `"xml"`, `"rss"`, `"json"` or `"gpx"`.
 #'
 #' @note The comment properties (`uid`, `user`, `user_url`) will be omitted if the comment was anonymous.
 #'
 #' @return
-#' If `format = "R"`, returns a data frame with one map note per row.
+#' If `format = "R"`, returns a data frame with one map note per row. If `format = "sf"`, returns a `sf` object from
+#' \pkg{sf}.
 #'
 #' ## `format = "xml"`
 #'
@@ -185,10 +186,14 @@
 #' notes <- osm_read_bbox_notes(bbox = c(3.7854767, 39.7837403, 4.3347931, 40.1011851), limit = 10)
 #' ## bbox as a character value also works (bbox = "3.7854767,39.7837403,4.3347931,40.1011851").
 #' notes
-osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("R", "xml", "rss", "json", "gpx")) {
+osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("R", "sf", "xml", "rss", "json", "gpx")) {
   format <- match.arg(format)
 
-  if (format == "R") {
+  if (format == "sf" && !requireNamespace("sf", quietly = TRUE)) {
+    stop("Missing `sf` package. Install with:\n\tinstall.package(\"sf\")")
+  }
+
+  if (format %in% c("R", "sf")) {
     ext <- "notes.xml"
   } else {
     ext <- paste0("notes.", format)
@@ -201,12 +206,14 @@ osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("R", "
 
   resp <- httr2::req_perform(req)
 
-  if (format %in% c("R", "xml", "gpx", "rss")) {
+  if (format %in% c("R", "sf", "xml", "gpx", "rss")) {
     out <- httr2::resp_body_xml(resp)
     if (format == "R") {
       out <- note_xml2DF(out)
+    } else if (format == "sf") {
+      out <- sf::st_as_sf(x = note_xml2DF(out))
     }
-  } else if (format %in% "json") {
+  } else if (format == "json") {
     out <- httr2::resp_body_json(resp)
   }
 
@@ -345,7 +352,7 @@ osm_read_note <- function(note_id, format = c("R", "xml", "rss", "json", "gpx"))
 #' new_note <- osm_create_note(lat = 41.38373, lon = 2.18233, text = "Testing osmapiR")
 #' new_note
 #' }
-osm_create_note <- function(lat, lon, text, authenticate = TRUE) { # TODO: , format = c("R", "xml", "json")
+osm_create_note <- function(lat, lon, text, authenticate = TRUE) { # TODO: , format = c("R", "sf", "xml", "json")
   req <- osmapi_request(authenticate = authenticate)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "notes")
@@ -417,7 +424,7 @@ osm_create_note <- function(lat, lon, text, authenticate = TRUE) { # TODO: , for
 #' updated_note <- osm_create_comment_note(note$id, text = "A new comment to the note")
 #' updated_note
 #' }
-osm_create_comment_note <- function(note_id, text) { # TODO: , format = c("R", "xml", "json")
+osm_create_comment_note <- function(note_id, text) { # TODO: , format = c("R", "sf", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
   req <- httr2::req_url_path_append(req, "notes", note_id, "comment")
@@ -683,15 +690,16 @@ osm_create_comment_note <- function(note_id, text) { # TODO: , format = c("R", "
 #' @param order Sorting order. `"oldest"` is ascending order, `"newest"` is descending order (the default).
 #' @param limit Maximum number of results between 1 and 10000 (may change, see `osm_capabilities()$api$notes` for the
 #'   current value). Default to 100.
-#' @param format Format of the the returned list of notes. Can be `"R"` (default), `"xml"`, `"rss"`, `"json"` or
+#' @param format Format of the the returned list of notes. Can be `"R"` (default), `"sf"`, `"xml"`, `"rss"`, `"json"` or
 #'   `"gpx"`.
 #'
 #' @details
 #' The notes will be ordered by the date of their last change, the most recent one will be first.
 #'
 #' @return
-#' If `format = "R"`, returns a data frame with one map note per row. If `format = "json"`, returns a list with the json
-#' structure. For `format` in `"xml"`, `"rss"`, and `"gpx"`, a [xml2::xml_document-class] with the corresponding format.
+#' If `format = "R"`, returns a data frame with one map note per row. If `format = "sf"`, returns a `sf` object from
+#' \pkg{sf}. If `format = "json"`, returns a list with the json structure. For `format` in `"xml"`, `"rss"`, and
+#' `"gpx"`, a [xml2::xml_document-class] with the corresponding format.
 #' @family get notes' functions
 #' @export
 #'
@@ -711,7 +719,7 @@ osm_search_notes <- function(
     q, user, bbox, from, to, closed = 7,
     sort = c("updated_at", "created_at"), order = c("newest", "oldest"),
     limit = getOption("osmapir.api_capabilities")$api$notes["default_query_limit"],
-    format = c("R", "xml", "rss", "json", "gpx")) {
+    format = c("R", "sf", "xml", "rss", "json", "gpx")) {
   sort <- match.arg(sort)
   order <- match.arg(order)
   format <- match.arg(format)
@@ -748,7 +756,7 @@ osm_search_notes <- function(
     to <- NULL
   }
 
-  if (format == "R") {
+  if (format %in% c("R", "sf")) {
     ext <- "search.xml"
   } else {
     ext <- paste0("search.", format)
@@ -766,10 +774,12 @@ osm_search_notes <- function(
 
   resp <- httr2::req_perform(req)
 
-  if (format %in% c("R", "xml", "gpx", "rss")) {
+  if (format %in% c("R", "sf", "xml", "gpx", "rss")) {
     out <- httr2::resp_body_xml(resp)
     if (format == "R") {
       out <- note_xml2DF(out)
+    } else if (format == "sf") {
+      out <- sf::st_as_sf(note_xml2DF(out))
     }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)

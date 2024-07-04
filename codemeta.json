@@ -99,6 +99,18 @@
     },
     {
       "@type": "SoftwareApplication",
+      "identifier": "sf",
+      "name": "sf",
+      "provider": {
+        "@id": "https://cran.r-project.org",
+        "@type": "Organization",
+        "name": "Comprehensive R Archive Network (CRAN)",
+        "url": "https://cran.r-project.org"
+      },
+      "sameAs": "https://CRAN.R-project.org/package=sf"
+    },
+    {
+      "@type": "SoftwareApplication",
       "identifier": "testthat",
       "name": "testthat",
       "version": ">= 3.0.0",
@@ -151,7 +163,7 @@
     "SystemRequirements": null
   },
   "keywords": ["openstreetmap", "OSM", "openstreetmap-api", "osmapi", "API", "osm", "r", "r-package"],
-  "fileSize": "14033.436KB",
+  "fileSize": "14054.132KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -168,7 +180,7 @@
       "name": "osmapiR: OpenStreetMap API",
       "identifier": "10.32614/CRAN.package.osmapiR",
       "url": "https://jmaspons.github.io/osmapiR/",
-      "description": "R package version 0.1.0.9002 \nhttps://github.com/jmaspons/osmapiR",
+      "description": "R package version 0.1.0.9003 \nhttps://github.com/jmaspons/osmapiR",
       "@id": "https://doi.org/10.32614/CRAN.package.osmapiR",
       "sameAs": "https://doi.org/10.32614/CRAN.package.osmapiR"
     }

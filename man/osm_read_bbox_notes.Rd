@@ -8,7 +8,7 @@ osm_read_bbox_notes(
   bbox,
   limit = 100,
   closed = 7,
-  format = c("R", "xml", "rss", "json", "gpx")
+  format = c("R", "sf", "xml", "rss", "json", "gpx")
 )
 }
 \arguments{
@@ -21,10 +21,11 @@ overlapping the dateline.}
 \item{closed}{Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
 only open notes are returned. A value of -1 means all notes are returned. Default to 7.}
 
-\item{format}{Format of the output. Can be \code{"R"} (default), \code{"xml"}, \code{"rss"}, \code{"json"} or \code{"gpx"}.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"sf"} \code{"xml"}, \code{"rss"}, \code{"json"} or \code{"gpx"}.}
 }
 \value{
-If \code{format = "R"}, returns a data frame with one map note per row.
+If \code{format = "R"}, returns a data frame with one map note per row. If \code{format = "sf"}, returns a \code{sf} object from
+\pkg{sf}.
 \subsection{\code{format = "xml"}}{
 
 Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:

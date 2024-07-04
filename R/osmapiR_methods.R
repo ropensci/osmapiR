@@ -94,6 +94,21 @@ print.osmapi_map_notes <- function(x, nchar_comments = 60, ...) {
 }
 
 
+#' @export
+print.sf_osmapi_map_notes <- function(x, nchar_comments = 60, ...) {
+  if ("comments" %in% names(x)) {
+    comments <- vapply(x$comments, comments_as_text, FUN.VALUE = "")
+    comments <- ifelse(nchar(comments) > nchar_comments, paste0(substr(comments, 1, nchar_comments), "..."), comments)
+  }
+
+  y <- x
+  x$comments <- comments
+  NextMethod()
+
+  invisible(y)
+}
+
+
 ## GPX traces ----
 
 #' @export
