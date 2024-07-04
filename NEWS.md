@@ -5,6 +5,7 @@
 * Improve tests and fix bugs (#35, 08fb4b10abf0270d8bea2473b02b2520ba341521)
 * Add format = "sf" for functions returning objects of class `osmapi_map_notes` (#36)
 * Add format = "sf" for functions returning objects of class `osmapi_changesets` (#37)
+* Add format = "sf" for functions returning objects of class `osmapi_gpx_metadata` (#38)
 
 # osmapiR 0.1.0
 
