@@ -163,7 +163,7 @@
     "SystemRequirements": null
   },
   "keywords": ["openstreetmap", "OSM", "openstreetmap-api", "osmapi", "API", "osm", "r", "r-package"],
-  "fileSize": "14111.337KB",
+  "fileSize": "14112.96KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",
@@ -179,15 +179,15 @@
       ],
       "name": "osmapiR: OpenStreetMap API",
       "identifier": "10.32614/CRAN.package.osmapiR",
-      "url": "https://jmaspons.github.io/osmapiR/",
-      "description": "R package version 0.1.0.9004 \nhttps://github.com/jmaspons/osmapiR",
+      "url": "https://docs.ropensci.org/osmapiR/",
+      "description": "R package version 0.1.0.9003 \nhttps://github.com/ropensci/osmapiR",
       "@id": "https://doi.org/10.32614/CRAN.package.osmapiR",
       "sameAs": "https://doi.org/10.32614/CRAN.package.osmapiR"
     }
   ],
   "releaseNotes": "https://github.com/ropensci/osmapiR/blob/master/NEWS.md",
   "readme": "https://github.com/ropensci/osmapiR/blob/main/README.md",
-  "contIntegration": ["https://github.com/jmaspons/osmapiR/actions/workflows/R-CMD-check.yaml", "https://app.codecov.io/gh/jmaspons/osmapiR", "https://github.com/jmaspons/osmapiR/actions/workflows/pkgdown.yaml"],
+  "contIntegration": ["https://github.com/ropensci/osmapiR/actions/workflows/R-CMD-check.yaml", "https://app.codecov.io/gh/ropensci/osmapiR"],
   "developmentStatus": "https://www.repostatus.org/#active",
   "review": {
     "@type": "Review",

@@ -3,8 +3,8 @@ bibentry(
   title    = "osmapiR: OpenStreetMap API",
   author   = person("Joan", "Maspons", , "joanmaspons@gmail.com", role = c("aut", "cre", "cph"),
                     comment = c(ORCID = "0000-0003-2286-8727")),
-  note     = paste0("R package version ",  utils::packageVersion("osmapiR"), " \nhttps://github.com/jmaspons/osmapiR"),
+  note     = paste0("R package version ",  utils::packageVersion("osmapiR"), " \nhttps://github.com/ropensci/osmapiR"),
   year     = 2024,
-  url      = "https://jmaspons.github.io/osmapiR/",
+  url      = "https://docs.ropensci.org/osmapiR/",
   doi      = "10.32614/CRAN.package.osmapiR"
 )
