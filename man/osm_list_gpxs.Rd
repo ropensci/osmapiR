@@ -4,14 +4,15 @@
 \alias{osm_list_gpxs}
 \title{List user's GPX traces}
 \usage{
-osm_list_gpxs(format = c("R", "xml"))
+osm_list_gpxs(format = c("R", "sf", "xml"))
 }
 \arguments{
-\item{format}{Format of the output. Can be \code{"R"} (default) or \code{"xml"}.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"sf"} or \code{"xml"}.}
 }
 \value{
-If \code{format = "R"}, returns a data frame with one trace per row. If \code{format = "xml"}, returns a
-\link[xml2:oldclass]{xml2::xml_document} similar to \code{\link[=osm_get_gpx_metadata]{osm_get_gpx_metadata()}}. Example:
+Results with the same format as \code{\link[=osm_get_gpx_metadata]{osm_get_gpx_metadata()}}. If \code{format = "R"}, returns a data frame with one trace
+per row. If \code{format = "sf"}, returns a \code{sf} object from \pkg{sf}. If \code{format = "xml"}, returns a
+\link[xml2:oldclass]{xml2::xml_document}. Example:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="OpenStreetMap server">

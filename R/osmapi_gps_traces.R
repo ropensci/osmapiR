@@ -470,11 +470,12 @@ osm_get_data_gpx <- function(gpx_id, format) {
 #'
 #' Use this to get a list of GPX traces owned by the authenticated user. Requires authentication.
 #'
-#' @param format Format of the output. Can be `"R"` (default) or `"xml"`.
+#' @param format Format of the output. Can be `"R"` (default), `"sf"` or `"xml"`.
 #'
 #' @return
-#' If `format = "R"`, returns a data frame with one trace per row. If `format = "xml"`, returns a
-#' [xml2::xml_document-class] similar to [osm_get_gpx_metadata()]. Example:
+#' Results with the same format as [osm_get_gpx_metadata()]. If `format = "R"`, returns a data frame with one trace
+#' per row. If `format = "sf"`, returns a `sf` object from \pkg{sf}. If `format = "xml"`, returns a
+#' [xml2::xml_document-class]. Example:
 #' ``` xml
 #' <?xml version="1.0" encoding="UTF-8"?>
 #' <osm version="0.6" generator="OpenStreetMap server">
@@ -498,8 +499,12 @@ osm_get_data_gpx <- function(gpx_id, format) {
 #' traces <- osm_list_gpxs()
 #' traces
 #' }
-osm_list_gpxs <- function(format = c("R", "xml")) {
+osm_list_gpxs <- function(format = c("R", "sf", "xml")) {
   format <- match.arg(format)
+  if (format == "sf" && !requireNamespace("sf", quietly = TRUE)) {
+    stop("Missing `sf` package. Install with:\n\tinstall.package(\"sf\")")
+  }
+
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "user", "gpx_files")
@@ -507,9 +512,12 @@ osm_list_gpxs <- function(format = c("R", "xml")) {
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
 
-  if (format == "R") {
+  if (format %in% c("R", "sf")) {
     out <- gpx_meta_xml2DF(obj_xml)
-  } else {
+    if (format == "sf") {
+      out <- sf::st_as_sf(out, coords = c("lon", "lat"), crs = sf::st_crs(4326))
+    }
+  } else { # format == "xml"
     out <- obj_xml
   }
 
