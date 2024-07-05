@@ -51,9 +51,9 @@
 #'   degrees, expressing a valid bounding box. The maximal width (`right - left`) and height (`top - bottom`) of the
 #'   bounding box is 0.25 degree.
 #' @param page_number Specifies which group of 5,000 points, or page, to return. Since the command does not return more
-#'   than 5,000 points at a time, this parameter must be incremented —and the command sent again (using the same bounding
-#'   box)— in order to retrieve all of the points for a bounding box that contains more than 5,000 points. When this
-#'   parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns points
+#'   than 5,000 points at a time, this parameter must be incremented —and the command sent again (using the same
+#'   bounding box)— in order to retrieve all of the points for a bounding box that contains more than 5,000 points. When
+#'   this parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns points
 #'   5,001–10,000, etc.
 #' @param format Format of the output. Can be `"R"` (default) or `"gpx"`.
 #'
