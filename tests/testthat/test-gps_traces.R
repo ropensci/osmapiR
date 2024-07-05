@@ -198,14 +198,18 @@ test_that("osm_get_data_gpx works", {
 test_that("osm_list_gpxs works", {
   with_mock_dir("mock_list_gpxs", {
     traces <- osm_list_gpxs()
+    sf_traces <- osm_list_gpxs(format = "sf")
     xml_traces <- osm_list_gpxs(format = "xml")
   })
 
-  expect_s3_class(traces, "data.frame")
-  expect_named(traces, column_meta_gpx)
-
+  expect_s3_class(traces, class = "data.frame", exact = TRUE)
+  expect_s3_class(sf_traces, class = c("sf", "data.frame"), exact = TRUE)
   expect_s3_class(xml_traces, "xml_document")
 
+  expect_named(traces, column_meta_gpx)
+  expect_named(sf_traces, column_meta_gpx_sf)
+
   # Compare xml & R
+  expect_equal(nrow(traces), nrow(sf_traces))
   expect_equal(nrow(traces), xml2::xml_length(xml_traces))
 })
