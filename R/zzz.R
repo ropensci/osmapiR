@@ -3,6 +3,7 @@
 .onLoad <- function(libname, pkgname) { # nocov start
   s3_register("sf::st_as_sf", "osmapi_map_notes")
   s3_register("sf::st_as_sf", "osmapi_changesets")
+  s3_register("sf::st_as_sf", "osmapi_gps_track")
 
 
   op <- options()

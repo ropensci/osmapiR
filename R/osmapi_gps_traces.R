@@ -375,6 +375,7 @@ osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml")) {
 #' @param gpx_id The track id represented by a numeric or a character value.
 #' @param format Format of the output. If missing (default), the response will be the exact file that was uploaded.
 #'   If `"R"`, a `data.frame`.
+#'   If `"sf"`, `"sf_lines"`, or `"sf_points"`,  a `sf` object  from package \pkg{sf} (see [st_as_sf()] for details).
 #'   If `"gpx"`, the response will always be a GPX format file.
 #'   If `"xml"`, a `xml` file in an undocumented format.
 #'
@@ -383,8 +384,10 @@ osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml")) {
 #'
 #' @return
 #' If missing `format`, returns a [xml2::xml_document-class] with the original file data. If `format = "R"`, returns a
-#' data frame with one point per row. If `format = "gpx"`, returns a [xml2::xml_document-class] in the GPX format. If
+#' data frame with one point per row. If `format = "sf*"`, returns a `sf` object from \pkg{sf}. If `format = "gpx"`,
+#' returns a [xml2::xml_document-class] in the GPX format. If
 #' `format = "xml"`, returns a [xml2::xml_document-class] in an undocumented format.
+#'
 #' @family get GPS' functions
 #' @export
 #'
@@ -397,12 +400,16 @@ osm_get_data_gpx <- function(gpx_id, format) {
   if (missing(format)) {
     ext <- "data"
   } else {
-    stopifnot(format %in% c("R", "xml", "gpx"))
+    format <- match.arg(format, c("R", "sf", "sf_line", "sf_points", "xml", "gpx"))
     if (format == "gpx") {
       ext <- "data.gpx"
     } else {
       ext <- "data.xml"
     }
+  }
+
+  if (!missing(format) && format == "sf" && !requireNamespace("sf", quietly = TRUE)) {
+    stop("Missing `sf` package. Install with:\n\tinstall.package(\"sf\")")
   }
 
   req <- osmapi_request(authenticate = TRUE)
@@ -414,9 +421,12 @@ osm_get_data_gpx <- function(gpx_id, format) {
 
   if (missing(format) || format %in% c("xml", "gpx")) {
     out <- obj_xml
-  } else {
+  } else { # format %in% c("R", "sf", "sf_line", "sf_points")
     out <- gpx_xml2df(obj_xml)
 
+    if (format %in% c("sf", "sf_line", "sf_points")) {
+      out <- sf::st_as_sf(out, format = if (format %in% c("sf", "sf_line")) "line" else "points")
+    }
   }
 
   return(out)

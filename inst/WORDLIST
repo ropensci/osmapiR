@@ -148,6 +148,7 @@ fot
 fred
 Fusers
 Fwww
+Garmin
 geo
 geodata
 Geroni
@@ -219,6 +220,8 @@ libname
 licence
 Lifecycle
 lifecycle
+linestring
+LINESTRING
 lIwawoZup
 lon
 lt
@@ -493,7 +496,9 @@ xsd
 xsi
 XtQPTSyuTOu
 xU
+XY
 xyz
+XYZM
 yaml
 ymax
 ymin
