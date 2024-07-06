@@ -284,76 +284,137 @@ gpx_meta_xml2DF <- function(xml) {
 
 # GPX files----
 
-gpx_xml2list <- function(xml) {
-  # xml_attrs <- xml2::xml_attrs(xml)
-
+gpx_xml2df <- function(xml) {
+  xml_attrs <- xml2::xml_attrs(xml)
   gpx <- xml2::xml_children(xml)
+
+  if ("metadata" %in% xml2::xml_name(gpx)) { # Always present for gpx/id responses
+    gpx_metadata <- xml2::as_list(gpx[xml2::xml_name(gpx) == "metadata"])
+    if (length(gpx_metadata) == 1) { # Only one <metadata> node
+      gpx_metadata <- gpx_metadata[[1]]
+    }
+    # For bounds as vector when creator="JOSM GPX export"
+    if (xml_attrs["creator"] == "JOSM GPX export") {
+      metadata <- xml2::xml_children(gpx[xml2::xml_name(gpx) == "metadata"])
+      metadata_attrs <- xml2::xml_attrs(metadata)
+      names(metadata_attrs) <- xml2::xml_name(metadata)
+      metadata_attrs <- metadata_attrs[vapply(metadata_attrs, length, FUN.VALUE = integer(1)) > 0]
+      gpx_metadata <- c(unlist(gpx_metadata, recursive = FALSE), metadata_attrs)
+    }
+  } else {
+    gpx_metadata <- NULL
+  }
+
+  trk <- gpx[xml2::xml_name(gpx) == "trk"]
+  # xml2::xml_find_all(trk, xpath = ".//name") ## TODO: doesn't work :(
+
+  if (length(trk) == 0) {
+    out <- empty_gpx_df()
+  } else if (length(trk) == 1) {
+    out <- trk_xml2df(trk = trk)
+    attributes(out) <- c(attributes(out), list(gpx_attributes = xml_attrs), gpx_metadata)
+    class(out) <- c("osmapi_gps_track", "data.frame")
+  } else if (length(trk) > 1) {
+    warning(
+      "GPX with more than one track. The result will be a list of class `osmapi_gpx`.",
+      "Please, open and issue with the `gpx_id` or the original file if the gpx is not public ",
+      "at https://github.com/ropensci/osmapiR/issues"
+    )
+    out <- gpx_xml2list(xml = xml)
+  }
+
+  return(out)
+}
+
+
+empty_gpx_df <- function() {
+  out <- data.frame(lon = character(), lat = character(), ele = character(), time = as.POSIXct(Sys.time())[-1])
+  class(out) <- c("osmapi_gps_track", "data.frame")
+
+  return(out)
+}
+
+
+gpx_xml2list <- function(xml) {
+  xml_attrs <- xml2::xml_attrs(xml)
+  gpx <- xml2::xml_children(xml)
+
+  if ("metadata" %in% xml2::xml_name(gpx)) { # Never seen for bbox trackpoints responses
+    gpx_metadata <- xml2::as_list(gpx[xml2::xml_name(gpx) == "metadata"])
+    if (length(gpx_metadata) == 1) {
+      gpx_metadata <- gpx_metadata[[1]]
+    }
+  } else {
+    gpx_metadata <- NULL
+  }
 
   trk <- gpx[xml2::xml_name(gpx) == "trk"]
   # xml_find_all(trk, xpath = ".//name") ## TODO: doesn't work :(
 
   if (length(trk) == 0) {
-    return(empty_gpx())
+    return(empty_gpx_list())
   }
 
-  trkL <- lapply(trk, function(x) {
-    x_ch <- xml2::xml_children(x)
-    x_names <- xml2::xml_name(x_ch)
-
-    trk_details <- structure(xml2::xml_text(x_ch[x_names != "trkseg"]), names = x_names[x_names != "trkseg"])
-
-    trkseg <- x_ch[x_names == "trkseg"]
-
-    trkseg_ch <- xml2::xml_children(trkseg)
-    trkseg_names <- xml2::xml_name(trkseg_ch)
-    trkpt <- trkseg_ch[trkseg_names == "trkpt"]
-    lat_lon <- do.call(rbind, xml2::xml_attrs(trkpt))
-    # xml2::xml_find_all(trkpt, ".//time") ## TODO: doesn't work :(
-
-    elem_points <- lapply(trkpt, function(y) {
-      pt <- xml2::xml_children(y)
-      elem_name <- vapply(pt, xml2::xml_name, FUN.VALUE = character(1))
-      sel <- elem_name %in% c("ele", "time")
-      vals <- structure(
-        vapply(pt[sel], xml2::xml_text, FUN.VALUE = character(1)),
-        names = elem_name[sel]
-      )
-
-      return(vals)
-    })
-    point_data <- do.call(rbind, elem_points)
-
-    trkpt <- data.frame(lat_lon, point_data)
-    if ("time" %in% names(trkpt)) {
-      trkpt$time <- as.POSIXct(trkpt$time, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+  out <- lapply(trk, trk_xml2df)
+  names(out) <- vapply(out, function(x) {
+    url <- attr(x, "track_url")
+    if (is.null(url)) { # for private traces
+      url <- ""
     }
+    url
+  }, FUN.VALUE = character(1))
 
-    out <- trkpt
-    attributes(out) <- c(attributes(out), trk_details)
+  attributes(out) <- c(attributes(out), list(gpx_attributes = xml_attrs), gpx_metadata)
+  class(out) <- c("osmapi_gpx", class(out))
 
-    return(out)
-  })
-
-  if ("metadata" %in% xml2::xml_name(gpx)) {
-    metaL <- xml2::as_list(gpx[xml2::xml_name(gpx) == "metadata"])
-
-    meta <- xml2::xml_children(gpx[xml2::xml_name(gpx) == "metadata"])
-    meta_attrs <- xml2::xml_attrs(meta)
-    names(meta_attrs) <- xml2::xml_name(meta)
-    meta_attrs <- meta_attrs[vapply(meta_attrs, length, FUN.VALUE = integer(1)) > 0]
-
-    attributes(trkL) <- c(attributes(trkL), unlist(metaL, recursive = FALSE), meta_attrs)
-  }
-
-  class(trkL) <- c("osmapi_gpx", class(trkL))
-
-  return(trkL)
+  return(out)
 }
 
 
-empty_gpx <- function() {
+empty_gpx_list <- function() {
   out <- list()
   class(out) <- c("osmapi_gpx", "list")
+
+  return(out)
+}
+
+
+trk_xml2df <- function(trk) {
+  trk_ch <- xml2::xml_children(trk)
+  trk_names <- xml2::xml_name(trk_ch)
+
+  trk_details <- structure(xml2::xml_text(trk_ch[trk_names != "trkseg"]), names = trk_names[trk_names != "trkseg"])
+  if (length(trk_details)) {
+    names(trk_details) <- paste0("track_", names(trk_details))
+  }
+
+  trkseg <- trk_ch[trk_names == "trkseg"]
+
+  trkseg_ch <- xml2::xml_children(trkseg)
+  trkseg_names <- xml2::xml_name(trkseg_ch)
+  trkpt <- trkseg_ch[trkseg_names == "trkpt"]
+  lat_lon <- do.call(rbind, xml2::xml_attrs(trkpt))
+  # xml2::xml_find_all(trkpt, ".//time") ## TODO: doesn't work :(
+
+  elem_points <- lapply(trkpt, function(y) {
+    pt <- xml2::xml_children(y)
+    elem_name <- vapply(pt, xml2::xml_name, FUN.VALUE = character(1))
+    sel <- elem_name %in% c("ele", "time")
+    vals <- structure(
+      vapply(pt[sel], xml2::xml_text, FUN.VALUE = character(1)),
+      names = elem_name[sel]
+    )
+
+    return(vals)
+  })
+  point_data <- do.call(rbind, elem_points)
+
+  out <- data.frame(lat_lon, point_data)
+  if ("time" %in% names(out)) {
+    out$time <- as.POSIXct(out$time, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+  }
+
+  attributes(out) <- c(attributes(out), trk_details)
 
   return(out)
 }
