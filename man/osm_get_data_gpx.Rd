@@ -11,12 +11,14 @@ osm_get_data_gpx(gpx_id, format)
 
 \item{format}{Format of the output. If missing (default), the response will be the exact file that was uploaded.
 If \code{"R"}, a \code{data.frame}.
+If \code{"sf"}, \code{"sf_lines"}, or \code{"sf_points"},  a \code{sf} object  from package \pkg{sf} (see \code{\link[=st_as_sf]{st_as_sf()}} for details).
 If \code{"gpx"}, the response will always be a GPX format file.
 If \code{"xml"}, a \code{xml} file in an undocumented format.}
 }
 \value{
 If missing \code{format}, returns a \link[xml2:oldclass]{xml2::xml_document} with the original file data. If \code{format = "R"}, returns a
-data frame with one point per row. If \code{format = "gpx"}, returns a \link[xml2:oldclass]{xml2::xml_document} in the GPX format. If
+data frame with one point per row. If \code{format = "sf*"}, returns a \code{sf} object from \pkg{sf}. If \code{format = "gpx"},
+returns a \link[xml2:oldclass]{xml2::xml_document} in the GPX format. If
 \code{format = "xml"}, returns a \link[xml2:oldclass]{xml2::xml_document} in an undocumented format.
 }
 \description{

@@ -175,23 +175,44 @@ test_that("osm_get_data_gpx works", {
     trk_data$gpx <- osm_get_data_gpx(gpx_id = 3458743, format = "gpx") # identical to xml resp but heavier mock file
     ## gpx responses has `content-type` = "application/gpx+xml and httptest2 save them as raw instead of xml files
     trk_data$xml <- osm_get_data_gpx(gpx_id = 3458743, format = "xml")
-    trk_data$R <- osm_get_data_gpx(gpx_id = 3458743, format = "R")
+    trk_data$df <- osm_get_data_gpx(gpx_id = 3458743, format = "R")
+    trk_data$sf_line <- osm_get_data_gpx(gpx_id = 3458743, format = "sf_line")
+    trk_data$sf_points <- osm_get_data_gpx(gpx_id = 3458743, format = "sf_points")
   })
 
   lapply(trk_data[c("raw", "gpx", "xml")], expect_s3_class, class = "xml_document")
 
-  expect_s3_class(trk_data$R, c("osmapi_gps_track", "data.frame"))
-  expect_named(trk_data$R, column_gpx)
+  expect_s3_class(trk_data$df, class = c("osmapi_gps_track", "data.frame"), exact = TRUE)
+  expect_s3_class(trk_data$sf_line, class = c("sf", "data.frame"), exact = TRUE)
+  expect_s3_class(trk_data$sf_points, class = c("sf", "data.frame"), exact = TRUE)
+  expect_named(trk_data$df, column_gpx)
+  expect_named(trk_data$sf_line, "geometry")
+  expect_named(trk_data$sf_points, c("ele", "time", "geometry"))
 
-  mapply(function(x, cl) expect_true(inherits(x, cl)), x = trk_data$R, cl = class_columns[names(trk_data$R)])
+  mapply(function(x, cl) expect_true(inherits(x, cl)), x = trk_data$df, cl = class_columns[names(trk_data$df)])
+  mapply(function(x, cl) expect_true(inherits(x, cl)),
+    x = trk_data$sf_line, cl = class_columns[names(trk_data$sf_line)]
+  )
+  mapply(function(x, cl) expect_true(inherits(x, cl)),
+    x = trk_data$sf_points, cl = class_columns[names(trk_data$sf_points)]
+  )
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
-  expect_false(all(strftime(as.POSIXct(trk_data$R$time), format = "%M:%S") == "00:00"))
+  expect_false(all(strftime(as.POSIXct(trk_data$df$time), format = "%M:%S") == "00:00"))
 
-  # Compare xml & R
+  # Compare sf_line, sf_points, xml & R
+  expect_equal(nrow(trk_data$df), nrow(trk_data$sf_line$geometry[[1]]))
+  expect_equal(nrow(trk_data$df), nrow(trk_data$sf_points))
   trk <- xml2::xml_child(trk_data$xml, search = 2)
   trkseg <- xml2::xml_child(trk, search = 3)
-  expect_equal(nrow(trk_data$R), xml2::xml_length(trkseg))
+  expect_equal(nrow(trk_data$df), xml2::xml_length(trkseg))
+
+
+  ## Empty gpx
+  empty_sf <- sf::st_as_sf(empty_gpx_df())
+  expect_s3_class(empty_sf, class = c("sf", "data.frame"), exact = TRUE)
+  expect_named(empty_sf, c("ele", "time", "geometry"))
+  expect_identical(nrow(empty_sf), 0L)
 })
 
 

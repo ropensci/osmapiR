@@ -4,25 +4,43 @@
 \alias{st_as_sf}
 \alias{st_as_sf.osmapi_map_notes}
 \alias{st_as_sf.osmapi_changesets}
+\alias{st_as_sf.osmapi_gps_track}
 \title{Convert osmapiR objects to sf objects}
 \usage{
 st_as_sf.osmapi_map_notes(x, ...)
 
 st_as_sf.osmapi_changesets(x, ...)
+
+st_as_sf.osmapi_gps_track(x, format = c("line", "points"), ...)
 }
 \arguments{
 \item{x}{an osmapiR object.}
 
-\item{...}{passed on to \code{st_as_sf()} from \pkg{sf}.}
+\item{...}{passed on to \code{st_as_sf()} from \pkg{sf} package.}
+
+\item{format}{Format of the output. If \code{"line"} (the default), return a \code{sf} object with one \code{LINESTRING}.
+If \code{"points"}, return a \code{sf} with the \code{POINT}s of the track as features. See below for details.}
 }
 \value{
-Returns a \code{sf} object from \pkg{sf}.
+Returns a \code{sf} object from \pkg{sf} package.
+
+When x is a \code{osmapi_gps_track} object and \code{format = "line"}, the result will have \code{XYZM} dimensions for
+coordinates, elevation and time (will loss the POSIXct type) if available. For \code{format = "points"}, the result will
+have \code{XY} dimensions and elevation and time will be independent columns if available.
 }
 \description{
 Convert osmapiR objects to sf objects
 }
+\examples{
+\dontrun{
+trk <- osm_get_data_gpx(gpx_id = 3498170, format = "R")
+st_as_sf(trk, format = "line")
+st_as_sf(trk, format = "points")
+}
+
+}
 \seealso{
-\code{st_as_sf()} from \pkg{sf}
+\code{st_as_sf()} from \pkg{sf} package.
 
 Other methods: 
 \code{\link{tags_list2wide}()}
