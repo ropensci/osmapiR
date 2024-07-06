@@ -109,13 +109,6 @@
 
   if (format == "R") {
     out <- gpx_xml2list(obj_xml)
-    names(out) <- vapply(out, function(x) {
-      url <- attr(x, "url")
-      if (is.null(url)) { # for private traces?
-        url <- ""
-      }
-      url
-    }, FUN.VALUE = character(1))
   } else {
     out <- obj_xml
   }
@@ -422,22 +415,8 @@ osm_get_data_gpx <- function(gpx_id, format) {
   if (missing(format) || format %in% c("xml", "gpx")) {
     out <- obj_xml
   } else {
-    out <- gpx_xml2list(obj_xml)
+    out <- gpx_xml2df(obj_xml)
 
-    if (length(out) > 1) {
-      warning(
-        "Unexpected output format at osm_get_data_gpx().",
-        "Please, open and issue with the `gpx_id` or the original file if the gpx is not public ",
-        "at https://github.com/ropensci/osmapiR/issues"
-      )
-    } else {
-      attrs <- attributes(out)
-      attrs <- attrs[setdiff(names(attrs), "class")]
-      names(attrs) <- paste0("gpx_", names(attrs))
-      out <- out[[1]]
-      attributes(out) <- c(attributes(out), attrs)
-      class(out) <- c("osmapi_gps_track", "data.frame")
-    }
   }
 
   return(out)

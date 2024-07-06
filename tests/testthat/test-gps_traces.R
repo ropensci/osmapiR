@@ -169,6 +169,8 @@ test_that("osm_get_metadata_gpx works", {
 test_that("osm_get_data_gpx works", {
   trk_data <- list()
   with_mock_dir("mock_get_data_gpx", {
+    # gpx_id = 3458743: creator="JOSM GPX export" <metadata> bounds c("minlat", "minlon", "maxlat", "maxlon")
+    # gpx_id = 3498170: creator="Garmin Connect"
     trk_data$raw <- osm_get_data_gpx(gpx_id = 3458743)
     trk_data$gpx <- osm_get_data_gpx(gpx_id = 3458743, format = "gpx") # identical to xml resp but heavier mock file
     ## gpx responses has `content-type` = "application/gpx+xml and httptest2 save them as raw instead of xml files

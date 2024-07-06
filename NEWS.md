@@ -8,6 +8,7 @@
 * Add format = "sf" for `osm_get_gpx_metadata()` (#38)
 * Updated links to the new osmapiR home at rOpenSci (#40)
 * Add format = "sf" for `osm_list_gpxs()` (#42)
+* Split functions to parse gpx data from different API endpoints and different properties (#43)
 
 # osmapiR 0.1.0
 
