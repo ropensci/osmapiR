@@ -10,6 +10,8 @@
 * Add format = "sf" for `osm_list_gpxs()` (#42)
 * Split functions to parse gpx data from different API endpoints and different properties (#43)
 * Add format = "sf" for functions returning objects of class `osmapi_gps_track` (#44)
+* Add format = "sf" for functions returning objects of class `osmapi_gpx` (#45)
+
 
 # osmapiR 0.1.0
 
