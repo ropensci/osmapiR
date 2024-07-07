@@ -138,7 +138,8 @@ st_as_sf.osmapi_gpx <- function(x, format = c("lines", "points"), ...) {
       }
       a
     }, FUN.VALUE = character(3))
-    track_attributes <- as.data.frame(t(track_attributes), row.names = NA, make.names = NA)
+    track_attributes <- as.data.frame(t(track_attributes))
+    rownames(track_attributes) <- NULL
 
     track_attributes$geometry <- geometry
     out <- sf::st_as_sf(x = track_attributes, crs = sf::st_crs(4326), ...)
