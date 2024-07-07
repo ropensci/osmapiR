@@ -30,17 +30,18 @@ geodata from/to the OpenStreetMap database. This package allows access to OSM ma
 traces, changelogs, and users data. To access OSM map data for purposes other than editing or exploring the history
 of the objects see [Related packages](#related-packages).
 
-You are responsible for following the [API Usage Policy](https://operations.osmfoundation.org/policies/api/).
-You can modify the user agent of the requests by setting the option `osmapir.user_agent`:
-
-```r
-options(osmapir.user_agent = "my new user agent")
-```
-
-Respect and follow the
-[standards and conventions](https://wiki.openstreetmap.org/wiki/Editing_Standards_and_Conventions) of the OpenStreetMap
-community. If you plan to do automated edits, check the 
-[Automated Edits code of conduct](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct).
+> [!IMPORTANT]
+> You are responsible for following the [API Usage Policy](https://operations.osmfoundation.org/policies/api/).
+> You can modify the user agent of the requests by setting the option `osmapir.user_agent`:
+> 
+> ```r
+> options(osmapir.user_agent = "my new user agent")
+> ```
+> 
+> Respect and follow the
+> [standards and conventions](https://wiki.openstreetmap.org/wiki/Editing_Standards_and_Conventions) of the
+> OpenStreetMap community. If you plan to do automated edits, check the
+> [Automated Edits code of conduct](https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct).
 
 
 ## Installation
