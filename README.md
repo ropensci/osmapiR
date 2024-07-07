@@ -8,6 +8,8 @@
 [![R-CMD-check](https://github.com/ropensci/osmapiR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/osmapiR/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/ropensci/osmapiR/graph/badge.svg)](https://app.codecov.io/gh/ropensci/osmapiR)
+[![cran
+checks](https://badges.cranchecks.info/worst/osmapiR.svg)](https://cran.r-project.org/web/checks/check_results_osmapiR.html)
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
 [![CRAN_Status_Badge](https://www.r-pkg.org/badges/version/osmapiR)](https://cran.r-project.org/package=osmapiR)

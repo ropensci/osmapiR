@@ -226,7 +226,7 @@ osm_create_gpx <- function(file, description, tags, visibility = c("private", "p
 #' @examples
 #' vignette("how_to_edit_gps_traces", package = "osmapiR")
 osm_update_gpx <- function(gpx_id, name, description, tags,
-                           visibility = c("private", "public", "trackable", "identifiable")) {
+                           visibility = c("private", "public", "trackable", "identifiable")) { # TODO: format = c("R", "xml")
   visibility <- match.arg(visibility)
   stopifnot(!missing(description))
 
