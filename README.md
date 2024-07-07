@@ -8,7 +8,7 @@
 [![R-CMD-check](https://github.com/ropensci/osmapiR/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/ropensci/osmapiR/actions/workflows/R-CMD-check.yaml)
 [![Codecov test
 coverage](https://codecov.io/gh/ropensci/osmapiR/graph/badge.svg)](https://app.codecov.io/gh/ropensci/osmapiR)
-[![cran
+[![CRAN
 checks](https://badges.cranchecks.info/worst/osmapiR.svg)](https://cran.r-project.org/web/checks/check_results_osmapiR.html)
 [![Project Status:
 Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
@@ -26,7 +26,8 @@ changelogs, and users data. To access OSM map data for purposes other
 than editing or exploring the history of the objects see [Related
 packages](#related-packages).
 
-> \[!IMPORTANT\] You are responsible for following the [API Usage
+> [!IMPORTANT]  
+> You are responsible for following the [API Usage
 > Policy](https://operations.osmfoundation.org/policies/api/). You can
 > modify the user agent of the requests by setting the option
 > `osmapir.user_agent`:
