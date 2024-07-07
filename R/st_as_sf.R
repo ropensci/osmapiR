@@ -118,8 +118,11 @@ st_as_sf.osmapi_gpx <- function(x, format = c("lines", "points"), ...) {
   if (format == "lines") {
     geometry <- lapply(x, function(trk) {
       x_num <- list2DF(lapply(trk, as.numeric))
-      x_num <- x_num[, intersect(c("lon", "lat", "time"), names(x_num))] # sort XYZM columns
-      sf::st_sfc(sf::st_linestring(x = as.matrix(x_num)), crs = sf::st_crs(4326))
+      x_num <- x_num[, intersect(c("lon", "lat", "time"), names(x_num))] # sort XYM columns
+      sf::st_sfc(
+        sf::st_linestring(x = as.matrix(x_num), dim = if (ncol(x_num) == 3) "XYM" else "XY"),
+        crs = sf::st_crs(4326)
+      )
     })
     geometry <- do.call(c, geometry)
 
