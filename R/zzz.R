@@ -1,9 +1,11 @@
 # inspired by osmdata package
 
 .onLoad <- function(libname, pkgname) { # nocov start
+  # register S3 methods for a generic in a suggested package
   s3_register("sf::st_as_sf", "osmapi_map_notes")
   s3_register("sf::st_as_sf", "osmapi_changesets")
   s3_register("sf::st_as_sf", "osmapi_gps_track")
+  s3_register("sf::st_as_sf", "osmapi_gpx")
 
 
   op <- options()
