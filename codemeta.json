@@ -163,7 +163,7 @@
     "SystemRequirements": null
   },
   "keywords": ["openstreetmap", "OSM", "openstreetmap-api", "osmapi", "API", "osm", "r", "r-package"],
-  "fileSize": "14150.629KB",
+  "fileSize": "14079.909KB",
   "citation": [
     {
       "@type": "SoftwareSourceCode",

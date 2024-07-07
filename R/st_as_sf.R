@@ -7,9 +7,11 @@
 #'
 #' @return Returns a `sf` object from \pkg{sf} package or a list of for `osmapi_gpx` and `format = "points"`.
 #'
-#'   When x is a `osmapi_gps_track` or `osmapi_gpx` object and `format = "line"`, the result will have `XYZM` dimensions for
-#'   coordinates, elevation and time (will loss the POSIXct type) if available. For `format = "points"`, the result will
-#'   have `XY` dimensions and elevation and time will be independent columns if available.
+#'   When x is a `osmapi_gps_track` or `osmapi_gpx` object and `format = "line"`, the result will have `XYZM` dimensions
+#'   for coordinates, elevation and time if available. In this format, time will loss the POSIXct type as only numeric
+#    values are allowed.
+#'   For `format = "points"`, the result will have `XY` dimensions and elevation and time will be independent columns if
+#'   available.
 #'
 #' @family methods
 #' @seealso `st_as_sf()` from \pkg{sf} package.

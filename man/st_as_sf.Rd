@@ -27,9 +27,10 @@ track. If \code{"points"}, return a \code{sf} with the \code{POINT}s of the trac
 \value{
 Returns a \code{sf} object from \pkg{sf} package or a list of for \code{osmapi_gpx} and \code{format = "points"}.
 
-When x is a \code{osmapi_gps_track} or \code{osmapi_gpx} object and \code{format = "line"}, the result will have \code{XYZM} dimensions for
-coordinates, elevation and time (will loss the POSIXct type) if available. For \code{format = "points"}, the result will
-have \code{XY} dimensions and elevation and time will be independent columns if available.
+When x is a \code{osmapi_gps_track} or \code{osmapi_gpx} object and \code{format = "line"}, the result will have \code{XYZM} dimensions
+for coordinates, elevation and time if available. In this format, time will loss the POSIXct type as only numeric
+For \code{format = "points"}, the result will have \code{XY} dimensions and elevation and time will be independent columns if
+available.
 }
 \description{
 Convert osmapiR objects to sf objects
