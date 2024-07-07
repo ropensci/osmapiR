@@ -26,6 +26,8 @@ changelogs, and users data. To access OSM map data for purposes other
 than editing or exploring the history of the objects see [Related
 packages](#related-packages).
 
+<!-- escaped \[ \] fix resulting README.md by removing \ -->
+
 > [!IMPORTANT]  
 > You are responsible for following the [API Usage
 > Policy](https://operations.osmfoundation.org/policies/api/). You can
