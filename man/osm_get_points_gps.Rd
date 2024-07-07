@@ -4,7 +4,11 @@
 \alias{osm_get_points_gps}
 \title{Get GPS Points}
 \usage{
-osm_get_points_gps(bbox, page_number = 0, format = c("R", "gpx"))
+osm_get_points_gps(
+  bbox,
+  page_number = 0,
+  format = c("R", "sf", "sf_lines", "sf_points", "gpx")
+)
 }
 \arguments{
 \item{bbox}{Coordinates for the area to retrieve the notes from (\verb{left,bottom,right,top}). Floating point numbers in
@@ -16,11 +20,12 @@ than 5,000 points at a time. In order to retrieve all of the points for a boundi
 When this parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns
 points 5,001–10,000, etc. A vector is also valid (e.g. \code{0:2} to get the first 3 pages).}
 
-\item{format}{Format of the output. Can be \code{"R"} (default) or \code{"gpx"}.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"sf_lines"} (\code{"sf"} is a synonym for \code{"sf_lines"}),
+\code{"sf_points"} or \code{"gpx"}.}
 }
 \value{
 If \code{format = "R"}, returns a list of data frames with the points for each trace. For public traces, the data frame
-include the attributes \code{name}, \code{desc} and \code{url}.
+include the attributes \code{name}, \code{desc} and \code{url}. If \code{format = "sf"}, TODO: POINTS or LINE
 \subsection{\code{format = "gpx"}}{
 
 Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:

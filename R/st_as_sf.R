@@ -1,13 +1,13 @@
 #' Convert osmapiR objects to sf objects
 #'
 #' @param x an osmapiR object.
-#' @param format Format of the output. If `"line"` (the default), return a `sf` object with one `LINESTRING`.
-#'   If `"points"`, return a `sf` with the `POINT`s of the track as features. See below for details.
+#' @param format Format of the output. If `"line"` (the default), return a `sf` object with one `LINESTRING` for each
+#'   track. If `"points"`, return a `sf` with the `POINT`s of the track as features. See below for details.
 #' @param ... passed on to `st_as_sf()` from \pkg{sf} package.
 #'
-#' @return Returns a `sf` object from \pkg{sf} package.
+#' @return Returns a `sf` object from \pkg{sf} package or a list of for `osmapi_gpx` and `format = "points"`.
 #'
-#'   When x is a `osmapi_gps_track` object and `format = "line"`, the result will have `XYZM` dimensions for
+#'   When x is a `osmapi_gps_track` or `osmapi_gpx` object and `format = "line"`, the result will have `XYZM` dimensions for
 #'   coordinates, elevation and time (will loss the POSIXct type) if available. For `format = "points"`, the result will
 #'   have `XY` dimensions and elevation and time will be independent columns if available.
 #'
@@ -66,7 +66,6 @@ st_as_sf.osmapi_changesets <- function(x, ...) {
 
 
 #' @rdname st_as_sf
-#'
 #' @export
 st_as_sf.osmapi_gps_track <- function(x, format = c("line", "points"), ...) {
   format <- match.arg(format)
@@ -90,5 +89,61 @@ st_as_sf.osmapi_gps_track <- function(x, format = c("line", "points"), ...) {
     out <- sf::st_as_sf(x = as.data.frame(x), coords = c("lon", "lat"), crs = sf::st_crs(4326), ...)
   }
 
+  # TODO: check attributes
+  return(out)
+}
+
+
+#' @rdname st_as_sf
+#' @export
+st_as_sf.osmapi_gpx <- function(x, format = c("lines", "points"), ...) {
+  format <- match.arg(format)
+
+  attr_names <- c("track_url", "track_name", "track_desc")
+
+  if (length(x) == 0) {
+    if (format == "points") {
+      out <- list()
+      class(out) <- c("sf_osmapi_gpx", "osmapi_gpx", "list")
+    } else { # format == "lines"
+      out <- list2DF(stats::setNames(rep(list(NA), 3L), nm = attr_names))
+      out$geometry <- sf::st_sfc(sf::st_linestring(), crs = sf::st_crs(4326))
+      out <- sf::st_as_sf(x = as.data.frame(out[integer(), ]), crs = sf::st_crs(4326), ...)
+    }
+
+    return(out)
+  }
+
+
+  if (format == "lines") {
+    geometry <- lapply(x, function(trk) {
+      x_num <- list2DF(lapply(trk, as.numeric))
+      x_num <- x_num[, intersect(c("lon", "lat", "time"), names(x_num))] # sort XYZM columns
+      sf::st_sfc(sf::st_linestring(x = as.matrix(x_num)), crs = sf::st_crs(4326))
+    })
+    geometry <- do.call(c, geometry)
+
+    track_attributes <- vapply(x, function(trk) {
+      trk_attr <- attributes(trk)
+      # attr_names <- grep("^track_", names(trk_attr), value = TRUE)
+      a <- stats::setNames(rep(NA_character_, 3), nm = attr_names)
+      sel <- intersect(attr_names, names(trk_attr))
+      if (length(sel)) {
+        a[sel] <- unlist(trk_attr[sel])
+      }
+      a
+    }, FUN.VALUE = character(3))
+    track_attributes <- as.data.frame(t(track_attributes), row.names = NA, make.names = NA)
+
+    track_attributes$geometry <- geometry
+    out <- sf::st_as_sf(x = track_attributes, crs = sf::st_crs(4326), ...)
+  } else if (format == "points") {
+    out <- lapply(x, function(trk) {
+      sf::st_as_sf(x = as.data.frame(trk), coords = c("lon", "lat"), crs = sf::st_crs(4326), ...)
+    })
+    class(out) <- c("sf_osmapi_gpx", "osmapi_gpx", "list")
+  }
+
+  # TODO: check attributes
   return(out)
 }

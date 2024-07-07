@@ -9,7 +9,8 @@
 #'   than 5,000 points at a time. In order to retrieve all of the points for a bounding box, set `page_number = -1`.
 #'   When this parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns
 #'   points 5,001–10,000, etc. A vector is also valid (e.g. `0:2` to get the first 3 pages).
-#' @param format Format of the output. Can be `"R"` (default) or `"gpx"`.
+#' @param format Format of the output. Can be `"R"` (default), `"sf_lines"` (`"sf"` is a synonym for `"sf_lines"`),
+#'   `"sf_points"` or `"gpx"`.
 #'
 #' @note In violation of the [GPX standard](https://www.topografix.com/GPX/1/1/#type_trksegType) when downloading public
 #'   GPX traces through the API, all waypoints of non-trackable traces are randomized (or rather sorted by lat/lon) and
@@ -21,7 +22,7 @@
 #'
 #' @return
 #' If `format = "R"`, returns a list of data frames with the points for each trace. For public traces, the data frame
-#' include the attributes `name`, `desc` and `url`.
+#' include the attributes `name`, `desc` and `url`. If `format = "sf"`, TODO: POINTS or LINE
 #'
 #' ## `format = "gpx"`
 #' Returns a [xml2::xml_document-class] with the following format:
@@ -56,19 +57,29 @@
 #'
 #' ## get attributes
 #' lapply(pts_gps, function(x) attributes(x)[c("name", "desc", "url")])
-osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "gpx")) {
+osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "sf", "sf_lines", "sf_points", "gpx")) {
   format <- match.arg(format)
+  if (format == "sf") format <- "sf_lines"
+  if (format %in% c("sf_lines", "sf_points")) {
+    if (!requireNamespace("sf", quietly = TRUE)) {
+      stop("Missing `sf` package. Install with:\n\tinstall.package(\"sf\")")
+    }
+    .format <- "R"
+  } else {
+    .format <- format
+  }
+
   bbox <- paste(bbox, collapse = ",")
 
   if (page_number >= 0) { # concrete pages
-    outL <- lapply(page_number, function(x) .osm_get_points_gps(bbox = bbox, page_number = x, format = format))
+    outL <- lapply(page_number, function(x) .osm_get_points_gps(bbox = bbox, page_number = x, format = .format))
   } else { # get all pages
     outL <- list()
     n <- 1
     i <- 1
     while (n > 0) {
-      outL[[i]] <- .osm_get_points_gps(bbox = bbox, page_number = i - 1, format = format)
-      if (format == "R") {
+      outL[[i]] <- .osm_get_points_gps(bbox = bbox, page_number = i - 1, format = .format)
+      if (format %in% c("R", "sf_lines", "sf_points")) {
         n <- length(outL[[i]])
       } else { # format == "gpx"
         n <- length(xml2::xml_children(outL[[i]]))
@@ -81,10 +92,15 @@ osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "gpx")) {
   }
 
   if (length(outL) == 1) {
-    return(outL[[1]])
+    out <- outL[[1]]
+    if (format %in% c("sf_lines", "sf_points")) {
+      out <- sf::st_as_sf(out, format = if (format == "sf_lines") "lines" else "points")
+    }
+
+    return(out)
   }
 
-  if (format == "R") {
+  if (format %in% c("R", "sf_lines", "sf_points")) {
     # rbind the last and first trkseg of consecutive pages if they have the same url (non private traces)
     url_1n_page <- lapply(outL, function(x) names(x)[c(1, length(x))])
     # TODO: length(url_1n_page[[i]]) == 1 OR trace divided in > 2 pages
@@ -100,6 +116,10 @@ osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "gpx")) {
 
     out <- do.call(c, outL)
     class(out) <- c("osmapi_gpx", "list")
+
+    if (format %in% c("sf_lines", "sf_points")) {
+      out <- sf::st_as_sf(out, format = if (format == "sf_lines") "lines" else "points")
+    }
   } else { # format == "gpx"
     # unite the last and first trkseg of consecutive pages if they have the same url (non private traces)
     # lapply(outL, function(x) xml2::xml_find_all(x, "//url", flatten = FALSE)) # TODO: doesn't work :(
