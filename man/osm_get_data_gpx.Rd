@@ -11,23 +11,24 @@ osm_get_data_gpx(gpx_id, format)
 
 \item{format}{Format of the output. If missing (default), the response will be the exact file that was uploaded.
 If \code{"R"}, a \code{data.frame}.
-If \code{"sf"}, \code{"sf_lines"}, or \code{"sf_points"},  a \code{sf} object  from package \pkg{sf} (see \code{\link[=st_as_sf]{st_as_sf()}} for details).
+If \code{"sf_lines"} (\code{"sf"} is a synonym for \code{"sf_lines"}) or \code{"sf_points"},  a \code{sf} object  from package \pkg{sf}.
 If \code{"gpx"}, the response will always be a GPX format file.
 If \code{"xml"}, a \code{xml} file in an undocumented format.}
 }
 \value{
-If missing \code{format}, returns a \link[xml2:oldclass]{xml2::xml_document} with the original file data. If \code{format = "R"}, returns a
-data frame with one point per row. If \code{format = "sf*"}, returns a \code{sf} object from \pkg{sf}. If \code{format = "gpx"},
-returns a \link[xml2:oldclass]{xml2::xml_document} in the GPX format. If
-\code{format = "xml"}, returns a \link[xml2:oldclass]{xml2::xml_document} in an undocumented format.
+If missing \code{format}, returns a \link[xml2:oldclass]{xml2::xml_document} with the original file data.
+If \code{format = "R"}, returns a data frame with one point per row and the attributes extracted from the xml response  .
+If \code{format = "sf*"}, returns a \code{sf} object from \pkg{sf} (see \code{\link[=st_as_sf]{st_as_sf()}} for details).
+If \code{format = "gpx"}, returns a \link[xml2:oldclass]{xml2::xml_document} in the GPX format.
+If \code{format = "xml"}, returns a \link[xml2:oldclass]{xml2::xml_document} in an undocumented format.
 }
 \description{
-Use this to download the full GPX file. Available without authentication if the file is marked public. Otherwise only
-usable by the owner account and requires authentication.
+Use this to download the full GPX file. Private and trackable traces are only available by the owner account.
+Requires authentication.
 }
 \note{
-If you request refers to a multi-file archive the response when you force gpx or xml format will consist of a
-non-standard simple concatenation of the files.
+If you request refers to a multi-file archive the response when you force \code{gpx} or \code{xml} format will consist of
+a non-standard simple concatenation of the files.
 }
 \examples{
 \dontrun{

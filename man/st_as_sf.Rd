@@ -36,10 +36,15 @@ available.
 Convert osmapiR objects to sf objects
 }
 \examples{
+gpx <- osm_get_points_gps(bbox = c(-0.3667545, 40.2153246, -0.3354263, 40.2364915))
+sf::st_as_sf(gpx, format = "line")
+sf::st_as_sf(gpx, format = "points")
+
 \dontrun{
+# Requires authentication
 trk <- osm_get_data_gpx(gpx_id = 3498170, format = "R")
-st_as_sf(trk, format = "line")
-st_as_sf(trk, format = "points")
+sf::st_as_sf(trk, format = "line")
+sf::st_as_sf(trk, format = "points")
 }
 
 }

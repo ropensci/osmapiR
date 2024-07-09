@@ -364,29 +364,30 @@ osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml")) {
 # The response will always be a GPX format file if you use a '''.gpx''' URL suffix, a XML file in an undocumented format if you use a '''.xml''' URL suffix, otherwise the response will be the exact file that was uploaded.
 #
 # NOTE: if you request refers to a multi-file archive the response when you force gpx or xml format will consist of a non-standard simple concatenation of the files.
-
+## TODO Available without authentication if the file is marked public is FALSE. API error?
 
 
 #' Download GPS Track Data
 #'
-#' Use this to download the full GPX file. Available without authentication if the file is marked public. Otherwise only
-#' usable by the owner account and requires authentication.
+#' Use this to download the full GPX file. Private and trackable traces are only available by the owner account.
+#' Requires authentication.
 #'
 #' @param gpx_id The track id represented by a numeric or a character value.
 #' @param format Format of the output. If missing (default), the response will be the exact file that was uploaded.
 #'   If `"R"`, a `data.frame`.
-#'   If `"sf"`, `"sf_lines"`, or `"sf_points"`,  a `sf` object  from package \pkg{sf} (see [st_as_sf()] for details).
+#'   If `"sf_lines"` (`"sf"` is a synonym for `"sf_lines"`) or `"sf_points"`,  a `sf` object  from package \pkg{sf}.
 #'   If `"gpx"`, the response will always be a GPX format file.
 #'   If `"xml"`, a `xml` file in an undocumented format.
 #'
-#' @note If you request refers to a multi-file archive the response when you force gpx or xml format will consist of a
-#'   non-standard simple concatenation of the files.
+#' @note If you request refers to a multi-file archive the response when you force `gpx` or `xml` format will consist of
+#'   a non-standard simple concatenation of the files.
 #'
 #' @return
-#' If missing `format`, returns a [xml2::xml_document-class] with the original file data. If `format = "R"`, returns a
-#' data frame with one point per row. If `format = "sf*"`, returns a `sf` object from \pkg{sf}. If `format = "gpx"`,
-#' returns a [xml2::xml_document-class] in the GPX format. If
-#' `format = "xml"`, returns a [xml2::xml_document-class] in an undocumented format.
+#' If missing `format`, returns a [xml2::xml_document-class] with the original file data.
+#' If `format = "R"`, returns a data frame with one point per row and the attributes extracted from the xml response  .
+#' If `format = "sf*"`, returns a `sf` object from \pkg{sf} (see [st_as_sf()] for details).
+#' If `format = "gpx"`, returns a [xml2::xml_document-class] in the GPX format.
+#' If `format = "xml"`, returns a [xml2::xml_document-class] in an undocumented format.
 #'
 #' @family get GPS' functions
 #' @export

@@ -24,8 +24,10 @@ points 5,001–10,000, etc. A vector is also valid (e.g. \code{0:2} to get the f
 \code{"sf_points"} or \code{"gpx"}.}
 }
 \value{
-If \code{format = "R"}, returns a list of data frames with the points for each trace. For public traces, the data frame
-include the attributes \code{name}, \code{desc} and \code{url}. If \code{format = "sf"}, TODO: POINTS or LINE
+If \code{format = "R"}, returns a list of data frames with the points for each trace. For public and identifiable traces,
+the data frame include the attributes \code{track_url}, \code{track_name}, and \code{track_desc}.
+If \code{format = "sf_lines"}, returns a \code{sf} object from \pkg{sf}. For \code{format = "sf_points"}, returns a list of \code{sf}
+object (see \code{\link[=st_as_sf]{st_as_sf()}} for details).
 \subsection{\code{format = "gpx"}}{
 
 Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
@@ -71,7 +73,8 @@ pts_gps <- osm_get_points_gps(bbox = c(-0.3667545, 40.2153246, -0.3354263, 40.23
 pts_gps
 
 ## get attributes
-lapply(pts_gps, function(x) attributes(x)[c("name", "desc", "url")])
+lapply(pts_gps, function(x) attributes(x)[c("track_url", "track_name", "track_desc")])
+attr(pts_gps, "gpx_attributes")
 }
 \seealso{
 Other get GPS' functions: 

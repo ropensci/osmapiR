@@ -21,8 +21,10 @@
 #'   split due to server pagination. Public traces are united using matching URL.
 #'
 #' @return
-#' If `format = "R"`, returns a list of data frames with the points for each trace. For public traces, the data frame
-#' include the attributes `name`, `desc` and `url`. If `format = "sf"`, TODO: POINTS or LINE
+#' If `format = "R"`, returns a list of data frames with the points for each trace. For public and identifiable traces,
+#' the data frame include the attributes `track_url`, `track_name`, and `track_desc`.
+#' If `format = "sf_lines"`, returns a `sf` object from \pkg{sf}. For `format = "sf_points"`, returns a list of `sf`
+#' object (see [st_as_sf()] for details).
 #'
 #' ## `format = "gpx"`
 #' Returns a [xml2::xml_document-class] with the following format:
@@ -56,7 +58,8 @@
 #' pts_gps
 #'
 #' ## get attributes
-#' lapply(pts_gps, function(x) attributes(x)[c("name", "desc", "url")])
+#' lapply(pts_gps, function(x) attributes(x)[c("track_url", "track_name", "track_desc")])
+#' attr(pts_gps, "gpx_attributes")
 osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "sf", "sf_lines", "sf_points", "gpx")) {
   format <- match.arg(format)
   if (format == "sf") format <- "sf_lines"
