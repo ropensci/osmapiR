@@ -17,7 +17,7 @@ If \code{"xml"}, a \code{xml} file in an undocumented format.}
 }
 \value{
 If missing \code{format}, returns a \link[xml2:oldclass]{xml2::xml_document} with the original file data.
-If \code{format = "R"}, returns a data frame with one point per row and the attributes extracted from the xml response  .
+If \code{format = "R"}, returns a data frame with one point per row and the attributes extracted from the xml response.
 If \code{format = "sf*"}, returns a \code{sf} object from \pkg{sf} (see \code{\link[=st_as_sf]{st_as_sf()}} for details).
 If \code{format = "gpx"}, returns a \link[xml2:oldclass]{xml2::xml_document} in the GPX format.
 If \code{format = "xml"}, returns a \link[xml2:oldclass]{xml2::xml_document} in an undocumented format.

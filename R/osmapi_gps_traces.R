@@ -384,7 +384,7 @@ osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml")) {
 #'
 #' @return
 #' If missing `format`, returns a [xml2::xml_document-class] with the original file data.
-#' If `format = "R"`, returns a data frame with one point per row and the attributes extracted from the xml response  .
+#' If `format = "R"`, returns a data frame with one point per row and the attributes extracted from the xml response.
 #' If `format = "sf*"`, returns a `sf` object from \pkg{sf} (see [st_as_sf()] for details).
 #' If `format = "gpx"`, returns a [xml2::xml_document-class] in the GPX format.
 #' If `format = "xml"`, returns a [xml2::xml_document-class] in an undocumented format.
