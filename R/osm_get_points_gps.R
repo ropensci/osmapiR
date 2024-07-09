@@ -115,6 +115,8 @@ osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "sf", "sf_
     outL <- outL[vapply(outL, length, FUN.VALUE = integer(1)) > 0]
 
     out <- do.call(c, outL)
+
+    attr(out, "gpx_attributes") <- attr(outL[[1]], "gpx_attributes")
     class(out) <- c("osmapi_gpx", "list")
 
     if (format %in% c("sf_lines", "sf_points")) {

@@ -310,6 +310,7 @@ gpx_xml2df <- function(xml) {
 
   if (length(trk) == 0) {
     out <- empty_gpx_df()
+    attributes(out) <- c(attributes(out), list(gpx_attributes = xml_attrs), gpx_metadata)
   } else if (length(trk) == 1) {
     out <- trk_xml2df(trk = trk)
     attributes(out) <- c(attributes(out), list(gpx_attributes = xml_attrs), gpx_metadata)
@@ -352,13 +353,16 @@ gpx_xml2list <- function(xml) {
   # xml_find_all(trk, xpath = ".//name") ## TODO: doesn't work :(
 
   if (length(trk) == 0) {
-    return(empty_gpx_list())
+    out <- empty_gpx_list()
+    attributes(out) <- c(attributes(out), list(gpx_attributes = xml_attrs), gpx_metadata)
+
+    return(out)
   }
 
   out <- lapply(trk, trk_xml2df)
   names(out) <- vapply(out, function(x) {
-    url <- attr(x, "track_url")
-    if (is.null(url)) { # for private traces
+    url <- attr(x, "track")["track_url"]
+    if (is.na(url)) { # for private traces
       url <- ""
     }
     url
@@ -414,7 +418,7 @@ trk_xml2df <- function(trk) {
     out$time <- as.POSIXct(out$time, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
   }
 
-  attributes(out) <- c(attributes(out), trk_details)
+  attributes(out) <- c(attributes(out), list(track = trk_details))
 
   return(out)
 }

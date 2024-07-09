@@ -72,15 +72,42 @@ test_that("osm_get_points_gps works", {
   lapply(sfp_gps$public, function(x) expect_false(unique(strftime(as.POSIXct(x$time), format = "%M:%S") == "00:00")))
 
   # Compare sf, xml & R
-  mapply(function(d, x) {
-    expect_identical(length(d), nrow(x))
-  }, d = pts_gps, x = sf_gps)
-  mapply(function(d, x) {
-    expect_identical(length(d), length(x))
-  }, d = pts_gps, x = sfp_gps)
-  mapply(function(d, x) {
-    expect_identical(length(d), xml2::xml_length(x))
-  }, d = pts_gps, x = xml_gps)
+  mapply(function(l, x) {
+    expect_identical(length(l), nrow(x))
+  }, l = pts_gps, x = sf_gps)
+  mapply(function(l, x) {
+    expect_identical(length(l), length(x))
+  }, l = pts_gps, x = sfp_gps)
+  mapply(function(l, x) {
+    expect_identical(length(l), xml2::xml_length(x))
+  }, l = pts_gps, x = xml_gps)
+
+  ## Check attributes
+  # lapply(pts_gps, function(x) {
+  #   a <- attributes(x)
+  #   a[setdiff(names(a), c("names", "row.names", "class"))]
+  # })
+  mapply(function(l, x) {
+    expect_identical(attr(l, "gpx_attributes"), attr(x, "gpx_attributes"))
+  }, l = pts_gps, x = sf_gps)
+  mapply(function(l, x) {
+    expect_identical(attr(l, "gpx_attributes"), attr(x, "gpx_attributes"))
+  }, l = pts_gps, x = sfp_gps)
+
+  ## Check track attributes
+  # lapply(pts_gps, lapply, function(x) {
+  #   a <- attributes(x)
+  #   a[setdiff(names(a), c("names", "row.names", "class"))]
+  # })
+
+  # sf_gps attributes as columns
+  mapply(function(l, x) {
+    mapply(function(trk, trk_sf) {
+      a <- attributes(trk)
+      a <- a[setdiff(names(a), c("names", "row.names", "class"))]
+      expect_identical(a, attributes(trk_sf)[names(a)])
+    }, trk = l, trk_sf = x)
+  }, l = pts_gps, x = sfp_gps)
 
 
   # methods
@@ -120,6 +147,20 @@ test_that("osm_get_points_gps works", {
   lapply(empty_sf, function(x) expect_identical(nrow(x), 0L))
   lapply(empty_sfp, expect_length, n = 0)
   lapply(empty_xml, function(x) expect_identical(xml2::xml_length(x), 0L))
+
+
+  ## Check attributes
+  # lapply(empty_pts, function(x) {
+  #   a <- attributes(x)
+  #   a[setdiff(names(a), c("names", "row.names", "class"))]
+  # })
+  mapply(function(l, x) {
+    expect_identical(attr(l, "gpx_attributes"), attr(x, "gpx_attributes"))
+  }, l = empty_pts, x = empty_sf)
+  mapply(function(l, x) {
+    expect_identical(attr(l, "gpx_attributes"), attr(x, "gpx_attributes"))
+  }, l = empty_pts, x = empty_sfp)
+
 
   # methods
   summary_gpx <- lapply(empty_pts, summary)

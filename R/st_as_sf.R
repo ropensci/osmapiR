@@ -72,11 +72,16 @@ st_as_sf.osmapi_changesets <- function(x, ...) {
 st_as_sf.osmapi_gps_track <- function(x, format = c("line", "points"), ...) {
   format <- match.arg(format)
 
+  trk_attr <- attributes(x)
+  trk_attr <- trk_attr[setdiff(names(trk_attr), c("names", "row.names", "class"))]
+
   if (nrow(x) == 0) {
     out <- x[, setdiff(names(x), c("lon", "lat"))]
     out[1, 1] <- NA
     out$geometry <- sf::st_sfc(sf::st_polygon(), crs = sf::st_crs(4326))
     out <- sf::st_as_sf(x = as.data.frame(out[integer(), ]), crs = sf::st_crs(4326), ...)
+
+    attributes(out) <- c(attributes(out), trk_attr)
 
     return(out)
   }
@@ -91,7 +96,8 @@ st_as_sf.osmapi_gps_track <- function(x, format = c("line", "points"), ...) {
     out <- sf::st_as_sf(x = as.data.frame(x), coords = c("lon", "lat"), crs = sf::st_crs(4326), ...)
   }
 
-  # TODO: check attributes
+  attributes(out) <- c(attributes(out), trk_attr)
+
   return(out)
 }
 
@@ -112,6 +118,8 @@ st_as_sf.osmapi_gpx <- function(x, format = c("lines", "points"), ...) {
       out$geometry <- sf::st_sfc(sf::st_linestring(), crs = sf::st_crs(4326))
       out <- sf::st_as_sf(x = as.data.frame(out[integer(), ]), crs = sf::st_crs(4326), ...)
     }
+
+    attr(out, "gpx_attributes") <- attr(x, "gpx_attributes")
 
     return(out)
   }
@@ -145,11 +153,16 @@ st_as_sf.osmapi_gpx <- function(x, format = c("lines", "points"), ...) {
     out <- sf::st_as_sf(x = track_attributes, crs = sf::st_crs(4326), ...)
   } else if (format == "points") {
     out <- lapply(x, function(trk) {
-      sf::st_as_sf(x = as.data.frame(trk), coords = c("lon", "lat"), crs = sf::st_crs(4326), ...)
+      trk_attr <- attributes(trk)
+      trk_attr <- trk_attr[setdiff(names(trk_attr), c("names", "row.names", "class"))]
+      trk <- sf::st_as_sf(x = as.data.frame(trk), coords = c("lon", "lat"), crs = sf::st_crs(4326), ...)
+      attributes(trk) <- c(attributes(trk), trk_attr)
+      trk
     })
     class(out) <- c("sf_osmapi_gpx", "osmapi_gpx", "list")
   }
 
-  # TODO: check attributes
+  attr(out, "gpx_attributes") <- attr(x, "gpx_attributes")
+
   return(out)
 }
