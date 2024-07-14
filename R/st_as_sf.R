@@ -62,8 +62,8 @@ st_as_sf.osmapi_changesets <- function(x, ...) {
   bbox <- apply(x[, c("min_lat", "min_lon", "max_lat", "max_lon")], 1, function(y) {
     sf::st_bbox(stats::setNames(as.numeric(y), nm = c("ymin", "xmin", "ymax", "xmax")), crs = sf::st_crs(4326))
   }, simplify = FALSE)
-  geom <- do.call(sf::st_as_sfc, bbox)
-  out$geometry <- geom
+  geom <- lapply(bbox, sf::st_as_sfc)
+  out$geometry <- do.call(c, geom)
 
   out <- sf::st_as_sf(x = as.data.frame(out), crs = sf::st_crs(4326), ...)
   class(out) <- c("sf_osmapi_changesets", "sf", "data.frame")
