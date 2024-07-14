@@ -744,7 +744,7 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
 
   # Avoid ERROR: ! HTTP 414 URI Too Long: tested to be > 8213 characters in the URI
   nchar_base <- nchar(req$url) + nchar(osm_type) + 2
-  nchar_url <- nchar(ids) + length(ids) * 2 + nchar_base # `,` in ids encoded in 3 char (%2C)
+  nchar_url <- nchar(ids) + length(osm_ids) * 2 + nchar_base # `,` in ids encoded in 3 char (%2C)
   if (nchar_url > 8213) {
     out <- fetch_objects_batches(
       osm_type = osm_type, osm_ids = osm_ids, nchar_base = nchar_base,

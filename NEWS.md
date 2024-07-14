@@ -11,6 +11,7 @@
 * Split functions to parse gpx data from different API endpoints and different properties (#43)
 * Add format = "sf" for functions returning objects of class `osmapi_gps_track` (#44)
 * Add format = "sf" for functions returning objects of class `osmapi_gpx` (#45)
+* Fix miscalculation of the nchar_url that trigger errors when many ids are requested in osm_fetch_objects()
 
 
 # osmapiR 0.1.0
