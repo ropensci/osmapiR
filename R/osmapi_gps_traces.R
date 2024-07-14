@@ -396,6 +396,10 @@ osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml")) {
 #' \dontrun{
 #' trk_data <- osm_get_data_gpx(gpx_id = 3498170, format = "R")
 #' trk_data
+#'
+#' ## get attributes
+#' attr(trk_data, "track")
+#' attr(trk_data, "gpx_attributes")
 #' }
 osm_get_data_gpx <- function(gpx_id, format) {
   if (missing(format)) {

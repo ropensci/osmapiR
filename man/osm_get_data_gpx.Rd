@@ -34,6 +34,10 @@ a non-standard simple concatenation of the files.
 \dontrun{
 trk_data <- osm_get_data_gpx(gpx_id = 3498170, format = "R")
 trk_data
+
+## get attributes
+attr(trk_data, "track")
+attr(trk_data, "gpx_attributes")
 }
 }
 \seealso{
