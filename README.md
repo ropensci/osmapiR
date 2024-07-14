@@ -22,9 +22,10 @@ An R interface to the [OpenStreetMap API
 v0.6](https://wiki.openstreetmap.org/wiki/API_v0.6) for fetching and
 saving raw geodata from/to the OpenStreetMap database. This package
 allows access to OSM maps data as well as map notes, GPS traces,
-changelogs, and users data. To access OSM map data for purposes other
-than editing or exploring the history of the objects see [Related
-packages](#related-packages).
+changelogs, and users data. `osmapiR` enables editing or exploring the
+history of OSM objects, and is not intended to access OSM map data for
+other purposes. See [Related packages](#related-packages) for other
+packages to access OSM map data.
 
 <!-- escaped \[ \] fix resulting README.md by removing \ -->
 
