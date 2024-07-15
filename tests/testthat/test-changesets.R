@@ -259,6 +259,8 @@ test_that("osm_query_changesets works", {
   with_mock_dir("mock_query_changesets", {
     chaset$ids <- osm_query_changesets(changeset_ids = c(137627129, 137625624), order = "oldest")
     chaset$empty <- osm_query_changesets(changeset_ids = c(151819967, 137595351)) # empty & no empty
+    chaset_empty_sf <- osm_query_changesets(changeset_ids = c(151819967, 137595351), format = "sf") # empty & no empty
+
     chaset$time <- osm_query_changesets(
       bbox = c(-1.241112, 38.0294955, 8.4203171, 42.9186456),
       user = "Mementomoristultus",
@@ -312,6 +314,7 @@ test_that("osm_query_changesets works", {
   })
 
   expect_s3_class(chaset_sf, class = c("sf_osmapi_changesets", "sf", "data.frame"), exact = TRUE)
+  expect_s3_class(chaset_empty_sf, class = c("sf_osmapi_changesets", "sf", "data.frame"), exact = TRUE)
   expect_s3_class(chaset_xml, class = "xml_document")
   expect_type(chaset_json, type = "list")
 
@@ -325,6 +328,7 @@ test_that("osm_query_changesets works", {
   # methods
   lapply(chaset, function(x) expect_snapshot(print(x)))
   expect_snapshot(print(chaset_sf))
+  expect_snapshot(print(chaset_empty_sf))
 
 
   ## Empty results

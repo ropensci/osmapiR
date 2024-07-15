@@ -16,6 +16,12 @@
 #' @family methods
 #' @seealso `st_as_sf()` from \pkg{sf} package.
 #' @examples
+#' note <- osm_get_notes(note_id = "2067786")
+#' sf::st_as_sf(note)
+#'
+#' chaset <- osm_get_changesets(changeset_id = 137595351, include_discussion = TRUE)
+#' sf::st_as_sf(chaset)
+#'
 #' gpx <- osm_get_points_gps(bbox = c(-0.3667545, 40.2153246, -0.3354263, 40.2364915))
 #' sf::st_as_sf(gpx, format = "line")
 #' sf::st_as_sf(gpx, format = "points")
@@ -62,7 +68,13 @@ st_as_sf.osmapi_changesets <- function(x, ...) {
   bbox <- apply(x[, c("min_lat", "min_lon", "max_lat", "max_lon")], 1, function(y) {
     sf::st_bbox(stats::setNames(as.numeric(y), nm = c("ymin", "xmin", "ymax", "xmax")), crs = sf::st_crs(4326))
   }, simplify = FALSE)
-  geom <- lapply(bbox, sf::st_as_sfc)
+  geom <- lapply(bbox, function(bb) {
+    if (anyNA(bb[1:4])) {
+      sf::st_sfc(sf::st_polygon(), crs = sf::st_crs(4326))
+    } else {
+      sf::st_as_sfc(bb)
+    }
+  })
   out$geometry <- do.call(c, geom)
 
   out <- sf::st_as_sf(x = as.data.frame(out), crs = sf::st_crs(4326), ...)

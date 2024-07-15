@@ -36,6 +36,12 @@ available.
 Convert osmapiR objects to sf objects
 }
 \examples{
+note <- osm_get_notes(note_id = "2067786")
+sf::st_as_sf(note)
+
+chaset <- osm_get_changesets(changeset_id = 137595351, include_discussion = TRUE)
+sf::st_as_sf(chaset)
+
 gpx <- osm_get_points_gps(bbox = c(-0.3667545, 40.2153246, -0.3354263, 40.2364915))
 sf::st_as_sf(gpx, format = "line")
 sf::st_as_sf(gpx, format = "points")

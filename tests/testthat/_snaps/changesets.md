@@ -519,6 +519,29 @@
 ---
 
     Code
+      print(chaset_empty_sf)
+    Output
+      Simple feature collection with 2 features and 9 fields (with 1 geometry empty)
+      Geometry type: POLYGON
+      Dimension:     XY
+      Bounding box:  xmin: 2.658056 ymin: 42.67996 xmax: 2.712578 ymax: 42.69368
+      Geodetic CRS:  WGS 84
+               id          created_at           closed_at  open      user      uid
+      1 151819967 2024-05-25 16:49:04 2024-05-25 16:49:04 FALSE  jmaspons 11725140
+      2 137595351 2023-06-21 09:09:18 2023-06-21 09:09:18 FALSE Quercinus 19641470
+        comments_count changes_count
+      1              0             0
+      2              4             1
+                                                                                       tags
+      1 4 tags: comment=Afegeixo `name:ca` a objectes que apareixen a https://www.openst...
+      2 8 tags: changesets_count=1 | comment=Correcció d'acord amb la toponímia oficial ...
+                              geometry
+      1                  POLYGON EMPTY
+      2 POLYGON ((2.658056 42.67996...
+
+---
+
+    Code
       print(empty_chaset)
     Output
        [1] id             created_at     closed_at      open           user          
