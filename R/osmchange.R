@@ -26,7 +26,6 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' obj <- osm_get_objects(
 #'   osm_type = c("node", "way", "way", "relation", "relation", "node"),
 #'   osm_id = c("35308286", "13073736", "235744929", "40581", "341530", "1935675367"),
@@ -34,7 +33,6 @@
 #' )
 #' osmch <- osmchange_modify(obj)
 #' osmch
-#' }
 osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE, format = c("R", "osc", "xml")) {
   format <- match.arg(format)
   stopifnot(inherits(x, "osmapi_objects"))
@@ -149,13 +147,11 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE, form
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' obj_id <- osmapi_objects(data.frame(
 #'   type = c("way", "way", "relation", "node"),
 #'   id = c("722379703", "629132242", "8387952", "4739010921")
 #' ))
 #' osmchange_del <- osmchange_delete(obj_id)
-#' }
 osmchange_delete <- function(x, delete_if_unused = FALSE, format = c("R", "osc", "xml")) {
   format <- match.arg(format)
 

@@ -91,11 +91,9 @@ this changeset. To access this information use \code{\link[=osm_download_changes
 }
 }
 \examples{
-\dontrun{
 chaset <- osm_get_changesets(changeset_id = 137595351, include_discussion = TRUE)
 chaset
 chaset$discussion
-}
 }
 \seealso{
 Other get changesets' functions: 

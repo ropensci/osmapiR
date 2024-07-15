@@ -121,7 +121,6 @@ Te valid formats for \code{time} and \code{time_2} parameters are anything that
 \href{https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse}{\code{Time.parse} Ruby function} will parse.
 }
 \examples{
-\dontrun{
 chst_ids <- osm_query_changesets(changeset_ids = c(137627129, 137625624))
 chst_ids
 
@@ -139,7 +138,6 @@ chsts2 <- osm_query_changesets(
   closed = TRUE
 )
 chsts2
-}
 }
 \seealso{
 Other get changesets' functions: 

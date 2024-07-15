@@ -41,7 +41,6 @@ Prepare data to update tags, members and/or latitude and longitude.
 removed if \code{tag_keys} is not specified. See \code{\link[=osm_get_objects]{osm_get_objects()}} for examples of the format.
 }
 \examples{
-\dontrun{
 obj <- osm_get_objects(
   osm_type = c("node", "way", "way", "relation", "relation", "node"),
   osm_id = c("35308286", "13073736", "235744929", "40581", "341530", "1935675367"),
@@ -49,7 +48,6 @@ obj <- osm_get_objects(
 )
 osmch <- osmchange_modify(obj)
 osmch
-}
 }
 \seealso{
 Other OsmChange's functions: 

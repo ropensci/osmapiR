@@ -82,10 +82,8 @@ For \code{format} in \code{"rss"}, and \code{"gpx"}, a \link[xml2:oldclass]{xml2
 Returns the existing note with the given ID.
 }
 \examples{
-\dontrun{
 note <- osm_get_notes(note_id = "2067786")
 note
-}
 }
 \seealso{
 Other get notes' functions: 

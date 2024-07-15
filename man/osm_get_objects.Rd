@@ -61,14 +61,12 @@ use the Overpass API. A similar function to download OSM objects by \code{type} 
 the \pkg{osmdata} function \code{opq_osm_id()}.
 }
 \examples{
-\dontrun{
 obj <- osm_get_objects(
   osm_type = c("node", "way", "way", "relation", "relation", "node"),
   osm_id = c("35308286", "13073736", "235744929", "40581", "341530", "1935675367"),
   version = c(1, 3, 2, 5, 7, 1)
 )
 obj
-}
 }
 \seealso{
 Other get OSM objects' functions: 

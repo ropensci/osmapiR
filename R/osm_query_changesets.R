@@ -91,7 +91,6 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' chst_ids <- osm_query_changesets(changeset_ids = c(137627129, 137625624))
 #' chst_ids
 #'
@@ -109,7 +108,6 @@
 #'   closed = TRUE
 #' )
 #' chsts2
-#' }
 osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changeset_ids, order = c("newest", "oldest"),
                                  limit = getOption("osmapir.api_capabilities")$api$changesets["default_query_limit"],
                                  format = c("R", "sf", "xml", "json"), tags_in_columns = FALSE) {
