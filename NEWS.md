@@ -12,8 +12,9 @@
 * Add format = "sf" for functions returning objects of class `osmapi_gps_track` (#44).
 * Add format = "sf" for functions returning objects of class `osmapi_gpx` (#45).
 * Fix miscalculation of the nchar_url that trigger errors when many ids are requested in osm_fetch_objects().
-* Fix changesets' bbox in `st_as_sf.osmapi_chagesets()` [84f16e7a](https://github.com/ropensci/osmapiR/commit/84f16e7adda087ab707cc2644c79ff1590cf307e)). 
-* Implement NA bboxes in `st_as_sf.osmapi_chagesets()`.
+* Fix changesets' bbox in `st_as_sf.osmapi_chagesets()` ([84f16e7a](https://github.com/ropensci/osmapiR/commit/84f16e7adda087ab707cc2644c79ff1590cf307e)). 
+* Implement NA bboxes in `st_as_sf.osmapi_chagesets()` ([7ea4f5d7](https://github.com/ropensci/osmapiR/commit/7ea4f5d7f412ef8cf7691741b836cf45ddeb61f2)).
+* Remove dontrun in examples that don't require authentication (#47).
 
 
 # osmapiR 0.1.0
