@@ -33,7 +33,7 @@ but can return the results in a wide format using the parameter \code{tags_in_co
 }
 \examples{
 peaks_wide <- osm_get_objects(
-  osm_type = "nodes", osm_id = c(35308286, 1935675367), tags_in_columns = TRUE
+  osm_type = "node", osm_id = c(35308286, 1935675367), tags_in_columns = TRUE
 )
 peaks_list <- tags_wide2list(peaks_wide)
 
@@ -44,7 +44,7 @@ peaks_list$tags
 peaks_wide[!is.na(peaks_wide$prominence), ]
 peaks_list[sapply(peaks_list$tags, function(x) any(x$key == "prominence")), ]
 
-cities_list <- osm_get_objects(osm_type = "relations", osm_id = c("40581", "341530"))
+cities_list <- osm_get_objects(osm_type = "relation", osm_id = c("40581", "341530"))
 # Column name clash:
 cities_wide <- tags_list2wide(cities_list)
 }
