@@ -44,14 +44,12 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' obj <- osm_get_objects(
 #'   osm_type = c("node", "way", "way", "relation", "relation", "node"),
 #'   osm_id = c("35308286", "13073736", "235744929", "40581", "341530", "1935675367"),
 #'   version = c(1, 3, 2, 5, 7, 1)
 #' )
 #' obj
-#' }
 osm_get_objects <- function(osm_type, osm_id, version, full_objects = FALSE,
                             format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   format <- match.arg(format)

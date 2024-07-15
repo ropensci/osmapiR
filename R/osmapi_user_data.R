@@ -85,10 +85,8 @@
 #' @noRd
 #'
 #' @examples
-#' \dontrun{
 #' usr <- osm_details_user(user_id = "11725140")
 #' usr
-#' }
 osm_details_user <- function(user_id, format = c("R", "xml", "json")) {
   format <- match.arg(format)
 
@@ -225,10 +223,8 @@ osm_details_user <- function(user_id, format = c("R", "xml", "json")) {
 #' @noRd
 #'
 #' @examples
-#' \dontrun{
 #' usrs <- osm_details_users(user_ids = c(1, 24, 44, 45, 46, 48, 49, 50))
 #' usrs
-#' }
 osm_details_users <- function(user_ids, format = c("R", "xml", "json")) {
   format <- match.arg(format)
 

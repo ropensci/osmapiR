@@ -75,11 +75,9 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' chaset <- osm_get_changesets(changeset_id = 137595351, include_discussion = TRUE)
 #' chaset
 #' chaset$discussion
-#' }
 osm_get_changesets <- function(changeset_id, include_discussion = FALSE,
                                format = c("R", "sf", "xml", "json"), tags_in_columns = FALSE) {
   format <- match.arg(format)

@@ -33,13 +33,11 @@ lead to an error, and the whole diff upload would fail. Setting the attribute wi
 deleted objects to not generate an error.
 }
 \examples{
-\dontrun{
 obj_id <- osmapi_objects(data.frame(
   type = c("way", "way", "relation", "node"),
   id = c("722379703", "629132242", "8387952", "4739010921")
 ))
 osmchange_del <- osmchange_delete(obj_id)
-}
 }
 \seealso{
 Other OsmChange's functions: 

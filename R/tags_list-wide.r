@@ -25,7 +25,6 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' peaks_wide <- osm_get_objects(
 #'   osm_type = "nodes", osm_id = c(35308286, 1935675367), tags_in_columns = TRUE
 #' )
@@ -41,7 +40,6 @@
 #' cities_list <- osm_get_objects(osm_type = "relations", osm_id = c("40581", "341530"))
 #' # Column name clash:
 #' cities_wide <- tags_list2wide(cities_list)
-#' }
 tags_list2wide <- function(x) {
   if (!inherits(x, "osmapi_objects") && !inherits(x, "osmapi_changesets")) {
     stop("x must be an `osmapi_objects` or `osmapi_changesets` object.")

@@ -32,7 +32,6 @@ returns a list with a json structure following the \href{https://wiki.openstreet
 Retrieves all old versions of an object from OSM.
 }
 \examples{
-\dontrun{
 node <- osm_history_object(osm_type = "node", osm_id = 35308286)
 node
 
@@ -41,7 +40,6 @@ way
 
 rel <- osm_history_object(osm_type = "relation", osm_id = "40581")
 rel
-}
 }
 \seealso{
 Other get OSM objects' functions: 

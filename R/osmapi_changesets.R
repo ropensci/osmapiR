@@ -270,11 +270,9 @@ osm_create_changeset <- function(comment, ...,
 #' @noRd
 #'
 #' @examples
-#' \dontrun{
 #' chaset <- osm_read_changeset(changeset_id = 137595351, include_discussion = TRUE)
 #' chaset
 #' chaset$discussion
-#' }
 osm_read_changeset <- function(changeset_id, include_discussion = FALSE,
                                format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   format <- match.arg(format)
@@ -455,10 +453,8 @@ osm_close_changeset <- function(changeset_id) {
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' chaset <- osm_download_changeset(changeset_id = 137003062)
 #' chaset
-#' }
 osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) {
   format <- match.arg(format)
 
@@ -617,7 +613,6 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 #' @noRd
 #'
 #' @examples
-#' \dontrun{
 #' chst_ids <- osm_query_changesets(changeset_ids = c(137627129, 137625624))
 #' chst_ids
 #'
@@ -635,7 +630,6 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 #'   closed = "true"
 #' )
 #' chsts2
-#' }
 .osm_query_changesets <- function(bbox = NULL, user = NULL, time = NULL, time_2 = NULL, open = NULL, closed = NULL,
                                   changeset_ids = NULL, order = NULL,
                                   limit = getOption(

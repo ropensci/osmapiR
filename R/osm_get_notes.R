@@ -75,10 +75,8 @@
 #' @export
 #'
 #' @examples
-#' \dontrun{
 #' note <- osm_get_notes(note_id = "2067786")
 #' note
-#' }
 osm_get_notes <- function(note_id, format = c("R", "sf", "xml", "rss", "json", "gpx")) {
   format <- match.arg(format)
   .format <- if (format == "sf") "R" else format
