@@ -1,0 +1,202 @@
+# --------------------------------------------
+# CITATION file created with {cffr} R package
+# See also: https://docs.ropensci.org/cffr/
+# --------------------------------------------
+
+cff-version: 1.2.0
+message: 'To cite package "osmapiR" in publications use:'
+type: software
+license: GPL-3.0-or-later
+title: 'osmapiR: ''OpenStreetMap'' API'
+version: 0.1.0
+doi: 10.32614/CRAN.package.osmapiR
+abstract: Interface to 'OpenStreetMap API' for fetching and saving data from/to the
+  'OpenStreetMap' database (<https://wiki.openstreetmap.org/wiki/API_v0.6>).
+authors:
+- family-names: Maspons
+  given-names: Joan
+  email: joanmaspons@gmail.com
+  orcid: https://orcid.org/0000-0003-2286-8727
+preferred-citation:
+  type: manual
+  title: 'osmapiR: OpenStreetMap API'
+  authors:
+  - family-names: Maspons
+    given-names: Joan
+    email: joanmaspons@gmail.com
+    orcid: https://orcid.org/0000-0003-2286-8727
+  notes: R package version 0.1.0 https://github.com/ropensci/osmapiR
+  year: '2024'
+  url: https://docs.ropensci.org/osmapiR/
+  doi: 10.32614/CRAN.package.osmapiR
+repository: https://CRAN.R-project.org/package=osmapiR
+repository-code: https://github.com/ropensci/osmapiR
+url: https://docs.ropensci.org/osmapiR/
+contact:
+- family-names: Maspons
+  given-names: Joan
+  email: joanmaspons@gmail.com
+  orcid: https://orcid.org/0000-0003-2286-8727
+keywords:
+- open street map
+- openstreetmap
+- OSM
+- openstreetmap-api
+- osmapi
+- API
+- osm
+- r
+- r-package
+references:
+- type: software
+  title: curl
+  abstract: 'curl: A Modern and Flexible Web Client for R'
+  notes: Imports
+  url: https://jeroen.r-universe.dev/curl
+  repository: https://CRAN.R-project.org/package=curl
+  authors:
+  - family-names: Ooms
+    given-names: Jeroen
+    email: jeroen@berkeley.edu
+    orcid: https://orcid.org/0000-0002-4035-0289
+  year: '2024'
+- type: software
+  title: httr2
+  abstract: 'httr2: Perform HTTP Requests and Process the Responses'
+  notes: Imports
+  url: https://httr2.r-lib.org
+  repository: https://CRAN.R-project.org/package=httr2
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@rstudio.com
+  year: '2024'
+- type: software
+  title: xml2
+  abstract: 'xml2: Parse XML'
+  notes: Imports
+  url: https://xml2.r-lib.org/
+  repository: https://CRAN.R-project.org/package=xml2
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Hester
+    given-names: Jim
+  - family-names: Ooms
+    given-names: Jeroen
+  year: '2024'
+- type: software
+  title: httptest2
+  abstract: 'httptest2: Test Helpers for ''httr2'''
+  notes: Suggests
+  url: https://enpiar.com/httptest2/
+  repository: https://CRAN.R-project.org/package=httptest2
+  authors:
+  - family-names: Richardson
+    given-names: Neal
+    email: neal.p.richardson@gmail.com
+    orcid: https://orcid.org/0009-0002-7992-3520
+  year: '2024'
+- type: software
+  title: httpuv
+  abstract: 'httpuv: HTTP and WebSocket Server Library'
+  notes: Suggests
+  url: https://github.com/rstudio/httpuv
+  repository: https://CRAN.R-project.org/package=httpuv
+  authors:
+  - family-names: Cheng
+    given-names: Joe
+    email: joe@posit.co
+  - family-names: Chang
+    given-names: Winston
+    email: winston@posit.co
+  - family-names: Reid
+    given-names: Steve
+  - family-names: Brown
+    given-names: James
+  - family-names: Trower
+    given-names: Bob
+  - family-names: Peslyak
+    given-names: Alexander
+  year: '2024'
+- type: software
+  title: knitr
+  abstract: 'knitr: A General-Purpose Package for Dynamic Report Generation in R'
+  notes: Suggests
+  url: https://yihui.org/knitr/
+  repository: https://CRAN.R-project.org/package=knitr
+  authors:
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  year: '2024'
+- type: software
+  title: rmarkdown
+  abstract: 'rmarkdown: Dynamic Documents for R'
+  notes: Suggests
+  url: https://pkgs.rstudio.com/rmarkdown/
+  repository: https://CRAN.R-project.org/package=rmarkdown
+  authors:
+  - family-names: Allaire
+    given-names: JJ
+    email: jj@posit.co
+  - family-names: Xie
+    given-names: Yihui
+    email: xie@yihui.name
+    orcid: https://orcid.org/0000-0003-0645-5666
+  - family-names: Dervieux
+    given-names: Christophe
+    email: cderv@posit.co
+    orcid: https://orcid.org/0000-0003-4474-2498
+  - family-names: McPherson
+    given-names: Jonathan
+    email: jonathan@posit.co
+  - family-names: Luraschi
+    given-names: Javier
+  - family-names: Ushey
+    given-names: Kevin
+    email: kevin@posit.co
+  - family-names: Atkins
+    given-names: Aron
+    email: aron@posit.co
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  - family-names: Cheng
+    given-names: Joe
+    email: joe@posit.co
+  - family-names: Chang
+    given-names: Winston
+    email: winston@posit.co
+  - family-names: Iannone
+    given-names: Richard
+    email: rich@posit.co
+    orcid: https://orcid.org/0000-0003-3925-190X
+  year: '2024'
+- type: software
+  title: sf
+  abstract: 'sf: Simple Features for R'
+  notes: Suggests
+  url: https://r-spatial.github.io/sf/
+  repository: https://CRAN.R-project.org/package=sf
+  authors:
+  - family-names: Pebesma
+    given-names: Edzer
+    email: edzer.pebesma@uni-muenster.de
+    orcid: https://orcid.org/0000-0001-8049-7069
+  year: '2024'
+- type: software
+  title: testthat
+  abstract: 'testthat: Unit Testing for R'
+  notes: Suggests
+  url: https://testthat.r-lib.org
+  repository: https://CRAN.R-project.org/package=testthat
+  authors:
+  - family-names: Wickham
+    given-names: Hadley
+    email: hadley@posit.co
+  year: '2024'
+  version: '>= 3.0.0'
+
