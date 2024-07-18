@@ -16,6 +16,7 @@
 * Implement NA bboxes in `st_as_sf.osmapi_chagesets()` ([7ea4f5d7](https://github.com/ropensci/osmapiR/commit/7ea4f5d7f412ef8cf7691741b836cf45ddeb61f2)).
 * Remove dontrun in examples that don't require authentication (#47).
 * Improve performance when parsing gpx data to data.frame (#48)
+* Parse TrackPointExtension data from gpx if available (#49)
 
 
 # osmapiR 0.1.0

@@ -382,6 +382,9 @@ osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml")) {
 #' @note If you request refers to a multi-file archive the response when you force `gpx` or `xml` format will consist of
 #'   a non-standard simple concatenation of the files.
 #'
+#'   Extended data following schema [`http://www.garmin.com/xmlschemas/TrackPointExtension/v1`](https://www8.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd)
+#'   in gpx files will be extracted for `format = "R"` and `format = "sf_points"`, but lost for `format = "sf_line"`.
+#'
 #' @return
 #' If missing `format`, returns a [xml2::xml_document-class] with the original file data.
 #' If `format = "R"`, returns a data frame with one point per row and the attributes extracted from the xml response.

@@ -29,6 +29,9 @@ Requires authentication.
 \note{
 If you request refers to a multi-file archive the response when you force \code{gpx} or \code{xml} format will consist of
 a non-standard simple concatenation of the files.
+
+Extended data following schema \href{https://www8.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd}{\verb{http://www.garmin.com/xmlschemas/TrackPointExtension/v1}}
+in gpx files will be extracted for \code{format = "R"} and \code{format = "sf_points"}, but lost for \code{format = "sf_line"}.
 }
 \examples{
 \dontrun{

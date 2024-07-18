@@ -401,6 +401,26 @@ trk_xml2df <- function(trk) {
     out$time <- as.POSIXct(time, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
   }
 
+
+  ## Extensions (https://www8.garmin.com/xmlschemas/GpxExtensions/v3/GpxExtensionsv3.xsd)
+  namespaces <- xml2::xml_ns(trk)
+  if ("http://www.garmin.com/xmlschemas/TrackPointExtension/v1" %in% namespaces) {
+    trkpt_ext_ns_prefix <- get_xns_prefix(trk, ns = "http://www.garmin.com/xmlschemas/TrackPointExtension/v1")
+    tpe <- xml2::xml_find_all(trk, paste0(".//", trkpt_ext_ns_prefix, ":TrackPointExtension"))
+    ext <- lapply(tpe, function(x) {
+      out <- xml2::xml_children(x)
+      stats::setNames(xml2::xml_text(out), nm = xml2::xml_name(out))
+    })
+    ext <- do.call(rbind, ext)
+    out <- cbind(out, ext)
+  }
+  # other_extensions_ns <- c(
+  #   "http://www.garmin.com/xmlschemas/GpxExtensions/v3",
+  #   "http://www.garmin.com/xmlschemas/ActivityExtension/v2",
+  #   "http://www.garmin.com/xmlschemas/FitnessExtension/v1",
+  #   "http://www.garmin.com/xmlschemas/TrainingCenterDatabase/v2"
+  # )
+
   attributes(out) <- c(attributes(out), list(track = trk_details))
 
   return(out)

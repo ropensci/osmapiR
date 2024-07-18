@@ -12,7 +12,8 @@ column_pts_gps_sfpoints <- c("time", "geometry")
 class_columns <- list(
   id = "character", name = "character", uid = "character", user = "character", visibility = "character",
   pending = "logical", timestamp = "POSIXct", lat = "character", lon = "character", description = "character",
-  tags = "list", ele = "character", time = "POSIXct", geometry = c("sfc_POINT", "sfc")
+  tags = "list", ele = "character", time = "POSIXct", geometry = c("sfc_POINT", "sfc"),
+  atemp = "character", hr = "character", cad = "character"
 )
 
 
@@ -259,16 +260,20 @@ test_that("osm_get_metadata_gpx works", {
 #'   If `"xml"`, a `"xml"` file in an undocumented format.
 test_that("osm_get_data_gpx works", {
   trk_data <- list()
+  trk_ext <- list()
   with_mock_dir("mock_get_data_gpx", {
     # gpx_id = 3458743: creator="JOSM GPX export" <metadata> bounds c("minlat", "minlon", "maxlat", "maxlon")
-    # gpx_id = 3498170: creator="Garmin Connect"
     trk_data$raw <- osm_get_data_gpx(gpx_id = 3458743)
     trk_data$gpx <- osm_get_data_gpx(gpx_id = 3458743, format = "gpx") # identical to xml resp but heavier mock file
-    ## gpx responses has `content-type` = "application/gpx+xml and httptest2 save them as raw instead of xml files
     trk_data$xml <- osm_get_data_gpx(gpx_id = 3458743, format = "xml")
     trk_data$df <- osm_get_data_gpx(gpx_id = 3458743, format = "R")
     trk_data$sf_line <- osm_get_data_gpx(gpx_id = 3458743, format = "sf_line")
     trk_data$sf_points <- osm_get_data_gpx(gpx_id = 3458743, format = "sf_points")
+
+    # gpx_id = 3498170: creator="Garmin Connect" <extensions><ns3:TrackPointExtension>...
+    trk_ext$df <- osm_get_data_gpx(gpx_id = 3498170, format = "R")
+    trk_ext$sf_line <- osm_get_data_gpx(gpx_id = 3498170, format = "sf_line")
+    trk_ext$sf_points <- osm_get_data_gpx(gpx_id = 3498170, format = "sf_points")
   })
 
   lapply(trk_data[c("raw", "gpx", "xml")], expect_s3_class, class = "xml_document")
@@ -276,9 +281,16 @@ test_that("osm_get_data_gpx works", {
   expect_s3_class(trk_data$df, class = c("osmapi_gps_track", "data.frame"), exact = TRUE)
   expect_s3_class(trk_data$sf_line, class = c("sf", "data.frame"), exact = TRUE)
   expect_s3_class(trk_data$sf_points, class = c("sf", "data.frame"), exact = TRUE)
+  expect_s3_class(trk_ext$df, class = c("osmapi_gps_track", "data.frame"), exact = TRUE)
+  expect_s3_class(trk_ext$sf_line, class = c("sf", "data.frame"), exact = TRUE)
+  expect_s3_class(trk_ext$sf_points, class = c("sf", "data.frame"), exact = TRUE)
+
   expect_named(trk_data$df, column_gpx)
   expect_named(trk_data$sf_line, "geometry")
   expect_named(trk_data$sf_points, c("ele", "time", "geometry"))
+  expect_named(trk_ext$df, c(column_gpx, "atemp", "hr", "cad"))
+  expect_named(trk_ext$sf_line, "geometry") # extended data lost
+  expect_named(trk_ext$sf_points, c("ele", "time", "atemp", "hr", "cad", "geometry"))
 
   mapply(function(x, cl) expect_true(inherits(x, cl)), x = trk_data$df, cl = class_columns[names(trk_data$df)])
   mapply(function(x, cl) expect_true(inherits(x, cl)),
@@ -286,6 +298,11 @@ test_that("osm_get_data_gpx works", {
   )
   mapply(function(x, cl) expect_true(inherits(x, cl)),
     x = trk_data$sf_points, cl = class_columns[names(trk_data$sf_points)]
+  )
+  mapply(function(x, cl) expect_true(inherits(x, cl)), x = trk_ext$df, cl = class_columns[names(trk_ext$df)])
+  mapply(function(x, cl) expect_true(inherits(x, cl)), x = trk_ext$sf_line, cl = class_columns[names(trk_ext$sf_line)])
+  mapply(function(x, cl) expect_true(inherits(x, cl)),
+    x = trk_ext$sf_points, cl = class_columns[names(trk_ext$sf_points)]
   )
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
@@ -297,6 +314,9 @@ test_that("osm_get_data_gpx works", {
   trk <- xml2::xml_child(trk_data$xml, search = 2)
   trkseg <- xml2::xml_child(trk, search = 3)
   expect_equal(nrow(trk_data$df), xml2::xml_length(trkseg))
+
+  expect_equal(nrow(trk_ext$df), nrow(trk_ext$sf_line$geometry[[1]]))
+  expect_equal(nrow(trk_ext$df), nrow(trk_ext$sf_points))
 
 
   ## Empty gpx

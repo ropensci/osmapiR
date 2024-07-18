@@ -1,4 +1,5 @@
 aa
+ActivityExtension
 addColumns
 af
 aff
@@ -10,6 +11,7 @@ apiL
 apis
 arg
 asNamespace
+atemp
 attr
 attrs
 attrsL
@@ -143,6 +145,7 @@ FG
 fileext
 fileSize
 Fimages
+FitnessExtension
 Flarge
 floatingpoint
 fn
@@ -151,6 +154,7 @@ fred
 Fusers
 Fwww
 Garmin
+garmin
 geo
 geodata
 Geroni
@@ -168,6 +172,8 @@ GNJM
 gps
 gpx
 GPX
+GpxExtensions
+GpxExtensionsv
 gpxs
 GqUECukGP
 gravatar
@@ -266,6 +272,7 @@ nodeset
 noRd
 nowiki
 nrow
+ns
 nThis
 num
 nVJ
@@ -430,11 +437,14 @@ togpx
 topenv
 topografix
 toponimsCat
+tpe
 tracepoints
 trackable
 Trackable
+TrackPointExtension
 trackpoints
 trackSegment
+TrainingCenterDatabase
 transactionality
 trk
 trkL
@@ -495,6 +505,8 @@ xMH
 xmin
 xmlns
 XMLSchema
+xmlschemas
+xns
 xpath
 xsd
 xsi
