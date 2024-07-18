@@ -284,30 +284,29 @@ gpx_meta_xml2DF <- function(xml) {
 
 # GPX files----
 
+# https://www.topografix.com/GPX/1/1/
+# https://www.topografix.com/GPX/1/0/
+# https://wiki.openstreetmap.org/wiki/GPX The importer doesn't import waypoints
+# https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/traces_controller.rb
+# https://github.com/openstreetmap/openstreetmap-website/blob/master/app/models/trace.rb only track points imported
+
+
 gpx_xml2df <- function(xml) {
   xml_attrs <- xml2::xml_attrs(xml)
-  gpx <- xml2::xml_children(xml)
+  gpx_ns_prefix <- get_xns_prefix(xml, ns = c("http://www.topografix.com/GPX/1/1", "http://www.topografix.com/GPX/1/0"))
 
-  if ("metadata" %in% xml2::xml_name(gpx)) { # Always present for gpx/id responses
-    gpx_metadata <- xml2::as_list(gpx[xml2::xml_name(gpx) == "metadata"])
-    if (length(gpx_metadata) == 1) { # Only one <metadata> node
-      gpx_metadata <- gpx_metadata[[1]]
-    }
-    # For bounds as vector when creator="JOSM GPX export"
-    if (xml_attrs["creator"] == "JOSM GPX export") {
-      metadata <- xml2::xml_children(gpx[xml2::xml_name(gpx) == "metadata"])
-      metadata_attrs <- xml2::xml_attrs(metadata)
-      names(metadata_attrs) <- xml2::xml_name(metadata)
-      metadata_attrs <- metadata_attrs[vapply(metadata_attrs, length, FUN.VALUE = integer(1)) > 0]
-      gpx_metadata <- c(unlist(gpx_metadata, recursive = FALSE), metadata_attrs)
-    }
-  } else {
-    gpx_metadata <- NULL
+  metadata <- xml2::xml_find_first(xml, paste0("./", gpx_ns_prefix, ":metadata"))
+  gpx_metadata <- xml2::as_list(metadata)
+  # For bounds as vector when creator="JOSM GPX export"
+  if (xml_attrs["creator"] == "JOSM GPX export") {
+    metadata_nodes <- xml2::xml_children(metadata)
+    metadata_attrs <- xml2::xml_attrs(metadata_nodes)
+    names(metadata_attrs) <- xml2::xml_name(metadata_nodes)
+    metadata_attrs <- metadata_attrs[vapply(metadata_attrs, length, FUN.VALUE = integer(1)) > 0]
+    gpx_metadata <- c(unlist(gpx_metadata, recursive = FALSE), metadata_attrs)
   }
 
-  trk <- gpx[xml2::xml_name(gpx) == "trk"]
-  # xml2::xml_find_all(trk, xpath = ".//name") ## TODO: doesn't work :(
-
+  trk <- xml2::xml_find_all(xml, paste0(".//", gpx_ns_prefix, ":trk"))
   if (length(trk) == 0) {
     out <- empty_gpx_df()
     attributes(out) <- c(attributes(out), list(gpx_attributes = xml_attrs), gpx_metadata)
@@ -338,19 +337,12 @@ empty_gpx_df <- function() {
 
 gpx_xml2list <- function(xml) {
   xml_attrs <- xml2::xml_attrs(xml)
-  gpx <- xml2::xml_children(xml)
+  gpx_ns_prefix <- get_xns_prefix(xml, ns = c("http://www.topografix.com/GPX/1/1", "http://www.topografix.com/GPX/1/0"))
 
-  if ("metadata" %in% xml2::xml_name(gpx)) { # Never seen for bbox trackpoints responses
-    gpx_metadata <- xml2::as_list(gpx[xml2::xml_name(gpx) == "metadata"])
-    if (length(gpx_metadata) == 1) {
-      gpx_metadata <- gpx_metadata[[1]]
-    }
-  } else {
-    gpx_metadata <- NULL
-  }
+  metadata <- xml2::xml_find_first(xml, paste0("./", gpx_ns_prefix, ":metadata"))
+  gpx_metadata <- xml2::as_list(metadata)
 
-  trk <- gpx[xml2::xml_name(gpx) == "trk"]
-  # xml_find_all(trk, xpath = ".//name") ## TODO: doesn't work :(
+  trk <- xml2::xml_find_all(xml, paste0(".//", gpx_ns_prefix, ":trk"))
 
   if (length(trk) == 0) {
     out <- empty_gpx_list()
@@ -384,38 +376,29 @@ empty_gpx_list <- function() {
 
 
 trk_xml2df <- function(trk) {
-  trk_ch <- xml2::xml_children(trk)
-  trk_names <- xml2::xml_name(trk_ch)
+  gpx_ns_prefix <- get_xns_prefix(trk, ns = c("http://www.topografix.com/GPX/1/1", "http://www.topografix.com/GPX/1/0"))
 
-  trk_details <- structure(xml2::xml_text(trk_ch[trk_names != "trkseg"]), names = trk_names[trk_names != "trkseg"])
+  details <- xml2::xml_find_all(trk, "./*[not(name() = 'trkseg')]") # no trkseg nodes
+  trk_details <- stats::setNames(xml2::xml_text(details), nm = xml2::xml_name(details))
   if (length(trk_details)) {
     names(trk_details) <- paste0("track_", names(trk_details))
   }
 
-  trkseg <- trk_ch[trk_names == "trkseg"]
+  ## TODO: extract and group points by segments?
+  # trkseg <- xml2::xml_find_all(trk, paste0(gpx_ns_prefix, "trkseg"))
+  # if (length(trkseg) > 1) warning("More than one gpx segment)
 
-  trkseg_ch <- xml2::xml_children(trkseg)
-  trkseg_names <- xml2::xml_name(trkseg_ch)
-  trkpt <- trkseg_ch[trkseg_names == "trkpt"]
-  lat_lon <- do.call(rbind, xml2::xml_attrs(trkpt))
-  # xml2::xml_find_all(trkpt, ".//time") ## TODO: doesn't work :(
+  trkpt <- xml2::xml_find_all(trk, paste0(".//", gpx_ns_prefix, ":trkpt"))
+  lat_lon <- do.call(rbind, xml2::xml_attrs(trkpt)) # lat lon
+  out <- as.data.frame(lat_lon)
 
-  elem_points <- lapply(trkpt, function(y) {
-    pt <- xml2::xml_children(y)
-    elem_name <- vapply(pt, xml2::xml_name, FUN.VALUE = character(1))
-    sel <- elem_name %in% c("ele", "time")
-    vals <- structure(
-      vapply(pt[sel], xml2::xml_text, FUN.VALUE = character(1)),
-      names = elem_name[sel]
-    )
-
-    return(vals)
-  })
-  point_data <- do.call(rbind, elem_points)
-
-  out <- data.frame(lat_lon, point_data)
-  if ("time" %in% names(out)) {
-    out$time <- as.POSIXct(out$time, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+  ele <- xml2::xml_text(xml2::xml_find_all(trkpt, paste0(".//", gpx_ns_prefix, ":ele")))
+  if (length(ele) > 0) {
+    out$ele <- ele
+  }
+  time <- xml2::xml_text(xml2::xml_find_all(trkpt, paste0(".//", gpx_ns_prefix, ":time")))
+  if (length(time) > 0) {
+    out$time <- as.POSIXct(time, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
   }
 
   attributes(out) <- c(attributes(out), list(track = trk_details))
@@ -590,4 +573,23 @@ empty_notes <- function() {
   class(out) <- c("osmapi_map_notes", "data.frame")
 
   return(out)
+}
+
+
+## Utils ----
+
+get_xns_prefix <- function(xml, ns) {
+  namespaces <- xml2::xml_ns(xml)
+  ns_prefix <- names(namespaces)[namespaces %in% ns]
+
+  if (length(ns_prefix) == 1) {
+    xpath_prefix <- ns_prefix
+  } else {
+    xpath_prefix <- ""
+    if (length(ns_prefix) > 1) {
+      warning("More than one namespace: ", paste(namespaces[namespaces %in% ns], collapse = ", "))
+    }
+  }
+
+  return(xpath_prefix)
 }
