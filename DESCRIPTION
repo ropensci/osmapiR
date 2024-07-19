@@ -10,7 +10,6 @@ Authors@R: c(
     person("Carlos", "Cámara", role = "rev",
            comment = c("Carles reviewed the package for rOpenSci, see https://github.com/ropensci/software-review/issues/633", ORCID = "0000-0002-9378-0549"))
   )
-Maintainer: Joan Maspons <joanmaspons@gmail.com>
 Description: Interface to 'OpenStreetMap API' for fetching and saving data
     from/to the 'OpenStreetMap' database
     (<https://wiki.openstreetmap.org/wiki/API_v0.6>).
