@@ -127,7 +127,6 @@ osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "sf", "sf_
     }
   } else { # format == "gpx"
     # unite the last and first trkseg of consecutive pages if they have the same url (non private traces)
-    # lapply(outL, function(x) xml2::xml_find_all(x, "//url", flatten = FALSE)) # TODO: doesn't work :(
     url_1n_page <- lapply(outL, function(x) {
       trkseg <- xml2::xml_children(x)
       trkseg_1n <- trkseg[c(1, length(trkseg))]
