@@ -132,7 +132,7 @@ osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "sf", "sf_
       trkseg_1n <- trkseg[c(1, length(trkseg))]
       do.call(c, lapply(trkseg_1n, function(y) {
         if ("url" %in% xml2::xml_name(xml2::xml_children(y))) {
-          xml2::xml_text(xml2::xml_child(y, search = 3)) # TODO: search = "url" fail
+          xml2::xml_text(xml2::xml_child(y, search = 3)) # search = "d1:url" is slower 6f0200fb7cd6da044b4cdd5462c16923fbe5caad
         } else {
           ""
         }
