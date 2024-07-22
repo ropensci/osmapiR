@@ -66,13 +66,13 @@ set_osmapi_connection <- function(server = c("openstreetmap.org", "testing"), ca
   if (server == "openstreetmap.org") {
     options(osmapir.base_api_url = "https://api.openstreetmap.org")
     options(osmapir.base_auth_url = "https://www.openstreetmap.org")
-    options(osmapir.oauth_id = "t5kHJqAo7HjRPTFY3jfabysEE0GqUECukGP2BFPlFMA")
-    options(osmapir.oauth_secret = "wK2AGsWGO1BEXER0wMpPI8OLTAmk4RUcfAFUXF7VAZUTwcmHJLwDEX6cINWgt5f2FG0WjyFD7o-5Gvw")
+    options(osmapir.oauth_id = "kROTgNMsqmMNusvGXhuQlXBbNaUjSwkrGehdBMqE2jo")
+    options(osmapir.oauth_secret = "VowQ59fpIRjZepLYkVpybvXBfVcZnCJNYUYLXeVxGLC1rLPVTb_oMEDe6px6ceSCH7Y-B57nvc8ilhc")
   } else if (server == "testing") {
     options(osmapir.base_api_url = "https://master.apis.dev.openstreetmap.org")
     options(osmapir.base_auth_url = "https://master.apis.dev.openstreetmap.org")
-    options(osmapir.oauth_id = "xMH6POI0E_9xU7P0mcUW5PubXiunYTnC_uvAy9E7S8s")
-    options(osmapir.oauth_secret = "CPeZrFeAhjMQOj4rADsnDv0MekszVztJeJSNq9VORx-50gJcas041GzrpjyjWN0GNJM1b5pAQCXNyR4")
+    options(osmapir.oauth_id = "Vpy5lyTqBl_iO1LKbAcjNxEbl2LDH9eyZynyh4VU6M4")
+    options(osmapir.oauth_secret = "i8a4oQxyTmVDuRL4sTYvLCSzqWEr9fcPhw2A_0dZmglWhuYfMwEPrmadEEqBY0TjXc7Gg_b3YKuXPEI")
   }
 
   if (!missing(cache_authentication)) {

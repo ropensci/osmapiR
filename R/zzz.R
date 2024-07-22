@@ -31,11 +31,11 @@
   }
 
   if (!"osmapir.oauth_id" %in% names(op)) {
-    options(osmapir.oauth_id = "cxMGJjSNnEGiKHAdp0pGq54XtQPTSyuTOu-nVJ4P6FE")
+    options(osmapir.oauth_id = "kROTgNMsqmMNusvGXhuQlXBbNaUjSwkrGehdBMqE2jo")
   }
 
   if (!"osmapir.oauth_secret" %in% names(op)) {
-    options(osmapir.oauth_secret = "L9o3QNmMC-rn8Hl6qcJrCpkty2QUCJPAWoiB2lIwawoZup_gfImaV9iUfGSZIeZSLP_s89qiFrbAH_Y")
+    options(osmapir.oauth_secret = "VowQ59fpIRjZepLYkVpybvXBfVcZnCJNYUYLXeVxGLC1rLPVTb_oMEDe6px6ceSCH7Y-B57nvc8ilhc")
   }
 
   if (!"osmapir.cache_authentication" %in% names(op)) {
