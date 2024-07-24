@@ -542,6 +542,7 @@ osm_get_preferences_user <- function(key, format = c("R", "xml", "json")) {
 
   if (!missing(key)) {
     out <- httr2::resp_body_string(resp)
+    Encoding(out) <- "UTF-8"
   } else if (format %in% c("R", "xml")) {
     out <- httr2::resp_body_xml(resp)
     if (format == "R") {

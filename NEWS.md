@@ -15,10 +15,11 @@
 * Fix changesets' bbox in `st_as_sf.osmapi_chagesets()` ([84f16e7a](https://github.com/ropensci/osmapiR/commit/84f16e7adda087ab707cc2644c79ff1590cf307e)). 
 * Implement NA bboxes in `st_as_sf.osmapi_chagesets()` ([7ea4f5d7](https://github.com/ropensci/osmapiR/commit/7ea4f5d7f412ef8cf7691741b836cf45ddeb61f2)).
 * Remove dontrun in examples that don't require authentication (#47).
-* Improve performance when parsing gpx data to data.frame (#48)
-* Parse TrackPointExtension data from gpx if available (#49)
-* Tweaks in DESCRIPTION and CITATION files by @Maelle (#50, #51)
-* Sort OSM objects in `osm_get_objects(..., full_objects = TRUE)` and optimize (#52)
+* Improve performance when parsing gpx data to data.frame (#48).
+* Parse TrackPointExtension data from gpx if available (#49).
+* Tweaks in DESCRIPTION and CITATION files by @Maelle (#50, #51).
+* Sort OSM objects in `osm_get_objects(..., full_objects = TRUE)` and optimize (#52).
+* Set encoding to UTF-8 for tags and user names in returned data.frames (#54).
 
 
 # osmapiR 0.1.0
