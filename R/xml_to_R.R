@@ -9,6 +9,7 @@ tags_xml2mat_wide <- function(xml_nodeset) {
     tagV <- vapply(tag, function(x) x, FUN.VALUE = character(2))
     m[i, tagV[1, ]] <- tagV[2, ]
   }
+  m <- enc2utf8(m)
 
   return(m)
 }
@@ -23,6 +24,8 @@ tags_xml2list_df <- function(xml_nodeset) {
       )),
       names = c("key", "value")
     )
+    tags_df$key <- enc2utf8(tags_df$key)
+    tags_df$value <- enc2utf8(tags_df$value)
 
     class(tags_df) <- c("tags_df", "data.frame")
 
@@ -35,7 +38,8 @@ tags_xml2list_df <- function(xml_nodeset) {
 
 ## Changesets ----
 
-# osm_download_changeset() in osmChange xml format. Not related
+# For osm_get_changesets() & osm_query_changesets().
+# osm_download_changeset() in osmChange xml format not related
 
 changeset_xml2DF <- function(xml, tags_in_columns = FALSE) {
   changesets <- xml2::xml_children(xml)
@@ -67,6 +71,7 @@ changeset_xml2DF <- function(xml, tags_in_columns = FALSE) {
   out$changes_count <- as.integer(out$changes_count)
   out$created_at <- as.POSIXct(out$created_at, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
   out$closed_at <- as.POSIXct(out$closed_at, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+  out$user <- enc2utf8(out$user)
 
   discussion <- xml2::xml_child(changesets, "discussion")
 
@@ -79,6 +84,8 @@ changeset_xml2DF <- function(xml, tags_in_columns = FALSE) {
       comment_text <- xml2::xml_text(xml2::xml_child(x, "text"))
       dis <- data.frame(comment_attrs, comment_text)
       dis$date <- as.POSIXct(dis$date, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+      dis$user <- enc2utf8(dis$user)
+      dis$comment_text <- enc2utf8(dis$comment_text)
 
       class(dis) <- c("changeset_comments", "data.frame")
 
@@ -202,6 +209,7 @@ object_xml2DF <- function(xml, tags_in_columns = FALSE) {
   out$visible <- ifelse(out$visible == "true", TRUE, FALSE)
   out$version <- as.integer(out$version)
   out$timestamp <- as.POSIXct(out$timestamp, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+  out$user <- enc2utf8(out$user)
 
   members <- vector("list", length = length(objects))
   members[object_type == "way"] <- lapply(objects[object_type == "way"], function(x) {
@@ -270,11 +278,17 @@ gpx_meta_xml2DF <- function(xml) {
 
   gpx_attrs <- do.call(rbind, xml2::xml_attrs(gpx_files))
   description <- xml2::xml_text(xml2::xml_child(gpx_files, "description"))
-  tags <- lapply(xml2::xml_find_all(gpx_files, ".//tag", flatten = FALSE), xml2::xml_text)
+  tags <- lapply(xml2::xml_find_all(gpx_files, ".//tag", flatten = FALSE), function(x) {
+    x <- xml2::xml_text(x)
+    enc2utf8(x)
+  })
 
   out <- data.frame(gpx_attrs, description)
   out$timestamp <- as.POSIXct(out$timestamp, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
   out$pending <- ifelse(out$pending == "true", TRUE, FALSE)
+  out$name <- enc2utf8(out$name)
+  out$user <- enc2utf8(out$user)
+  out$description <- enc2utf8(out$description)
 
   out$tags <- tags
 
@@ -380,6 +394,7 @@ trk_xml2df <- function(trk) {
 
   details <- xml2::xml_find_all(trk, "./*[not(name() = 'trkseg')]") # no trkseg nodes
   trk_details <- stats::setNames(xml2::xml_text(details), nm = xml2::xml_name(details))
+  trk_details <- enc2utf8(trk_details)
   if (length(trk_details)) {
     names(trk_details) <- paste0("track_", names(trk_details))
   }
@@ -476,6 +491,9 @@ user_details_xml2DF <- function(xml) {
 
   out$account_created <- as.POSIXct(out$account_created, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
 
+  out$display_name <- enc2utf8(out$display_name)
+  out$description <- enc2utf8(out$description)
+
   return(out)
 }
 
@@ -515,6 +533,9 @@ logged_user_details_xml2list <- function(xml) {
     )
   )
 
+  out$user["display_name"] <- enc2utf8(out$user["display_name"])
+  out$description <- enc2utf8(out$description)
+
   return(out)
 }
 
@@ -529,6 +550,8 @@ user_preferences_xml2DF <- function(xml) {
     as.data.frame(do.call(rbind, xml2::xml_attrs(preference))),
     names = c("key", "value")
   )
+  out$key <- enc2utf8(out$key)
+  out$value <- enc2utf8(out$value)
 
   return(out)
 }
@@ -566,6 +589,9 @@ note_xml2DF <- function(xml) {
 
     comm <- data.frame(date, uid, user, user_url, action, text, html)
     comm$date <- as.POSIXct(comm$date, format = "%Y-%m-%d %H:%M:%OS", tz = "GMT")
+    comm$user <- enc2utf8(comm$user)
+    comm$text <- enc2utf8(comm$text)
+    comm$html <- enc2utf8(comm$html)
 
     class(comm) <- c("note_comments", "data.frame")
 
