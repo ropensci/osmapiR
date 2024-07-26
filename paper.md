@@ -8,11 +8,11 @@ tags:
 authors:
     - name: Joan Maspons
       orcid: 0000-0003-2286-8727
+      affiliation: 1
 #       corresponding: true
-#       affiliation: 1
-# affiliations:
-#     - name: Universitat de Barcelona, Catalonia
-#       index: 1
+affiliations:
+    - name: Independent researcher, Catalonia
+      index: 1
 date: 22 July 2024
 bibliography: paper.bib
 # nocite: |
