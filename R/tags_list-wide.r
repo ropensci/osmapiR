@@ -88,7 +88,7 @@ tags_wide2list <- function(x) {
   }
 
   keys <- attr(x, "tag_columns")
-  tags_list <- apply(x[, keys], 1, function(y) {
+  tags_list <- apply(x[, keys, drop = FALSE], 1, function(y) {
     out <- stats::na.omit(data.frame(key = names(keys), value = y, row.names = NULL))
 
     attr(out, "na.action") <- NULL
