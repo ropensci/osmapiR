@@ -59,7 +59,7 @@ tags_list2wide <- function(x) {
     dimnames = list(NULL, cols)
   )
 
-  out <- x[, setdiff(names(x), "tags")]
+  out <- x[, setdiff(names(x), "tags"), drop = FALSE]
   if (inherits(x, "osmapi_objects")) {
     names(out) <- gsub("^(type|id)$", "osm_\\1", names(out))
   }
@@ -98,7 +98,7 @@ tags_wide2list <- function(x) {
     return(out)
   }, simplify = FALSE)
 
-  out <- x[, -keys]
+  out <- x[, -keys, drop = FALSE]
   out$tags <- tags_list
 
   if (inherits(x, "osmapi_objects")) {
