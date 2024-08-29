@@ -44,6 +44,7 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE, form
   if (inherits(x, "tags_wide")) {
     x <- tags_wide2list(x)
   }
+  stopifnot(c("type", "id") %in% colnames(x))
 
   if (missing(tag_keys)) { # Update all tags
     tags_upd <- x$tags
@@ -162,6 +163,8 @@ osmchange_delete <- function(x, delete_if_unused = FALSE, format = c("R", "osc",
   if (inherits(x, "tags_wide")) {
     x <- tags_wide2list(x)
   }
+  stopifnot(c("type", "id") %in% colnames(x))
+
   x_type <- split(x, x$type)
   osmchange <- lapply(x_type, function(y) osm_fetch_objects(osm_type = unique(y$type), osm_ids = y$id))
   osmchange <- do.call(rbind, osmchange[c("relation", "way", "node")]) # sort to avoid deleting members of existing objs
