@@ -30,6 +30,30 @@ test_that("OSM objects tags_list-wide works", {
     tags_list$rel[, setdiff(names(tags_list$rel), "tags")]
   )
 
+
+  ## Test one tag only
+
+  tag1_list <- lapply(tags_list, function(x) {
+    x$tags <- lapply(x$tags, function(y) structure(y[y$key == "name", ], row.names = 1L))
+    x
+  })
+  tag1_wide <- lapply(tags_wide, function(x) {
+    tags <- attr(x, "tag_columns")
+    rm_cols <- tags[names(tags) != "name"]
+    x <- x[, -rm_cols]
+    attr(x, "tag_columns") <- c(name = which(names(x) == "name"))
+    x
+  })
+
+  tag1_2wide <- lapply(tag1_list, tags_list2wide)
+  tag1_2list <- lapply(tag1_wide, tags_wide2list)
+
+  mapply(expect_identical, object = tag1_2wide, expected = tag1_wide)
+  mapply(expect_identical, object = tag1_2list, expected = tag1_list)
+
+
+  ## Test messages and errors
+
   expect_message(tags_list2wide(tags_wide[[1]]), "x is already in a tags wide format.")
   expect_message(tags_wide2list(tags_list[[1]]), "x is already in a tags list column format.")
 

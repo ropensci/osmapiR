@@ -54,10 +54,14 @@ tags_list2wide <- function(x) {
   cols <- sort(unique(unlist(lapply(x$tags, function(y) y$key))))
   # WARNING: sort different than API ([A-Z][a-z][0-9] vs [0-9][a-z][A-Z])
 
-  tags_wide <- structure(
-    t(vapply(x$tags, function(y) structure(y$value, names = y$key)[cols], FUN.VALUE = character(length(cols)))),
-    dimnames = list(NULL, cols)
-  )
+  tags_wide <- vapply(x$tags, function(y) structure(y$value, names = y$key)[cols], FUN.VALUE = character(length(cols)))
+  # deal with vapply always simplifying result
+  if (length(cols) == 1) {
+    tags_wide <- as.matrix(tags_wide)
+  } else {
+    tags_wide <- t(tags_wide)
+  }
+  dimnames(tags_wide) <- list(NULL, cols)
 
   out <- x[, setdiff(names(x), "tags"), drop = FALSE]
   if (inherits(x, "osmapi_objects")) {
