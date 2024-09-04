@@ -16,6 +16,7 @@ Active](https://www.repostatus.org/badges/latest/active.svg)](https://www.repost
 [![CRAN
 Downloads](https://cranlogs.r-pkg.org/badges/grand-total/osmapiR)](https://cran.r-project.org/package=osmapiR)
 [![](https://badges.ropensci.org/633_status.svg)](https://github.com/ropensci/software-review/issues/633)
+[![status](https://joss.theoj.org/papers/eed311474b650ed64042431a537fbc35/status.svg)](https://joss.theoj.org/papers/eed311474b650ed64042431a537fbc35)
 <!-- badges: end -->
 
 An R interface to the [OpenStreetMap API
