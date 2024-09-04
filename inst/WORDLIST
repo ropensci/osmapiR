@@ -43,6 +43,7 @@ ccbf
 cd
 cdf
 ce
+cff
 CGImap
 Changelog
 changelogs
@@ -202,6 +203,7 @@ io
 isFALSE
 isNamespace
 isNamespaceLoaded
+issn
 issueTracker
 isTRUE
 iUfGSZIeZSLP
@@ -210,6 +212,7 @@ jfabysEE
 jmaspons
 joanmaspons
 JOSM
+joss
 jpg
 JPG
 js
@@ -428,6 +431,7 @@ tagV
 tempfile
 terra
 testthat
+theoj
 ThisIsANote
 ThisIsANoteComment
 tibble
