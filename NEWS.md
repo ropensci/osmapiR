@@ -1,3 +1,9 @@
+osmapiR (development version)
+=============================
+
+* Update CITATION with the JOSS article (<https://doi.org/10.21105/joss.07151>).
+* Test and fix tags_list2wide() with only 1 tag per object ([0368f1b](https://github.com/ropensci/osmapiR/commit/0368f1bf5ea9a0ba670d4dbd356846873460e96c)).
+
 osmapiR 0.2.0
 =============
 
@@ -14,8 +20,8 @@ osmapiR 0.2.0
 
 ### Minor improvements
   
-* Upgrade logo by @atarom
-* Add inst/CITATION
+* Upgrade logo by @atarom.
+* Add inst/CITATION.
 * Updated links to the new osmapiR home at rOpenSci (#40).
 * Split functions to parse gpx data from different API endpoints and different properties (#43).
 * Implement NA bboxes in `st_as_sf.osmapi_chagesets()` ([7ea4f5d7](https://github.com/ropensci/osmapiR/commit/7ea4f5d7f412ef8cf7691741b836cf45ddeb61f2)).
