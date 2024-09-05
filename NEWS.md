@@ -1,13 +1,13 @@
-osmapiR (development version)
-=============================
+# osmapiR 0.2.1
 
 * Update CITATION with the JOSS article (<https://doi.org/10.21105/joss.07151>).
-* Test and fix tags_list2wide() with only 1 tag per object ([0368f1b](https://github.com/ropensci/osmapiR/commit/0368f1bf5ea9a0ba670d4dbd356846873460e96c)).
+* Test and fix `tags_list2wide()` with only 1 tag per object ([0368f1b](https://github.com/ropensci/osmapiR/commit/0368f1bf5ea9a0ba670d4dbd356846873460e96c)).
 
-osmapiR 0.2.0
-=============
 
-### New features
+# osmapiR 0.2.0 
+*(published at <https://doi.org/10.5281/zenodo.13627998>)*
+
+## New features
 
 * Add `format = "sf"` for functions returning objects of class `osmapi_map_notes` (#36).
 * Add `format = "sf"` for functions returning objects of class `osmapi_changesets` (#37).
@@ -18,7 +18,7 @@ osmapiR 0.2.0
 * Set encoding to UTF-8 for tags and user names in returned data.frames (#54).
 * Parse `<TrackPointExtension>` data from gpx if available (#49).
 
-### Minor improvements
+## Minor improvements
   
 * Upgrade logo by @atarom.
 * Add inst/CITATION.
@@ -30,15 +30,14 @@ osmapiR 0.2.0
 * Tweaks in DESCRIPTION and CITATION files by @Maelle (#50, #51).
 * Sort OSM objects in `osm_get_objects(..., full_objects = TRUE)` and optimize (#52).
 
-### Bug fixes
+## Bug fixes
 
 * Improve tests and fix bugs (#35, [08fb4b1](https://github.com/ropensci/osmapiR/commit/08fb4b10abf0270d8bea2473b02b2520ba341521)).
 * Fix miscalculation of the nchar_url that trigger errors when many ids are requested in `osm_fetch_objects()`.
 * Fix changesets' bbox in `st_as_sf.osmapi_chagesets()` ([84f16e7a](https://github.com/ropensci/osmapiR/commit/84f16e7adda087ab707cc2644c79ff1590cf307e)). 
 
 
-osmapiR 0.1.0
-=============
+# osmapiR 0.1.0
 
 * Initial CRAN submission implementing calls to all the API endpoints.
 * Server responses are returned as R objects, xml_documents or json lists.

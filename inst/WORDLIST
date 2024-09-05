@@ -203,7 +203,9 @@ io
 isFALSE
 isNamespace
 isNamespaceLoaded
+isPartOf
 issn
+issueNumber
 issueTracker
 isTRUE
 iUfGSZIeZSLP
@@ -346,6 +348,8 @@ preferen
 prefs
 programmingLanguage
 pts
+PublicationIssue
+PublicationVolume
 PubXiunYTnC
 px
 qcJrCpkty
@@ -393,6 +397,7 @@ sameAs
 Sant
 sapply
 schemaLocation
+ScholarlyArticle
 seealso
 sel
 seperated
@@ -492,6 +497,7 @@ Vectorized
 vectorizing
 VignetteBuilder
 Visca
+volumeNumber
 VORx
 vt
 vworld

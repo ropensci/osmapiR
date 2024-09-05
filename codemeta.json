@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/ropensci/osmapiR",
   "issueTracker": "https://github.com/ropensci/osmapiR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -163,10 +163,10 @@
     "SystemRequirements": null
   },
   "keywords": ["openstreetmap", "OSM", "openstreetmap-api", "osmapi", "API", "osm", "r", "r-package"],
-  "fileSize": "14092.409KB",
+  "fileSize": "14093.932KB",
   "citation": [
     {
-      "@type": "SoftwareSourceCode",
+      "@type": "ScholarlyArticle",
       "datePublished": "2024",
       "author": [
         {
@@ -177,12 +177,22 @@
           "@id": "https://orcid.org/0000-0003-2286-8727"
         }
       ],
-      "name": "osmapiR: OpenStreetMap API",
-      "identifier": "10.32614/CRAN.package.osmapiR",
-      "url": "https://docs.ropensci.org/osmapiR/",
-      "description": "R package version 0.2.0 \nhttps://github.com/ropensci/osmapiR",
-      "@id": "https://doi.org/10.32614/CRAN.package.osmapiR",
-      "sameAs": "https://doi.org/10.32614/CRAN.package.osmapiR"
+      "name": "osmapiR: An 'OpenStreetMap API' implementation for R",
+      "identifier": "10.21105/joss.07151",
+      "description": "R package version 0.2.1 \nhttps://github.com/ropensci/osmapiR",
+      "pagination": "7151",
+      "@id": "https://doi.org/10.21105/joss.07151",
+      "sameAs": "https://doi.org/10.21105/joss.07151",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "issueNumber": "101",
+        "datePublished": "2024",
+        "isPartOf": {
+          "@type": ["PublicationVolume", "Periodical"],
+          "volumeNumber": "9",
+          "name": "Journal of Open Source Software"
+        }
+      }
     }
   ],
   "releaseNotes": "https://github.com/ropensci/osmapiR/blob/master/NEWS.md",
