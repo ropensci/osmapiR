@@ -11,6 +11,7 @@ bibentry(
   pages     = "7151",
   # url       = "https://doi.org/10.21105/joss.07151",
   doi       = "10.21105/joss.07151",
+  issn      = "2475-9066",
   journal   = "Journal of Open Source Software",
   note      = paste0("R package version ",  meta$Version, " \nhttps://github.com/ropensci/osmapiR")
 )
