@@ -159,8 +159,8 @@ authenticate_osmapi <- function() {
 #' @export
 logout_osmapi <- function() {
 
-  if (packageVersion("httr2") >= "1.0.5.9000") {
-    httr2::oauth_cache_clear(
+  if (utils::packageVersion("httr2") >= "1.0.5.9000") {
+    getFromNamespace("oauth_cache_clear", "httr2")(
       client = oauth_client_osmapi(),
       cache_disk = getOption("osmapir.cache_authentication"),
       cache_key = getOption("osmapir.base_api_url")
