@@ -158,18 +158,11 @@ authenticate_osmapi <- function() {
 #' @rdname authenticate_osmapiR
 #' @export
 logout_osmapi <- function() {
-
-  if (utils::packageVersion("httr2") >= "1.0.5.9000") {
-    getFromNamespace("oauth_cache_clear", "httr2")(
-      client = oauth_client_osmapi(),
-      cache_disk = getOption("osmapir.cache_authentication"),
-      cache_key = getOption("osmapir.base_api_url")
-    )
-  } else {
-    req <- httr2::request(base_url = get_osmapi_url())
-    req <- oauth_request(req)
-    req$policies$auth_oauth$cache$clear()
-  }
+  httr2::oauth_cache_clear(
+    client = oauth_client_osmapi(),
+    cache_disk = getOption("osmapir.cache_authentication"),
+    cache_key = getOption("osmapir.base_api_url")
+  )
 
   message("Logged out from ", get_osmapi_url())
 
