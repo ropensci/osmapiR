@@ -1,5 +1,7 @@
 # osmapiR (development version)
 
+* Use the new function `httr2::oauth_cache_clear()` from httr2 1.0.6 (#58 by @hadley).
+
 # osmapiR 0.2.1
 
 * Update CITATION with the JOSS article (<https://doi.org/10.21105/joss.07151>).

@@ -19,7 +19,7 @@ URL: https://docs.ropensci.org/osmapiR/,
 BugReports: https://github.com/ropensci/osmapiR/issues
 Imports: 
     curl,
-    httr2,
+    httr2 (>= 1.0.6),
     xml2
 Suggests: 
     httptest2,
