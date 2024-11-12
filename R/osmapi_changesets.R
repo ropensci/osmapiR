@@ -146,16 +146,17 @@ osm_create_changeset <- function(comment, ...,
 # Returns the single changeset element containing the changeset tags with a content type of `text/xml`
 #  GET /api/0.6/changeset/#id?include_discussion=true
 # <syntaxhighlight lang="xml">
-# <osm>
+#
+# <osm version="0.6" generator="CGImap 0.9.3 (987909 spike-08.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
 # 	<changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
 # 		<tag k="created_by" v="JOSM 1.61"/>
 # 		<tag k="comment" v="Just adding some streetnames"/>
 # 		...
 # 		<discussion>
-# 			<comment date="2015-01-01T18:56:48Z" uid="1841" user="metaodi">
+# 			<comment id="1234" date="2015-01-01T18:56:48Z" uid="1841" user="metaodi">
 # 				<text>Did you verify those street names?</text>
 # 			</comment>
-# 			<comment date="2015-01-01T18:58:03Z" uid="123" user="fred">
+# 			<comment id="5678" date="2015-01-01T18:58:03Z" uid="123" user="fred">
 # 				<text>sure!</text>
 # 			</comment>
 # 			...
@@ -167,26 +168,39 @@ osm_create_changeset <- function(comment, ...,
 ### Response JSON ----
 # Returns the single changeset element containing the changeset tags with a content type of `application/json`
 #  GET /api/0.6/changeset/#id.json?include_discussion=true
+# Please note that the JSON format has changed on August 25, 2024 with the release of openstreetmap-cgimap 2.0.0, to align it with the existing Rails format.
 # <syntaxhighlight lang="json">
-# {
-#  "version": "0.6",
-#  "elements": [
-#   {"type": "changeset",
-#    "id": 10,
-#    "created_at": "2005-05-01T16:09:37Z",
-#    "closed_at": "2005-05-01T17:16:44Z",
-#    "open": False,
-#    "user": "Petter Reinholdtsen",
-#    "uid": 24,
-#    "minlat": 59.9513092,
-#    "minlon": 10.7719727,
-#    "maxlat": 59.9561501,
-#    "maxlon": 10.7994537,
-#    "comments_count": 1,
-#    "changes_count": 10,
-#    "discussion": [{"date": "2022-03-22T20:58:30Z", "uid": 15079200, "user": "Ethan White of Cheriton", "text": "wow no one have said anything here 3/22/2022\n"}]
-#   }]
-# }
+#   {
+#     "version": "0.6",
+#     "generator": "openstreetmap-cgimap 2.0.0 (4003517 spike-08.openstreetmap.org)",
+#     "copyright": "OpenStreetMap and contributors",
+#     "attribution": "http://www.openstreetmap.org/copyright",
+#     "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+#     "changeset": {
+#       "id": 10,
+#       "created_at": "2005-05-01T16:09:37Z",
+#       "open": false,
+#       "comments_count": 1,
+#       "changes_count": 10,
+#       "closed_at": "2005-05-01T17:16:44Z",
+#       "min_lat": 59.9513092,
+#       "min_lon": 10.7719727,
+#       "max_lat": 59.9561501,
+#       "max_lon": 10.7994537,
+#       "uid": 24,
+#       "user": "Petter Reinholdtsen",
+#       "comments": [
+#         {
+#           "id": 836447,
+#           "visible": true,
+#           "date": "2022-03-22T20:58:30Z",
+#           "uid": 15079200,
+#           "user": "Ethan White of Cheriton",
+#           "text": "wow no one have said anything here 3/22/2022\n"
+#         }
+#       ]
+#     }
+#   }
 # </syntaxhighlight>
 #
 ### Error codes ----
@@ -479,13 +493,13 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 
 
 ## Query: `GET /api/0.6/changesets` ----
-# This is an API method for querying changesets. It supports querying by different criteria.
+# This is an API method for getting a list of changesets. It supports filtering by different criteria.
 #
 # Where multiple queries are given the result will be those which match all of the requirements. The contents of the returned document are the changesets and their tags. To get the full set of changes associated with a changeset, use the ''download'' method on each changeset ID individually.
 #
 # Modification and extension of the basic queries above may be required to support rollback and other uses we find for changesets.
 #
-# This call returns latest changesets matching criteria. The default ordering is newest first, but you can specify '''order=oldest''' to reverse the sort order<ref>https://github.com/openstreetmap/openstreetmap-website/blob/f1c6a87aa137c11d0aff5a4b0e563ac2c2a8f82d/app/controllers/api/changesets_controller.rb#L174 - see the current state at https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174</ref>. Reverse ordering cannot be combined with '''time'''.
+# This call returns changesets matching criteria, ordered by their creation time. The default ordering is newest first, but you can specify '''order=oldest''' to reverse the sort order<ref>https://github.com/openstreetmap/openstreetmap-website/blob/f1c6a87aa137c11d0aff5a4b0e563ac2c2a8f82d/app/controllers/api/changesets_controller.rb#L174 - see the current state at https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174</ref>. Reverse ordering cannot be combined with '''time'''.
 #
 ### Parameters ----
 # ; bbox=min_lon,min_lat,max_lon,max_lat (W,S,E,N)
@@ -493,9 +507,11 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 # ; user=#uid '''or''' display_name=#name
 # : Find changesets by the user with the given user id or display name. Providing both is an error.
 # ; time=T1
-# : Find changesets ''closed'' after T1
+# : Find changesets ''closed'' after T1. Compare with '''from=T1''' which filters by creation time instead.
 # ; time=T1,T2
 # : Find changesets that were ''closed'' after T1 and ''created'' before T2. In other words, any changesets that were open ''at some time'' during the given time range T1 to T2.
+# ; from=T1 [& to=T2]
+# : Find changesets ''created'' at or after T1, and (optionally) before T2. '''to''' requires '''from''', but not vice-versa. If '''to''' is provided alone, it has no effect.
 # ; open=true
 # : Only finds changesets that are still ''open'' but excludes changesets that are closed or have reached the element limit for a changeset (10.000 at the moment<ref>https://api.openstreetmap.org/api/0.6/capabilities "<changesets maximum_elements="10000"/>"</ref>)
 # ; closed=true
@@ -747,6 +763,8 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 # : Or if the user trying to update the changeset is not the same as the one that created it
 # : Or if the diff contains elements with changeset IDs which don't match the changeset ID that the diff was uploaded to
 # : Or any of the error messages that could occur as a result of a create, update or delete operation for one of the elements
+# ; HTTP status code 413 (Payload too large/Content too large)
+# : If, while uploading, the permitted bounding box size is exceeded, an error "<tt>Changeset bounding box size limit exceeded.</tt>" is returned.
 # ; HTTP status code 429 (Too many requests)
 # : When the request has been blocked due to rate limiting
 # ; Other status codes

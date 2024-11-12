@@ -34,5 +34,6 @@ Config/testthat/edition: 3
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
+OSMWikiVersion: 2711808
 X-schema.org-keywords: open street map, openstreetmap, OSM,
     openstreetmap-api, osmapi, API

@@ -415,7 +415,7 @@ osm_details_logged_user <- function(format = c("R", "xml", "json")) {
 }
 
 
-## Preferences of the logged-in user: `GET /api/0.6/user/preferences` ----
+## Preferences of the logged-in user: `GET|PUT|DELETE /api/0.6/user/preferences` ----
 # The OSM server supports storing arbitrary user preferences. This can be used by editors, for example, to offer the same configuration wherever the user logs in, instead of a locally-stored configuration. For an overview of applications using the preferences-API and which key-schemes they use, see [[preferences|this wiki page]].
 #
 # You can retrieve the list of current preferences using
