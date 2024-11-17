@@ -16,28 +16,28 @@ If \code{format = "R"}, returns a list with the user details.
 Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<osm version="0.6" generator="OpenStreetMap server">
-	<user display_name="Max Muster" account_created="2006-07-21T19:28:26Z" id="1234">
-		<contributor-terms agreed="true" pd="true"/>
-		<img href="https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"/>
-		<roles></roles>
-		<changesets count="4182"/>
-		<traces count="513"/>
-		<blocks>
-			<received count="0" active="0"/>
-		</blocks>
-		<home lat="49.4733718952806" lon="8.89285988577866" zoom="3"/>
-		<description>The description of your profile</description>
-		<languages>
-			<lang>de-DE</lang>
-			<lang>de</lang>
-			<lang>en-US</lang>
-			<lang>en</lang>
-		</languages>
-		<messages>
-			<received count="1" unread="0"/>
-			<sent count="0"/>
-		</messages>
-	</user>
+  <user display_name="Max Muster" account_created="2006-07-21T19:28:26Z" id="1234">
+    <contributor-terms agreed="true" pd="true"/>
+    <img href="https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"/>
+    <roles></roles>
+    <changesets count="4182"/>
+    <traces count="513"/>
+    <blocks>
+      <received count="0" active="0"/>
+    </blocks>
+    <home lat="49.4733718952806" lon="8.89285988577866" zoom="3"/>
+    <description>The description of your profile</description>
+    <languages>
+      <lang>de-DE</lang>
+      <lang>de</lang>
+      <lang>en-US</lang>
+      <lang>en</lang>
+    </languages>
+    <messages>
+      <received count="1" unread="0"/>
+      <sent count="0"/>
+    </messages>
+  </user>
 </osm>
 }\if{html}{\out{</div>}}
 }

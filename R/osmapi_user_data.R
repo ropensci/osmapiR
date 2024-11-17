@@ -11,20 +11,20 @@
 # this returns for example
 # <syntaxhighlight lang="xml">
 # <osm version="0.6" generator="OpenStreetMap server">
-# 	<user id="12023" display_name="jbpbis" account_created="2007-08-16T01:35:56Z">
-# 		<description></description>
-# 		<contributor-terms agreed="false"/>
-# 		<img href="http://www.gravatar.com/avatar/c8c86cd15f60ecca66ce2b10cb6b9a00.jpg?s=256&amp;d=http%3A%2F%2Fwww.openstreetmap.org%2Fassets%2Fusers%2Fimages%2Flarge-39c3a9dc4e778311af6b70ddcf447b58.png"/>
-#         <roles>
-#             <moderator/>
-#         </roles>
-# 		<changesets count="1"/>
-# 		<traces count="0"/>
-# 		<blocks>
-# 			<received count="0" active="0"/>
-# 		    <issued count="68" active="45"/>
-# 		</blocks>
-# 	</user>
+#   <user id="12023" display_name="jbpbis" account_created="2007-08-16T01:35:56Z">
+#     <description></description>
+#     <contributor-terms agreed="false"/>
+#     <img href="http://www.gravatar.com/avatar/c8c86cd15f60ecca66ce2b10cb6b9a00.jpg?s=256&amp;d=http%3A%2F%2Fwww.openstreetmap.org%2Fassets%2Fusers%2Fimages%2Flarge-39c3a9dc4e778311af6b70ddcf447b58.png"/>
+#     <roles>
+#       <moderator/>
+#     </roles>
+#     <changesets count="1"/>
+#     <traces count="0"/>
+#     <blocks>
+#       <received count="0" active="0"/>
+#       <issued count="68" active="45"/>
+#     </blocks>
+#   </user>
 # </osm>
 # </syntaxhighlight>
 #
@@ -55,18 +55,18 @@
 #' Returns a [xml2::xml_document-class] with the following format:
 #' ``` xml
 #' <osm version="0.6" generator="OpenStreetMap server">
-#' 	<user id="12023" display_name="jbpbis" account_created="2007-08-16T01:35:56Z">
-#' 		<description></description>
-#' 		<contributor-terms agreed="false"/>
-#' 		<img href="http://www.gravatar.com/avatar/c8c86cd15f60ecca66ce2b10cb6b9a00.jpg?s=256&amp;d=http%3A%2F%2Fwww.openstreetmap.org%2Fassets%2Fusers%2Fimages%2Flarge-39c3a9dc4e778311af6b70ddcf447b58.png"/>
-#' 		<roles>
-#' 		</roles>
-#' 		<changesets count="1"/>
-#' 		<traces count="0"/>
-#' 		<blocks>
-#' 			<received count="0" active="0"/>
-#' 		</blocks>
-#' 	</user>
+#'   <user id="12023" display_name="jbpbis" account_created="2007-08-16T01:35:56Z">
+#'     <description></description>
+#'     <contributor-terms agreed="false"/>
+#'     <img href="http://www.gravatar.com/avatar/c8c86cd15f60ecca66ce2b10cb6b9a00.jpg?s=256&amp;d=http%3A%2F%2Fwww.openstreetmap.org%2Fassets%2Fusers%2Fimages%2Flarge-39c3a9dc4e778311af6b70ddcf447b58.png"/>
+#'     <roles>
+#'     </roles>
+#'     <changesets count="1"/>
+#'     <traces count="0"/>
+#'     <blocks>
+#'       <received count="0" active="0"/>
+#'     </blocks>
+#'   </user>
 #' </osm>
 #' ```
 #'
@@ -123,29 +123,29 @@ osm_details_user <- function(user_id, format = c("R", "xml", "json")) {
 # this returns for example
 # <syntaxhighlight lang="xml">
 # <osm version="0.6" generator="OpenStreetMap server">
-# 	<user id="12023" display_name="jbpbis" account_created="2007-08-16T01:35:56Z">
-# 		<description></description>
-# 		<contributor-terms agreed="false"/>
-# 		<img href="http://www.gravatar.com/avatar/c8c86cd15f60ecca66ce2b10cb6b9a00.jpg?s=256&amp;d=http%3A%2F%2Fwww.openstreetmap.org%2Fassets%2Fusers%2Fimages%2Flarge-39c3a9dc4e778311af6b70ddcf447b58.png"/>
-# 		<roles>
-# 		</roles>
-# 		<changesets count="1"/>
-# 		<traces count="0"/>
-# 		<blocks>
-# 			<received count="0" active="0"/>
-# 		</blocks>
-# 	</user>
-# 	<user id="210447" display_name="siebh" account_created="2009-12-20T10:11:42Z">
-# 		<description></description>
-# 		<contributor-terms agreed="true"/>
-# 		<roles>
-# 		</roles>
-# 		<changesets count="267"/>
-# 		<traces count="1"/>
-# 		<blocks>
-# 			<received count="0" active="0"/>
-# 		</blocks>
-# 	</user>
+#   <user id="12023" display_name="jbpbis" account_created="2007-08-16T01:35:56Z">
+#     <description></description>
+#     <contributor-terms agreed="false"/>
+#     <img href="http://www.gravatar.com/avatar/c8c86cd15f60ecca66ce2b10cb6b9a00.jpg?s=256&amp;d=http%3A%2F%2Fwww.openstreetmap.org%2Fassets%2Fusers%2Fimages%2Flarge-39c3a9dc4e778311af6b70ddcf447b58.png"/>
+#     <roles>
+#     </roles>
+#     <changesets count="1"/>
+#     <traces count="0"/>
+#     <blocks>
+#       <received count="0" active="0"/>
+#     </blocks>
+#   </user>
+#   <user id="210447" display_name="siebh" account_created="2009-12-20T10:11:42Z">
+#     <description></description>
+#     <contributor-terms agreed="true"/>
+#     <roles>
+#     </roles>
+#     <changesets count="267"/>
+#     <traces count="1"/>
+#     <blocks>
+#       <received count="0" active="0"/>
+#     </blocks>
+#   </user>
 # </osm>
 # </syntaxhighlight>
 #
@@ -179,29 +179,29 @@ osm_details_user <- function(user_id, format = c("R", "xml", "json")) {
 #' Returns a [xml2::xml_document-class] with the following format:
 #' ``` xml
 #' <osm version="0.6" generator="OpenStreetMap server">
-#' 	<user id="12023" display_name="jbpbis" account_created="2007-08-16T01:35:56Z">
-#' 		<description></description>
-#' 		<contributor-terms agreed="false"/>
-#' 		<img href="http://www.gravatar.com/avatar/c8c86cd15f60ecca66ce2b10cb6b9a00.jpg?s=256&amp;d=http%3A%2F%2Fwww.openstreetmap.org%2Fassets%2Fusers%2Fimages%2Flarge-39c3a9dc4e778311af6b70ddcf447b58.png"/>
-#' 		<roles>
-#' 		</roles>
-#' 		<changesets count="1"/>
-#' 		<traces count="0"/>
-#' 		<blocks>
-#' 			<received count="0" active="0"/>
-#' 		</blocks>
-#' 	</user>
-#' 	<user id="210447" display_name="siebh" account_created="2009-12-20T10:11:42Z">
-#' 		<description></description>
-#' 		<contributor-terms agreed="true"/>
-#' 		<roles>
-#' 		</roles>
-#' 		<changesets count="267"/>
-#' 		<traces count="1"/>
-#' 		<blocks>
-#' 			<received count="0" active="0"/>
-#' 		</blocks>
-#' 	</user>
+#'   <user id="12023" display_name="jbpbis" account_created="2007-08-16T01:35:56Z">
+#'     <description></description>
+#'     <contributor-terms agreed="false"/>
+#'     <img href="http://www.gravatar.com/avatar/c8c86cd15f60ecca66ce2b10cb6b9a00.jpg?s=256&amp;d=http%3A%2F%2Fwww.openstreetmap.org%2Fassets%2Fusers%2Fimages%2Flarge-39c3a9dc4e778311af6b70ddcf447b58.png"/>
+#'     <roles>
+#'     </roles>
+#'     <changesets count="1"/>
+#'     <traces count="0"/>
+#'     <blocks>
+#'       <received count="0" active="0"/>
+#'     </blocks>
+#'   </user>
+#'   <user id="210447" display_name="siebh" account_created="2009-12-20T10:11:42Z">
+#'     <description></description>
+#'     <contributor-terms agreed="true"/>
+#'     <roles>
+#'     </roles>
+#'     <changesets count="267"/>
+#'     <traces count="1"/>
+#'     <blocks>
+#'       <received count="0" active="0"/>
+#'     </blocks>
+#'   </user>
 #' </osm>
 #' ```
 #'
@@ -262,28 +262,28 @@ osm_details_users <- function(user_ids, format = c("R", "xml", "json")) {
 # this returns an XML document of the from
 # <syntaxhighlight lang="xml">
 # <osm version="0.6" generator="OpenStreetMap server">
-# 	<user display_name="Max Muster" account_created="2006-07-21T19:28:26Z" id="1234">
-# 		<contributor-terms agreed="true" pd="true"/>
-# 		<img href="https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"/>
-# 		<roles></roles>
-# 		<changesets count="4182"/>
-# 		<traces count="513"/>
-# 		<blocks>
-# 			<received count="0" active="0"/>
-# 		</blocks>
-# 		<home lat="49.4733718952806" lon="8.89285988577866" zoom="3"/>
-# 		<description>The description of your profile</description>
-# 		<languages>
-# 			<lang>de-DE</lang>
-# 			<lang>de</lang>
-# 			<lang>en-US</lang>
-# 			<lang>en</lang>
-# 		</languages>
-# 		<messages>
-# 			<received count="1" unread="0"/>
-# 			<sent count="0"/>
-# 		</messages>
-# 	</user>
+#   <user display_name="Max Muster" account_created="2006-07-21T19:28:26Z" id="1234">
+#     <contributor-terms agreed="true" pd="true"/>
+#     <img href="https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"/>
+#     <roles></roles>
+#     <changesets count="4182"/>
+#     <traces count="513"/>
+#     <blocks>
+#       <received count="0" active="0"/>
+#     </blocks>
+#     <home lat="49.4733718952806" lon="8.89285988577866" zoom="3"/>
+#     <description>The description of your profile</description>
+#     <languages>
+#       <lang>de-DE</lang>
+#       <lang>de</lang>
+#       <lang>en-US</lang>
+#       <lang>en</lang>
+#     </languages>
+#     <messages>
+#       <received count="1" unread="0"/>
+#       <sent count="0"/>
+#     </messages>
+#   </user>
 # </osm>
 # </syntaxhighlight>
 #
@@ -329,28 +329,28 @@ osm_details_users <- function(user_ids, format = c("R", "xml", "json")) {
 #' Returns a [xml2::xml_document-class] with the following format:
 #' ``` xml
 #' <osm version="0.6" generator="OpenStreetMap server">
-#' 	<user display_name="Max Muster" account_created="2006-07-21T19:28:26Z" id="1234">
-#' 		<contributor-terms agreed="true" pd="true"/>
-#' 		<img href="https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"/>
-#' 		<roles></roles>
-#' 		<changesets count="4182"/>
-#' 		<traces count="513"/>
-#' 		<blocks>
-#' 			<received count="0" active="0"/>
-#' 		</blocks>
-#' 		<home lat="49.4733718952806" lon="8.89285988577866" zoom="3"/>
-#' 		<description>The description of your profile</description>
-#' 		<languages>
-#' 			<lang>de-DE</lang>
-#' 			<lang>de</lang>
-#' 			<lang>en-US</lang>
-#' 			<lang>en</lang>
-#' 		</languages>
-#' 		<messages>
-#' 			<received count="1" unread="0"/>
-#' 			<sent count="0"/>
-#' 		</messages>
-#' 	</user>
+#'   <user display_name="Max Muster" account_created="2006-07-21T19:28:26Z" id="1234">
+#'     <contributor-terms agreed="true" pd="true"/>
+#'     <img href="https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"/>
+#'     <roles></roles>
+#'     <changesets count="4182"/>
+#'     <traces count="513"/>
+#'     <blocks>
+#'       <received count="0" active="0"/>
+#'     </blocks>
+#'     <home lat="49.4733718952806" lon="8.89285988577866" zoom="3"/>
+#'     <description>The description of your profile</description>
+#'     <languages>
+#'       <lang>de-DE</lang>
+#'       <lang>de</lang>
+#'       <lang>en-US</lang>
+#'       <lang>en</lang>
+#'     </languages>
+#'     <messages>
+#'       <received count="1" unread="0"/>
+#'       <sent count="0"/>
+#'     </messages>
+#'   </user>
 #' </osm>
 #' ```
 #'
@@ -425,10 +425,10 @@ osm_details_logged_user <- function(format = c("R", "xml", "json")) {
 # this returns an XML document of the form
 # <syntaxhighlight lang="xml">
 # <osm version="0.6" generator="OpenStreetMap server">
-# 	<preferences>
-# 		<preference k="somekey" v="somevalue" />
-# 		...
-# 	</preferences>
+#   <preferences>
+#     <preference k="somekey" v="somevalue" />
+#     ...
+#   </preferences>
 # </osm>
 # </syntaxhighlight>
 #
@@ -486,10 +486,10 @@ osm_details_logged_user <- function(format = c("R", "xml", "json")) {
 #' Returns a [xml2::xml_document-class] with the following format:
 #' ``` xml
 #' <osm version="0.6" generator="OpenStreetMap server">
-#' 	<preferences>
-#' 		<preference k="somekey" v="somevalue" />
-#' 		...
-#' 	</preferences>
+#'   <preferences>
+#'     <preference k="somekey" v="somevalue" />
+#'     ...
+#'   </preferences>
 #' </osm>
 #' ```
 #'

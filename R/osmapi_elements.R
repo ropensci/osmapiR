@@ -8,33 +8,33 @@
 # A Node:
 # <syntaxhighlight lang="xml">
 # <osm>
-# 	<node changeset="12" lat="..." lon="...">
-# 		<tag k="note" v="Just a node"/>
-# 		...
-# 	</node>
+#   <node changeset="12" lat="..." lon="...">
+#     <tag k="note" v="Just a node"/>
+#     ...
+#   </node>
 # </osm>
 # </syntaxhighlight>
 # A Way:
 # <syntaxhighlight lang="xml">
 # <osm>
-# 	<way changeset="12">
-# 		<tag k="note" v="Just a way"/>
-# 		...
-# 		<nd ref="123"/>
-# 		<nd ref="4345"/>
-# 		...
-# 	</way>
+#   <way changeset="12">
+#     <tag k="note" v="Just a way"/>
+#     ...
+#     <nd ref="123"/>
+#     <nd ref="4345"/>
+#     ...
+#   </way>
 # </osm>
 # </syntaxhighlight>
 # A Relation:
 # <syntaxhighlight lang="xml">
 # <osm>
-# 	<relation changeset="12">
-# 		<tag k="note" v="Just a relation"/>
-# 		...
-# 		<member type="node" role="stop" ref="123"/>
-# 		<member type="way" ref="234"/>
-# 	</relation>
+#   <relation changeset="12">
+#     <tag k="note" v="Just a relation"/>
+#     ...
+#     <member type="node" role="stop" ref="123"/>
+#     <member type="way" ref="234"/>
+#   </relation>
 # </osm>
 # </syntaxhighlight>
 # If multiple elements are provided only the first is created. The rest is discarded (this behavior differs from changeset creation).
@@ -167,10 +167,10 @@ osm_create_object <- function(x, changeset_id) {
 # XML representing the element, wrapped in an <code><osm></code> element:
 # <syntaxhighlight lang="xml">
 # <osm>
-# 	<node id="123" lat="..." lon="..." version="142" changeset="12" user="fred" uid="123" visible="true" timestamp="2005-07-30T14:27:12+01:00">
-# 		<tag k="note" v="Just a node"/>
-# 		...
-# 	</node>
+#   <node id="123" lat="..." lon="..." version="142" changeset="12" user="fred" uid="123" visible="true" timestamp="2005-07-30T14:27:12+01:00">
+#     <tag k="note" v="Just a node"/>
+#     ...
+#   </node>
 # </osm>
 # </syntaxhighlight>
 #
@@ -255,9 +255,9 @@ osm_read_object <- function(osm_type = c("node", "way", "relation"),
 # This example is an update of the node 4326396331, updating the version 1 to alter existing tags. This change is made while the changeset with id 188021 is still open:
 # <syntaxhighlight lang="xml">
 # <osm>
-# 	<node changeset="188021" id="4326396331" lat="50.4202102" lon="6.1211032" version="1" visible="true">
-# 		<tag k="foo" v="barzzz" />
-# 	</node>
+#   <node changeset="188021" id="4326396331" lat="50.4202102" lon="6.1211032" version="1" visible="true">
+#     <tag k="foo" v="barzzz" />
+#   </node>
 # </osm>
 # </syntaxhighlight>
 #
@@ -402,7 +402,7 @@ osm_update_object <- function(x, changeset_id) {
 #
 # <syntaxhighlight lang="xml">
 # <osm>
-# 	<node id="..." version="..." changeset="..." lat="..." lon="..." />
+#   <node id="..." version="..." changeset="..." lat="..." lon="..." />
 # </osm>
 # </syntaxhighlight>
 #

@@ -31,19 +31,19 @@
 #' ``` xml
 #' <?xml version="1.0" encoding="UTF-8"?>
 #' <gpx version="1.0" creator="OpenStreetMap.org" xmlns="http://www.topografix.com/GPX/1/0">
-#' 	<trk>
-#' 		<name>20190626.gpx</name>
-#' 		<desc>Footpaths near Blackweir Pond, Epping Forest</desc>
-#' 		<url>https://api.openstreetmap.org/user/John%20Leeming/traces/3031013</url>
-#' 		<trkseg>
-#' 			<trkpt lat="51.6616100" lon="0.0534560">
-#' 				<time>2019-06-26T14:27:58Z</time>
-#' 			</trkpt>
-#' 			...
-#' 		</trkseg>
-#' 		...
-#' 	</trk>
-#' 	...
+#'   <trk>
+#'     <name>20190626.gpx</name>
+#'     <desc>Footpaths near Blackweir Pond, Epping Forest</desc>
+#'     <url>https://api.openstreetmap.org/user/John%20Leeming/traces/3031013</url>
+#'     <trkseg>
+#'       <trkpt lat="51.6616100" lon="0.0534560">
+#'         <time>2019-06-26T14:27:58Z</time>
+#'       </trkpt>
+#'       ...
+#'     </trkseg>
+#'     ...
+#'   </trk>
+#'   ...
 #' </gpx>
 #' ```
 #' * This response is NOT wrapped in an OSM xml parent element.

@@ -28,10 +28,10 @@ If \code{format = "R"}, returns a data frame with \code{key} and \code{value} co
 Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<osm version="0.6" generator="OpenStreetMap server">
-	<preferences>
-		<preference k="somekey" v="somevalue" />
-		...
-	</preferences>
+  <preferences>
+    <preference k="somekey" v="somevalue" />
+    ...
+  </preferences>
 </osm>
 }\if{html}{\out{</div>}}
 }

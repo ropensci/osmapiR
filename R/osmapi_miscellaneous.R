@@ -11,9 +11,9 @@
 # <syntaxhighlight lang="xml">
 # <?xml version="1.0" encoding="UTF-8"?>
 # <osm generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="https://www.openstreetmap.org/copyright" license="https://opendatacommons.org/licenses/odbl/1-0/">
-# 	<api>
-# 		<version>0.6</version>
-# 	</api>
+#   <api>
+#     <version>0.6</version>
+#   </api>
 # </osm>
 # </syntaxhighlight>
 #
@@ -62,25 +62,25 @@ osm_api_versions <- function() {
 # <syntaxhighlight lang="xml">
 # <?xml version="1.0" encoding="UTF-8"?>
 # <osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="https://www.openstreetmap.org/copyright" license="https://opendatacommons.org/licenses/odbl/1-0/">
-# 	<api>
-# 		<version minimum="0.6" maximum="0.6"/>
-# 		<area maximum="0.25"/>
-# 		<note_area maximum="25"/>
-# 		<tracepoints per_page="5000"/>
-# 		<waynodes maximum="2000"/>
-# 		<relationmembers maximum="32000"/>
-# 		<changesets maximum_elements="10000" default_query_limit="100" maximum_query_limit="100"/>
-# 		<notes default_query_limit="100" maximum_query_limit="10000"/>
-# 		<timeout seconds="300"/>
-# 		<status database="online" api="online" gpx="online"/>
-# 	</api>
-# 	<policy>
-# 		<imagery>
-# 			<blacklist regex=".*\.google(apis)?\..*/(vt|kh)[\?/].*([xyz]=.*){3}.*"/>
-# 			<blacklist regex="http://xdworld\.vworld\.kr:8080/.*"/>
-# 			<blacklist regex=".*\.here\.com[/:].*"/>
-# 		</imagery>
-# 	</policy>
+#   <api>
+#     <version minimum="0.6" maximum="0.6"/>
+#     <area maximum="0.25"/>
+#     <note_area maximum="25"/>
+#     <tracepoints per_page="5000"/>
+#     <waynodes maximum="2000"/>
+#     <relationmembers maximum="32000"/>
+#     <changesets maximum_elements="10000" default_query_limit="100" maximum_query_limit="100"/>
+#     <notes default_query_limit="100" maximum_query_limit="10000"/>
+#     <timeout seconds="300"/>
+#     <status database="online" api="online" gpx="online"/>
+#   </api>
+#   <policy>
+#     <imagery>
+#       <blacklist regex=".*\.google(apis)?\..*/(vt|kh)[\?/].*([xyz]=.*){3}.*"/>
+#       <blacklist regex="http://xdworld\.vworld\.kr:8080/.*"/>
+#       <blacklist regex=".*\.here\.com[/:].*"/>
+#     </imagery>
+#   </policy>
 # </osm>
 # </syntaxhighlight>
 # Please note that actual returned values may change at any time and this XML document only serves as an example.
@@ -292,12 +292,12 @@ osm_bbox_objects <- function(bbox, format = c("R", "xml", "json"), tags_in_colum
 # <syntaxhighlight lang="xml">
 # <?xml version="1.0" encoding="UTF-8"?>
 # <osm version="0.6" generator="OpenStreetMap server">
-# 	<permissions>
-# 		<permission name="allow_read_prefs"/>
-# 		...
-# 		<permission name="allow_read_gpx"/>
-# 		<permission name="allow_write_gpx"/>
-# 	</permissions>
+#   <permissions>
+#     <permission name="allow_read_prefs"/>
+#     ...
+#     <permission name="allow_read_gpx"/>
+#     <permission name="allow_write_gpx"/>
+#   </permissions>
 # </osm>
 # </syntaxhighlight>
 #

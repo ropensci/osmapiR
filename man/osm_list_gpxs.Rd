@@ -16,16 +16,16 @@ per row. If \code{format = "sf"}, returns a \code{sf} object from \pkg{sf}. If \
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="OpenStreetMap server">
-	<gpx_file id="836619" name="track.gpx" lat="52.0194" lon="8.51807" uid="1234" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:24:19Z">
-		<description>PHP upload test</description>
-		<tag>test</tag>
-		<tag>php</tag>
-	</gpx_file>
-	<gpx_file id="836620" name="track.gpx" lat="52.1194" lon="8.61807" uid="1234" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:27:31Z">
-		<description>PHP upload test 2</description>
-		<tag>test</tag>
-		<tag>php</tag>
-	</gpx_file>
+  <gpx_file id="836619" name="track.gpx" lat="52.0194" lon="8.51807" uid="1234" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:24:19Z">
+    <description>PHP upload test</description>
+    <tag>test</tag>
+    <tag>php</tag>
+  </gpx_file>
+  <gpx_file id="836620" name="track.gpx" lat="52.1194" lon="8.61807" uid="1234" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:27:31Z">
+    <description>PHP upload test 2</description>
+    <tag>test</tag>
+    <tag>php</tag>
+  </gpx_file>
 </osm>
 }\if{html}{\out{</div>}}
 }

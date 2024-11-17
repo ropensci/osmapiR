@@ -34,12 +34,12 @@
 # The payload of a changeset creation request is the metadata of this changeset. The body of the request has to include one or more `changeset` elements, which optionally include an arbitrary number of tags (such as 'comment', 'created_by", ...). All `changeset` elements need to be enclosed in an `osm` element.
 # <syntaxhighlight lang="xml">
 # <osm>
-# 	<changeset>
-# 		<tag k="created_by" v="JOSM 1.61"/>
-# 		<tag k="comment" v="Just adding some streetnames"/>
-# 		...
-# 	</changeset>
-# 	...
+#   <changeset>
+#     <tag k="created_by" v="JOSM 1.61"/>
+#     <tag k="comment" v="Just adding some streetnames"/>
+#     ...
+#   </changeset>
+#   ...
 # </osm>
 # </syntaxhighlight>
 # If there are multiple `changeset` elements in the XML the tags from all of them are used, later ones overriding the earlier ones in case of duplicate keys.
@@ -148,20 +148,20 @@ osm_create_changeset <- function(comment, ...,
 # <syntaxhighlight lang="xml">
 #
 # <osm version="0.6" generator="CGImap 0.9.3 (987909 spike-08.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
-# 	<changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
-# 		<tag k="created_by" v="JOSM 1.61"/>
-# 		<tag k="comment" v="Just adding some streetnames"/>
-# 		...
-# 		<discussion>
-# 			<comment id="1234" date="2015-01-01T18:56:48Z" uid="1841" user="metaodi">
-# 				<text>Did you verify those street names?</text>
-# 			</comment>
-# 			<comment id="5678" date="2015-01-01T18:58:03Z" uid="123" user="fred">
-# 				<text>sure!</text>
-# 			</comment>
-# 			...
-# 		</discussion>
-# 	</changeset>
+#   <changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
+#     <tag k="created_by" v="JOSM 1.61"/>
+#     <tag k="comment" v="Just adding some streetnames"/>
+#     ...
+#     <discussion>
+#       <comment id="1234" date="2015-01-01T18:56:48Z" uid="1841" user="metaodi">
+#         <text>Did you verify those street names?</text>
+#       </comment>
+#       <comment id="5678" date="2015-01-01T18:58:03Z" uid="123" user="fred">
+#         <text>sure!</text>
+#       </comment>
+#       ...
+#     </discussion>
+#   </changeset>
 # </osm>
 # </syntaxhighlight>
 #
@@ -239,20 +239,20 @@ osm_create_changeset <- function(comment, ...,
 #' Returns a [xml2::xml_document-class] with the following format:
 #' ``` xml
 #' <osm version="0.6" generator="CGImap 0.9.3 (987909 spike-08.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
-#' 	<changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
-#' 		<tag k="created_by" v="JOSM 1.61"/>
-#' 		<tag k="comment" v="Just adding some streetnames"/>
-#' 		...
-#' 		<discussion>
-#' 			<comment id="1234" date="2015-01-01T18:56:48Z" uid="1841" user="metaodi">
-#' 				<text>Did you verify those street names?</text>
-#' 			</comment>
-#' 			<comment id="5678" date="2015-01-01T18:58:03Z" uid="123" user="fred">
-#' 				<text>sure!</text>
-#' 			</comment>
-#' 			...
-#' 		</discussion>
-#' 	</changeset>
+#'   <changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
+#'     <tag k="created_by" v="JOSM 1.61"/>
+#'     <tag k="comment" v="Just adding some streetnames"/>
+#'     ...
+#'     <discussion>
+#'       <comment id="1234" date="2015-01-01T18:56:48Z" uid="1841" user="metaodi">
+#'         <text>Did you verify those street names?</text>
+#'       </comment>
+#'       <comment id="5678" date="2015-01-01T18:58:03Z" uid="123" user="fred">
+#'         <text>sure!</text>
+#'       </comment>
+#'       ...
+#'     </discussion>
+#'   </changeset>
 #' </osm>
 #' ```
 #'
@@ -340,9 +340,9 @@ osm_read_changeset <- function(changeset_id, include_discussion = FALSE,
 # Payload should be an OSM document containing the new version of a single changeset. Bounding box, update time and other attributes are ignored and cannot be updated by this method. Only those tags provided in this call remain in the changeset object. For updating the bounding box see the ''expand_bbox'' method.
 # <syntaxhighlight lang="xml">
 # <osm>
-# 	<changeset>
-# 		<tag k="comment" v="Just adding some streetnames and a restaurant"/>
-# 	</changeset>
+#   <changeset>
+#     <tag k="comment" v="Just adding some streetnames and a restaurant"/>
+#   </changeset>
 # </osm>
 # </syntaxhighlight>
 #

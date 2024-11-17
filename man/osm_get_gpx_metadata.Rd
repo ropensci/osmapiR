@@ -17,14 +17,14 @@ If \code{format = "R"}, returns a data frame with one trace per row. If \code{fo
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="OpenStreetMap server">
-	<gpx_file id="836619" name="track.gpx" lat="52.0194" lon="8.51807" uid="1234" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:24:19Z">
-		<description>PHP upload test</description>
-		<tag>test</tag>
-		<tag>php</tag>
-	</gpx_file>
-	<gpx_file>
-	  ...
-	</gpx_file>
+  <gpx_file id="836619" name="track.gpx" lat="52.0194" lon="8.51807" uid="1234" user="Hartmut Holzgraefe" visibility="public" pending="false" timestamp="2010-10-09T09:24:19Z">
+    <description>PHP upload test</description>
+    <tag>test</tag>
+    <tag>php</tag>
+  </gpx_file>
+  <gpx_file>
+    ...
+  </gpx_file>
 </osm>
 }\if{html}{\out{</div>}}
 }
