@@ -689,8 +689,11 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
   if (!is.null(time) && inherits(time, "POSIXt")) {
     time <- format(time, "%Y-%m-%dT%H:%M:%SZ")
   }
-  if (!is.null(time_2) && inherits(time_2, "POSIXt")) {
-    time_2 <- format(time_2, "%Y-%m-%dT%H:%M:%SZ")
+  if (!is.null(time_2)) {
+    stopifnot("`time_2` requires `time` parameter." = !is.null(time))
+    if (inherits(time_2, "POSIXt")) {
+      time_2 <- format(time_2, "%Y-%m-%dT%H:%M:%SZ")
+    }
     time <- paste0(time, ",", time_2)
   }
 

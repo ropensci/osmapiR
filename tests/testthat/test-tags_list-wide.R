@@ -75,8 +75,8 @@ test_that("Changesets tags_list-wide works", {
     tags_list$time <- osm_query_changesets(
       bbox = c(-1.241112, 38.0294955, 8.4203171, 42.9186456),
       user = "Mementomoristultus",
-      time = "2023-06-22T02:23:23Z",
-      time_2 = "2023-06-22T00:38:20Z"
+      time = "2023-06-22T02:20:23Z",
+      time_2 = "2023-06-22T02:30:00Z"
     )
     tags_list$closed <- osm_query_changesets(
       bbox = c("-9.3015367,41.8073642,-6.7339533,43.790422"),
@@ -90,8 +90,8 @@ test_that("Changesets tags_list-wide works", {
     tags_wide$time <- osm_query_changesets(
       bbox = c(-1.241112, 38.0294955, 8.4203171, 42.9186456),
       user = "Mementomoristultus",
-      time = "2023-06-22T02:23:23Z",
-      time_2 = "2023-06-22T00:38:20Z",
+      time = "2023-06-22T02:20:23Z",
+      time_2 = "2023-06-22T02:30:00Z",
       tags_in_columns = TRUE
     )
     tags_wide$closed <- osm_query_changesets(
