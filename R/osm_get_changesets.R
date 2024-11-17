@@ -26,48 +26,66 @@
 #' ## `format = "xml"`
 #' Returns a [xml2::xml_document-class] with the following format:
 #' ``` xml
-#' <osm>
-#' 	<changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
-#' 		<tag k="created_by" v="JOSM 1.61"/>
-#' 		<tag k="comment" v="Just adding some streetnames"/>
-#' 		...
-#' 		<discussion>
-#' 			<comment date="2015-01-01T18:56:48Z" uid="1841" user="metaodi">
-#' 				<text>Did you verify those street names?</text>
-#' 			</comment>
-#' 			<comment date="2015-01-01T18:58:03Z" uid="123" user="fred">
-#' 				<text>sure!</text>
-#' 			</comment>
-#' 			...
-#' 		</discussion>
-#' 	</changeset>
-#' 	<changeset>
-#' 	  ...
-#' 	</changeset>
+#' <osm version="0.6" generator="CGImap 0.9.3 (987909 spike-08.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+#'   <changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
+#'     <tag k="created_by" v="JOSM 1.61"/>
+#'     <tag k="comment" v="Just adding some streetnames"/>
+#'     ...
+#'     <discussion>
+#'       <comment id="1234" date="2015-01-01T18:56:48Z" uid="1841" user="metaodi">
+#'         <text>Did you verify those street names?</text>
+#'       </comment>
+#'       <comment id="5678" date="2015-01-01T18:58:03Z" uid="123" user="fred">
+#'         <text>sure!</text>
+#'       </comment>
+#'       ...
+#'     </discussion>
+#'   </changeset>
+#'   <changeset>
+#'     ...
+#'   </changeset>
 #' </osm>
 #' ```
 #'
 #' ## `format = "json"`
+#' *Please note that the JSON format has changed on August 25, 2024 with the release of openstreetmap-cgimap 2.0.0, to*
+#' *align it with the existing Rails format.*
+#'
 #' Returns a list with the following json structure:
 #' ``` json
 #' {
-#'  "version": "0.6",
-#'  "elements": [
-#'   {"type": "changeset",
-#'    "id": 10,
-#'    "created_at": "2005-05-01T16:09:37Z",
-#'    "closed_at": "2005-05-01T17:16:44Z",
-#'    "open": False,
-#'    "user": "Petter Reinholdtsen",
-#'    "uid": 24,
-#'    "minlat": 59.9513092,
-#'    "minlon": 10.7719727,
-#'    "maxlat": 59.9561501,
-#'    "maxlon": 10.7994537,
-#'    "comments_count": 1,
-#'    "changes_count": 10,
-#'    "discussion": [{"date": "2022-03-22T20:58:30Z", "uid": 15079200, "user": "Ethan White of Cheriton", "text": "wow no one have said anything here 3/22/2022\n"}]
-#'   }, ...]
+#'   "version": "0.6",
+#'   "generator": "openstreetmap-cgimap 2.0.0 (4003517 spike-08.openstreetmap.org)",
+#'   "copyright": "OpenStreetMap and contributors",
+#'   "attribution": "http://www.openstreetmap.org/copyright",
+#'   "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+#'   "changeset": [
+#'     {
+#'       "id": 10,
+#'       "created_at": "2005-05-01T16:09:37Z",
+#'       "open": false,
+#'       "comments_count": 1,
+#'       "changes_count": 10,
+#'       "closed_at": "2005-05-01T17:16:44Z",
+#'       "min_lat": 59.9513092,
+#'       "min_lon": 10.7719727,
+#'       "max_lat": 59.9561501,
+#'       "max_lon": 10.7994537,
+#'       "uid": 24,
+#'       "user": "Petter Reinholdtsen",
+#'       "comments": [
+#'         {
+#'           "id": 836447,
+#'           "visible": true,
+#'           "date": "2022-03-22T20:58:30Z",
+#'           "uid": 15079200,
+#'           "user": "Ethan White of Cheriton",
+#'           "text": "wow no one have said anything here 3/22/2022\n"
+#'         }
+#'       ]
+#'     },
+#'     ...
+#'   ]
 #' }
 #' ```
 #'

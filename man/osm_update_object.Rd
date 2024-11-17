@@ -22,7 +22,7 @@ Updates data from a preexisting element.
 \details{
 A full representation of the element as it should be after the update has to be provided. Any tags, way-node refs,
 and relation members that remain unchanged must be in the update as well. A version number must be provided as well,
-it must match the current version of the element in the database.
+it \strong{must match} the current version of the element in the database.
 
 If \code{x} is a data.frame, the columns \code{type}, \code{id}, \code{visible}, \code{version}, \code{changeset}, and \code{tags} must be present +
 column \code{members} for ways and relations + \code{lat} and \code{lon} for nodes. For the xml format, see the

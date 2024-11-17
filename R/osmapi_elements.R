@@ -312,7 +312,7 @@ osm_read_object <- function(osm_type = c("node", "way", "relation"),
 #' @details
 #' A full representation of the element as it should be after the update has to be provided. Any tags, way-node refs,
 #' and relation members that remain unchanged must be in the update as well. A version number must be provided as well,
-#' it must match the current version of the element in the database.
+#' it **must match** the current version of the element in the database.
 #'
 #' If `x` is a data.frame, the columns `type`, `id`, `visible`, `version`, `changeset`, and `tags` must be present +
 #' column `members` for ways and relations + `lat` and `lon` for nodes. For the xml format, see the
@@ -547,7 +547,7 @@ osm_delete_object <- function(x, changeset_id) {
 
 #' Get the history of an object
 #'
-#' Retrieves all old versions of an object from OSM.
+#' Retrieves all old versions of an object from OSM, sorted by version number from oldest to newest.
 #'
 #' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
@@ -1080,6 +1080,11 @@ osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
 #' @details
 #' The `redaction_id` is listed on <https://www.openstreetmap.org/redactions>. More information can be found in
 #' [the source](https://git.openstreetmap.org/rails.git/blob/HEAD:/app/controllers/redactions_controller.rb).
+#'
+#' @note
+#' Requires `write_redactions` OAuth scope; before September 2024 required either `write_api` or `write_redactions`, and
+#' before December 2023 required `write_api`; those older scope requirements may still be around on other
+#' openstreetmap-website-based servers such as [OpenHistoricalMap](https://www.openhistoricalmap.org).
 #'
 #' @return Nothing is returned upon successful redaction or unredaction of an object.
 #' @family functions for moderators

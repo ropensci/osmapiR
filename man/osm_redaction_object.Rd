@@ -33,6 +33,11 @@ elements containing data privacy or copyright infringements. Only permitted for 
 The \code{redaction_id} is listed on \url{https://www.openstreetmap.org/redactions}. More information can be found in
 \href{https://git.openstreetmap.org/rails.git/blob/HEAD:/app/controllers/redactions_controller.rb}{the source}.
 }
+\note{
+Requires \code{write_redactions} OAuth scope; before September 2024 required either \code{write_api} or \code{write_redactions}, and
+before December 2023 required \code{write_api}; those older scope requirements may still be around on other
+openstreetmap-website-based servers such as \href{https://www.openhistoricalmap.org}{OpenHistoricalMap}.
+}
 \examples{
 \dontrun{
 ## WARNING: this example will edit the OSM (testing) DB with your user!
