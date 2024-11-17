@@ -29,7 +29,7 @@ If \code{format = "R"}, returns a data frame with a version of the OSM object pe
 returns a list with a json structure following the \href{https://wiki.openstreetmap.org/wiki/OSM_JSON}{OSM_JSON format}.
 }
 \description{
-Retrieves all old versions of an object from OSM.
+Retrieves all old versions of an object from OSM, sorted by version number from oldest to newest.
 }
 \examples{
 node <- osm_history_object(osm_type = "node", osm_id = 35308286)

@@ -126,7 +126,7 @@ test_that("osm_details_logged_user works", {
 })
 
 
-## Preferences of the logged-in user: `GET /api/0.6/user/preferences` ----
+## Preferences of the logged-in user: `GET|PUT|DELETE /api/0.6/user/preferences` ----
 
 test_that("osm_set-get_preferences_user works", {
   with_mock_dir("mock_get_prefs_user", {

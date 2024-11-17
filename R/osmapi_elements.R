@@ -250,7 +250,7 @@ osm_read_object <- function(osm_type = c("node", "way", "relation"),
 
 
 ## Update: `PUT /api/0.6/[node|way|relation]/#id` ----
-# Updates data from a preexisting element. A full representation of the element as it should be after the update has to be provided. Any tags, way-node refs, and relation members that remain unchanged must be in the update as well. A version number must be provided as well, it must match the current version of the element in the database.
+# Updates data from a preexisting element. A full representation of the element as it should be after the update has to be provided. Any tags, way-node refs, and relation members that remain unchanged must be in the update as well. A version number must be provided as well, it '''must match''' the current version of the element in the database.
 #
 # This example is an update of the node 4326396331, updating the version 1 to alter existing tags. This change is made while the changeset with id 188021 is still open:
 # <syntaxhighlight lang="xml">
@@ -261,15 +261,29 @@ osm_read_object <- function(osm_type = c("node", "way", "relation"),
 # </osm>
 # </syntaxhighlight>
 #
+# Example for way 22935194 adding a new key zoning_code with value B. Remember that when making the PUT to an existing way, you need to add all existing tags (excluded here some for brevity) and the same version as the version from OSM
+#
+# <syntaxhighlight lang="xml">
+#   <osm>
+#     <way id="22935194" changeset="152700179" version="9">
+#       <tag k="highway" v="residential"/>
+#       <tag k="zoning_code" v="B"/>
+#       <tag k="name" v="Strada Desseanu"/>
+#     </way>
+#   </osm>
+# </syntaxhighlight>
+#
+#
 ### Response ----
 # Returns the new version number with a content type of `text/plain`.
 #
 ### Error codes ----
 # ; HTTP status code 400 (Bad Request) - `text/plain`
-# : When there are errors parsing the XML. A text message explaining the error is returned. This can also happen if you forget to pass the Content-Length header.
+# : When there are errors parsing the XML. A text message explaining the error is returned.  (Example:  Version is required when updating) This can also happen if you forget to pass the Content-Length header.
 # : When a changeset ID is missing (unfortunately the error messages are not consistent)
 # : When a node is outside the world
 # : When there are too many nodes for a way
+# :
 # ; HTTP status code 409 (Conflict) - `text/plain`
 # : When the version of the provided element does not match the current database version of the element
 # : If the changeset in question has already been closed (either by the user itself or as a result of the auto-closing feature). A message with the format "`The changeset #id was closed at #closed_at.`" is returned
@@ -298,7 +312,7 @@ osm_read_object <- function(osm_type = c("node", "way", "relation"),
 #' @details
 #' A full representation of the element as it should be after the update has to be provided. Any tags, way-node refs,
 #' and relation members that remain unchanged must be in the update as well. A version number must be provided as well,
-#' it must match the current version of the element in the database.
+#' it **must match** the current version of the element in the database.
 #'
 #' If `x` is a data.frame, the columns `type`, `id`, `visible`, `version`, `changeset`, and `tags` must be present +
 #' column `members` for ways and relations + `lat` and `lon` for nodes. For the xml format, see the
@@ -525,7 +539,7 @@ osm_delete_object <- function(x, changeset_id) {
 
 
 ## History: `GET /api/0.6/[node|way|relation]/#id/history` ----
-# Retrieves all old versions of an element. ([https://api.openstreetmap.org/api/0.6/way/250066046/history example])
+# Retrieves all old versions of an element, sorted by version number from oldest to newest. ([https://api.openstreetmap.org/api/0.6/way/250066046/history example])
 #
 ### Error codes ----
 # ; HTTP status code 404 (Not Found)
@@ -533,7 +547,7 @@ osm_delete_object <- function(x, changeset_id) {
 
 #' Get the history of an object
 #'
-#' Retrieves all old versions of an object from OSM.
+#' Retrieves all old versions of an object from OSM, sorted by version number from oldest to newest.
 #'
 #' @param osm_type Object type (`"node"`, `"way"` or `"relation"`).
 #' @param osm_id Object id represented by a numeric or a character value.
@@ -662,7 +676,7 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 ### Parameters ----
 # ; [nodes|ways|relations]=comma separated list
 # : The parameter has to be the same in the URL (e.g. /api/0.6/nodes?nodes=123,456,789)
-# : Version numbers for each object may be optionally provided following a lowercase "v" character, e.g. /api/0.6/nodes?nodes=421586779v1,421586779v2
+# : Version numbers for each object may be optionally provided following a lowercase "v" character, e.g. /api/0.6/nodes?nodes=421586779v1,421586779v2  (Currently supported only in CGImap, used on osm.org https://github.com/openstreetmap/openstreetmap-website/pull/1189/)
 #
 ### Error codes ----
 # ; HTTP status code 400 (Bad Request)
@@ -1042,7 +1056,7 @@ osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
 #
 ### Notes ----
 # * only permitted for OSM accounts with the moderator role (DWG and server admins)
-# * requires either <code>write_redactions</code> or <code>write_api</code> OAuth scope; <code>write_redactions</code> is being phased out
+# * requires <code>write_redactions</code> OAuth scope; before September 2024 required either <code>write_api</code> or <code>write_redactions</code>, and before December 2023 required <code>write_api</code>; those older scope requirements may still be around on other openstreetmap-website-based servers such as [[OpenHistoricalMap]]
 # * the #redaction_id is listed on https://www.openstreetmap.org/redactions
 # * more information can be found in [https://git.openstreetmap.org/rails.git/blob/HEAD:/app/controllers/redactions_controller.rb the source]
 # * This is an extremely specialized call
@@ -1066,6 +1080,11 @@ osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
 #' @details
 #' The `redaction_id` is listed on <https://www.openstreetmap.org/redactions>. More information can be found in
 #' [the source](https://git.openstreetmap.org/rails.git/blob/HEAD:/app/controllers/redactions_controller.rb).
+#'
+#' @note
+#' Requires `write_redactions` OAuth scope; before September 2024 required either `write_api` or `write_redactions`, and
+#' before December 2023 required `write_api`; those older scope requirements may still be around on other
+#' openstreetmap-website-based servers such as [OpenHistoricalMap](https://www.openhistoricalmap.org).
 #'
 #' @return Nothing is returned upon successful redaction or unredaction of an object.
 #' @family functions for moderators

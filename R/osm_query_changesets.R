@@ -6,7 +6,11 @@
 #' @param user Find changesets by the user with the given user id (numeric) or display name (character).
 #' @param time Find changesets **closed** after this date and time. See details for the valid formats.
 #' @param time_2 find changesets that were **closed** after `time` and **created** before `time_2`. In other words, any
-#'   changesets that were open **at some time** during the given time range `time` to `time_2`.
+#'   changesets that were open **at some time** during the given time range `time` to `time_2`.  See details for the
+#'   valid formats.
+#' @param from Find changesets **created** at or after this value. See details for the valid formats.
+#' @param to Find changesets **created** before this value. `to` requires `from`, but not vice-versa. If `to` is
+#'   provided alone, it has no effect. See details for the valid formats.
 #' @param open If `TRUE`, only finds changesets that are still **open** but excludes changesets that are closed or have
 #'   reached the element limit for a changeset (10,000 at the moment `osm_capabilities()$api$changesets`).
 #' @param closed If `TRUE`, only finds changesets that are **closed** or have reached the element limit.
@@ -32,8 +36,9 @@
 #' – see the [current state](https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174)).
 #' Reverse ordering cannot be combined with `time`.
 #'
-#' Te valid formats for `time` and `time_2` parameters are anything that
-#' [`Time.parse` Ruby function](https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse) will parse.
+#' Te valid formats for `time`, `time_2`, `from` and `to` parameters are [POSIXt] values or characters with anything
+#' that [`Time.parse` Ruby function](https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse) will
+#' parse.
 #'
 #' @return
 #' If `format = "R"`, returns a data frame with one OSM changeset per row. If `format = "sf"`, returns a `sf` object
@@ -42,48 +47,51 @@
 #' ## `format = "xml"`
 #' Returns a [xml2::xml_document-class] with the following format:
 #' ``` xml
-#' <osm>
-#' 	<changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
-#' 		<tag k="created_by" v="JOSM 1.61"/>
-#' 		<tag k="comment" v="Just adding some streetnames"/>
-#' 		...
-#' 		<discussion>
-#' 			<comment date="2015-01-01T18:56:48Z" uid="1841" user="metaodi">
-#' 				<text>Did you verify those street names?</text>
-#' 			</comment>
-#' 			<comment date="2015-01-01T18:58:03Z" uid="123" user="fred">
-#' 				<text>sure!</text>
-#' 			</comment>
-#' 			...
-#' 		</discussion>
-#' 	</changeset>
-#' 	<changeset ...>
-#' 	  ...
-#' 	</changeset>
+#' <osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+#'   <changeset id="10" created_at="2005-05-01T16:09:37Z" open="false" comments_count="1" changes_count="10" closed_at="2005-05-01T17:16:44Z" min_lat="59.9513092" min_lon="10.7719727" max_lat="59.9561501" max_lon="10.7994537" uid="24" user="Petter Reinholdtsen">
+#'     <tag k="created_by" v="JOSM 1.61"/>
+#'     <tag k="comment" v="Just adding some streetnames"/>
+#'     ...
+#'   </changeset>
+#'   <changeset ...>
+#'     ...
+#'   </changeset>
 #' </osm>
 #' ```
 #'
 #' ## `format = "json"`
+#' *Please note that the JSON format has changed on August 25, 2024 with the release of openstreetmap-cgimap 2.0.0, to*
+#' *align it with the existing Rails format.*
+#'
 #' Returns a list with the following json structure:
 #' ``` json
 #' {
-#'  "version": "0.6",
-#'  "elements": [
-#'   {"type": "changeset",
-#'    "id": 10,
-#'    "created_at": "2005-05-01T16:09:37Z",
-#'    "closed_at": "2005-05-01T17:16:44Z",
-#'    "open": False,
-#'    "user": "Petter Reinholdtsen",
-#'    "uid": 24,
-#'    "minlat": 59.9513092,
-#'    "minlon": 10.7719727,
-#'    "maxlat": 59.9561501,
-#'    "maxlon": 10.7994537,
-#'    "comments_count": 1,
-#'    "changes_count": 10,
-#'    "discussion": [{"date": "2022-03-22T20:58:30Z", "uid": 15079200, "user": "Ethan White of Cheriton", "text": "wow no one have said anything here 3/22/2022\n"}]
-#'   }, ...]
+#'   "version": "0.6",
+#'   "generator": "openstreetmap-cgimap 2.0.0 (4003517 spike-08.openstreetmap.org)",
+#'   "copyright": "OpenStreetMap and contributors",
+#'   "attribution": "http://www.openstreetmap.org/copyright",
+#'   "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+#'   "changesets": [
+#'     {
+#'       "id": 10,
+#'       "created_at": "2005-05-01T16:09:37Z",
+#'       "open": false,
+#'       "comments_count": 1,
+#'       "changes_count": 10,
+#'       "closed_at": "2005-05-01T17:16:44Z",
+#'       "min_lat": 59.9513092,
+#'       "min_lon": 10.7719727,
+#'       "max_lat": 59.9561501,
+#'       "max_lon": 10.7994537,
+#'       "uid": 24,
+#'       "user": "Petter Reinholdtsen",
+#'       "tags": {
+#'           "comment": "Just adding some streetnames",
+#'           "created_by": "JOSM 1.61"
+#'       }
+#'     },
+#'     ...
+#'   ]
 #' }
 #' ```
 #'
@@ -108,7 +116,8 @@
 #'   closed = TRUE
 #' )
 #' chsts2
-osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changeset_ids, order = c("newest", "oldest"),
+osm_query_changesets <- function(bbox, user, time, time_2, from, to, open, closed, changeset_ids,
+                                 order = c("newest", "oldest"),
                                  limit = getOption("osmapir.api_capabilities")$api$changesets["default_query_limit"],
                                  format = c("R", "sf", "xml", "json"), tags_in_columns = FALSE) {
   format <- match.arg(format)
@@ -136,6 +145,13 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
     time_2 <- NULL
   }
   stopifnot(is.null(time) && is.null(time_2) || !is.null(time))
+
+  if (missing(from)) {
+    from <- NULL
+  }
+  if (missing(to)) {
+    to <- NULL
+  }
 
   if (missing(open)) {
     open <- NULL
@@ -176,7 +192,7 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
 
   if (limit <= getOption("osmapir.api_capabilities")$api$changesets["maximum_query_limit"]) { # no batch needed
     out <- .osm_query_changesets(
-      bbox = bbox, user = user, time = time, time_2 = time_2, open = open, closed = closed,
+      bbox = bbox, user = user, time = time, time_2 = time_2, from = from, to = to, open = open, closed = closed,
       changeset_ids = changeset_ids, order = order, limit = limit, format = .format, tags_in_columns = tags_in_columns
     )
 
@@ -206,7 +222,7 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
   ## TODO: simplify and split in different functions ----
   while (n_out < limit && n > 0) {
     outL[[i]] <- .osm_query_changesets(
-      bbox = bbox, user = user, time = time, time_2 = time_2, open = open, closed = closed,
+      bbox = bbox, user = user, time = time, time_2 = time_2, from = from, to = to, open = open, closed = closed,
       changeset_ids = changeset_ids, order = order,
       limit = min(limit - n_out, getOption("osmapir.api_capabilities")$api$changesets["maximum_query_limit"]),
       format = .format, tags_in_columns = FALSE

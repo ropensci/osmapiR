@@ -45,6 +45,7 @@ cdf
 ce
 cff
 CGImap
+cgimap
 Changelog
 changelogs
 changeset
@@ -102,6 +103,7 @@ deca
 del
 desc
 describeIn
+Desseanu
 dev
 developmentStatus
 devtools
@@ -292,6 +294,8 @@ OLTAmk
 onAttach
 onLoad
 opendatacommons
+OpenHistoricalMap
+openhistoricalmap
 OpenStreetBugs
 openstreetmap
 OpenStreetMap
@@ -321,6 +325,7 @@ OsmChange's
 osmdata
 osmextract
 osmfoundation
+OSMWikiVersion
 osn
 outL
 packageEvent
@@ -422,6 +427,7 @@ spdx
 sprintf
 stdlib
 stopifnot
+Strada
 streetnames
 strftime
 strsplit

@@ -267,6 +267,12 @@ test_that("osm_query_changesets works", {
       time = "2023-06-22T02:23:23Z",
       time_2 = "2023-06-22T00:38:20Z"
     )
+    chaset$from_to <- osm_query_changesets(
+      bbox = c(-1.241112, 38.0294955, 8.4203171, 42.9186456),
+      user = "Mementomoristultus",
+      from = as.POSIXlt("2023-06-22T00:38:20Z", tz = "GMT", format = "%Y-%m-%dT%H:%M:%S"),
+      to = as.POSIXlt("2023-06-22T02:23:23Z", tz = "GMT", format = "%Y-%m-%dT%H:%M:%S")
+    )
     chaset$closed <- osm_query_changesets(
       bbox = "-9.3015367,41.8073642,-6.7339533,43.790422",
       user = "Mementomoristultus",

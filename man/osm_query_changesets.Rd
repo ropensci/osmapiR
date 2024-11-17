@@ -9,6 +9,8 @@ osm_query_changesets(
   user,
   time,
   time_2,
+  from,
+  to,
   open,
   closed,
   changeset_ids,
@@ -26,7 +28,13 @@ osm_query_changesets(
 \item{time}{Find changesets \strong{closed} after this date and time. See details for the valid formats.}
 
 \item{time_2}{find changesets that were \strong{closed} after \code{time} and \strong{created} before \code{time_2}. In other words, any
-changesets that were open \strong{at some time} during the given time range \code{time} to \code{time_2}.}
+changesets that were open \strong{at some time} during the given time range \code{time} to \code{time_2}.  See details for the
+valid formats.}
+
+\item{from}{Find changesets \strong{created} at or after this value. See details for the valid formats.}
+
+\item{to}{Find changesets \strong{created} before this value. \code{to} requires \code{from}, but not vice-versa. If \code{to} is
+provided alone, it has no effect. See details for the valid formats.}
 
 \item{open}{If \code{TRUE}, only finds changesets that are still \strong{open} but excludes changesets that are closed or have
 reached the element limit for a changeset (10,000 at the moment \code{osm_capabilities()$api$changesets}).}
@@ -52,50 +60,53 @@ from \pkg{sf}.
 
 Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
 
-\if{html}{\out{<div class="sourceCode xml">}}\preformatted{<osm>
-	<changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
-		<tag k="created_by" v="JOSM 1.61"/>
-		<tag k="comment" v="Just adding some streetnames"/>
-		...
-		<discussion>
-			<comment date="2015-01-01T18:56:48Z" uid="1841" user="metaodi">
-				<text>Did you verify those street names?</text>
-			</comment>
-			<comment date="2015-01-01T18:58:03Z" uid="123" user="fred">
-				<text>sure!</text>
-			</comment>
-			...
-		</discussion>
-	</changeset>
-	<changeset ...>
-	  ...
-	</changeset>
+\if{html}{\out{<div class="sourceCode xml">}}\preformatted{<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+  <changeset id="10" created_at="2005-05-01T16:09:37Z" open="false" comments_count="1" changes_count="10" closed_at="2005-05-01T17:16:44Z" min_lat="59.9513092" min_lon="10.7719727" max_lat="59.9561501" max_lon="10.7994537" uid="24" user="Petter Reinholdtsen">
+    <tag k="created_by" v="JOSM 1.61"/>
+    <tag k="comment" v="Just adding some streetnames"/>
+    ...
+  </changeset>
+  <changeset ...>
+    ...
+  </changeset>
 </osm>
 }\if{html}{\out{</div>}}
 }
 
 \subsection{\code{format = "json"}}{
 
+\emph{Please note that the JSON format has changed on August 25, 2024 with the release of openstreetmap-cgimap 2.0.0, to}
+\emph{align it with the existing Rails format.}
+
 Returns a list with the following json structure:
 
 \if{html}{\out{<div class="sourceCode json">}}\preformatted{\{
- "version": "0.6",
- "elements": [
-  \{"type": "changeset",
-   "id": 10,
-   "created_at": "2005-05-01T16:09:37Z",
-   "closed_at": "2005-05-01T17:16:44Z",
-   "open": False,
-   "user": "Petter Reinholdtsen",
-   "uid": 24,
-   "minlat": 59.9513092,
-   "minlon": 10.7719727,
-   "maxlat": 59.9561501,
-   "maxlon": 10.7994537,
-   "comments_count": 1,
-   "changes_count": 10,
-   "discussion": [\{"date": "2022-03-22T20:58:30Z", "uid": 15079200, "user": "Ethan White of Cheriton", "text": "wow no one have said anything here 3/22/2022\\n"\}]
-  \}, ...]
+  "version": "0.6",
+  "generator": "openstreetmap-cgimap 2.0.0 (4003517 spike-08.openstreetmap.org)",
+  "copyright": "OpenStreetMap and contributors",
+  "attribution": "http://www.openstreetmap.org/copyright",
+  "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+  "changesets": [
+    \{
+      "id": 10,
+      "created_at": "2005-05-01T16:09:37Z",
+      "open": false,
+      "comments_count": 1,
+      "changes_count": 10,
+      "closed_at": "2005-05-01T17:16:44Z",
+      "min_lat": 59.9513092,
+      "min_lon": 10.7719727,
+      "max_lat": 59.9561501,
+      "max_lon": 10.7994537,
+      "uid": 24,
+      "user": "Petter Reinholdtsen",
+      "tags": \{
+          "comment": "Just adding some streetnames",
+          "created_by": "JOSM 1.61"
+      \}
+    \},
+    ...
+  ]
 \}
 }\if{html}{\out{</div>}}
 }
@@ -117,8 +128,9 @@ This call returns latest changesets matching criteria. The default ordering is n
 – see the \href{https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174}{current state}).
 Reverse ordering cannot be combined with \code{time}.
 
-Te valid formats for \code{time} and \code{time_2} parameters are anything that
-\href{https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse}{\code{Time.parse} Ruby function} will parse.
+Te valid formats for \code{time}, \code{time_2}, \code{from} and \code{to} parameters are \link{POSIXt} values or characters with anything
+that \href{https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse}{\code{Time.parse} Ruby function} will
+parse.
 }
 \examples{
 chst_ids <- osm_query_changesets(changeset_ids = c(137627129, 137625624))
