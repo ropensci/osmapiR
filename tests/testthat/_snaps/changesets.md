@@ -205,6 +205,24 @@
     Code
       print(x)
     Output
+               id          created_at           closed_at  open               user
+      1 137626916 2023-06-22 02:05:19 2023-06-22 02:05:19 FALSE Mementomoristultus
+      2 137626898 2023-06-22 02:03:57 2023-06-22 02:03:57 FALSE Mementomoristultus
+             uid    min_lat   min_lon    max_lat   max_lon comments_count
+      1 19648429 38.9100720 1.4302823 38.9101137 1.4304540              1
+      2 19648429 38.8835173 1.3845938 38.9299968 1.4634214              0
+        changes_count
+      1             1
+      2             1
+                                                                                       tags
+      1 6 tags: changesets_count=146 | comment=23 | created_by=iD 2.25.2 | host=https://...
+      2 6 tags: changesets_count=145 | comment=112 | created_by=iD 2.25.2 | host=https:/...
+
+---
+
+    Code
+      print(x)
+    Output
                 id          created_at           closed_at  open               user
       1  137626978 2023-06-22 02:10:24 2023-06-22 02:10:24 FALSE Mementomoristultus
       2  137626972 2023-06-22 02:09:43 2023-06-22 02:09:44 FALSE Mementomoristultus

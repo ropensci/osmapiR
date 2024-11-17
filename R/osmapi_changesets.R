@@ -557,9 +557,14 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 #'
 #' @param bbox Find changesets within the given bounding box coordinates (`left,bottom,right,top`).
 #' @param user Find changesets by the user with the given user id (numeric) or display name (character).
-#' @param time Find changesets **closed** after this date and time. See details for the valid formats.
-#' @param time_2 find changesets that were **closed** after `time` and **created** before `time_2`. In other words, any
-#'   changesets that were open **at some time** during the given time range `time` to `time_2`.
+#' @param time Find changesets **closed** after this date and time. Compare with `from=T1` which filters by creation
+#'   time instead. See details for the valid formats.
+#' @param time_2 Find changesets that were **closed** after `time` and **created** before `time_2`. In other words, any
+#'   changesets that were open **at some time** during the given time range `time` to `time_2`. See details for the
+#'   valid formats.
+#' @param from Find changesets **created** at or after this value. See details for the valid formats.
+#' @param to Find changesets **created** before this value. `to` requires `from`, but not vice-versa. If `to` is
+#'   provided alone, it has no effect. See details for the valid formats.
 #' @param open If `TRUE`, only finds changesets that are still **open** but excludes changesets that are closed or have
 #'   reached the element limit for a changeset (10,000 at the moment `osm_capabilities()$api$changesets`).
 #' @param closed If `TRUE`, only finds changesets that are **closed** or have reached the element limit.
@@ -586,8 +591,9 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 #' – see the [current state](https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174)).
 #' Reverse ordering cannot be combined with `time`.
 #'
-#' Te valid formats for `time` and `time_2` parameters are anything that
-#' [`Time.parse` Ruby function](https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse) will parse.
+#' Te valid formats for `time`, `time_2`, `from` and `to` parameters are [POSIXt] values or characters with anything
+#' that [`Time.parse` Ruby function](https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse) will
+#' parse.
 #'
 #' @return
 #' If `format = "R"`, returns a data frame with one OSM changeset per row.
@@ -661,8 +667,8 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 #'   closed = "true"
 #' )
 #' chsts2
-.osm_query_changesets <- function(bbox = NULL, user = NULL, time = NULL, time_2 = NULL, open = NULL, closed = NULL,
-                                  changeset_ids = NULL, order = NULL,
+.osm_query_changesets <- function(bbox = NULL, user = NULL, time = NULL, time_2 = NULL, from = NULL, to = NULL,
+                                  open = NULL, closed = NULL, changeset_ids = NULL, order = NULL,
                                   limit = getOption(
                                     "osmapir.api_capabilities"
                                   )$api$changesets["default_query_limit"],
@@ -688,6 +694,13 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
     time <- paste0(time, ",", time_2)
   }
 
+  if (!is.null(from) && inherits(from, "POSIXt")) {
+    from <- format(from, "%Y-%m-%dT%H:%M:%SZ")
+  }
+  if (!is.null(to) && inherits(to, "POSIXt")) {
+    to <- format(to, "%Y-%m-%dT%H:%M:%SZ")
+  }
+
   if (format == "json") {
     ext <- "changesets.json"
   } else {
@@ -700,7 +713,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
   req <- httr2::req_url_query(req,
     bbox = bbox,
     user = user, display_name = display_name,
-    time = time,
+    time = time, from = from, to = to,
     open = open, closed = closed,
     changesets = changeset_ids,
     order = order,

@@ -6,7 +6,11 @@
 #' @param user Find changesets by the user with the given user id (numeric) or display name (character).
 #' @param time Find changesets **closed** after this date and time. See details for the valid formats.
 #' @param time_2 find changesets that were **closed** after `time` and **created** before `time_2`. In other words, any
-#'   changesets that were open **at some time** during the given time range `time` to `time_2`.
+#'   changesets that were open **at some time** during the given time range `time` to `time_2`.  See details for the
+#'   valid formats.
+#' @param from Find changesets **created** at or after this value. See details for the valid formats.
+#' @param to Find changesets **created** before this value. `to` requires `from`, but not vice-versa. If `to` is
+#'   provided alone, it has no effect. See details for the valid formats.
 #' @param open If `TRUE`, only finds changesets that are still **open** but excludes changesets that are closed or have
 #'   reached the element limit for a changeset (10,000 at the moment `osm_capabilities()$api$changesets`).
 #' @param closed If `TRUE`, only finds changesets that are **closed** or have reached the element limit.
@@ -32,8 +36,9 @@
 #' – see the [current state](https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174)).
 #' Reverse ordering cannot be combined with `time`.
 #'
-#' Te valid formats for `time` and `time_2` parameters are anything that
-#' [`Time.parse` Ruby function](https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse) will parse.
+#' Te valid formats for `time`, `time_2`, `from` and `to` parameters are [POSIXt] values or characters with anything
+#' that [`Time.parse` Ruby function](https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse) will
+#' parse.
 #'
 #' @return
 #' If `format = "R"`, returns a data frame with one OSM changeset per row. If `format = "sf"`, returns a `sf` object
@@ -111,7 +116,8 @@
 #'   closed = TRUE
 #' )
 #' chsts2
-osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changeset_ids, order = c("newest", "oldest"),
+osm_query_changesets <- function(bbox, user, time, time_2, from, to, open, closed, changeset_ids,
+                                 order = c("newest", "oldest"),
                                  limit = getOption("osmapir.api_capabilities")$api$changesets["default_query_limit"],
                                  format = c("R", "sf", "xml", "json"), tags_in_columns = FALSE) {
   format <- match.arg(format)
@@ -139,6 +145,13 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
     time_2 <- NULL
   }
   stopifnot(is.null(time) && is.null(time_2) || !is.null(time))
+
+  if (missing(from)) {
+    from <- NULL
+  }
+  if (missing(to)) {
+    to <- NULL
+  }
 
   if (missing(open)) {
     open <- NULL
@@ -179,7 +192,7 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
 
   if (limit <= getOption("osmapir.api_capabilities")$api$changesets["maximum_query_limit"]) { # no batch needed
     out <- .osm_query_changesets(
-      bbox = bbox, user = user, time = time, time_2 = time_2, open = open, closed = closed,
+      bbox = bbox, user = user, time = time, time_2 = time_2, from = from, to = to, open = open, closed = closed,
       changeset_ids = changeset_ids, order = order, limit = limit, format = .format, tags_in_columns = tags_in_columns
     )
 
@@ -209,7 +222,7 @@ osm_query_changesets <- function(bbox, user, time, time_2, open, closed, changes
   ## TODO: simplify and split in different functions ----
   while (n_out < limit && n > 0) {
     outL[[i]] <- .osm_query_changesets(
-      bbox = bbox, user = user, time = time, time_2 = time_2, open = open, closed = closed,
+      bbox = bbox, user = user, time = time, time_2 = time_2, from = from, to = to, open = open, closed = closed,
       changeset_ids = changeset_ids, order = order,
       limit = min(limit - n_out, getOption("osmapir.api_capabilities")$api$changesets["maximum_query_limit"]),
       format = .format, tags_in_columns = FALSE

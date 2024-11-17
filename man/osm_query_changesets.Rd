@@ -9,6 +9,8 @@ osm_query_changesets(
   user,
   time,
   time_2,
+  from,
+  to,
   open,
   closed,
   changeset_ids,
@@ -26,7 +28,13 @@ osm_query_changesets(
 \item{time}{Find changesets \strong{closed} after this date and time. See details for the valid formats.}
 
 \item{time_2}{find changesets that were \strong{closed} after \code{time} and \strong{created} before \code{time_2}. In other words, any
-changesets that were open \strong{at some time} during the given time range \code{time} to \code{time_2}.}
+changesets that were open \strong{at some time} during the given time range \code{time} to \code{time_2}.  See details for the
+valid formats.}
+
+\item{from}{Find changesets \strong{created} at or after this value. See details for the valid formats.}
+
+\item{to}{Find changesets \strong{created} before this value. \code{to} requires \code{from}, but not vice-versa. If \code{to} is
+provided alone, it has no effect. See details for the valid formats.}
 
 \item{open}{If \code{TRUE}, only finds changesets that are still \strong{open} but excludes changesets that are closed or have
 reached the element limit for a changeset (10,000 at the moment \code{osm_capabilities()$api$changesets}).}
@@ -120,8 +128,9 @@ This call returns latest changesets matching criteria. The default ordering is n
 – see the \href{https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174}{current state}).
 Reverse ordering cannot be combined with \code{time}.
 
-Te valid formats for \code{time} and \code{time_2} parameters are anything that
-\href{https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse}{\code{Time.parse} Ruby function} will parse.
+Te valid formats for \code{time}, \code{time_2}, \code{from} and \code{to} parameters are \link{POSIXt} values or characters with anything
+that \href{https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse}{\code{Time.parse} Ruby function} will
+parse.
 }
 \examples{
 chst_ids <- osm_query_changesets(changeset_ids = c(137627129, 137625624))
