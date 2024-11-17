@@ -8,7 +8,7 @@
   "codeRepository": "https://github.com/ropensci/osmapiR",
   "issueTracker": "https://github.com/ropensci/osmapiR/issues",
   "license": "https://spdx.org/licenses/GPL-3.0",
-  "version": "0.2.1.9001",
+  "version": "0.2.1.9003",
   "programmingLanguage": {
     "@type": "ComputerLanguage",
     "name": "R",
@@ -140,6 +140,7 @@
       "@type": "SoftwareApplication",
       "identifier": "httr2",
       "name": "httr2",
+      "version": ">= 1.0.6",
       "provider": {
         "@id": "https://cran.r-project.org",
         "@type": "Organization",
@@ -163,7 +164,7 @@
     "SystemRequirements": null
   },
   "keywords": ["openstreetmap", "OSM", "openstreetmap-api", "osmapi", "API", "osm", "r", "r-package"],
-  "fileSize": "14094.004KB",
+  "fileSize": "14106.292KB",
   "citation": [
     {
       "@type": "ScholarlyArticle",
@@ -179,7 +180,7 @@
       ],
       "name": "osmapiR: An 'OpenStreetMap API' implementation for R",
       "identifier": "10.21105/joss.07151",
-      "description": "R package version 0.2.1.9001",
+      "description": "R package version 0.2.1.9003",
       "pagination": "7151",
       "@id": "https://doi.org/10.21105/joss.07151",
       "sameAs": "https://doi.org/10.21105/joss.07151",

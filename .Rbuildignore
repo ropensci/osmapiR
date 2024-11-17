@@ -16,3 +16,4 @@
 ^paper\.bib$
 ^paper\.md$
 ^pkgdown$
+^revdep$
