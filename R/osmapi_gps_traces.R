@@ -117,7 +117,9 @@
 }
 
 
-## Create: `POST /api/0.6/gpx/create` ----
+## Create: `POST /api/0.6/gpx` ----
+#
+# Also available at `POST /api/0.6/gpx/create` (deprecated)
 #
 # Use this to upload a GPX file or archive of GPX files. Requires authentication.
 #
@@ -292,8 +294,9 @@ osm_update_gpx <- function(gpx_id, name, description, tags,
 }
 
 
-## Download Metadata: `GET /api/0.6/gpx/#id/details` ----
-# Also available at `GET /api/0.6/gpx/#id`
+## Download Metadata: `GET /api/0.6/gpx/#id` ----
+#
+# Also available at `GET /api/0.6/gpx/#id/details` (deprecated)
 #
 # Use this to access the metadata about a GPX file. Available without authentication if the file is marked public. Otherwise only usable by the owner account and requires authentication.
 # Example "details" response:

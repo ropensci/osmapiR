@@ -22,6 +22,9 @@
 # : if the text field was not present
 # ; HTTP status code 409 (Conflict)
 # : The changeset is not closed
+#
+### Notes ----
+# * requires either <code>write_api</code> or <code>write_changeset_comments</code> OAuth scope
 
 #' Comment a changeset
 #'
@@ -59,12 +62,14 @@ osm_comment_changeset_discussion <- function(changeset_id, comment) { # TODO: , 
 }
 
 
-## Subscribe: `POST /api/0.6/changeset/#id/subscribe` ----
+## Subscribe: `POST /api/0.6/changeset/#id/subscription` ----
+#
+# Also available at `POST /api/0.6/changeset/#id/subscribe` (deprecated)
 #
 # Subscribe to the discussion of a changeset to receive notifications for new comments.
 #
-# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/changeset/#id/subscribe
-# </code> ([https://api.openstreetmap.org/api/0.6/changeset/1000/subscribe example])<br />
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/changeset/#id/subscription
+# </code> ([https://api.openstreetmap.org/api/0.6/changeset/1000/subscription example])<br />
 # '''Return type:''' application/xml<br />
 #
 # This request needs to be done as an authenticated user.
@@ -104,12 +109,14 @@ osm_subscribe_changeset_discussion <- function(changeset_id) { # TODO: , format 
 }
 
 
-## Unsubscribe: `POST /api/0.6/changeset/#id/unsubscribe` ----
+## Unsubscribe: `DELETE /api/0.6/changeset/#id/subscription` ----
+#
+# Also available at `POST /api/0.6/changeset/#id/unsubscribe` (deprecated)
 #
 # Unsubscribe from the discussion of a changeset to stop receiving notifications.
 #
-# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/changeset/#id/unsubscribe
-# </code> ([https://api.openstreetmap.org/api/0.6/changeset/1000/unsubscribe example])<br />
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/changeset/#id/subscription
+# </code> ([https://api.openstreetmap.org/api/0.6/changeset/1000/subscription example])<br />
 # '''Return type:''' application/xml<br />
 #
 # This request needs to be done as an authenticated user.
@@ -136,7 +143,9 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , forma
 }
 
 
-## Hide changeset comment: `POST /api/0.6/changeset/comment/#comment_id/hide` ----
+## Hide changeset comment: `DELETE /api/0.6/changeset_comments/#id/visibility` ----
+#
+# Also available at `POST /api/0.6/changeset/comment/#comment_id/hide` (deprecated)
 #
 # Sets visible flag on changeset comment to false.
 #
@@ -152,6 +161,9 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , forma
 # : if the user is not a moderator
 # ; HTTP status code 404 (Not Found)
 # : if the changeset comment id is unknown
+#
+### Notes ----
+# * requires either <code>write_api</code> or <code>write_changeset_comments</code> OAuth scope
 
 #' Hide or unhide a changeset comment
 #'
@@ -186,11 +198,13 @@ osm_hide_comment_changeset_discussion <- function(comment_id) { # TODO: , format
 }
 
 
-## Unhide changeset comment: `POST /api/0.6/changeset/comment/#comment_id/unhide` ----
+## Unhide changeset comment: `POST /api/0.6/changeset_comments/#id/visibility` ----
+#
+# Also available at `POST /api/0.6/changeset/comment/#comment_id/unhide` (deprecated)
 #
 # Sets visible flag on changeset comment to true.
 #
-# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/changeset/comment/#comment_id/unhide</code><br />
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/changeset_comments/#id/visibility</code><br />
 # '''Return type:''' application/xml<br />
 #
 # This request needs to be done as an authenticated user with moderator role.
@@ -202,6 +216,9 @@ osm_hide_comment_changeset_discussion <- function(comment_id) { # TODO: , format
 # : if the user is not a moderator
 # ; HTTP status code 404 (Not Found)
 # : if the changeset comment id is unknown
+#
+### Notes ----
+# * requires either <code>write_api</code> or <code>write_changeset_comments</code> OAuth scope
 
 #' @describeIn osm_hide_comment_changeset_discussion Sets visible flag on changeset comment to true.
 #' @export

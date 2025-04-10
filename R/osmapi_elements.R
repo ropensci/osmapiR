@@ -2,7 +2,10 @@
 # There are create, read, update and delete calls for all of the three basic elements in OpenStreetMap (''Nodes'', ''Ways'' and ''Relations''). These calls are very similar except for the payload and a few special error messages so they are documented only once.
 
 
-## Create: `PUT /api/0.6/[node|way|relation]/create` ----
+## Create: `POST /api/0.6/[nodes|ways|relations]` ----
+#
+# Also available at `PUT /api/0.6/[node|way|relation]/create` (deprecated)
+#
 # Creates a new element of the specified type. Note that the entire request should be wrapped in a <code><osm>...</osm></code> element.
 #
 # A Node:
@@ -406,7 +409,7 @@ osm_update_object <- function(x, changeset_id) {
 # </osm>
 # </syntaxhighlight>
 #
-# Where the node ID in the XML must match the ID in the URL, the version must match the version of the element you downloaded and the changeset must match the ID of an open changeset owned by the current authenticated user. It is allowed, but not necessary, to have tags on the element except for lat/long tags which are required, without lat+lon the server gives 400 Bad request.
+# Where the node ID in the XML must match the ID in the URL, the version must match the version of the element you downloaded and the changeset must match the ID of an open changeset owned by the current authenticated user. It is allowed, but not necessary, to have tags on the element except for lat/lon tags which are required, without lat+lon the server gives 400 Bad request.
 #
 ### Response ----
 # Returns the new version number with a content type of `text/plain`.
@@ -434,8 +437,8 @@ osm_update_object <- function(x, changeset_id) {
 # : When a node is still member of a relation: `Node #{id} is still used by relation #{relation.id}.`
 # : When a way is still member of a relation: `Way #{id} still used by relation #{relation.id}.`
 # : When a relation is still member of another relation: `The relation #{id} is used in relation #{relation.id}.`
-# :
-# : Note when returned as a result of a OsmChange upload operation the error messages contain a spurious plural "s" as in "... still used by ways ...", "... still used by relations ..." even when only 1 way or relation id is returned, as this implies multiple ids can be returned if the deleted object was/is a member of multiple parent objects, these ids are seperated by commas.
+# : Note when returned as a result of a OsmChange upload operation the error messages contain a spurious plural "s" as in "... still used by ways ...", "... still used by relations ..." even when only 1 way or relation id is returned, as this implies multiple ids can be returned if the deleted object was/is a member of multiple parent objects, these ids are separated by commas. Note that the Rails API and CGIMAP have inconsistent behaviour wrt the plural "s".
+#
 # ; HTTP status code 429 (Too many requests)
 # : When the request has been blocked due to rate limiting
 #
