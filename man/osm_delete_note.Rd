@@ -35,6 +35,7 @@ Other edit notes' functions:
 \code{\link{osm_create_note}()}
 
 Other functions for moderators: 
+\code{\link{osm_create_user_block}()},
 \code{\link{osm_hide_comment_changeset_discussion}()},
 \code{\link{osm_redaction_object}()}
 }

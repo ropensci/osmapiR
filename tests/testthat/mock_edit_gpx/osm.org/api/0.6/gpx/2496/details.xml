@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
-<gpx_file id="2496" name="sample.gpx" uid="12141" user="jmaspons" visibility="private" pending="true" timestamp="2024-05-23T15:34:49Z">
-  <description>Test create gpx with osmapiR.</description>
-  <tag>osmapiR</tag>
-  <tag>testing</tag>
-</gpx_file>
-</osm>

@@ -25,8 +25,12 @@ oauth_request <- function(req) {
     "oauth2", "authorize"
   )$url
 
-  scope <- c("read_prefs", "write_prefs", "write_api", "read_gpx", "write_gpx", "write_notes")
+  scope <- c(
+    "read_prefs", "write_prefs", "write_api", "write_changeset_comments", "read_gpx", "write_gpx", "write_notes",
+    "write_redactions", "write_blocks" # TODO: implement functions, "consume_messages", "send_messages"
+  )
   # "write_diary" # (Supported scope by OAuth2 but is not required by the API v0.6)
+  # "write_changeset_comments" (currently included in write_api)
 
   req <- httr2::req_oauth_auth_code(
     req = req,

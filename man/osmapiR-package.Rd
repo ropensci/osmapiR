@@ -126,6 +126,12 @@ Retrieve notes by bounding box
 Search for notes
 }
 
+\subsection{Subscription to map notes}{
+
+\code{\link[=osm_subscribe_note]{osm_subscribe_note()}}
+Manage subscription to notes
+}
+
 \subsection{Edit map notes}{
 
 osm_close_note()] \code{\link[=osm_reopen_note]{osm_reopen_note()}}
@@ -210,6 +216,18 @@ osmchange to delete existing OSM objects
 
 \code{\link[=osmchange_modify]{osmchange_modify()}}
 osmchange to modify existing OSM objects
+}
+
+\subsection{User blocks}{
+
+\code{\link[=osm_create_user_block]{osm_create_user_block()}}
+Create a user block
+
+\code{\link[=osm_read_user_block]{osm_read_user_block()}}
+Read a user block
+
+\code{\link[=osm_list_active_user_blocks]{osm_list_active_user_blocks()}}
+List active blocks of the logged user
 }
 
 \subsection{Methods}{

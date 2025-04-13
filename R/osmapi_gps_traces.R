@@ -117,7 +117,9 @@
 }
 
 
-## Create: `POST /api/0.6/gpx/create` ----
+## Create: `POST /api/0.6/gpx` ----
+#
+# Also available at `POST /api/0.6/gpx/create` (deprecated)
 #
 # Use this to upload a GPX file or archive of GPX files. Requires authentication.
 #
@@ -183,7 +185,7 @@ osm_create_gpx <- function(file, description, tags, visibility = c("private", "p
 
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
-  req <- httr2::req_url_path_append(req, "gpx", "create")
+  req <- httr2::req_url_path_append(req, "gpx")
   req <- httr2::req_body_multipart(
     req,
     file = curl::form_file(file),
@@ -292,8 +294,9 @@ osm_update_gpx <- function(gpx_id, name, description, tags,
 }
 
 
-## Download Metadata: `GET /api/0.6/gpx/#id/details` ----
-# Also available at `GET /api/0.6/gpx/#id`
+## Download Metadata: `GET /api/0.6/gpx/#id` ----
+#
+# Also available at `GET /api/0.6/gpx/#id/details` (deprecated)
 #
 # Use this to access the metadata about a GPX file. Available without authentication if the file is marked public. Otherwise only usable by the owner account and requires authentication.
 # Example "details" response:
@@ -342,7 +345,7 @@ osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml")) {
   format <- match.arg(format)
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "gpx", gpx_id, "details")
+  req <- httr2::req_url_path_append(req, "gpx", gpx_id)
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)

@@ -1,11 +1,16 @@
 # osmapiR (development version)
 
+* Update documentation and code for server-side changes documented in OSMWikiVersion
+  [2775892 -> 2834473](https://wiki.openstreetmap.org/w/index.php?title=API_v0.6&diff=2834473&oldid=2775892) (#63).
+  * Update deprecated endpoints
+  * Add new functions `osm_subscribe_note()` and `osm_unsubscribe_note()`.
+  * Add new functions `osm_create_user_block()`, `osm_read_user_block()` and `osm_list_active_user_blocks()`.
+
 # osmapiR 0.2.2
 
 * Use the new function `httr2::oauth_cache_clear()` from httr2 1.0.6 (#58 by @hadley).
 * Update documentation and code for server-side changes documented in OSMWikiVersion
-  [2711808 -> 2775892](https://wiki.openstreetmap.org/w/index.php?title=API_v0.6&type=revision&diff=2775892&oldid=2711808)
-  (#60).
+  [2711808 -> 2775892](https://wiki.openstreetmap.org/w/index.php?title=API_v0.6&diff=2775892&oldid=2711808) (#60).
   * Add new parameters to `osm_query_changesets(..., from, to)`.
 * Fix `osm_query_changesets(..., time, time_2)` (#61).
 

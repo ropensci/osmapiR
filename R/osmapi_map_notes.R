@@ -586,13 +586,84 @@ osm_create_comment_note <- function(note_id, text) { # TODO: , format = c("R", "
 }
 
 
+## Subscribe: `POST /api/0.6/notes/#id/subscription` ----
+#
+# Subscribe to the discussion of a note to receive notifications for new comments.
+#
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/:id/subscription</code><br />
+# '''Return type:''' (empty response)<br />
+#
+# This request needs to be done as an authenticated user.
+#
+### Error codes ----
+# ; HTTP status code 404 (Not Found)
+# : if the note doesn't exist
+# ; HTTP status code 409 (Conflict)
+# : if the user is already subscribed to this note
+
+#' Subscribe or unsubscribe to a note
+#'
+#' @describeIn osm_subscribe_note Subscribe to the discussion of a note to receive notifications
+#'   for new comments.
+#'
+#' @param note_id The id of the note represented by a numeric or a character value.
+#'
+#' @return Returns nothing.
+#' @family subscription to notes' functions
+#' @export
+#'
+#' @examples
+#' \dontrun{
+#' # set_osmapi_connection(server = "openstreetmap.org")
+#' osm_subscribe_note(2067786)
+#' osm_unsubscribe_note("2067786")
+#' }
+osm_subscribe_note <- function(note_id) {
+  req <- osmapi_request(authenticate = TRUE)
+  req <- httr2::req_method(req, "POST")
+  req <- httr2::req_url_path_append(req, "notes", note_id, "subscription")
+
+  resp <- httr2::req_perform(req)
+
+  invisible()
+}
+
+
+## Unsubscribe: `DELETE /api/0.6/notes/#id/subscription` ----
+#
+# Subscribe to the discussion of a note to receive notifications for new comments.
+#
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/:id/subscription</code><br />
+# '''Return type:''' (empty response)<br />
+#
+# This request needs to be done as an authenticated user.
+#
+### Error codes ----
+# ; HTTP status code 404 (Not Found)
+# : if the note doesn't exist or the user is not subscribed to this note
+
+#' @describeIn osm_subscribe_note Unsubscribe from the discussion of a note to stop receiving notifications for new
+#'   comments.
+#'
+#' @export
+osm_unsubscribe_note <- function(note_id) { # TODO: , format = c("R", "xml", "json")
+  req <- osmapi_request(authenticate = TRUE)
+  req <- httr2::req_method(req, "DELETE")
+  req <- httr2::req_url_path_append(req, "notes", note_id, "subscription")
+
+  resp <- httr2::req_perform(req)
+
+  invisible()
+}
+
+
 ## Search for notes: `GET /api/0.6/notes/search` ----
 #
 # Returns notes that match the specified query. If no query is provided, the most recently updated notes are returned.
 #
 # The result can be encoded in several different formats (XML, RSS, JSON, or GPX), depending on the file extension provided.
 #
-# '''URL:''' <code><nowiki>https://api.openstreetmap.org/api/0.6/notes/search
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/search
 #
 # {| class="wikitable"
 # |-

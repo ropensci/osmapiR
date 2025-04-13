@@ -110,6 +110,11 @@
 #' [osm_search_notes()]
 #'     Search for notes
 #'
+#' ### Subscription to map notes
+#'
+#' [osm_subscribe_note()]
+#'     Manage subscription to notes
+#'
 #' ### Edit map notes
 #'
 #' osm_close_note()] [osm_reopen_note()]
@@ -187,6 +192,17 @@
 #'
 #' [osmchange_modify()]
 #'     osmchange to modify existing OSM objects
+#'
+#' ## User blocks
+#'
+#' [osm_create_user_block()]
+#'     Create a user block
+#'
+#' [osm_read_user_block()]
+#'     Read a user block
+#'
+#' [osm_list_active_user_blocks()]
+#'     List active blocks of the logged user
 #'
 #' ## Methods
 #'

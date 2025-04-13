@@ -279,9 +279,8 @@ osm_bbox_objects <- function(bbox, format = c("R", "xml", "json"), tags_in_colum
 # Returns the permissions granted to the current API connection.
 #
 # * If the API client is not authorized, an empty list of permissions will be returned.
-# * If the API client uses Basic Auth, the list of permissions will contain all permissions.
-# * If the API client uses OAuth 1.0a, the list will contain the permissions actually granted by the user.
 # * If the API client uses OAuth 2.0, the list will be based on the granted scopes.
+# * For previously available Basic Auth, the list of permissions contained all permissions. Basic Auth was removed in June 2024.
 #
 # Note that for compatibility reasons, all OAuth 2.0 scopes will be prefixed by "allow_", e.g. scope "read_prefs" will be shown as permission "allow_read_prefs".
 #
@@ -314,15 +313,20 @@ osm_bbox_objects <- function(bbox, format = c("R", "xml", "json"), tags_in_colum
 #
 ### Notes ----
 # {{anchor|List_of_permissions}}<!-- linked from [[OAuth]] -->
-# Currently the following permissions can appear in the result, corresponding directly to the ones used in the OAuth 1.0a application definition:
+# Currently the following permissions can appear in the result, corresponding directly to the ones used in the OAuth 2.0 application definition:
 # * allow_read_prefs (read user preferences)
 # * allow_write_prefs (modify user preferences)
 # * allow_write_diary (create diary entries, comments and make friends)
 # * allow_write_api (modify the map)
+# * allow_write_changeset_comments (comment on changesets)
 # * allow_write_redactions (redact element versions)
 # * allow_read_gpx (read private GPS traces)
 # * allow_write_gpx (upload GPS traces)
 # * allow_write_notes (modify notes)
+# * allow_write_redactions (redact map data)
+# * allow_write_blocks (create and revoke user blocks)
+# * allow_consume_messages (read, update status and delete user messages)
+# * allow_send_messages (send private messages to other users)
 
 #' Retrieving permissions
 #'
@@ -332,16 +336,20 @@ osm_bbox_objects <- function(bbox, format = c("R", "xml", "json"), tags_in_colum
 #'
 #' @details
 #' Currently the following permissions can appear in the result, corresponding directly to the ones used in the OAuth
-#' 1.0a application definition:
+#' 2.0 application definition:
 #' * allow_read_prefs (read user preferences)
 #' * allow_write_prefs (modify user preferences)
 #' * allow_write_diary (create diary entries, comments and make friends)
 #' * allow_write_api (modify the map)
+#' * allow_write_changeset_comments
 #' * allow_write_redactions (redact element versions)
 #' * allow_read_gpx (read private GPS traces)
 #' * allow_write_gpx (upload GPS traces)
 #' * allow_write_notes (modify notes)
-#'
+#' * allow_write_redactions (redact map data)
+#' * allow_write_blocks (create and revoke user blocks)
+#' * allow_consume_messages (read, update status and delete user messages)
+#' * allow_send_messages (send private messages to other users)
 #'
 #' @note For compatibility reasons, all OAuth 2.0 scopes will be prefixed by "allow_", e.g. scope "read_prefs" will be
 #'   shown as permission "allow_read_prefs".

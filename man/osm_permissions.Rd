@@ -18,16 +18,21 @@ Returns the permissions granted to the current API connection.
 }
 \details{
 Currently the following permissions can appear in the result, corresponding directly to the ones used in the OAuth
-1.0a application definition:
+2.0 application definition:
 \itemize{
 \item allow_read_prefs (read user preferences)
 \item allow_write_prefs (modify user preferences)
 \item allow_write_diary (create diary entries, comments and make friends)
 \item allow_write_api (modify the map)
+\item allow_write_changeset_comments
 \item allow_write_redactions (redact element versions)
 \item allow_read_gpx (read private GPS traces)
 \item allow_write_gpx (upload GPS traces)
 \item allow_write_notes (modify notes)
+\item allow_write_redactions (redact map data)
+\item allow_write_blocks (create and revoke user blocks)
+\item allow_consume_messages (read, update status and delete user messages)
+\item allow_send_messages (send private messages to other users)
 }
 }
 \note{

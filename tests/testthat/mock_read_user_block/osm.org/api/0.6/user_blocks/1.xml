@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
+<user_block id="1" created_at="2009-10-12T19:51:21Z" updated_at="2009-10-12T19:51:58Z" ends_at="2009-10-12T19:51:21Z" needs_view="false">
+  <user uid="3560" user="Firefishy"/>
+  <creator uid="735" user="blackadder"/>
+  <reason>This is testing the soft ban feature. Firefishy is not really a bad chap.</reason>
+</user_block>
+</osm>
