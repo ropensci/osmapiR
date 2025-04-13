@@ -19,7 +19,8 @@ test_that("osm_create_user_block works", {
       user_id = 12141L, reason = "Not really evil, just testing osmapiR (xml).", period = 0, format = "xml"
     )
     usr_blk_json <- osm_create_user_block(
-      user_id = 12141, reason = "Not really evil, just testing osmapiR (json).", period = 0, format = "json"
+      user_id = 12141, reason = "Not really evil, just testing osmapiR (json).", period = 0, format = "json",
+      needs_view = TRUE
     )
   })
 
