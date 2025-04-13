@@ -185,7 +185,7 @@ osm_create_gpx <- function(file, description, tags, visibility = c("private", "p
 
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
-  req <- httr2::req_url_path_append(req, "gpx", "create")
+  req <- httr2::req_url_path_append(req, "gpx")
   req <- httr2::req_body_multipart(
     req,
     file = curl::form_file(file),
@@ -345,7 +345,7 @@ osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml")) {
   format <- match.arg(format)
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
-  req <- httr2::req_url_path_append(req, "gpx", gpx_id, "details")
+  req <- httr2::req_url_path_append(req, "gpx", gpx_id)
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)

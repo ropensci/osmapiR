@@ -22,7 +22,7 @@ Expects a valid XML representation of the element to be deleted.
 \details{
 The version must match the version of the element you downloaded and the changeset must match the \code{id} of an open
 changeset owned by the current authenticated user. It is allowed, but not necessary, to have tags on the element
-except for lat/long which are required for nodes, without lat+lon the server gives 400 Bad request.
+except for lat/lon which are required for nodes, without lat+lon the server gives 400 Bad request.
 
 If \code{x} is a data.frame, the columns \code{type}, \code{id}, \code{version} and \code{changeset} must be present + \code{lat} and \code{lon} for
 nodes. For the xml format, see the

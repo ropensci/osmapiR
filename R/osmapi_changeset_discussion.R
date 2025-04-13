@@ -33,6 +33,8 @@
 #' @param changeset_id The id of the changeset to comment represented by a numeric or a character value.
 #' @param comment The text of the comment to post.
 #'
+#' @note Requires either `write_api` or `write_changeset_comments` OAuth scope.
+#'
 #' @return Returns a data frame with the changeset (same format as [osm_get_changesets()] with `format = "R"`).
 #' @family changeset discussion's functions
 #' @export
@@ -98,7 +100,7 @@ osm_comment_changeset_discussion <- function(changeset_id, comment) { # TODO: , 
 osm_subscribe_changeset_discussion <- function(changeset_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
-  req <- httr2::req_url_path_append(req, "changeset", changeset_id, "subscribe")
+  req <- httr2::req_url_path_append(req, "changeset", changeset_id, "subscription")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
@@ -131,8 +133,8 @@ osm_subscribe_changeset_discussion <- function(changeset_id) { # TODO: , format 
 #' @export
 osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
-  req <- httr2::req_method(req, "POST")
-  req <- httr2::req_url_path_append(req, "changeset", changeset_id, "unsubscribe")
+  req <- httr2::req_method(req, "DELETE")
+  req <- httr2::req_url_path_append(req, "changeset", changeset_id, "subscription")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
@@ -186,8 +188,8 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , forma
 #' }
 osm_hide_comment_changeset_discussion <- function(comment_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
-  req <- httr2::req_method(req, "POST")
-  req <- httr2::req_url_path_append(req, "changeset", "comment", comment_id, "hide")
+  req <- httr2::req_method(req, "DELETE")
+  req <- httr2::req_url_path_append(req, "changeset_comments", comment_id, "visibility")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)
@@ -225,7 +227,7 @@ osm_hide_comment_changeset_discussion <- function(comment_id) { # TODO: , format
 osm_unhide_comment_changeset_discussion <- function(comment_id) { # TODO: , format = c("R", "xml", "json")
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "POST")
-  req <- httr2::req_url_path_append(req, "changeset", "comment", comment_id, "unhide")
+  req <- httr2::req_url_path_append(req, "changeset_comments", comment_id, "visibility")
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)

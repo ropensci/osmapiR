@@ -17,6 +17,9 @@ Returns a data frame with the changeset (same format as \code{\link[=osm_get_cha
 \description{
 Add a comment to a changeset and subscribe to the discussion. The changeset must be closed. Requires authentication.
 }
+\note{
+Requires either \code{write_api} or \code{write_changeset_comments} OAuth scope.
+}
 \examples{
 \dontrun{
 set_osmapi_connection("testing") # use the testing server

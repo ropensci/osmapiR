@@ -37,7 +37,7 @@ test_that("osm_uns_changeset_discussion works", {
 
 
 test_that("osm_hide_comment_changeset_discussion works", {
-  with_mock_dir("mock_hide_com_chset_dis", {
+  with_mock_dir("mock_hide_com_ch", {
     chdis <- osm_get_changesets("265646", include_discussion = TRUE)
 
     ## Hide changeset comment: `POST /api/0.6/changeset/comment/#comment_id/hide` ----

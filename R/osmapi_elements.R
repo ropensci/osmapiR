@@ -147,8 +147,8 @@ osm_create_object <- function(x, changeset_id) {
 
 
   req <- osmapi_request(authenticate = TRUE)
-  req <- httr2::req_method(req, "PUT")
-  req <- httr2::req_url_path_append(req, osm_type, "create")
+  req <- httr2::req_method(req, "POST")
+  req <- httr2::req_url_path_append(req, paste0(osm_type, "s"))
   req <- httr2::req_body_file(req, path = path)
 
   resp <- httr2::req_perform(req)
@@ -458,7 +458,7 @@ osm_update_object <- function(x, changeset_id) {
 #' @details
 #' The version must match the version of the element you downloaded and the changeset must match the `id` of an open
 #' changeset owned by the current authenticated user. It is allowed, but not necessary, to have tags on the element
-#' except for lat/long which are required for nodes, without lat+lon the server gives 400 Bad request.
+#' except for lat/lon which are required for nodes, without lat+lon the server gives 400 Bad request.
 #'
 #' If `x` is a data.frame, the columns `type`, `id`, `version` and `changeset` must be present + `lat` and `lon` for
 #' nodes. For the xml format, see the
