@@ -201,6 +201,20 @@ test_that("osm_delete_note works", {
 })
 
 
+test_that("osm_subscribe_note works", {
+  with_mock_dir("mock_subscribe_note", {
+    ## Subscribe: `POST /api/0.6/notes/#id/subscription` ----
+    subs <- osm_subscribe_note(note_id = 2067786)
+
+    ## Unsubscribe: `DELETE /api/0.6/notes/#id/subscription` ----
+    unsubs <- osm_unsubscribe_note(note_id = 2067786)
+  })
+
+  expect_null(subs)
+  expect_null(unsubs)
+})
+
+
 ## Search for notes: `GET /api/0.6/notes/search` ----
 
 test_that("osm_search_notes works", {

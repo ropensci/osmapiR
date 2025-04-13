@@ -38,6 +38,9 @@ reference:
 - subtitle: "Get map notes"
   contents:
   - has_concept("get notes' functions")
+- subtitle: "Subscription to map notes"
+  contents:
+  - has_concept("subscription to notes' functions")
 - subtitle: "Edit map notes"
   contents:
   - has_concept("edit notes' functions")

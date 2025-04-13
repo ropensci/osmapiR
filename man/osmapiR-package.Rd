@@ -126,6 +126,12 @@ Retrieve notes by bounding box
 Search for notes
 }
 
+\subsection{Subscription to map notes}{
+
+\code{\link[=osm_subscribe_note]{osm_subscribe_note()}}
+Manage subscription to notes
+}
+
 \subsection{Edit map notes}{
 
 osm_close_note()] \code{\link[=osm_reopen_note]{osm_reopen_note()}}

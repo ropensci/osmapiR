@@ -110,6 +110,11 @@
 #' [osm_search_notes()]
 #'     Search for notes
 #'
+#' ### Subscription to map notes
+#'
+#' [osm_subscribe_note()]
+#'     Manage subscription to notes
+#'
 #' ### Edit map notes
 #'
 #' osm_close_note()] [osm_reopen_note()]
