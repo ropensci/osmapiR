@@ -20,8 +20,8 @@ If a diff is successfully applied and \code{format = "R"}, it returns a data fra
 For \code{format = "xml"}, a \link[xml2:oldclass]{xml2::xml_document} is returned in the following format:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<diffResult generator="OpenStreetMap Server" version="0.6">
-	<node|way|relation old_id="#" new_id="#" new_version="#"/>
-	...
+  <node|way|relation old_id="#" new_id="#" new_version="#"/>
+  ...
 </diffResult>
 }\if{html}{\out{</div>}}
 

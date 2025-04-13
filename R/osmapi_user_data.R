@@ -32,9 +32,9 @@
 #  GET /api/0.6/user/#id.json
 # <syntaxhighlight lang="json">
 # {
-#  "version": "0.6",
-#  "generator": "OpenStreetMap server",
-#  "user": {"id": 12023, "display_name": "jbpbis", "account_created": "2007-08-16T01:35:56Z", "description": "", "contributor_terms": {"agreed": False}, "roles": [], "changesets": {"count": 1}, "traces": {"count": 0}, "blocks": {"received": {"count": 0, "active": 0}}}
+#   "version": "0.6",
+#   "generator": "OpenStreetMap server",
+#   "user": {"id": 12023, "display_name": "jbpbis", "account_created": "2007-08-16T01:35:56Z", "description": "", "contributor_terms": {"agreed": False}, "roles": [], "changesets": {"count": 1}, "traces": {"count": 0}, "blocks": {"received": {"count": 0, "active": 0}}}
 # }
 # </syntaxhighlight>
 #
@@ -75,9 +75,9 @@
 #' Returns a list with the following json structure:
 #' ``` json
 #' {
-#'  "version": "0.6",
-#'  "generator": "OpenStreetMap server",
-#'  {"user": {"id": 12023, "display_name": "jbpbis", "account_created": "2007-08-16T01:35:56Z", "description": "", "contributor_terms": {"agreed": False}, "roles": [], "changesets": {"count": 1}, "traces": {"count": 0}, "blocks": {"received": {"count": 0, "active": 0}}}}
+#'   "version": "0.6",
+#'   "generator": "OpenStreetMap server",
+#'   {"user": {"id": 12023, "display_name": "jbpbis", "account_created": "2007-08-16T01:35:56Z", "description": "", "contributor_terms": {"agreed": False}, "roles": [], "changesets": {"count": 1}, "traces": {"count": 0}, "blocks": {"received": {"count": 0, "active": 0}}}}
 #' }
 #' ```
 #'
@@ -153,12 +153,12 @@ osm_details_user <- function(user_id, format = c("R", "xml", "json")) {
 #  GET /api/0.6/users.json?users=#id1,#id2,...,#idn
 # <syntaxhighlight lang="json">
 # {
-#  "version": "0.6",
-#  "generator": "OpenStreetMap server",
-#  "users": [
-#   {"user": {"id": 12023, "display_name": "jbpbis", "account_created": "2007-08-16T01:35:56Z", "description": "", "contributor_terms": {"agreed": False}, "roles": [], "changesets": {"count": 1}, "traces": {"count": 0}, "blocks": {"received": {"count": 0, "active": 0}}}},
-#   {"user": {"id": 210447, "display_name": "siebh", "account_created": "2009-12-20T10:11:42Z", "description": "", "contributor_terms": {"agreed": True}, "roles": [], "changesets": {"count": 363}, "traces": {"count": 1}, "blocks": {"received": {"count": 0, "active": 0}}}}
-#  ]
+#   "version": "0.6",
+#   "generator": "OpenStreetMap server",
+#   "users": [
+#     {"user": {"id": 12023, "display_name": "jbpbis", "account_created": "2007-08-16T01:35:56Z", "description": "", "contributor_terms": {"agreed": False}, "roles": [], "changesets": {"count": 1}, "traces": {"count": 0}, "blocks": {"received": {"count": 0, "active": 0}}}},
+#     {"user": {"id": 210447, "display_name": "siebh", "account_created": "2009-12-20T10:11:42Z", "description": "", "contributor_terms": {"agreed": True}, "roles": [], "changesets": {"count": 363}, "traces": {"count": 1}, "blocks": {"received": {"count": 0, "active": 0}}}}
+#   ]
 # }
 # </syntaxhighlight>
 #
@@ -210,12 +210,12 @@ osm_details_user <- function(user_id, format = c("R", "xml", "json")) {
 #' Returns a list with the following json structure:
 #' ``` json
 #' {
-#'  "version": "0.6",
-#'  "generator": "OpenStreetMap server",
-#'  "users": [
-#'   {"user": {"id": 12023, "display_name": "jbpbis", "account_created": "2007-08-16T01:35:56Z", "description": "", "contributor_terms": {"agreed": False}, "roles": [], "changesets": {"count": 1}, "traces": {"count": 0}, "blocks": {"received": {"count": 0, "active": 0}}}},
-#'   {"user": {"id": 210447, "display_name": "siebh", "account_created": "2009-12-20T10:11:42Z", "description": "", "contributor_terms": {"agreed": True}, "roles": [], "changesets": {"count": 363}, "traces": {"count": 1}, "blocks": {"received": {"count": 0, "active": 0}}}}
-#'  ]
+#'   "version": "0.6",
+#'   "generator": "OpenStreetMap server",
+#'   "users": [
+#'     {"user": {"id": 12023, "display_name": "jbpbis", "account_created": "2007-08-16T01:35:56Z", "description": "", "contributor_terms": {"agreed": False}, "roles": [], "changesets": {"count": 1}, "traces": {"count": 0}, "blocks": {"received": {"count": 0, "active": 0}}}},
+#'     {"user": {"id": 210447, "display_name": "siebh", "account_created": "2009-12-20T10:11:42Z", "description": "", "contributor_terms": {"agreed": True}, "roles": [], "changesets": {"count": 363}, "traces": {"count": 1}, "blocks": {"received": {"count": 0, "active": 0}}}}
+#'   ]
 #' }
 #' ```
 #'
@@ -292,24 +292,24 @@ osm_details_users <- function(user_ids, format = c("R", "xml", "json")) {
 # this returns an JSON document of the from
 # <syntaxhighlight lang="json">
 # {
-#  "version": "0.6",
-#  "generator": "OpenStreetMap server",
-#  "user": {
-#   "id": 1234,
-#   "display_name": "Max Muster",
-#   "account_created": "2006-07-21T19:28:26Z",
-#   "description": "The description of your profile",
-#   "contributor_terms": {"agreed": True, "pd": True},
-#   "img": {"href": "https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"},
-#   "roles": [],
-#   "changesets": {"count": 4182},
-#   "traces": {"count": 513},
-#   "blocks": {"received": {"count": 0, "active": 0}},
-#   "home": {"lat": 49.4733718952806, "lon": 8.89285988577866, "zoom": 3},
-#   "languages": ["de-DE", "de", "en-US", "en"],
-#   "messages": {"received": {"count": 1, "unread": 0},
-#   "sent": {"count": 0}}
-#  }
+#   "version": "0.6",
+#   "generator": "OpenStreetMap server",
+#   "user": {
+#     "id": 1234,
+#     "display_name": "Max Muster",
+#     "account_created": "2006-07-21T19:28:26Z",
+#     "description": "The description of your profile",
+#     "contributor_terms": {"agreed": True, "pd": True},
+#     "img": {"href": "https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"},
+#     "roles": [],
+#     "changesets": {"count": 4182},
+#     "traces": {"count": 513},
+#     "blocks": {"received": {"count": 0, "active": 0}},
+#     "home": {"lat": 49.4733718952806, "lon": 8.89285988577866, "zoom": 3},
+#     "languages": ["de-DE", "de", "en-US", "en"],
+#     "messages": {"received": {"count": 1, "unread": 0},
+#     "sent": {"count": 0}}
+#   }
 # }
 # </syntaxhighlight>
 #
@@ -358,24 +358,24 @@ osm_details_users <- function(user_ids, format = c("R", "xml", "json")) {
 #'
 #' ``` json
 #' {
-#'  "version": "0.6",
-#'  "generator": "OpenStreetMap server",
-#'  "user": {
-#'   "id": 1234,
-#'   "display_name": "Max Muster",
-#'   "account_created": "2006-07-21T19:28:26Z",
-#'   "description": "The description of your profile",
-#'   "contributor_terms": {"agreed": True, "pd": True},
-#'   "img": {"href": "https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"},
-#'   "roles": [],
-#'   "changesets": {"count": 4182},
-#'   "traces": {"count": 513},
-#'   "blocks": {"received": {"count": 0, "active": 0}},
-#'   "home": {"lat": 49.4733718952806, "lon": 8.89285988577866, "zoom": 3},
-#'   "languages": ["de-DE", "de", "en-US", "en"],
-#'   "messages": {"received": {"count": 1, "unread": 0},
-#'   "sent": {"count": 0}}
-#'  }
+#'   "version": "0.6",
+#'   "generator": "OpenStreetMap server",
+#'   "user": {
+#'     "id": 1234,
+#'     "display_name": "Max Muster",
+#'     "account_created": "2006-07-21T19:28:26Z",
+#'     "description": "The description of your profile",
+#'     "contributor_terms": {"agreed": True, "pd": True},
+#'     "img": {"href": "https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"},
+#'     "roles": [],
+#'     "changesets": {"count": 4182},
+#'     "traces": {"count": 513},
+#'     "blocks": {"received": {"count": 0, "active": 0}},
+#'     "home": {"lat": 49.4733718952806, "lon": 8.89285988577866, "zoom": 3},
+#'     "languages": ["de-DE", "de", "en-US", "en"],
+#'     "messages": {"received": {"count": 1, "unread": 0},
+#'     "sent": {"count": 0}}
+#'   }
 #' }
 #' ```
 #'
@@ -437,9 +437,9 @@ osm_details_logged_user <- function(format = c("R", "xml", "json")) {
 # this returns an JSON document of the form
 # <syntaxhighlight lang="json">
 # {
-#  "version": "0.6",
-#  "generator": "OpenStreetMap server",
-#  "preferences": {"somekey": "somevalue, ...}
+#   "version": "0.6",
+#   "generator": "OpenStreetMap server",
+#   "preferences": {"somekey": "somevalue, ...}
 # }
 # </syntaxhighlight>
 #
@@ -497,9 +497,9 @@ osm_details_logged_user <- function(format = c("R", "xml", "json")) {
 #' Returns a list with the following json structure:
 #' ``` json
 #' {
-#'  "version": "0.6",
-#'  "generator": "OpenStreetMap server",
-#'  "preferences": {"somekey": "somevalue, ...}
+#'   "version": "0.6",
+#'   "generator": "OpenStreetMap server",
+#'   "preferences": {"somekey": "somevalue, ...}
 #' }
 #' ```
 #' @family users' functions
@@ -630,5 +630,5 @@ osm_set_preferences_user <- function(key, value, all_prefs) {
     file.remove(path)
   }
 
-  invisible(NULL)
+  invisible()
 }

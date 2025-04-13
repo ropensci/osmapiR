@@ -62,25 +62,25 @@ Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
 Returns a list with the following json structure:
 
 \if{html}{\out{<div class="sourceCode json">}}\preformatted{\{
- "type": "FeatureCollection",
- "features": [
-  \{
-   "type": "Feature",
-   "geometry": \{"type": "Point", "coordinates": [0.1000000, 51.0000000]\},
-   "properties": \{
-    "id": 16659,
-    "url": "https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659.json",
-    "comment_url": "https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659/comment.json",
-    "close_url": "https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659/close.json",
-    "date_created": "2019-06-15 08:26:04 UTC",
-    "status": "open",
-    "comments": [
-     \{"date": "2019-06-15 08:26:04 UTC", "uid": 1234, "user": "userName", "user_url": "https://master.apis.dev.openstreetmap.org/user/userName", "action": "opened", "text": "ThisIsANote", "html": "<p>ThisIsANote</p>"\},
-     ...
-    ]
-   \}
-  \}
- ]
+  "type": "FeatureCollection",
+  "features": [
+    \{
+      "type": "Feature",
+      "geometry": \{"type": "Point", "coordinates": [0.1000000, 51.0000000]\},
+      "properties": \{
+        "id": 16659,
+        "url": "https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659.json",
+        "comment_url": "https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659/comment.json",
+        "close_url": "https://master.apis.dev.openstreetmap.org/api/0.6/notes/16659/close.json",
+        "date_created": "2019-06-15 08:26:04 UTC",
+        "status": "open",
+        "comments": [
+          \{"date": "2019-06-15 08:26:04 UTC", "uid": 1234, "user": "userName", "user_url": "https://master.apis.dev.openstreetmap.org/user/userName", "action": "opened", "text": "ThisIsANote", "html": "<p>ThisIsANote</p>"\},
+          ...
+        ]
+      \}
+    \}
+  ]
 \}
 }\if{html}{\out{</div>}}
 }

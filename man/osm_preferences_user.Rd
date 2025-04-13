@@ -41,9 +41,9 @@ Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
 Returns a list with the following json structure:
 
 \if{html}{\out{<div class="sourceCode json">}}\preformatted{\{
- "version": "0.6",
- "generator": "OpenStreetMap server",
- "preferences": \{"somekey": "somevalue, ...\}
+  "version": "0.6",
+  "generator": "OpenStreetMap server",
+  "preferences": \{"somekey": "somevalue, ...\}
 \}
 }\if{html}{\out{</div>}}
 }

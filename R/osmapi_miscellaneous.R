@@ -22,11 +22,11 @@
 #
 # <syntaxhighlight lang="json">
 # {
-#  "version": "0.6",
-#  "generator": "OpenStreetMap server",
-#  "api": {
-#   "versions": ["0.6"]
-#  }
+#   "version": "0.6",
+#   "generator": "OpenStreetMap server",
+#   "api": {
+#     "versions": ["0.6"]
+#   }
 # }
 # </syntaxhighlight>
 
@@ -305,9 +305,9 @@ osm_bbox_objects <- function(bbox, format = c("R", "xml", "json"), tags_in_colum
 # Returns the single permissions element containing the permission tags (content type `application/json`)
 # <syntaxhighlight lang="json">
 # {
-#  "version": "0.6",
-#  "generator": "OpenStreetMap server",
-#  "permissions": ["allow_read_prefs", ..., "allow_read_gpx", "allow_write_gpx"]
+#   "version": "0.6",
+#   "generator": "OpenStreetMap server",
+#   "permissions": ["allow_read_prefs", ..., "allow_read_gpx", "allow_write_gpx"]
 # }
 # </syntaxhighlight>
 #

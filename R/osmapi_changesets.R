@@ -759,8 +759,8 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 # If a diff is successfully applied a XML (content type `text/xml`) is returned in the following format
 # <syntaxhighlight lang="xml">
 # <diffResult generator="OpenStreetMap Server" version="0.6">
-# 	<node|way|relation old_id="#" new_id="#" new_version="#"/>
-# 	...
+#   <node|way|relation old_id="#" new_id="#" new_version="#"/>
+#   ...
 # </diffResult>
 # </syntaxhighlight>
 # with one element for every element in the upload. Note that this can be counter-intuitive when the same element has appeared multiple times in the input then it will appear multiple times in the output.
@@ -847,8 +847,8 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 #' For `format = "xml"`, a [xml2::xml_document-class] is returned in the following format:
 #' ```xml
 #' <diffResult generator="OpenStreetMap Server" version="0.6">
-#' 	<node|way|relation old_id="#" new_id="#" new_version="#"/>
-#' 	...
+#'   <node|way|relation old_id="#" new_id="#" new_version="#"/>
+#'   ...
 #' </diffResult>
 #' ```
 #' with one element for every object in the upload.

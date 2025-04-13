@@ -45,24 +45,24 @@ Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
 \subsection{\code{format = "json"}}{
 
 \if{html}{\out{<div class="sourceCode json">}}\preformatted{\{
- "version": "0.6",
- "generator": "OpenStreetMap server",
- "user": \{
-  "id": 1234,
-  "display_name": "Max Muster",
-  "account_created": "2006-07-21T19:28:26Z",
-  "description": "The description of your profile",
-  "contributor_terms": \{"agreed": True, "pd": True\},
-  "img": \{"href": "https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"\},
-  "roles": [],
-  "changesets": \{"count": 4182\},
-  "traces": \{"count": 513\},
-  "blocks": \{"received": \{"count": 0, "active": 0\}\},
-  "home": \{"lat": 49.4733718952806, "lon": 8.89285988577866, "zoom": 3\},
-  "languages": ["de-DE", "de", "en-US", "en"],
-  "messages": \{"received": \{"count": 1, "unread": 0\},
-  "sent": \{"count": 0\}\}
- \}
+  "version": "0.6",
+  "generator": "OpenStreetMap server",
+  "user": \{
+    "id": 1234,
+    "display_name": "Max Muster",
+    "account_created": "2006-07-21T19:28:26Z",
+    "description": "The description of your profile",
+    "contributor_terms": \{"agreed": True, "pd": True\},
+    "img": \{"href": "https://www.openstreetmap.org/attachments/users/images/000/000/1234/original/someLongURLOrOther.JPG"\},
+    "roles": [],
+    "changesets": \{"count": 4182\},
+    "traces": \{"count": 513\},
+    "blocks": \{"received": \{"count": 0, "active": 0\}\},
+    "home": \{"lat": 49.4733718952806, "lon": 8.89285988577866, "zoom": 3\},
+    "languages": ["de-DE", "de", "en-US", "en"],
+    "messages": \{"received": \{"count": 1, "unread": 0\},
+    "sent": \{"count": 0\}\}
+  \}
 \}
 }\if{html}{\out{</div>}}
 }

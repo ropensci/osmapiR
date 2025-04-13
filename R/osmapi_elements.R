@@ -182,10 +182,10 @@ osm_create_object <- function(x, changeset_id) {
 # JSON representing the element, wrapped in an <code><json></code> element:
 # <syntaxhighlight lang="json">
 # {
-#  "version": "0.6",
-#  "elements": [
-#   {"type": "node", "id": 4326396331, "lat": 31.9016302, "lon": -81.5990471, "timestamp": "2016-07-31T00:08:11Z", "version": 2, "changeset": 41136027, "user": "maven149", "id": 136601}
-#  ]
+#   "version": "0.6",
+#   "elements": [
+#     {"type": "node", "id": 4326396331, "lat": 31.9016302, "lon": -81.5990471, "timestamp": "2016-07-31T00:08:11Z", "version": 2, "changeset": 41136027, "user": "maven149", "id": 136601}
+#   ]
 # }
 # </syntaxhighlight>
 #

@@ -51,12 +51,12 @@ Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
 Returns a list with the following json structure:
 
 \if{html}{\out{<div class="sourceCode json">}}\preformatted{\{
- "version": "0.6",
- "generator": "OpenStreetMap server",
- "users": [
-  \{"user": \{"id": 12023, "display_name": "jbpbis", "account_created": "2007-08-16T01:35:56Z", "description": "", "contributor_terms": \{"agreed": False\}, "roles": [], "changesets": \{"count": 1\}, "traces": \{"count": 0\}, "blocks": \{"received": \{"count": 0, "active": 0\}\}\}\},
-  \{"user": \{"id": 210447, "display_name": "siebh", "account_created": "2009-12-20T10:11:42Z", "description": "", "contributor_terms": \{"agreed": True\}, "roles": [], "changesets": \{"count": 363\}, "traces": \{"count": 1\}, "blocks": \{"received": \{"count": 0, "active": 0\}\}\}\}
- ]
+  "version": "0.6",
+  "generator": "OpenStreetMap server",
+  "users": [
+    \{"user": \{"id": 12023, "display_name": "jbpbis", "account_created": "2007-08-16T01:35:56Z", "description": "", "contributor_terms": \{"agreed": False\}, "roles": [], "changesets": \{"count": 1\}, "traces": \{"count": 0\}, "blocks": \{"received": \{"count": 0, "active": 0\}\}\}\},
+    \{"user": \{"id": 210447, "display_name": "siebh", "account_created": "2009-12-20T10:11:42Z", "description": "", "contributor_terms": \{"agreed": True\}, "roles": [], "changesets": \{"count": 363\}, "traces": \{"count": 1\}, "blocks": \{"received": \{"count": 0, "active": 0\}\}\}\}
+  ]
 \}
 }\if{html}{\out{</div>}}
 }
