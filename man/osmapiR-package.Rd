@@ -218,6 +218,18 @@ osmchange to delete existing OSM objects
 osmchange to modify existing OSM objects
 }
 
+\subsection{User blocks}{
+
+\code{\link[=osm_create_user_block]{osm_create_user_block()}}
+Create a user block
+
+\code{\link[=osm_read_user_block]{osm_read_user_block()}}
+Read a user block
+
+\code{\link[=osm_list_active_user_blocks]{osm_list_active_user_blocks()}}
+List active blocks of the logged user
+}
+
 \subsection{Methods}{
 
 \code{\link[=tags_list2wide]{tags_list2wide()}} \code{\link[=tags_wide2list]{tags_wide2list()}}

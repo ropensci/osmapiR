@@ -66,6 +66,9 @@ reference:
     issues when uploading multiple objects, the use of the `osm_diff_upload_changeset()` is highly recommended.
   contents:
   - has_concept("OsmChange's functions")
+- title: "User blocks"
+  contents:
+  - has_concept("user blocks' functions")
 - title: "Methods"
   contents:
   - has_concept("methods")

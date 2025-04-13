@@ -622,6 +622,58 @@ empty_notes <- function() {
 }
 
 
+## User Blocks ----
+
+user_blocks_xml2DF <- function(xml) {
+  user_blocks <- xml2::xml_children(xml)
+
+  if (length(user_blocks) == 0) {
+    return(empty_user_blocks())
+  }
+
+  user_blocks_attrs <- do.call(rbind, xml2::xml_attrs(user_blocks))
+
+  user <- xml2::xml_child(user_blocks, "user")
+  user_attrs <- do.call(rbind, xml2::xml_attrs(user))
+  colnames(user_attrs)[1] <- "user_uid"
+
+  creator <- xml2::xml_child(user_blocks, "creator")
+  creator_attrs <- do.call(rbind, xml2::xml_attrs(creator))
+  colnames(creator_attrs) <- c("creator_uid", "creator")
+
+  reason <- xml2::xml_text(xml2::xml_child(user_blocks, "reason"))
+
+  if (!all(is.na(reason))) {
+    out <- data.frame(user_blocks_attrs, user_attrs, creator_attrs, reason)
+    out$reason <- enc2utf8(out$reason)
+  } else {
+    out <- data.frame(user_blocks_attrs, user_attrs, creator_attrs)
+  }
+
+  out$created_at <- as.POSIXct(out$created_at, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+  out$updated_at <- as.POSIXct(out$updated_at, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+  out$ends_at <- as.POSIXct(out$ends_at, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+  out$needs_view <- ifelse(out$needs_view == "true", TRUE, FALSE)
+  out$user_uid <- as.integer(out$user_uid)
+  out$creator_uid <- as.integer(out$creator_uid)
+  out$user <- enc2utf8(out$user)
+  out$creator <- enc2utf8(out$creator)
+
+  return(out)
+}
+
+
+empty_user_blocks <- function() {
+  out <- data.frame(
+    id = character(), created_at = as.POSIXct(Sys.time())[-1], updated_at = as.POSIXct(Sys.time())[-1],
+    ends_at = as.POSIXct(Sys.time())[-1], needs_view = logical(),
+    user_uid = character(), user = character(), creator_uid = character(), creator = character()
+  )
+
+  return(out)
+}
+
+
 ## Utils ----
 
 get_xns_prefix <- function(xml, ns) {

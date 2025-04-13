@@ -38,6 +38,7 @@ Other changeset discussion's functions:
 \code{\link{osm_subscribe_changeset_discussion}()}
 
 Other functions for moderators: 
+\code{\link{osm_create_user_block}()},
 \code{\link{osm_delete_note}()},
 \code{\link{osm_redaction_object}()}
 }
