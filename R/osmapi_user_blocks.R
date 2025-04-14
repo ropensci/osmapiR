@@ -352,6 +352,7 @@ osm_list_active_user_blocks <- function(format = c("R", "xml", "json")) {
     out <- httr2::resp_body_xml(resp)
     if (format == "R") {
       out <- user_blocks_xml2DF(out)
+      out[, c("revoker", "revoker_uid", "reason")] <- NULL
     }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)
