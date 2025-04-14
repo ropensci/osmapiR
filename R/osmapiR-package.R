@@ -198,8 +198,8 @@
 #' [osm_create_user_block()]
 #'     Create a user block
 #'
-#' [osm_read_user_block()]
-#'     Read a user block
+#' [osm_get_user_blocks()]
+#'     Details of user blocks
 #'
 #' [osm_list_active_user_blocks()]
 #'     List active blocks of the logged user

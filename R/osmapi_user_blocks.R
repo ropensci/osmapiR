@@ -47,7 +47,7 @@
 #'   Default to `FALSE`.
 #' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #'
-#' @returns Same format as [`osm_read_user_block()`]
+#' @returns Same format as [`osm_get_user_blocks()`]
 #'
 #' @family user blocks' functions
 #' @family functions for moderators
@@ -180,8 +180,8 @@ osm_create_user_block <- function(user_id, reason, period, needs_view = FALSE, f
 #' }
 #' ```
 #'
-#' @family user blocks' functions
-#' @export
+# @family user blocks' functions
+#' @noRd
 #'
 #' @examples
 #' osm_read_user_block(1)

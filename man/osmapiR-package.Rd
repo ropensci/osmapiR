@@ -223,8 +223,8 @@ osmchange to modify existing OSM objects
 \code{\link[=osm_create_user_block]{osm_create_user_block()}}
 Create a user block
 
-\code{\link[=osm_read_user_block]{osm_read_user_block()}}
-Read a user block
+\code{\link[=osm_get_user_blocks]{osm_get_user_blocks()}}
+Details of user blocks
 
 \code{\link[=osm_list_active_user_blocks]{osm_list_active_user_blocks()}}
 List active blocks of the logged user
