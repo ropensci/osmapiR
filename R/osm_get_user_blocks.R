@@ -74,6 +74,7 @@ osm_get_user_blocks <- function(user_block_id, format = c("R", "xml", "json")) {
     out <- osm_read_user_block(user_block_id = user_block_id, format = format)
     if (format == "json") {
       out$user_blocks <- list(out$user_block)
+      out$user_block <- NULL
     }
   } else {
     outL <- lapply(user_block_id, function(id) {
@@ -92,6 +93,7 @@ osm_get_user_blocks <- function(user_block_id, format = c("R", "xml", "json")) {
     } else if (format == "json") {
       out <- outL[[1]]
       out$user_blocks <- lapply(outL, function(x) x$user_block)
+      out$user_block <- NULL
     }
   }
 

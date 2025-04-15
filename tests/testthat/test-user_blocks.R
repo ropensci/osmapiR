@@ -27,9 +27,7 @@ test_that("osm_create_user_block works", {
   })
 
   expect_s3_class(usr_blk, "data.frame")
-
   expect_named(usr_blk, column_user_blocks)
-
   lapply(usr_blk, function(x) {
     mapply(function(y, cl) expect_true(inherits(y, cl)), y = x, cl = class_columns[names(x)])
   })
@@ -41,12 +39,13 @@ test_that("osm_create_user_block works", {
 
 
   expect_s3_class(usr_blk_xml, "xml_document")
+
   expect_type(usr_blk_json, "list")
+  expect_named(usr_blk_json, c("version", "generator", "copyright", "attribution", "license", "user_block"))
 
 
   # Compare xml, json & R
   expect_identical(nrow(usr_blk), xml2::xml_length(usr_blk_xml))
-  # expect_identical(nrow(usr_blk), length(usr_blk_json$user_block)) # TODO: json don't follow other API patterns
 })
 
 
@@ -84,7 +83,13 @@ test_that("osm_read_user_block works", {
 
 
   lapply(usr_blk_xml, expect_s3_class, "xml_document")
+
   lapply(usr_blk_json, expect_type, "list")
+  lapply(
+    usr_blk_json,
+    expect_named,
+    expected = c("version", "generator", "copyright", "attribution", "license", "user_blocks")
+  )
 
 
   # Compare xml, json & R
@@ -116,8 +121,9 @@ test_that("osm_list_active_user_blocks works", {
 
 
   expect_s3_class(list_blk_xml, "xml_document")
-  expect_type(list_blk_json, "list")
 
+  expect_type(list_blk_json, "list")
+  expect_named(list_blk_json, c("version", "generator", "copyright", "attribution", "license", "user_blocks"))
 
   # Compare xml, json & R
   expect_identical(nrow(list_blk), xml2::xml_length(list_blk_xml))
@@ -138,8 +144,9 @@ test_that("osm_list_active_user_blocks works", {
 
 
   expect_s3_class(empty_list_blk_xml, "xml_document")
-  expect_type(empty_list_blk_json, "list")
 
+  expect_type(empty_list_blk_json, "list")
+  expect_named(empty_list_blk_json, c("version", "generator", "copyright", "attribution", "license", "user_blocks"))
 
   # Compare xml, json & R
   expect_identical(nrow(empty_list_blk), 0L)
