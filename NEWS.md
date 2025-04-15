@@ -1,4 +1,4 @@
-# osmapiR (development version)
+# osmapiR 0.2.3
 
 * Update documentation and code for server-side changes documented in OSMWikiVersion
   [2775892 -> 2834473](https://wiki.openstreetmap.org/w/index.php?title=API_v0.6&diff=2834473&oldid=2775892) (#63).
