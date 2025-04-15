@@ -5,6 +5,7 @@
   * Update deprecated endpoints
   * Add new functions `osm_subscribe_note()` and `osm_unsubscribe_note()`.
   * Add new functions `osm_create_user_block()`, `osm_read_user_block()` and `osm_list_active_user_blocks()`.
+* Vectorized version of `osm_read_user_block()` -> `osm_get_user_blocks()` (#65).
 
 # osmapiR 0.2.2
 

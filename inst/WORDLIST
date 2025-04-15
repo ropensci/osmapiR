@@ -29,6 +29,8 @@ BFPlFMA
 bibentry
 bibtype
 Blackweir
+blk
+blks
 Bnode
 bool
 br
@@ -139,6 +141,8 @@ existeing
 expr
 exprObj
 factorsAsCharacter
+fakemod
+fakeuser
 familyName
 Fassets
 fb
@@ -273,6 +277,7 @@ NextMethod
 nhttps
 nlimit
 nm
+nmore
 nnnnnnnnn
 nocov
 nodeset
@@ -383,6 +388,7 @@ reprex
 req
 requireNamespace
 Resubmission
+revoker
 rlang
 rlang's
 rmarkdown

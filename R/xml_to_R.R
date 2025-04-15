@@ -641,23 +641,26 @@ user_blocks_xml2DF <- function(xml) {
   creator_attrs <- do.call(rbind, xml2::xml_attrs(creator))
   colnames(creator_attrs) <- c("creator_uid", "creator")
 
+  revoker <- xml2::xml_child(user_blocks, "revoker")
+  if (!all(is.na(revoker))) {
+    revoker_attrs <- do.call(rbind, xml2::xml_attrs(revoker))
+  } else {
+    revoker_attrs <- matrix(NA_character_, nrow = length(user_blocks), ncol = 2)
+  }
+  colnames(revoker_attrs) <- c("revoker_uid", "revoker")
+
   reason <- xml2::xml_text(xml2::xml_child(user_blocks, "reason"))
 
-  if (!all(is.na(reason))) {
-    out <- data.frame(user_blocks_attrs, user_attrs, creator_attrs, reason)
-    out$reason <- enc2utf8(out$reason)
-  } else {
-    out <- data.frame(user_blocks_attrs, user_attrs, creator_attrs)
-  }
+  out <- data.frame(user_blocks_attrs, user_attrs, creator_attrs, revoker_attrs, reason)
 
   out$created_at <- as.POSIXct(out$created_at, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
   out$updated_at <- as.POSIXct(out$updated_at, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
   out$ends_at <- as.POSIXct(out$ends_at, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
   out$needs_view <- ifelse(out$needs_view == "true", TRUE, FALSE)
-  out$user_uid <- as.integer(out$user_uid)
-  out$creator_uid <- as.integer(out$creator_uid)
   out$user <- enc2utf8(out$user)
   out$creator <- enc2utf8(out$creator)
+  out$revoker <- enc2utf8(out$revoker)
+  out$reason <- enc2utf8(reason)
 
   return(out)
 }

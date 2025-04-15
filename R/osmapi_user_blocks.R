@@ -47,7 +47,7 @@
 #'   Default to `FALSE`.
 #' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #'
-#' @returns Same format as [`osm_read_user_block()`]
+#' @returns Same format as [`osm_get_user_blocks()`]
 #'
 #' @family user blocks' functions
 #' @family functions for moderators
@@ -180,8 +180,8 @@ osm_create_user_block <- function(user_id, reason, period, needs_view = FALSE, f
 #' }
 #' ```
 #'
-#' @family user blocks' functions
-#' @export
+# @family user blocks' functions
+#' @noRd
 #'
 #' @examples
 #' osm_read_user_block(1)
@@ -352,6 +352,7 @@ osm_list_active_user_blocks <- function(format = c("R", "xml", "json")) {
     out <- httr2::resp_body_xml(resp)
     if (format == "R") {
       out <- user_blocks_xml2DF(out)
+      out[, c("revoker", "revoker_uid", "reason")] <- NULL
     }
   } else if (format %in% "json") {
     out <- httr2::resp_body_json(resp)

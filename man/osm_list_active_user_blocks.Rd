@@ -77,6 +77,6 @@ osm_list_active_user_blocks()
 \seealso{
 Other user blocks' functions: 
 \code{\link{osm_create_user_block}()},
-\code{\link{osm_read_user_block}()}
+\code{\link{osm_get_user_blocks}()}
 }
 \concept{user blocks' functions}

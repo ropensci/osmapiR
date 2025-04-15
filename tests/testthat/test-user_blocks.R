@@ -1,10 +1,12 @@
 column_user_blocks <- c(
-  "id", "created_at", "updated_at", "ends_at", "needs_view", "user_uid", "user", "creator_uid", "creator", "reason"
+  "id", "created_at", "updated_at", "ends_at", "needs_view",
+  "user_uid", "user", "creator_uid", "creator", "revoker_uid", "revoker", "reason"
 )
 
 class_columns <- list(
   id = "character", created_at = "POSIXct", updated_at = "POSIXct", ends_at = "POSIXct", needs_view = "logical",
-  user_uid = "integer", user = "character", creator_uid = "integer", creator = "character", reason = "character"
+  user_uid = "character", user = "character", creator_uid = "character", creator = "character",
+  revoker_uid = "character", revoker = "character", reason = "character"
 )
 
 
@@ -25,9 +27,7 @@ test_that("osm_create_user_block works", {
   })
 
   expect_s3_class(usr_blk, "data.frame")
-
   expect_named(usr_blk, column_user_blocks)
-
   lapply(usr_blk, function(x) {
     mapply(function(y, cl) expect_true(inherits(y, cl)), y = x, cl = class_columns[names(x)])
   })
@@ -39,12 +39,13 @@ test_that("osm_create_user_block works", {
 
 
   expect_s3_class(usr_blk_xml, "xml_document")
+
   expect_type(usr_blk_json, "list")
+  expect_named(usr_blk_json, c("version", "generator", "copyright", "attribution", "license", "user_block"))
 
 
   # Compare xml, json & R
   expect_identical(nrow(usr_blk), xml2::xml_length(usr_blk_xml))
-  # expect_identical(nrow(usr_blk), length(usr_blk_json$user_block)) # TODO: json don't follow other API patterns
 })
 
 
@@ -52,33 +53,48 @@ test_that("osm_create_user_block works", {
 ## Read: `GET /api/0.6/user_blocks/#id` ----
 
 test_that("osm_read_user_block works", {
+  usr_blk <- list()
+  usr_blk_xml <- list()
+  usr_blk_json <- list()
   with_mock_dir("mock_read_user_block", {
-    read <- osm_read_user_block(user_block_id = 1)
-    read_xml <- osm_read_user_block(user_block_id = 1, format = "xml")
-    read_json <- osm_read_user_block(user_block_id = "1", format = "json")
+    usr_blk$blk <- osm_get_user_blocks(user_block_id = 1)
+    usr_blk$blks <- osm_get_user_blocks(user_block_id = c(1, 93))
+
+    usr_blk_xml$blk <- osm_get_user_blocks(user_block_id = 1, format = "xml")
+    usr_blk_xml$blks <- osm_get_user_blocks(user_block_id = c(1, 93), format = "xml")
+
+    usr_blk_json$blk <- osm_get_user_blocks(user_block_id = "1", format = "json")
+    usr_blk_json$blks <- osm_get_user_blocks(user_block_id = c("1", "93"), format = "json")
   })
 
-  expect_s3_class(read, "data.frame")
+  lapply(usr_blk, expect_s3_class, "data.frame")
+  lapply(usr_blk, expect_named, column_user_blocks)
 
-  expect_named(read, column_user_blocks)
-
-  lapply(read, function(x) {
+  lapply(usr_blk, function(x) {
     mapply(function(y, cl) expect_true(inherits(y, cl)), y = x, cl = class_columns[names(x)])
   })
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
-  expect_false(strftime(as.POSIXct(read$created_at), format = "%M:%S") == "00:00")
-  expect_false(strftime(as.POSIXct(read$updated_at), format = "%M:%S") == "00:00")
-  expect_false(strftime(as.POSIXct(read$ends_at), format = "%M:%S") == "00:00")
+  lapply(usr_blk, function(x) {
+    expect_false(all(strftime(as.POSIXct(x$created_at), format = "%M:%S") == "00:00"))
+    expect_false(all(strftime(as.POSIXct(x$updated_at), format = "%M:%S") == "00:00"))
+    expect_false(all(strftime(as.POSIXct(x$ends_at), format = "%M:%S") == "00:00"))
+  })
 
 
-  expect_s3_class(read_xml, "xml_document")
-  expect_type(read_json, "list")
+  lapply(usr_blk_xml, expect_s3_class, "xml_document")
+
+  lapply(usr_blk_json, expect_type, "list")
+  lapply(
+    usr_blk_json,
+    expect_named,
+    expected = c("version", "generator", "copyright", "attribution", "license", "user_blocks")
+  )
 
 
   # Compare xml, json & R
-  expect_identical(nrow(read), xml2::xml_length(read_xml))
-  # expect_identical(nrow(read), length(read_json$user_block)) # TODO: json don't follow other API patterns
+  mapply(function(d, x) expect_identical(nrow(d), xml2::xml_length(x)), d = usr_blk, x = usr_blk_xml)
+  mapply(function(d, j) expect_identical(nrow(d), length(j$user_blocks)), d = usr_blk, j = usr_blk_json)
 })
 
 
@@ -95,12 +111,8 @@ test_that("osm_list_active_user_blocks works", {
   })
 
   expect_s3_class(list_blk, "data.frame")
-
-  expect_named(list_blk, setdiff(column_user_blocks, "reason"))
-
-  lapply(list_blk, function(x) {
-    mapply(function(y, cl) expect_true(inherits(y, cl)), y = x, cl = class_columns[names(x)])
-  })
+  expect_named(list_blk, setdiff(column_user_blocks, c("revoker_uid", "revoker", "reason")))
+  mapply(function(y, cl) expect_true(inherits(y, cl)), y = list_blk, cl = class_columns[names(list_blk)])
 
   # Check that time is extracted, otherwise it's 00:00:00 in local time
   expect_false(strftime(as.POSIXct(list_blk$created_at), format = "%M:%S") == "00:00")
@@ -109,12 +121,13 @@ test_that("osm_list_active_user_blocks works", {
 
 
   expect_s3_class(list_blk_xml, "xml_document")
-  expect_type(list_blk_json, "list")
 
+  expect_type(list_blk_json, "list")
+  expect_named(list_blk_json, c("version", "generator", "copyright", "attribution", "license", "user_blocks"))
 
   # Compare xml, json & R
   expect_identical(nrow(list_blk), xml2::xml_length(list_blk_xml))
-  # expect_identical(nrow(list_blk), length(list_blk_json$user_block)) # TODO: json don't follow other API patterns
+  expect_identical(nrow(list_blk), length(list_blk_json$user_block))
 
 
   ## Empty results
@@ -126,19 +139,14 @@ test_that("osm_list_active_user_blocks works", {
   })
 
   expect_s3_class(empty_list_blk, "data.frame")
-
-  expect_named(empty_list_blk, setdiff(column_user_blocks, "reason"))
-
-  lapply(empty_list_blk, function(x) {
-    mapply(function(y, cl) expect_true(inherits(y, cl)), y = x, cl = class_columns[names(x)])
-  })
-
-  expect_condition()
+  expect_named(empty_list_blk, setdiff(column_user_blocks, c("revoker_uid", "revoker", "reason")))
+  mapply(function(y, cl) expect_true(inherits(y, cl)), y = empty_list_blk, cl = class_columns[names(empty_list_blk)])
 
 
   expect_s3_class(empty_list_blk_xml, "xml_document")
-  expect_type(empty_list_blk_json, "list")
 
+  expect_type(empty_list_blk_json, "list")
+  expect_named(empty_list_blk_json, c("version", "generator", "copyright", "attribution", "license", "user_blocks"))
 
   # Compare xml, json & R
   expect_identical(nrow(empty_list_blk), 0L)
