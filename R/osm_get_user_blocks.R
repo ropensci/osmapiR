@@ -34,7 +34,7 @@
 #'   "copyright":"OpenStreetMap and contributors",
 #'   "attribution":"http://www.openstreetmap.org/copyright",
 #'   "license":"http://opendatacommons.org/licenses/odbl/1-0/",
-#'   "user_block":[
+#'   "user_blocks":[
 #'     {
 #'       "id":101,
 #'       "created_at":"2025-02-22T02:11:55Z",

@@ -29,7 +29,7 @@ Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
 </osm>
 }\if{html}{\out{</div>}}
 
-Empty \if{html}{\out{<osm>}} element indicates no active blocks.
+Empty \verb{<osm>} element indicates no active blocks.
 }
 
 \subsection{\code{format = "json"}}{

@@ -295,7 +295,7 @@ osm_read_user_block <- function(user_block_id, format = c("R", "xml", "json")) {
 #' </osm>
 #' ```
 #'
-#' Empty <osm> element indicates no active blocks.
+#' Empty `<osm>` element indicates no active blocks.
 #
 #' ## `format = "json"`
 #' Returns a list with the following json structure:
