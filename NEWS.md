@@ -1,5 +1,7 @@
 # osmapiR (development version)
 
+* Fix for upcoming httr2 1.2.0 release (#67 by @hadley).
+
 # osmapiR 0.2.3
 
 * Update documentation and code for server-side changes documented in OSMWikiVersion
