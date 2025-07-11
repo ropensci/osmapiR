@@ -313,10 +313,9 @@ osm_read_changeset <- function(changeset_id, include_discussion = FALSE,
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
 
+  req <- httr2::req_url_path_append(req, "changeset", changeset_id)
   if (include_discussion) {
-    req <- httr2::req_url_path_append(req, "changeset", paste0(changeset_id, "?include_discussion='true'"))
-  } else {
-    req <- httr2::req_url_path_append(req, "changeset", changeset_id)
+    req <- httr2::req_url_query(req, include_discussion = I("'true'"))
   }
 
   resp <- httr2::req_perform(req)
