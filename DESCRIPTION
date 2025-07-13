@@ -36,3 +36,4 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.2
 X-schema.org-keywords: open street map, openstreetmap, OSM,
     openstreetmap-api, osmapi, API
+Remotes: r-lib/httr2
