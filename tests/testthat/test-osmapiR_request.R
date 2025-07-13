@@ -37,7 +37,7 @@ test_that("error handling works", {
         httr2::req_url_path_append("nodes") |>
         httr2::req_url_query(nodes = paste(1:2000, collapse = ",")) |>
         httr2::req_perform(),
-      "414 URI Too Long.+The requested URL's length exceeds the capacity\nlimit for this server."
+      class = 'httr2_http_414'
     )
   })
 })
