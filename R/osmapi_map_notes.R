@@ -715,7 +715,7 @@ osm_unsubscribe_note <- function(note_id) { # TODO: , format = c("R", "xml", "js
 # |<code>sort</code>
 # | Sort results by creation or update date.
 # | <code>created_at</code> or <code>updated_at</code>
-# | <code>updated_at</code>
+# | <code>created_at</code>
 # |-
 # |<code>order</code>
 # | Sorting order. <code>oldest</code> is ascending order, <code>newest</code> is descending order.

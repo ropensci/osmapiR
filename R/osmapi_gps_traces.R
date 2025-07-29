@@ -133,7 +133,7 @@
 # |The GPX file containing the track points. Note that for successful processing, the file must contain trackpoints (<code><trkpt></code>), not only waypoints, and the trackpoints must have a valid timestamp. Since the file is processed asynchronously, the call will complete successfully even if the file cannot be processed. The file may also be a .tar, .tar.gz or .zip containing multiple gpx files, although it will appear as a single entry in the upload log.
 # |-
 # |description
-# |The trace description. Cannot be empty.
+# |The trace description. Cannot be empty. Maximum length is 255 characters.
 # |-
 # |tags
 # |A string containing tags for the trace. Can be empty.
@@ -311,6 +311,8 @@ osm_update_gpx <- function(gpx_id, name, description, tags,
 # </osm>
 # </syntaxhighlight>
 # Note: the <code>uid</code> attribute was added in {{gitHub link|openstreetmap/openstreetmap-website/pull/4241| September 2023}}.
+#
+# This API call also supports a JSON response.
 
 #' Download GPS Track Metadata
 #'
