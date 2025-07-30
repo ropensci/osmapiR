@@ -755,7 +755,7 @@ osm_unsubscribe_note <- function(note_id) { # TODO: , format = c("R", "xml", "js
 #'   [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) date format. Only works when `from` is supplied.
 #' @param closed Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
 #'   only open notes are returned. A value of -1 means all notes are returned. 7 is the default.
-#' @param sort Sort results by creation (`"created_at"`) or update date (`"updated_at"`, the default).
+#' @param sort Sort results by creation (`"created_at"`, the default) or update date (`"updated_at"`).
 #' @param order Sorting order. `"oldest"` is ascending order, `"newest"` is descending order (the default).
 #' @param limit Maximum number of results between 1 and 10000 (may change, see `osm_capabilities()$api$notes` for the
 #'   current value). Default to 100.
@@ -786,7 +786,7 @@ osm_unsubscribe_note <- function(note_id) { # TODO: , format = c("R", "xml", "js
 #' my_notes
 osm_search_notes <- function(
     q, user, bbox, from, to, closed = 7,
-    sort = c("updated_at", "created_at"), order = c("newest", "oldest"),
+    sort = c("created_at", "updated_at"), order = c("newest", "oldest"),
     limit = getOption("osmapir.api_capabilities")$api$notes["default_query_limit"],
     format = c("R", "sf", "xml", "rss", "json", "gpx")) {
   sort <- match.arg(sort)
