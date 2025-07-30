@@ -206,6 +206,7 @@ test_that("osm_get_metadata_gpx works", {
   trk_meta <- list()
   sf_trk_meta <- list()
   xml_trk_meta <- list()
+  json_trk_meta <- list()
   with_mock_dir("mock_get_metadata_gpx", {
     trk_meta$track <- osm_get_gpx_metadata(gpx_id = 3790367)
     trk_meta$tracks <- osm_get_gpx_metadata(gpx_id = c(3790367, 3458743))
@@ -215,6 +216,9 @@ test_that("osm_get_metadata_gpx works", {
 
     xml_trk_meta$track_xml <- osm_get_gpx_metadata(gpx_id = 3790367, format = "xml")
     xml_trk_meta$tracks_xml <- osm_get_gpx_metadata(gpx_id = c(3790367, 3458743), format = "xml")
+
+    json_trk_meta$track_json <- osm_get_gpx_metadata(gpx_id = 3790367, format = "json")
+    json_trk_meta$tracks_json <- osm_get_gpx_metadata(gpx_id = c(3790367, 3458743), format = "json")
   })
 
   lapply(trk_meta, function(x) expect_s3_class(x, class = "data.frame", exact = TRUE))
@@ -240,8 +244,13 @@ test_that("osm_get_metadata_gpx works", {
 
   lapply(xml_trk_meta, expect_s3_class, class = "xml_document")
 
+  lapply(json_trk_meta, expect_type, type = "list")
+  expect_named(json_trk_meta$track_json, c("version", "generator", "copyright", "attribution", "license", "trace"))
+  expect_named(json_trk_meta$tracks_json, c("version", "generator", "copyright", "attribution", "license", "traces"))
 
-  # Compare xml & R
+
+  # Compare xml, json & R
+
   mapply(function(d, x) {
     expect_identical(nrow(d), xml2::xml_length(x))
   }, d = trk_meta, x = xml_trk_meta)
@@ -249,6 +258,8 @@ test_that("osm_get_metadata_gpx works", {
   mapply(function(d, x) {
     expect_identical(nrow(d), nrow(x))
   }, d = trk_meta, x = sf_trk_meta)
+
+  expect_identical(nrow(trk_meta$tracks), length(json_trk_meta$tracks_json$traces))
 })
 
 

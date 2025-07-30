@@ -11,7 +11,7 @@ osm_search_notes(
   from,
   to,
   closed = 7,
-  sort = c("updated_at", "created_at"),
+  sort = c("created_at", "updated_at"),
   order = c("newest", "oldest"),
   limit = getOption("osmapir.api_capabilities")$api$notes["default_query_limit"],
   format = c("R", "sf", "xml", "rss", "json", "gpx")
@@ -38,7 +38,7 @@ for the current value).}
 \item{closed}{Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
 only open notes are returned. A value of -1 means all notes are returned. 7 is the default.}
 
-\item{sort}{Sort results by creation (\code{"created_at"}) or update date (\code{"updated_at"}, the default).}
+\item{sort}{Sort results by creation (\code{"created_at"}, the default) or update date (\code{"updated_at"}).}
 
 \item{order}{Sorting order. \code{"oldest"} is ascending order, \code{"newest"} is descending order (the default).}
 

@@ -685,7 +685,7 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 # ; HTTP status code 400 (Bad Request)
 # : On a malformed request (parameters missing or wrong)
 # ; HTTP status code 404 (Not Found)
-# : If one of the elements could not be found (By "not found" is meant never existed in the database, if the object was deleted, it will be returned with the attribute visible="false")
+# : If one of the elements could not be found (By "not found" is meant never existed in the database  or its requested version was redacted, if the object was deleted, it will be returned with the attribute visible="false")
 # ; HTTP status code 414 (Request-URI Too Large)
 # : If the URI was too long (tested to be > 8213 characters in the URI, or > 725 elements for 10 digit IDs when not specifying versions)
 #

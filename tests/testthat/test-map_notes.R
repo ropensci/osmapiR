@@ -220,14 +220,24 @@ test_that("osm_subscribe_note works", {
 test_that("osm_search_notes works", {
   search_notes <- list()
   with_mock_dir("mock_search_notes", {
-    search_notes$df <- osm_search_notes(q = "POI", from = "2017-10-01", to = "2017-10-27T15:27A", limit = 10)
-    search_notes$sf <- osm_search_notes(
-      q = "POI", from = "2017-10-01", to = "2017-10-27T15:27A", limit = 10, format = "sf"
+    search_notes$df <- osm_search_notes(
+      q = "POI", from = "2017-10-01", to = "2017-10-27T15:27A", sort = "updated_at", limit = 10
     )
-    search_notes$xml <- osm_search_notes(user = "jmaspons", from = "2017-10-01", limit = 10, format = "xml")
-    search_notes$rss <- osm_search_notes(q = "POI", from = "2017-10-01", to = "2017-10-27", limit = 10, format = "rss")
-    search_notes$json <- osm_search_notes(from = "2017-10-01", to = "2017-10-27", limit = 10, format = "json")
-    search_notes$gpx <- osm_search_notes(from = "2023-06-25", closed = -1, limit = 10, format = "gpx")
+    search_notes$sf <- osm_search_notes(
+      q = "POI", from = "2017-10-01", to = "2017-10-27T15:27A", sort = "updated_at", limit = 10, format = "sf"
+    )
+    search_notes$xml <- osm_search_notes(
+      user = "jmaspons", from = "2017-10-01", sort = "updated_at", limit = 10, format = "xml"
+    )
+    search_notes$rss <- osm_search_notes(
+      q = "POI", from = "2017-10-01", to = "2017-10-27", sort = "updated_at", limit = 10, format = "rss"
+    )
+    search_notes$json <- osm_search_notes(
+      from = "2017-10-01", to = "2017-10-27", sort = "updated_at", limit = 10, format = "json"
+    )
+    search_notes$gpx <- osm_search_notes(
+      from = "2023-06-25", closed = -1, sort = "updated_at", limit = 10, format = "gpx"
+    )
   })
 
   mapply(function(x, class) expect_true(inherits(x, class)), x = search_notes, class = classes)
@@ -256,12 +266,22 @@ test_that("osm_search_notes works", {
 
   empty_search_notes <- list()
   with_mock_dir("mock_search_notes_empty", {
-    empty_search_notes$df <- osm_search_notes(q = "Visca la terra!", user = "jmaspons")
-    empty_search_notes$sf <- osm_search_notes(q = "Visca la terra!", user = "jmaspons", format = "sf")
-    empty_search_notes$xml <- osm_search_notes(q = "Visca la terra!", user = "jmaspons", format = "xml")
-    empty_search_notes$rss <- osm_search_notes(q = "Visca la terra!", user = "jmaspons", format = "rss")
-    empty_search_notes$json <- osm_search_notes(q = "Visca la terra!", user = "jmaspons", format = "json")
-    empty_search_notes$gpx <- osm_search_notes(q = "Visca la terra!", user = "jmaspons", format = "gpx")
+    empty_search_notes$df <- osm_search_notes(q = "Visca la terra!", user = "jmaspons", sort = "updated_at")
+    empty_search_notes$sf <- osm_search_notes(
+      q = "Visca la terra!", user = "jmaspons", sort = "updated_at", format = "sf"
+    )
+    empty_search_notes$xml <- osm_search_notes(
+      q = "Visca la terra!", user = "jmaspons", sort = "updated_at", format = "xml"
+    )
+    empty_search_notes$rss <- osm_search_notes(
+      q = "Visca la terra!", user = "jmaspons", sort = "updated_at", format = "rss"
+    )
+    empty_search_notes$json <- osm_search_notes(
+      q = "Visca la terra!", user = "jmaspons", sort = "updated_at", format = "json"
+    )
+    empty_search_notes$gpx <- osm_search_notes(
+      q = "Visca la terra!", user = "jmaspons", sort = "updated_at", format = "gpx"
+    )
   })
 
   mapply(function(x, class) expect_true(inherits(x, class)), x = empty_search_notes, class = classes)
