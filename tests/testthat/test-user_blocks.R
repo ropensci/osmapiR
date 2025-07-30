@@ -52,7 +52,7 @@ test_that("osm_create_user_block works", {
 
 ## Read: `GET /api/0.6/user_blocks/#id` ----
 
-test_that("osm_read_user_block works", {
+test_that(".osm_read_user_block works", {
   usr_blk <- list()
   usr_blk_xml <- list()
   usr_blk_json <- list()

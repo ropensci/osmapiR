@@ -216,15 +216,15 @@ osm_create_object <- function(x, changeset_id) {
 #' @noRd
 #'
 #' @examples
-#' node <- osm_read_object(osm_type = "node", osm_id = 35308286)
+#' node <- .osm_read_object(osm_type = "node", osm_id = 35308286)
 #' node
 #'
-#' way <- osm_read_object(osm_type = "way", osm_id = 13073736L)
+#' way <- .osm_read_object(osm_type = "way", osm_id = 13073736L)
 #' way
 #'
-#' rel <- osm_read_object(osm_type = "relation", osm_id = "40581")
+#' rel <- .osm_read_object(osm_type = "relation", osm_id = "40581")
 #' rel
-osm_read_object <- function(osm_type = c("node", "way", "relation"),
+.osm_read_object <- function(osm_type = c("node", "way", "relation"),
                             osm_id, format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   osm_type <- match.arg(osm_type)
   format <- match.arg(format)
@@ -637,15 +637,15 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id,
 #' @noRd
 #'
 #' @examples
-#' node <- osm_version_object(osm_type = "node", osm_id = 35308286, version = 1)
+#' node <- .osm_version_object(osm_type = "node", osm_id = 35308286, version = 1)
 #' node
 #'
-#' way <- osm_version_object(osm_type = "way", osm_id = 13073736L, version = 2)
+#' way <- .osm_version_object(osm_type = "way", osm_id = 13073736L, version = 2)
 #' way
 #'
-#' rel <- osm_version_object(osm_type = "relation", osm_id = "40581", version = 3)
+#' rel <- .osm_version_object(osm_type = "relation", osm_id = "40581", version = 3)
 #' rel
-osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, version,
+.osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, version,
                                format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   osm_type <- match.arg(osm_type)
   format <- match.arg(format)
@@ -721,16 +721,16 @@ osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, 
 #' @noRd
 #'
 #' @examples
-#' node <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367))
+#' node <- .osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367))
 #' node
 #'
-#' way <- osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L))
+#' way <- .osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L))
 #' way
 #'
 #' # Specific versions
-#' rel <- osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1))
+#' rel <- .osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1))
 #' rel
-osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_ids, versions,
+.osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_ids, versions,
                               format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   osm_type <- match.arg(osm_type)
   format <- match.arg(format)
@@ -788,9 +788,9 @@ osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_id
 
 #' Fetch objects in batches
 #'
-#' Called from [osm_fetch_objects()] to avoid `HTTP ERROR 414 URI Too Long` when characters in the URI > 8213.
+#' Called from [.osm_fetch_objects()] to avoid `HTTP ERROR 414 URI Too Long` when characters in the URI > 8213.
 #'
-#' @inherit osm_fetch_objects
+#' @inherit .osm_fetch_objects
 #' @param nchar_base The number of characters of the URL without the parameters `osm_ids` appended.
 #'
 #' @noRd
@@ -811,7 +811,7 @@ fetch_objects_batches <- function(osm_type, osm_ids, nchar_base, format, tags_in
   obj_batch <- .mapply(
     function(from, to) {
       ids <- osm_ids[from:to]
-      osm_fetch_objects(osm_type = osm_type, osm_ids = ids, format = format) # version is already part of osm_ids
+      .osm_fetch_objects(osm_type = osm_type, osm_ids = ids, format = format) # version is already part of osm_ids
     },
     dots = list(
       from = ids_batch[-length(ids_batch)],
@@ -1019,12 +1019,12 @@ osm_ways_node <- function(node_id, format = c("R", "xml", "json"), tags_in_colum
 #' @noRd
 #'
 #' @examples
-#' way <- osm_full_object(osm_type = "way", osm_id = 13073736)
+#' way <- .osm_full_object(osm_type = "way", osm_id = 13073736)
 #' way
 #'
-#' rel <- osm_full_object(osm_type = "relation", osm_id = "40581")
+#' rel <- .osm_full_object(osm_type = "relation", osm_id = "40581")
 #' rel
-osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
+.osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
                             format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   osm_type <- match.arg(osm_type)
   format <- match.arg(format)

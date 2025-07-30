@@ -69,7 +69,7 @@ chset_id <- osm_create_changeset(
   hashtags = "#testing;#osmapiR"
 )
 
-chaset <- osm_read_changeset(changeset_id = chset_id)
+chaset <- osm_get_changesets(changeset_id = chset_id)
 chaset
 
 upd_chaset <- osm_update_changeset(

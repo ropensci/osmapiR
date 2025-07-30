@@ -5,6 +5,7 @@
   [2834473 -> 2878437](https://wiki.openstreetmap.org/w/index.php?title=API_v0.6&diff=2878437&oldid=2834473) (#69).
   * Add `format = "json"` for `osm_get_gpx_metadata()`.
   * New default for `osm_search_notes()` to `sort = "created_at"` instead of `sort = "updated_at"`.
+* Rename internal functions for API endpoints from `osm_*` to `.osm_*` (#70).
 
 # osmapiR 0.2.3
 

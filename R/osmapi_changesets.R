@@ -86,7 +86,7 @@
 #'   hashtags = "#testing;#osmapiR"
 #' )
 #'
-#' chaset <- osm_read_changeset(changeset_id = chset_id)
+#' chaset <- osm_get_changesets(changeset_id = chset_id)
 #' chaset
 #'
 #' upd_chaset <- osm_update_changeset(
@@ -299,11 +299,11 @@ osm_create_changeset <- function(comment, ...,
 #' @noRd
 #'
 #' @examples
-#' chaset <- osm_read_changeset(changeset_id = 137595351, include_discussion = TRUE)
+#' chaset <- .osm_read_changeset(changeset_id = 137595351, include_discussion = TRUE)
 #' chaset
 #' chaset$discussion
-osm_read_changeset <- function(changeset_id, include_discussion = FALSE,
                                format = c("R", "xml", "json"), tags_in_columns = FALSE) {
+.osm_read_changeset <- function(changeset_id, include_discussion = FALSE,
   format <- match.arg(format)
 
   if (format == "json") {

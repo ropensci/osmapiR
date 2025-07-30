@@ -1,4 +1,4 @@
-# Vectorized version of osm_read_user_blocks
+# Vectorized version of .osm_read_user_blocks
 
 #' Read user block
 #'
@@ -71,14 +71,14 @@ osm_get_user_blocks <- function(user_block_id, format = c("R", "xml", "json")) {
   format <- match.arg(format)
 
   if (length(user_block_id) == 1) {
-    out <- osm_read_user_block(user_block_id = user_block_id, format = format)
+    out <- .osm_read_user_block(user_block_id = user_block_id, format = format)
     if (format == "json") {
       out$user_blocks <- list(out$user_block)
       out$user_block <- NULL
     }
   } else {
     outL <- lapply(user_block_id, function(id) {
-      osm_read_user_block(user_block_id = id, format = format)
+      .osm_read_user_block(user_block_id = id, format = format)
     })
 
     if (format == "R") {

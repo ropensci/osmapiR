@@ -119,7 +119,7 @@ test_that("edit changeset (create/update/diff upload) works", {
 
 ## Read: `GET /api/0.6/changeset/#id*?include_discussion='true'*` ----
 
-test_that("osm_read_changeset works", {
+test_that(".osm_read_changeset works", {
   with_mock_dir("mock_read_changeset", {
     chaset <- osm_get_changesets(changeset_id = 137595351)
     chaset_discuss <- osm_get_changesets(changeset_id = 137595351, include_discussion = TRUE)

@@ -1,4 +1,4 @@
-# Vectorized version of osm_read_changeset
+# Vectorized version of .osm_read_changeset
 
 #' Get changesets
 #'
@@ -105,13 +105,13 @@ osm_get_changesets <- function(changeset_id, include_discussion = FALSE,
   }
 
   if (length(changeset_id) == 1) {
-    out <- osm_read_changeset(
+    out <- .osm_read_changeset(
       changeset_id = changeset_id, include_discussion = include_discussion,
       format = .format, tags_in_columns = tags_in_columns
     )
   } else {
     outL <- lapply(changeset_id, function(id) {
-      osm_read_changeset(changeset_id = id, include_discussion = include_discussion, format = .format)
+      .osm_read_changeset(changeset_id = id, include_discussion = include_discussion, format = .format)
     })
 
     if (.format == "R") {

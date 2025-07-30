@@ -13,7 +13,7 @@ class_columns <- list(
 
 ## Details of a user: `GET /api/0.6/user/#id` ----
 
-test_that("osm_details_user works", {
+test_that(".osm_details_user works", {
   usr <- list()
   xml_usr <- list()
   with_mock_dir("mock_details_user", {
@@ -72,7 +72,7 @@ test_that("osm_details_user works", {
 
 ## Details of multiple users: `GET /api/0.6/users?users=#id1,#id2,...,#idn` ----
 
-test_that("osm_details_users works", {
+test_that(".osm_details_users works", {
   usrs <- list()
   with_mock_dir("mock_details_users", {
     usrs$usrs <- osm_get_user_details(user_id = c(1, 24, 44, 45, 46, 48, 49, 50))

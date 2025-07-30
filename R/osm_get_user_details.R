@@ -62,8 +62,8 @@ osm_get_user_details <- function(user_id, format = c("R", "xml", "json")) {
   format <- match.arg(format)
 
   if (length(user_id) == 1) {
-    out <- tryCatch( # ! HTTP 404 Not Found. Different from osm_details_users()
-      osm_details_user(user_id = user_id, format = format),
+    out <- tryCatch( # ! HTTP 404 Not Found. Different from .osm_details_users()
+      .osm_details_user(user_id = user_id, format = format),
       error = function(e) {
         switch(format,
           R = empty_user(),
@@ -73,7 +73,7 @@ osm_get_user_details <- function(user_id, format = c("R", "xml", "json")) {
       }
     )
   } else {
-    out <- osm_details_users(user_ids = user_id, format = format)
+    out <- .osm_details_users(user_ids = user_id, format = format)
   }
 
   return(out)

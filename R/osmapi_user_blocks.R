@@ -184,8 +184,8 @@ osm_create_user_block <- function(user_id, reason, period, needs_view = FALSE, f
 #' @noRd
 #'
 #' @examples
-#' osm_read_user_block(1)
-osm_read_user_block <- function(user_block_id, format = c("R", "xml", "json")) {
+#' .osm_read_user_block(1)
+.osm_read_user_block <- function(user_block_id, format = c("R", "xml", "json")) {
   format <- match.arg(format)
 
   if (format == "json") {

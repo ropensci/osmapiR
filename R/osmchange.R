@@ -57,7 +57,7 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE, form
   }
 
   x_type <- split(x, x$type)
-  x_osm <- lapply(x_type, function(y) osm_fetch_objects(osm_type = unique(y$type), osm_ids = y$id))
+  x_osm <- lapply(x_type, function(y) .osm_fetch_objects(osm_type = unique(y$type), osm_ids = y$id))
   x_osm <- do.call(rbind, x_osm)
 
   x_uid <- do.call(paste, x[, c("type", "id")])
@@ -166,7 +166,7 @@ osmchange_delete <- function(x, delete_if_unused = FALSE, format = c("R", "osc",
   stopifnot(c("type", "id") %in% colnames(x))
 
   x_type <- split(x, x$type)
-  osmchange <- lapply(x_type, function(y) osm_fetch_objects(osm_type = unique(y$type), osm_ids = y$id))
+  osmchange <- lapply(x_type, function(y) .osm_fetch_objects(osm_type = unique(y$type), osm_ids = y$id))
   osmchange <- do.call(rbind, osmchange[c("relation", "way", "node")]) # sort to avoid deleting members of existing objs
   rownames(osmchange) <- NULL
   osmchange <- cbind(action_type = ifelse(delete_if_unused, "delete if-unused", "delete"), osmchange)

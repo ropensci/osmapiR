@@ -243,7 +243,7 @@ relation_create_2xml <- function(x) {
 
 #' Transform an `osmapi_objects` data.frame to a `xml_document`
 #'
-#' Function to use all tags as returned by the server (e.g. [osm_read_object()], [osm_fetch_objects()], ...).
+#' Function to use all tags as returned by the server (e.g. [.osm_read_object()], [.osm_fetch_objects()], ...).
 #'
 #' @param x An `osmapi_objects` data.frame.
 #'

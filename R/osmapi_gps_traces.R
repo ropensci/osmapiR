@@ -232,7 +232,7 @@ osm_update_gpx <- function(gpx_id, name, description, tags,
   visibility <- match.arg(visibility)
   stopifnot(!missing(description))
 
-  xml_upd <- osm_get_metadata_gpx(gpx_id = gpx_id, format = "xml")
+  xml_upd <- .osm_get_metadata_gpx(gpx_id = gpx_id, format = "xml")
   if (!missing(name)) {
     xml2::xml_set_attr(xml2::xml_child(xml_upd), attr = "name", value = name)
   }
@@ -340,10 +340,10 @@ osm_update_gpx <- function(gpx_id, name, description, tags,
 #'
 #' @examples
 #' \dontrun{
-#' trk_meta <- osm_get_metadata_gpx(gpx_id = 3498170)
+#' trk_meta <- .osm_get_metadata_gpx(gpx_id = 3498170)
 #' trk_meta
 #' }
-osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml", "json")) {
+.osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml", "json")) {
   format <- match.arg(format)
 
   if (format == "json") {
