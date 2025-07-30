@@ -225,7 +225,7 @@ osm_create_object <- function(x, changeset_id) {
 #' rel <- .osm_read_object(osm_type = "relation", osm_id = "40581")
 #' rel
 .osm_read_object <- function(osm_type = c("node", "way", "relation"),
-                            osm_id, format = c("R", "xml", "json"), tags_in_columns = FALSE) {
+                             osm_id, format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   osm_type <- match.arg(osm_type)
   format <- match.arg(format)
 
@@ -646,7 +646,7 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id,
 #' rel <- .osm_version_object(osm_type = "relation", osm_id = "40581", version = 3)
 #' rel
 .osm_version_object <- function(osm_type = c("node", "way", "relation"), osm_id, version,
-                               format = c("R", "xml", "json"), tags_in_columns = FALSE) {
+                                format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   osm_type <- match.arg(osm_type)
   format <- match.arg(format)
 
@@ -731,7 +731,7 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id,
 #' rel <- .osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1))
 #' rel
 .osm_fetch_objects <- function(osm_type = c("nodes", "ways", "relations"), osm_ids, versions,
-                              format = c("R", "xml", "json"), tags_in_columns = FALSE) {
+                               format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   osm_type <- match.arg(osm_type)
   format <- match.arg(format)
 
@@ -1025,7 +1025,7 @@ osm_ways_node <- function(node_id, format = c("R", "xml", "json"), tags_in_colum
 #' rel <- .osm_full_object(osm_type = "relation", osm_id = "40581")
 #' rel
 .osm_full_object <- function(osm_type = c("way", "relation"), osm_id,
-                            format = c("R", "xml", "json"), tags_in_columns = FALSE) {
+                             format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   osm_type <- match.arg(osm_type)
   format <- match.arg(format)
 

@@ -302,8 +302,8 @@ osm_create_changeset <- function(comment, ...,
 #' chaset <- .osm_read_changeset(changeset_id = 137595351, include_discussion = TRUE)
 #' chaset
 #' chaset$discussion
-                               format = c("R", "xml", "json"), tags_in_columns = FALSE) {
 .osm_read_changeset <- function(changeset_id, include_discussion = FALSE,
+                                format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   format <- match.arg(format)
 
   if (format == "json") {
