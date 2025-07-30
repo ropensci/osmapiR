@@ -68,13 +68,13 @@ osm_get_objects <- function(osm_type, osm_id, version, full_objects = FALSE,
 
   if (length(osm_id) == 1) {
     if (full_objects && osm_type %in% c("way", "relation")) {
-      out <- osm_full_object(osm_type = osm_type, osm_id = osm_id, format = format, tags_in_columns = tags_in_columns)
+      out <- .osm_full_object(osm_type = osm_type, osm_id = osm_id, format = format, tags_in_columns = tags_in_columns)
     } else if (!missing(version)) {
-      out <- osm_version_object(
+      out <- .osm_version_object(
         osm_type = osm_type, osm_id = osm_id, version = version, format = format, tags_in_columns = tags_in_columns
       )
     } else {
-      out <- osm_read_object(osm_type = osm_type, osm_id = osm_id, format = format, tags_in_columns = tags_in_columns)
+      out <- .osm_read_object(osm_type = osm_type, osm_id = osm_id, format = format, tags_in_columns = tags_in_columns)
     }
 
     return(out)
@@ -98,24 +98,24 @@ osm_get_objects <- function(osm_type, osm_id, version, full_objects = FALSE,
     out <- mapply(function(type, ids) {
       if (type %in% c("way", "relation")) {
         full_obj <- lapply(ids$id, function(id) {
-          osm_full_object(osm_type = type, osm_id = id, format = format)
+          .osm_full_object(osm_type = type, osm_id = id, format = format)
         })
       } else {
-        full_obj <- list(osm_fetch_objects(osm_type = paste0(type, "s"), osm_ids = ids$id, format = format))
+        full_obj <- list(.osm_fetch_objects(osm_type = paste0(type, "s"), osm_ids = ids$id, format = format))
       }
       full_obj
     }, type = names(type_idL), ids = type_idL, SIMPLIFY = FALSE)
     out <- unlist(out, recursive = FALSE)
   } else { # no full_objects
-    type_plural <- paste0(names(type_idL), "s") # type in plural for osm_fetch_objects()
+    type_plural <- paste0(names(type_idL), "s") # type in plural for .osm_fetch_objects()
 
     if (missing(version)) {
       out <- mapply(function(type, ids) {
-        osm_fetch_objects(osm_type = type, osm_ids = ids$id, format = format)
+        .osm_fetch_objects(osm_type = type, osm_ids = ids$id, format = format)
       }, type = type_plural, ids = type_idL, SIMPLIFY = FALSE)
     } else {
       out <- mapply(function(type, ids) {
-        osm_fetch_objects(osm_type = type, osm_ids = ids$id, versions = ids$version, format = format)
+        .osm_fetch_objects(osm_type = type, osm_ids = ids$id, versions = ids$version, format = format)
       }, type = type_plural, ids = type_idL, SIMPLIFY = FALSE)
     }
   }

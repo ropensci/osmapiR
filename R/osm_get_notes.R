@@ -1,4 +1,4 @@
-# Vectorized version of osm_read_note
+# Vectorized version of .osm_read_note
 
 #' Get notes
 #'
@@ -85,10 +85,10 @@ osm_get_notes <- function(note_id, format = c("R", "sf", "xml", "rss", "json", "
   }
 
   if (length(note_id) == 1) {
-    out <- osm_read_note(note_id = note_id, format = .format)
+    out <- .osm_read_note(note_id = note_id, format = .format)
   } else {
     outL <- lapply(note_id, function(id) {
-      osm_read_note(note_id = id, format = .format)
+      .osm_read_note(note_id = id, format = .format)
     })
 
     if (.format == "R") {

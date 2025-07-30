@@ -24,6 +24,7 @@ barzzz
 bb
 bbox
 bcb
+behaviour
 BEXER
 BFPlFMA
 bibentry
@@ -352,6 +353,7 @@ png
 policyL
 pos
 POSIXct
+POSIXlt
 POSIXt
 PPCC
 preferen

@@ -49,7 +49,7 @@ test_that("osm_get_objects works", {
 
 ## Read: `GET /api/0.6/[node|way|relation]/#id` ----
 
-test_that("osm_read_object works", {
+test_that(".osm_read_object works", {
   read <- list()
   xml_read <- list()
   json_read <- list()
@@ -262,7 +262,7 @@ test_that("osm_history_object works", {
 
 ## Version: `GET /api/0.6/[node|way|relation]/#id/#version` ----
 
-test_that("osm_version_object works", {
+test_that(".osm_version_object works", {
   version <- list()
   xml_version <- list()
   json_version <- list()
@@ -311,7 +311,7 @@ test_that("osm_version_object works", {
 
 ## Multi fetch: `GET /api/0.6/[nodes|ways|relations]?#parameters` ----
 
-test_that("osm_fetch_objects works", {
+test_that(".osm_fetch_objects works", {
   fetch <- list()
   fetch_xml <- list()
   with_mock_dir("mock_fetch_objects", {
@@ -560,7 +560,7 @@ test_that("osm_ways_node works", {
 
 ## Full: `GET /api/0.6/[way|relation]/#id/full` ----
 
-test_that("osm_full_object works", {
+test_that(".osm_full_object works", {
   full <- list()
   with_mock_dir("mock_full_object", {
     full$way <- osm_get_objects(osm_type = "way", osm_id = 13073736, full_objects = TRUE)

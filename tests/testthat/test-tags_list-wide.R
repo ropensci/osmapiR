@@ -2,14 +2,14 @@ test_that("OSM objects tags_list-wide works", {
   tags_list <- list()
   tags_wide <- list()
   with_mock_dir("mock_fetch_objects", {
-    tags_list$node <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367))
-    tags_list$way <- osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L))
-    tags_list$rel <- osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1))
+    tags_list$node <- .osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367))
+    tags_list$way <- .osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L))
+    tags_list$rel <- .osm_fetch_objects(osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1))
 
-    tags_wide$node <- osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367), tags_in_columns = TRUE)
-    tags_wide$way <- osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L), tags_in_columns = TRUE)
+    tags_wide$node <- .osm_fetch_objects(osm_type = "nodes", osm_ids = c(35308286, 1935675367), tags_in_columns = TRUE)
+    tags_wide$way <- .osm_fetch_objects(osm_type = "ways", osm_ids = c(13073736L, 235744929L), tags_in_columns = TRUE)
     suppressWarnings( # Tag's keys clash with other columns
-      tags_wide$rel <- osm_fetch_objects(
+      tags_wide$rel <- .osm_fetch_objects(
         osm_type = "relations", osm_ids = c("40581", "341530"), versions = c(3, 1), tags_in_columns = TRUE
       )
     )

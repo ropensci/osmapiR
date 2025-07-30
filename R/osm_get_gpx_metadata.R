@@ -1,4 +1,4 @@
-# Vectorized version of osm_get_metadata_gpx()
+# Vectorized version of .osm_get_metadata_gpx()
 
 #' Download GPS Track Metadata
 #'
@@ -41,10 +41,10 @@ osm_get_gpx_metadata <- function(gpx_id, format = c("R", "sf", "xml", "json")) {
   }
 
   if (length(gpx_id) == 1) {
-    out <- osm_get_metadata_gpx(gpx_id = gpx_id, format = .format)
+    out <- .osm_get_metadata_gpx(gpx_id = gpx_id, format = .format)
   } else {
     outL <- lapply(gpx_id, function(id) {
-      osm_get_metadata_gpx(gpx_id = id, format = .format)
+      .osm_get_metadata_gpx(gpx_id = id, format = .format)
     })
 
     if (.format == "R") {

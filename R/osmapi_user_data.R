@@ -85,9 +85,9 @@
 #' @noRd
 #'
 #' @examples
-#' usr <- osm_details_user(user_id = "11725140")
+#' usr <- .osm_details_user(user_id = "11725140")
 #' usr
-osm_details_user <- function(user_id, format = c("R", "xml", "json")) {
+.osm_details_user <- function(user_id, format = c("R", "xml", "json")) {
   format <- match.arg(format)
 
   if (format == "json") {
@@ -223,9 +223,9 @@ osm_details_user <- function(user_id, format = c("R", "xml", "json")) {
 #' @noRd
 #'
 #' @examples
-#' usrs <- osm_details_users(user_ids = c(1, 24, 44, 45, 46, 48, 49, 50))
+#' usrs <- .osm_details_users(user_ids = c(1, 24, 44, 45, 46, 48, 49, 50))
 #' usrs
-osm_details_users <- function(user_ids, format = c("R", "xml", "json")) {
+.osm_details_users <- function(user_ids, format = c("R", "xml", "json")) {
   format <- match.arg(format)
 
   if (format == "json") {

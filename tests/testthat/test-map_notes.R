@@ -70,7 +70,7 @@ test_that("osm_read_bbox_notes works", {
 
 ## Read: `GET /api/0.6/notes/#id` ----
 
-test_that("osm_read_note works", {
+test_that(".osm_read_note works", {
   read_note <- list()
   read_notes <- list()
   with_mock_dir("mock_read_note", {
