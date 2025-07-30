@@ -156,7 +156,7 @@
 #' Use this to upload a GPX file or archive of GPX files. Requires authentication.
 #'
 #' @param file The GPX file path containing the track points.
-#' @param description The trace description. Cannot be empty.
+#' @param description The trace description. Cannot be empty. Maximum length is 255 characters.
 #' @param tags A string containing tags for the trace. Can be empty.
 #' @param visibility One of the following: `private`, `public`, `trackable`, `identifiable`. For explanations see
 #'   [OSM trace upload page](https://www.openstreetmap.org/traces/mine) or
@@ -320,7 +320,7 @@ osm_update_gpx <- function(gpx_id, name, description, tags,
 #' Otherwise only usable by the owner account and requires authentication.
 #'
 #' @param gpx_id The track id represented by a numeric or a character value.
-#' @param format Format of the output. Can be `"R"` (default) or `"xml"`.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #'
 #' @return
 #' If `format = "R"`, returns a data frame with one trace per row. If `format = "xml"`, returns a
@@ -343,19 +343,26 @@ osm_update_gpx <- function(gpx_id, name, description, tags,
 #' trk_meta <- osm_get_metadata_gpx(gpx_id = 3498170)
 #' trk_meta
 #' }
-osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml")) {
+osm_get_metadata_gpx <- function(gpx_id, format = c("R", "xml", "json")) {
   format <- match.arg(format)
+
+  if (format == "json") {
+    gpx_id <- paste0(gpx_id, ".json")
+  }
+
   req <- osmapi_request(authenticate = TRUE)
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "gpx", gpx_id)
 
   resp <- httr2::req_perform(req)
-  obj_xml <- httr2::resp_body_xml(resp)
 
-  if (format == "R") {
-    out <- gpx_meta_xml2DF(obj_xml)
-  } else {
-    out <- obj_xml
+  if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- gpx_meta_xml2DF(out)
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
   }
 
   return(out)

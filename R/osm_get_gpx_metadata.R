@@ -6,7 +6,7 @@
 #' Otherwise only usable by the owner account and requires authentication.
 #'
 #' @param gpx_id A vector of track ids represented by a numeric or a character value.
-#' @param format Format of the output. Can be `"R"` (default), `"sf"`, or `"xml"`.
+#' @param format Format of the output. Can be `"R"` (default), `"sf"`, `"xml"`, or `"json"`.
 #'
 #' @return
 #' If `format = "R"`, returns a data frame with one trace per row. If `format = "sf"`, returns a `sf` object from
@@ -24,6 +24,7 @@
 #'   </gpx_file>
 #' </osm>
 #' ```
+#' If `format = "json"`, returns a list with the json structure.
 #' @family get GPS' functions
 #' @export
 #'
@@ -32,7 +33,7 @@
 #' trk_meta <- osm_get_gpx_metadata(gpx_id = 3498170)
 #' trk_meta
 #' }
-osm_get_gpx_metadata <- function(gpx_id, format = c("R", "sf", "xml")) {
+osm_get_gpx_metadata <- function(gpx_id, format = c("R", "sf", "xml", "json")) {
   format <- match.arg(format)
   .format <- if (format == "sf") "R" else format
   if (format == "sf" && !requireNamespace("sf", quietly = TRUE)) {
@@ -55,6 +56,10 @@ osm_get_gpx_metadata <- function(gpx_id, format = c("R", "sf", "xml")) {
           xml2::xml_add_child(out, node)
         })
       }
+    } else if (.format == "json") {
+      out <- outL[[1]]
+      out$traces <- lapply(outL, function(x) x$trace)
+      out$trace <- NULL
     }
   }
 

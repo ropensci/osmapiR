@@ -4,12 +4,12 @@
 \alias{osm_get_gpx_metadata}
 \title{Download GPS Track Metadata}
 \usage{
-osm_get_gpx_metadata(gpx_id, format = c("R", "sf", "xml"))
+osm_get_gpx_metadata(gpx_id, format = c("R", "sf", "xml", "json"))
 }
 \arguments{
 \item{gpx_id}{A vector of track ids represented by a numeric or a character value.}
 
-\item{format}{Format of the output. Can be \code{"R"} (default), \code{"sf"}, or \code{"xml"}.}
+\item{format}{Format of the output. Can be \code{"R"} (default), \code{"sf"}, \code{"xml"}, or \code{"json"}.}
 }
 \value{
 If \code{format = "R"}, returns a data frame with one trace per row. If \code{format = "sf"}, returns a \code{sf} object from
@@ -27,6 +27,8 @@ If \code{format = "R"}, returns a data frame with one trace per row. If \code{fo
   </gpx_file>
 </osm>
 }\if{html}{\out{</div>}}
+
+If \code{format = "json"}, returns a list with the json structure.
 }
 \description{
 Use this to access the metadata about GPX files. Available without authentication if the file is marked public.

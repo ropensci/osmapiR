@@ -14,7 +14,7 @@ osm_create_gpx(
 \arguments{
 \item{file}{The GPX file path containing the track points.}
 
-\item{description}{The trace description. Cannot be empty.}
+\item{description}{The trace description. Cannot be empty. Maximum length is 255 characters.}
 
 \item{tags}{A string containing tags for the trace. Can be empty.}
 

@@ -1,6 +1,9 @@
 # osmapiR (development version)
 
 * Fix for upcoming httr2 1.2.0 release (#67 by @hadley).
+* Update documentation and code for server-side changes documented in OSMWikiVersion
+  [2834473 -> 2878437](https://wiki.openstreetmap.org/w/index.php?title=API_v0.6&diff=2878437&oldid=2834473) (#68).
+  * Add `format = "json"` for `osm_get_gpx_metadata()`.
 
 # osmapiR 0.2.3
 
