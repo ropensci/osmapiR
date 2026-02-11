@@ -56,7 +56,7 @@ sel <- osm_objs$`name:ca` %in% "Abadia de Sant Miquel de Cuixà"
 obj <- osm_objs[sel, ]
 
 obj_history <- osm_history_object(
-  osm_type = obj$osm_type, osm_id = obj$osm_id,
+  osm_type = obj$osm_type[1], osm_id = obj$osm_id[1],
   tags_in_columns = FALSE # tags in a list at column `tags`
 )
 obj_history
