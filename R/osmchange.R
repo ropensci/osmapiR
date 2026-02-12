@@ -20,7 +20,7 @@
 #' [OsmChange format](https://wiki.openstreetmap.org/wiki/OsmChange) that can be saved with [xml2::write_xml()] and
 #' opened in other applications such as JOSM.
 #'
-#' The results are  ready to send the editions to the servers with [osm_diff_upload_changeset()].
+#' The results are ready to send the editions to the servers with [osm_diff_upload_changeset()].
 #'
 #' @family OsmChange's functions
 #' @export
@@ -142,7 +142,7 @@ osmchange_modify <- function(x, tag_keys, members = FALSE, lat_lon = FALSE, form
 #' [OsmChange format](https://wiki.openstreetmap.org/wiki/OsmChange) that can be saved with [xml2::write_xml()] and
 #' opened in other applications such as JOSM.
 #'
-#' The results are  ready to send the editions to the servers with [osm_diff_upload_changeset()].
+#' The results are ready to send the editions to the servers with [osm_diff_upload_changeset()].
 #'
 #' @family OsmChange's functions
 #' @export
@@ -200,7 +200,7 @@ osmchange_delete <- function(x, delete_if_unused = FALSE, format = c("R", "osc",
 #' [OsmChange format](https://wiki.openstreetmap.org/wiki/OsmChange) that can be saved with [xml2::write_xml()] and
 #' opened in other applications such as JOSM.
 #'
-#' The results are  ready to send the editions to the servers with [osm_diff_upload_changeset()].
+#' The results are ready to send the editions to the servers with [osm_diff_upload_changeset()].
 #'
 #' @family OsmChange's functions
 #' @export

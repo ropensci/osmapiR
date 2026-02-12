@@ -679,13 +679,13 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id,
 ### Parameters ----
 # ; [nodes|ways|relations]=comma separated list
 # : The parameter has to be the same in the URL (e.g. /api/0.6/nodes?nodes=123,456,789)
-# : Version numbers for each object may be optionally provided following a lowercase "v" character, e.g. /api/0.6/nodes?nodes=421586779v1,421586779v2  (Currently supported only in CGImap, used on osm.org https://github.com/openstreetmap/openstreetmap-website/pull/1189/)
+# : Version numbers for each object may be optionally provided following a lowercase "v" character, e.g. /api/0.6/nodes?nodes=421586779v1,421586779v2 (Currently supported only in CGImap, used on osm.org https://github.com/openstreetmap/openstreetmap-website/pull/1189/)
 #
 ### Error codes ----
 # ; HTTP status code 400 (Bad Request)
 # : On a malformed request (parameters missing or wrong)
 # ; HTTP status code 404 (Not Found)
-# : If one of the elements could not be found (By "not found" is meant never existed in the database  or its requested version was redacted, if the object was deleted, it will be returned with the attribute visible="false")
+# : If one of the elements could not be found (By "not found" is meant never existed in the database or its requested version was redacted, if the object was deleted, it will be returned with the attribute visible="false")
 # ; HTTP status code 414 (Request-URI Too Large)
 # : If the URI was too long (tested to be > 8213 characters in the URI, or > 725 elements for 10 digit IDs when not specifying versions)
 #

@@ -387,7 +387,7 @@ osm_update_gpx <- function(gpx_id, name, description, tags,
 #' @param gpx_id The track id represented by a numeric or a character value.
 #' @param format Format of the output. If missing (default), the response will be the exact file that was uploaded.
 #'   If `"R"`, a `data.frame`.
-#'   If `"sf_lines"` (`"sf"` is a synonym for `"sf_lines"`) or `"sf_points"`,  a `sf` object  from package \pkg{sf}.
+#'   If `"sf_lines"` (`"sf"` is a synonym for `"sf_lines"`) or `"sf_points"`, a `sf` object from package \pkg{sf}.
 #'   If `"gpx"`, the response will always be a GPX format file.
 #'   If `"xml"`, a `xml` file in an undocumented format.
 #'

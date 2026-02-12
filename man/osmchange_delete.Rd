@@ -21,7 +21,7 @@ If \code{format = "osc"} or \code{format = "xml"}, returns a \link[xml2:oldclass
 \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange format} that can be saved with \code{\link[xml2:write_xml]{xml2::write_xml()}} and
 opened in other applications such as JOSM.
 
-The results are  ready to send the editions to the servers with \code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}}.
+The results are ready to send the editions to the servers with \code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}}.
 }
 \description{
 Prepare data to delete OSM objects.
