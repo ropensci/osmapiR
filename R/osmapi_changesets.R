@@ -45,7 +45,7 @@
 # If there are multiple `changeset` elements in the XML the tags from all of them are used, later ones overriding the earlier ones in case of duplicate keys.
 #
 ### Response ----
-# The ID of the newly created changeset with a content type of `text/plain`
+# The ID of the newly created changeset with a content type of `text/plain`.
 #
 ### Error codes ----
 # ; HTTP status code 400 (Bad Request)
@@ -143,7 +143,7 @@ osm_create_changeset <- function(comment, ...,
 # : Indicates whether the result should contain the changeset discussion or not. If this parameter is set to anything, the discussion is returned. If it is empty or omitted, the discussion will not be in the result.
 #
 ### Response XML ----
-# Returns the single changeset element containing the changeset tags with a content type of `text/xml`
+# Returns the single changeset element containing the changeset tags with a content type of `application/xml`
 #  GET /api/0.6/changeset/#id?include_discussion=true
 # <syntaxhighlight lang="xml">
 #
@@ -350,7 +350,7 @@ osm_create_changeset <- function(comment, ...,
 # : The id of the changeset to update. The user issuing this API call has to be the same that created the changeset
 #
 ### Response ----
-# An OSM document containing the new version of the changeset with a content type of `text/xml`
+# An OSM document containing the new version of the changeset with a content type of `application/xml`
 #
 ### Error codes ----
 # ; HTTP status code 400 (Bad Request)
@@ -448,7 +448,7 @@ osm_close_changeset <- function(changeset_id) {
 # : The id of the changeset for which the OsmChange is requested.
 #
 ### Response ----
-# The OsmChange XML with a content type of `text/xml`.
+# The OsmChange XML with a content type of `application/xml`.
 #
 ### Error codes ----
 # ; HTTP status code 404 (Not Found)
@@ -538,7 +538,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 # Anything that [https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse <code>Time.parse</code> Ruby function] will parse.
 #
 ### Response ----
-# Returns a list of all changeset ordered by creation date. The `<osm>` element may be empty if there were no results for the query. The response is sent with a content type of `text/xml`.
+# Returns a list of all changeset ordered by creation date. The `<osm>` element may be empty if there were no results for the query. The response is sent with a content type of `application/xml`.
 #
 ### Error codes ----
 # ; HTTP status code 400 (Bad Request) - `text/plain`
@@ -755,7 +755,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 # : The OsmChange file data
 #
 ### Response ----
-# If a diff is successfully applied a XML (content type `text/xml`) is returned in the following format
+# If a diff is successfully applied a XML (content type `application/xml`) is returned in the following format
 # <syntaxhighlight lang="xml">
 # <diffResult generator="OpenStreetMap Server" version="0.6">
 #   <node|way|relation old_id="#" new_id="#" new_version="#"/>

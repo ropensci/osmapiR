@@ -15,11 +15,11 @@
 #
 ### Parameters ----
 # ; text
-# : The comment text. The content type is "application/x-www-form-urlencoded".
+# : The comment text. The content type is `application/x-www-form-urlencoded`.
 #
 ### Error codes ----
 # ; HTTP status code 400 (Bad Request)
-# : if the text field was not present
+# : If the text field was not present
 # ; HTTP status code 409 (Conflict)
 # : The changeset is not closed
 #
@@ -143,6 +143,53 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , forma
 
   return(out)
 }
+
+
+## Search changeset comments: `GET /api/0.6/changeset_comments` ----
+#
+# Returns changeset comments that match the specified query. If no query is provided, the most recent changeset comments are returned.
+#
+# '''URL:''' <code>https://api.openstreetmap.org/api/0.6/changeset_comments
+# </code>
+### Parameters ----
+# {| class="wikitable"
+# |-
+# !Parameter
+# !Description
+# !Allowed values
+# !Default value
+# |-
+# |<code>display_name</code>
+# | Search for changeset comments created by the given user.
+# |String; User display name
+# |none, optional parameter
+# |-
+# |<code>user</code>
+# |Same as <code>display_name</code>, but search based on user id instead of display name. When both options are provided, <code>display_name</code> takes priority.
+# |Integer; User id
+# |none, optional parameter
+# |-
+# |<code>from</code>
+# | Beginning date range.
+# |Date; Preferably in [https://wikipedia.org/wiki/ISO_8601 ISO 8601] format
+# |none, optional parameter
+# |-
+# |<code>to</code>
+# |End date range. Only works when <code>from</code> is supplied.
+# |Date; Preferably in [https://wikipedia.org/wiki/ISO_8601 ISO 8601] format
+# |none, optional parameter
+# |}
+#
+### Examples ----
+# See the latest changeset comments globally:
+#   https://api.openstreetmap.org/api/0.6/changeset_comments
+# Search for changeset comments by a specific user:
+#   https://api.openstreetmap.org/api/0.6/changeset_comments?display_name=Steve
+# Search for changeset comments between January 1st and January 2nd, 2015:
+#   https://www.openstreetmap.org/api/0.6/changeset_comments?from=2015-01-01&to=2015-01-02
+### Error codes ----
+# ;HTTP status code 400 (Bad Request)
+# :When any of the limits are crossed
 
 
 ## Hide changeset comment: `DELETE /api/0.6/changeset_comments/#id/visibility` ----
