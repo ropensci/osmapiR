@@ -196,7 +196,8 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , forma
 #' Returns changeset comments that match the specified query. If no query is provided, the most recent changeset
 #' comments are returned.
 #'
-#' @param user Search for changeset comments created by the user with the given user id (numeric) or display name (character).
+#' @param user Search for changeset comments created by the user with the given user id (numeric) or display name
+#'   (character).
 #' @param from Beginning date range. See details for the valid formats.
 #' @param to End date range. Only works when `from` is supplied. See details for the valid formats.
 #' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
@@ -225,11 +226,12 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , forma
 #'
 #' # Search for changeset comments between January 1st and January 2nd, 2015:
 #' osm_search_comment_changeset_discussion(from = "2015-01-01", to = "2015-01-02", format = "xml")
-osm_search_comment_changeset_discussion <- function(user = NULL, from = NULL, to = NULL,
+osm_search_comment_changeset_discussion <- function(user, from, to,
                                                     format = c("R", "xml", "json"), tags_in_columns = FALSE) {
   format <- match.arg(format)
 
-  if (is.null(user)) {
+  if (missing(user) || is.null(user)) {
+    user <- NULL
     display_name <- NULL
   } else {
     if (is.numeric(user)) {
@@ -240,10 +242,15 @@ osm_search_comment_changeset_discussion <- function(user = NULL, from = NULL, to
     }
   }
 
-  if (!is.null(from) && inherits(from, "POSIXt")) {
+  if (missing(from)) {
+    from <- NULL
+  } else if (inherits(from, "POSIXt")) {
     from <- format(from, "%Y-%m-%dT%H:%M:%SZ")
   }
-  if (!is.null(to) && inherits(to, "POSIXt")) {
+
+  if (missing(to)) {
+    to <- NULL
+  } else if (inherits(to, "POSIXt")) {
     to <- format(to, "%Y-%m-%dT%H:%M:%SZ")
   }
 
@@ -271,6 +278,7 @@ osm_search_comment_changeset_discussion <- function(user = NULL, from = NULL, to
 
   return(out)
 }
+
 
 ## Hide changeset comment: `DELETE /api/0.6/changeset_comments/#id/visibility` ----
 #

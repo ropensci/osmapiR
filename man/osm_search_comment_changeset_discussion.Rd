@@ -5,15 +5,16 @@
 \title{Search changeset comments}
 \usage{
 osm_search_comment_changeset_discussion(
-  user = NULL,
-  from = NULL,
-  to = NULL,
+  user,
+  from,
+  to,
   format = c("R", "xml", "json"),
   tags_in_columns = FALSE
 )
 }
 \arguments{
-\item{user}{Search for changeset comments created by the user with the given user id (numeric) or display name (character).}
+\item{user}{Search for changeset comments created by the user with the given user id (numeric) or display name
+(character).}
 
 \item{from}{Beginning date range. See details for the valid formats.}
 
