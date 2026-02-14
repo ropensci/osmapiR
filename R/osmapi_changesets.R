@@ -590,7 +590,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 #' – see the [current state](https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/changesets_controller.rb#L174)).
 #' Reverse ordering cannot be combined with `time`.
 #'
-#' Te valid formats for `time`, `time_2`, `from` and `to` parameters are [POSIXt] values or characters with anything
+#' The valid formats for `time`, `time_2`, `from` and `to` parameters are [POSIXt] values or characters with anything
 #' that [`Time.parse` Ruby function](https://ruby-doc.org/stdlib-2.7.0/libdoc/time/rdoc/Time.html#method-c-parse) will
 #' parse.
 #'
@@ -645,7 +645,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 #' }
 #' ```
 #'
-#' @family get changesets' functions
+# @family get changesets' functions
 #' @noRd
 #'
 #' @examples
