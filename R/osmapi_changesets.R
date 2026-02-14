@@ -653,10 +653,11 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 #' chst_ids
 #'
 #' chsts <- osm_query_changesets(
-#'   bbox = c(-1.241112, 38.0294955, 8.4203171, 42.9186456),
-#'   user = "Mementomoristultus",
-#'   time = "2023-06-22T02:23:23Z",
-#'   time_2 = "2023-06-22T00:38:20Z"
+#'   bbox = c(2.65, 42.68, 2.71, 42.69),
+#'   user = 19641470,
+#'   time = "2023-06-20",
+#'   time_2 = "2023-06-22",
+#'   tags_in_columns = TRUE
 #' )
 #' chsts
 #'
@@ -665,7 +666,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 #'   user = "Mementomoristultus",
 #'   closed = "true"
 #' )
-#' chsts2
+#' head(chsts2)
 .osm_query_changesets <- function(bbox = NULL, user = NULL, time = NULL, time_2 = NULL, from = NULL, to = NULL,
                                   open = NULL, closed = NULL, changeset_ids = NULL, order = NULL,
                                   limit = getOption(

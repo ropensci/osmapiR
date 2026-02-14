@@ -47,37 +47,39 @@ options(osmapir.user_agent = "my new user agent")
 ```{r osm objects}
 ## Download objects by bounding box
 osm_objs <- osm_bbox_objects(
-  bbox = c(2.4166059, 42.5945594, 2.4176574, 42.5962101),
-  tags_in_columns = TRUE
+  bbox = c(2.4166059, 42.5945594, 2.4176574, 42.5962101)
 )
+head(osm_objs)
+
+# osm_objs$tags # tags in list format
 
 ## View the history of an object
-sel <- osm_objs$`name:ca` %in% "Abadia de Sant Miquel de Cuixà"
+sel <- sapply(osm_objs$tags, function(x) any(x$key == "name:ca" & x$value == "Abadia de Sant Miquel de Cuixà"))
 obj <- osm_objs[sel, ]
 
 obj_history <- osm_history_object(
-  osm_type = obj$osm_type[1], osm_id = obj$osm_id[1],
-  tags_in_columns = FALSE # tags in a list at column `tags`
+  osm_type = obj$type[1], osm_id = obj$id[1],
+  tags_in_columns = TRUE
 )
 obj_history
-# obj_history$tags # tags in list format
 ```
 
-Notice the different formats to represent the tags controlled by the `tags_in_columns` argument. In `osm_objs`, every
-tag is represented by a column in the data.frame (wide format), while in `obj_history` there is a `tag` column
-containing a list of data.frames with `key` and `value` columns (list format). See `?tags_list2wide()` for details.
+Notice the different formats to represent the tags controlled by the `tags_in_columns` argument. In `osm_objs` there is
+a `tag` column containing a list of data.frames with `key` and `value` columns (list format), while in `obj_history`
+every tag is represented by a column in the data.frame (wide format). See `?tags_list2wide()` for details.
 
 
 ## Changesets
 
 ```{r changesets}
 chsts <- osm_query_changesets(
-  bbox = c(-1.241112, 38.0294955, 8.4203171, 42.9186456),
-  user = "Mementomoristultus",
-  time = "2023-06-22T02:23:23Z",
-  time_2 = "2023-06-22T00:38:20Z"
+  bbox = c(2.65, 42.68, 2.71, 42.69),
+  user = "Quercinus",
+  time = "2023-06-20",
+  time_2 = "2023-06-22"
 )
 chsts
+
 osmchange <- osm_download_changeset(changeset_id = 137595351, format = "xml")
 osmchange
 
@@ -94,6 +96,7 @@ Similar to the map objects, changeset's data also have the tags as a list column
 ```{r notes}
 notes <- osm_read_bbox_notes(bbox = "2.4166059,42.5945594,2.4176574,42.5962101", closed = -1)
 notes
+
 # notes$comments
 ```
 
