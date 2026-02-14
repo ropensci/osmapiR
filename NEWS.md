@@ -1,5 +1,9 @@
 # osmapiR (development version)
 
+* Update documentation and code for server-side changes documented in OSMWikiVersion
+  [2878437 -> 2940426](https://wiki.openstreetmap.org/w/index.php?title=API_v0.6&diff=2940426&oldid=2878437) (#72).
+  * Add new function `osm_search_comment_changeset_discussion()`.
+
 # osmapiR 0.2.4
 
 * Fix for upcoming httr2 1.2.0 release (#67 by @hadley).

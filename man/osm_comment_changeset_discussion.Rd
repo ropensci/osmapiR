@@ -34,6 +34,7 @@ updated_changeset
 \seealso{
 Other changeset discussion's functions: 
 \code{\link{osm_hide_comment_changeset_discussion}()},
+\code{\link{osm_search_comment_changeset_discussion}()},
 \code{\link{osm_subscribe_changeset_discussion}()}
 }
 \concept{changeset discussion's functions}

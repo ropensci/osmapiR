@@ -85,6 +85,9 @@
 #' [osm_comment_changeset_discussion()]
 #'     Comment a changeset
 #'
+#' [osm_search_comment_changeset_discussion()]
+#'     Search comments from changeset disussions
+#'
 #' [osm_hide_comment_changeset_discussion()] [osm_unhide_comment_changeset_discussion()]
 #'     Hide or unhide a changeset comment
 #'

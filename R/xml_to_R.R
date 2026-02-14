@@ -127,6 +127,40 @@ empty_changeset <- function() {
 }
 
 
+changeset_comments_xml2DF <- function(xml) {
+  changeset_comments <- xml2::xml_children(xml)
+
+  if (length(changeset_comments) == 0) {
+    return(empty_changeset_comments())
+  }
+
+  comment_attrs <- do.call(rbind, xml2::xml_attrs(changeset_comments))
+  comment_text <- xml2::xml_text(xml2::xml_child(changeset_comments, "text"))
+  out <- data.frame(comment_attrs, comment_text)
+
+  out$date <- as.POSIXct(out$date, format = "%Y-%m-%dT%H:%M:%OS", tz = "GMT")
+  out$visible <- ifelse(out$visible == "true", TRUE, FALSE)
+  out$user <- enc2utf8(out$user)
+  out$comment_text <- enc2utf8(out$comment_text)
+
+  class(out) <- c("changeset_comments", "data.frame")
+
+  return(out)
+}
+
+
+empty_changeset_comments <- function() {
+  out <- data.frame(
+    id = character(), date = as.POSIXct(Sys.time())[-1], visible = logical(),
+    uid = character(), user = character(), comment_text = character()
+  )
+
+  class(out) <- c("changeset_comments", "data.frame")
+
+  return(out)
+}
+
+
 osmchange_xml2DF <- function(xml) {
   actions <- xml2::xml_children(xml)
 

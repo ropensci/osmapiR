@@ -13,8 +13,12 @@
 # <osm version="0.6" generator="OpenStreetMap server">
 #   <user id="12023" display_name="jbpbis" account_created="2007-08-16T01:35:56Z">
 #     <description></description>
+#     <company>bitbetter GmbH</company>
+#     <social-links>
+#       <link platform="mastodon">https://mastodon.social/@jbpbis</link>
+#     </social-links>
 #     <contributor-terms agreed="false"/>
-#     <img href="http://www.gravatar.com/avatar/c8c86cd15f60ecca66ce2b10cb6b9a00.jpg?s=256&amp;d=http%3A%2F%2Fwww.openstreetmap.org%2Fassets%2Fusers%2Fimages%2Flarge-39c3a9dc4e778311af6b70ddcf447b58.png"/>
+#     <img href="http://www.gravatar.com/avatar/somehash"/>
 #     <roles>
 #       <moderator/>
 #     </roles>
@@ -34,7 +38,38 @@
 # {
 #   "version": "0.6",
 #   "generator": "OpenStreetMap server",
-#   "user": {"id": 12023, "display_name": "jbpbis", "account_created": "2007-08-16T01:35:56Z", "description": "", "contributor_terms": {"agreed": False}, "roles": [], "changesets": {"count": 1}, "traces": {"count": 0}, "blocks": {"received": {"count": 0, "active": 0}}}
+#   "user": {
+#     "id": 12023,
+#     "display_name": "jbpbis",
+#     "account_created": "2007-08-16T01:35:56Z",
+#     "description": "",
+#     "company": "MyCompany Ltd.",
+#     "social_links": [
+#       {
+#         "url": "https://mastodon.social/@jbpbis",
+#         "platform": "mastodon"
+#       }
+#     ],
+#     "contributor_terms": {
+#       "agreed": false
+#     },
+#     "img": {
+#       "href": "https://www.gravatar.com/avatar/somehash"
+#     },
+#     "roles": [],
+#     "changesets": {
+#       "count": 1
+#     },
+#     "traces": {
+#       "count": 0
+#     },
+#     "blocks": {
+#       "received": {
+#         "count": 0,
+#         "active": 0
+#       }
+#     }
+#   }
 # }
 # </syntaxhighlight>
 #
@@ -57,8 +92,12 @@
 #' <osm version="0.6" generator="OpenStreetMap server">
 #'   <user id="12023" display_name="jbpbis" account_created="2007-08-16T01:35:56Z">
 #'     <description></description>
+#'     <company>bitbetter GmbH</company>
+#'     <social-links>
+#'       <link platform="mastodon">https://mastodon.social/@jbpbis</link>
+#'     </social-links>
 #'     <contributor-terms agreed="false"/>
-#'     <img href="http://www.gravatar.com/avatar/c8c86cd15f60ecca66ce2b10cb6b9a00.jpg?s=256&amp;d=http%3A%2F%2Fwww.openstreetmap.org%2Fassets%2Fusers%2Fimages%2Flarge-39c3a9dc4e778311af6b70ddcf447b58.png"/>
+#'     <img href="http://www.gravatar.com/avatar/somehash"/>
 #'     <roles>
 #'     </roles>
 #'     <changesets count="1"/>
@@ -77,7 +116,39 @@
 #' {
 #'   "version": "0.6",
 #'   "generator": "OpenStreetMap server",
-#'   {"user": {"id": 12023, "display_name": "jbpbis", "account_created": "2007-08-16T01:35:56Z", "description": "", "contributor_terms": {"agreed": False}, "roles": [], "changesets": {"count": 1}, "traces": {"count": 0}, "blocks": {"received": {"count": 0, "active": 0}}}}
+#'   {
+#'   "user": {
+#'     "id": 12023,
+#'     "display_name": "jbpbis",
+#'     "account_created": "2007-08-16T01:35:56Z",
+#'     "description": "",
+#'     "company": "MyCompany Ltd.",
+#'     "social_links": [
+#'       {
+#'         "url": "https://mastodon.social/@jbpbis",
+#'         "platform": "mastodon"
+#'       }
+#'     ],
+#'     "contributor_terms": {
+#'       "agreed": false
+#'     },
+#'     "img": {
+#'       "href": "https://www.gravatar.com/avatar/somehash"
+#'     },
+#'     "roles": [],
+#'     "changesets": {
+#'       "count": 1
+#'     },
+#'     "traces": {
+#'       "count": 0
+#'     },
+#'     "blocks": {
+#'       "received": {
+#'         "count": 0,
+#'         "active": 0
+#'       }
+#'     }
+#'   }
 #' }
 #' ```
 #'

@@ -58,7 +58,7 @@ osm_api_versions <- function() {
 # This API call is meant to provide information about the capabilities and limitations of the current API.
 #
 ### Response ----
-# Returns a XML document (content type `text/xml`)
+# Returns a XML document (content type `application/xml`)
 # <syntaxhighlight lang="xml">
 # <?xml version="1.0" encoding="UTF-8"?>
 # <osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="https://www.openstreetmap.org/copyright" license="https://opendatacommons.org/licenses/odbl/1-0/">
@@ -287,7 +287,7 @@ osm_bbox_objects <- function(bbox, format = c("R", "xml", "json"), tags_in_colum
 ### Response XML ----
 #  GET /api/0.6/permissions
 #
-# Returns the single permissions element containing the permission tags (content type `text/xml`)
+# Returns the single permissions element containing the permission tags (content type `application/xml`)
 # <syntaxhighlight lang="xml">
 # <?xml version="1.0" encoding="UTF-8"?>
 # <osm version="0.6" generator="OpenStreetMap server">

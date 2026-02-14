@@ -631,7 +631,7 @@ osm_subscribe_note <- function(note_id) {
 
 ## Unsubscribe: `DELETE /api/0.6/notes/#id/subscription` ----
 #
-# Subscribe to the discussion of a note to receive notifications for new comments.
+# Unsubscribe to the discussion of a note.
 #
 # '''URL:''' <code>https://api.openstreetmap.org/api/0.6/notes/:id/subscription</code><br />
 # '''Return type:''' (empty response)<br />

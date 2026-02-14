@@ -35,6 +35,7 @@ unhide_com <- osm_unhide_comment_changeset_discussion(comment_id = chdis$discuss
 \seealso{
 Other changeset discussion's functions: 
 \code{\link{osm_comment_changeset_discussion}()},
+\code{\link{osm_search_comment_changeset_discussion}()},
 \code{\link{osm_subscribe_changeset_discussion}()}
 
 Other functions for moderators: 
