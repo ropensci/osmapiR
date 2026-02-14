@@ -29,6 +29,7 @@ Returns a \code{sf} object from \pkg{sf} package or a list of for \code{osmapi_g
 
 When x is a \code{osmapi_gps_track} or \code{osmapi_gpx} object and \code{format = "line"}, the result will have \code{XYZM} dimensions
 for coordinates, elevation and time if available. In this format, time will loss the POSIXct type as only numeric
+values are allowed.
 For \code{format = "points"}, the result will have \code{XY} dimensions and elevation and time will be independent columns if
 available.
 }

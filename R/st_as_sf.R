@@ -9,7 +9,7 @@
 #'
 #'   When x is a `osmapi_gps_track` or `osmapi_gpx` object and `format = "line"`, the result will have `XYZM` dimensions
 #'   for coordinates, elevation and time if available. In this format, time will loss the POSIXct type as only numeric
-#    values are allowed.
+#'   values are allowed.
 #'   For `format = "points"`, the result will have `XY` dimensions and elevation and time will be independent columns if
 #'   available.
 #'
