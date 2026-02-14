@@ -98,6 +98,9 @@ Diff (OsmChange format) upload to a changeset
 \code{\link[=osm_comment_changeset_discussion]{osm_comment_changeset_discussion()}}
 Comment a changeset
 
+\code{\link[=osm_search_comment_changeset_discussion]{osm_search_comment_changeset_discussion()}}
+Search comments from changeset disussions
+
 \code{\link[=osm_hide_comment_changeset_discussion]{osm_hide_comment_changeset_discussion()}} \code{\link[=osm_unhide_comment_changeset_discussion]{osm_unhide_comment_changeset_discussion()}}
 Hide or unhide a changeset comment
 

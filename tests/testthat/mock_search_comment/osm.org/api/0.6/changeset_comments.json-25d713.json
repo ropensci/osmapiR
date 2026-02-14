@@ -1,0 +1,41 @@
+{
+    "version": "0.6",
+    "generator": "OpenStreetMap server",
+    "copyright": "OpenStreetMap and contributors",
+    "attribution": "http://www.openstreetmap.org/copyright",
+    "license": "http://opendatacommons.org/licenses/odbl/1-0/",
+    "comments": [
+        {
+            "id": 176402,
+            "visible": true,
+            "date": "2017-10-01T23:40:58Z",
+            "uid": 355617,
+            "user": "pnorman",
+            "text": "Hello,\n\nI was looking for some information on this source. Is it an import?"
+        },
+        {
+            "id": 176401,
+            "visible": true,
+            "date": "2017-10-01T23:29:48Z",
+            "uid": 355617,
+            "user": "pnorman",
+            "text": "Is the stream direction for https://www.openstreetmap.org/way/527730240 right? As it goes along it gets smaller and smaller, I'd have thought it was flowing to the southwest."
+        },
+        {
+            "id": 176397,
+            "visible": true,
+            "date": "2017-10-01T23:15:24Z",
+            "uid": 355617,
+            "user": "pnorman",
+            "text": "Living streets here surprises me since they're normally used where there are traffic problems - are you sure they're not residential roads or service roads?"
+        },
+        {
+            "id": 176395,
+            "visible": true,
+            "date": "2017-10-01T23:08:52Z",
+            "uid": 355617,
+            "user": "pnorman",
+            "text": "Hello,\n\nYou've made https://www.openstreetmap.org/way/527727984 which overlaps with a footpath. Does the footpath need moving, or is the building wrong?"
+        }
+    ]
+}

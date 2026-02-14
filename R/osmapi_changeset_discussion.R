@@ -191,6 +191,86 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , forma
 # ;HTTP status code 400 (Bad Request)
 # :When any of the limits are crossed
 
+#' Search changeset comments
+#'
+#' Returns changeset comments that match the specified query. If no query is provided, the most recent changeset
+#' comments are returned.
+#'
+#' @param user Search for changeset comments created by the user with the given user id (numeric) or display name (character).
+#' @param from Beginning date range. See details for the valid formats.
+#' @param to End date range. Only works when `from` is supplied. See details for the valid formats.
+#' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
+#' @param tags_in_columns If `FALSE` (default), the tags of the changesets are saved in a single list column `tags`
+#'   containing a `data.frame` for each changeset with the keys and values. If `TRUE`, add a column for each key.
+#'   Ignored if `format != "R"`.
+#'
+#' @details
+#' The valid formats for `from` and `to` parameters are [POSIXt] values or characters preferably in
+#' [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format.
+#'
+#'
+#' @returns
+#' If `format = "R"`, returns a data frame with one comment per  If `format = "xml"`, returns a
+#' [xml2::xml_document-class]. If `format = "json"`, returns a list with the json structure.
+#'
+#' @family changeset discussion's functions
+#' @export
+#'
+#' @examples
+#' # See the latest changeset comments globally:
+#' osm_search_comment_changeset_discussion()
+#'
+#' # Search for changeset comments by a specific user:
+#' osm_search_comment_changeset_discussion(user = "Steve", format = "json")
+#'
+#' # Search for changeset comments between January 1st and January 2nd, 2015:
+#' osm_search_comment_changeset_discussion(from = "2015-01-01", to = "2015-01-02", format = "xml")
+osm_search_comment_changeset_discussion <- function(user = NULL, from = NULL, to = NULL,
+                                                    format = c("R", "xml", "json"), tags_in_columns = FALSE) {
+  format <- match.arg(format)
+
+  if (is.null(user)) {
+    display_name <- NULL
+  } else {
+    if (is.numeric(user)) {
+      display_name <- NULL
+    } else {
+      display_name <- user
+      user <- NULL
+    }
+  }
+
+  if (!is.null(from) && inherits(from, "POSIXt")) {
+    from <- format(from, "%Y-%m-%dT%H:%M:%SZ")
+  }
+  if (!is.null(to) && inherits(to, "POSIXt")) {
+    to <- format(to, "%Y-%m-%dT%H:%M:%SZ")
+  }
+
+  if (format == "json") {
+    ext <- "changeset_comments.json"
+  } else {
+    ext <- "changeset_comments"
+  }
+
+  req <- osmapi_request()
+  req <- httr2::req_method(req, "GET")
+  req <- httr2::req_url_path_append(req, ext)
+  req <- httr2::req_url_query(req, user = user, display_name = display_name, from = from, to = to)
+
+  resp <- httr2::req_perform(req)
+
+  if (format %in% c("R", "xml")) {
+    out <- httr2::resp_body_xml(resp)
+    if (format == "R") {
+      out <- changeset_comments_xml2DF(out)
+    }
+  } else if (format %in% "json") {
+    out <- httr2::resp_body_json(resp)
+  }
+
+  return(out)
+}
 
 ## Hide changeset comment: `DELETE /api/0.6/changeset_comments/#id/visibility` ----
 #
