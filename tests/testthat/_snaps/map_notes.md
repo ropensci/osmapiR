@@ -103,7 +103,7 @@
       9  1 comment from 2023-04-08 by anonymous user POINT (3.800084 40.02046)
       10         1 comment from 2023-03-07 by cranca POINT (4.287037 39.88076)
 
-# osm_read_note works
+# .osm_read_note works
 
     Code
       print(read_note$df)

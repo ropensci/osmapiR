@@ -1,4 +1,4 @@
-# osm_read_object works
+# .osm_read_object works
 
     Code
       print(x)
@@ -474,7 +474,7 @@
       61 22 tags: admin_level=8 | boundary=administrative | name=l'Alguer/Alghero | name:...
       62 22 tags: admin_level=8 | boundary=administrative | name=Alghero / l'Alguer | nam...
 
-# osm_version_object works
+# .osm_version_object works
 
     Code
       print(x)
@@ -510,7 +510,7 @@
                                                                                        tags
       1 7 tags: admin_level=8 | boundary=administrative | name=Alghero | ref:catasto=A19...
 
-# osm_fetch_objects works
+# .osm_fetch_objects works
 
     Code
       print(x)
@@ -661,7 +661,7 @@
       2 5 tags: highway=path | sac_scale=mountain_hiking | surface=gravel | trail_visibi...
       3                       3 tags: highway=path | sac_scale=alpine_hiking | surface=rock
 
-# osm_full_object works
+# .osm_full_object works
 
     Code
       print(x)

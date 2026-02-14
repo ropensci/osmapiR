@@ -1,4 +1,4 @@
-# osm_read_changeset works
+# .osm_read_changeset works
 
     Code
       print(chaset)
