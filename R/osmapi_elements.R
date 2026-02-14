@@ -329,6 +329,8 @@ osm_create_object <- function(x, changeset_id) {
 #' * To avoid performance issues when updating multiple objects, the use of the [osm_diff_upload_changeset()] is highly
 #'   recommended. This is also the only way to ensure that multiple objects are updated in a single database
 #'   transaction.
+#'   * If you can't use the [osm_diff_upload_changeset()] and plan to update more items, mind to do it sequentially (not
+#'     in parallel).
 #'
 #' @return Returns the new version number of the object.
 #' @family edit OSM objects' functions

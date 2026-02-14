@@ -36,6 +36,10 @@ If multiple elements are provided only the first is updated. The rest is discard
 \item To avoid performance issues when updating multiple objects, the use of the \code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}} is highly
 recommended. This is also the only way to ensure that multiple objects are updated in a single database
 transaction.
+\itemize{
+\item If you can't use the \code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}} and plan to update more items, mind to do it sequentially (not
+in parallel).
+}
 }
 }
 \examples{
