@@ -13,7 +13,9 @@ osm_get_points_gps(
 \arguments{
 \item{bbox}{Coordinates for the area to retrieve the notes from (\verb{left,bottom,right,top}). Floating point numbers in
 degrees, expressing a valid bounding box. The maximal width (\code{right - left}) and height (\code{top - bottom}) of the
-bounding box is 0.25 degree.}
+bounding box is 0.25 degree. It can be specified by a character, matrix, vector, \code{bbox} object from \pkg{sf}, a
+\code{SpatExtent} from \pkg{terra}. Unnamed vectors and matrices will be sorted appropriately and must merely be in the
+order (\code{x}, \code{y}, \code{x}, \code{y}) or \code{x} in the first column and \code{y} in the second column.}
 
 \item{page_number}{Specifies which groups of 5,000 points, or page, to return. The API call does not return more
 than 5,000 points at a time. In order to retrieve all of the points for a bounding box, set \code{page_number = -1}.

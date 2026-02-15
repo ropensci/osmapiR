@@ -49,7 +49,9 @@
 #'
 #' @param bbox Coordinates for the area to retrieve the notes from (`left,bottom,right,top`). Floating point numbers in
 #'   degrees, expressing a valid bounding box. The maximal width (`right - left`) and height (`top - bottom`) of the
-#'   bounding box is 0.25 degree.
+#'   bounding box is 0.25 degree.  It can be specified by a character, matrix, vector, `bbox` object from \pkg{sf}, a
+#'   `SpatExtent` from \pkg{terra}. Unnamed vectors and matrices will be sorted appropriately and must merely be in the
+#'   order (`x`, `y`, `x`, `y`) or `x` in the first column and `y` in the second column.
 #' @param page_number Specifies which group of 5,000 points, or page, to return. Since the command does not return more
 #'   than 5,000 points at a time, this parameter must be incremented —and the command sent again (using the same
 #'   bounding box)— in order to retrieve all of the points for a bounding box that contains more than 5,000 points. When
@@ -102,7 +104,7 @@
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "trackpoints")
-  req <- httr2::req_url_query(req, bbox = paste(bbox, collapse = ","), page = page_number)
+  req <- httr2::req_url_query(req, bbox = bbox_to_string(bbox), page = page_number)
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)

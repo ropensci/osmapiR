@@ -4,7 +4,9 @@
 #'
 #' @param bbox Coordinates for the area to retrieve the notes from (`left,bottom,right,top`). Floating point numbers in
 #'   degrees, expressing a valid bounding box. The maximal width (`right - left`) and height (`top - bottom`) of the
-#'   bounding box is 0.25 degree.
+#'   bounding box is 0.25 degree. It can be specified by a character, matrix, vector, `bbox` object from \pkg{sf}, a
+#'   `SpatExtent` from \pkg{terra}. Unnamed vectors and matrices will be sorted appropriately and must merely be in the
+#'   order (`x`, `y`, `x`, `y`) or `x` in the first column and `y` in the second column.
 #' @param page_number Specifies which groups of 5,000 points, or page, to return. The API call does not return more
 #'   than 5,000 points at a time. In order to retrieve all of the points for a bounding box, set `page_number = -1`.
 #'   When this parameter is 0 (zero), the command returns the first 5,000 points; when it is 1, the command returns
@@ -72,7 +74,7 @@ osm_get_points_gps <- function(bbox, page_number = 0, format = c("R", "sf", "sf_
     .format <- format
   }
 
-  bbox <- paste(bbox, collapse = ",")
+  bbox <- bbox_to_string(bbox)
 
   if (page_number >= 0) { # concrete pages
     outL <- lapply(page_number, function(x) .osm_get_points_gps(bbox = bbox, page_number = x, format = .format))

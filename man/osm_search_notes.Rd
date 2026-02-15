@@ -24,8 +24,10 @@ osm_search_notes(
 display name (\code{character}).}
 
 \item{bbox}{Search area expressed as a string or a numeric vector of 4 coordinates of a valid bounding box
-(\verb{left,bottom,right,top}) in decimal degrees. Area must be at most 25 square degrees (see
-\code{osm_capabilities()$note_area} and
+(\verb{left,bottom,right,top}) in decimal degrees. It can be specified by a character, matrix, vector, \code{bbox} object
+from \pkg{sf}, a \code{SpatExtent} from \pkg{terra}. Unnamed vectors and matrices will be sorted appropriately and must
+merely be in the order (\code{x}, \code{y}, \code{x}, \code{y}) or \code{x} in the first column and \code{y} in the second column. Area must be
+at most 25 square degrees (see \code{osm_capabilities()$note_area} and
 \href{https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27}{this line in settings}
 for the current value).}
 

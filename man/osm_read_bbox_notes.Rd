@@ -14,7 +14,9 @@ osm_read_bbox_notes(
 \arguments{
 \item{bbox}{Coordinates for the area to retrieve the notes from (\verb{left,bottom,right,top}). Floating point numbers in
 degrees, expressing a valid bounding box, not larger than the configured size limit, 25 square degrees, not
-overlapping the dateline.}
+overlapping the dateline. It can be specified by a character, matrix, vector, \code{bbox} object from \pkg{sf}, a
+\code{SpatExtent} from \pkg{terra}. Unnamed vectors and matrices will be sorted appropriately and must merely be in the
+order (\code{x}, \code{y}, \code{x}, \code{y}) or \code{x} in the first column and \code{y} in the second column.}
 
 \item{limit}{Specifies the number of entries returned at max. A value between 1 and 10000 is valid. Default to 100.}
 
