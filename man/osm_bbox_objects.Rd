@@ -7,7 +7,10 @@
 osm_bbox_objects(bbox, format = c("R", "xml", "json"), tags_in_columns = FALSE)
 }
 \arguments{
-\item{bbox}{Coordinates for the area to retrieve the map data from (\verb{left,bottom,right,top}).}
+\item{bbox}{Coordinates for the area to retrieve the map data from (\verb{left,bottom,right,top}). It can be specified by
+a character, matrix, vector, \code{bbox} object from \pkg{sf}, a \code{SpatExtent} from \pkg{terra}. Unnamed vectors and
+matrices will be sorted appropriately and must merely be in the order (\code{x}, \code{y}, \code{x}, \code{y}) or \code{x} in the first
+column and \code{y} in the second column.}
 
 \item{format}{Format of the output. Can be \code{"R"} (default), \code{"xml"}, or \code{"json"}.}
 

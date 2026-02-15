@@ -11,7 +11,9 @@ osm_feed_notes(bbox)
 degrees, expressing a valid bounding box, not larger than the configured size limit, 25 square degrees (see
 \code{osm_capabilities()$note_area} and
 \href{https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27}{this line in settings}
-for the current value), not overlapping the dateline.}
+for the current value), not overlapping the dateline. It can be specified by a character, matrix, vector, \code{bbox}
+object from \pkg{sf}, a \code{SpatExtent} from \pkg{terra}. Unnamed vectors and matrices will be sorted appropriately
+and must merely be in the order (\code{x}, \code{y}, \code{x}, \code{y}) or \code{x} in the first column and \code{y} in the second column.}
 }
 \value{
 Returns a \link[xml2:oldclass]{xml2::xml_document} in the \code{RSS} format.

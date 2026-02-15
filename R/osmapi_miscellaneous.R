@@ -210,7 +210,10 @@ osm_capabilities <- function() {
 #' * All relations that reference one of the nodes, ways or relations included due to the above rules. (Does '''not'''
 #'   apply recursively, see explanation below.)
 #'
-#' @param bbox Coordinates for the area to retrieve the map data from (`left,bottom,right,top`).
+#' @param bbox Coordinates for the area to retrieve the map data from (`left,bottom,right,top`). It can be specified by
+#'   a character, matrix, vector, `bbox` object from \pkg{sf}, a `SpatExtent` from \pkg{terra}. Unnamed vectors and
+#'   matrices will be sorted appropriately and must merely be in the order (`x`, `y`, `x`, `y`) or `x` in the first
+#'   column and `y` in the second column.
 #' @param format Format of the output. Can be `"R"` (default), `"xml"`, or `"json"`.
 #' @param tags_in_columns If `FALSE` (default), the tags of the objects are saved in a single list column `tags`
 #'   containing a `data.frame` for each OSM object with the keys and values. If `TRUE`, add a column for each key.
@@ -258,7 +261,7 @@ osm_bbox_objects <- function(bbox, format = c("R", "xml", "json"), tags_in_colum
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, ext)
-  req <- httr2::req_url_query(req, bbox = paste(bbox, collapse = ","))
+  req <- httr2::req_url_query(req, bbox = bbox_to_string(bbox))
 
   resp <- httr2::req_perform(req)
 

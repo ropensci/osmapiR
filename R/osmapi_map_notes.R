@@ -107,7 +107,9 @@
 #'
 #' @param bbox Coordinates for the area to retrieve the notes from (`left,bottom,right,top`). Floating point numbers in
 #'   degrees, expressing a valid bounding box, not larger than the configured size limit, 25 square degrees, not
-#'   overlapping the dateline.
+#'   overlapping the dateline. It can be specified by a character, matrix, vector, `bbox` object from \pkg{sf}, a
+#'   `SpatExtent` from \pkg{terra}. Unnamed vectors and matrices will be sorted appropriately and must merely be in the
+#'   order (`x`, `y`, `x`, `y`) or `x` in the first column and `y` in the second column.
 #' @param limit Specifies the number of entries returned at max. A value between 1 and 10000 is valid. Default to 100.
 #' @param closed Specifies the number of days a note needs to be closed to no longer be returned. A value of 0 means
 #'   only open notes are returned. A value of -1 means all notes are returned. Default to 7.
@@ -202,7 +204,7 @@ osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("R", "
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, ext)
-  req <- httr2::req_url_query(req, bbox = paste(bbox, collapse = ","), limit = limit, closed = closed)
+  req <- httr2::req_url_query(req, bbox = bbox_to_string(bbox), limit = limit, closed = closed)
 
   resp <- httr2::req_perform(req)
 
@@ -745,8 +747,10 @@ osm_unsubscribe_note <- function(note_id) { # TODO: , format = c("R", "xml", "js
 #' @param user Search for notes which the given user interacted with. The value can be the user id (`numeric`) or the
 #'   display name (`character`).
 #' @param bbox Search area expressed as a string or a numeric vector of 4 coordinates of a valid bounding box
-#'   (`left,bottom,right,top`) in decimal degrees. Area must be at most 25 square degrees (see
-#'   `osm_capabilities()$note_area` and
+#'   (`left,bottom,right,top`) in decimal degrees. It can be specified by a character, matrix, vector, `bbox` object
+#'   from \pkg{sf}, a `SpatExtent` from \pkg{terra}. Unnamed vectors and matrices will be sorted appropriately and must
+#'   merely be in the order (`x`, `y`, `x`, `y`) or `x` in the first column and `y` in the second column. Area must be
+#'   at most 25 square degrees (see `osm_capabilities()$note_area` and
 #'   [this line in settings](https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27)
 #'   for the current value).
 #' @param from Beginning date range for `created_at` or `updated_at` (specified by `sort`). Preferably in
@@ -816,7 +820,7 @@ osm_search_notes <- function(
   if (missing(bbox)) {
     bbox <- NULL
   } else {
-    bbox <- paste(bbox, collapse = ",")
+    bbox <- bbox_to_string(bbox)
   }
   if (missing(from)) {
     from <- NULL
@@ -885,7 +889,9 @@ osm_search_notes <- function(
 #'   degrees, expressing a valid bounding box, not larger than the configured size limit, 25 square degrees (see
 #'   `osm_capabilities()$note_area` and
 #'   [this line in settings](https://github.com/openstreetmap/openstreetmap-website/blob/master/config/settings.yml#L27)
-#'   for the current value), not overlapping the dateline.
+#'   for the current value), not overlapping the dateline. It can be specified by a character, matrix, vector, `bbox`
+#'   object from \pkg{sf}, a `SpatExtent` from \pkg{terra}. Unnamed vectors and matrices will be sorted appropriately
+#'   and must merely be in the order (`x`, `y`, `x`, `y`) or `x` in the first column and `y` in the second column.
 #'
 #' @return
 #' Returns a [xml2::xml_document-class] in the `RSS` format.
@@ -900,7 +906,7 @@ osm_feed_notes <- function(bbox) {
   req <- osmapi_request()
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, "notes", "feed")
-  req <- httr2::req_url_query(req, bbox = paste(bbox, collapse = ","))
+  req <- httr2::req_url_query(req, bbox = bbox_to_string(bbox))
 
   resp <- httr2::req_perform(req)
   obj_xml <- httr2::resp_body_xml(resp)

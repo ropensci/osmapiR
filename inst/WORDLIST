@@ -350,6 +350,7 @@ pkgload
 pkgname
 pkgs
 png
+pntr
 policyL
 pos
 POSIXct
@@ -431,6 +432,7 @@ softwareSuggestions
 somekey
 someLongURLOrOther
 somevalue
+SpatExtent
 spdx
 sprintf
 stdlib
@@ -457,6 +459,7 @@ tibble
 tidyverse
 tinstall
 togpx
+tolower
 topenv
 topografix
 toponimsCat

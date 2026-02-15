@@ -554,7 +554,10 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
 #'
 #' This is an API method for getting a list of changesets. It supports filtering by different criteria.
 #'
-#' @param bbox Find changesets within the given bounding box coordinates (`left,bottom,right,top`).
+#' @param bbox Find changesets within the given bounding box coordinates (`left,bottom,right,top`). It can be specified
+#'   by a character, matrix, vector, `bbox` object from \pkg{sf}, a `SpatExtent` from \pkg{terra}. Unnamed vectors and
+#'   matrices will be sorted appropriately and must merely be in the order (`x`, `y`, `x`, `y`) or `x` in the first
+#'   column and `y` in the second column.
 #' @param user Find changesets by the user with the given user id (numeric) or display name (character).
 #' @param time Find changesets **closed** after this date and time. Compare with `from=T1` which filters by creation
 #'   time instead. See details for the valid formats.
@@ -714,7 +717,7 @@ osm_download_changeset <- function(changeset_id, format = c("R", "osc", "xml")) 
   req <- httr2::req_method(req, "GET")
   req <- httr2::req_url_path_append(req, ext)
   req <- httr2::req_url_query(req,
-    bbox = bbox,
+    bbox = bbox_to_string(bbox),
     user = user, display_name = display_name,
     time = time, from = from, to = to,
     open = open, closed = closed,

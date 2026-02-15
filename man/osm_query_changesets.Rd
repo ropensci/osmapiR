@@ -21,7 +21,10 @@ osm_query_changesets(
 )
 }
 \arguments{
-\item{bbox}{Find changesets within the given bounding box coordinates (\verb{left,bottom,right,top}).}
+\item{bbox}{Find changesets within the given bounding box coordinates (\verb{left,bottom,right,top}). It can be specified
+by a character, matrix, vector, \code{bbox} object from \pkg{sf}, a \code{SpatExtent} from \pkg{terra}. Unnamed vectors and
+matrices will be sorted appropriately and must merely be in the order (\code{x}, \code{y}, \code{x}, \code{y}) or \code{x} in the first
+column and \code{y} in the second column.}
 
 \item{user}{Find changesets by the user with the given user id (numeric) or display name (character).}
 
