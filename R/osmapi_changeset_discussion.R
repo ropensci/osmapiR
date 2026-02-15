@@ -207,7 +207,7 @@ osm_unsubscribe_changeset_discussion <- function(changeset_id) { # TODO: , forma
 #'
 #' @details
 #' The valid formats for `from` and `to` parameters are [POSIXt] values or characters preferably in
-#' [ISO 8601](https://wikipedia.org/wiki/ISO_8601) format.
+#' [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 #'
 #'
 #' @returns

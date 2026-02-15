@@ -2,5 +2,6 @@
 
 0 errors | 0 warnings | 0 note
 
-Release to fix CRAN checks with the released httr2 1.2.0
+Release to fix CRAN checks caused by changes in OSM data.
+
 urlchecker::url_check() errors and warnings for links that require authentication.

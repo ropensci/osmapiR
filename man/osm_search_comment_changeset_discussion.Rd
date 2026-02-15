@@ -36,7 +36,7 @@ comments are returned.
 }
 \details{
 The valid formats for \code{from} and \code{to} parameters are \link{POSIXt} values or characters preferably in
-\href{https://wikipedia.org/wiki/ISO_8601}{ISO 8601} format.
+\href{https://en.wikipedia.org/wiki/ISO_8601}{ISO 8601} format.
 }
 \examples{
 # See the latest changeset comments globally:
