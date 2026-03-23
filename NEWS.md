@@ -1,5 +1,7 @@
 # osmapiR (development version)
 
+* Add mirrors https://gitlab.com/jmaspons/osmapir & https://codeberg.org/jmaspons/osmapiR
+
 # osmapiR 0.2.5
 
 * Update documentation and code for server-side changes documented in OSMWikiVersion
