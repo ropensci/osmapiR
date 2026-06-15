@@ -313,6 +313,7 @@
       print(empty_search_notes$sf)
     Output
       Simple feature collection with 0 features and 7 fields
+      Geometry type: POINT
       Bounding box:  xmin: Inf ymin: Inf xmax: -Inf ymax: -Inf
       Geodetic CRS:  WGS 84
       [1] id           url          comment_url  close_url    date_created

@@ -573,6 +573,7 @@
       print(empty_chaset_sf)
     Output
       Simple feature collection with 0 features and 9 fields
+      Geometry type: POLYGON
       Bounding box:  xmin: NA ymin: NA xmax: NA ymax: NA
       Geodetic CRS:  WGS 84
        [1] id             created_at     closed_at      open           user          
