@@ -35,9 +35,9 @@ osm_unsubscribe_changeset_discussion("137595351")
 }
 }
 \seealso{
-Other changeset discussion's functions: 
-\code{\link{osm_comment_changeset_discussion}()},
-\code{\link{osm_hide_comment_changeset_discussion}()},
-\code{\link{osm_search_comment_changeset_discussion}()}
+Other changeset discussion's functions:
+\code{\link[=osm_comment_changeset_discussion]{osm_comment_changeset_discussion()}},
+\code{\link[=osm_hide_comment_changeset_discussion]{osm_hide_comment_changeset_discussion()}},
+\code{\link[=osm_search_comment_changeset_discussion]{osm_search_comment_changeset_discussion()}}
 }
 \concept{changeset discussion's functions}

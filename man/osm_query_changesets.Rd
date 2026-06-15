@@ -61,7 +61,7 @@ If \code{format = "R"}, returns a data frame with one OSM changeset per row. If 
 from \pkg{sf}.
 \subsection{\code{format = "xml"}}{
 
-Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
+Returns a \link[xml2:xml_document-class]{xml2::xml_document} with the following format:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
   <changeset id="10" created_at="2005-05-01T16:09:37Z" open="false" comments_count="1" changes_count="10" closed_at="2005-05-01T17:16:44Z" min_lat="59.9513092" min_lon="10.7719727" max_lat="59.9561501" max_lon="10.7994537" uid="24" user="Petter Reinholdtsen">
@@ -156,8 +156,8 @@ chsts2 <- osm_query_changesets(
 head(chsts2)
 }
 \seealso{
-Other get changesets' functions: 
-\code{\link{osm_download_changeset}()},
-\code{\link{osm_get_changesets}()}
+Other get changesets' functions:
+\code{\link[=osm_download_changeset]{osm_download_changeset()}},
+\code{\link[=osm_get_changesets]{osm_get_changesets()}}
 }
 \concept{get changesets' functions}

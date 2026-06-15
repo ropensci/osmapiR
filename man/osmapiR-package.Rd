@@ -6,6 +6,8 @@
 \alias{osmapiR-package}
 \title{osmapiR: 'OpenStreetMap' API}
 \description{
+\if{html}{\figure{logo.svg}{options: style='float: right' alt='logo' width='120'}}
+
 Interface to 'OpenStreetMap API' for fetching and saving data from/to the 'OpenStreetMap' database (\url{https://wiki.openstreetmap.org/wiki/API_v0.6}).
 }
 \details{
@@ -284,6 +286,11 @@ Useful links:
 }
 \author{
 \strong{Maintainer}: Joan Maspons \email{joanmaspons@gmail.com} (\href{https://orcid.org/0000-0003-2286-8727}{ORCID}) [copyright holder]
+
+Authors:
+\itemize{
+  \item Joan Maspons \email{joanmaspons@gmail.com} (\href{https://orcid.org/0000-0003-2286-8727}{ORCID}) [copyright holder]
+}
 
 Other contributors:
 \itemize{

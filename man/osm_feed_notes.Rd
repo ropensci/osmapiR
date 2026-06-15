@@ -16,7 +16,7 @@ object from \pkg{sf}, a \code{SpatExtent} from \pkg{terra}. Unnamed vectors and 
 and must merely be in the order (\code{x}, \code{y}, \code{x}, \code{y}) or \code{x} in the first column and \code{y} in the second column.}
 }
 \value{
-Returns a \link[xml2:oldclass]{xml2::xml_document} in the \code{RSS} format.
+Returns a \link[xml2:xml_document-class]{xml2::xml_document} in the \code{RSS} format.
 }
 \description{
 RSS Feed of notes in a bbox
@@ -27,9 +27,9 @@ feed_notes <- osm_feed_notes(bbox = c(0.8205414, 40.6686604, 0.8857727, 40.74933
 feed_notes
 }
 \seealso{
-Other get notes' functions: 
-\code{\link{osm_get_notes}()},
-\code{\link{osm_read_bbox_notes}()},
-\code{\link{osm_search_notes}()}
+Other get notes' functions:
+\code{\link[=osm_get_notes]{osm_get_notes()}},
+\code{\link[=osm_read_bbox_notes]{osm_read_bbox_notes()}},
+\code{\link[=osm_search_notes]{osm_search_notes()}}
 }
 \concept{get notes' functions}

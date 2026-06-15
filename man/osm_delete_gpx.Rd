@@ -19,8 +19,8 @@ Use this to delete GPX files. Only usable by the owner account. Requires authent
 vignette("how_to_edit_gps_traces", package = "osmapiR")
 }
 \seealso{
-Other edit GPS traces' functions: 
-\code{\link{osm_create_gpx}()},
-\code{\link{osm_update_gpx}()}
+Other edit GPS traces' functions:
+\code{\link[=osm_create_gpx]{osm_create_gpx()}},
+\code{\link[=osm_update_gpx]{osm_update_gpx()}}
 }
 \concept{edit GPS traces' functions}

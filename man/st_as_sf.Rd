@@ -58,7 +58,7 @@ sf::st_as_sf(trk, format = "points")
 \seealso{
 \code{st_as_sf()} from \pkg{sf} package.
 
-Other methods: 
-\code{\link{tags_list2wide}()}
+Other methods:
+\code{\link[=tags_list2wide]{tags_list2wide()}}
 }
 \concept{methods}

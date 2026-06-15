@@ -33,9 +33,9 @@ new_note
 }
 }
 \seealso{
-Other edit notes' functions: 
-\code{\link{osm_close_note}()},
-\code{\link{osm_create_comment_note}()},
-\code{\link{osm_delete_note}()}
+Other edit notes' functions:
+\code{\link[=osm_close_note]{osm_close_note()}},
+\code{\link[=osm_create_comment_note]{osm_create_comment_note()}},
+\code{\link[=osm_delete_note]{osm_delete_note()}}
 }
 \concept{edit notes' functions}

@@ -16,7 +16,7 @@ the display names).}
 For users not found, the result is empty. If \code{format = "R"}, returns a data frame with one user per row.
 \subsection{\code{format = "xml"}}{
 
-Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
+Returns a \link[xml2:xml_document-class]{xml2::xml_document} with the following format:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<osm version="0.6" generator="OpenStreetMap server">
   <user id="12023" display_name="jbpbis" account_created="2007-08-16T01:35:56Z">
@@ -131,8 +131,8 @@ usrs <- osm_get_user_details(user_id = c(1, 24, 44, 45, 46, 48, 49, 50))
 usrs
 }
 \seealso{
-Other users' functions: 
-\code{\link{osm_details_logged_user}()},
-\code{\link{osm_get_preferences_user}()}
+Other users' functions:
+\code{\link[=osm_details_logged_user]{osm_details_logged_user()}},
+\code{\link[=osm_get_preferences_user]{osm_get_preferences_user()}}
 }
 \concept{users' functions}

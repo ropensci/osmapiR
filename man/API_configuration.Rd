@@ -66,10 +66,10 @@ if (ori == "https://api.openstreetmap.org") {
 }
 }
 \seealso{
-Other API functions: 
-\code{\link{authenticate_osmapi}()},
-\code{\link{osm_api_versions}()},
-\code{\link{osm_capabilities}()},
-\code{\link{osm_permissions}()}
+Other API functions:
+\code{\link[=authenticate_osmapi]{authenticate_osmapi()}},
+\code{\link[=osm_api_versions]{osm_api_versions()}},
+\code{\link[=osm_capabilities]{osm_capabilities()}},
+\code{\link[=osm_permissions]{osm_permissions()}}
 }
 \concept{API functions}

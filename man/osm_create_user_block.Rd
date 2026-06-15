@@ -39,14 +39,14 @@ osm_create_user_block(user_id = my_user_id, reason = "Not really evil, just test
 }
 }
 \seealso{
-Other user blocks' functions: 
-\code{\link{osm_get_user_blocks}()},
-\code{\link{osm_list_active_user_blocks}()}
+Other user blocks' functions:
+\code{\link[=osm_get_user_blocks]{osm_get_user_blocks()}},
+\code{\link[=osm_list_active_user_blocks]{osm_list_active_user_blocks()}}
 
-Other functions for moderators: 
-\code{\link{osm_delete_note}()},
-\code{\link{osm_hide_comment_changeset_discussion}()},
-\code{\link{osm_redaction_object}()}
+Other functions for moderators:
+\code{\link[=osm_delete_note]{osm_delete_note()}},
+\code{\link[=osm_hide_comment_changeset_discussion]{osm_hide_comment_changeset_discussion()}},
+\code{\link[=osm_redaction_object]{osm_redaction_object()}}
 }
 \concept{functions for moderators}
 \concept{user blocks' functions}

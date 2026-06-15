@@ -17,7 +17,7 @@ will be ignored.}
 }
 \value{
 If \code{format = "R"}, returns a \code{osmapi_OsmChange} data frame with one OSM edition per row.
-If \code{format = "osc"} or \code{format = "xml"}, returns a \link[xml2:oldclass]{xml2::xml_document} following the
+If \code{format = "osc"} or \code{format = "xml"}, returns a \link[xml2:xml_document-class]{xml2::xml_document} following the
 \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange format} that can be saved with \code{\link[xml2:write_xml]{xml2::write_xml()}} and
 opened in other applications such as JOSM.
 
@@ -40,10 +40,10 @@ obj_id <- osmapi_objects(data.frame(
 osmchange_del <- osmchange_delete(obj_id)
 }
 \seealso{
-Other OsmChange's functions: 
-\code{\link{osm_diff_upload_changeset}()},
-\code{\link{osm_download_changeset}()},
-\code{\link{osmchange_create}()},
-\code{\link{osmchange_modify}()}
+Other OsmChange's functions:
+\code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}},
+\code{\link[=osm_download_changeset]{osm_download_changeset()}},
+\code{\link[=osmchange_create]{osmchange_create()}},
+\code{\link[=osmchange_modify]{osmchange_modify()}}
 }
 \concept{OsmChange's functions}

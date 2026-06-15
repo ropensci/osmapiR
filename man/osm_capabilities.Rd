@@ -42,10 +42,10 @@ must not show these resources as background layer.
 osm_capabilities()
 }
 \seealso{
-Other API functions: 
-\code{\link{authenticate_osmapi}()},
-\code{\link{osm_api_versions}()},
-\code{\link{osm_permissions}()},
-\code{\link{set_osmapi_connection}()}
+Other API functions:
+\code{\link[=authenticate_osmapi]{authenticate_osmapi()}},
+\code{\link[=osm_api_versions]{osm_api_versions()}},
+\code{\link[=osm_permissions]{osm_permissions()}},
+\code{\link[=set_osmapi_connection]{set_osmapi_connection()}}
 }
 \concept{API functions}

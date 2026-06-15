@@ -14,7 +14,7 @@ requested.}
 }
 \value{
 If \code{format = "R"}, returns a data frame with one row for each edit action in the changeset. If \code{format = "osc"},
-returns a \link[xml2:oldclass]{xml2::xml_document} in the \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange} format.
+returns a \link[xml2:xml_document-class]{xml2::xml_document} in the \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange} format.
 }
 \description{
 Returns the \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange} document describing all changes associated with the changeset.
@@ -31,15 +31,15 @@ chaset <- osm_download_changeset(changeset_id = 137003062)
 chaset
 }
 \seealso{
-Other get changesets' functions: 
-\code{\link{osm_get_changesets}()},
-\code{\link{osm_query_changesets}()}
+Other get changesets' functions:
+\code{\link[=osm_get_changesets]{osm_get_changesets()}},
+\code{\link[=osm_query_changesets]{osm_query_changesets()}}
 
-Other OsmChange's functions: 
-\code{\link{osm_diff_upload_changeset}()},
-\code{\link{osmchange_create}()},
-\code{\link{osmchange_delete}()},
-\code{\link{osmchange_modify}()}
+Other OsmChange's functions:
+\code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}},
+\code{\link[=osmchange_create]{osmchange_create()}},
+\code{\link[=osmchange_delete]{osmchange_delete()}},
+\code{\link[=osmchange_modify]{osmchange_modify()}}
 }
 \concept{OsmChange's functions}
 \concept{get changesets' functions}

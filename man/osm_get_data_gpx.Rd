@@ -16,11 +16,11 @@ If \code{"gpx"}, the response will always be a GPX format file.
 If \code{"xml"}, a \code{xml} file in an undocumented format.}
 }
 \value{
-If missing \code{format}, returns a \link[xml2:oldclass]{xml2::xml_document} with the original file data.
+If missing \code{format}, returns a \link[xml2:xml_document-class]{xml2::xml_document} with the original file data.
 If \code{format = "R"}, returns a data frame with one point per row and the attributes extracted from the xml response.
 If \code{format = "sf*"}, returns a \code{sf} object from \pkg{sf} (see \code{\link[=st_as_sf]{st_as_sf()}} for details).
-If \code{format = "gpx"}, returns a \link[xml2:oldclass]{xml2::xml_document} in the GPX format.
-If \code{format = "xml"}, returns a \link[xml2:oldclass]{xml2::xml_document} in an undocumented format.
+If \code{format = "gpx"}, returns a \link[xml2:xml_document-class]{xml2::xml_document} in the GPX format.
+If \code{format = "xml"}, returns a \link[xml2:xml_document-class]{xml2::xml_document} in an undocumented format.
 }
 \description{
 Use this to download the full GPX file. Private and trackable traces are only available by the owner account.
@@ -44,9 +44,9 @@ attr(trk_data, "gpx_attributes")
 }
 }
 \seealso{
-Other get GPS' functions: 
-\code{\link{osm_get_gpx_metadata}()},
-\code{\link{osm_get_points_gps}()},
-\code{\link{osm_list_gpxs}()}
+Other get GPS' functions:
+\code{\link[=osm_get_gpx_metadata]{osm_get_gpx_metadata()}},
+\code{\link[=osm_get_points_gps]{osm_get_points_gps()}},
+\code{\link[=osm_list_gpxs]{osm_list_gpxs()}}
 }
 \concept{get GPS' functions}

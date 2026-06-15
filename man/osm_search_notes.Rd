@@ -53,7 +53,7 @@ current value). Default to 100.}
 \value{
 If \code{format = "R"}, returns a data frame with one map note per row. If \code{format = "sf"}, returns a \code{sf} object from
 \pkg{sf}. If \code{format = "json"}, returns a list with the json structure. For \code{format} in \code{"xml"}, \code{"rss"}, and
-\code{"gpx"}, a \link[xml2:oldclass]{xml2::xml_document} with the corresponding format.
+\code{"gpx"}, a \link[xml2:xml_document-class]{xml2::xml_document} with the corresponding format.
 }
 \description{
 Returns notes that match the specified query. If no query is provided, the most recently updated notes are returned.
@@ -75,9 +75,9 @@ my_notes <- osm_search_notes(
 my_notes
 }
 \seealso{
-Other get notes' functions: 
-\code{\link{osm_feed_notes}()},
-\code{\link{osm_get_notes}()},
-\code{\link{osm_read_bbox_notes}()}
+Other get notes' functions:
+\code{\link[=osm_feed_notes]{osm_feed_notes()}},
+\code{\link[=osm_get_notes]{osm_get_notes()}},
+\code{\link[=osm_read_bbox_notes]{osm_read_bbox_notes()}}
 }
 \concept{get notes' functions}

@@ -49,7 +49,7 @@ cities_list <- osm_get_objects(osm_type = "relation", osm_id = c("40581", "34153
 cities_wide <- tags_list2wide(cities_list)
 }
 \seealso{
-Other methods: 
+Other methods:
 \code{\link{st_as_sf}}
 }
 \concept{methods}

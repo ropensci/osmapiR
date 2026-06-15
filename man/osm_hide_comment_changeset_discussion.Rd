@@ -33,15 +33,15 @@ unhide_com <- osm_unhide_comment_changeset_discussion(comment_id = chdis$discuss
 }
 }
 \seealso{
-Other changeset discussion's functions: 
-\code{\link{osm_comment_changeset_discussion}()},
-\code{\link{osm_search_comment_changeset_discussion}()},
-\code{\link{osm_subscribe_changeset_discussion}()}
+Other changeset discussion's functions:
+\code{\link[=osm_comment_changeset_discussion]{osm_comment_changeset_discussion()}},
+\code{\link[=osm_search_comment_changeset_discussion]{osm_search_comment_changeset_discussion()}},
+\code{\link[=osm_subscribe_changeset_discussion]{osm_subscribe_changeset_discussion()}}
 
-Other functions for moderators: 
-\code{\link{osm_create_user_block}()},
-\code{\link{osm_delete_note}()},
-\code{\link{osm_redaction_object}()}
+Other functions for moderators:
+\code{\link[=osm_create_user_block]{osm_create_user_block()}},
+\code{\link[=osm_delete_note]{osm_delete_note()}},
+\code{\link[=osm_redaction_object]{osm_redaction_object()}}
 }
 \concept{changeset discussion's functions}
 \concept{functions for moderators}

@@ -81,7 +81,7 @@ upd_chaset
 }
 }
 \seealso{
-Other edit changeset's functions: 
-\code{\link{osm_diff_upload_changeset}()}
+Other edit changeset's functions:
+\code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}}
 }
 \concept{edit changeset's functions}

@@ -20,7 +20,7 @@ Ignored if \code{format != "R"}.}
 }
 \value{
 If \code{format = "R"}, returns a data frame with one OSM object per row. If \code{format = "xml"}, returns a
-\link[xml2:oldclass]{xml2::xml_document} following the
+\link[xml2:xml_document-class]{xml2::xml_document} following the
 \href{https://wiki.openstreetmap.org/wiki/OSM_XML#OSM_XML_file_format_notes}{OSM_XML format}. If \code{format = "json"},
 returns a list with a json structure following the \href{https://wiki.openstreetmap.org/wiki/OSM_JSON}{OSM_JSON format}.
 }
@@ -59,11 +59,11 @@ map_data <- osm_bbox_objects(bbox = c(1.8366775, 41.8336843, 1.8379971, 41.83445
 map_data
 }
 \seealso{
-Other get OSM objects' functions: 
-\code{\link{osm_get_objects}()},
-\code{\link{osm_history_object}()},
-\code{\link{osm_relations_object}()},
-\code{\link{osm_ways_node}()},
-\code{\link{osmapi_objects}()}
+Other get OSM objects' functions:
+\code{\link[=osm_get_objects]{osm_get_objects()}},
+\code{\link[=osm_history_object]{osm_history_object()}},
+\code{\link[=osm_relations_object]{osm_relations_object()}},
+\code{\link[=osm_ways_node]{osm_ways_node()}},
+\code{\link[=osmapi_objects]{osmapi_objects()}}
 }
 \concept{get OSM objects' functions}

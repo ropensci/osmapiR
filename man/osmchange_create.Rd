@@ -14,7 +14,7 @@ and \code{lon} for nodes + tags if needed.}
 }
 \value{
 If \code{format = "R"}, returns a \code{osmapi_OsmChange} data frame with one OSM edition per row.
-If \code{format = "osc"} or \code{format = "xml"}, returns a \link[xml2:oldclass]{xml2::xml_document} following the
+If \code{format = "osc"} or \code{format = "xml"}, returns a \link[xml2:xml_document-class]{xml2::xml_document} following the
 \href{https://wiki.openstreetmap.org/wiki/OsmChange}{OsmChange format} that can be saved with \code{\link[xml2:write_xml]{xml2::write_xml()}} and
 opened in other applications such as JOSM.
 
@@ -49,10 +49,10 @@ osmcha <- osmchange_create(obj)
 osmcha
 }
 \seealso{
-Other OsmChange's functions: 
-\code{\link{osm_diff_upload_changeset}()},
-\code{\link{osm_download_changeset}()},
-\code{\link{osmchange_delete}()},
-\code{\link{osmchange_modify}()}
+Other OsmChange's functions:
+\code{\link[=osm_diff_upload_changeset]{osm_diff_upload_changeset()}},
+\code{\link[=osm_download_changeset]{osm_download_changeset()}},
+\code{\link[=osmchange_delete]{osmchange_delete()}},
+\code{\link[=osmchange_modify]{osmchange_modify()}}
 }
 \concept{OsmChange's functions}

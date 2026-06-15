@@ -28,7 +28,7 @@ Ignored if \code{format != "R"}.}
 }
 \value{
 If \code{format = "R"}, returns a data frame with one comment per  If \code{format = "xml"}, returns a
-\link[xml2:oldclass]{xml2::xml_document}. If \code{format = "json"}, returns a list with the json structure.
+\link[xml2:xml_document-class]{xml2::xml_document}. If \code{format = "json"}, returns a list with the json structure.
 }
 \description{
 Returns changeset comments that match the specified query. If no query is provided, the most recent changeset
@@ -49,9 +49,9 @@ osm_search_comment_changeset_discussion(user = "Steve", format = "json")
 osm_search_comment_changeset_discussion(from = "2015-01-01", to = "2015-01-02", format = "xml")
 }
 \seealso{
-Other changeset discussion's functions: 
-\code{\link{osm_comment_changeset_discussion}()},
-\code{\link{osm_hide_comment_changeset_discussion}()},
-\code{\link{osm_subscribe_changeset_discussion}()}
+Other changeset discussion's functions:
+\code{\link[=osm_comment_changeset_discussion]{osm_comment_changeset_discussion()}},
+\code{\link[=osm_hide_comment_changeset_discussion]{osm_hide_comment_changeset_discussion()}},
+\code{\link[=osm_subscribe_changeset_discussion]{osm_subscribe_changeset_discussion()}}
 }
 \concept{changeset discussion's functions}

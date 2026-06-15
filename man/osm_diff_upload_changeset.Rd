@@ -10,14 +10,14 @@ osm_diff_upload_changeset(changeset_id, osmcha, format = c("R", "xml"))
 \item{changeset_id}{The ID of the changeset this diff belongs to. The user issuing this API call has to be the same
 that created the changeset.}
 
-\item{osmcha}{The OsmChange data. Can be the path of an OsmChange file, a \link[xml2:oldclass]{xml2::xml_document} or an
+\item{osmcha}{The OsmChange data. Can be the path of an OsmChange file, a \link[xml2:xml_document-class]{xml2::xml_document} or an
 \code{osmapi_OsmChange} object (see \verb{osmchange_*()} functions).}
 
 \item{format}{Format of the output. Can be \code{"R"} (default) or \code{"xml"}.}
 }
 \value{
 If a diff is successfully applied and \code{format = "R"}, it returns a data frame with one row for each edited object.
-For \code{format = "xml"}, a \link[xml2:oldclass]{xml2::xml_document} is returned in the following format:
+For \code{format = "xml"}, a \link[xml2:xml_document-class]{xml2::xml_document} is returned in the following format:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<diffResult generator="OpenStreetMap Server" version="0.6">
   <node|way|relation old_id="#" new_id="#" new_version="#"/>
@@ -70,14 +70,14 @@ size).
 vignette("how_to_edit_osm", package = "osmapiR")
 }
 \seealso{
-Other edit changeset's functions: 
-\code{\link{osm_create_changeset}()}
+Other edit changeset's functions:
+\code{\link[=osm_create_changeset]{osm_create_changeset()}}
 
-Other OsmChange's functions: 
-\code{\link{osm_download_changeset}()},
-\code{\link{osmchange_create}()},
-\code{\link{osmchange_delete}()},
-\code{\link{osmchange_modify}()}
+Other OsmChange's functions:
+\code{\link[=osm_download_changeset]{osm_download_changeset()}},
+\code{\link[=osmchange_create]{osmchange_create()}},
+\code{\link[=osmchange_delete]{osmchange_delete()}},
+\code{\link[=osmchange_modify]{osmchange_modify()}}
 }
 \concept{OsmChange's functions}
 \concept{edit changeset's functions}

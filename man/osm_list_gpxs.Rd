@@ -12,7 +12,7 @@ osm_list_gpxs(format = c("R", "sf", "xml"))
 \value{
 Results with the same format as \code{\link[=osm_get_gpx_metadata]{osm_get_gpx_metadata()}}. If \code{format = "R"}, returns a data frame with one trace
 per row. If \code{format = "sf"}, returns a \code{sf} object from \pkg{sf}. If \code{format = "xml"}, returns a
-\link[xml2:oldclass]{xml2::xml_document}. Example:
+\link[xml2:xml_document-class]{xml2::xml_document}. Example:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="OpenStreetMap server">
@@ -39,9 +39,9 @@ traces
 }
 }
 \seealso{
-Other get GPS' functions: 
-\code{\link{osm_get_data_gpx}()},
-\code{\link{osm_get_gpx_metadata}()},
-\code{\link{osm_get_points_gps}()}
+Other get GPS' functions:
+\code{\link[=osm_get_data_gpx]{osm_get_data_gpx()}},
+\code{\link[=osm_get_gpx_metadata]{osm_get_gpx_metadata()}},
+\code{\link[=osm_get_points_gps]{osm_get_points_gps()}}
 }
 \concept{get GPS' functions}

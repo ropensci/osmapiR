@@ -16,10 +16,10 @@ Available API versions
 osm_api_versions()
 }
 \seealso{
-Other API functions: 
-\code{\link{authenticate_osmapi}()},
-\code{\link{osm_capabilities}()},
-\code{\link{osm_permissions}()},
-\code{\link{set_osmapi_connection}()}
+Other API functions:
+\code{\link[=authenticate_osmapi]{authenticate_osmapi()}},
+\code{\link[=osm_capabilities]{osm_capabilities()}},
+\code{\link[=osm_permissions]{osm_permissions()}},
+\code{\link[=set_osmapi_connection]{set_osmapi_connection()}}
 }
 \concept{API functions}

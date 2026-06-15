@@ -61,9 +61,9 @@ osm_close_changeset(changeset_id = changeset_id)
 }
 }
 \seealso{
-Other functions for moderators: 
-\code{\link{osm_create_user_block}()},
-\code{\link{osm_delete_note}()},
-\code{\link{osm_hide_comment_changeset_discussion}()}
+Other functions for moderators:
+\code{\link[=osm_create_user_block]{osm_create_user_block()}},
+\code{\link[=osm_delete_note]{osm_delete_note()}},
+\code{\link[=osm_hide_comment_changeset_discussion]{osm_hide_comment_changeset_discussion()}}
 }
 \concept{functions for moderators}

@@ -15,7 +15,7 @@ osm_get_user_blocks(user_block_id, format = c("R", "xml", "json"))
 If \code{format = "R"}, returns a data frame with one row with the details of the block.
 \subsection{\code{format = "xml"}}{
 
-Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
+Returns a \link[xml2:xml_document-class]{xml2::xml_document} with the following format:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
@@ -78,8 +78,8 @@ Read user block
 osm_get_user_blocks(1:2)
 }
 \seealso{
-Other user blocks' functions: 
-\code{\link{osm_create_user_block}()},
-\code{\link{osm_list_active_user_blocks}()}
+Other user blocks' functions:
+\code{\link[=osm_create_user_block]{osm_create_user_block()}},
+\code{\link[=osm_list_active_user_blocks]{osm_list_active_user_blocks()}}
 }
 \concept{user blocks' functions}

@@ -39,8 +39,8 @@ Missing arguments won't be updated.
 vignette("how_to_edit_gps_traces", package = "osmapiR")
 }
 \seealso{
-Other edit GPS traces' functions: 
-\code{\link{osm_create_gpx}()},
-\code{\link{osm_delete_gpx}()}
+Other edit GPS traces' functions:
+\code{\link[=osm_create_gpx]{osm_create_gpx()}},
+\code{\link[=osm_delete_gpx]{osm_delete_gpx()}}
 }
 \concept{edit GPS traces' functions}

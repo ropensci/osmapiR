@@ -25,7 +25,7 @@ missing.}
 If \code{format = "R"}, returns a data frame with \code{key} and \code{value} columns of the user preferences.
 \subsection{\code{format = "xml"}}{
 
-Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
+Returns a \link[xml2:xml_document-class]{xml2::xml_document} with the following format:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<osm version="0.6" generator="OpenStreetMap server">
   <preferences>
@@ -80,8 +80,8 @@ osm_set_preferences_user(all_prefs = prefs_ori)
 }
 }
 \seealso{
-Other users' functions: 
-\code{\link{osm_details_logged_user}()},
-\code{\link{osm_get_user_details}()}
+Other users' functions:
+\code{\link[=osm_details_logged_user]{osm_details_logged_user()}},
+\code{\link[=osm_get_user_details]{osm_get_user_details()}}
 }
 \concept{users' functions}

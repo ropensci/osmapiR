@@ -32,7 +32,7 @@ If \code{format = "sf_lines"}, returns a \code{sf} object from \pkg{sf}. For \co
 object (see \code{\link[=st_as_sf]{st_as_sf()}} for details).
 \subsection{\code{format = "gpx"}}{
 
-Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
+Returns a \link[xml2:xml_document-class]{xml2::xml_document} with the following format:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<?xml version="1.0" encoding="UTF-8"?>
 <gpx version="1.0" creator="OpenStreetMap.org" xmlns="http://www.topografix.com/GPX/1/0">
@@ -79,9 +79,9 @@ lapply(pts_gps, function(x) attributes(x)[c("track_url", "track_name", "track_de
 attr(pts_gps, "gpx_attributes")
 }
 \seealso{
-Other get GPS' functions: 
-\code{\link{osm_get_data_gpx}()},
-\code{\link{osm_get_gpx_metadata}()},
-\code{\link{osm_list_gpxs}()}
+Other get GPS' functions:
+\code{\link[=osm_get_data_gpx]{osm_get_data_gpx()}},
+\code{\link[=osm_get_gpx_metadata]{osm_get_gpx_metadata()}},
+\code{\link[=osm_list_gpxs]{osm_list_gpxs()}}
 }
 \concept{get GPS' functions}

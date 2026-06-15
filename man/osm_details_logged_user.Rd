@@ -13,7 +13,7 @@ osm_details_logged_user(format = c("R", "xml", "json"))
 If \code{format = "R"}, returns a list with the user details.
 \subsection{\code{format = "xml"}}{
 
-Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
+Returns a \link[xml2:xml_document-class]{xml2::xml_document} with the following format:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<osm version="0.6" generator="OpenStreetMap server">
   <user display_name="Max Muster" account_created="2006-07-21T19:28:26Z" id="1234">
@@ -77,8 +77,8 @@ usr_details
 }
 }
 \seealso{
-Other users' functions: 
-\code{\link{osm_get_preferences_user}()},
-\code{\link{osm_get_user_details}()}
+Other users' functions:
+\code{\link[=osm_get_preferences_user]{osm_get_preferences_user()}},
+\code{\link[=osm_get_user_details]{osm_get_user_details()}}
 }
 \concept{users' functions}

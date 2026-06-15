@@ -30,7 +30,7 @@ If \code{format = "R"}, returns a data frame with one map note per row. If \code
 \pkg{sf}.
 \subsection{\code{format = "xml"}}{
 
-Returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
+Returns a \link[xml2:xml_document-class]{xml2::xml_document} with the following format:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="OpenStreetMap server" copyright="OpenStreetMap and contributors" attribution="https://www.openstreetmap.org/copyright" license="https://opendatacommons.org/licenses/odbl/1-0/">
@@ -89,7 +89,7 @@ Returns a list with the following json structure:
 
 \subsection{\code{format = "rss"} & \code{format = "gpx"}}{
 
-For \code{format} in \code{"rss"}, and \code{"gpx"}, a \link[xml2:oldclass]{xml2::xml_document} with the corresponding format.
+For \code{format} in \code{"rss"}, and \code{"gpx"}, a \link[xml2:xml_document-class]{xml2::xml_document} with the corresponding format.
 }
 }
 \description{
@@ -105,9 +105,9 @@ notes <- osm_read_bbox_notes(bbox = c(3.7854767, 39.7837403, 4.3347931, 40.10118
 notes
 }
 \seealso{
-Other get notes' functions: 
-\code{\link{osm_feed_notes}()},
-\code{\link{osm_get_notes}()},
-\code{\link{osm_search_notes}()}
+Other get notes' functions:
+\code{\link[=osm_feed_notes]{osm_feed_notes()}},
+\code{\link[=osm_get_notes]{osm_get_notes()}},
+\code{\link[=osm_search_notes]{osm_search_notes()}}
 }
 \concept{get notes' functions}

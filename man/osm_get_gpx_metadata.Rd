@@ -13,7 +13,7 @@ osm_get_gpx_metadata(gpx_id, format = c("R", "sf", "xml", "json"))
 }
 \value{
 If \code{format = "R"}, returns a data frame with one trace per row. If \code{format = "sf"}, returns a \code{sf} object from
-\pkg{sf}. If \code{format = "xml"}, returns a \link[xml2:oldclass]{xml2::xml_document} with the following format:
+\pkg{sf}. If \code{format = "xml"}, returns a \link[xml2:xml_document-class]{xml2::xml_document} with the following format:
 
 \if{html}{\out{<div class="sourceCode xml">}}\preformatted{<?xml version="1.0" encoding="UTF-8"?>
 <osm version="0.6" generator="OpenStreetMap server">
@@ -41,9 +41,9 @@ trk_meta
 }
 }
 \seealso{
-Other get GPS' functions: 
-\code{\link{osm_get_data_gpx}()},
-\code{\link{osm_get_points_gps}()},
-\code{\link{osm_list_gpxs}()}
+Other get GPS' functions:
+\code{\link[=osm_get_data_gpx]{osm_get_data_gpx()}},
+\code{\link[=osm_get_points_gps]{osm_get_points_gps()}},
+\code{\link[=osm_list_gpxs]{osm_list_gpxs()}}
 }
 \concept{get GPS' functions}

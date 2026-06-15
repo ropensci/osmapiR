@@ -37,9 +37,9 @@ closed_note <- osm_close_note(note$id) # leave it closed
 }
 }
 \seealso{
-Other edit notes' functions: 
-\code{\link{osm_create_comment_note}()},
-\code{\link{osm_create_note}()},
-\code{\link{osm_delete_note}()}
+Other edit notes' functions:
+\code{\link[=osm_create_comment_note]{osm_create_comment_note()}},
+\code{\link[=osm_create_note]{osm_create_note()}},
+\code{\link[=osm_delete_note]{osm_delete_note()}}
 }
 \concept{edit notes' functions}

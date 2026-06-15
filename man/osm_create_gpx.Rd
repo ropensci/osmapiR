@@ -38,8 +38,8 @@ gpx files, although it will appear as a single entry in the upload log.
 vignette("how_to_edit_gps_traces", package = "osmapiR")
 }
 \seealso{
-Other edit GPS traces' functions: 
-\code{\link{osm_delete_gpx}()},
-\code{\link{osm_update_gpx}()}
+Other edit GPS traces' functions:
+\code{\link[=osm_delete_gpx]{osm_delete_gpx()}},
+\code{\link[=osm_update_gpx]{osm_update_gpx()}}
 }
 \concept{edit GPS traces' functions}

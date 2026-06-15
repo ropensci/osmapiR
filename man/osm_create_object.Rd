@@ -7,7 +7,7 @@
 osm_create_object(x, changeset_id)
 }
 \arguments{
-\item{x}{The new object data. Can be the path to an xml file, a \link[xml2:oldclass]{xml2::xml_document} or a data.frame inheriting
+\item{x}{The new object data. Can be the path to an xml file, a \link[xml2:xml_document-class]{xml2::xml_document} or a data.frame inheriting
 or following the structure of an \code{osmapi_objects} object.}
 
 \item{changeset_id}{The ID of an open changeset where to create the object. If missing, \code{x} should define the
@@ -39,8 +39,8 @@ recommended.
 vignette("how_to_edit_osm", package = "osmapiR")
 }
 \seealso{
-Other edit OSM objects' functions: 
-\code{\link{osm_delete_object}()},
-\code{\link{osm_update_object}()}
+Other edit OSM objects' functions:
+\code{\link[=osm_delete_object]{osm_delete_object()}},
+\code{\link[=osm_update_object]{osm_update_object()}}
 }
 \concept{edit OSM objects' functions}
