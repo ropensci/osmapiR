@@ -17,7 +17,9 @@ API:
 \itemize{
 \item \code{version} \code{minimum} and \code{maximum} are the API call versions that the server will accept.
 \item \code{area} \code{maximum} is the maximum area in square degrees that can be queried by API calls.
-\item \code{tracepoints} \code{per_page} is the maximum number of points in a single GPS trace. (Possibly incorrect)
+\item \code{note_area} \code{maximum} is the maximum area in square degrees that can be queried for notes by API calls.
+\item \code{tracepoints} \code{per_page} is the maximum number of GPS trace points returned at once by an API call. This value
+defines the page size.
 \item \code{waynodes} \code{maximum} is the maximum number of nodes that a way may contain.
 \item \code{relationmember} \code{maximum} is the maximum number of members that a relation may contain.
 \item \code{changesets} \code{maximum_elements} is the maximum number of combined nodes, ways and relations that can be contained

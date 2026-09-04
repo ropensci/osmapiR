@@ -160,7 +160,7 @@
 #' @param file The GPX file path containing the track points.
 #' @param description The trace description. Cannot be empty. Maximum length is 255 characters.
 #' @param tags A string containing tags for the trace. Can be empty.
-#' @param visibility One of the following: `private`, `public`, `trackable`, `identifiable`. For explanations see
+#' @param visibility One of the following: `trackable`, `identifiable`. For explanations see
 #'   [OSM trace upload page](https://www.openstreetmap.org/traces/mine) or
 #'   [Visibility of GPS traces](https://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces)).
 #'
@@ -176,7 +176,7 @@
 #'
 #' @examples
 #' vignette("how_to_edit_gps_traces", package = "osmapiR")
-osm_create_gpx <- function(file, description, tags, visibility = c("private", "public", "trackable", "identifiable")) {
+osm_create_gpx <- function(file, description, tags, visibility = c("trackable", "identifiable")) {
   visibility <- match.arg(visibility)
   stopifnot(!missing(description))
   if (missing(tags)) {

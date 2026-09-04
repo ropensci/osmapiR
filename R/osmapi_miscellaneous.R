@@ -113,7 +113,9 @@ osm_api_versions <- function() {
 #' API:
 #' * `version` `minimum` and `maximum` are the API call versions that the server will accept.
 #' * `area` `maximum` is the maximum area in square degrees that can be queried by API calls.
-#' * `tracepoints` `per_page` is the maximum number of points in a single GPS trace. (Possibly incorrect)
+#' * `note_area` `maximum` is the maximum area in square degrees that can be queried for notes by API calls.
+#' * `tracepoints` `per_page` is the maximum number of GPS trace points returned at once by an API call. This value
+#'   defines the page size.
 #' * `waynodes` `maximum` is the maximum number of nodes that a way may contain.
 #' * `relationmember` `maximum` is the maximum number of members that a relation may contain.
 #' * `changesets` `maximum_elements` is the maximum number of combined nodes, ways and relations that can be contained

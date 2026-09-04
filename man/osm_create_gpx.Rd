@@ -8,7 +8,7 @@ osm_create_gpx(
   file,
   description,
   tags,
-  visibility = c("private", "public", "trackable", "identifiable")
+  visibility = c("trackable", "identifiable")
 )
 }
 \arguments{
@@ -18,7 +18,7 @@ osm_create_gpx(
 
 \item{tags}{A string containing tags for the trace. Can be empty.}
 
-\item{visibility}{One of the following: \code{private}, \code{public}, \code{trackable}, \code{identifiable}. For explanations see
+\item{visibility}{One of the following: \code{trackable}, \code{identifiable}. For explanations see
 \href{https://www.openstreetmap.org/traces/mine}{OSM trace upload page} or
 \href{https://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces}{Visibility of GPS traces}).}
 }
