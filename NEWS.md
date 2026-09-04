@@ -1,6 +1,8 @@
 # osmapiR (development version)
 
-* Add mirrors https://gitlab.com/jmaspons/osmapir & https://codeberg.org/jmaspons/osmapiR
+* Add mirrors https://gitlab.com/jmaspons/osmapir & https://codeberg.org/jmaspons/osmapiR (#75)
+* Update documentation and code for server-side changes documented in OSMWikiVersion
+  [2940426 -> 3068644](https://wiki.openstreetmap.org/w/index.php?title=API_v0.6&diff=3068644&oldid=2940426) (#86).
 
 # osmapiR 0.2.5
 
