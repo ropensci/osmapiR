@@ -791,7 +791,7 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id,
 
 #' Fetch objects in batches
 #'
-#' Called from [.osm_fetch_objects()] to avoid `HTTP ERROR 414 URI Too Long` when characters in the URI > 8213.
+#' Called from `.osm_fetch_objects()` to avoid `HTTP ERROR 414 URI Too Long` when characters in the URI > 8213.
 #'
 #' @inherit .osm_fetch_objects
 #' @param nchar_base The number of characters of the URL without the parameters `osm_ids` appended.
