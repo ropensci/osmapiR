@@ -690,7 +690,7 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id,
 # ; HTTP status code 404 (Not Found)
 # : If one of the elements could not be found (By "not found" is meant never existed in the database or its requested version was redacted, if the object was deleted, it will be returned with the attribute visible="false")
 # ; HTTP status code 414 (Request-URI Too Large)
-# : If the URI was too long (tested to be > 8213 characters in the URI, or > 725 elements for 10 digit IDs when not specifying versions)
+# : If the URI was too long (tested to be > 8207 characters in the URI, or > 725 elements for 10 digit IDs when not specifying versions)
 #
 ### Notes ----
 # As the multi fetch call returns deleted objects it is the practical way to determine the version at which an object was deleted (useful for example for conflict resolution), the alternative to using this would be the history call that however may potentially require 1000's of version to be processed.
@@ -757,7 +757,7 @@ osm_history_object <- function(osm_type = c("node", "way", "relation"), osm_id,
   # Avoid ERROR: ! HTTP 414 URI Too Long: tested to be > 8213 characters in the URI
   nchar_base <- nchar(req$url) + nchar(osm_type) + 2
   nchar_url <- nchar(ids) + length(osm_ids) * 2 + nchar_base # `,` in ids encoded in 3 char (%2C)
-  if (nchar_url > 8213) {
+  if (nchar_url > 8207) {
     out <- fetch_objects_batches(
       osm_type = osm_type, osm_ids = osm_ids, nchar_base = nchar_base,
       format = format, tags_in_columns = tags_in_columns

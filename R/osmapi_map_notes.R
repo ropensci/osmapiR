@@ -1,6 +1,8 @@
 ## Map Notes API
 #
 # This provides access to the [[notes]] feature, which allows users to add geo-referenced textual "post-it" notes. This feature was not originally in the API 0.6 and was only added later ( 04/23/2013 in commit 0c8ad2f86edefed72052b402742cadedb0d674d9 ). As this was intended as a compatible replacement for the [[OpenStreetBugs]] API there are numerous idiosyncrasies relative to how the other parts of the OSM API work.
+#
+# Note that state changes, that is closing, re-opening and hiding a note, will always add a comment even if there is no text provided.
 
 
 ## Retrieving notes data by bounding box: `GET /api/0.6/notes` ----
@@ -325,7 +327,9 @@ osm_read_bbox_notes <- function(bbox, limit = 100, closed = 7, format = c("R", "
 #
 ### Error codes ----
 # ; HTTP status code 400 (Bad Request)
-# : if the text field was not present
+# : If the text field was not present
+# ; HTTP status code 403 (Forbidden)
+# : If the user is not authenticated and the coordinates fall within a Moderation Zone
 # ; HTTP status code 404 (Not found)
 # : This applies, if the request is not a HTTP POST request
 # ; <s>HTTP status code 405 (Method Not Allowed)</s>

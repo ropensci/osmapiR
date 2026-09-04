@@ -144,7 +144,7 @@
 # |1 if the trace is public, 0 if not. This exists for backwards compatibility only - the visibility parameter should now be used instead. This value will be ignored if visibility is also provided.
 # |-
 # |visibility
-# |One of the following: private, public, trackable, identifiable (for explanations see [https://www.openstreetmap.org/traces/mine OSM trace upload page] or [[Visibility of GPS traces]])
+# |One of the following: trackable, identifiable (for explanations see [https://www.openstreetmap.org/traces/mine OSM trace upload page] or [[Visibility of GPS traces]])
 # |}Response:
 #
 # A number representing the ID of the new gpx
@@ -160,7 +160,7 @@
 #' @param file The GPX file path containing the track points.
 #' @param description The trace description. Cannot be empty. Maximum length is 255 characters.
 #' @param tags A string containing tags for the trace. Can be empty.
-#' @param visibility One of the following: `private`, `public`, `trackable`, `identifiable`. For explanations see
+#' @param visibility One of the following: `trackable`, `identifiable`. For explanations see
 #'   [OSM trace upload page](https://www.openstreetmap.org/traces/mine) or
 #'   [Visibility of GPS traces](https://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces)).
 #'
@@ -176,7 +176,7 @@
 #'
 #' @examples
 #' vignette("how_to_edit_gps_traces", package = "osmapiR")
-osm_create_gpx <- function(file, description, tags, visibility = c("private", "public", "trackable", "identifiable")) {
+osm_create_gpx <- function(file, description, tags, visibility = c("trackable", "identifiable")) {
   visibility <- match.arg(visibility)
   stopifnot(!missing(description))
   if (missing(tags)) {
@@ -203,7 +203,7 @@ osm_create_gpx <- function(file, description, tags, visibility = c("private", "p
 }
 
 ## Update: `PUT /api/0.6/gpx/#id` ----
-# Use this to update the metadata of a GPX file. Only usable by the owner account. Requires authentication. The request body is an xml file with the same structure as the responses of [[API_v0.6#Download_Metadata:_GET_/api/0.6/gpx/#id/details|Download Metadata]].
+# Use this to update the metadata of a GPX file. Only usable by the owner account. Requires authentication. The request body is an xml file with the same structure as the responses of [[API_v0.6#Download_Metadata:_GET_/api/0.6/gpx/#id|Download Metadata]].
 # The response body will be empty.
 # https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/traces_controller.rb#L51
 
@@ -460,7 +460,7 @@ osm_get_data_gpx <- function(gpx_id, format) {
 #
 # Note that '''/user/''' is a literal part of the URL, not a user's display name or user id. (This call always returns GPX traces for the current authenticated user ''only''.)
 #
-# The response is similar to the one of [[API_v0.6#Download_Metadata:_GET_/api/0.6/gpx/#id/details| Download Metadata]], except with multiple possible `<gpx_file>` elements. Example:
+# The response is similar to the one of [[API_v0.6#Download_Metadata:_GET_/api/0.6/gpx/#id|Download Metadata]], except with multiple possible `<gpx_file>` elements. Example:
 # <syntaxhighlight lang="xml">
 # <?xml version="1.0" encoding="UTF-8"?>
 # <osm version="0.6" generator="OpenStreetMap server">

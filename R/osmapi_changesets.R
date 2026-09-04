@@ -148,7 +148,7 @@ osm_create_changeset <- function(comment, ...,
 # <syntaxhighlight lang="xml">
 #
 # <osm version="0.6" generator="CGImap 0.9.3 (987909 spike-08.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
-#   <changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
+#   <changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10" created_count="2" modified_count="5" deleted_count="3" created_count="2" modified_count="5" deleted_count="3">
 #     <tag k="created_by" v="JOSM 1.61"/>
 #     <tag k="comment" v="Just adding some streetnames"/>
 #     ...
@@ -182,6 +182,9 @@ osm_create_changeset <- function(comment, ...,
 #       "open": false,
 #       "comments_count": 1,
 #       "changes_count": 10,
+#       "created_count": 2,
+#       "modified_count": 5,
+#       "deleted_count": 3,
 #       "closed_at": "2005-05-01T17:16:44Z",
 #       "min_lat": 59.9513092,
 #       "min_lon": 10.7719727,
@@ -239,7 +242,7 @@ osm_create_changeset <- function(comment, ...,
 #' Returns a [xml2::xml_document-class] with the following format:
 #' ``` xml
 #' <osm version="0.6" generator="CGImap 0.9.3 (987909 spike-08.openstreetmap.org)" copyright="OpenStreetMap and contributors" attribution="http://www.openstreetmap.org/copyright" license="http://opendatacommons.org/licenses/odbl/1-0/">
-#'   <changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10">
+#'   <changeset id="10" created_at="2008-11-08T19:07:39+01:00" open="true" user="fred" uid="123" min_lon="7.0191821" min_lat="49.2785426" max_lon="7.0197485" max_lat="49.2793101" comments_count="3" changes_count="10" created_count="2" modified_count="5" deleted_count="3" created_count="2" modified_count="5" deleted_count="3">
 #'     <tag k="created_by" v="JOSM 1.61"/>
 #'     <tag k="comment" v="Just adding some streetnames"/>
 #'     ...
@@ -274,6 +277,9 @@ osm_create_changeset <- function(comment, ...,
 #'     "open": false,
 #'     "comments_count": 1,
 #'     "changes_count": 10,
+#'     "created_count": 2,
+#'     "modified_count": 5,
+#'     "deleted_count": 3,
 #'     "closed_at": "2005-05-01T17:16:44Z",
 #'     "min_lat": 59.9513092,
 #'     "min_lon": 10.7719727,
@@ -336,7 +342,7 @@ osm_create_changeset <- function(comment, ...,
 ## Update: `PUT /api/0.6/changeset/#id` ----
 # For updating tags on the changeset, e.g. changeset {{tag|comment|foo}}.
 #
-# Payload should be an OSM document containing the new version of a single changeset. Bounding box, update time and other attributes are ignored and cannot be updated by this method. Only those tags provided in this call remain in the changeset object. For updating the bounding box see the ''expand_bbox'' method.
+# Payload should be an OSM document containing the new version of a single changeset. Bounding box, update time and other attributes are ignored and cannot be updated by this method. Only those tags provided in this call remain in the changeset object.
 # <syntaxhighlight lang="xml">
 # <osm>
 #   <changeset>
