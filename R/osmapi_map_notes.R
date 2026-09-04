@@ -793,10 +793,11 @@ osm_unsubscribe_note <- function(note_id) { # TODO: , format = c("R", "xml", "js
 #' )
 #' my_notes
 osm_search_notes <- function(
-    q, user, bbox, from, to, closed = 7,
-    sort = c("created_at", "updated_at"), order = c("newest", "oldest"),
-    limit = getOption("osmapir.api_capabilities")$api$notes["default_query_limit"],
-    format = c("R", "sf", "xml", "rss", "json", "gpx")) {
+  q, user, bbox, from, to, closed = 7,
+  sort = c("created_at", "updated_at"), order = c("newest", "oldest"),
+  limit = getOption("osmapir.api_capabilities")$api$notes["default_query_limit"],
+  format = c("R", "sf", "xml", "rss", "json", "gpx")
+) {
   sort <- match.arg(sort)
   order <- match.arg(order)
   format <- match.arg(format)
