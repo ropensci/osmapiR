@@ -53,9 +53,9 @@ osm_api_versions <- function() {
 }
 
 
-## Capabilities: `GET /api/capabilities` ----
-# Also available as: GET /api/0.6/capabilities.
-# This API call is meant to provide information about the capabilities and limitations of the current API.
+## Capabilities: `GET /api/0.6/capabilities` ----
+# Also available as: `GET /api/capabilities`. The unversioned version of this API endpoint is however {{GitHub link|openstreetmap/openstreetmap-website/commit/2398614349e3ff5605868fea82e013d2a9a16ef9|deprecated}} in favor of [[API_v0.6#Available_API_versions:_GET_/api/versions| checking the available versions]] first, then accessing the capabilities of a particular version.
+# This API call is meant to provide information about the capabilities and limitations of the API server.
 #
 ### Response ----
 # Returns a XML document (content type `application/xml`)
@@ -90,7 +90,8 @@ osm_api_versions <- function() {
 # API:
 # * '''version''' '''minimum''' and '''maximum''' are the API call versions that the server will accept.
 # * '''area''' '''maximum''' is the maximum area in square degrees that can be queried by API calls.
-# * '''tracepoints''' '''per_page''' is the maximum number of points in a single GPS trace. (Possibly incorrect)
+# * '''note_area''' '''maximum''' is the maximum area in square degrees that can be queried for notes by API calls.
+# * '''tracepoints''' '''per_page''' is the maximum number of GPS trace points returned at once by an API call. This value defines the page size.
 # * '''waynodes''' '''maximum''' is the maximum number of nodes that a way may contain.
 # * '''relationmembers''' '''maximum''' is the maximum number of members that a relation may contain. (''added in February 2022'')
 # * '''changesets''' '''maximum_elements''' is the maximum number of combined nodes, ways and relations that can be contained in a changeset.
@@ -102,7 +103,6 @@ osm_api_versions <- function() {
 # * Imagery blacklist lists all aerial and map sources, which are not permitted for OSM usage due to copyright. Editors must not show these resources as background layer.
 #
 ### Notes ----
-# * Currently both versioned (<tt>/api/0.6/capabilities</tt>) and unversioned (<tt>/api/capabilities</tt>) version of this call exist. The unversioned one is {{GitHub link|openstreetmap/openstreetmap-website/commit/2398614349e3ff5605868fea82e013d2a9a16ef9| deprecated}} in favor of [[API_v0.6#Available_API_versions:_GET_/api/versions| checking the available versions]] first, then accessing the capabilities of a particular version.
 # * Element and relation member ids are currently implementation dependent limited to 64bit signed integers, this should not be a problem :-).
 
 #' Capabilities of the API

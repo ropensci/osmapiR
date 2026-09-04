@@ -144,7 +144,7 @@
 # |1 if the trace is public, 0 if not. This exists for backwards compatibility only - the visibility parameter should now be used instead. This value will be ignored if visibility is also provided.
 # |-
 # |visibility
-# |One of the following: private, public, trackable, identifiable (for explanations see [https://www.openstreetmap.org/traces/mine OSM trace upload page] or [[Visibility of GPS traces]])
+# |One of the following: trackable, identifiable (for explanations see [https://www.openstreetmap.org/traces/mine OSM trace upload page] or [[Visibility of GPS traces]])
 # |}Response:
 #
 # A number representing the ID of the new gpx
@@ -203,7 +203,7 @@ osm_create_gpx <- function(file, description, tags, visibility = c("private", "p
 }
 
 ## Update: `PUT /api/0.6/gpx/#id` ----
-# Use this to update the metadata of a GPX file. Only usable by the owner account. Requires authentication. The request body is an xml file with the same structure as the responses of [[API_v0.6#Download_Metadata:_GET_/api/0.6/gpx/#id/details|Download Metadata]].
+# Use this to update the metadata of a GPX file. Only usable by the owner account. Requires authentication. The request body is an xml file with the same structure as the responses of [[API_v0.6#Download_Metadata:_GET_/api/0.6/gpx/#id|Download Metadata]].
 # The response body will be empty.
 # https://github.com/openstreetmap/openstreetmap-website/blob/master/app/controllers/api/traces_controller.rb#L51
 
@@ -460,7 +460,7 @@ osm_get_data_gpx <- function(gpx_id, format) {
 #
 # Note that '''/user/''' is a literal part of the URL, not a user's display name or user id. (This call always returns GPX traces for the current authenticated user ''only''.)
 #
-# The response is similar to the one of [[API_v0.6#Download_Metadata:_GET_/api/0.6/gpx/#id/details| Download Metadata]], except with multiple possible `<gpx_file>` elements. Example:
+# The response is similar to the one of [[API_v0.6#Download_Metadata:_GET_/api/0.6/gpx/#id|Download Metadata]], except with multiple possible `<gpx_file>` elements. Example:
 # <syntaxhighlight lang="xml">
 # <?xml version="1.0" encoding="UTF-8"?>
 # <osm version="0.6" generator="OpenStreetMap server">
