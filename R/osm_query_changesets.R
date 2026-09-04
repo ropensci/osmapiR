@@ -260,7 +260,7 @@ osm_query_changesets <- function(bbox, user, time, time_2, from, to, open, close
   } else if (.format == "xml") {
     out <- xml2::xml_new_root(outL[[1]])
     for (i in seq_along(outL[-1])) {
-      for (j in seq_len(length(xml2::xml_children(outL[[i + 1]])))) {
+      for (j in seq_along(xml2::xml_children(outL[[i + 1]]))) {
         xml2::xml_add_child(out, xml2::xml_child(outL[[i + 1]], search = j))
       }
     }

@@ -835,7 +835,7 @@ fetch_objects_batches <- function(osm_type, osm_ids, nchar_base, format, tags_in
   } else if (format == "xml") {
     out <- obj_batch[[1]]
     lapply(obj_batch[-1], function(x) {
-      for (i in seq_len(length(xml2::xml_children(x)))) {
+      for (i in seq_along(xml2::xml_children(x))) {
         xml2::xml_add_child(out, xml2::xml_child(x, search = i))
       }
     })

@@ -237,9 +237,9 @@ test_that("osm_history_object works", {
       expect_true(is.null(y) | inherits(y, "way_members") | inherits(y, "relation_members"))
     })
   })
-  expect_named(history$node[, seq_len(length(column_objects))], column_objects)
+  expect_named(history$node[, seq_along(column_objects)], column_objects)
   lapply(history[c("way", "rel")], function(x) {
-    expect_named(x[, seq_len(length(column_objects))], column_objects)
+    expect_named(x[, seq_along(column_objects)], column_objects)
   })
 
   # methods
@@ -286,9 +286,9 @@ test_that(".osm_version_object works", {
       expect_true(is.null(y) | inherits(y, "way_members") | inherits(y, "relation_members"))
     })
   })
-  expect_named(version$node[, seq_len(length(column_objects))], column_objects)
+  expect_named(version$node[, seq_along(column_objects)], column_objects)
   lapply(version[c("way", "rel")], function(x) {
-    expect_named(x[, seq_len(length(column_objects))], column_objects)
+    expect_named(x[, seq_along(column_objects)], column_objects)
   })
 
   # methods
@@ -335,9 +335,9 @@ test_that(".osm_fetch_objects works", {
       expect_true(is.null(y) | inherits(y, "way_members") | inherits(y, "relation_members"))
     })
   })
-  expect_named(fetch$node[, seq_len(length(column_objects))], column_objects)
+  expect_named(fetch$node[, seq_along(column_objects)], column_objects)
   lapply(fetch[c("way", "rel")], function(x) {
-    expect_named(x[, seq_len(length(column_objects))], column_objects)
+    expect_named(x[, seq_along(column_objects)], column_objects)
   })
 
   lapply(fetch_xml, expect_s3_class, "xml_document")
@@ -356,7 +356,7 @@ test_that(".osm_fetch_objects works", {
   # osm_ids <- unique(sort(toponimsCat::municipis$id))
   # seq_ids <- list(osm_ids[1])
   # k <- 1
-  # for (i in seq_len(length(osm_ids))[-1]) {
+  # for (i in seq_along(osm_ids)[-1]) {
   #   if (osm_ids[i] - osm_ids[i - 1] > 1) {
   #     k <- k + 1
   #     seq_ids[[k]] <- osm_ids[i]
@@ -509,7 +509,7 @@ test_that("osm_relations_object works", {
       expect_true(is.null(y) | inherits(y, "way_members") | inherits(y, "relation_members"))
     })
   })
-  lapply(rels, function(x) expect_named(x[, seq_len(length(column_objects))], column_objects))
+  lapply(rels, function(x) expect_named(x[, seq_along(column_objects)], column_objects))
 
   # methods
   lapply(rels, function(x) expect_snapshot(print(x)))
@@ -542,7 +542,7 @@ test_that("osm_ways_node works", {
   lapply(ways_node$members, function(x) {
     expect_true(is.null(x) | inherits(x, "way_members") | inherits(x, "relation_members"))
   })
-  expect_named(ways_node[, seq_len(length(column_objects))], column_objects)
+  expect_named(ways_node[, seq_along(column_objects)], column_objects)
 
   # methods
   expect_snapshot(print(ways_node))
@@ -589,7 +589,7 @@ test_that(".osm_full_object works", {
       expect_true(is.null(y) | inherits(y, "way_members") | inherits(y, "relation_members"))
     })
   })
-  lapply(full, function(x) expect_named(x[, seq_len(length(column_objects))], column_objects))
+  lapply(full, function(x) expect_named(x[, seq_along(column_objects)], column_objects))
 
   # methods
   lapply(full, function(x) expect_snapshot(print(x)))

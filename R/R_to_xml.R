@@ -173,7 +173,7 @@ way_create_2xml <- function(x) {
   }
 
   members <- x$members[[1]]
-  for (i in seq_len(length(members))) {
+  for (i in seq_along(members)) {
     xml2::xml_add_child(xml, "nd", ref = members[i])
   }
 
@@ -300,7 +300,7 @@ way_2xml <- function(x) {
   )
 
   members <- x$members[[1]]
-  for (i in seq_len(length(members))) {
+  for (i in seq_along(members)) {
     xml2::xml_add_child(xml, "nd", ref = members[i])
   }
 
@@ -390,7 +390,7 @@ way_new_2xml <- function(x) {
   xml <- xml2::xml_new_root(x$type, changeset = x$changeset)
 
   members <- x$members[[1]]
-  for (i in seq_len(length(members))) {
+  for (i in seq_along(members)) {
     xml2::xml_add_child(xml, "nd", ref = members[i])
   }
 
@@ -487,7 +487,7 @@ way_update_2xml <- function(x) {
   members <- x$members[[1]]
 
   if (!is.null(members)) {
-    for (i in seq_len(length(members))) {
+    for (i in seq_along(members)) {
       xml2::xml_add_child(xml, "nd", ref = members[i])
     }
   }
